@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aktualności — Samorząd UEW</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<nav class="navbar scrolled" id="navbar">
+  <div class="container navbar-inner">
+    <a href="index.html" class="navbar-logo"><div class="logo-icon">SS</div><span>Samorząd UEW</span></a>
+    <ul class="navbar-links">
+      <li><a href="aktualnosci.html" data-i18n="nav_news">Aktualności</a></li>
+      <li><a href="wydarzenia.html" data-i18n="nav_events">Wydarzenia</a></li>
+      <li><a href="zarzad.html" data-i18n="nav_board">Samorząd</a></li>
+      <li><a href="strefa-studenta.html" data-i18n="nav_student">Strefa Studenta</a></li>
+      <li><a href="projekty.html" data-i18n="nav_projects">Projekty</a></li>
+      <li><a href="index.html#kontakt" data-i18n="nav_contact">Kontakt</a></li>
+    </ul>
+    <div class="navbar-actions">
+      <div class="lang-toggle"><button data-lang="pl" class="active">PL</button><button data-lang="en">EN</button></div>
+      <button class="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</nav>
+<div class="mobile-menu">
+  <a href="aktualnosci.html" data-i18n="nav_news">Aktualności</a>
+  <a href="wydarzenia.html" data-i18n="nav_events">Wydarzenia</a>
+  <a href="zarzad.html" data-i18n="nav_board">Samorząd</a>
+  <a href="strefa-studenta.html" data-i18n="nav_student">Strefa Studenta</a>
+  <a href="projekty.html" data-i18n="nav_projects">Projekty</a>
+  <a href="index.html#kontakt" data-i18n="nav_contact">Kontakt</a>
+</div>
+
+<div class="page-hero">
+  <div class="container">
+    <div class="label" data-i18n="news_label">Aktualności</div>
+    <h1 data-i18n="news_title">Co słychać w samorządzie?</h1>
+    <p data-i18n="news_subtitle">Najnowsze wiadomości, ogłoszenia i relacje z wydarzeń.</p>
+  </div>
+</div>
+
+<section class="section">
+  <div class="container">
+    <div class="card-grid card-grid-3">
+      <article class="card fade-up">
+        <div class="card-badge" data-i18n="news_1_cat">Ogłoszenie</div>
+        <div class="card-date">5 maja 2026</div>
+        <h3 class="card-title" data-i18n="news_1_title">Wybory do Rady Uczelnianej</h3>
+        <p class="card-text" data-i18n="news_1_text">Zapraszamy wszystkich studentów do wzięcia udziału w wyborach. Głosowanie odbędzie się w dniach 10-12 czerwca.</p>
+      </article>
+      <article class="card fade-up delay-1">
+        <div class="card-badge" data-i18n="news_2_cat">Kampus</div>
+        <div class="card-date">28 kwietnia 2026</div>
+        <h3 class="card-title" data-i18n="news_2_title">Nowe miejsca parkingowe</h3>
+        <p class="card-text" data-i18n="news_2_text">Dzięki naszym staraniom uczelnia udostępniła dodatkowe 80 miejsc parkingowych przy budynku A.</p>
+      </article>
+      <article class="card fade-up delay-2">
+        <div class="card-badge" data-i18n="news_3_cat">Raport</div>
+        <div class="card-date">15 kwietnia 2026</div>
+        <h3 class="card-title" data-i18n="news_3_title">Wyniki ankiety satysfakcji</h3>
+        <p class="card-text" data-i18n="news_3_text">Ponad 1200 studentów wzięło udział w naszej ankiecie. Dziękujemy! Wyniki dostępne w zakładce Projekty.</p>
+      </article>
+      <article class="card fade-up">
+        <div class="card-badge">Wydarzenie</div>
+        <div class="card-date">3 marca 2026</div>
+        <h3 class="card-title">Relacja: Akademia Liderów — edycja wiosenna</h3>
+        <p class="card-text">Podsumowanie drugiej edycji programu rozwojowego dla studentów UEW.</p>
+      </article>
+      <article class="card fade-up delay-1">
+        <div class="card-badge">Współpraca</div>
+        <div class="card-date">20 lutego 2026</div>
+        <h3 class="card-title">Nowe partnerstwo z Wrocław Tech Hub</h3>
+        <p class="card-text">Nawiązaliśmy współpracę z jednym z największych hubów technologicznych w Polsce.</p>
+      </article>
+      <article class="card fade-up delay-2">
+        <div class="card-badge">Ogłoszenie</div>
+        <div class="card-date">8 stycznia 2026</div>
+        <h3 class="card-title">Stypendia socjalne — nowe zasady 2026</h3>
+        <p class="card-text">Ministerstwo zmieniło zasady przyznawania stypendiów socjalnych. Sprawdź co się zmieniło.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-bottom" style="border-top:none;padding-top:0">
+      <p data-i18n="footer_copy">© 2026 Samorząd Studentów UEW. Wszelkie prawa zastrzeżone.</p>
+      <a href="index.html" class="btn btn-outline btn-sm" style="color:#fff;border-color:rgba(255,255,255,0.3)">← Strona główna</a>
+    </div>
+  </div>
+</footer>
+<script src="script.js"></script>
+</body>
+</html>
