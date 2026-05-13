@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wydarzenia — Samorząd UEW</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<nav class="navbar scrolled" id="navbar">
+  <div class="container navbar-inner">
+    <a href="index.html" class="navbar-logo"><div class="logo-icon">SS</div><span>Samorząd UEW</span></a>
+    <ul class="navbar-links">
+      <li><a href="aktualnosci.html" data-i18n="nav_news">Aktualności</a></li>
+      <li><a href="wydarzenia.html" data-i18n="nav_events">Wydarzenia</a></li>
+      <li><a href="zarzad.html" data-i18n="nav_board">Samorząd</a></li>
+      <li><a href="strefa-studenta.html" data-i18n="nav_student">Strefa Studenta</a></li>
+      <li><a href="projekty.html" data-i18n="nav_projects">Projekty</a></li>
+      <li><a href="index.html#kontakt" data-i18n="nav_contact">Kontakt</a></li>
+    </ul>
+    <div class="navbar-actions">
+      <div class="lang-toggle"><button data-lang="pl" class="active">PL</button><button data-lang="en">EN</button></div>
+      <button class="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</nav>
+<div class="mobile-menu">
+  <a href="aktualnosci.html" data-i18n="nav_news">Aktualności</a>
+  <a href="wydarzenia.html" data-i18n="nav_events">Wydarzenia</a>
+  <a href="zarzad.html" data-i18n="nav_board">Samorząd</a>
+  <a href="strefa-studenta.html" data-i18n="nav_student">Strefa Studenta</a>
+  <a href="projekty.html" data-i18n="nav_projects">Projekty</a>
+  <a href="index.html#kontakt" data-i18n="nav_contact">Kontakt</a>
+</div>
+
+<div class="page-hero">
+  <div class="container">
+    <div class="label" data-i18n="events_label">Wydarzenia</div>
+    <h1 data-i18n="events_title">Nadchodzące wydarzenia</h1>
+    <p data-i18n="events_subtitle">Dołącz do naszych wydarzeń i rozwijaj się razem ze społecznością UEW.</p>
+  </div>
+</div>
+
+<section class="section">
+  <div class="container">
+    <div class="card-grid card-grid-3">
+      <article class="card fade-up">
+        <div class="event-card">
+          <div class="event-date-badge"><div class="day">14</div><div class="month">CZE</div></div>
+          <div><h3 class="card-title" data-i18n="ev_1_title">Juwenalia UEW 2026</h3><p class="card-text" data-i18n="ev_1_desc">Największe święto studentów Wrocławia. Koncerty, atrakcje i dobra zabawa!</p></div>
+        </div>
+      </article>
+      <article class="card fade-up delay-1">
+        <div class="event-card">
+          <div class="event-date-badge"><div class="day">21</div><div class="month">CZE</div></div>
+          <div><h3 class="card-title" data-i18n="ev_2_title">Dni Otwarte</h3><p class="card-text" data-i18n="ev_2_desc">Pomóż nam powitać przyszłych studentów i opowiedz o życiu na UEW.</p></div>
+        </div>
+      </article>
+      <article class="card fade-up delay-2">
+        <div class="event-card">
+          <div class="event-date-badge"><div class="day">28</div><div class="month">CZE</div></div>
+          <div><h3 class="card-title" data-i18n="ev_3_title">Warsztaty: Jak pisać CV?</h3><p class="card-text" data-i18n="ev_3_desc">Praktyczne warsztaty z ekspertem kariery. Ilość miejsc ograniczona.</p></div>
+        </div>
+      </article>
+      <article class="card fade-up">
+        <div class="event-card">
+          <div class="event-date-badge"><div class="day">5</div><div class="month">LIP</div></div>
+          <div><h3 class="card-title">Piknik Integracyjny</h3><p class="card-text">Relaks na koniec roku akademickiego. Gry, jedzenie i muzyka na żywo.</p></div>
+        </div>
+      </article>
+      <article class="card fade-up delay-1">
+        <div class="event-card">
+          <div class="event-date-badge"><div class="day">12</div><div class="month">LIP</div></div>
+          <div><h3 class="card-title">Obozy Integracyjne dla Pierwszoroczniaków</h3><p class="card-text">Tygodniowy obóz dla nowych studentów. Poznaj swoich kolegów z roku!</p></div>
+        </div>
+      </article>
+      <article class="card fade-up delay-2">
+        <div class="event-card">
+          <div class="event-date-badge"><div class="day">20</div><div class="month">LIP</div></div>
+          <div><h3 class="card-title">Konferencja Naukowa Studentów</h3><p class="card-text">Prezentuj swoje badania i posłuchaj prelekcji studentów z całej Polski.</p></div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-bottom" style="border-top:none;padding-top:0">
+      <p data-i18n="footer_copy">© 2026 Samorząd Studentów UEW. Wszelkie prawa zastrzeżone.</p>
+      <a href="index.html" class="btn btn-outline btn-sm" style="color:#fff;border-color:rgba(255,255,255,0.3)">← Strona główna</a>
+    </div>
+  </div>
+</footer>
+<script src="script.js"></script>
+</body>
+</html>
