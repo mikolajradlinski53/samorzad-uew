@@ -85,22 +85,22 @@
 | FOUND-02 | Phase 2 | Pending |
 | FOUND-03 | Phase 2 | Pending |
 | FOUND-04 | Phase 2 | Pending |
-| DESIGN-01 | Phase 3 | Pending |
+| DESIGN-01 | Phase 2 | Pending |
 | DESIGN-02 | Phase 2 | Pending |
-| DESIGN-03 | Phase 3 | Pending |
-| DESIGN-04 | Phase 3 | Pending |
-| PAGES-01 | Phase 4 | Pending |
-| PAGES-02 | Phase 4 | Pending |
-| PAGES-03 | Phase 4 | Pending |
-| PAGES-04 | Phase 4 | Pending |
+| DESIGN-03 | Phase 2 | Pending |
+| DESIGN-04 | Phase 2 | Pending |
+| QUAL-01 | Phase 2 | Pending |
+| QUAL-04 | Phase 2 | Pending |
+| PAGES-01 | Phase 3 | Pending |
+| PAGES-02 | Phase 3 | Pending |
+| PAGES-03 | Phase 3 | Pending |
+| PAGES-04 | Phase 3 | Pending |
 | NEWS-01 | Phase 3 | Pending |
 | NEWS-02 | Phase 3 | Pending |
 | NEWS-03 | Phase 3 | Pending |
 | NEWS-04 | Phase 3 | Pending |
-| QUAL-01 | Phase 2 | Pending |
-| QUAL-02 | Phase 5 | Pending |
-| QUAL-03 | Phase 4 | Pending |
-| QUAL-04 | Phase 2 | Pending |
+| QUAL-03 | Phase 3 | Pending |
+| QUAL-02 | Phase 4 | Pending |
 
 **Coverage:**
 - v1 requirements: 24 total
@@ -109,4 +109,4 @@
 
 ---
 *Requirements defined: 2026-05-13*
-*Last updated: 2026-05-13 after initial definition*
+*Last updated: 2026-05-13 after roadmap creation — traceability updated to 4-phase structure*
