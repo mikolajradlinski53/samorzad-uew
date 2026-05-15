@@ -20,8 +20,19 @@ const jakarta = Plus_Jakarta_Sans({
 })
 
 export const metadata: Metadata = {
-  title: 'Samorząd Studentów UEW',
-  description: 'Samorząd Studentów Uniwersytetu Ekonomicznego we Wrocławiu',
+  title: {
+    default: 'Samorząd Studentów UEW',
+    template: '%s | SSUEW',
+  },
+  description: 'Samorząd Studentów Uniwersytetu Ekonomicznego we Wrocławiu. Działamy na rzecz studentów, wspieramy prawa studenckie i inspirujemy do nowych inicjatyw.',
+  metadataBase: new URL('https://samorzad.ue.wroc.pl'),
+  openGraph: {
+    siteName: 'Samorząd Studentów UEW',
+    locale: 'pl_PL',
+    type: 'website',
+    images: [{ url: '/opengraph-image', width: 1200, height: 630, alt: 'Samorząd Studentów UEW' }],
+  },
+  twitter: { card: 'summary_large_image' },
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
