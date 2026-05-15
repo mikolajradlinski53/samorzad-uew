@@ -7,6 +7,7 @@ import { ChevronDown } from 'lucide-react'
 import { AnimatePresence, motion } from 'motion/react'
 import { navItems } from '@/data/navigation'
 import { cn } from '@/lib/utils'
+import { LangToggle } from '@/components/layout/LangToggle'
 
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false)
@@ -122,6 +123,7 @@ export function Navbar() {
                 </Link>
               )
             )}
+            <LangToggle />
           </div>
 
           {/* Hamburger button */}
@@ -206,6 +208,9 @@ export function Navbar() {
                     </Link>
                   )
                 )}
+                <div className="pt-2 border-t border-ssuew-gray-200">
+                  <LangToggle />
+                </div>
               </div>
             </motion.div>
           )}
