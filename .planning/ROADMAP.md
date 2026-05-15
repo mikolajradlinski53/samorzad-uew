@@ -130,7 +130,11 @@ Plans:
   3. `next export` produkuje poprawny statyczny HTML — `npx serve out` działa bez błędów
   4. Wszystkie interaktywne elementy mają widoczne focus rings i poprawne ARIA labels
   5. Strona dostępna pod staging URL lub uczelniany hosting
-**Plans**: TBD
+**Plans**: 2 plans
+
+Plans:
+- [ ] 06-01-PLAN.md — Global metadata + OG image (ImageResponse) + sitemap + robots + openGraph on all 26 pages (SEO-01)
+- [ ] 06-02-PLAN.md — HeroSection reduced motion + form label associations + Navbar/ChatWidget focus rings + vercel.json + DEPLOY.md + static export smoke test (A11Y-01, DEPLOY-01, DEPLOY-02)
 
 ## Progress
 
@@ -144,4 +148,4 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5 → 6
 | 3. Strona Główna + Strefa Studenta | 1/6 | Complete    | 2026-05-15 |
 | 4. Samorząd + Projekty + Partnerzy | 0/7 | Complete    | 2026-05-15 |
 | 5. Formularze + Strefa Działacza | 0/4 | Complete    | 2026-05-15 |
-| 6. SEO + Accessibility + Deploy | 0/? | Not started | - |
+| 6. SEO + Accessibility + Deploy | 0/2 | Not started | - |
