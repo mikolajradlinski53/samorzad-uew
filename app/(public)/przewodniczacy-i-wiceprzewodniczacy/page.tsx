@@ -5,10 +5,15 @@ import { MemberGrid } from '@/components/sections/MemberGrid'
 import { prezydium } from '@/data/zarzad'
 
 export const metadata: Metadata = {
-  title: 'Przewodnicząca i Wiceprzewodniczący — SSUEW',
+  title: 'Przewodniczący i Wiceprzewodniczący',
   description: 'Prezydium Samorządu Studentów UEW — Przewodnicząca i Wiceprzewodniczący.',
+  openGraph: {
+    title: 'Przewodniczący i Wiceprzewodniczący | SSUEW',
+    description: 'Prezydium Samorządu Studentów UEW — Przewodnicząca i Wiceprzewodniczący.',
+    url: 'https://samorzad.ue.wroc.pl/przewodniczacy-i-wiceprzewodniczacy',
+    type: 'website',
+  },
 }
-
 export default function PrezydiumPage() {
   return (
     <main>

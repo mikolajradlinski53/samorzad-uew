@@ -6,8 +6,14 @@ import { partnerStrategiczny, partnerzy } from '@/data/partnerzy'
 import { WspolpraceForm } from '@/components/forms/ContactForm'
 
 export const metadata: Metadata = {
-  title: 'Współprace — SSUEW',
+  title: 'Współprace',
   description: 'Współprace i partnerzy Samorządu Studentów UEW. Skontaktuj się z nami.',
+  openGraph: {
+    title: 'Współprace | SSUEW',
+    description: 'Współprace i partnerzy Samorządu Studentów UEW. Skontaktuj się z nami.',
+    url: 'https://samorzad.ue.wroc.pl/wspolprace',
+    type: 'website',
+  },
 }
 
 const dlaczego = [

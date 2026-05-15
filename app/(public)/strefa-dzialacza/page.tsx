@@ -3,10 +3,15 @@ import { auth, signIn } from '@/auth'
 import { redirect } from 'next/navigation'
 
 export const metadata: Metadata = {
-  title: 'Strefa Działacza — SSUEW',
+  title: 'Strefa Działacza',
   description: 'Panel dla członków Samorządu Studentów UEW.',
+  openGraph: {
+    title: 'Strefa Działacza | SSUEW',
+    description: 'Panel dla członków Samorządu Studentów UEW.',
+    url: 'https://samorzad.ue.wroc.pl/strefa-dzialacza',
+    type: 'website',
+  },
 }
-
 export default async function StrefaDzialaczaPage() {
   const session = await auth()
 

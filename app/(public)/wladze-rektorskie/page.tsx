@@ -3,10 +3,15 @@ import Link from 'next/link'
 import { FadeUp } from '@/components/ui/FadeUp'
 
 export const metadata: Metadata = {
-  title: 'Władze Rektorskie — SSUEW',
+  title: 'Władze Rektorskie',
   description: 'Władze Rektorskie na Uniwersytecie Ekonomicznym we Wrocławiu.',
+  openGraph: {
+    title: 'Władze Rektorskie | SSUEW',
+    description: 'Władze Rektorskie na Uniwersytecie Ekonomicznym we Wrocławiu.',
+    url: 'https://samorzad.ue.wroc.pl/wladze-rektorskie',
+    type: 'website',
+  },
 }
-
 export default function Page() {
   return (
     <main>

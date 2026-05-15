@@ -3,10 +3,15 @@ import Link from 'next/link'
 import { FadeUp } from '@/components/ui/FadeUp'
 
 export const metadata: Metadata = {
-  title: 'Komisja Rewizyjna — SSUEW',
+  title: 'Komisja Rewizyjna',
   description: 'Komisja Rewizyjna Samorządu Studentów UEW.',
+  openGraph: {
+    title: 'Komisja Rewizyjna | SSUEW',
+    description: 'Komisja Rewizyjna Samorządu Studentów UEW.',
+    url: 'https://samorzad.ue.wroc.pl/komisja-rewizyjna',
+    type: 'website',
+  },
 }
-
 export default function Page() {
   return (
     <main>

@@ -5,10 +5,15 @@ import { MemberCard } from '@/components/cards/MemberCard'
 import { RzecznikForm } from '@/components/forms/ContactForm'
 
 export const metadata: Metadata = {
-  title: 'Rzecznik Praw Studenta — SSUEW',
+  title: 'Rzecznik Praw Studenta',
   description: 'Jakub Buchta, Rzecznik Praw Studenta UEW. Pomoc w interpretacji przepisów i wsparcie w trudnych sytuacjach.',
+  openGraph: {
+    title: 'Rzecznik Praw Studenta | SSUEW',
+    description: 'Jakub Buchta, Rzecznik Praw Studenta UEW. Pomoc w interpretacji przepisów i wsparcie w trudnych sytuacjach.',
+    url: 'https://samorzad.ue.wroc.pl/rzecznik-praw-studenta',
+    type: 'website',
+  },
 }
-
 export default function RzecznikPage() {
   return (
     <main>

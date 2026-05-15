@@ -6,8 +6,13 @@ import { AboutSection } from '@/components/sections/AboutSection'
 export const metadata: Metadata = {
   title: 'Samorząd Studentów UEW — Strona Główna',
   description: 'Samorząd Studentów Uniwersytetu Ekonomicznego we Wrocławiu. Działamy na rzecz studentów, wspieramy prawa studenckie i inspirujemy do nowych inicjatyw.',
+  openGraph: {
+    title: 'Strona Główna | SSUEW',
+    description: 'Samorząd Studentów Uniwersytetu Ekonomicznego we Wrocławiu. Działamy na rzecz studentów, wspieramy prawa studenckie i inspirujemy do nowych inicjatyw.',
+    url: 'https://samorzad.ue.wroc.pl/',
+    type: 'website',
+  },
 }
-
 export default function HomePage() {
   return (
     <>

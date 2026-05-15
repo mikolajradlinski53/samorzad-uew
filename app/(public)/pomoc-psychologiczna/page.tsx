@@ -3,10 +3,15 @@ import Link from 'next/link'
 import { FadeUp } from '@/components/ui/FadeUp'
 
 export const metadata: Metadata = {
-  title: 'Pomoc Psychologiczna — SSUEW',
+  title: 'Pomoc Psychologiczna',
   description: 'Pomoc Psychologiczna na Uniwersytecie Ekonomicznym we Wrocławiu.',
+  openGraph: {
+    title: 'Pomoc Psychologiczna | SSUEW',
+    description: 'Pomoc Psychologiczna na Uniwersytecie Ekonomicznym we Wrocławiu.',
+    url: 'https://samorzad.ue.wroc.pl/pomoc-psychologiczna',
+    type: 'website',
+  },
 }
-
 export default function Page() {
   return (
     <main>

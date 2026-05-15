@@ -5,10 +5,15 @@ import { DocumentList, type DocumentItem } from '@/components/sections/DocumentL
 import { stypendiaTiles, stypendiaAttachments } from '@/data/stypendia'
 
 export const metadata: Metadata = {
-  title: 'Stypendia — SSUEW',
+  title: 'Stypendia',
   description: 'Informacje o stypendiach dla studentów UEW: socjalne, rektora, dla niepełnosprawnych, zapomogi. Dokumenty do pobrania.',
+  openGraph: {
+    title: 'Stypendia | SSUEW',
+    description: 'Informacje o stypendiach dla studentów UEW: socjalne, rektora, dla niepełnosprawnych, zapomogi. Dokumenty do pobrania.',
+    url: 'https://samorzad.ue.wroc.pl/stypendia',
+    type: 'website',
+  },
 }
-
 export default function StypendiaPage() {
   const attachmentItems: DocumentItem[] = stypendiaAttachments.map((att) => ({
     label: att.number,

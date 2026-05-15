@@ -5,10 +5,15 @@ import { Accordion } from '@/components/sections/Accordion'
 import { prawaNr } from '@/data/prawa-studenta'
 
 export const metadata: Metadata = {
-  title: 'Prawa Studenta — SSUEW',
+  title: 'Prawa Studenta',
   description: 'Poznaj swoje prawa jako student UEW. Regulacje wynikające z Ustawy 2.0.',
+  openGraph: {
+    title: 'Prawa Studenta | SSUEW',
+    description: 'Poznaj swoje prawa jako student UEW. Regulacje wynikające z Ustawy 2.0.',
+    url: 'https://samorzad.ue.wroc.pl/prawa-studenta',
+    type: 'website',
+  },
 }
-
 export default function PrawaStudentaPage() {
   return (
     <main>

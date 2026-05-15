@@ -3,10 +3,15 @@ import Link from 'next/link'
 import { FadeUp } from '@/components/ui/FadeUp'
 
 export const metadata: Metadata = {
-  title: 'Prawo dla Studenta — SSUEW',
+  title: 'Prawo dla Studenta',
   description: 'Prawo dla Studenta na Uniwersytecie Ekonomicznym we Wrocławiu.',
+  openGraph: {
+    title: 'Prawo dla Studenta | SSUEW',
+    description: 'Prawo dla Studenta na Uniwersytecie Ekonomicznym we Wrocławiu.',
+    url: 'https://samorzad.ue.wroc.pl/prawo-dla-studenta',
+    type: 'website',
+  },
 }
-
 export default function Page() {
   return (
     <main>

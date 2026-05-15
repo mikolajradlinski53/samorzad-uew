@@ -6,8 +6,14 @@ import { DocumentList, type DocumentItem } from '@/components/sections/DocumentL
 import { russ } from '@/data/zarzad'
 
 export const metadata: Metadata = {
-  title: 'Rada Uczelniana Samorządu Studentów — SSUEW',
+  title: 'Rada Uczelniana',
   description: 'RUSS — organ stanowiący i kontrolny Samorządu Studentów UEW. Skład rady i dokumenty.',
+  openGraph: {
+    title: 'Rada Uczelniana | SSUEW',
+    description: 'RUSS — organ stanowiący i kontrolny Samorządu Studentów UEW. Skład rady i dokumenty.',
+    url: 'https://samorzad.ue.wroc.pl/rada-uczelniana',
+    type: 'website',
+  },
 }
 
 const dokumenty: DocumentItem[] = [

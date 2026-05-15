@@ -3,8 +3,14 @@ import Link from 'next/link'
 import { FadeUp } from '@/components/ui/FadeUp'
 
 export const metadata: Metadata = {
-  title: 'Struktura Samorządu — SSUEW',
+  title: 'Struktura Samorządu',
   description: 'Organy Samorządu Studentów UEW — Prezydium, Zarząd, RUSS, Komisja Rewizyjna.',
+  openGraph: {
+    title: 'Struktura Samorządu | SSUEW',
+    description: 'Organy Samorządu Studentów UEW — Prezydium, Zarząd, RUSS, Komisja Rewizyjna.',
+    url: 'https://samorzad.ue.wroc.pl/struktura-samorzadu',
+    type: 'website',
+  },
 }
 
 const organy = [

@@ -3,10 +3,15 @@ import Link from 'next/link'
 import { FadeUp } from '@/components/ui/FadeUp'
 
 export const metadata: Metadata = {
-  title: 'Nasi Partnerzy — SSUEW',
+  title: 'Nasi Partnerzy',
   description: 'Nasi Partnerzy Samorządu Studentów UEW.',
+  openGraph: {
+    title: 'Nasi Partnerzy | SSUEW',
+    description: 'Nasi Partnerzy Samorządu Studentów UEW.',
+    url: 'https://samorzad.ue.wroc.pl/nasi-partnerzy',
+    type: 'website',
+  },
 }
-
 export default function Page() {
   return (
     <main>

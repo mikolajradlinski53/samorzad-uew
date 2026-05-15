@@ -3,10 +3,15 @@ import Link from 'next/link'
 import { FadeUp } from '@/components/ui/FadeUp'
 
 export const metadata: Metadata = {
-  title: 'Studencka Komisja Wyborcza — SSUEW',
+  title: 'Studencka Komisja Wyborcza',
   description: 'Studencka Komisja Wyborcza Samorządu Studentów UEW.',
+  openGraph: {
+    title: 'Studencka Komisja Wyborcza | SSUEW',
+    description: 'Studencka Komisja Wyborcza Samorządu Studentów UEW.',
+    url: 'https://samorzad.ue.wroc.pl/studencka-komisja-wyborcza',
+    type: 'website',
+  },
 }
-
 export default function Page() {
   return (
     <main>

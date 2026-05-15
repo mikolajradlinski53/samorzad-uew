@@ -5,10 +5,15 @@ import { DocumentList, type DocumentItem } from '@/components/sections/DocumentL
 import { infopacki } from '@/data/infopacki'
 
 export const metadata: Metadata = {
-  title: 'Infopacki — SSUEW',
+  title: 'Infopacki',
   description: 'Przewodniki dla studentów UEW: USOS, regulamin studiów, dyplomowanie i więcej.',
+  openGraph: {
+    title: 'Infopacki | SSUEW',
+    description: 'Przewodniki dla studentów UEW: USOS, regulamin studiów, dyplomowanie i więcej.',
+    url: 'https://samorzad.ue.wroc.pl/infopacki',
+    type: 'website',
+  },
 }
-
 export default function InfopackiPage() {
   const items: DocumentItem[] = infopacki.map((ip) => ({
     description: ip.title,

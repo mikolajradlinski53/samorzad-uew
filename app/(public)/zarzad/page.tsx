@@ -5,10 +5,15 @@ import { MemberGrid } from '@/components/sections/MemberGrid'
 import { zarzad } from '@/data/zarzad'
 
 export const metadata: Metadata = {
-  title: 'Zarząd — SSUEW',
+  title: 'Zarząd',
   description: 'Zarząd Samorządu Studentów UEW — poznaj osoby zarządzające organizacją.',
+  openGraph: {
+    title: 'Zarząd | SSUEW',
+    description: 'Zarząd Samorządu Studentów UEW — poznaj osoby zarządzające organizacją.',
+    url: 'https://samorzad.ue.wroc.pl/zarzad',
+    type: 'website',
+  },
 }
-
 export default function ZarzadPage() {
   return (
     <main>

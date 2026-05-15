@@ -3,10 +3,15 @@ import Link from 'next/link'
 import { FadeUp } from '@/components/ui/FadeUp'
 
 export const metadata: Metadata = {
-  title: 'Nasza Działalność — SSUEW',
+  title: 'Nasza Działalność',
   description: 'Misja i działalność Samorządu Studentów Uniwersytetu Ekonomicznego we Wrocławiu.',
+  openGraph: {
+    title: 'Nasza Działalność | SSUEW',
+    description: 'Misja i działalność Samorządu Studentów Uniwersytetu Ekonomicznego we Wrocławiu.',
+    url: 'https://samorzad.ue.wroc.pl/nasza-dzialalnosc',
+    type: 'website',
+  },
 }
-
 export default function NaszaDzialalnosc() {
   return (
     <main>

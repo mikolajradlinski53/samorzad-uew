@@ -3,10 +3,15 @@ import Link from 'next/link'
 import { FadeUp } from '@/components/ui/FadeUp'
 
 export const metadata: Metadata = {
-  title: 'Mapa Kampusu — SSUEW',
+  title: 'Mapa Kampusu',
   description: 'Mapa kampusu Uniwersytetu Ekonomicznego we Wrocławiu.',
+  openGraph: {
+    title: 'Mapa Kampusu | SSUEW',
+    description: 'Mapa kampusu Uniwersytetu Ekonomicznego we Wrocławiu.',
+    url: 'https://samorzad.ue.wroc.pl/mapa-kampusu',
+    type: 'website',
+  },
 }
-
 export default function MapaKampusuPage() {
   return (
     <main>

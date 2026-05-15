@@ -3,10 +3,15 @@ import { FadeUp } from '@/components/ui/FadeUp'
 import { KontaktForm } from '@/components/forms/ContactForm'
 
 export const metadata: Metadata = {
-  title: 'Formularz kontaktowy — SSUEW',
+  title: 'Formularz Kontaktowy',
   description: 'Skontaktuj się z Samorządem Studentów UEW.',
+  openGraph: {
+    title: 'Formularz Kontaktowy | SSUEW',
+    description: 'Skontaktuj się z Samorządem Studentów UEW.',
+    url: 'https://samorzad.ue.wroc.pl/formularz',
+    type: 'website',
+  },
 }
-
 export default function FormularzPage() {
   return (
     <main>

@@ -4,10 +4,15 @@ import { TileGrid } from '@/components/sections/TileGrid'
 import { QuickLinks } from '@/components/sections/QuickLinks'
 
 export const metadata: Metadata = {
-  title: 'Strefa Studenta — SSUEW',
+  title: 'Strefa Studenta',
   description: 'Wszystkie ważne informacje dla studentów UEW: prawa, stypendia, mapa kampusu, infopacki i więcej.',
+  openGraph: {
+    title: 'Strefa Studenta | SSUEW',
+    description: 'Wszystkie ważne informacje dla studentów UEW: prawa, stypendia, mapa kampusu, infopacki i więcej.',
+    url: 'https://samorzad.ue.wroc.pl/dla-studenta',
+    type: 'website',
+  },
 }
-
 export default function DlaStudentaPage() {
   return (
     <main>

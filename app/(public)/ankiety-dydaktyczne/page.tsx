@@ -3,10 +3,15 @@ import Link from 'next/link'
 import { FadeUp } from '@/components/ui/FadeUp'
 
 export const metadata: Metadata = {
-  title: 'Ankiety Dydaktyczne — SSUEW',
+  title: 'Ankiety Dydaktyczne',
   description: 'Ankiety Dydaktyczne na Uniwersytecie Ekonomicznym we Wrocławiu.',
+  openGraph: {
+    title: 'Ankiety Dydaktyczne | SSUEW',
+    description: 'Ankiety Dydaktyczne na Uniwersytecie Ekonomicznym we Wrocławiu.',
+    url: 'https://samorzad.ue.wroc.pl/ankiety-dydaktyczne',
+    type: 'website',
+  },
 }
-
 export default function Page() {
   return (
     <main>

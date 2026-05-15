@@ -3,10 +3,15 @@ import Link from 'next/link'
 import { FadeUp } from '@/components/ui/FadeUp'
 
 export const metadata: Metadata = {
-  title: 'Dziekan i Prodziekani — SSUEW',
+  title: 'Dziekan i Prodziekani',
   description: 'Dziekan i Prodziekani na Uniwersytecie Ekonomicznym we Wrocławiu.',
+  openGraph: {
+    title: 'Dziekan i Prodziekani | SSUEW',
+    description: 'Dziekan i Prodziekani na Uniwersytecie Ekonomicznym we Wrocławiu.',
+    url: 'https://samorzad.ue.wroc.pl/dziekan-i-prodziekani',
+    type: 'website',
+  },
 }
-
 export default function Page() {
   return (
     <main>

@@ -5,10 +5,15 @@ import { DocumentList } from '@/components/sections/DocumentList'
 import { regulacje } from '@/data/regulacje'
 
 export const metadata: Metadata = {
-  title: 'Regulacje Wewnętrzne — SSUEW',
+  title: 'Regulacje Wewnętrzne',
   description: 'Regulaminy i dokumenty wewnętrzne Samorządu Studentów UEW.',
+  openGraph: {
+    title: 'Regulacje Wewnętrzne | SSUEW',
+    description: 'Regulaminy i dokumenty wewnętrzne Samorządu Studentów UEW.',
+    url: 'https://samorzad.ue.wroc.pl/regulacje-wewnetrzne',
+    type: 'website',
+  },
 }
-
 export default function RegulacjeWewnetrzePage() {
   return (
     <main>

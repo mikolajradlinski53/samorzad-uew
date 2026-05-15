@@ -4,10 +4,15 @@ import { ProjectCard } from '@/components/cards/ProjectCard'
 import { projekty } from '@/data/projekty'
 
 export const metadata: Metadata = {
-  title: 'Nasze Projekty — SSUEW',
+  title: 'Nasze Projekty',
   description: 'Projekty Samorządu Studentów UEW — integracyjne, edukacyjne i charytatywne inicjatywy dla studentów.',
+  openGraph: {
+    title: 'Nasze Projekty | SSUEW',
+    description: 'Projekty Samorządu Studentów UEW — integracyjne, edukacyjne i charytatywne inicjatywy dla studentów.',
+    url: 'https://samorzad.ue.wroc.pl/nasze-projekty',
+    type: 'website',
+  },
 }
-
 export default function NaszeProjektyPage() {
   return (
     <main>

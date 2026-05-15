@@ -3,10 +3,15 @@ import Link from 'next/link'
 import { FadeUp } from '@/components/ui/FadeUp'
 
 export const metadata: Metadata = {
-  title: 'Filia w Jeleniej Górze — SSUEW',
+  title: 'Filia Jelenia Góra',
   description: 'Filia w Jeleniej Górze Samorządu Studentów UEW.',
+  openGraph: {
+    title: 'Filia Jelenia Góra | SSUEW',
+    description: 'Filia w Jeleniej Górze Samorządu Studentów UEW.',
+    url: 'https://samorzad.ue.wroc.pl/filia-jelenia-gora',
+    type: 'website',
+  },
 }
-
 export default function Page() {
   return (
     <main>
