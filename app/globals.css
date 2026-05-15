@@ -1,0 +1,5 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Do NOT add scroll-behavior: smooth here — Lenis handles scroll physics */
