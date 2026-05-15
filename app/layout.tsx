@@ -1,4 +1,7 @@
 import { Inter, Plus_Jakarta_Sans } from 'next/font/google'
+import { LenisProvider } from '@/components/layout/LenisProvider'
+import { Navbar } from '@/components/layout/Navbar'
+import { Footer } from '@/components/layout/Footer'
 import './globals.css'
 import 'lenis/dist/lenis.css'
 import type { Metadata } from 'next'
@@ -24,7 +27,13 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="pl" className={`${inter.variable} ${jakarta.variable}`}>
       <body className="font-sans text-ssuew-black bg-white antialiased">
-        {children}
+        <LenisProvider>
+          <Navbar />
+          <main id="main-content">
+            {children}
+          </main>
+          <Footer />
+        </LenisProvider>
       </body>
     </html>
   )
