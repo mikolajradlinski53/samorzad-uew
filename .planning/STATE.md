@@ -87,8 +87,15 @@ None yet.
 - Phase 3 (Partnerzy): Requires real partner logo files — flag as content dependency at kickoff
 - Phase 2 (Lenis + AOS): Do a quick browser test of combined RAF loop before committing as architecture in Phase 2
 
+### Quick Tasks Completed
+
+| # | Description | Date | Commit | Directory |
+|---|-------------|------|--------|-----------|
+| 260516-0qj | Homepage redesign + PL/EN switcher | 2026-05-16 | 8b56655 | [260516-0qj](./quick/260516-0qj-homepage-redesign-pl-en-switcher/) |
+
 ## Session Continuity
 
-Last session: 2026-05-15T12:34:17.122Z
-Stopped at: Completed 03-strona-g-wna-strefa-studenta/03-02-PLAN.md
+Last activity: 2026-05-16 — Completed quick task 260516-0qj: Homepage redesign + PL/EN switcher
+Last session: 2026-05-16T00:00:00.000Z
+Stopped at: Quick task 260516-0qj complete
 Resume file: None
