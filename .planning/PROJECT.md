@@ -20,6 +20,11 @@ Student wchodzi na stronę, natychmiast widzi profesjonalizm samorządu i bez tr
 - ✓ Sekcja statystyk z animacją liczników — istniejący kod
 - ✓ Logo Samorządu w navbarze i footerze — istniejący kod
 - ✓ Deploy na Netlify via GitHub (branch main) — istniejący kod
+- ✓ Formularz kontaktowy wysyła dane przez Netlify Forms (data-netlify, AJAX fetch) — Phase 1
+- ✓ Linki nawigacyjne na podstronach wskazują na index.html#section — Phase 1
+- ✓ Typewriter reinicjalizuje się po zmianie języka PL/EN — Phase 1
+- ✓ Form success message z dismiss button i auto-hide — Phase 1
+- ✓ Brak inline styles w HTML (wszystko w style.css) — Phase 1
 
 ### Active
 
@@ -87,4 +92,4 @@ This document evolves at phase transitions and milestone boundaries.
 4. Update Context with current state
 
 ---
-*Last updated: 2026-05-13 after initialization*
+*Last updated: 2026-05-15 after Phase 1 completion*
