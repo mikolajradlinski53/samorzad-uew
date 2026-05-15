@@ -94,7 +94,8 @@ const i18n = {
     board_president: 'Przewodnicząca',
     board_vp: 'Wiceprzewodniczący',
     board_secretary: 'Sekretarz',
-    board_treasurer: 'Skarbnik'
+    board_treasurer: 'Skarbnik',
+    contact_dismiss: 'Zamknij'
   },
   en: {
     nav_home: 'Home',
@@ -190,7 +191,8 @@ const i18n = {
     board_president: 'President',
     board_vp: 'Vice-President',
     board_secretary: 'Secretary',
-    board_treasurer: 'Treasurer'
+    board_treasurer: 'Treasurer',
+    contact_dismiss: 'Close'
   }
 };
 
@@ -236,6 +238,9 @@ function applyLang(lang) {
       btn.classList.add('active');
     }
   });
+
+  // Reinitialise typewriter with new language words (BUG-03 fix)
+  initTypewriter();
 }
 
 // Initialize Navbar
@@ -356,7 +361,7 @@ function initContactForm() {
 
   if (!form) return;
 
-  form.addEventListener('submit', (e) => {
+  form.addEventListener('submit', async (e) => {
     e.preventDefault();
 
     // Validate required fields
@@ -365,14 +370,13 @@ function initContactForm() {
 
     requiredFields.forEach(field => {
       const errorEl = field.nextElementSibling;
-
       if (!field.value.trim()) {
         isValid = false;
         field.style.borderColor = '#d32f2f';
         if (errorEl && errorEl.classList.contains('form-error')) {
           errorEl.style.display = 'block';
         }
-      } else if (field.type === 'email' && field.value.trim() && !field.value.match(/.+@.+\..+/)) {
+      } else if (field.type === 'email' && !field.value.match(/.+@.+\..+/)) {
         isValid = false;
         field.style.borderColor = '#d32f2f';
         if (errorEl && errorEl.classList.contains('form-error')) {
@@ -386,13 +390,41 @@ function initContactForm() {
       }
     });
 
-    // If valid, hide form and show success message
-    if (isValid) {
-      form.style.display = 'none';
-      if (formSuccess) {
-        formSuccess.style.display = 'block';
-      }
-      form.reset();
+    if (!isValid) return;
+
+    // Submit to Netlify Forms (BUG-01 fix)
+    try {
+      await fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams(new FormData(form)).toString()
+      });
+    } catch (err) {
+      // Network error — fail silently; Netlify dashboard will show missing submissions
+      console.error('Form submission error:', err);
+    }
+
+    // Show success, hide form (BUG-04 fix — auto-dismiss after 6s)
+    form.style.display = 'none';
+    form.reset();
+    if (formSuccess) {
+      formSuccess.style.display = 'block';
+      formSuccess.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+
+    const autoHide = setTimeout(() => {
+      if (formSuccess) formSuccess.style.display = 'none';
+      form.style.display = 'block';
+    }, 6000);
+
+    // Manual dismiss button (BUG-04 fix)
+    const dismissBtn = document.getElementById('formSuccessDismiss');
+    if (dismissBtn) {
+      dismissBtn.onclick = () => {
+        clearTimeout(autoHide);
+        formSuccess.style.display = 'none';
+        form.style.display = 'block';
+      };
     }
   });
 }
