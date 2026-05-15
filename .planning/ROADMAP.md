@@ -71,7 +71,7 @@ Plans:
 
 Plans:
 - [ ] 03-01-PLAN.md — Data files (student-zone, infopacki, prawa-studenta, stypendia) + TileCard, TileGrid, QuickLinks (STU-01, STU-02, STU-03, STU-05, STU-07)
-- [ ] 03-02-PLAN.md — Accordion, DocumentList, MemberCard, Counter components (STU-04, STU-06, STU-07)
+- [x] 03-02-PLAN.md — Accordion, DocumentList, MemberCard, Counter components (STU-04, STU-06, STU-07)
 - [ ] 03-03-PLAN.md — HeroSection, StatsSection, AboutSection (HOME-01, HOME-02, HOME-03)
 - [ ] 03-04-PLAN.md — app/(public)/page.tsx, /dla-studenta, /prawa-studenta pages (HOME-01..03, STU-01, STU-02, STU-04)
 - [ ] 03-05-PLAN.md — /infopacki, /rzecznik-praw-studenta, /stypendia pages (STU-03, STU-05, STU-06, STU-07)
@@ -126,7 +126,7 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5 → 6
 |-------|----------------|--------|-----------|
 | 1. Bug Fixes and CSS Foundation | 3/3 | Complete | 2026-05-15 |
 | 2. Next.js Foundation | 1/3 | Complete    | 2026-05-15 |
-| 3. Strona Główna + Strefa Studenta | 0/6 | Not started | - |
+| 3. Strona Główna + Strefa Studenta | 1/6 | In Progress|  |
 | 4. Samorząd + Projekty + Partnerzy | 0/? | Not started | - |
 | 5. Formularze + Strefa Działacza | 0/? | Not started | - |
 | 6. SEO + Accessibility + Deploy | 0/? | Not started | - |
