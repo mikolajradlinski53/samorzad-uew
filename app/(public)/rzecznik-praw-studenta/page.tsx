@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import { FadeUp } from '@/components/ui/FadeUp'
 import { MemberCard } from '@/components/cards/MemberCard'
+import { RzecznikForm } from '@/components/forms/ContactForm'
 
 export const metadata: Metadata = {
   title: 'Rzecznik Praw Studenta — SSUEW',
@@ -92,47 +93,11 @@ export default function RzecznikPage() {
         </div>
       </section>
 
-      {/* Contact form — UI only, Phase 5 wires POST to /api/formularz */}
       <section className="py-16 bg-ssuew-gray-100">
         <div className="max-w-[1200px] mx-auto px-6 max-w-2xl">
           <FadeUp>
             <h2 className="font-display text-display-lg text-ssuew-black mb-8">Skontaktuj się</h2>
-            <form className="flex flex-col gap-6">
-              <div className="flex flex-col gap-2">
-                <label className="text-[0.85rem] font-bold text-ssuew-black">Wybierz problem</label>
-                <select className="w-full px-4 py-3 rounded-lg border border-ssuew-gray-200 text-base text-ssuew-black bg-white focus:outline-none focus:ring-2 focus:ring-primary">
-                  <option value="">-- Wybierz kategorię --</option>
-                  <option value="regulamin">Regulamin studiów</option>
-                  <option value="dziekanat">Dziekanat</option>
-                  <option value="prawa">Prawa studenta</option>
-                  <option value="inne">Inne</option>
-                </select>
-              </div>
-              <div className="flex flex-col gap-2">
-                <label className="text-[0.85rem] font-bold text-ssuew-black">Opis problemu</label>
-                <textarea
-                  rows={5}
-                  placeholder="Opisz swoją sytuację..."
-                  className="w-full px-4 py-3 rounded-lg border border-ssuew-gray-200 text-base text-ssuew-black bg-white resize-y focus:outline-none focus:ring-2 focus:ring-primary"
-                />
-              </div>
-              <div className="flex flex-col gap-2">
-                <label className="text-[0.85rem] font-bold text-ssuew-black">Twój adres email</label>
-                <input
-                  type="email"
-                  placeholder="student@student.ue.wroc.pl"
-                  className="w-full px-4 py-3 rounded-lg border border-ssuew-gray-200 text-base text-ssuew-black bg-white focus:outline-none focus:ring-2 focus:ring-primary"
-                />
-              </div>
-              <button
-                type="button"
-                disabled
-                title="Formularz będzie aktywny wkrótce"
-                className="inline-flex items-center justify-center gap-2 font-bold rounded-full px-8 py-3.5 text-base bg-ssuew-gray-200 text-ssuew-gray-600 cursor-not-allowed"
-              >
-                Prześlij (wkrótce)
-              </button>
-            </form>
+            <RzecznikForm />
           </FadeUp>
         </div>
       </section>

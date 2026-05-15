@@ -2,6 +2,7 @@ import { Inter, Plus_Jakarta_Sans } from 'next/font/google'
 import { LenisProvider } from '@/components/layout/LenisProvider'
 import { Navbar } from '@/components/layout/Navbar'
 import { Footer } from '@/components/layout/Footer'
+import { ChatWidget } from '@/components/chatbot/ChatWidget'
 import './globals.css'
 import 'lenis/dist/lenis.css'
 import type { Metadata } from 'next'
@@ -33,6 +34,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             {children}
           </main>
           <Footer />
+          <ChatWidget />
         </LenisProvider>
       </body>
     </html>
