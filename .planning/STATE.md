@@ -56,6 +56,7 @@ Progress: [██░░░░░░░░] 25%
 | Phase 01-bug-fixes-and-css-foundation P02 | ~5 min | 1 tasks | 5 files |
 | Phase 01-bug-fixes-and-css-foundation P03 | ~8 min | 2 tasks | 7 files |
 | Phase 02-next-js-foundation P01 | 10 | 3 tasks | 12 files |
+| Phase 03-strona-g-wna-strefa-studenta P01 | 5 | 2 tasks | 7 files |
 | Phase 03-strona-g-wna-strefa-studenta P02 | 5 | 2 tasks | 4 files |
 
 ## Accumulated Context
@@ -72,6 +73,7 @@ Recent decisions affecting current work:
 - [Phase 01-bug-fixes-and-css-foundation]: BUG-04 dismiss: clearTimeout on manual dismiss prevents race with 6s auto-hide
 - [Phase 01-bug-fixes-and-css-foundation]: Use index.html#section-id for subpage nav links — ensures correct section-targeted navigation from any subpage
 - [Phase 02-next-js-foundation]: Next.js 14.2.35 pinned (not 15.x), tailwindcss@^3 pinned (not v4), TypeScript target ES2017 (TS6 deprecates ES5)
+- [Phase 03-strona-g-wna-strefa-studenta P01]: Cast lucide-react Icons namespace via unknown intermediate to satisfy TS strict narrowing on dynamic icon lookup
 - [Phase 03-strona-g-wna-strefa-studenta]: AnimatePresence with initial=false prevents entry animation on accordion mount
 - [Phase 03-strona-g-wna-strefa-studenta]: Counter uses RAF not Framer Motion whileInView callback — matches existing script.js pattern
 
