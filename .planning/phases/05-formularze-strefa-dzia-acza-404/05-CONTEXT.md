@@ -20,9 +20,9 @@
 ### Stack / nowe pakiety
 ```bash
 npm install resend                    # Email API
-npm install next-auth@latest          # Google OAuth (NextAuth.js v5 / Auth.js)
+npm install next-auth@beta            # Google OAuth (NextAuth.js v5 / Auth.js) — @latest = v4, @beta = v5
 npm install @auth/prisma-adapter      # NIE — brak bazy, użyj JWT session
-npm install ai @ai-sdk/anthropic      # Vercel AI SDK + Anthropic Claude
+npm install ai@^4.3.19 @ai-sdk/anthropic  # Vercel AI SDK v4 (NOT v6 — breaking API changes)
 ```
 
 ### Email (Resend)
