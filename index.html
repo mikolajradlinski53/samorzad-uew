@@ -9,30 +9,6 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
-  <style>
-    .hero {
-      min-height: 100vh; display: flex; align-items: center; padding-top: 80px;
-      background: linear-gradient(145deg, #EAF5FF 0%, #F7FBFF 50%, #fff 100%);
-      position: relative; overflow: hidden;
-    }
-    .hero-bg-circle {
-      position: absolute; border-radius: 50%; opacity: 0.18; animation: float 6s ease-in-out infinite;
-    }
-    .hero-bg-circle:nth-child(1) { width: 420px; height: 420px; background: var(--primary); top: -80px; right: -100px; animation-delay: 0s; }
-    .hero-bg-circle:nth-child(2) { width: 260px; height: 260px; background: var(--primary-dark); bottom: 80px; right: 200px; animation-delay: 2s; }
-    .hero-bg-circle:nth-child(3) { width: 160px; height: 160px; background: var(--primary); top: 200px; left: -40px; animation-delay: 4s; }
-    @keyframes float { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-20px); } }
-    .hero-content { position: relative; z-index: 1; max-width: 680px; }
-    .hero-label { display: inline-flex; align-items: center; gap: 0.5rem; background: var(--primary-light); color: var(--primary); font-size: 0.8rem; font-weight: 700; padding: 0.4rem 1.1rem; border-radius: 100px; margin-bottom: 1.5rem; letter-spacing: 0.08em; text-transform: uppercase; }
-    .hero-title { margin-bottom: 1.5rem; color: var(--text); }
-    .hero-title .accent { color: var(--primary); display: inline-block; }
-    #typewriter { transition: opacity 0.3s ease; display: inline-block; }
-    .hero-subtitle { font-size: 1.1rem; max-width: 540px; margin-bottom: 2.5rem; line-height: 1.7; }
-    .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
-    .hero-scroll { position: absolute; bottom: 2rem; left: 50%; transform: translateX(-50%); display: flex; flex-direction: column; align-items: center; gap: 0.4rem; color: var(--text-muted); font-size: 0.75rem; animation: bounce 2s infinite; }
-    .hero-scroll .arrow { font-size: 1.2rem; }
-    @keyframes bounce { 0%,100% { transform: translateX(-50%) translateY(0); } 50% { transform: translateX(-50%) translateY(6px); } }
-  </style>
 </head>
 <body>
 
@@ -40,7 +16,7 @@
 <nav class="navbar" id="navbar">
   <div class="container navbar-inner">
     <a href="index.html" class="navbar-logo">
-      <img src="logo_2.png" alt="Logo Samorządu" class="logo-icon" style="width:40px;height:40px;object-fit:contain;background:transparent;border-radius:0;display:block;">
+      <img src="logo_2.png" alt="Logo Samorządu" class="logo-icon">
       <span>Samorząd UEW</span>
     </a>
     <ul class="navbar-links">
@@ -374,7 +350,7 @@
           <div class="contact-item-icon">✉️</div>
           <div>
             <strong>E-mail</strong>
-            <p><a href="mailto:kontakt@samorzad.ue.wroc.pl" style="color:var(--primary)">kontakt@samorzad.ue.wroc.pl</a></p>
+            <p><a href="mailto:kontakt@samorzad.ue.wroc.pl" class="contact-email-link">kontakt@samorzad.ue.wroc.pl</a></p>
           </div>
         </div>
         <div class="contact-item">
@@ -384,7 +360,7 @@
             <p>Śledź nas na Facebooku, Instagramie, TikToku i LinkedIn.</p>
           </div>
         </div>
-        <div class="social-links" style="margin-top:1.5rem">
+        <div class="social-links social-links--contact">
           <a href="#" class="social-link" aria-label="Facebook">f</a>
           <a href="#" class="social-link" aria-label="Instagram">ig</a>
           <a href="#" class="social-link" aria-label="TikTok">tt</a>
@@ -400,7 +376,7 @@
   <div class="container">
     <div class="footer-grid">
       <div class="footer-brand">
-        <div class="footer-logo"><img src="logo_2.png" alt="Logo Samorządu" class="logo-icon" style="width:40px;height:40px;object-fit:contain;background:transparent;border-radius:0;display:block;"><span>Samorząd UEW</span></div>
+        <div class="footer-logo"><img src="logo_2.png" alt="Logo Samorządu" class="logo-icon"><span>Samorząd UEW</span></div>
         <p data-i18n="footer_desc">Reprezentacja wszystkich studentów Uniwersytetu Ekonomicznego we Wrocławiu.</p>
         <div class="social-links">
           <a href="#" class="social-link" aria-label="Facebook">f</a>
