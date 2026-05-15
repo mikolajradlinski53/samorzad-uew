@@ -88,8 +88,17 @@ Plans:
   4. `/nasze-projekty` wyświetla 9 kart projektów z opisami (ADAPCIAK, ANIMALIA, BAL UEW, Dni Adaptacyjne, GRADUETION, Mosty Ekonomiczne, Test Wiedzy, TEDxUEW, UE PARTY)
   5. `/regulacje-wewnetrzne` wyświetla 6 dokumentów PDF z działającymi linkami
   6. `/wspolprace` wyświetla kartę Karola Vogla (karol.vogel@) + formularz + loga partnerów (BNY jako Strategic, PwC, Pasibus, Phinance, Raben, Techland, Pyszne.pl, UPS, Bielenda, MU1, Slice of Heaven, UPM)
-**Plans**: TBD
+**Plans**: 7 plans
 **UI hint**: yes
+
+Plans:
+- [ ] 04-01-PLAN.md — Data files (zarzad.ts, projekty.ts, regulacje.ts, partnerzy.ts) (ORG-01, ORG-02, ORG-03, ORG-04, PROJ-01, PART-01, DOC-01)
+- [ ] 04-02-PLAN.md — ProjectCard component, MemberGrid section, PartnerGrid section (ORG-01, ORG-02, PROJ-01, PART-01)
+- [ ] 04-03-PLAN.md — /przewodniczacy-i-wiceprzewodniczacy + /zarzad pages (ORG-01, ORG-03)
+- [ ] 04-04-PLAN.md — /rada-uczelniana page with 12 members + GDrive links (ORG-02)
+- [ ] 04-05-PLAN.md — /nasze-projekty + /regulacje-wewnetrzne pages (PROJ-01, DOC-01)
+- [ ] 04-06-PLAN.md — /wspolprace page: contact, benefits, form UI, partner grid (PART-01, ORG-04)
+- [ ] 04-07-PLAN.md — Stub pages: nasza-dzialalnosc, struktura-samorzadu, komisja-rewizyjna, studencka-komisja-wyborcza, filia-jelenia-gora, nasi-partnerzy (ORG-05, ORG-06)
 
 ### Phase 5: Formularze + Strefa Działacza + 404
 **Goal**: Wszystkie formularze przez API routes, Strefa Działacza z Google OAuth (@samorzad.ue.wroc.pl only), lista obecności, AI chatbot, własna strona 404
@@ -127,6 +136,6 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5 → 6
 | 1. Bug Fixes and CSS Foundation | 3/3 | Complete | 2026-05-15 |
 | 2. Next.js Foundation | 1/3 | Complete    | 2026-05-15 |
 | 3. Strona Główna + Strefa Studenta | 1/6 | Complete    | 2026-05-15 |
-| 4. Samorząd + Projekty + Partnerzy | 0/? | Not started | - |
+| 4. Samorząd + Projekty + Partnerzy | 0/7 | Not started | - |
 | 5. Formularze + Strefa Działacza | 0/? | Not started | - |
 | 6. SEO + Accessibility + Deploy | 0/? | Not started | - |
