@@ -123,13 +123,13 @@ export function WspolpraceForm() {
         { name: 'telefon', label: 'Telefon (opcjonalnie)', type: 'tel', placeholder: '+48 000 000 000' },
       ].map(f => (
         <div key={f.name} className="flex flex-col gap-2">
-          <label className={labelClass}>{f.label}</label>
-          <input name={f.name} type={f.type} placeholder={f.placeholder} className={errors[f.name] ? inputErrorClass : inputClass} />
+          <label htmlFor={`wspolprace-${f.name}`} className={labelClass}>{f.label}</label>
+          <input id={`wspolprace-${f.name}`} name={f.name} type={f.type} placeholder={f.placeholder} className={errors[f.name] ? inputErrorClass : inputClass} />
         </div>
       ))}
       <div className="flex flex-col gap-2">
-        <label className={labelClass}>Rodzaj współpracy</label>
-        <select name="rodzaj" className={inputClass}>
+        <label htmlFor="wspolprace-rodzaj" className={labelClass}>Rodzaj współpracy</label>
+        <select id="wspolprace-rodzaj" name="rodzaj" className={inputClass}>
           <option value="">-- Wybierz --</option>
           <option>Sponsoring wydarzeń</option>
           <option>Warsztaty/szkolenia</option>
@@ -138,8 +138,8 @@ export function WspolpraceForm() {
         </select>
       </div>
       <div className="flex flex-col gap-2">
-        <label className={labelClass}>Dodatkowe informacje</label>
-        <textarea name="dodatkowe" rows={4} placeholder="Opisz zakres współpracy..." className={inputClass} />
+        <label htmlFor="wspolprace-dodatkowe" className={labelClass}>Dodatkowe informacje</label>
+        <textarea id="wspolprace-dodatkowe" name="dodatkowe" rows={4} placeholder="Opisz zakres współpracy..." className={inputClass} />
       </div>
       {status === 'error' && <ErrorMessage />}
       <button type="submit" disabled={status === 'loading'} className={btnClass}>
@@ -174,8 +174,8 @@ export function RzecznikForm() {
   return (
     <form onSubmit={handleSubmit} className="flex flex-col gap-6">
       <div className="flex flex-col gap-2">
-        <label className={labelClass}>Wybierz problem</label>
-        <select name="kategoria" className={inputClass}>
+        <label htmlFor="rzecznik-kategoria" className={labelClass}>Wybierz problem</label>
+        <select id="rzecznik-kategoria" name="kategoria" className={inputClass}>
           <option value="">-- Wybierz kategorię --</option>
           <option value="regulamin">Regulamin studiów</option>
           <option value="dziekanat">Dziekanat</option>
@@ -184,12 +184,12 @@ export function RzecznikForm() {
         </select>
       </div>
       <div className="flex flex-col gap-2">
-        <label className={labelClass}>Opis problemu</label>
-        <textarea name="opis" rows={5} placeholder="Opisz swoją sytuację..." className={errors.opis ? inputErrorClass : inputClass} />
+        <label htmlFor="rzecznik-opis" className={labelClass}>Opis problemu</label>
+        <textarea id="rzecznik-opis" name="opis" rows={5} placeholder="Opisz swoją sytuację..." className={errors.opis ? inputErrorClass : inputClass} />
       </div>
       <div className="flex flex-col gap-2">
-        <label className={labelClass}>Twój adres email</label>
-        <input name="email" type="email" placeholder="student@student.ue.wroc.pl" className={errors.email ? inputErrorClass : inputClass} />
+        <label htmlFor="rzecznik-email" className={labelClass}>Twój adres email</label>
+        <input id="rzecznik-email" name="email" type="email" placeholder="student@student.ue.wroc.pl" className={errors.email ? inputErrorClass : inputClass} />
       </div>
       {status === 'error' && <ErrorMessage />}
       <button type="submit" disabled={status === 'loading'} className={btnClass}>
