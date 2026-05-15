@@ -3,8 +3,8 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: executing
-stopped_at: Completed 01-bug-fixes-and-css-foundation 01-01-PLAN.md
-last_updated: "2026-05-15T07:49:35.520Z"
+stopped_at: Completed 01-02-PLAN.md
+last_updated: "2026-05-15T07:49:50.505Z"
 last_activity: 2026-05-15
 progress:
   total_phases: 4
@@ -53,6 +53,7 @@ Progress: [░░░░░░░░░░] 0%
 
 *Updated after each plan completion*
 | Phase 01-bug-fixes-and-css-foundation P01 | 525509 | 2 tasks | 2 files |
+| Phase 01-bug-fixes-and-css-foundation P02 | 2 | 1 tasks | 5 files |
 
 ## Accumulated Context
 
@@ -66,6 +67,7 @@ Recent decisions affecting current work:
 - Init: Evolutionary reskin — keep working structure, improve visual layer and close content gaps
 - [Phase 01-bug-fixes-and-css-foundation]: Netlify Forms: honeypot p tag keeps inline display:none (functional, exempt from FOUND-01 cleanup)
 - [Phase 01-bug-fixes-and-css-foundation]: BUG-04 dismiss: clearTimeout on manual dismiss prevents race with 6s auto-hide
+- [Phase 01-bug-fixes-and-css-foundation]: Use index.html#section-id for subpage nav links — ensures correct section-targeted navigation from any subpage
 
 ### Pending Todos
 
@@ -80,6 +82,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-05-15T07:49:28.840Z
-Stopped at: Completed 01-bug-fixes-and-css-foundation 01-01-PLAN.md
+Last session: 2026-05-15T07:49:50.501Z
+Stopped at: Completed 01-02-PLAN.md
 Resume file: None

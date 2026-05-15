@@ -8,7 +8,7 @@
 ### Bug Fixes (produkcja)
 
 - [x] **BUG-01**: Formularz kontaktowy wysyła dane przez Netlify Forms (integracja `data-netlify`, `method="POST"`, AJAX, spam-protection honeypot)
-- [ ] **BUG-02**: Linki nawigacyjne na podstronach wskazują na `index.html#section` zamiast bare `#section`
+- [x] **BUG-02**: Linki nawigacyjne na podstronach wskazują na `index.html#section` zamiast bare `#section`
 - [x] **BUG-03**: Efekt typewritera reinicjalizuje się poprawnie po zmianie języka PL/EN
 - [x] **BUG-04**: Po wysłaniu formularza komunikat sukcesu można zamknąć i wysłać kolejną wiadomość
 
@@ -78,7 +78,7 @@
 | Requirement | Phase | Status |
 |-------------|-------|--------|
 | BUG-01 | Phase 1 | Complete |
-| BUG-02 | Phase 1 | Pending |
+| BUG-02 | Phase 1 | Complete |
 | BUG-03 | Phase 1 | Complete |
 | BUG-04 | Phase 1 | Complete |
 | FOUND-01 | Phase 1 | Pending |
