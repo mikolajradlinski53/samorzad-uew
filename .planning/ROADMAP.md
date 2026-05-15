@@ -13,7 +13,7 @@ Migracja z Wix na Next.js 14 + TypeScript + Tailwind CSS. Phase 1 (bug fixes + C
 Decimal phases appear between their surrounding integers in numeric order.
 
 - [x] **Phase 1: Bug Fixes and CSS Foundation** - Vanilla prototype naprawiony, inline styles wyczyszczone
-- [ ] **Phase 2: Next.js Foundation** - Init Next.js 14, design system, Navbar/Footer z prawdziwymi danymi, Framer Motion + Lenis
+- [x] **Phase 2: Next.js Foundation** - Init Next.js 14, design system, Navbar/Footer z prawdziwymi danymi, Framer Motion + Lenis (completed 2026-05-15)
 - [ ] **Phase 3: Strona Główna + Strefa Studenta** - Hero, statystyki, wszystkie podstrony studenckie z pełną treścią
 - [ ] **Phase 4: Samorząd + Projekty + Partnerzy** - Zarząd, RUSS, Prezydium, 9 projektów, regulacje, partnerzy
 - [ ] **Phase 5: Formularze + Strefa Działacza** - API routes, Google OAuth, lista obecności, AI chatbot, 404
@@ -117,7 +117,7 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5 → 6
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
 | 1. Bug Fixes and CSS Foundation | 3/3 | Complete | 2026-05-15 |
-| 2. Next.js Foundation | 1/3 | In Progress|  |
+| 2. Next.js Foundation | 1/3 | Complete    | 2026-05-15 |
 | 3. Strona Główna + Strefa Studenta | 0/? | Not started | - |
 | 4. Samorząd + Projekty + Partnerzy | 0/? | Not started | - |
 | 5. Formularze + Strefa Działacza | 0/? | Not started | - |
