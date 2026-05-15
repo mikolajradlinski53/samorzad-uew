@@ -50,7 +50,7 @@ Plans:
 **Plans**: 3 plans
 
 Plans:
-- [ ] 02-01-PLAN.md — Install packages, create config files, design tokens in Tailwind, fonts via next/font/google (NEXT-01, NEXT-02, NEXT-03)
+- [x] 02-01-PLAN.md — Install packages, create config files, design tokens in Tailwind, fonts via next/font/google (NEXT-01, NEXT-02, NEXT-03)
 - [ ] 02-02-PLAN.md — Data layer (navigation.ts, social.ts, contact.ts), Navbar component, Footer component (NAV-01, FOOT-01)
 - [ ] 02-03-PLAN.md — LenisProvider, FadeUp animation component, Button component, wire root layout (ANIM-01, ANIM-02, ANIM-03)
 
@@ -117,7 +117,7 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5 → 6
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
 | 1. Bug Fixes and CSS Foundation | 3/3 | Complete | 2026-05-15 |
-| 2. Next.js Foundation | 0/3 | Not started | - |
+| 2. Next.js Foundation | 1/3 | In Progress|  |
 | 3. Strona Główna + Strefa Studenta | 0/? | Not started | - |
 | 4. Samorząd + Projekty + Partnerzy | 0/? | Not started | - |
 | 5. Formularze + Strefa Działacza | 0/? | Not started | - |

@@ -2,15 +2,15 @@
 gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
-status: completed
-stopped_at: Completed 01-03-PLAN.md
-last_updated: "2026-05-15T09:43:28.349Z"
+status: executing
+stopped_at: Completed 02-next-js-foundation/02-01-PLAN.md
+last_updated: "2026-05-15T11:13:56.407Z"
 last_activity: 2026-05-15
 progress:
-  total_phases: 4
+  total_phases: 6
   completed_phases: 1
-  total_plans: 3
-  completed_plans: 3
+  total_plans: 6
+  completed_plans: 4
   percent: 25
 ---
 
@@ -21,13 +21,13 @@ progress:
 See: .planning/PROJECT.md (updated 2026-05-13)
 
 **Core value:** Student wchodzi na stronę, natychmiast widzi profesjonalizm samorządu i bez trudu znajduje to, czego potrzebuje.
-**Current focus:** Phase 1 — Bug Fixes and CSS Foundation
+**Current focus:** Phase 2 — Next.js Foundation
 
 ## Current Position
 
-Phase: 2
-Plan: Not started
-Status: Phase 1 complete, ready for Phase 2
+Phase: 2 (Next.js Foundation) — EXECUTING
+Plan: 2 of 3
+Status: Ready to execute
 Last activity: 2026-05-15
 
 Progress: [██░░░░░░░░] 25%
@@ -55,6 +55,7 @@ Progress: [██░░░░░░░░] 25%
 | Phase 01-bug-fixes-and-css-foundation P01 | ~8 min | 2 tasks | 2 files |
 | Phase 01-bug-fixes-and-css-foundation P02 | ~5 min | 1 tasks | 5 files |
 | Phase 01-bug-fixes-and-css-foundation P03 | ~8 min | 2 tasks | 7 files |
+| Phase 02-next-js-foundation P01 | 10 | 3 tasks | 12 files |
 
 ## Accumulated Context
 
@@ -69,6 +70,7 @@ Recent decisions affecting current work:
 - [Phase 01-bug-fixes-and-css-foundation]: Netlify Forms: honeypot p tag keeps inline display:none (functional, exempt from FOUND-01 cleanup)
 - [Phase 01-bug-fixes-and-css-foundation]: BUG-04 dismiss: clearTimeout on manual dismiss prevents race with 6s auto-hide
 - [Phase 01-bug-fixes-and-css-foundation]: Use index.html#section-id for subpage nav links — ensures correct section-targeted navigation from any subpage
+- [Phase 02-next-js-foundation]: Next.js 14.2.35 pinned (not 15.x), tailwindcss@^3 pinned (not v4), TypeScript target ES2017 (TS6 deprecates ES5)
 
 ### Pending Todos
 
@@ -83,6 +85,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-05-15T08:30:00.000Z
-Stopped at: Completed 01-03-PLAN.md
+Last session: 2026-05-15T11:13:56.403Z
+Stopped at: Completed 02-next-js-foundation/02-01-PLAN.md
 Resume file: None
