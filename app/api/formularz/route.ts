@@ -1,8 +1,6 @@
 import { Resend } from 'resend'
 import { NextResponse } from 'next/server'
 
-const resend = new Resend(process.env.RESEND_API_KEY)
-
 const ROUTING: Record<string, string> = {
   kontakt:    'kontakt@samorzad.ue.wroc.pl',
   wspolpraca: 'karol.vogel@samorzad.ue.wroc.pl',
@@ -14,6 +12,7 @@ export async function POST(req: Request) {
     return NextResponse.json({ error: 'Email service not configured' }, { status: 503 })
   }
 
+  const resend = new Resend(process.env.RESEND_API_KEY)
   const body = await req.json()
   const { formType, ...fields } = body
 
