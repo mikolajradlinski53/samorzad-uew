@@ -1,8 +1,8 @@
-# Roadmap: Samorząd Studentów UEW — Website Redesign
+# Roadmap: Samorząd Studentów UEW — Website (Next.js)
 
 ## Overview
 
-An evolutionary redesign of a working vanilla HTML/CSS/JS website. The path runs in four phases ordered by dependency: fix the live production bugs and inline style debt that would silently block all CSS work, then establish a shared design system and apply the agency-style visual redesign across all pages, then build the missing content sections students actively search for, and finally audit the accumulated result for performance, accessibility, and polish. Every phase delivers a coherent, verifiable capability before the next begins.
+Migracja z Wix na Next.js 14 + TypeScript + Tailwind CSS. Phase 1 (bug fixes + CSS cleanup) zakończona na vanilla prototype. Fazy 2-6 budują nową stronę w Next.js z pełną treścią z samorzad.ue.wroc.pl, animacjami Framer Motion, Lenis smooth scroll, oraz Strefą Działacza z Google OAuth.
 
 ## Phases
 
@@ -12,10 +12,12 @@ An evolutionary redesign of a working vanilla HTML/CSS/JS website. The path runs
 
 Decimal phases appear between their surrounding integers in numeric order.
 
-- [x] **Phase 1: Bug Fixes and CSS Foundation** - Repair three live production bugs and extract all inline styles, creating a clean baseline for redesign
-- [ ] **Phase 2: Design System and Visual Redesign** - Establish design tokens, integrate AOS/Lenis/Plus Jakarta Sans, and apply agency-style aesthetic across all pages
-- [ ] **Phase 3: New Content Sections and Aktualności** - Build dokumenty, komisje, 404, partnerzy, and full aktualności feature set
-- [ ] **Phase 4: Quality and Performance Audit** - Achieve Lighthouse 90+, full accessibility compliance, and confirmed mobile performance
+- [x] **Phase 1: Bug Fixes and CSS Foundation** - Vanilla prototype naprawiony, inline styles wyczyszczone
+- [ ] **Phase 2: Next.js Foundation** - Init Next.js 14, design system, Navbar/Footer z prawdziwymi danymi, Framer Motion + Lenis
+- [ ] **Phase 3: Strona Główna + Strefa Studenta** - Hero, statystyki, wszystkie podstrony studenckie z pełną treścią
+- [ ] **Phase 4: Samorząd + Projekty + Partnerzy** - Zarząd, RUSS, Prezydium, 9 projektów, regulacje, partnerzy
+- [ ] **Phase 5: Formularze + Strefa Działacza** - API routes, Google OAuth, lista obecności, AI chatbot, 404
+- [ ] **Phase 6: SEO + Accessibility + Deploy** - Lighthouse 90+, OG meta, next export → hosting uczelniany
 
 ## Phase Details
 
@@ -25,60 +27,94 @@ Decimal phases appear between their surrounding integers in numeric order.
 **Requirements**: BUG-01, BUG-02, BUG-03, BUG-04, FOUND-01
 **Success Criteria** (what must be TRUE):
   1. Submitting the contact form sends a real message via Netlify Forms and the user sees a dismissable success notice
-  2. Clicking any navigation link from a subpage (e.g., zarząd, aktualności) lands on the correct section of index.html
-  3. Switching the site language from PL to EN (or back) resets the typewriter animation correctly with no leftover characters
-  4. No `style=` attributes remain in any HTML file and no `<style>` blocks exist outside of the linked stylesheet
+  2. Clicking any navigation link from a subpage lands on the correct section of index.html
+  3. Switching the site language from PL to EN resets the typewriter animation correctly
+  4. No `style=` attributes remain in any HTML file outside of the linked stylesheet
 **Plans**: 3 plans
 
 Plans:
-- [x] 01-01-PLAN.md — Fix Netlify Forms integration, typewriter re-init on language switch, form success dismiss (BUG-01, BUG-03, BUG-04)
+- [x] 01-01-PLAN.md — Fix Netlify Forms integration, typewriter re-init, form success dismiss (BUG-01, BUG-03, BUG-04)
 - [x] 01-02-PLAN.md — Fix subpage navbar links to use index.html#section anchors (BUG-02)
-- [x] 01-03-PLAN.md — Extract all inline styles to style.css, remove hero style block from head (FOUND-01)
+- [x] 01-03-PLAN.md — Extract all inline styles to style.css (FOUND-01)
 
-### Phase 2: Design System and Visual Redesign
-**Goal**: A shared CSS design system and component library exists, and the agency-style aesthetic — glassmorphism navbar, bold hero, smooth scroll, animated mobile menu — is live across all pages
+### Phase 2: Next.js Foundation
+**Goal**: Next.js 14 project running with design system, core layouts (Navbar/Footer z prawdziwymi danymi), Framer Motion scroll animations, Lenis smooth scroll — gotowy do budowania wszystkich stron
 **Depends on**: Phase 1
-**Requirements**: FOUND-02, FOUND-03, FOUND-04, DESIGN-01, DESIGN-02, DESIGN-03, DESIGN-04, QUAL-01, QUAL-04
+**Requirements**: NEXT-01, NEXT-02, NEXT-03, NAV-01, FOOT-01, ANIM-01, ANIM-02, ANIM-03
 **Success Criteria** (what must be TRUE):
-  1. AOS scroll-reveal animations play on page load and on scroll; users with prefers-reduced-motion see no motion
-  2. Lenis smooth scroll is active — scrolling the page feels continuous and physics-driven, not janky
-  3. The hero section displays in Plus Jakarta Sans bold typography with staggered entrance animations
-  4. The navbar shows consistent glassmorphism on all pages (index and all subpages) and the mobile hamburger animates to an X when the slide-down menu opens
-  5. Cards, stats, footer, and section layouts match a unified visual vocabulary across all existing pages
+  1. `npm run build` i `npm run export` produkuje poprawny statyczny HTML w `/out` bez błędów
+  2. Navbar wyświetla 2-poziomowy dropdown na desktop + animowany mobile drawer z pełną strukturą menu (Strefa Studenta, Samorząd, Współprace, Kontakt, Strefa Działacza)
+  3. Footer wyświetla ul. Kamienna 43 / Budynek J pokój 9, linki social media (TikTok, FB, LI, IG) z prawdziwymi URL-ami, email kontakt@samorzad.ue.wroc.pl
+  4. Framer Motion fade-in-up animacje działają przy scroll; prefers-reduced-motion je wyłącza
+  5. Lenis smooth scroll aktywny — przewijanie ma physics feel
 **Plans**: TBD
 **UI hint**: yes
 
-### Phase 3: New Content Sections and Aktualności
-**Goal**: All missing content sections that students actively search for are built and reachable, and the aktualności page has filtering, search, and pagination
+### Phase 3: Strona Główna + Strefa Studenta
+**Goal**: Strona główna z pełną treścią i animacjami + wszystkie podstrony Strefy Studenta z kompletną treścią z briefu i linkami GDrive
 **Depends on**: Phase 2
-**Requirements**: PAGES-01, PAGES-02, PAGES-03, PAGES-04, NEWS-01, NEWS-02, NEWS-03, NEWS-04, QUAL-03
+**Requirements**: HOME-01, HOME-02, HOME-03, STU-01, STU-02, STU-03, STU-04, STU-05, STU-06, STU-07
 **Success Criteria** (what must be TRUE):
-  1. A student can open dokumenty.html and download PDFs grouped by category (Uchwały, Regulaminy, Protokoły)
-  2. A student can navigate to zarząd.html and see komisje tematyczne listed as cards with name, scope, and chair
-  3. Visiting a broken URL on the site shows a branded 404 page with a working navigation link back to the homepage
-  4. The aktualności page lets a student filter posts by category, search by keyword, and page through results six at a time
-  5. All pages include Open Graph meta tags so sharing a link on social media shows a correct title, description, and image
+  1. Hero wyświetla rotujące podtytuły Framer Motion: "Działamy na rzecz studentów" / "Wspieramy Was w walce o prawa studenckie" / "Inspirujemy do podejmowania nowych inicjatyw"
+  2. Sekcja statystyk ma animowane liczniki (~6000 studentów, 9 projektów, ~30 lat, 15+ partnerów) uruchamiane przy scroll
+  3. `/dla-studenta` wyświetla TileGrid z 10 kafelkami (ikony Lucide) + szybkie linki do USOS / Intranetu / Planu / Harmonogramu
+  4. `/prawa-studenta` ma działający akordeon z 7 prawami studenta
+  5. `/infopacki` wyświetla 8 linków GDrive z poprawnymi URL-ami z briefu
+  6. `/rzecznik-praw-studenta` wyświetla kartę Jakuba Buchty (rps@samorzad.ue.wroc.pl) + działający formularz kontaktowy
+  7. `/stypendia` wyświetla kafelki (Socjalne, Rektora, Niepełnosprawnych, Zapomogi) + tabelę 10 załączników z linkami GDrive
 **Plans**: TBD
 **UI hint**: yes
 
-### Phase 4: Quality and Performance Audit
-**Goal**: The completed site passes Lighthouse 90+ on performance and accessibility, has no accessibility regressions from the redesign, and loads correctly on mobile
+### Phase 4: Samorząd + Projekty + Partnerzy
+**Goal**: Wszystkie strony Samorządu z prawdziwymi danymi osobowymi, 9 projektów z opisami, regulacje z linkami PDF, strona współprac z logotypami partnerów
 **Depends on**: Phase 3
-**Requirements**: QUAL-02
+**Requirements**: ORG-01, ORG-02, ORG-03, ORG-04, ORG-05, ORG-06, PROJ-01, PART-01, DOC-01
 **Success Criteria** (what must be TRUE):
-  1. Running Lighthouse on every page shows a score of 90 or above for both Performance and Accessibility
-  2. All interactive elements (links, buttons, form fields) have visible focus rings and correct ARIA labels
-  3. Scrolling on an iOS Safari or mid-range Android device with Lenis active shows no visible jank or frame drops
+  1. `/zarzad` wyświetla 9 kart MemberCard z prawdziwymi danymi (Radliński, Smereczniak, Stachowski, Tyrakowski, Vogel, Pytel, Woźniak, Hural, Stępień)
+  2. `/rada-uczelniana` wyświetla opis RUSS + 12 kart radnych + linki GDrive (Raporty, Uchwały 2025/2026)
+  3. `/przewodniczacy-i-wiceprzewodniczacy` wyświetla Emilię Ćwiklińską + 3 Wiceprzewodniczących z emailami @samorzad.ue.wroc.pl
+  4. `/nasze-projekty` wyświetla 9 kart projektów z opisami (ADAPCIAK, ANIMALIA, BAL UEW, Dni Adaptacyjne, GRADUETION, Mosty Ekonomiczne, Test Wiedzy, TEDxUEW, UE PARTY)
+  5. `/regulacje-wewnetrzne` wyświetla 6 dokumentów PDF z działającymi linkami
+  6. `/wspolprace` wyświetla kartę Karola Vogla (karol.vogel@) + formularz + loga partnerów (BNY jako Strategic, PwC, Pasibus, Phinance, Raben, Techland, Pyszne.pl, UPS, Bielenda, MU1, Slice of Heaven, UPM)
+**Plans**: TBD
+**UI hint**: yes
+
+### Phase 5: Formularze + Strefa Działacza + 404
+**Goal**: Wszystkie formularze przez API routes, Strefa Działacza z Google OAuth (@samorzad.ue.wroc.pl only), lista obecności, AI chatbot, własna strona 404
+**Depends on**: Phase 4
+**Requirements**: FORM-01, FORM-02, FORM-03, AUTH-01, AUTH-02, CRA-01, ATTEND-01, AI-01, PAGE-404
+**Success Criteria** (what must be TRUE):
+  1. Formularz kontaktowy (`/formularz`) POSTuje do `/api/formularz` i email dociera na kontakt@samorzad.ue.wroc.pl
+  2. Formularz współpracy POSTuje do `/api/formularz` z routingiem do karol.vogel@samorzad.ue.wroc.pl
+  3. `/strefa-dzialacza` przekierowuje niezalogowanych do strony logowania Google
+  4. Logowanie kontami spoza @samorzad.ue.wroc.pl jest odrzucane z komunikatem błędu
+  5. Po zalogowaniu widoczny link do CRA (cra-system.vercel.app) + moduł listy obecności
+  6. AI chatbot na stronie publicznej odpowiada na pytania o SSUEW (FAQ-style)
+  7. Wejście na nieistniejący URL pokazuje własną stronę 404 z nawigacją powrotną
+**Plans**: TBD
+
+### Phase 6: SEO + Accessibility + Deploy
+**Goal**: Lighthouse 90+, OG meta tagi na wszystkich stronach, accessibility compliance, `next export` deployowany
+**Depends on**: Phase 5
+**Requirements**: SEO-01, A11Y-01, DEPLOY-01, DEPLOY-02
+**Success Criteria** (what must be TRUE):
+  1. Lighthouse Performance ≥ 90 i Accessibility ≥ 90 na każdej stronie
+  2. Każda strona ma unikalne OG meta tagi (title, description, og:image)
+  3. `next export` produkuje poprawny statyczny HTML — `npx serve out` działa bez błędów
+  4. Wszystkie interaktywne elementy mają widoczne focus rings i poprawne ARIA labels
+  5. Strona dostępna pod staging URL lub uczelniany hosting
 **Plans**: TBD
 
 ## Progress
 
 **Execution Order:**
-Phases execute in numeric order: 1 → 2 → 3 → 4
+Phases execute in numeric order: 1 → 2 → 3 → 4 → 5 → 6
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Bug Fixes and CSS Foundation | 3/3 | Complete    | 2026-05-15 |
-| 2. Design System and Visual Redesign | 0/? | Not started | - |
-| 3. New Content Sections and Aktualności | 0/? | Not started | - |
-| 4. Quality and Performance Audit | 0/? | Not started | - |
+| 1. Bug Fixes and CSS Foundation | 3/3 | Complete | 2026-05-15 |
+| 2. Next.js Foundation | 0/? | Not started | - |
+| 3. Strona Główna + Strefa Studenta | 0/? | Not started | - |
+| 4. Samorząd + Projekty + Partnerzy | 0/? | Not started | - |
+| 5. Formularze + Strefa Działacza | 0/? | Not started | - |
+| 6. SEO + Accessibility + Deploy | 0/? | Not started | - |
