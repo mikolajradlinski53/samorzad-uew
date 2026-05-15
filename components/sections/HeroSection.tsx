@@ -1,7 +1,7 @@
 'use client'
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
-import { AnimatePresence, motion } from 'motion/react'
+import { AnimatePresence, motion, useReducedMotion } from 'motion/react'
 import { FaTiktok, FaFacebook, FaLinkedinIn, FaInstagram } from 'react-icons/fa'
 import { socialLinks } from '@/data/social'
 
@@ -20,13 +20,15 @@ const socialIcons: Record<string, React.ComponentType<{ size?: number }>> = {
 
 export function HeroSection() {
   const [currentIndex, setCurrentIndex] = useState(0)
+  const shouldReduce = useReducedMotion()
 
   useEffect(() => {
+    if (shouldReduce) return
     const interval = setInterval(() => {
       setCurrentIndex((prev) => (prev + 1) % subtitles.length)
     }, 3000)
     return () => clearInterval(interval)
-  }, [])
+  }, [shouldReduce])
 
   return (
     <section className="relative min-h-screen flex items-center bg-gradient-to-br from-ssuew-gray-100 via-white to-primary-light pt-[72px]">

@@ -19,7 +19,7 @@ async function submitForm(formType: string, fields: Record<string, string>): Pro
 const inputClass = 'w-full px-4 py-3 rounded-lg border border-ssuew-gray-200 text-base text-ssuew-black bg-white focus:outline-none focus:ring-2 focus:ring-primary'
 const inputErrorClass = 'w-full px-4 py-3 rounded-lg border border-red-500 text-base text-ssuew-black bg-white focus:outline-none focus:ring-2 focus:ring-primary'
 const labelClass = 'text-[0.85rem] font-bold text-ssuew-black'
-const btnClass = 'inline-flex items-center justify-center gap-2 font-bold rounded-full px-8 py-3.5 text-base bg-primary text-white hover:bg-primary-dark transition-colors duration-200 disabled:opacity-60 disabled:cursor-not-allowed'
+const btnClass = 'inline-flex items-center justify-center gap-2 font-bold rounded-full px-8 py-3.5 text-base bg-primary text-white hover:bg-primary-dark transition-colors duration-200 disabled:opacity-60 disabled:cursor-not-allowed focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2'
 
 function SuccessMessage() {
   return (
@@ -72,13 +72,13 @@ export function KontaktForm() {
         { name: 'temat', label: 'Temat', type: 'text', placeholder: 'W jakiej sprawie?' },
       ].map(f => (
         <div key={f.name} className="flex flex-col gap-2">
-          <label className={labelClass}>{f.label}</label>
-          <input name={f.name} type={f.type} placeholder={f.placeholder} className={errors[f.name] ? inputErrorClass : inputClass} />
+          <label htmlFor={`kontakt-${f.name}`} className={labelClass}>{f.label}</label>
+          <input id={`kontakt-${f.name}`} name={f.name} type={f.type} placeholder={f.placeholder} className={errors[f.name] ? inputErrorClass : inputClass} />
         </div>
       ))}
       <div className="flex flex-col gap-2">
-        <label className={labelClass}>Wiadomość</label>
-        <textarea name="wiadomosc" rows={5} placeholder="Twoja wiadomość..." className={errors.wiadomosc ? inputErrorClass : inputClass} />
+        <label htmlFor="kontakt-wiadomosc" className={labelClass}>Wiadomość</label>
+        <textarea id="kontakt-wiadomosc" name="wiadomosc" rows={5} placeholder="Twoja wiadomość..." className={errors.wiadomosc ? inputErrorClass : inputClass} />
       </div>
       {status === 'error' && <ErrorMessage />}
       <button type="submit" disabled={status === 'loading'} className={btnClass}>

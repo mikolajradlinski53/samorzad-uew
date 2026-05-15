@@ -22,8 +22,7 @@ export function ChatWidget() {
             <span className="font-bold text-[0.85rem]">Asystent SSUEW</span>
             <button
               onClick={() => setOpen(false)}
-              aria-label="Zamknij chat"
-              className="text-white/80 hover:text-white text-lg leading-none"
+              aria-label="Zamknij chat" className="text-white/80 hover:text-white text-lg leading-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-primary rounded"
             >
               ×
             </button>
@@ -68,7 +67,7 @@ export function ChatWidget() {
             <button
               type="submit"
               disabled={isLoading || !input.trim()}
-              className="px-4 py-2 rounded-lg bg-primary text-white text-[0.85rem] font-bold hover:bg-primary-dark disabled:opacity-50 transition-colors"
+              className="px-4 py-2 rounded-lg bg-primary text-white text-[0.85rem] font-bold hover:bg-primary-dark disabled:opacity-50 transition-colors focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
             >
               {isLoading ? '...' : '→'}
             </button>

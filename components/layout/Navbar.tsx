@@ -87,7 +87,7 @@ export function Navbar() {
                   <Link
                     href={item.href}
                     className={cn(
-                      'font-sans text-base text-ssuew-black hover:text-primary transition-colors duration-300 flex items-center gap-1 py-2 focus-visible:outline-none focus-visible:text-primary',
+                      'font-sans text-base text-ssuew-black hover:text-primary transition-colors duration-300 flex items-center gap-1 py-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 rounded focus-visible:text-primary',
                       isActive(item.href) && 'text-primary font-bold'
                     )}
                   >
@@ -114,7 +114,7 @@ export function Navbar() {
                   key={item.href}
                   href={item.href}
                   className={cn(
-                    'font-sans text-base text-ssuew-black hover:text-primary transition-colors duration-300 focus-visible:outline-none focus-visible:text-primary',
+                    'font-sans text-base text-ssuew-black hover:text-primary transition-colors duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 rounded focus-visible:text-primary',
                     isActive(item.href) && 'text-primary font-bold'
                   )}
                 >
