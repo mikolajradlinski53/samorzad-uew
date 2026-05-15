@@ -2,6 +2,9 @@
 .next/
 out/
 
+# Claude Code (local dev tool — not for CI/hosting)
+.claude/
+
 # Dependencies
 node_modules/
 
