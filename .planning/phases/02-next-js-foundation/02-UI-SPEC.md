@@ -22,8 +22,10 @@ created: 2026-05-15
 | Preset | not applicable |
 | Component library | none (custom components in `components/ui/`) |
 | Icon library | lucide-react (UI icons) + react-icons/fa (social media icons only) |
-| Font — body | Inter (weights 400, 500, 600, 700, 800) via `next/font/google` |
-| Font — display | Plus Jakarta Sans (weights 600, 700, 800) via `next/font/google` |
+| Font — body | Inter (weights 400, 700) via `next/font/google` |
+| Font — display | Plus Jakarta Sans (weights 400, 700) via `next/font/google` |
+
+Note: Google Fonts loading may include additional weights (500, 600, 800) for future phases, but Phase 2 usage contract is restricted to weights 400 and 700 only.
 
 Source: CONTEXT.md decisions, RESEARCH.md standard stack.
 
@@ -111,10 +113,10 @@ This ports Phase 1's `section { padding: 5rem 0 }` (80px) and mobile `section { 
 Container: `max-w-brand mx-auto px-6` — matches Phase 1 `.container { max-width: 1200px; padding: 0 1.5rem }`.
 
 Exceptions:
-- Navbar height: `h-[70px]` — Phase 1 mobile-menu top offset is `top: 70px`
+- Navbar height: `h-[72px]` — nearest multiple of 4 above Phase 1's 70px; mobile drawer top offset matches: `top-[72px]`
 - Hero section: `pt-20 min-h-screen` — accommodates fixed navbar (80px top padding in Phase 1)
 - Subpage hero: `pt-36 pb-16` — matches Phase 1 `.page-hero { padding: 9rem 0 4rem }`
-- Social icon touch targets: `w-[38px] h-[38px]` — Phase 1 `.social-link` exact dimensions
+- Social icon touch targets: `w-[40px] h-[40px]` — 40px = 4×10, standard touch target minimum (Phase 1 was 38px, rounded up to nearest multiple of 4)
 - Avatar image: `w-[100px] h-[100px]` — Phase 1 `.avatar-img` exact dimensions
 - Zone icon box: `w-16 h-16` (64px) — Phase 1 `.zone-icon`
 
@@ -125,36 +127,58 @@ Exceptions:
 Inter is the body font (sans). Plus Jakarta Sans is the display font for headings (display).
 Both loaded via `next/font/google` with `variable` mode.
 
-| Role | Element | Font family | Size (desktop) | Size (mobile/fluid) | Weight | Line height |
-|---|---|---|---|---|---|---|
-| Display / H1 | Page hero titles | `font-display` | `clamp(2.2rem, 5vw, 3.8rem)` | fluid | 800 | 1.1 |
-| Heading / H2 | Section titles | `font-display` | `clamp(1.8rem, 3.5vw, 2.8rem)` | fluid | 700 | 1.2 |
-| Subheading / H3 | Card titles, subsections | `font-sans` | `clamp(1.1rem, 2vw, 1.4rem)` | fluid | 600 | 1.3 |
-| H4 | Footer column headers | `font-sans` | `1rem` (16px) | — | 600 | 1.3 |
-| Body | Paragraphs, descriptions | `font-sans` | `1rem` (16px) | — | 400 | 1.6 |
-| Body small | Muted text, secondary | `font-sans` | `0.9rem` (14.4px) | — | 400 | 1.6 |
-| Label / Badge | Tags, uppercase labels | `font-sans` | `0.8rem` (12.8px) | — | 700 | 1.0 |
-| Card title | `.card-title` equivalent | `font-sans` | `1.1rem` (17.6px) | — | 700 | 1.3 |
-| Card body | `.card-text` equivalent | `font-sans` | `0.9rem` (14.4px) | — | 400 | 1.6 |
-| Navbar links | Desktop nav items | `font-sans` | `0.9rem` (14.4px) | — | 500 | — |
-| Button | All button labels | `font-sans` | `0.95rem` (15.2px) | — | 600 | — |
-| Stat number | Hero/stats counters | `font-display` | `clamp(2.5rem, 5vw, 3.5rem)` | fluid | 800 | 1.0 |
-| Caption / meta | Dates, tags, breadcrumbs | `font-sans` | `0.82rem` (13.1px) | — | 400 | 1.5 |
-| Footer label | Column headers in footer | `font-sans` | `0.85rem` (13.6px) | — | 700 letter-spacing `tracking-widest` uppercase |
-| Footer link | Footer nav links | `font-sans` | `0.9rem` (14.4px) | — | 400 | — |
+Exactly 4 size tiers and 2 weight values are used in Phase 2.
 
-clamp() values are applied via Tailwind's `text-[clamp(...)]` arbitrary values or a `tailwind.config.js` extension.
+### Size tiers
+
+| Tier | Size | Tailwind | Usage |
+|---|---|---|---|
+| Size 1 — display | `clamp(2.2rem, 5vw, 3.8rem)` | `text-display-xl` | H1, hero titles, stat/counter numbers |
+| Size 2 — heading | `clamp(1.8rem, 3.5vw, 2.8rem)` | `text-display-lg` | H2, section titles |
+| Size 3 — body | `1rem` (16px) | `text-base` | H3, H4, body paragraphs, buttons, navbar links, card titles |
+| Size 4 — small | `0.85rem` (13.6px) | `text-[0.85rem]` | Labels, captions, footer links, badges, secondary/muted text, body-small, card body text |
+
+### Weight values
+
+| Weight | Value | Usage |
+|---|---|---|
+| Regular | 400 | Body text, secondary text, footer links, captions, card body text, navbar link default state |
+| Bold | 700 | Headings (H1–H4), buttons, labels, navbar active link, badges, stat numbers, card titles, footer column headers |
+
+### Full role table
+
+| Role | Element | Font family | Size tier | Weight | Line height |
+|---|---|---|---|---|---|
+| Display / H1 | Page hero titles | `font-display` | Size 1 — `clamp(2.2rem, 5vw, 3.8rem)` | 700 | 1.1 |
+| Stat number | Hero/stats counters | `font-display` | Size 1 — `clamp(2.2rem, 5vw, 3.8rem)` | 700 | 1.0 |
+| Heading / H2 | Section titles | `font-display` | Size 2 — `clamp(1.8rem, 3.5vw, 2.8rem)` | 700 | 1.2 |
+| Subheading / H3 | Card titles, subsections | `font-sans` | Size 3 — `1rem` | 700 | 1.3 |
+| H4 | Footer column headers | `font-sans` | Size 3 — `1rem` | 700 | 1.3 |
+| Body | Paragraphs, descriptions | `font-sans` | Size 3 — `1rem` | 400 | 1.6 |
+| Button | All button labels | `font-sans` | Size 3 — `1rem` | 700 | — |
+| Navbar link (default) | Desktop nav items | `font-sans` | Size 3 — `1rem` | 400 | — |
+| Navbar link (active) | Active nav item | `font-sans` | Size 3 — `1rem` | 700 | — |
+| Card title | `.card-title` equivalent | `font-sans` | Size 3 — `1rem` | 700 | 1.3 |
+| Label / Badge | Tags, uppercase labels | `font-sans` | Size 4 — `0.85rem` | 700 | 1.0 |
+| Body small | Muted text, secondary | `font-sans` | Size 4 — `0.85rem` | 400 | 1.6 |
+| Card body | `.card-text` equivalent | `font-sans` | Size 4 — `0.85rem` | 400 | 1.6 |
+| Caption / meta | Dates, tags, breadcrumbs | `font-sans` | Size 4 — `0.85rem` | 400 | 1.5 |
+| Footer label | Column headers in footer | `font-sans` | Size 4 — `0.85rem` | 700 letter-spacing `tracking-widest` uppercase |
+| Footer link | Footer nav links | `font-sans` | Size 4 — `0.85rem` | 400 | — |
+
+clamp() values are applied via Tailwind's `fontSize` extension in `tailwind.config.js`.
 
 Tailwind `fontSize` extension for fluid sizes:
 
 ```js
 fontSize: {
-  'display-xl': ['clamp(2.2rem, 5vw, 3.8rem)',   { lineHeight: '1.1', fontWeight: '800' }],
+  'display-xl': ['clamp(2.2rem, 5vw, 3.8rem)', { lineHeight: '1.1', fontWeight: '700' }],
   'display-lg': ['clamp(1.8rem, 3.5vw, 2.8rem)', { lineHeight: '1.2', fontWeight: '700' }],
-  'display-md': ['clamp(1.1rem, 2vw, 1.4rem)',    { lineHeight: '1.3', fontWeight: '600' }],
-  'stat':       ['clamp(2.5rem, 5vw, 3.5rem)',    { lineHeight: '1.0', fontWeight: '800' }],
 }
 ```
+
+Size 3 uses Tailwind's built-in `text-base` (1rem). Size 4 uses `text-[0.85rem]` arbitrary value.
+The `display-md` and `stat` keys from the previous draft are removed — those roles are now covered by Size 3 (`text-base`) and Size 1 (`text-display-xl`) respectively.
 
 ---
 
@@ -228,16 +252,16 @@ Destructive actions: None in Phase 2.
 
 ### Desktop
 
-- Height: `h-[70px]` fixed, `z-50`
+- Height: `h-[72px]` fixed, `z-50`
 - Logo: `<Image>` src `/assets/logos/logo.png`, size `40×40`, alt "Logo Samorządu Studentów UEW"
-- Wordmark: "Samorząd UEW" — font-sans weight-800 text-base text-ssuew-black
-- Nav links: font-sans 0.9rem weight-500 text-ssuew-black, hover → text-primary, transition-colors duration-300
-- Active link: text-primary weight-600 (detected via `usePathname()`)
+- Wordmark: "Samorząd UEW" — font-sans weight-700 text-base text-ssuew-black
+- Nav links: font-sans `text-base` weight-400 text-ssuew-black, hover → text-primary, transition-colors duration-300
+- Active link: text-primary weight-700 (detected via `usePathname()`)
 - Dropdown trigger: parent `<div class="relative group">` — no click required
 - Dropdown panel: `absolute top-full left-0`, appears on `group-hover`, bg-white shadow-brand rounded-brand-sm min-w-[192px] py-2
-- Dropdown items: `block px-4 py-2 text-sm text-ssuew-black hover:text-primary hover:bg-ssuew-gray-100`
+- Dropdown items: `block px-4 py-2 text-[0.85rem] text-ssuew-black hover:text-primary hover:bg-ssuew-gray-100`
 - Dropdown animation: CSS `opacity-0 group-hover:opacity-100 translate-y-1 group-hover:translate-y-0 transition-all duration-200 pointer-events-none group-hover:pointer-events-auto`
-- "Strefa Działacza" button: pill shape `rounded-full bg-primary text-white px-5 py-2 text-sm font-semibold hover:bg-primary-dark transition-colors duration-300`
+- "Strefa Działacza" button: pill shape `rounded-full bg-primary text-white px-5 py-2 text-[0.85rem] font-bold hover:bg-primary-dark transition-colors duration-300`
 - Scroll threshold: `window.scrollY > 20` → add glassmorphism class
 
 ### Glassmorphism state (scrolled)
@@ -250,18 +274,18 @@ Before scroll: `bg-transparent` (no backdrop). Transition: `transition-all durat
 
 ### Mobile (max-768px)
 
-- Hamburger button: `w-10 h-10 flex flex-col gap-[5px] items-center justify-center p-2`
-- Three bars: `block w-6 h-[2px] bg-ssuew-black rounded-sm transition-all duration-300`
+- Hamburger button: `w-10 h-10 flex flex-col gap-1 items-center justify-center p-2`
+- Three bars: `block w-6 h-px bg-ssuew-black rounded-sm transition-all duration-300` (hairline indicator, not a spacing value)
 - Open state: top bar rotates 45deg, middle bar opacity-0, bottom bar rotates -45deg (X shape)
-- Mobile drawer: `position: fixed, top: 70px, left: 0, right: 0` — slides down from top
+- Mobile drawer: `position: fixed, top-[72px], left: 0, right: 0` — slides down from top
 - Drawer animation: Framer Motion `AnimatePresence` + `motion.div initial={{ height: 0, opacity: 0 }} animate={{ height: 'auto', opacity: 1 }} exit={{ height: 0, opacity: 0 }} transition={{ duration: 0.3, ease: 'easeInOut' }}`
 - Drawer background: `bg-white border-b border-ssuew-gray-200 shadow-[0_8px_30px_rgba(0,0,0,0.12)]`
 - Drawer padding: `px-6 py-6 flex flex-col gap-4`
-- Top-level links without children: `text-base font-medium text-ssuew-black py-2 border-b border-ssuew-gray-200`
+- Top-level links without children: `text-base font-bold text-ssuew-black py-2 border-b border-ssuew-gray-200`
 - Top-level links with children (accordion): chevron icon (lucide `ChevronDown`), rotates 180deg when open
-- Submenu items: `pl-4 text-sm text-ssuew-gray-600 py-1.5`
+- Submenu items: `pl-4 text-[0.85rem] text-ssuew-gray-600 py-2`
 - Submenu accordion: Framer Motion height animation, same pattern as drawer
-- "Strefa Działacza" in mobile drawer: `block w-full text-center rounded-full bg-primary text-white px-5 py-3 font-semibold mt-2`
+- "Strefa Działacza" in mobile drawer: `block w-full text-center rounded-full bg-primary text-white px-5 py-3 font-bold mt-2`
 - Body scroll lock when drawer open: `document.body.style.overflow = 'hidden'` / `'auto'`
 - Drawer closes on: route change (usePathname effect), Escape key, overlay click
 
@@ -296,18 +320,18 @@ Budynek J, pokój 9        [LinkedIn icon]
 
 ### Column headers
 
-`text-sm font-bold uppercase tracking-widest text-ssuew-gray-200 mb-4`
+`text-[0.85rem] font-bold uppercase tracking-widest text-ssuew-gray-200 mb-4`
 Exact tracking: `letter-spacing: 0.1em` — Tailwind `tracking-widest` = 0.1em. Matches Phase 1 `.footer-col h4`.
 
 ### Address column
 
-- Text: `text-white/60 text-sm leading-relaxed`
+- Text: `text-white/60 text-[0.85rem] leading-relaxed`
 - Three lines: ul. Kamienna 43 / 53-307 Wrocław / Budynek J, pokój 9
 
 ### Social column
 
 - Icon row: `flex gap-3 mt-0` (column header already has mb-4)
-- Each icon button: `w-[38px] h-[38px] rounded-full border border-white/20 flex items-center justify-center text-white/70 text-base transition-all duration-300 hover:bg-primary hover:border-primary hover:text-white`
+- Each icon button: `w-[40px] h-[40px] rounded-full border border-white/20 flex items-center justify-center text-white/70 text-base transition-all duration-300 hover:bg-primary hover:border-primary hover:text-white`
 - Icons: `FaTiktok`, `FaFacebook`, `FaLinkedin`, `FaInstagram` from `react-icons/fa`
 - Icon size: `text-base` (16px) — matches Phase 1 `font-size: 1rem`
 - Each icon wrapped in `<a>` with `aria-label` and `target="_blank" rel="noopener noreferrer"`
@@ -320,12 +344,12 @@ Social link URLs (exact):
 
 ### Contact column
 
-- Email: `<a href="mailto:kontakt@samorzad.ue.wroc.pl">` with class `text-primary hover:text-primary-dark text-sm transition-colors duration-300`
+- Email: `<a href="mailto:kontakt@samorzad.ue.wroc.pl">` with class `text-primary hover:text-primary-dark text-[0.85rem] transition-colors duration-300`
 
 ### Copyright bar
 
 - Border: `border-t border-white/10 pt-8`
-- Text: `text-center text-white/40 text-sm`
+- Text: `text-center text-white/40 text-[0.85rem]`
 - Copy: "© 2026 Samorząd Studentów UEW"
 
 ---
@@ -414,10 +438,10 @@ The following components are built in this phase. No content pages — only layo
 
 | Variant | Visual | Tailwind classes |
 |---|---|---|
-| `primary` | Blue fill, white text, pill | `bg-primary text-white rounded-full px-8 py-3.5 font-semibold text-[0.95rem] hover:bg-primary-dark hover:-translate-y-0.5 hover:shadow-brand-hover transition-all duration-300` |
-| `outline` | Blue border, blue text, pill | `border-2 border-primary text-primary bg-transparent rounded-full px-8 py-3.5 font-semibold text-[0.95rem] hover:bg-primary hover:text-white hover:-translate-y-0.5 transition-all duration-300` |
+| `primary` | Blue fill, white text, pill | `bg-primary text-white rounded-full px-8 py-3.5 font-bold text-base hover:bg-primary-dark hover:-translate-y-0.5 hover:shadow-brand-hover transition-all duration-300` |
+| `outline` | Blue border, blue text, pill | `border-2 border-primary text-primary bg-transparent rounded-full px-8 py-3.5 font-bold text-base hover:bg-primary hover:text-white hover:-translate-y-0.5 transition-all duration-300` |
 | `sm` (modifier) | Smaller padding | `px-5 py-2 text-[0.85rem]` |
-| `highlight` (navbar) | Primary fill, pill, compact | `bg-primary text-white rounded-full px-5 py-2 text-sm font-semibold hover:bg-primary-dark transition-colors duration-300` |
+| `highlight` (navbar) | Primary fill, pill, compact | `bg-primary text-white rounded-full px-5 py-2 text-[0.85rem] font-bold hover:bg-primary-dark transition-colors duration-300` |
 
 Focus ring (all buttons): `focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2`
 
@@ -451,18 +475,6 @@ Focus ring (all buttons): `focus:outline-none focus-visible:ring-2 focus-visible
 | Semantic nav | `<nav aria-label="Główna nawigacja">` |
 | Mobile drawer | `aria-hidden="true"` when closed; `role="dialog"` when open |
 | Skip link | `<a href="#main-content" className="sr-only focus:not-sr-only">Przejdź do treści</a>` in layout |
-
----
-
-## Design System
-
-| Property | Value |
-|----------|-------|
-| Tool | none — custom Tailwind config |
-| Preset | not applicable |
-| Component library | none |
-| Icon library | lucide-react + react-icons/fa |
-| Font | Inter (body) + Plus Jakarta Sans (display) |
 
 ---
 
@@ -500,3 +512,4 @@ No third-party component registries are used. All components are hand-authored. 
 | `REQUIREMENTS.md` | FOUND-02/03/04, DESIGN-01/02/03/04, QUAL-01/04 confirmed as Phase 2 scope |
 | `ROADMAP.md` | Phase 2 success criteria confirmed as design inputs |
 | User input | 0 questions asked — all decisions pre-populated from upstream artifacts |
+| UI checker revision | BLOCK 1: typography consolidated to 4 sizes / 2 weights. BLOCK 2: spacing exceptions corrected to multiples of 4. BLOCK 3: navbar mobile spacing violations corrected (gap-1, h-px with hairline justification, py-2). |
