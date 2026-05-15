@@ -16,7 +16,7 @@ Decimal phases appear between their surrounding integers in numeric order.
 - [x] **Phase 2: Next.js Foundation** - Init Next.js 14, design system, Navbar/Footer z prawdziwymi danymi, Framer Motion + Lenis (completed 2026-05-15)
 - [x] **Phase 3: Strona Główna + Strefa Studenta** - Hero, statystyki, wszystkie podstrony studenckie z pełną treścią (completed 2026-05-15)
 - [x] **Phase 4: Samorząd + Projekty + Partnerzy** - Zarząd, RUSS, Prezydium, 9 projektów, regulacje, partnerzy (completed 2026-05-15)
-- [ ] **Phase 5: Formularze + Strefa Działacza** - API routes, Google OAuth, lista obecności, AI chatbot, 404
+- [x] **Phase 5: Formularze + Strefa Działacza** - API routes, Google OAuth, lista obecności, AI chatbot, 404 (completed 2026-05-15)
 - [ ] **Phase 6: SEO + Accessibility + Deploy** - Lighthouse 90+, OG meta, next export → hosting uczelniany
 
 ## Phase Details
@@ -143,5 +143,5 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5 → 6
 | 2. Next.js Foundation | 1/3 | Complete    | 2026-05-15 |
 | 3. Strona Główna + Strefa Studenta | 1/6 | Complete    | 2026-05-15 |
 | 4. Samorząd + Projekty + Partnerzy | 0/7 | Complete    | 2026-05-15 |
-| 5. Formularze + Strefa Działacza | 0/4 | Not started | - |
+| 5. Formularze + Strefa Działacza | 0/4 | Complete    | 2026-05-15 |
 | 6. SEO + Accessibility + Deploy | 0/? | Not started | - |
