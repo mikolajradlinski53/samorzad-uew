@@ -112,7 +112,13 @@ Plans:
   5. Po zalogowaniu widoczny link do CRA (cra-system.vercel.app) + moduł listy obecności
   6. AI chatbot na stronie publicznej odpowiada na pytania o SSUEW (FAQ-style)
   7. Wejście na nieistniejący URL pokazuje własną stronę 404 z nawigacją powrotną
-**Plans**: TBD
+**Plans**: 4 plans
+
+Plans:
+- [ ] 05-01-PLAN.md — next.config.js conditional output, install packages (next-auth@beta, ai@^4.3.19, @ai-sdk/anthropic, resend), auth.ts + middleware.ts + NextAuth route handler (AUTH-01, AUTH-02)
+- [ ] 05-02-PLAN.md — /api/formularz Resend email route, /api/chat AI SDK v4 stream route, app/not-found.tsx, data/spotkania.ts (FORM-01, FORM-02, FORM-03, AI-01, PAGE-404, ATTEND-01)
+- [ ] 05-03-PLAN.md — ContactForm client component, /formularz page, wire wspolprace + rzecznik forms (FORM-01, FORM-02, FORM-03)
+- [ ] 05-04-PLAN.md — Strefa Działacza pages (landing, dashboard, lista-obecnosci), ChatWidget floating component + root layout mount (AUTH-01, AUTH-02, CRA-01, ATTEND-01, AI-01)
 
 ### Phase 6: SEO + Accessibility + Deploy
 **Goal**: Lighthouse 90+, OG meta tagi na wszystkich stronach, accessibility compliance, `next export` deployowany
@@ -137,5 +143,5 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5 → 6
 | 2. Next.js Foundation | 1/3 | Complete    | 2026-05-15 |
 | 3. Strona Główna + Strefa Studenta | 1/6 | Complete    | 2026-05-15 |
 | 4. Samorząd + Projekty + Partnerzy | 0/7 | Complete    | 2026-05-15 |
-| 5. Formularze + Strefa Działacza | 0/? | Not started | - |
+| 5. Formularze + Strefa Działacza | 0/4 | Not started | - |
 | 6. SEO + Accessibility + Deploy | 0/? | Not started | - |
