@@ -14,7 +14,7 @@
 
 ### Foundation (CSS / architektura)
 
-- [ ] **FOUND-01**: Wszystkie inline style wyciągnięte z HTML do `style.css` (hero `<style>` block, atrybuty `style=` na elementach logo)
+- [x] **FOUND-01**: Wszystkie inline style wyciągnięte z HTML do `style.css` (hero `<style>` block, atrybuty `style=` na elementach logo)
 - [ ] **FOUND-02**: AOS (Animate On Scroll) zintegrowany przez CDN — zamienia ręczny IntersectionObserver na `data-aos` atrybuty
 - [ ] **FOUND-03**: Lenis smooth scroll zintegrowany przez CDN — płynne przewijanie w stylu agencji
 - [ ] **FOUND-04**: Plus Jakarta Sans dodany jako font display dla nagłówków (obok Inter dla body)
@@ -81,7 +81,7 @@
 | BUG-02 | Phase 1 | Complete |
 | BUG-03 | Phase 1 | Complete |
 | BUG-04 | Phase 1 | Complete |
-| FOUND-01 | Phase 1 | Pending |
+| FOUND-01 | Phase 1 | Complete |
 | FOUND-02 | Phase 2 | Pending |
 | FOUND-03 | Phase 2 | Pending |
 | FOUND-04 | Phase 2 | Pending |

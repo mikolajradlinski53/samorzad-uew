@@ -12,7 +12,7 @@ An evolutionary redesign of a working vanilla HTML/CSS/JS website. The path runs
 
 Decimal phases appear between their surrounding integers in numeric order.
 
-- [ ] **Phase 1: Bug Fixes and CSS Foundation** - Repair three live production bugs and extract all inline styles, creating a clean baseline for redesign
+- [x] **Phase 1: Bug Fixes and CSS Foundation** - Repair three live production bugs and extract all inline styles, creating a clean baseline for redesign
 - [ ] **Phase 2: Design System and Visual Redesign** - Establish design tokens, integrate AOS/Lenis/Plus Jakarta Sans, and apply agency-style aesthetic across all pages
 - [ ] **Phase 3: New Content Sections and Aktualności** - Build dokumenty, komisje, 404, partnerzy, and full aktualności feature set
 - [ ] **Phase 4: Quality and Performance Audit** - Achieve Lighthouse 90+, full accessibility compliance, and confirmed mobile performance
@@ -33,7 +33,7 @@ Decimal phases appear between their surrounding integers in numeric order.
 Plans:
 - [x] 01-01-PLAN.md — Fix Netlify Forms integration, typewriter re-init on language switch, form success dismiss (BUG-01, BUG-03, BUG-04)
 - [x] 01-02-PLAN.md — Fix subpage navbar links to use index.html#section anchors (BUG-02)
-- [ ] 01-03-PLAN.md — Extract all inline styles to style.css, remove hero style block from head (FOUND-01)
+- [x] 01-03-PLAN.md — Extract all inline styles to style.css, remove hero style block from head (FOUND-01)
 
 ### Phase 2: Design System and Visual Redesign
 **Goal**: A shared CSS design system and component library exists, and the agency-style aesthetic — glassmorphism navbar, bold hero, smooth scroll, animated mobile menu — is live across all pages
@@ -78,7 +78,7 @@ Phases execute in numeric order: 1 → 2 → 3 → 4
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Bug Fixes and CSS Foundation | 2/3 | In Progress|  |
+| 1. Bug Fixes and CSS Foundation | 3/3 | Complete | 2026-05-15 |
 | 2. Design System and Visual Redesign | 0/? | Not started | - |
 | 3. New Content Sections and Aktualności | 0/? | Not started | - |
 | 4. Quality and Performance Audit | 0/? | Not started | - |
