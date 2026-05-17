@@ -157,3 +157,25 @@ Set all in: **Vercel Dashboard → Project → Settings → Environment Variable
 | `components/sections/ContactSection.tsx` | CSS var colors |
 | `app/(public)/page.tsx` | Remove StatsSection import |
 | `DEPLOY.md` | Add env vars setup section |
+
+---
+
+## Animation Level: 2 — Dynamic
+
+Confirmed in brainstorming session. Effects to implement:
+
+### Level 1 (base — included)
+- Animated shimmer gradient on primary CTA button
+- Staggered card entrance (scroll into view, 120ms delay between cards)
+- Animated underline on section `h2` titles (width 0→100% when section enters viewport)
+- Hover lift on cards (`translateY(-6px)` + `box-shadow`)
+
+### Level 2 (additions)
+- **Cursor spotlight** — radial gradient blob follows mouse inside HeroSection (CSS+JS, no library)
+- **3D card tilt** — `rotateX/rotateY` perspective transform on mousemove, reset on mouseleave
+- **Gradient border glow** — CSS `::before` pseudo-element with gradient border, opacity 0→1 on hover
+
+### NOT included (Level 3)
+- Film grain texture
+- Number glow effect
+- Typewriter cursor on title
