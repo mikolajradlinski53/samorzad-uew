@@ -8,6 +8,7 @@ import { AnimatePresence, motion } from 'motion/react'
 import { navItems } from '@/data/navigation'
 import { cn } from '@/lib/utils'
 import { LangToggle } from '@/components/layout/LangToggle'
+import { ThemeToggle } from '@/components/ui/ThemeToggle'
 
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false)
@@ -124,6 +125,7 @@ export function Navbar() {
               )
             )}
             <LangToggle />
+            <ThemeToggle />
           </div>
 
           {/* Hamburger button */}
@@ -208,8 +210,9 @@ export function Navbar() {
                     </Link>
                   )
                 )}
-                <div className="pt-2 border-t border-ssuew-gray-200">
+                <div className="pt-2 border-t border-ssuew-gray-200 flex items-center gap-3">
                   <LangToggle />
+                  <ThemeToggle />
                 </div>
               </div>
             </motion.div>
