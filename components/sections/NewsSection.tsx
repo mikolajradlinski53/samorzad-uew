@@ -1,6 +1,8 @@
+'use client'
 import Link from 'next/link'
 import { FadeUp } from '@/components/ui/FadeUp'
 import { TiltCard } from '@/components/ui/TiltCard'
+import { useT } from '@/lib/i18n'
 
 const TAG_COLORS: Record<string, { bg: string; color: string }> = {
   Ogłoszenie: { bg: 'rgba(200,100,255,0.12)', color: '#9b45d4' },
@@ -17,18 +19,18 @@ const news = [
 ]
 
 export function NewsSection() {
+  const { t } = useT()
   return (
     <section className="py-20 md:py-14" style={{ background: 'var(--bg-alt)' }}>
       <div className="max-w-brand mx-auto px-6">
         <FadeUp>
           <div className="text-center mb-12">
             <span className="inline-block text-[10px] font-bold tracking-[2px] uppercase text-primary bg-primary/10 rounded-full px-4 py-1.5 mb-3">
-              aktualności
+              {t.news_section_title}
             </span>
             <h2 className="font-display text-display-lg mb-2" style={{ color: 'var(--text)' }}>
-              Co słychać w SSUEW?
+              {t.news_section_subtitle}
             </h2>
-            <p className="text-sm" style={{ color: 'var(--text-muted)' }}>Bądź na bieżąco z życiem samorządu</p>
           </div>
         </FadeUp>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
@@ -56,7 +58,7 @@ export function NewsSection() {
                     {item.excerpt}
                   </p>
                   <Link href={item.slug} className="text-xs font-bold text-primary hover:underline">
-                    Czytaj więcej →
+                    {t.news_read_more} →
                   </Link>
                 </TiltCard>
               </FadeUp>
@@ -65,7 +67,7 @@ export function NewsSection() {
         </div>
         <div className="text-center mt-10">
           <Link href="#" className="text-primary font-bold hover:underline text-sm">
-            Wszystkie aktualności →
+            {t.news_view_all}
           </Link>
         </div>
       </div>

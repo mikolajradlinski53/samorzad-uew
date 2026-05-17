@@ -4,12 +4,7 @@ import Link from 'next/link'
 import { AnimatePresence, motion, useReducedMotion } from 'motion/react'
 import { FaTiktok, FaFacebook, FaLinkedinIn, FaInstagram } from 'react-icons/fa'
 import { socialLinks } from '@/data/social'
-
-const subtitles = [
-  'Działamy na rzecz studentów',
-  'Wspieramy Was w walce o prawa studenckie',
-  'Inspirujemy do podejmowania nowych inicjatyw',
-]
+import { useT } from '@/lib/i18n'
 
 const socialIcons: Record<string, React.ComponentType<{ size?: number }>> = {
   tiktok:    FaTiktok,
@@ -18,14 +13,16 @@ const socialIcons: Record<string, React.ComponentType<{ size?: number }>> = {
   instagram: FaInstagram,
 }
 
-const stats = [
-  { value: '6000+', label: 'Studentów' },
-  { value: '9',     label: 'Projektów / rok' },
-  { value: '30+',   label: 'Lat działalności' },
-  { value: '15+',   label: 'Partnerów' },
-]
-
 export function HeroSection() {
+  const { t } = useT()
+  const subtitles = [t.hero_sub_1, t.hero_sub_2, t.hero_sub_3]
+  const stats = [
+    { value: '6000+', label: t.hero_stat_students },
+    { value: '9',     label: t.hero_stat_projects },
+    { value: '30+',   label: t.hero_stat_years },
+    { value: '15+',   label: t.hero_stat_partners },
+  ]
+
   const [currentIndex, setCurrentIndex] = useState(0)
   const [mouse, setMouse] = useState({ x: 0, y: 0 })
   const [spotlight, setSpotlight] = useState(false)
@@ -35,7 +32,7 @@ export function HeroSection() {
     if (shouldReduce) return
     const id = setInterval(() => setCurrentIndex(i => (i + 1) % subtitles.length), 3000)
     return () => clearInterval(id)
-  }, [shouldReduce])
+  }, [shouldReduce, subtitles.length])
 
   function onMouseMove(e: React.MouseEvent<HTMLElement>) {
     const rect = e.currentTarget.getBoundingClientRect()
@@ -140,14 +137,14 @@ export function HeroSection() {
               animation: shouldReduce ? 'none' : 'shimmer-btn 3s ease-in-out infinite',
             }}
           >
-            Poznaj samorząd ↗
+            {t.hero_cta_primary}
           </Link>
           <Link
             href="/dla-studenta"
             className="inline-flex items-center justify-center font-bold rounded-full px-8 py-3.5 text-sm border-2 transition-all duration-200 hover:bg-primary hover:text-white hover:border-primary focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
             style={{ borderColor: 'var(--border)', color: 'var(--text)' }}
           >
-            Strefa Studenta
+            {t.hero_cta_secondary}
           </Link>
         </div>
 

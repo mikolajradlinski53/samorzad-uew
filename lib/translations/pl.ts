@@ -31,4 +31,19 @@ export const pl = {
   contact_cta_heading: 'Masz pytanie?',
   contact_cta_body: 'Chętnie odpowiemy. Wypełnij formularz kontaktowy.',
   contact_cta_btn: 'Wyślij wiadomość',
+
+  // About section
+  about_title: 'O nas',
+  about_body: 'Samorząd Studentów Uniwersytetu Ekonomicznego we Wrocławiu to reprezentacja wszystkich studentów UEW. Działamy na rzecz społeczności akademickiej, dbamy o interesy studentów, współtworzymy życie uczelni oraz inicjujemy projekty edukacyjne, społeczne i integracyjne. Jesteśmy łącznikiem między studentami a władzami uczelni i realnie wpływamy na to, jak studiuje się na UEW.',
+
+  // Hero section
+  hero_cta_primary: 'Poznaj samorząd ↗',
+  hero_cta_secondary: 'Strefa Studenta',
+  hero_stat_students: 'Studentów',
+  hero_stat_projects: 'Projektów / rok',
+  hero_stat_years: 'Lat działalności',
+  hero_stat_partners: 'Partnerów',
+  hero_sub_1: 'Działamy na rzecz studentów',
+  hero_sub_2: 'Wspieramy Was w walce o prawa studenckie',
+  hero_sub_3: 'Inspirujemy do podejmowania nowych inicjatyw',
 }
