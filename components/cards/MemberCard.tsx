@@ -12,7 +12,7 @@ interface MemberCardProps {
 export function MemberCard({ initials, name, role, email, description, className }: MemberCardProps) {
   return (
     <div
-      className={cn('flex flex-col sm:flex-row items-start gap-6 p-8 rounded-brand border shadow-brand transition-colors duration-200 hover:border-primary/30', className)}
+      className={cn('flex flex-col sm:flex-row items-start gap-6 p-8 shadow-brand transition-colors duration-200 hover:border-primary/30', className)}
       style={{ background: 'var(--bg-card)', borderColor: 'var(--border)' }}
     >
       <div className="shrink-0 w-20 h-20 rounded-full bg-primary text-white flex items-center justify-center font-display text-display-xl font-bold">

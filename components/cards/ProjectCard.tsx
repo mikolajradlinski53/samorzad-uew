@@ -10,7 +10,7 @@ export interface ProjectCardProps {
 export function ProjectCard({ title, tag, description, className }: ProjectCardProps) {
   return (
     <div
-      className={cn('rounded-2xl border p-8 transition-colors duration-200 hover:border-primary/40', className)}
+      className={cn('p-8 transition-colors duration-200 hover:border-primary/40', className)}
       style={{ background: 'var(--bg-card)', borderColor: 'var(--border)' }}
     >
       <span className="inline-block text-[0.85rem] font-bold text-primary bg-primary/10 px-3 py-1 rounded-full">

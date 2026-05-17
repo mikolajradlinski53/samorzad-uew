@@ -24,7 +24,10 @@ export function TeamPreview() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {prezydium.map((member, i) => (
             <FadeUp key={member.email} delay={i * 0.1}>
-              <TiltCard>
+              <TiltCard
+                className="rounded-brand border"
+                style={{ borderColor: 'var(--border)' }}
+              >
                 <MemberCard
                   initials={member.initials}
                   name={member.name}

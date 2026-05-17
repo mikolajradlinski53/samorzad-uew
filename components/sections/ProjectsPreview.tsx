@@ -25,7 +25,10 @@ export function ProjectsPreview() {
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
           {preview.map((projekt, i) => (
             <FadeUp key={projekt.title} delay={i * 0.1}>
-              <TiltCard>
+              <TiltCard
+                className="rounded-2xl border"
+                style={{ borderColor: 'var(--border)' }}
+              >
                 <ProjectCard title={projekt.title} tag={projekt.tag} description={projekt.description} />
               </TiltCard>
             </FadeUp>
