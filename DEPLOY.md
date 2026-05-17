@@ -1,5 +1,43 @@
 # Deploy Guide — Samorząd Studentów UEW
 
+## 0. Zmienne środowiskowe — szybki setup
+
+Wszystkie zmienne ustawiamy w **Vercel Dashboard → Project → Settings → Environment Variables**.
+
+### AUTH_SECRET
+
+```bash
+node -e "console.log(require('crypto').randomBytes(32).toString('base64'))"
+```
+
+Skopiuj wynik i wklej jako wartość `AUTH_SECRET`.
+
+### Google OAuth — AUTH_GOOGLE_ID + AUTH_GOOGLE_SECRET
+
+1. Otwórz [console.cloud.google.com](https://console.cloud.google.com)
+2. Utwórz projekt → **APIs & Services → Credentials → + Create Credentials → OAuth 2.0 Client ID**
+3. Application type: **Web application**
+4. Authorized redirect URIs — dodaj:
+   - `http://localhost:3000/api/auth/callback/google`
+   - `https://<twoja-domena>.vercel.app/api/auth/callback/google`
+5. Skopiuj **Client ID** → `AUTH_GOOGLE_ID`
+6. Skopiuj **Client Secret** → `AUTH_GOOGLE_SECRET`
+
+### Resend — RESEND_API_KEY + RESEND_FROM_EMAIL
+
+1. Załóż konto na [resend.com](https://resend.com)
+2. **API Keys → + Create API Key** → skopiuj klucz → `RESEND_API_KEY`
+3. **Domains → Add domain** → zweryfikuj swoją domenę
+4. Ustaw `RESEND_FROM_EMAIL` np. `noreply@samorzad.ue.wroc.pl`
+   > Jeśli domena nie jest jeszcze zweryfikowana, użyj tymczasowo `onboarding@resend.dev` (limit 1 email/dzień)
+
+### Anthropic — ANTHROPIC_API_KEY
+
+1. Otwórz [console.anthropic.com](https://console.anthropic.com)
+2. **API Keys → + Create Key** → skopiuj klucz → `ANTHROPIC_API_KEY`
+
+---
+
 ## 1. Vercel (Primary — Live Site)
 
 Vercel jest podłączony do GitHub `main` branch i deployuje automatycznie po każdym pushu.
