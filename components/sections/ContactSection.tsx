@@ -3,36 +3,48 @@ import { contactInfo } from '@/data/contact'
 
 export function ContactSection() {
   return (
-    <section className="py-20 md:py-14 bg-white">
+    <section className="py-20 md:py-14" style={{ background: 'var(--bg-section)' }}>
       <div className="max-w-brand mx-auto px-6">
         <div className="text-center mb-12">
-          <h2 className="font-display text-display-lg text-ssuew-black mb-4">Kontakt</h2>
-          <p className="text-base text-ssuew-gray-600 max-w-2xl mx-auto">Masz pytanie lub propozycję? Napisz do nas.</p>
+          <span className="inline-block text-[10px] font-bold tracking-[2px] uppercase text-primary bg-primary/10 rounded-full px-4 py-1.5 mb-3">
+            kontakt
+          </span>
+          <h2 className="font-display text-display-lg mb-2" style={{ color: 'var(--text)' }}>
+            Skontaktuj się z nami
+          </h2>
+          <p className="text-sm" style={{ color: 'var(--text-muted)' }}>
+            Masz pytanie lub propozycję? Napisz do nas.
+          </p>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
-          {/* Left: address + email */}
-          <div>
-            <h3 className="font-bold text-base text-ssuew-black mb-2">Adres</h3>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch max-w-3xl mx-auto">
+          <div
+            className="rounded-2xl border p-8"
+            style={{ background: 'var(--bg-card)', borderColor: 'var(--border)' }}
+          >
+            <h3 className="font-bold text-base mb-2" style={{ color: 'var(--text)' }}>Adres</h3>
             {contactInfo.addressLines.map((line) => (
-              <p key={line} className="text-[0.85rem] text-ssuew-gray-600">{line}</p>
+              <p key={line} className="text-sm" style={{ color: 'var(--text-muted)' }}>{line}</p>
             ))}
-            <h3 className="font-bold text-base text-ssuew-black mt-6 mb-2">Email</h3>
+            <h3 className="font-bold text-base mt-6 mb-2" style={{ color: 'var(--text)' }}>Email</h3>
             <a
               href={`mailto:${contactInfo.email}`}
-              className="text-[0.85rem] text-primary hover:underline"
+              className="text-sm text-primary hover:underline"
             >
               {contactInfo.email}
             </a>
           </div>
-          {/* Right: CTA card */}
-          <div className="bg-primary-light rounded-brand p-8 flex flex-col gap-4">
-            <h3 className="font-display text-display-lg text-ssuew-black">Masz pytanie?</h3>
-            <p className="text-[0.85rem] text-ssuew-gray-600">Chętnie odpowiemy. Wypełnij formularz kontaktowy.</p>
+          <div className="rounded-2xl p-8 flex flex-col justify-between" style={{ background: 'linear-gradient(135deg, #3BAEFF, #1A8FE3)' }}>
+            <div>
+              <h3 className="font-display text-display-lg text-white mb-3">Masz pytanie?</h3>
+              <p className="text-sm text-white/80 leading-relaxed mb-6">
+                Napisz do nas przez formularz — odpiszemy tak szybko jak to możliwe.
+              </p>
+            </div>
             <Link
               href="/formularz"
-              className="inline-flex items-center justify-center bg-primary text-white rounded-full px-8 py-3.5 font-bold hover:bg-primary-dark transition-colors duration-300 text-[0.85rem]"
+              className="inline-flex items-center justify-center font-bold rounded-full px-6 py-3 text-sm bg-white text-primary hover:bg-white/90 transition-colors duration-200 self-start"
             >
-              Wyślij wiadomość
+              Wyślij wiadomość ↗
             </Link>
           </div>
         </div>

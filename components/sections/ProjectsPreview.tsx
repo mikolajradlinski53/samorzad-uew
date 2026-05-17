@@ -6,12 +6,21 @@ import { FadeUp } from '@/components/ui/FadeUp'
 export function ProjectsPreview() {
   const preview = projekty.slice(0, 4)
   return (
-    <section className="py-20 md:py-14 bg-white">
+    <section className="py-20 md:py-14" style={{ background: 'var(--bg-section)' }}>
       <div className="max-w-brand mx-auto px-6">
-        <div className="text-center mb-12">
-          <h2 className="font-display text-display-lg text-ssuew-black mb-4">Nasze Projekty</h2>
-          <p className="text-base text-ssuew-gray-600 max-w-2xl mx-auto">Inicjatywy, które tworzą społeczność akademicką</p>
-        </div>
+        <FadeUp>
+          <div className="text-center mb-12">
+            <span className="inline-block text-[10px] font-bold tracking-[2px] uppercase text-primary bg-primary/10 rounded-full px-4 py-1.5 mb-3">
+              nasze projekty
+            </span>
+            <h2 className="font-display text-display-lg mb-2" style={{ color: 'var(--text)' }}>
+              Co tworzymy?
+            </h2>
+            <p className="text-sm" style={{ color: 'var(--text-muted)' }}>
+              Inicjatywy, które tworzą społeczność akademicką
+            </p>
+          </div>
+        </FadeUp>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
           {preview.map((projekt, i) => (
             <FadeUp key={projekt.title} delay={i * 0.1}>
@@ -20,7 +29,7 @@ export function ProjectsPreview() {
           ))}
         </div>
         <div className="text-center mt-10">
-          <Link href="/nasze-projekty" className="text-primary font-bold hover:underline">
+          <Link href="/nasze-projekty" className="text-primary font-bold hover:underline text-sm">
             Wszystkie projekty →
           </Link>
         </div>
