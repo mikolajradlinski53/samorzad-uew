@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import { FadeUp } from '@/components/ui/FadeUp'
+import { TiltCard } from '@/components/ui/TiltCard'
 
 const TAG_COLORS: Record<string, { bg: string; color: string }> = {
   Ogłoszenie: { bg: 'rgba(200,100,255,0.12)', color: '#9b45d4' },
@@ -35,8 +36,8 @@ export function NewsSection() {
             const tagColor = TAG_COLORS[item.tag] ?? TAG_COLORS['Informacja']
             return (
               <FadeUp key={item.title} delay={i * 0.1}>
-                <article
-                  className="rounded-2xl border p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-brand-hover"
+                <TiltCard
+                  className="rounded-2xl border p-6"
                   style={{ background: 'var(--bg-card)', borderColor: 'var(--border)' }}
                 >
                   <div className="flex items-center gap-3 mb-4">
@@ -57,7 +58,7 @@ export function NewsSection() {
                   <Link href={item.slug} className="text-xs font-bold text-primary hover:underline">
                     Czytaj więcej →
                   </Link>
-                </article>
+                </TiltCard>
               </FadeUp>
             )
           })}

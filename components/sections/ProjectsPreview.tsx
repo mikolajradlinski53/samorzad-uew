@@ -2,6 +2,7 @@ import Link from 'next/link'
 import { projekty } from '@/data/projekty'
 import { ProjectCard } from '@/components/cards/ProjectCard'
 import { FadeUp } from '@/components/ui/FadeUp'
+import { TiltCard } from '@/components/ui/TiltCard'
 
 export function ProjectsPreview() {
   const preview = projekty.slice(0, 4)
@@ -24,7 +25,9 @@ export function ProjectsPreview() {
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
           {preview.map((projekt, i) => (
             <FadeUp key={projekt.title} delay={i * 0.1}>
-              <ProjectCard title={projekt.title} tag={projekt.tag} description={projekt.description} />
+              <TiltCard>
+                <ProjectCard title={projekt.title} tag={projekt.tag} description={projekt.description} />
+              </TiltCard>
             </FadeUp>
           ))}
         </div>

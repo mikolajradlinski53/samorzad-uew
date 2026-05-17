@@ -2,6 +2,7 @@ import Link from 'next/link'
 import { prezydium } from '@/data/zarzad'
 import { MemberCard } from '@/components/cards/MemberCard'
 import { FadeUp } from '@/components/ui/FadeUp'
+import { TiltCard } from '@/components/ui/TiltCard'
 
 export function TeamPreview() {
   return (
@@ -23,12 +24,14 @@ export function TeamPreview() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {prezydium.map((member, i) => (
             <FadeUp key={member.email} delay={i * 0.1}>
-              <MemberCard
-                initials={member.initials}
-                name={member.name}
-                role={member.role}
-                email={member.email}
-              />
+              <TiltCard>
+                <MemberCard
+                  initials={member.initials}
+                  name={member.name}
+                  role={member.role}
+                  email={member.email}
+                />
+              </TiltCard>
             </FadeUp>
           ))}
         </div>
