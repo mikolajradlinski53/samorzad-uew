@@ -53,9 +53,10 @@ export function Navbar() {
         className={cn(
           'fixed top-0 left-0 right-0 z-50 transition-all duration-300',
           scrolled
-            ? 'backdrop-blur-md bg-white/80 shadow-[0_2px_20px_rgba(0,0,0,0.08)]'
+            ? 'backdrop-blur-md shadow-[0_2px_20px_rgba(0,0,0,0.08)]'
             : 'bg-transparent'
         )}
+        style={scrolled ? { background: 'color-mix(in srgb, var(--bg-page) 85%, transparent)' } : undefined}
       >
         <div className="max-w-[1200px] mx-auto px-6 h-[72px] flex items-center justify-between">
           {/* Logo + wordmark */}
@@ -70,7 +71,7 @@ export function Navbar() {
               height={40}
               priority
             />
-            <span className="font-sans font-bold text-base text-ssuew-black">Samorząd UEW</span>
+            <span className="font-sans font-bold text-base" style={{ color: 'var(--text)' }}>Samorząd UEW</span>
           </Link>
 
           {/* Desktop nav */}
@@ -88,21 +89,23 @@ export function Navbar() {
                 <div key={item.href} className="relative group">
                   <Link
                     href={item.href}
+                    style={{ color: isActive(item.href) ? undefined : 'var(--text)' }}
                     className={cn(
-                      'font-sans text-base text-ssuew-black hover:text-primary transition-colors duration-300 flex items-center gap-1 py-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 rounded focus-visible:text-primary',
+                      'font-sans text-base hover:text-primary transition-colors duration-300 flex items-center gap-1 py-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 rounded focus-visible:text-primary',
                       isActive(item.href) && 'text-primary font-bold'
                     )}
                   >
                     {item.label}
                     <ChevronDown size={14} className="transition-transform duration-200 group-hover:rotate-180" />
                   </Link>
-                  <div className="absolute top-full left-0 opacity-0 group-hover:opacity-100 translate-y-1 group-hover:translate-y-0 transition-all duration-200 pointer-events-none group-hover:pointer-events-auto bg-white shadow-[0_4px_24px_rgba(59,174,255,0.12)] rounded-lg min-w-48 py-2 border border-ssuew-gray-200">
+                  <div className="absolute top-full left-0 opacity-0 group-hover:opacity-100 translate-y-1 group-hover:translate-y-0 transition-all duration-200 pointer-events-none group-hover:pointer-events-auto shadow-[0_4px_24px_rgba(59,174,255,0.12)] rounded-lg min-w-48 py-2" style={{ background: 'var(--bg-card)', borderWidth: '1px', borderStyle: 'solid', borderColor: 'var(--border)' }}>
                     {item.children.map((child) => (
                       <Link
                         key={child.href}
                         href={child.href}
+                        style={{ color: isActive(child.href) ? undefined : 'var(--text)' }}
                         className={cn(
-                          'block px-4 py-2 text-[0.85rem] text-ssuew-black hover:text-primary hover:bg-ssuew-gray-100 transition-colors duration-200',
+                          'block px-4 py-2 text-[0.85rem] hover:text-primary hover:bg-[var(--bg-page)] transition-colors duration-200',
                           isActive(child.href) && 'text-primary font-bold'
                         )}
                       >
@@ -115,8 +118,9 @@ export function Navbar() {
                 <Link
                   key={item.href}
                   href={item.href}
+                  style={{ color: isActive(item.href) ? undefined : 'var(--text)' }}
                   className={cn(
-                    'font-sans text-base text-ssuew-black hover:text-primary transition-colors duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 rounded focus-visible:text-primary',
+                    'font-sans text-base hover:text-primary transition-colors duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 rounded focus-visible:text-primary',
                     isActive(item.href) && 'text-primary font-bold'
                   )}
                 >
@@ -135,9 +139,9 @@ export function Navbar() {
             aria-expanded={mobileOpen}
             onClick={() => setMobileOpen((o) => !o)}
           >
-            <span className={cn('block w-6 h-px bg-ssuew-black rounded-sm transition-all duration-300', mobileOpen && 'rotate-45 translate-y-[5px]')} />
-            <span className={cn('block w-6 h-px bg-ssuew-black rounded-sm transition-all duration-300', mobileOpen && 'opacity-0')} />
-            <span className={cn('block w-6 h-px bg-ssuew-black rounded-sm transition-all duration-300', mobileOpen && '-rotate-45 -translate-y-[5px]')} />
+            <span className={cn('block w-6 h-px rounded-sm transition-all duration-300', mobileOpen && 'rotate-45 translate-y-[5px]')} style={{ background: 'var(--text)' }} />
+            <span className={cn('block w-6 h-px rounded-sm transition-all duration-300', mobileOpen && 'opacity-0')} style={{ background: 'var(--text)' }} />
+            <span className={cn('block w-6 h-px rounded-sm transition-all duration-300', mobileOpen && '-rotate-45 -translate-y-[5px]')} style={{ background: 'var(--text)' }} />
           </button>
         </div>
 
@@ -151,7 +155,8 @@ export function Navbar() {
               animate={{ height: 'auto', opacity: 1 }}
               exit={{ height: 0, opacity: 0 }}
               transition={{ duration: 0.3, ease: 'easeInOut' }}
-              className="md:hidden overflow-hidden bg-white border-b border-ssuew-gray-200 shadow-[0_8px_30px_rgba(0,0,0,0.12)]"
+              className="md:hidden overflow-hidden shadow-[0_8px_30px_rgba(0,0,0,0.12)]"
+              style={{ background: 'var(--bg-page)', borderBottom: '1px solid var(--border)' }}
             >
               <div className="px-6 py-6 flex flex-col gap-4">
                 {navItems.map((item) =>
@@ -164,9 +169,10 @@ export function Navbar() {
                       {item.label}
                     </Link>
                   ) : item.children ? (
-                    <div key={item.href} className="border-b border-ssuew-gray-200">
+                    <div key={item.href} style={{ borderBottom: '1px solid var(--border)' }}>
                       <button
-                        className="w-full flex items-center justify-between py-2 text-base font-bold text-ssuew-black focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 rounded"
+                        style={{ color: 'var(--text)' }}
+                        className="w-full flex items-center justify-between py-2 text-base font-bold focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 rounded"
                         onClick={() => setOpenSubmenu((prev) => prev === item.label ? null : item.label)}
                         aria-expanded={openSubmenu === item.label}
                       >
@@ -190,7 +196,8 @@ export function Navbar() {
                                 <Link
                                   key={child.href}
                                   href={child.href}
-                                  className="pl-4 text-[0.85rem] text-ssuew-gray-600 py-2 hover:text-primary transition-colors duration-200"
+                                  style={{ color: 'var(--text-muted)' }}
+                                  className="pl-4 text-[0.85rem] py-2 hover:text-primary transition-colors duration-200"
                                 >
                                   {child.label}
                                 </Link>
@@ -204,13 +211,14 @@ export function Navbar() {
                     <Link
                       key={item.href}
                       href={item.href}
-                      className="text-base font-bold text-ssuew-black py-2 border-b border-ssuew-gray-200 block hover:text-primary transition-colors duration-300"
+                      style={{ color: 'var(--text)', borderBottom: '1px solid var(--border)' }}
+                      className="text-base font-bold py-2 block hover:text-primary transition-colors duration-300"
                     >
                       {item.label}
                     </Link>
                   )
                 )}
-                <div className="pt-2 border-t border-ssuew-gray-200 flex items-center gap-3">
+                <div className="pt-2 flex items-center gap-3" style={{ borderTop: '1px solid var(--border)' }}>
                   <LangToggle />
                   <ThemeToggle />
                 </div>

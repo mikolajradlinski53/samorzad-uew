@@ -40,6 +40,13 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="pl" className={`${inter.variable} ${jakarta.variable}`}>
+      <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(function(){try{var t=localStorage.getItem('theme');document.documentElement.setAttribute('data-theme',t==='light'?'light':'dark')}catch(e){}})()`
+          }}
+        />
+      </head>
       <body className="font-sans antialiased" style={{ background: 'var(--bg-page)', color: 'var(--text)' }}>
         <ThemeProvider>
           <LangProvider>
