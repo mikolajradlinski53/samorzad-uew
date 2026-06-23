@@ -20,42 +20,43 @@ import { LanguageSwitcher } from "./LanguageSwitcher";
 
 const BASE = "https://samorzad.ue.wroc.pl";
 
-const dlaStudenta: NavChild[] = [
-  { label: "Strefa studenta", href: "/dla-studenta" },
-  { label: "Prawa studenta", href: "/prawa-studenta" },
-  { label: "Stypendia", href: "/stypendia" },
-  { label: "Wsparcie i świadczenia", href: "/wsparcie-materialne-i-swiadczenia" },
-  { label: "Prawo dla studenta", href: "/prawo-dla-studenta" },
-  { label: "Infopacki", href: "/infopacki" },
-  { label: "Rzecznik Praw Studenta", href: "/rzecznik-praw-studenta" },
-  { label: "Mapa kampusu", href: "/mapa-kampusu" },
-  { label: "Pomoc psychologiczna", href: "/pomoc-psychologiczna" },
-];
-
-const samorzad: NavChild[] = [
-  { label: "O nas", href: "/#o-nas" },
-  { label: "Nasza działalność", href: "/nasza-dzialalnosc" },
-  { label: "Struktura Samorządu", href: "/struktura-samorzadu" },
-  { label: "Przewodniczący i Wiceprzewodniczący", href: "/przewodniczacy-i-wiceprzewodniczacy" },
-  { label: "Rada Uczelniana (RUSS)", href: "/rada-uczelniana-samorzadu-studentow" },
-  { label: "Studencka Komisja Wyborcza", href: "/studencka-komisja-wyborcza" },
-  { label: "Regulacje wewnętrzne", href: "/regulacje-wewnetrzne" },
-  { label: "Zarządzenia Przewodniczącej", href: "/zarzadzenia-przewodniczacego" },
-  { label: "Nasze projekty", href: "/nasze-projekty" },
-];
-
-const wspolpraca: NavChild[] = [
-  { label: "Partnerzy", href: "/partnerzy" },
-  { label: "Współpracuj z nami", href: "/wspolpracuj-z-nami" },
-];
-
-const directLinks = [{ label: "Kontakt", href: "/kontakt" }];
-
 export function Nav() {
   const { setTheme, resolvedTheme } = useTheme();
   const pathname = usePathname();
   const t = useTranslations("nav");
   const ta = useTranslations("ui.aria");
+  const tm = useTranslations("navMenu");
+
+  const dlaStudenta: NavChild[] = [
+    { label: tm("strefa"), href: "/dla-studenta" },
+    { label: tm("prawa"), href: "/prawa-studenta" },
+    { label: tm("stypendia"), href: "/stypendia" },
+    { label: tm("wsparcie"), href: "/wsparcie-materialne-i-swiadczenia" },
+    { label: tm("prawo"), href: "/prawo-dla-studenta" },
+    { label: tm("infopacki"), href: "/infopacki" },
+    { label: tm("rzecznik"), href: "/rzecznik-praw-studenta" },
+    { label: tm("mapa"), href: "/mapa-kampusu" },
+    { label: tm("pomoc"), href: "/pomoc-psychologiczna" },
+  ];
+
+  const samorzad: NavChild[] = [
+    { label: tm("onas"), href: "/#o-nas" },
+    { label: tm("dzialalnosc"), href: "/nasza-dzialalnosc" },
+    { label: tm("struktura"), href: "/struktura-samorzadu" },
+    { label: tm("przewodniczacy"), href: "/przewodniczacy-i-wiceprzewodniczacy" },
+    { label: tm("russ"), href: "/rada-uczelniana-samorzadu-studentow" },
+    { label: tm("skw"), href: "/studencka-komisja-wyborcza" },
+    { label: tm("regulacje"), href: "/regulacje-wewnetrzne" },
+    { label: tm("zarzadzenia"), href: "/zarzadzenia-przewodniczacego" },
+    { label: tm("projekty"), href: "/nasze-projekty" },
+  ];
+
+  const wspolpraca: NavChild[] = [
+    { label: tm("partnerzy"), href: "/partnerzy" },
+    { label: tm("wspolpracuj"), href: "/wspolpracuj-z-nami" },
+  ];
+
+  const directLinks = [{ label: t("kontakt"), href: "/kontakt" }];
   const [mounted, setMounted] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -229,7 +230,7 @@ export function Nav() {
               onClick={toggleTheme}
               className="flex h-10 w-10 items-center justify-center rounded-lg text-ink-secondary transition-colors hover:bg-bg-elevated hover:text-ink-primary"
               aria-label={
-                resolvedTheme === "dark" ? "Włącz tryb jasny" : "Włącz tryb ciemny"
+                resolvedTheme === "dark" ? ta("themeLight") : ta("themeDark")
               }
             >
               {resolvedTheme === "dark" ? (
@@ -278,7 +279,7 @@ export function Nav() {
             transition={{ duration: 0.2, ease: [0.16, 1, 0.3, 1] }}
             className="max-h-[calc(100dvh-72px)] overflow-y-auto border-t border-border-subtle bg-bg-surface px-6 pb-8 pt-4 md:hidden"
           >
-            <nav aria-label="Nawigacja mobilna">
+            <nav aria-label={ta("mobileNav")}>
               <ul className="flex flex-col gap-1">
                 {mobileGroups.map((group) => {
                   const isOpen = mobileSection === group.label;

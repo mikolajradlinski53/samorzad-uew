@@ -781,8 +781,33 @@
       "brandAlt": "Samorząd Studentów Uniwersytetu Ekonomicznego we Wrocławiu",
       "pageHeader": "Nagłówek strony",
       "life": "Życie studenckie",
-      "trust": "Wiarygodność"
+      "trust": "Wiarygodność",
+      "themeLight": "Włącz tryb jasny",
+      "themeDark": "Włącz tryb ciemny",
+      "mobileNav": "Nawigacja mobilna"
     }
+  },
+  "navMenu": {
+    "strefa": "Strefa studenta",
+    "prawa": "Prawa studenta",
+    "stypendia": "Stypendia",
+    "wsparcie": "Wsparcie i świadczenia",
+    "prawo": "Prawo dla studenta",
+    "infopacki": "Infopacki",
+    "rzecznik": "Rzecznik Praw Studenta",
+    "mapa": "Mapa kampusu",
+    "pomoc": "Pomoc psychologiczna",
+    "onas": "O nas",
+    "dzialalnosc": "Nasza działalność",
+    "struktura": "Struktura Samorządu",
+    "przewodniczacy": "Przewodniczący i Wiceprzewodniczący",
+    "russ": "Rada Uczelniana (RUSS)",
+    "skw": "Studencka Komisja Wyborcza",
+    "regulacje": "Regulacje wewnętrzne",
+    "zarzadzenia": "Zarządzenia Przewodniczącej",
+    "projekty": "Nasze projekty",
+    "partnerzy": "Partnerzy",
+    "wspolpracuj": "Współpracuj z nami"
   },
   "szukaj": {
     "metaTitle": "Wyszukiwarka",

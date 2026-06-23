@@ -130,7 +130,7 @@ export function Footer() {
                   <li key={social.label}>
                     <a
                       href={social.href}
-                      aria-label={`${social.label} (otwiera się w nowej karcie)`}
+                      aria-label={`${social.label} (${t("common.newTab")})`}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="flex h-11 w-11 items-center justify-center rounded-lg text-ink-secondary transition-colors hover:bg-bg-elevated hover:text-accent"

@@ -781,8 +781,33 @@
       "brandAlt": "Student Government of Wrocław University of Economics and Business",
       "pageHeader": "Page header",
       "life": "Student life",
-      "trust": "Trust"
+      "trust": "Trust",
+      "themeLight": "Switch to light mode",
+      "themeDark": "Switch to dark mode",
+      "mobileNav": "Mobile navigation"
     }
+  },
+  "navMenu": {
+    "strefa": "Student zone",
+    "prawa": "Student rights",
+    "stypendia": "Scholarships",
+    "wsparcie": "Support & benefits",
+    "prawo": "Law for students",
+    "infopacki": "Infopacks",
+    "rzecznik": "Student Ombudsman",
+    "mapa": "Campus map",
+    "pomoc": "Psychological support",
+    "onas": "About us",
+    "dzialalnosc": "Our activities",
+    "struktura": "Government structure",
+    "przewodniczacy": "Chair & Vice-chairs",
+    "russ": "University Council (RUSS)",
+    "skw": "Student Electoral Committee",
+    "regulacje": "Internal regulations",
+    "zarzadzenia": "Chair’s orders",
+    "projekty": "Our projects",
+    "partnerzy": "Partners",
+    "wspolpracuj": "Work with us"
   },
   "szukaj": {
     "metaTitle": "Search",

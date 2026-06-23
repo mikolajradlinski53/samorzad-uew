@@ -25,17 +25,15 @@ interface Resource {
   internal?: boolean;
 }
 
-const BASE = "https://samorzad.ue.wroc.pl";
-
 const resources: Resource[] = [
   { key: "prawa", href: "/prawa-studenta", icon: Scales, internal: true },
   { key: "stypendia", href: "/stypendia", icon: GraduationCap, internal: true },
   { key: "wsparcie", href: "/wsparcie-materialne-i-swiadczenia", icon: HandCoins, internal: true },
-  { key: "mapa", href: `${BASE}/mapa-kampusu`, icon: MapTrifold },
-  { key: "infopacki", href: `${BASE}/infopacki`, icon: Package },
-  { key: "pomoc", href: `${BASE}/pomoc-psychologiczna`, icon: FirstAidKit },
-  { key: "rzecznik", href: `${BASE}/rzecznik-praw-studenta`, icon: Megaphone },
-  { key: "prawo", href: `${BASE}/prawo-dla-studenta`, icon: BookOpen },
+  { key: "mapa", href: "/mapa-kampusu", icon: MapTrifold, internal: true },
+  { key: "infopacki", href: "/infopacki", icon: Package, internal: true },
+  { key: "pomoc", href: "/pomoc-psychologiczna", icon: FirstAidKit, internal: true },
+  { key: "rzecznik", href: "/rzecznik-praw-studenta", icon: Megaphone, internal: true },
+  { key: "prawo", href: "/prawo-dla-studenta", icon: BookOpen, internal: true },
 ];
 
 export function Resources() {
