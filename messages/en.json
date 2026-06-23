@@ -333,5 +333,86 @@
     "membersHeading": "Council members",
     "memberRole": "University Council",
     "footnote": "The composition may change during the term."
+  },
+  "wladze": {
+    "metaTitle": "University authorities",
+    "metaDesc": "The Rector and Vice-Rectors of Wrocław University of Economics and Business — who leads the University and oversees student affairs, education, research and finance.",
+    "ogLabel": "Student zone",
+    "heroEyebrow": "Student zone",
+    "heroTitle": "University authorities",
+    "heroLead": "The Rector and Vice-Rectors of Wrocław University of Economics and Business — the people who lead the University and oversee its most important areas.",
+    "crumbStudent": "Student zone",
+    "eyebrow": "University authorities",
+    "heading": "Who leads the University",
+    "rektorRole": "His Magnificence the Rector of Wrocław University of Economics and Business",
+    "roles": {
+      "student": "Vice-Rector for Student Affairs and Education",
+      "finance": "Vice-Rector for Finance",
+      "intl": "Vice-Rector for International Cooperation",
+      "science": "Vice-Rector for Research"
+    }
+  },
+  "dziekani": {
+    "metaTitle": "Dean & vice-deans",
+    "metaDesc": "The dean’s office for student affairs at Wrocław University of Economics and Business — the dean and vice-deans assigned to individual fields of study.",
+    "ogLabel": "Student zone",
+    "heroEyebrow": "Student zone",
+    "heroTitle": "Dean & vice-deans",
+    "heroLead": "The dean’s office for student affairs. Matters such as an individual study plan, leave or appeals are handled by the vice-dean assigned to your field of study.",
+    "crumbStudent": "Student zone",
+    "eyebrow": "Dean’s office",
+    "heading": "Find the vice-dean for your field of study",
+    "intro": "Student matters — from an individual study plan to appeals — are handled by vice-deans assigned to particular fields of study. Check who is responsible for yours.",
+    "dziekanRole": "Dean for Student Affairs",
+    "prodziekanRole": "Vice-Dean for Student Affairs",
+    "kierunki": {
+      "turowska": ["Finance and Accounting", "Accounting and Controlling", "Accounting and Taxes", "Management"],
+      "werenska": ["Controlling", "E-business", "Business Informatics", "Legal and Business Consulting", "Logistics", "Management and Production Engineering", "Project Management", "Informatics in Production Management"],
+      "bobowski": ["All English-language programmes", "Business Analytics", "Eco-business", "Economics", "Social Communication", "International Economic Relations", "Real Estate and Spatial Economy"]
+    }
+  },
+  "przewodniczacy": {
+    "metaTitle": "Chair & Vice-chairs",
+    "metaDesc": "The leadership of the UEW Student Government — the Chair and Vice-chairs, their areas of responsibility and contact details.",
+    "ogLabel": "Student Government",
+    "heroEyebrow": "Student Government",
+    "heroTitle": "Chair & Vice-chairs",
+    "heroLead": "The leadership of the Student Government — the people who shape strategy, make the key decisions and represent students before the University.",
+    "crumbGov": "Student Government",
+    "crumbStructure": "Structure",
+    "eyebrow": "Student Government leadership",
+    "heading": "The people who lead the Student Government",
+    "chairRole": "Chair of the Student Government",
+    "chairDesc": "The statutory representative of all the University’s students, working for the student community through the Government’s governing, executive and legislative bodies.",
+    "wiceIntro": "The Vice-chairs support the Chair in the Student Government’s day-to-day work, delivering tasks in their assigned areas and coordinating selected activities and projects.",
+    "roles": {
+      "strategy": "Vice-chair for Strategy and Operations",
+      "projects": "Vice-chair for Projects",
+      "pr": "Vice-chair for Public Relations"
+    }
+  },
+  "skw": {
+    "metaTitle": "Student Electoral Committee",
+    "metaDesc": "The Student Electoral Committee (SKW) of the UEW Student Government — duties, members and resolutions. The body that prepares and oversees the government elections.",
+    "ogLabel": "Student Government",
+    "heroEyebrow": "Student Government",
+    "heroTitle": "Student Electoral Committee",
+    "heroLead": "A three-person body that prepares, runs and oversees elections to the Student Government’s bodies — so that they are fair and transparent.",
+    "crumbGov": "Student Government",
+    "crumbStructure": "Structure",
+    "eyebrow": "The Government’s electoral body",
+    "heading": "Student Electoral Committee",
+    "intro": "The Student Electoral Committee (SKW) is a three-person body of the Student Government that prepares, runs and oversees elections to the governing bodies of Wrocław University of Economics and Business.",
+    "zadania": [
+      "Setting the detailed electoral calendar and making it public — no later than 14 days before the elections.",
+      "Preparing the lists of voters entitled to vote.",
+      "Organising electoral meetings and running them smoothly.",
+      "Ensuring the electoral procedures run correctly.",
+      "Safeguarding the electoral documentation.",
+      "Organising by-elections when needed."
+    ],
+    "skladHeading": "Committee members",
+    "roles": { "chair": "Chair", "memberF": "Member", "memberM": "Member" },
+    "uchwalyButton": "SKW resolutions 2025/2026"
   }
 }

@@ -1,49 +1,36 @@
 "use client";
 
 import { motion, useReducedMotion } from "motion/react";
+import { useTranslations } from "next-intl";
 import { InitialsAvatar } from "../InitialsAvatar";
 import { ScrollReveal } from "../ScrollReveal";
 import { PersonCard } from "../PersonCard";
 
-const rektor = {
-  name: "prof. dr hab. Czesław Zając",
-  role: "Jego Magnificencja Rektor Uniwersytetu Ekonomicznego we Wrocławiu",
-};
+const rektorName = "prof. dr hab. Czesław Zając";
 
 const prorektorzy = [
-  {
-    name: "dr hab. inż. Andrzej Okruszek, prof. UEW",
-    role: "Prorektor ds. Studenckich i Kształcenia",
-  },
-  {
-    name: "dr hab. Piotr Bednarek, prof. UEW",
-    role: "Prorektor ds. Finansów",
-  },
-  {
-    name: "prof. dr hab. Bogusława Drelich-Skulska",
-    role: "Prorektor ds. Współpracy Międzynarodowej",
-  },
-  {
-    name: "prof. dr hab. Marek Kośny",
-    role: "Prorektor ds. Nauki",
-  },
+  { name: "dr hab. inż. Andrzej Okruszek, prof. UEW", roleKey: "student" },
+  { name: "dr hab. Piotr Bednarek, prof. UEW", roleKey: "finance" },
+  { name: "prof. dr hab. Bogusława Drelich-Skulska", roleKey: "intl" },
+  { name: "prof. dr hab. Marek Kośny", roleKey: "science" },
 ];
 
 export function WladzeRektorskieContent() {
   const reduce = useReducedMotion();
+  const t = useTranslations("wladze");
 
   return (
     <section className="section-padding" aria-labelledby="wladze-heading">
       <div className="mx-auto max-w-[1200px]">
         <ScrollReveal>
           <p className="text-[0.75rem] font-medium uppercase tracking-[0.08em] text-accent">
-            Władze Uczelni
+            {t("eyebrow")}
           </p>
           <h2
             id="wladze-heading"
             className="mt-3 max-w-[22ch] font-display text-[clamp(1.75rem,3.4vw,2.75rem)] font-semibold leading-[1.15] tracking-[-0.02em] text-ink-primary"
           >
-            Kto kieruje Uniwersytetem
+            {t("heading")}
           </h2>
         </ScrollReveal>
 
@@ -55,13 +42,13 @@ export function WladzeRektorskieContent() {
           transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
           className="mt-12 flex flex-col items-center gap-5 rounded-2xl border border-accent/40 bg-bg-surface p-8 text-center sm:flex-row sm:text-left"
         >
-          <InitialsAvatar name={rektor.name} size={88} />
+          <InitialsAvatar name={rektorName} size={88} />
           <div>
             <h3 className="font-display text-[clamp(1.5rem,2.6vw,2rem)] font-semibold tracking-[-0.02em] text-ink-primary">
-              {rektor.name}
+              {rektorName}
             </h3>
             <p className="mt-2 text-[0.9375rem] font-medium uppercase tracking-[0.06em] text-accent">
-              {rektor.role}
+              {t("rektorRole")}
             </p>
           </div>
         </motion.div>
@@ -77,7 +64,7 @@ export function WladzeRektorskieContent() {
               transition={{ duration: 0.5, delay: Math.min(i, 4) * 0.08, ease: [0.16, 1, 0.3, 1] }}
               className="h-full"
             >
-              <PersonCard name={p.name} role={p.role} plain className="h-full" />
+              <PersonCard name={p.name} role={t(`roles.${p.roleKey}`)} plain className="h-full" />
             </motion.div>
           ))}
         </div>

@@ -1,24 +1,37 @@
 import type { Metadata } from "next";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 import { PageHero } from "@/components/PageHero";
 import { WladzeRektorskieContent } from "@/components/pages/WladzeRektorskieContent";
+import { ogMeta } from "@/lib/og";
 
-export const metadata: Metadata = {
-  title: "Władze rektorskie",
-  description:
-    "Rektor i prorektorzy Uniwersytetu Ekonomicznego we Wrocławiu — kto kieruje Uczelnią i odpowiada za sprawy studenckie, kształcenie, naukę i finanse.",
-};
+type Props = { params: Promise<{ locale: string }> };
 
-export default function WladzeRektorskiePage() {
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "wladze" });
+  return {
+    title: t("metaTitle"),
+    description: t("metaDesc"),
+    ...ogMeta(t("metaTitle"), t("ogLabel")),
+  };
+}
+
+export default async function WladzeRektorskiePage({ params }: Props) {
+  const { locale } = await params;
+  setRequestLocale(locale);
+  const t = await getTranslations({ locale, namespace: "wladze" });
+  const tc = await getTranslations({ locale, namespace: "common" });
+
   return (
     <>
       <PageHero
-        eyebrow="Strefa studenta"
-        title="Władze rektorskie"
-        lead="Rektor i prorektorzy Uniwersytetu Ekonomicznego we Wrocławiu — osoby kierujące Uczelnią i odpowiadające za najważniejsze obszary jej działania."
+        eyebrow={t("heroEyebrow")}
+        title={t("heroTitle")}
+        lead={t("heroLead")}
         breadcrumbs={[
-          { label: "Strona główna", href: "/" },
-          { label: "Strefa studenta", href: "/dla-studenta" },
-          { label: "Władze rektorskie" },
+          { label: tc("home"), href: "/" },
+          { label: t("crumbStudent"), href: "/dla-studenta" },
+          { label: t("heroTitle") },
         ]}
       />
       <WladzeRektorskieContent />

@@ -1,25 +1,38 @@
 import type { Metadata } from "next";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 import { PageHero } from "@/components/PageHero";
 import { KomisjaWyborczaContent } from "@/components/pages/KomisjaWyborczaContent";
+import { ogMeta } from "@/lib/og";
 
-export const metadata: Metadata = {
-  title: "Studencka Komisja Wyborcza",
-  description:
-    "Studencka Komisja Wyborcza (SKW) Samorządu Studentów UEW — zadania, skład i uchwały. Organ, który przygotowuje i nadzoruje wybory samorządowe.",
-};
+type Props = { params: Promise<{ locale: string }> };
 
-export default function KomisjaWyborczaPage() {
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "skw" });
+  return {
+    title: t("metaTitle"),
+    description: t("metaDesc"),
+    ...ogMeta(t("metaTitle"), t("ogLabel")),
+  };
+}
+
+export default async function KomisjaWyborczaPage({ params }: Props) {
+  const { locale } = await params;
+  setRequestLocale(locale);
+  const t = await getTranslations({ locale, namespace: "skw" });
+  const tc = await getTranslations({ locale, namespace: "common" });
+
   return (
     <>
       <PageHero
-        eyebrow="Samorząd"
-        title="Studencka Komisja Wyborcza"
-        lead="Trzyosobowy organ, który przygotowuje, przeprowadza i nadzoruje wybory do organów Samorządu Studentów — tak, aby były uczciwe i przejrzyste."
+        eyebrow={t("heroEyebrow")}
+        title={t("heroTitle")}
+        lead={t("heroLead")}
         breadcrumbs={[
-          { label: "Strona główna", href: "/" },
-          { label: "Samorząd", href: "/nasza-dzialalnosc" },
-          { label: "Struktura", href: "/struktura-samorzadu" },
-          { label: "Studencka Komisja Wyborcza" },
+          { label: tc("home"), href: "/" },
+          { label: t("crumbGov"), href: "/nasza-dzialalnosc" },
+          { label: t("crumbStructure"), href: "/struktura-samorzadu" },
+          { label: t("heroTitle") },
         ]}
       />
       <KomisjaWyborczaContent />

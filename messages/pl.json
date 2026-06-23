@@ -333,5 +333,86 @@
     "membersHeading": "Skład Rady",
     "memberRole": "Rada Uczelniana",
     "footnote": "Skład może ulegać zmianom w trakcie kadencji."
+  },
+  "wladze": {
+    "metaTitle": "Władze rektorskie",
+    "metaDesc": "Rektor i prorektorzy Uniwersytetu Ekonomicznego we Wrocławiu — kto kieruje Uczelnią i odpowiada za sprawy studenckie, kształcenie, naukę i finanse.",
+    "ogLabel": "Strefa studenta",
+    "heroEyebrow": "Strefa studenta",
+    "heroTitle": "Władze rektorskie",
+    "heroLead": "Rektor i prorektorzy Uniwersytetu Ekonomicznego we Wrocławiu — osoby kierujące Uczelnią i odpowiadające za najważniejsze obszary jej działania.",
+    "crumbStudent": "Strefa studenta",
+    "eyebrow": "Władze Uczelni",
+    "heading": "Kto kieruje Uniwersytetem",
+    "rektorRole": "Jego Magnificencja Rektor Uniwersytetu Ekonomicznego we Wrocławiu",
+    "roles": {
+      "student": "Prorektor ds. Studenckich i Kształcenia",
+      "finance": "Prorektor ds. Finansów",
+      "intl": "Prorektor ds. Współpracy Międzynarodowej",
+      "science": "Prorektor ds. Nauki"
+    }
+  },
+  "dziekani": {
+    "metaTitle": "Dziekan i prodziekani",
+    "metaDesc": "Władze dziekańskie ds. studenckich Uniwersytetu Ekonomicznego we Wrocławiu — dziekan i prodziekani przypisani do poszczególnych kierunków studiów.",
+    "ogLabel": "Strefa studenta",
+    "heroEyebrow": "Strefa studenta",
+    "heroTitle": "Dziekan i prodziekani",
+    "heroLead": "Władze dziekańskie ds. studenckich. Sprawy takie jak IOS, urlopy czy odwołania prowadzi prodziekan przypisany do Twojego kierunku.",
+    "crumbStudent": "Strefa studenta",
+    "eyebrow": "Władze dziekańskie",
+    "heading": "Znajdź prodziekana swojego kierunku",
+    "intro": "Sprawy studenckie — od indywidualnej organizacji studiów po odwołania — prowadzą prodziekani przypisani do poszczególnych kierunków. Sprawdź, kto odpowiada za Twój.",
+    "dziekanRole": "Dziekan ds. Studenckich",
+    "prodziekanRole": "Prodziekan ds. Studenckich",
+    "kierunki": {
+      "turowska": ["Finanse i rachunkowość", "Rachunkowość i controlling", "Rachunkowość i podatki", "Zarządzanie"],
+      "werenska": ["Controlling", "E-biznes", "Informatyka w biznesie", "Konsulting prawny i gospodarczy", "Logistyka", "Zarządzanie i Inżynieria Produkcji", "Zarządzanie projektami", "Informatyka w zarządzaniu produkcją"],
+      "bobowski": ["Wszystkie kierunki anglojęzyczne", "Analityka gospodarcza", "Ekobiznes", "Ekonomia", "Komunikacja społeczna", "Międzynarodowe stosunki gospodarcze", "Nieruchomości i gospodarka przestrzenna"]
+    }
+  },
+  "przewodniczacy": {
+    "metaTitle": "Przewodniczący i Wiceprzewodniczący",
+    "metaDesc": "Kierownictwo Samorządu Studentów UEW — Przewodnicząca i Wiceprzewodniczący, ich obszary odpowiedzialności i kontakt.",
+    "ogLabel": "Samorząd",
+    "heroEyebrow": "Samorząd",
+    "heroTitle": "Przewodniczący i Wiceprzewodniczący",
+    "heroLead": "Kierownictwo Samorządu Studentów — osoby, które tworzą strategię, podejmują najważniejsze decyzje i reprezentują studentów wobec Uczelni.",
+    "crumbGov": "Samorząd",
+    "crumbStructure": "Struktura",
+    "eyebrow": "Kierownictwo Samorządu",
+    "heading": "Osoby, które prowadzą Samorząd",
+    "chairRole": "Przewodnicząca Samorządu Studentów",
+    "chairDesc": "Ustawowa reprezentantka wszystkich Studentów Uczelni, która działa na rzecz środowiska studenckiego przy pomocy organów kierowniczych, wykonawczych i uchwałodawczych.",
+    "wiceIntro": "Wiceprzewodniczący wspierają Przewodniczącą w bieżącej działalności Samorządu, realizując zadania w wyznaczonych obszarach oraz koordynując wybrane działania i projekty.",
+    "roles": {
+      "strategy": "Wiceprzewodnicząca ds. Strategii i Działań Operacyjnych",
+      "projects": "Wiceprzewodnicząca ds. Projektów",
+      "pr": "Wiceprzewodniczący ds. Public Relations"
+    }
+  },
+  "skw": {
+    "metaTitle": "Studencka Komisja Wyborcza",
+    "metaDesc": "Studencka Komisja Wyborcza (SKW) Samorządu Studentów UEW — zadania, skład i uchwały. Organ, który przygotowuje i nadzoruje wybory samorządowe.",
+    "ogLabel": "Samorząd",
+    "heroEyebrow": "Samorząd",
+    "heroTitle": "Studencka Komisja Wyborcza",
+    "heroLead": "Trzyosobowy organ, który przygotowuje, przeprowadza i nadzoruje wybory do organów Samorządu Studentów — tak, aby były uczciwe i przejrzyste.",
+    "crumbGov": "Samorząd",
+    "crumbStructure": "Struktura",
+    "eyebrow": "Organ wyborczy Samorządu",
+    "heading": "Studencka Komisja Wyborcza",
+    "intro": "Studencka Komisja Wyborcza (SKW) to trzyosobowy organ Samorządu Studentów, który przygotowuje, przeprowadza i nadzoruje wybory do organów samorządowych Uniwersytetu Ekonomicznego we Wrocławiu.",
+    "zadania": [
+      "Ustalenie szczegółowego kalendarza czynności wyborczych i podanie go do publicznej wiadomości — najpóźniej na 14 dni przed wyborami.",
+      "Przygotowanie list wyborców uprawnionych do głosowania.",
+      "Organizacja zebrań wyborczych i sprawne ich przeprowadzenie.",
+      "Czuwanie nad prawidłowym przebiegiem procedur wyborczych.",
+      "Zabezpieczenie dokumentacji wyborczej.",
+      "Organizacja wyborów uzupełniających, gdy zajdzie taka potrzeba."
+    ],
+    "skladHeading": "Skład Komisji",
+    "roles": { "chair": "Przewodnicząca", "memberF": "Członkini", "memberM": "Członek" },
+    "uchwalyButton": "Uchwały SKW 2025/2026"
   }
 }

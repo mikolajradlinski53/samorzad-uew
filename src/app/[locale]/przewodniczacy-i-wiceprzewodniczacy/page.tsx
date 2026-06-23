@@ -1,25 +1,38 @@
 import type { Metadata } from "next";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 import { PageHero } from "@/components/PageHero";
 import { PrzewodniczacyContent } from "@/components/pages/PrzewodniczacyContent";
+import { ogMeta } from "@/lib/og";
 
-export const metadata: Metadata = {
-  title: "Przewodniczący i Wiceprzewodniczący",
-  description:
-    "Kierownictwo Samorządu Studentów UEW — Przewodnicząca i Wiceprzewodniczący, ich obszary odpowiedzialności i kontakt.",
-};
+type Props = { params: Promise<{ locale: string }> };
 
-export default function PrzewodniczacyPage() {
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "przewodniczacy" });
+  return {
+    title: t("metaTitle"),
+    description: t("metaDesc"),
+    ...ogMeta(t("metaTitle"), t("ogLabel")),
+  };
+}
+
+export default async function PrzewodniczacyPage({ params }: Props) {
+  const { locale } = await params;
+  setRequestLocale(locale);
+  const t = await getTranslations({ locale, namespace: "przewodniczacy" });
+  const tc = await getTranslations({ locale, namespace: "common" });
+
   return (
     <>
       <PageHero
-        eyebrow="Samorząd"
-        title="Przewodniczący i Wiceprzewodniczący"
-        lead="Kierownictwo Samorządu Studentów — osoby, które tworzą strategię, podejmują najważniejsze decyzje i reprezentują studentów wobec Uczelni."
+        eyebrow={t("heroEyebrow")}
+        title={t("heroTitle")}
+        lead={t("heroLead")}
         breadcrumbs={[
-          { label: "Strona główna", href: "/" },
-          { label: "Samorząd", href: "/nasza-dzialalnosc" },
-          { label: "Struktura", href: "/struktura-samorzadu" },
-          { label: "Przewodniczący i Wiceprzewodniczący" },
+          { label: tc("home"), href: "/" },
+          { label: t("crumbGov"), href: "/nasza-dzialalnosc" },
+          { label: t("crumbStructure"), href: "/struktura-samorzadu" },
+          { label: t("heroTitle") },
         ]}
       />
       <PrzewodniczacyContent />

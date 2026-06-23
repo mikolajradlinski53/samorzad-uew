@@ -1,6 +1,7 @@
 "use client";
 
 import { motion, useReducedMotion } from "motion/react";
+import { useTranslations } from "next-intl";
 import { EnvelopeSimple } from "@phosphor-icons/react";
 import { InitialsAvatar } from "../InitialsAvatar";
 import { PersonCard } from "../PersonCard";
@@ -8,44 +9,31 @@ import { ScrollReveal } from "../ScrollReveal";
 
 const przewodniczaca = {
   name: "Emilia Ćwiklińska",
-  role: "Przewodnicząca Samorządu Studentów",
   email: "emilia.cwiklinska@samorzad.ue.wroc.pl",
-  desc: "Ustawowa reprezentantka wszystkich Studentów Uczelni, która działa na rzecz środowiska studenckiego przy pomocy organów kierowniczych, wykonawczych i uchwałodawczych.",
 };
 
 const wice = [
-  {
-    name: "Magdalena Skoczylas",
-    role: "Wiceprzewodnicząca ds. Strategii i Działań Operacyjnych",
-    email: "magdalena.skoczylas@samorzad.ue.wroc.pl",
-  },
-  {
-    name: "Daria Szewczyk",
-    role: "Wiceprzewodnicząca ds. Projektów",
-    email: "daria.szewczyk@samorzad.ue.wroc.pl",
-  },
-  {
-    name: "Jakub Panas",
-    role: "Wiceprzewodniczący ds. Public Relations",
-    email: "jakub.panas@samorzad.ue.wroc.pl",
-  },
+  { name: "Magdalena Skoczylas", roleKey: "strategy", email: "magdalena.skoczylas@samorzad.ue.wroc.pl" },
+  { name: "Daria Szewczyk", roleKey: "projects", email: "daria.szewczyk@samorzad.ue.wroc.pl" },
+  { name: "Jakub Panas", roleKey: "pr", email: "jakub.panas@samorzad.ue.wroc.pl" },
 ];
 
 export function PrzewodniczacyContent() {
   const reduce = useReducedMotion();
+  const t = useTranslations("przewodniczacy");
 
   return (
     <section className="section-padding" aria-labelledby="przew-heading">
       <div className="mx-auto max-w-[1200px]">
         <ScrollReveal>
           <p className="text-[0.75rem] font-medium uppercase tracking-[0.08em] text-accent">
-            Kierownictwo Samorządu
+            {t("eyebrow")}
           </p>
           <h2
             id="przew-heading"
             className="mt-3 max-w-[24ch] font-display text-[clamp(1.75rem,3.4vw,2.75rem)] font-semibold leading-[1.15] tracking-[-0.02em] text-ink-primary"
           >
-            Osoby, które prowadzą Samorząd
+            {t("heading")}
           </h2>
         </ScrollReveal>
 
@@ -64,7 +52,7 @@ export function PrzewodniczacyContent() {
                 {przewodniczaca.name}
               </h3>
               <p className="mt-2 text-[0.9375rem] font-medium uppercase tracking-[0.06em] text-accent">
-                {przewodniczaca.role}
+                {t("chairRole")}
               </p>
               <a
                 href={`mailto:${przewodniczaca.email}`}
@@ -76,16 +64,14 @@ export function PrzewodniczacyContent() {
             </div>
           </div>
           <p className="prose-constrained mt-6 border-t border-border-subtle pt-6 text-[0.9375rem] leading-[1.7] text-ink-secondary">
-            {przewodniczaca.desc}
+            {t("chairDesc")}
           </p>
         </motion.div>
 
         {/* Wiceprzewodniczący */}
         <ScrollReveal>
           <p className="mt-12 text-[0.9375rem] leading-[1.7] text-ink-secondary">
-            Wiceprzewodniczący wspierają Przewodniczącą w bieżącej działalności
-            Samorządu, realizując zadania w wyznaczonych obszarach oraz
-            koordynując wybrane działania i projekty.
+            {t("wiceIntro")}
           </p>
         </ScrollReveal>
 
@@ -99,7 +85,7 @@ export function PrzewodniczacyContent() {
               transition={{ duration: 0.5, delay: Math.min(i, 4) * 0.08, ease: [0.16, 1, 0.3, 1] }}
               className="h-full"
             >
-              <PersonCard name={w.name} role={w.role} email={w.email} className="h-full" />
+              <PersonCard name={w.name} role={t(`roles.${w.roleKey}`)} email={w.email} className="h-full" />
             </motion.div>
           ))}
         </div>

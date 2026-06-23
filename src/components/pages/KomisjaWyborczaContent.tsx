@@ -1,47 +1,39 @@
 "use client";
 
 import { motion, useReducedMotion } from "motion/react";
+import { useTranslations } from "next-intl";
 import { EnvelopeSimple, FileText, CheckCircle } from "@phosphor-icons/react";
 import { PersonCard } from "../PersonCard";
 import { ScrollReveal } from "../ScrollReveal";
 
 const LIVE_UCHWALY = "https://samorzad.ue.wroc.pl/studencka-komisja-wyborcza";
 
-const zadania = [
-  "Ustalenie szczegółowego kalendarza czynności wyborczych i podanie go do publicznej wiadomości — najpóźniej na 14 dni przed wyborami.",
-  "Przygotowanie list wyborców uprawnionych do głosowania.",
-  "Organizacja zebrań wyborczych i sprawne ich przeprowadzenie.",
-  "Czuwanie nad prawidłowym przebiegiem procedur wyborczych.",
-  "Zabezpieczenie dokumentacji wyborczej.",
-  "Organizacja wyborów uzupełniających, gdy zajdzie taka potrzeba.",
-];
-
 const czlonkowie = [
-  { name: "Martyna Staniszewska", role: "Przewodnicząca" },
-  { name: "Katarzyna Emerych", role: "Członkini" },
-  { name: "Hubert Gościmski", role: "Członek" },
+  { name: "Martyna Staniszewska", roleKey: "chair" },
+  { name: "Katarzyna Emerych", roleKey: "memberF" },
+  { name: "Hubert Gościmski", roleKey: "memberM" },
 ];
 
 export function KomisjaWyborczaContent() {
   const reduce = useReducedMotion();
+  const t = useTranslations("skw");
+  const zadania = t.raw("zadania") as string[];
 
   return (
     <section className="section-padding" aria-labelledby="skw-heading">
       <div className="mx-auto max-w-[1200px]">
         <ScrollReveal>
           <p className="text-[0.75rem] font-medium uppercase tracking-[0.08em] text-accent">
-            Organ wyborczy Samorządu
+            {t("eyebrow")}
           </p>
           <h2
             id="skw-heading"
             className="mt-3 max-w-[26ch] font-display text-[clamp(1.75rem,3.4vw,2.75rem)] font-semibold leading-[1.15] tracking-[-0.02em] text-ink-primary"
           >
-            Studencka Komisja Wyborcza
+            {t("heading")}
           </h2>
           <p className="prose-constrained mt-4 text-[1.0625rem] leading-[1.75] text-ink-secondary">
-            Studencka Komisja Wyborcza (SKW) to trzyosobowy organ Samorządu
-            Studentów, który przygotowuje, przeprowadza i nadzoruje wybory do
-            organów samorządowych Uniwersytetu Ekonomicznego we Wrocławiu.
+            {t("intro")}
           </p>
         </ScrollReveal>
 
@@ -49,7 +41,7 @@ export function KomisjaWyborczaContent() {
         <ul className="mt-12 grid gap-4 md:grid-cols-2">
           {zadania.map((z, i) => (
             <motion.li
-              key={z}
+              key={i}
               initial={reduce ? false : { opacity: 0, x: -20 }}
               whileInView={reduce ? undefined : { opacity: 1, x: 0 }}
               viewport={{ once: true, amount: 0.2 }}
@@ -65,7 +57,7 @@ export function KomisjaWyborczaContent() {
         {/* Skład */}
         <ScrollReveal>
           <h3 className="mt-14 font-display text-[clamp(1.5rem,2.6vw,2rem)] font-semibold tracking-[-0.02em] text-ink-primary">
-            Skład Komisji
+            {t("skladHeading")}
           </h3>
         </ScrollReveal>
         <div className="mt-6 grid gap-5 sm:grid-cols-2">
@@ -78,7 +70,7 @@ export function KomisjaWyborczaContent() {
               transition={{ duration: 0.5, delay: Math.min(i, 4) * 0.08, ease: [0.16, 1, 0.3, 1] }}
               className="h-full"
             >
-              <PersonCard name={c.name} role={c.role} className="h-full" />
+              <PersonCard name={c.name} role={t(`roles.${c.roleKey}`)} className="h-full" />
             </motion.div>
           ))}
         </div>
@@ -93,7 +85,7 @@ export function KomisjaWyborczaContent() {
               className="inline-flex h-12 items-center gap-2 rounded-lg bg-accent px-7 text-base font-medium text-bg-base transition-all hover:bg-accent-dim active:scale-[0.98]"
             >
               <FileText size={20} weight="regular" aria-hidden="true" />
-              Uchwały SKW 2025/2026
+              {t("uchwalyButton")}
             </a>
             <a
               href="mailto:skw@samorzad.ue.wroc.pl"
