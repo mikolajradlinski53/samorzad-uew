@@ -1,24 +1,37 @@
 import type { Metadata } from "next";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 import { PageHero } from "@/components/PageHero";
 import { ZarzadzeniaContent } from "@/components/pages/ZarzadzeniaContent";
+import { ogMeta } from "@/lib/og";
 
-export const metadata: Metadata = {
-  title: "Zarządzenia Przewodniczącej",
-  description:
-    "Zarządzenia Przewodniczącej Samorządu Studentów UEW — akty wykonawcze z aktualnej kadencji oraz dostęp do dokumentów archiwalnych.",
-};
+type Props = { params: Promise<{ locale: string }> };
 
-export default function ZarzadzeniaPage() {
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "zarzadzenia" });
+  return {
+    title: t("metaTitle"),
+    description: t("metaDesc"),
+    ...ogMeta(t("metaTitle"), t("ogLabel")),
+  };
+}
+
+export default async function ZarzadzeniaPage({ params }: Props) {
+  const { locale } = await params;
+  setRequestLocale(locale);
+  const t = await getTranslations({ locale, namespace: "zarzadzenia" });
+  const tc = await getTranslations({ locale, namespace: "common" });
+
   return (
     <>
       <PageHero
-        eyebrow="Samorząd"
-        title="Zarządzenia Przewodniczącej"
-        lead="Akty wykonawcze porządkujące bieżącą działalność Samorządu Studentów. Tutaj znajdziesz komplet zarządzeń z aktualnej kadencji."
+        eyebrow={t("heroEyebrow")}
+        title={t("heroTitle")}
+        lead={t("heroLead")}
         breadcrumbs={[
-          { label: "Strona główna", href: "/" },
-          { label: "Samorząd", href: "/nasza-dzialalnosc" },
-          { label: "Zarządzenia Przewodniczącej" },
+          { label: tc("home"), href: "/" },
+          { label: t("crumbGov"), href: "/nasza-dzialalnosc" },
+          { label: t("heroTitle") },
         ]}
       />
       <ZarzadzeniaContent />

@@ -1,6 +1,7 @@
 "use client";
 
 import { motion, useReducedMotion } from "motion/react";
+import { useTranslations } from "next-intl";
 import {
   Gavel,
   Certificate,
@@ -17,39 +18,33 @@ import { Tilt } from "../Tilt";
 const LIVE = "https://samorzad.ue.wroc.pl/prawo-dla-studenta";
 
 interface Source {
-  kind: string;
-  title: string;
+  key: string;
   href: string;
   icon: Icon;
 }
 
 const sources: Source[] = [
-  {
-    kind: "Ustawa",
-    title: "Prawo o szkolnictwie wyższym i nauce",
-    href: "https://isap.sejm.gov.pl/isap.nsf/download.xsp/WDU20180001668/U/D20181668Lj.pdf",
-    icon: Gavel,
-  },
-  { kind: "Statut", title: "Statut Uniwersytetu Ekonomicznego we Wrocławiu", href: LIVE, icon: Certificate },
-  { kind: "Uczelniany", title: "Regulamin Studiów", href: LIVE, icon: BookOpen },
-  { kind: "Zarządzenia", title: "Rektora i Prorektorów", href: LIVE, icon: Stamp },
-  { kind: "Pisma", title: "Dziekana", href: LIVE, icon: FileText },
-  { kind: "Regulamin", title: "Organizacyjny UEW", href: LIVE, icon: Buildings },
+  { key: "act", href: "https://isap.sejm.gov.pl/isap.nsf/download.xsp/WDU20180001668/U/D20181668Lj.pdf", icon: Gavel },
+  { key: "statute", href: LIVE, icon: Certificate },
+  { key: "studyReg", href: LIVE, icon: BookOpen },
+  { key: "orders", href: LIVE, icon: Stamp },
+  { key: "deanLetters", href: LIVE, icon: FileText },
+  { key: "orgReg", href: LIVE, icon: Buildings },
 ];
 
 export function PrawoContent() {
   const reduce = useReducedMotion();
+  const t = useTranslations("prawo");
 
   return (
     <section className="section-padding" aria-labelledby="prawo-heading">
       <div className="mx-auto max-w-[1200px]">
         <ScrollReveal>
           <p className="prose-constrained text-[1.0625rem] leading-[1.75] text-ink-secondary">
-            Tu znajdziesz najważniejsze przepisy, na podstawie których funkcjonuje
-            nasza Uczelnia — od ustaw po wewnętrzne regulacje uczelniane.
+            {t("intro")}
           </p>
           <h2 id="prawo-heading" className="sr-only">
-            Akty prawne
+            {t("srHeading")}
           </h2>
         </ScrollReveal>
 
@@ -58,7 +53,7 @@ export function PrawoContent() {
             const Glyph = source.icon;
             return (
               <motion.div
-                key={source.title}
+                key={source.key}
                 initial={reduce ? false : { opacity: 0, y: 20 }}
                 whileInView={reduce ? undefined : { opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.2 }}
@@ -83,10 +78,10 @@ export function PrawoContent() {
                       />
                     </div>
                     <p className="mt-5 text-[0.6875rem] font-medium uppercase tracking-[0.1em] text-accent">
-                      {source.kind}
+                      {t(`sources.${source.key}.kind`)}
                     </p>
                     <h3 className="mt-1 text-[1.0625rem] font-semibold leading-snug tracking-[-0.01em] text-ink-primary">
-                      {source.title}
+                      {t(`sources.${source.key}.title`)}
                     </h3>
                   </a>
                 </Tilt>

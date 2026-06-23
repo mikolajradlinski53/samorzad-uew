@@ -1,24 +1,37 @@
 import type { Metadata } from "next";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 import { PageHero } from "@/components/PageHero";
 import { RegulacjeContent } from "@/components/pages/RegulacjeContent";
+import { ogMeta } from "@/lib/og";
 
-export const metadata: Metadata = {
-  title: "Regulacje wewnętrzne",
-  description:
-    "Najważniejsze dokumenty, na podstawie których funkcjonuje Samorząd Studentów UEW — regulaminy, ordynacja wyborcza i identyfikacja wizualna.",
-};
+type Props = { params: Promise<{ locale: string }> };
 
-export default function RegulacjePage() {
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "regulacje" });
+  return {
+    title: t("metaTitle"),
+    description: t("metaDesc"),
+    ...ogMeta(t("metaTitle"), t("ogLabel")),
+  };
+}
+
+export default async function RegulacjePage({ params }: Props) {
+  const { locale } = await params;
+  setRequestLocale(locale);
+  const t = await getTranslations({ locale, namespace: "regulacje" });
+  const tc = await getTranslations({ locale, namespace: "common" });
+
   return (
     <>
       <PageHero
-        eyebrow="Samorząd Studentów"
-        title="Regulacje wewnętrzne"
-        lead="Przejrzyście i w jednym miejscu — dokumenty, które porządkują działanie Samorządu."
+        eyebrow={t("heroEyebrow")}
+        title={t("heroTitle")}
+        lead={t("heroLead")}
         breadcrumbs={[
-          { label: "Strona główna", href: "/" },
-          { label: "Nasza działalność", href: "/nasza-dzialalnosc" },
-          { label: "Regulacje wewnętrzne" },
+          { label: tc("home"), href: "/" },
+          { label: t("crumbActivities"), href: "/nasza-dzialalnosc" },
+          { label: t("heroTitle") },
         ]}
       />
       <RegulacjeContent />

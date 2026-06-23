@@ -484,5 +484,61 @@
       "commission": { "q": "Can I take a board exam?", "a": "Yes. You have the right to a board exam, with an observer of your choice present." },
       "report": { "q": "Where do I report that my rights are being broken?", "a": "Contact the Student Ombudsman — they’ll help interpret the rules and, if needed, represent you before the university’s units." }
     }
+  },
+  "prawo": {
+    "metaTitle": "Law for students",
+    "metaDesc": "The most important UEW legal acts in one place — the Act, the statute, the study regulations, orders and university regulations.",
+    "ogLabel": "Student zone",
+    "heroEyebrow": "Student zone",
+    "heroTitle": "Law for students",
+    "heroLead": "Regulations can be complex — we’ve gathered the most important legal acts in force at UEW in one place.",
+    "crumbStudent": "Student zone",
+    "intro": "Here you’ll find the key regulations that govern our University — from acts of law to internal university regulations.",
+    "srHeading": "Legal acts",
+    "sources": {
+      "act": { "kind": "Act", "title": "The Law on Higher Education and Science" },
+      "statute": { "kind": "Statute", "title": "Statute of Wrocław University of Economics and Business" },
+      "studyReg": { "kind": "University", "title": "Study Regulations" },
+      "orders": { "kind": "Orders", "title": "Of the Rector and Vice-Rectors" },
+      "deanLetters": { "kind": "Letters", "title": "Of the Dean" },
+      "orgReg": { "kind": "Regulations", "title": "UEW Organisational Rules" }
+    }
+  },
+  "regulacje": {
+    "metaTitle": "Internal regulations",
+    "metaDesc": "The key documents that govern the UEW Student Government — regulations, the electoral rules and the visual identity.",
+    "ogLabel": "Student Government",
+    "heroEyebrow": "Student Government",
+    "heroTitle": "Internal regulations",
+    "heroLead": "Clearly and in one place — the documents that govern how the Student Government works.",
+    "crumbActivities": "Our activities",
+    "intro": "Below you’ll find the key internal regulations that govern the UEW Student Government.",
+    "srHeading": "Document list",
+    "documents": {
+      "government": "Student Government Regulations",
+      "ros": "Regulations of the Council of Student Organisations",
+      "russ": "RUSS Organisational Regulations",
+      "residents": "Residents’ Councils Regulations",
+      "electoral": "Electoral Rules",
+      "visual": "Student Government Visual Identity"
+    }
+  },
+  "zarzadzenia": {
+    "metaTitle": "Chair’s orders",
+    "metaDesc": "Orders of the Chair of the UEW Student Government — executive acts from the current term and access to archived documents.",
+    "ogLabel": "Student Government",
+    "heroEyebrow": "Student Government",
+    "heroTitle": "Chair’s orders",
+    "heroLead": "Executive acts that govern the day-to-day work of the Student Government. Here you’ll find the full set of orders from the current term.",
+    "crumbGov": "Student Government",
+    "eyebrow": "Internal acts",
+    "heading": "Chair’s orders",
+    "intro": "The Chair’s orders are executive acts that organise the day-to-day work of the Student Government. We share documents from the current term in a single shared folder.",
+    "termCardHeading": "Orders — 2025/2026 term",
+    "termCardDesc": "The full set of current orders in a Google Drive folder.",
+    "openButton": "Open documents",
+    "archiveHeading": "Looking for an older order?",
+    "archiveDesc": "We share archived orders from previous terms on request — write to us and we’ll send you the document you need.",
+    "archiveButton": "Submit a request"
   }
 }

@@ -1,40 +1,41 @@
 "use client";
 
 import { motion, useReducedMotion } from "motion/react";
+import { useTranslations } from "next-intl";
 import { FileText, DownloadSimple } from "@phosphor-icons/react";
 import { ScrollReveal } from "../ScrollReveal";
 
 const FILES = "https://samorzad.ue.wroc.pl/_files/ugd";
 
 const documents = [
-  { title: "Regulamin Samorządu Studentów", href: `${FILES}/3dec01_e2f5e6255f3a4e02b3486fce9345da3d.pdf` },
-  { title: "Regulamin Rady Organizacji Studenckich", href: `${FILES}/3dec01_8e95b203e91e47d1b2a5be489ab3136c.pdf` },
-  { title: "Regulamin Organizacyjny RUSS", href: `${FILES}/3dec01_f29102abac934f8fbb771a0e0033b71b.pdf` },
-  { title: "Regulamin Rad Mieszkańca", href: `${FILES}/3dec01_ce9e1526865444b9a8b2890406b4887e.pdf` },
-  { title: "Ordynacja Wyborcza", href: `${FILES}/3dec01_e1abe35d67a44e9aacecbe501da0d5a1.pdf` },
-  { title: "Identyfikacja wizualna Samorządu", href: `${FILES}/3dec01_746b01182be140039f8a0930403c0df3.pdf` },
+  { key: "government", href: `${FILES}/3dec01_e2f5e6255f3a4e02b3486fce9345da3d.pdf` },
+  { key: "ros", href: `${FILES}/3dec01_8e95b203e91e47d1b2a5be489ab3136c.pdf` },
+  { key: "russ", href: `${FILES}/3dec01_f29102abac934f8fbb771a0e0033b71b.pdf` },
+  { key: "residents", href: `${FILES}/3dec01_ce9e1526865444b9a8b2890406b4887e.pdf` },
+  { key: "electoral", href: `${FILES}/3dec01_e1abe35d67a44e9aacecbe501da0d5a1.pdf` },
+  { key: "visual", href: `${FILES}/3dec01_746b01182be140039f8a0930403c0df3.pdf` },
 ];
 
 export function RegulacjeContent() {
   const reduce = useReducedMotion();
+  const t = useTranslations("regulacje");
 
   return (
     <section className="section-padding" aria-labelledby="regulacje-heading">
       <div className="mx-auto max-w-[860px]">
         <ScrollReveal>
           <p className="prose-constrained text-[1.0625rem] leading-[1.75] text-ink-secondary">
-            Poniżej znajdziesz najważniejsze regulacje wewnętrzne, na podstawie
-            których funkcjonuje Samorząd Studentów UEW.
+            {t("intro")}
           </p>
           <h2 id="regulacje-heading" className="sr-only">
-            Lista dokumentów
+            {t("srHeading")}
           </h2>
         </ScrollReveal>
 
         <ul className="mt-10 flex flex-col gap-3">
           {documents.map((doc, i) => (
             <motion.li
-              key={doc.href}
+              key={doc.key}
               initial={reduce ? false : { opacity: 0, x: -16 }}
               whileInView={reduce ? undefined : { opacity: 1, x: 0 }}
               viewport={{ once: true, amount: 0.4 }}
@@ -54,7 +55,7 @@ export function RegulacjeContent() {
                   <FileText size={22} weight="regular" aria-hidden="true" />
                 </span>
                 <span className="flex-1 text-[1rem] font-medium tracking-[-0.01em] text-ink-primary">
-                  {doc.title}
+                  {t(`documents.${doc.key}`)}
                 </span>
                 <DownloadSimple
                   size={20}

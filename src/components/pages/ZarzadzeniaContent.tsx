@@ -1,6 +1,7 @@
 "use client";
 
 import { motion, useReducedMotion } from "motion/react";
+import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import { FolderOpen, EnvelopeSimple, Stamp } from "@phosphor-icons/react";
 import { ScrollReveal } from "../ScrollReveal";
@@ -9,24 +10,23 @@ const LIVE_DRIVE = "https://samorzad.ue.wroc.pl/zarzadzenia-przewodniczacego";
 
 export function ZarzadzeniaContent() {
   const reduce = useReducedMotion();
+  const t = useTranslations("zarzadzenia");
 
   return (
     <section className="section-padding" aria-labelledby="zarz-heading">
       <div className="mx-auto max-w-[1200px]">
         <ScrollReveal>
           <p className="text-[0.75rem] font-medium uppercase tracking-[0.08em] text-accent">
-            Akty wewnętrzne
+            {t("eyebrow")}
           </p>
           <h2
             id="zarz-heading"
             className="mt-3 max-w-[26ch] font-display text-[clamp(1.75rem,3.4vw,2.75rem)] font-semibold leading-[1.15] tracking-[-0.02em] text-ink-primary"
           >
-            Zarządzenia Przewodniczącej
+            {t("heading")}
           </h2>
           <p className="prose-constrained mt-4 text-[1.0625rem] leading-[1.75] text-ink-secondary">
-            Zarządzenia Przewodniczącej to akty wykonawcze, które porządkują
-            bieżącą działalność Samorządu Studentów. Dokumenty z aktualnej kadencji
-            udostępniamy w jednym, wspólnym folderze.
+            {t("intro")}
           </p>
         </ScrollReveal>
 
@@ -44,10 +44,10 @@ export function ZarzadzeniaContent() {
             </span>
             <div>
               <h3 className="text-[1.125rem] font-semibold tracking-[-0.01em] text-ink-primary">
-                Zarządzenia — kadencja 2025/2026
+                {t("termCardHeading")}
               </h3>
               <p className="mt-1 text-[0.9375rem] leading-[1.6] text-ink-secondary">
-                Komplet aktualnych zarządzeń w folderze Google Drive.
+                {t("termCardDesc")}
               </p>
             </div>
           </div>
@@ -58,7 +58,7 @@ export function ZarzadzeniaContent() {
             className="inline-flex h-12 shrink-0 items-center gap-2 rounded-lg bg-accent px-7 text-base font-medium text-bg-base transition-all hover:bg-accent-dim active:scale-[0.98]"
           >
             <FolderOpen size={20} weight="regular" aria-hidden="true" />
-            Otwórz dokumenty
+            {t("openButton")}
           </a>
         </motion.div>
 
@@ -67,11 +67,10 @@ export function ZarzadzeniaContent() {
           <div className="mt-8 flex flex-col items-start justify-between gap-6 rounded-2xl border border-border-subtle bg-bg-surface p-8 sm:flex-row sm:items-center">
             <div>
               <h3 className="text-[1.0625rem] font-semibold tracking-[-0.01em] text-ink-primary">
-                Szukasz starszego zarządzenia?
+                {t("archiveHeading")}
               </h3>
               <p className="mt-2 max-w-[52ch] text-[0.9375rem] leading-[1.6] text-ink-secondary">
-                Archiwalne zarządzenia z poprzednich kadencji udostępniamy na
-                prośbę — napisz do nas, a prześlemy potrzebny dokument.
+                {t("archiveDesc")}
               </p>
             </div>
             <Link
@@ -79,7 +78,7 @@ export function ZarzadzeniaContent() {
               className="inline-flex h-12 shrink-0 items-center gap-2 rounded-lg border border-border-medium px-7 text-base font-medium text-ink-primary transition-colors hover:border-border-soft hover:bg-bg-elevated"
             >
               <EnvelopeSimple size={20} weight="regular" aria-hidden="true" />
-              Złóż zapytanie
+              {t("archiveButton")}
             </Link>
           </div>
         </ScrollReveal>

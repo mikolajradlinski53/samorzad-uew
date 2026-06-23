@@ -484,5 +484,61 @@
       "commission": { "q": "Czy mogę przystąpić do egzaminu komisyjnego?", "a": "Tak. Masz prawo do egzaminu komisyjnego, przy udziale wskazanego przez Ciebie obserwatora." },
       "report": { "q": "Gdzie zgłosić, że moje prawa są łamane?", "a": "Skontaktuj się z Rzecznikiem Praw Studenta — pomoże zinterpretować przepisy i, jeśli trzeba, reprezentuje Cię wobec jednostek uczelni." }
     }
+  },
+  "prawo": {
+    "metaTitle": "Prawo dla studenta",
+    "metaDesc": "Najważniejsze przepisy prawne UEW w jednym miejscu — ustawa, statut, regulamin studiów, zarządzenia i regulacje uczelniane.",
+    "ogLabel": "Strefa studenta",
+    "heroEyebrow": "Strefa studenta",
+    "heroTitle": "Prawo dla studenta",
+    "heroLead": "Przepisy bywają zawiłe — zebraliśmy najważniejsze akty prawne, które obowiązują na UEW, w jednym miejscu.",
+    "crumbStudent": "Strefa studenta",
+    "intro": "Tu znajdziesz najważniejsze przepisy, na podstawie których funkcjonuje nasza Uczelnia — od ustaw po wewnętrzne regulacje uczelniane.",
+    "srHeading": "Akty prawne",
+    "sources": {
+      "act": { "kind": "Ustawa", "title": "Prawo o szkolnictwie wyższym i nauce" },
+      "statute": { "kind": "Statut", "title": "Statut Uniwersytetu Ekonomicznego we Wrocławiu" },
+      "studyReg": { "kind": "Uczelniany", "title": "Regulamin Studiów" },
+      "orders": { "kind": "Zarządzenia", "title": "Rektora i Prorektorów" },
+      "deanLetters": { "kind": "Pisma", "title": "Dziekana" },
+      "orgReg": { "kind": "Regulamin", "title": "Organizacyjny UEW" }
+    }
+  },
+  "regulacje": {
+    "metaTitle": "Regulacje wewnętrzne",
+    "metaDesc": "Najważniejsze dokumenty, na podstawie których funkcjonuje Samorząd Studentów UEW — regulaminy, ordynacja wyborcza i identyfikacja wizualna.",
+    "ogLabel": "Samorząd Studentów",
+    "heroEyebrow": "Samorząd Studentów",
+    "heroTitle": "Regulacje wewnętrzne",
+    "heroLead": "Przejrzyście i w jednym miejscu — dokumenty, które porządkują działanie Samorządu.",
+    "crumbActivities": "Nasza działalność",
+    "intro": "Poniżej znajdziesz najważniejsze regulacje wewnętrzne, na podstawie których funkcjonuje Samorząd Studentów UEW.",
+    "srHeading": "Lista dokumentów",
+    "documents": {
+      "government": "Regulamin Samorządu Studentów",
+      "ros": "Regulamin Rady Organizacji Studenckich",
+      "russ": "Regulamin Organizacyjny RUSS",
+      "residents": "Regulamin Rad Mieszkańca",
+      "electoral": "Ordynacja Wyborcza",
+      "visual": "Identyfikacja wizualna Samorządu"
+    }
+  },
+  "zarzadzenia": {
+    "metaTitle": "Zarządzenia Przewodniczącej",
+    "metaDesc": "Zarządzenia Przewodniczącej Samorządu Studentów UEW — akty wykonawcze z aktualnej kadencji oraz dostęp do dokumentów archiwalnych.",
+    "ogLabel": "Samorząd",
+    "heroEyebrow": "Samorząd",
+    "heroTitle": "Zarządzenia Przewodniczącej",
+    "heroLead": "Akty wykonawcze porządkujące bieżącą działalność Samorządu Studentów. Tutaj znajdziesz komplet zarządzeń z aktualnej kadencji.",
+    "crumbGov": "Samorząd",
+    "eyebrow": "Akty wewnętrzne",
+    "heading": "Zarządzenia Przewodniczącej",
+    "intro": "Zarządzenia Przewodniczącej to akty wykonawcze, które porządkują bieżącą działalność Samorządu Studentów. Dokumenty z aktualnej kadencji udostępniamy w jednym, wspólnym folderze.",
+    "termCardHeading": "Zarządzenia — kadencja 2025/2026",
+    "termCardDesc": "Komplet aktualnych zarządzeń w folderze Google Drive.",
+    "openButton": "Otwórz dokumenty",
+    "archiveHeading": "Szukasz starszego zarządzenia?",
+    "archiveDesc": "Archiwalne zarządzenia z poprzednich kadencji udostępniamy na prośbę — napisz do nas, a prześlemy potrzebny dokument.",
+    "archiveButton": "Złóż zapytanie"
   }
 }
