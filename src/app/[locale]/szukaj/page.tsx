@@ -27,7 +27,7 @@ export default async function SzukajPage({ params, searchParams }: Props) {
   setRequestLocale(locale);
   const { q = "" } = await searchParams;
   const query = q.trim();
-  const results = query ? searchPages(query) : [];
+  const results = query ? searchPages(query, locale) : [];
 
   const t = await getTranslations({ locale, namespace: "szukaj" });
   const tc = await getTranslations({ locale, namespace: "common" });

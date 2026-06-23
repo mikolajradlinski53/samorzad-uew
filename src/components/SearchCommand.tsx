@@ -2,7 +2,7 @@
 
 import { useEffect, useMemo, useRef, useState } from "react";
 import { useRouter } from "@/i18n/navigation";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import { AnimatePresence, motion, useReducedMotion } from "motion/react";
 import { MagnifyingGlass, ArrowRight } from "@phosphor-icons/react";
 import { searchPages, highlightSegments } from "@/lib/searchIndex";
@@ -16,12 +16,13 @@ export function SearchCommand({ open, onClose }: SearchCommandProps) {
   const router = useRouter();
   const reduce = useReducedMotion();
   const t = useTranslations("ui.search");
+  const locale = useLocale();
   const [query, setQuery] = useState("");
   const [active, setActive] = useState(0);
   const inputRef = useRef<HTMLInputElement>(null);
   const listRef = useRef<HTMLUListElement>(null);
 
-  const results = useMemo(() => searchPages(query), [query]);
+  const results = useMemo(() => searchPages(query, locale), [query, locale]);
 
   // Focus input + lock body scroll while open; restore focus on close.
   useEffect(() => {
