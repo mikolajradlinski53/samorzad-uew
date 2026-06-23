@@ -5,20 +5,25 @@ import { ArrowUpRight } from "@phosphor-icons/react";
 import { ScrollReveal } from "./ScrollReveal";
 import { SplitFlap } from "./SplitFlap";
 
-// Placeholder — docelowo zaciągane z Google Calendar (Faza 3 roadmapy).
-const events = [
+interface RawEvent {
+  name: string;
+  date: string;
+  tag: string;
+}
+type EventItem = RawEvent & { ts: number };
+
+// Fallback, gdy arkusz nie jest jeszcze podpięty (EVENTS_SHEET_CSV_URL).
+const fallbackEvents: RawEvent[] = [
   { name: "Adapciak 2026", date: "2026-10-03", tag: "Integracja" },
   { name: "Bal UEW", date: "2026-11-21", tag: "Gala" },
   { name: "TEDxUEW", date: "2026-12-05", tag: "Konferencja" },
   { name: "UE Party", date: "2027-03-14", tag: "Impreza" },
 ];
 
-type EventItem = (typeof events)[number] & { ts: number };
-
-function nextEvent(now: number): EventItem | null {
-  const future = events
+function nextEvent(list: RawEvent[], now: number): EventItem | null {
+  const future = list
     .map((e) => ({ ...e, ts: new Date(`${e.date}T00:00:00`).getTime() }))
-    .filter((e) => e.ts >= now)
+    .filter((e) => !Number.isNaN(e.ts) && e.ts >= now)
     .sort((a, b) => a.ts - b.ts);
   return future[0] ?? null;
 }
@@ -35,10 +40,19 @@ export function NextEvent() {
   });
 
   useEffect(() => {
-    const now = Date.now();
-    const e = nextEvent(now);
-    // eslint-disable-next-line react-hooks/set-state-in-effect
-    setState({ ev: e, days: e ? Math.ceil((e.ts - now) / 86_400_000) : 0 });
+    const ctrl = new AbortController();
+    const finish = (list: RawEvent[]) => {
+      const now = Date.now();
+      const e = nextEvent(list, now);
+      setState({ ev: e, days: e ? Math.ceil((e.ts - now) / 86_400_000) : 0 });
+    };
+    fetch("/api/events", { signal: ctrl.signal })
+      .then((r) => (r.ok ? r.json() : Promise.reject(new Error("events"))))
+      .then((data: { events?: RawEvent[] }) => {
+        finish(data.events && data.events.length > 0 ? data.events : fallbackEvents);
+      })
+      .catch(() => finish(fallbackEvents));
+    return () => ctrl.abort();
   }, []);
 
   const { ev, days } = state;
