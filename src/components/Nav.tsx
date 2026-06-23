@@ -1,0 +1,372 @@
+"use client";
+
+import { useTheme } from "next-themes";
+import { useEffect, useRef, useState } from "react";
+import {
+  AnimatePresence,
+  motion,
+  useMotionValueEvent,
+  useReducedMotion,
+  useScroll,
+} from "motion/react";
+import { Sun, Moon, List, X, CaretDown, ArrowSquareOut, MagnifyingGlass } from "@phosphor-icons/react";
+import Image from "next/image";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { NavDropdown, type NavChild } from "./NavDropdown";
+import { SearchCommand } from "./SearchCommand";
+
+const BASE = "https://samorzad.ue.wroc.pl";
+
+const dlaStudenta: NavChild[] = [
+  { label: "Strefa studenta", href: "/dla-studenta" },
+  { label: "Prawa studenta", href: "/prawa-studenta" },
+  { label: "Stypendia", href: "/stypendia" },
+  { label: "Wsparcie i świadczenia", href: "/wsparcie-materialne-i-swiadczenia" },
+  { label: "Prawo dla studenta", href: "/prawo-dla-studenta" },
+  { label: "Infopacki", href: "/infopacki" },
+  { label: "Rzecznik Praw Studenta", href: "/rzecznik-praw-studenta" },
+  { label: "Mapa kampusu", href: "/mapa-kampusu" },
+  { label: "Pomoc psychologiczna", href: "/pomoc-psychologiczna" },
+];
+
+const samorzad: NavChild[] = [
+  { label: "O nas", href: "/#o-nas" },
+  { label: "Nasza działalność", href: "/nasza-dzialalnosc" },
+  { label: "Struktura Samorządu", href: "/struktura-samorzadu" },
+  { label: "Przewodniczący i Wiceprzewodniczący", href: "/przewodniczacy-i-wiceprzewodniczacy" },
+  { label: "Rada Uczelniana (RUSS)", href: "/rada-uczelniana-samorzadu-studentow" },
+  { label: "Studencka Komisja Wyborcza", href: "/studencka-komisja-wyborcza" },
+  { label: "Regulacje wewnętrzne", href: "/regulacje-wewnetrzne" },
+  { label: "Zarządzenia Przewodniczącej", href: "/zarzadzenia-przewodniczacego" },
+  { label: "Nasze projekty", href: "/nasze-projekty" },
+];
+
+const wspolpraca: NavChild[] = [
+  { label: "Partnerzy", href: "/partnerzy" },
+  { label: "Współpracuj z nami", href: "/wspolpracuj-z-nami" },
+];
+
+const directLinks = [{ label: "Kontakt", href: "/kontakt" }];
+
+export function Nav() {
+  const { setTheme, resolvedTheme } = useTheme();
+  const pathname = usePathname();
+  const [mounted, setMounted] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  const [mobileOpen, setMobileOpen] = useState(false);
+  const [mobileSection, setMobileSection] = useState<string | null>(null);
+  const [searchOpen, setSearchOpen] = useState(false);
+  const { scrollY } = useScroll();
+  const reduce = useReducedMotion();
+
+  const menuRef = useRef<HTMLDivElement>(null);
+  const toggleRef = useRef<HTMLButtonElement>(null);
+
+  // SSR-safe theme guard (next-themes): render theme-dependent UI only after mount.
+  // eslint-disable-next-line react-hooks/set-state-in-effect
+  useEffect(() => setMounted(true), []);
+
+  useMotionValueEvent(scrollY, "change", (latest) => {
+    setScrolled(latest > 40);
+  });
+
+  // Global ⌘K / Ctrl+K opens site search.
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent) => {
+      if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k") {
+        e.preventDefault();
+        setSearchOpen(true);
+      }
+    };
+    document.addEventListener("keydown", onKey);
+    return () => document.removeEventListener("keydown", onKey);
+  }, []);
+
+  // Mobile menu: scroll lock, Esc to close, focus trap, focus restore.
+  useEffect(() => {
+    if (!mobileOpen) return;
+    const previouslyFocused = document.activeElement as HTMLElement | null;
+    document.body.style.overflow = "hidden";
+    menuRef.current?.querySelector<HTMLElement>("a, button")?.focus();
+
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        setMobileOpen(false);
+        return;
+      }
+      if (e.key !== "Tab" || !menuRef.current) return;
+      const focusable = menuRef.current.querySelectorAll<HTMLElement>(
+        'a[href], button:not([disabled])',
+      );
+      if (focusable.length === 0) return;
+      const first = focusable[0];
+      const last = focusable[focusable.length - 1];
+      if (e.shiftKey && document.activeElement === first) {
+        e.preventDefault();
+        last.focus();
+      } else if (!e.shiftKey && document.activeElement === last) {
+        e.preventDefault();
+        first.focus();
+      }
+    };
+    document.addEventListener("keydown", handleKeyDown);
+    return () => {
+      document.removeEventListener("keydown", handleKeyDown);
+      document.body.style.overflow = "";
+      previouslyFocused?.focus();
+    };
+  }, [mobileOpen]);
+
+  const toggleTheme = () =>
+    setTheme(resolvedTheme === "dark" ? "light" : "dark");
+
+  const matchesAny = (items: NavChild[]) =>
+    items.some(
+      (it) =>
+        !it.external &&
+        it.href.startsWith("/") &&
+        !it.href.startsWith("/#") &&
+        it.href !== "/" &&
+        pathname.startsWith(it.href),
+    );
+
+  const closeMobile = () => {
+    setMobileOpen(false);
+    setMobileSection(null);
+  };
+
+  const mobileGroups = [
+    { label: "Dla studenta", items: dlaStudenta },
+    { label: "Samorząd", items: samorzad },
+    { label: "Współpraca", items: wspolpraca },
+  ];
+
+  return (
+    <motion.header
+      className="fixed top-0 left-0 right-0 z-50 transition-colors duration-300"
+      style={{
+        backgroundColor: scrolled ? "var(--bg-surface)" : "transparent",
+        backdropFilter: scrolled ? "blur(12px)" : "none",
+        borderBottom: scrolled
+          ? "1px solid var(--border-subtle)"
+          : "1px solid transparent",
+      }}
+    >
+      <nav
+        aria-label="Główna nawigacja"
+        className="mx-auto flex h-[72px] max-w-[1200px] items-center justify-between px-6"
+      >
+        <Link
+          href="/"
+          aria-label="Samorząd Studentów Uniwersytetu Ekonomicznego we Wrocławiu — strona główna"
+          className="relative h-10 w-40 shrink-0"
+        >
+          {mounted && (
+            <Image
+              src={resolvedTheme === "dark" ? "/logo-light.svg" : "/logo-dark.svg"}
+              alt="Samorząd Studentów Uniwersytetu Ekonomicznego we Wrocławiu"
+              fill
+              className="object-contain object-left"
+              priority
+            />
+          )}
+        </Link>
+
+        {/* Desktop nav */}
+        <ul className="hidden items-center gap-7 md:flex">
+          <NavDropdown label="Dla studenta" items={dlaStudenta} active={matchesAny(dlaStudenta)} />
+          <NavDropdown label="Samorząd" items={samorzad} active={matchesAny(samorzad)} />
+          <NavDropdown label="Współpraca" items={wspolpraca} active={matchesAny(wspolpraca)} />
+          {directLinks.map((link) => {
+            const active = pathname.startsWith(link.href);
+            return (
+              <li key={link.href} className="relative">
+                <Link
+                  href={link.href}
+                  aria-current={active ? "page" : undefined}
+                  className={`inline-block py-1 text-[0.75rem] font-medium uppercase tracking-[0.08em] transition-colors ${
+                    active ? "text-accent" : "text-ink-secondary hover:text-ink-primary"
+                  }`}
+                >
+                  {link.label}
+                </Link>
+                {active && (
+                  <span
+                    aria-hidden="true"
+                    className="absolute -bottom-1 left-0 right-0 h-[2px] rounded-full bg-accent"
+                  />
+                )}
+              </li>
+            );
+          })}
+        </ul>
+
+        <div className="flex items-center gap-3">
+          <button
+            onClick={() => setSearchOpen(true)}
+            className="hidden h-10 items-center gap-2 rounded-lg border border-border-medium px-3 text-[0.8125rem] font-medium text-ink-secondary transition-colors hover:border-border-soft hover:bg-bg-elevated md:flex"
+            aria-label="Szukaj na stronie"
+          >
+            <MagnifyingGlass size={16} weight="regular" aria-hidden="true" />
+            Szukaj
+            <kbd className="rounded border border-border-soft px-1 py-0.5 text-[0.625rem] text-ink-tertiary">⌘K</kbd>
+          </button>
+          <button
+            onClick={() => setSearchOpen(true)}
+            className="flex h-10 w-10 items-center justify-center rounded-lg text-ink-secondary md:hidden"
+            aria-label="Szukaj na stronie"
+          >
+            <MagnifyingGlass size={20} weight="regular" aria-hidden="true" />
+          </button>
+
+          {mounted && (
+            <button
+              onClick={toggleTheme}
+              className="flex h-10 w-10 items-center justify-center rounded-lg text-ink-secondary transition-colors hover:bg-bg-elevated hover:text-ink-primary"
+              aria-label={
+                resolvedTheme === "dark" ? "Włącz tryb jasny" : "Włącz tryb ciemny"
+              }
+            >
+              {resolvedTheme === "dark" ? (
+                <Sun size={20} weight="regular" aria-hidden="true" />
+              ) : (
+                <Moon size={20} weight="regular" aria-hidden="true" />
+              )}
+            </button>
+          )}
+
+          <a
+            href={`${BASE}/strefa-dzialacza`}
+            className="hidden h-10 items-center rounded-md border border-border-medium bg-transparent px-5 text-[0.875rem] font-medium text-ink-primary transition-colors hover:border-border-soft hover:bg-bg-elevated md:flex"
+          >
+            Zaloguj się
+          </a>
+
+          <button
+            ref={toggleRef}
+            onClick={() => setMobileOpen((v) => !v)}
+            className="flex h-10 w-10 items-center justify-center rounded-lg text-ink-secondary md:hidden"
+            aria-label={mobileOpen ? "Zamknij menu" : "Otwórz menu"}
+            aria-expanded={mobileOpen}
+            aria-controls="mobile-menu"
+          >
+            {mobileOpen ? (
+              <X size={24} weight="regular" aria-hidden="true" />
+            ) : (
+              <List size={24} weight="regular" aria-hidden="true" />
+            )}
+          </button>
+        </div>
+      </nav>
+
+      {/* Mobile menu */}
+      <AnimatePresence>
+        {mobileOpen && (
+          <motion.div
+            id="mobile-menu"
+            ref={menuRef}
+            initial={reduce ? false : { opacity: 0, y: -8 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={reduce ? { opacity: 0 } : { opacity: 0, y: -8 }}
+            transition={{ duration: 0.2, ease: [0.16, 1, 0.3, 1] }}
+            className="max-h-[calc(100dvh-72px)] overflow-y-auto border-t border-border-subtle bg-bg-surface px-6 pb-8 pt-4 md:hidden"
+          >
+            <nav aria-label="Nawigacja mobilna">
+              <ul className="flex flex-col gap-1">
+                {mobileGroups.map((group) => {
+                  const isOpen = mobileSection === group.label;
+                  return (
+                    <li key={group.label} className="border-b border-border-subtle py-1">
+                      <button
+                        type="button"
+                        onClick={() =>
+                          setMobileSection(isOpen ? null : group.label)
+                        }
+                        aria-expanded={isOpen}
+                        className="flex w-full items-center justify-between py-3 text-[0.9375rem] font-semibold text-ink-primary"
+                      >
+                        {group.label}
+                        <CaretDown
+                          size={16}
+                          weight="bold"
+                          aria-hidden="true"
+                          className={`transition-transform duration-200 ${isOpen ? "rotate-180" : ""}`}
+                        />
+                      </button>
+                      <AnimatePresence initial={false}>
+                        {isOpen && (
+                          <motion.ul
+                            initial={reduce ? false : { height: 0, opacity: 0 }}
+                            animate={{ height: "auto", opacity: 1 }}
+                            exit={reduce ? { opacity: 0 } : { height: 0, opacity: 0 }}
+                            transition={{ duration: 0.2, ease: [0.16, 1, 0.3, 1] }}
+                            className="overflow-hidden"
+                          >
+                            {group.items.map((item) => (
+                              <li key={item.href}>
+                                {item.external ? (
+                                  <a
+                                    href={item.href}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    onClick={closeMobile}
+                                    className="flex items-center justify-between gap-2 py-2.5 pl-3 text-[0.875rem] text-ink-secondary transition-colors hover:text-ink-primary"
+                                  >
+                                    {item.label}
+                                    <ArrowSquareOut size={14} weight="regular" aria-hidden="true" className="text-ink-tertiary" />
+                                  </a>
+                                ) : (
+                                  <Link
+                                    href={item.href}
+                                    onClick={closeMobile}
+                                    className="block py-2.5 pl-3 text-[0.875rem] text-ink-secondary transition-colors hover:text-ink-primary"
+                                  >
+                                    {item.label}
+                                  </Link>
+                                )}
+                              </li>
+                            ))}
+                          </motion.ul>
+                        )}
+                      </AnimatePresence>
+                    </li>
+                  );
+                })}
+
+                {directLinks.map((link) => (
+                  <li key={link.href} className="border-b border-border-subtle">
+                    <Link
+                      href={link.href}
+                      onClick={closeMobile}
+                      aria-current={pathname.startsWith(link.href) ? "page" : undefined}
+                      className={`block py-3.5 text-[0.9375rem] font-semibold transition-colors ${
+                        pathname.startsWith(link.href)
+                          ? "text-accent"
+                          : "text-ink-primary hover:text-accent"
+                      }`}
+                    >
+                      {link.label}
+                    </Link>
+                  </li>
+                ))}
+
+                <li className="pt-4">
+                  <a
+                    href={`${BASE}/strefa-dzialacza`}
+                    onClick={closeMobile}
+                    className="inline-flex h-11 items-center rounded-md border border-border-medium px-5 text-[0.875rem] font-medium text-ink-primary"
+                  >
+                    Zaloguj się
+                  </a>
+                </li>
+              </ul>
+            </nav>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      <SearchCommand open={searchOpen} onClose={() => setSearchOpen(false)} />
+    </motion.header>
+  );
+}

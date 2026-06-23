@@ -1,0 +1,344 @@
+@import "tailwindcss";
+
+/* ── Design tokens from DESIGN.md ── */
+
+:root {
+  /* Light mode — blue & white institutional identity */
+  --bg-base: #F6F8FC;
+  --bg-surface: #FFFFFF;
+  --bg-elevated: #EDF2FA;
+  --bg-subtle: #DEE6F2;
+
+  --ink-primary: #0B1322;
+  --ink-secondary: #475467;
+  --ink-tertiary: #98A2B3;
+
+  --accent: #2C4BFF;
+  --accent-dim: #1F3AE0;
+  --accent-glow: rgba(44, 75, 255, 0.10);
+
+  --border-subtle: rgba(11, 19, 34, 0.06);
+  --border-soft: rgba(11, 19, 34, 0.10);
+  --border-medium: rgba(11, 19, 34, 0.16);
+}
+
+.dark {
+  --bg-base: #0A0D14;
+  --bg-surface: #111623;
+  --bg-elevated: #19202F;
+  --bg-subtle: #232C3E;
+
+  --ink-primary: #EEF2F8;
+  --ink-secondary: #9BA6B7;
+  --ink-tertiary: #5C6678;
+
+  --accent: #6C84FF;
+  --accent-dim: #4D63F0;
+  --accent-glow: rgba(108, 132, 255, 0.14);
+
+  --border-subtle: rgba(255, 255, 255, 0.06);
+  --border-soft: rgba(255, 255, 255, 0.10);
+  --border-medium: rgba(255, 255, 255, 0.16);
+}
+
+/* ── Tailwind v4 theme ── */
+
+@theme inline {
+  --color-bg-base: var(--bg-base);
+  --color-bg-surface: var(--bg-surface);
+  --color-bg-elevated: var(--bg-elevated);
+  --color-bg-subtle: var(--bg-subtle);
+
+  --color-ink-primary: var(--ink-primary);
+  --color-ink-secondary: var(--ink-secondary);
+  --color-ink-tertiary: var(--ink-tertiary);
+
+  --color-accent: var(--accent);
+  --color-accent-dim: var(--accent-dim);
+  --color-accent-glow: var(--accent-glow);
+
+  --color-border-subtle: var(--border-subtle);
+  --color-border-soft: var(--border-soft);
+  --color-border-medium: var(--border-medium);
+
+  --font-display: var(--font-archivo);
+  --font-body: var(--font-archivo);
+  --font-mono: var(--font-jbm);
+}
+
+/* ── Base styles ── */
+
+body {
+  background-color: var(--bg-base);
+  color: var(--ink-primary);
+  font-family: var(--font-body), system-ui, sans-serif;
+}
+
+/* ── Hero orb ambient animation ── */
+
+@keyframes orb-drift-1 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(60px, -40px) scale(1.1); }
+  66% { transform: translate(-30px, 30px) scale(0.95); }
+}
+
+@keyframes orb-drift-2 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(-50px, 50px) scale(1.05); }
+  66% { transform: translate(40px, -20px) scale(0.9); }
+}
+
+@keyframes orb-drift-3 {
+  0%, 100% { transform: translate(0, 0) scale(1); opacity: 0.4; }
+  50% { transform: translate(30px, 60px) scale(1.15); opacity: 0.6; }
+}
+
+.orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(120px);
+  will-change: transform, opacity;
+}
+
+.orb-1 {
+  width: 600px;
+  height: 600px;
+  background: var(--accent);
+  opacity: 0.15;
+  top: 10%;
+  left: 15%;
+  animation: orb-drift-1 20s ease-in-out infinite;
+}
+
+.orb-2 {
+  width: 500px;
+  height: 500px;
+  background: var(--ink-tertiary);
+  opacity: 0.1;
+  top: 40%;
+  right: 10%;
+  animation: orb-drift-2 25s ease-in-out infinite;
+}
+
+.orb-3 {
+  width: 400px;
+  height: 400px;
+  background: var(--accent);
+  opacity: 0.08;
+  bottom: 10%;
+  left: 40%;
+  animation: orb-drift-3 30s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .orb {
+    animation: none !important;
+  }
+}
+
+/* ── Prose constraint ── */
+
+.prose-constrained {
+  max-width: 68ch;
+}
+
+/* ── Section spacing ── */
+
+.section-padding {
+  padding-top: 96px;
+  padding-bottom: 96px;
+  padding-left: max(24px, calc((100vw - 1200px) / 2));
+  padding-right: max(24px, calc((100vw - 1200px) / 2));
+}
+
+@media (max-width: 1024px) {
+  .section-padding {
+    padding-top: 64px;
+    padding-bottom: 64px;
+  }
+}
+
+@media (max-width: 768px) {
+  .section-padding {
+    padding-top: 48px;
+    padding-bottom: 48px;
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+}
+
+/* ── Accessibility: focus-visible (WCAG 2.4.7 / 2.4.11) ── */
+
+:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* Only suppress the native ring when :focus-visible isn't the trigger
+   (i.e. mouse/touch). Keyboard users always keep a visible ring. */
+:focus:not(:focus-visible) {
+  outline: none;
+}
+
+/* ── Skip link (WCAG 2.4.1 Bypass Blocks) ── */
+
+.skip-link {
+  position: fixed;
+  top: 12px;
+  left: 12px;
+  z-index: 100;
+  padding: 10px 18px;
+  border-radius: 8px;
+  background-color: var(--accent);
+  color: var(--bg-base);
+  font-size: 0.875rem;
+  font-weight: 600;
+  transform: translateY(-160%);
+  transition: transform 160ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.skip-link:focus-visible {
+  transform: translateY(0);
+  outline-offset: 2px;
+}
+
+/* ── Editorial film grain (hero signature texture) ── */
+
+.grain {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.04;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* ── Marquee (partners) ── */
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+  animation-name: marquee;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+@keyframes marquee-y {
+  from { transform: translateY(0); }
+  to { transform: translateY(-50%); }
+}
+
+.animate-marquee-y {
+  animation-name: marquee-y;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-marquee,
+  .animate-marquee-y {
+    animation: none !important;
+  }
+}
+
+/* ── Hero scroll indicator ── */
+
+@keyframes chevron-bob {
+  0%, 100% { transform: translateY(0); opacity: 0.55; }
+  50% { transform: translateY(6px); opacity: 1; }
+}
+
+.chevron-bob {
+  animation: chevron-bob 2s ease-in-out infinite;
+}
+
+/* ── Reduced motion: kill all ambient/decorative motion (WCAG 2.3.3) ── */
+
+@media (prefers-reduced-motion: reduce) {
+  .chevron-bob {
+    animation: none !important;
+  }
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+/* ── Partner effect: aviation „line-draw + start" ── */
+@keyframes plane-draw {
+  to { stroke-dashoffset: 0; }
+}
+@keyframes plane-takeoff {
+  0%, 38% { transform: translate(0, 0) rotate(-12deg); opacity: 1; }
+  100% { transform: translate(150px, -78px) rotate(-12deg); opacity: 0; }
+}
+@keyframes plane-trail {
+  0% { width: 0; opacity: 0; }
+  30% { opacity: 0.7; }
+  100% { width: 150px; opacity: 0; }
+}
+/* ── Partner effect: domyślny sweep ── */
+@keyframes partner-sweep {
+  0% { transform: translateX(-160%) skewX(-16deg); opacity: 0; }
+  30% { opacity: 0.9; }
+  100% { transform: translateX(230%) skewX(-16deg); opacity: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pe-plane, .pe-trail, .pe-sweep { animation: none !important; }
+}
+
+/* ── PersonCard hologram (sygnatura legitymacji) ── */
+.pc-holo {
+  background: linear-gradient(115deg, #bfe0ff, var(--accent), #9fffe0, var(--accent), #bfe0ff);
+  background-size: 300% 300%;
+  background-position: 0% 50%;
+  opacity: 0.8;
+}
+.group:hover .pc-holo {
+  animation: pc-holo 3s ease infinite;
+}
+@keyframes pc-holo {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .pc-holo { animation: none !important; }
+}
+
+/* ── Split-flap (tablica wydarzeń) ── */
+@keyframes split-flap {
+  0% { transform: rotateX(-90deg); opacity: 0; }
+  60% { opacity: 1; }
+  100% { transform: rotateX(0deg); opacity: 1; }
+}
+
+/* ── Hero technical grid (engineered ambient) ── */
+.hero-grid {
+  background-image:
+    linear-gradient(to right, var(--border-subtle) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--border-subtle) 1px, transparent 1px);
+  background-size: 46px 46px;
+  animation: grid-drift 40s linear infinite;
+}
+@keyframes grid-drift {
+  from { background-position: 0 0; }
+  to { background-position: 46px 46px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-grid { animation: none; }
+}

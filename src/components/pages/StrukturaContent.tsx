@@ -1,0 +1,161 @@
+"use client";
+
+import { motion, useReducedMotion } from "motion/react";
+import Link from "next/link";
+import {
+  Crown,
+  Gear,
+  Scroll,
+  ShieldCheck,
+  Checks,
+  type Icon,
+} from "@phosphor-icons/react";
+import { ScrollReveal } from "../ScrollReveal";
+import { Tilt } from "../Tilt";
+
+const top = {
+  title: "Przewodniczący i Wiceprzewodniczący",
+  role: "Tworzą strategię rozwoju Samorządu i podejmują najważniejsze decyzje.",
+  icon: Crown,
+  href: "/przewodniczacy-i-wiceprzewodniczacy",
+};
+
+interface Organ {
+  title: string;
+  role: string;
+  icon: Icon;
+  href?: string;
+}
+
+const organs: Organ[] = [
+  {
+    title: "Zarząd",
+    role: "Organ wykonawczy — realizuje cele wynikające z Ustawy 2.0.",
+    icon: Gear,
+  },
+  {
+    title: "Rada Uczelniana Samorządu Studentów",
+    role: "Organ uchwałodawczy — ustanawia wewnętrzne regulacje i opiniuje akty prawne wyższego szczebla.",
+    icon: Scroll,
+  },
+  {
+    title: "Komisja Rewizyjna",
+    role: "Organ kontrolny — nadzoruje działalność i finanse Samorządu Studentów.",
+    icon: ShieldCheck,
+  },
+  {
+    title: "Studencka Komisja Wyborcza",
+    role: "Organ wyborczy — przygotowuje, przeprowadza i nadzoruje wybory do Samorządu.",
+    icon: Checks,
+    href: "/studencka-komisja-wyborcza",
+  },
+];
+
+export function StrukturaContent() {
+  const reduce = useReducedMotion();
+  const TopIcon = top.icon;
+
+  return (
+    <section className="section-padding" aria-labelledby="struktura-heading">
+      <div className="mx-auto max-w-[1200px]">
+        <ScrollReveal>
+          <p className="text-[0.75rem] font-medium uppercase tracking-[0.08em] text-accent">
+            Organy Samorządu
+          </p>
+          <h2
+            id="struktura-heading"
+            className="mt-3 max-w-[22ch] font-display text-[clamp(1.75rem,3.4vw,2.75rem)] font-semibold leading-[1.15] tracking-[-0.02em] text-ink-primary"
+          >
+            Jak zbudowany jest Samorząd
+          </h2>
+        </ScrollReveal>
+
+        {/* Org chart */}
+        <div className="mt-14 flex flex-col items-center">
+          {/* Top node */}
+          <motion.div
+            initial={reduce ? false : { opacity: 0, y: 20, scale: 0.96 }}
+            whileInView={reduce ? undefined : { opacity: 1, y: 0, scale: 1 }}
+            viewport={{ once: true, amount: 0.4 }}
+            transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+            className="w-full max-w-md"
+          >
+            <Tilt max={5}>
+              <div className="group relative rounded-xl border border-accent/40 bg-bg-surface p-6 text-center transition-colors duration-150 hover:bg-bg-elevated">
+                <span className="mx-auto flex h-12 w-12 items-center justify-center rounded-lg bg-accent-glow text-accent">
+                  <TopIcon size={26} weight="regular" aria-hidden="true" />
+                </span>
+                <h3 className="mt-4 text-[1.125rem] font-semibold tracking-[-0.01em] text-ink-primary">
+                  {top.title}
+                </h3>
+                <p className="mt-2 text-[0.875rem] leading-[1.6] text-ink-secondary">
+                  {top.role}
+                </p>
+                <Link
+                  href={top.href}
+                  aria-label={top.title}
+                  className="absolute inset-0 rounded-xl"
+                />
+              </div>
+            </Tilt>
+          </motion.div>
+
+          {/* Drawing connector */}
+          <motion.div
+            aria-hidden="true"
+            initial={reduce ? false : { scaleY: 0 }}
+            whileInView={reduce ? undefined : { scaleY: 1 }}
+            viewport={{ once: true, amount: 0.4 }}
+            transition={{ duration: 0.5, delay: 0.25, ease: [0.16, 1, 0.3, 1] }}
+            className="my-2 h-10 w-px origin-top bg-border-medium"
+          />
+
+          {/* Organ nodes */}
+          <div className="grid w-full gap-5 sm:grid-cols-2 lg:grid-cols-4">
+            {organs.map((organ, i) => {
+              const Glyph = organ.icon;
+              return (
+                <motion.div
+                  key={organ.title}
+                  initial={reduce ? false : { opacity: 0, y: 24 }}
+                  whileInView={reduce ? undefined : { opacity: 1, y: 0 }}
+                  viewport={{ once: true, amount: 0.2 }}
+                  transition={{
+                    duration: 0.5,
+                    delay: 0.4 + i * 0.08,
+                    ease: [0.16, 1, 0.3, 1],
+                  }}
+                >
+                  <Tilt className="h-full" max={6}>
+                    <div className="group relative flex h-full flex-col overflow-hidden rounded-xl border border-border-subtle bg-bg-surface p-6 transition-colors duration-150 hover:border-border-soft hover:bg-bg-elevated">
+                      <span
+                        aria-hidden="true"
+                        className="absolute inset-x-0 top-0 h-[2px] origin-left scale-x-0 bg-accent transition-transform duration-300 group-hover:scale-x-100"
+                      />
+                      <span className="flex h-11 w-11 items-center justify-center rounded-lg bg-accent-glow text-accent">
+                        <Glyph size={24} weight="regular" aria-hidden="true" />
+                      </span>
+                      <h3 className="mt-5 text-[1rem] font-semibold leading-snug tracking-[-0.01em] text-ink-primary">
+                        {organ.title}
+                      </h3>
+                      <p className="mt-2 text-[0.875rem] leading-[1.6] text-ink-secondary">
+                        {organ.role}
+                      </p>
+                      {organ.href && (
+                        <Link
+                          href={organ.href}
+                          aria-label={organ.title}
+                          className="absolute inset-0 rounded-xl"
+                        />
+                      )}
+                    </div>
+                  </Tilt>
+                </motion.div>
+              );
+            })}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}

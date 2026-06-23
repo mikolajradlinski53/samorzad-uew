@@ -1,0 +1,87 @@
+"use client";
+
+import { motion, useReducedMotion } from "motion/react";
+import { InitialsAvatar } from "../InitialsAvatar";
+import { ScrollReveal } from "../ScrollReveal";
+import { PersonCard } from "../PersonCard";
+
+const rektor = {
+  name: "prof. dr hab. Czesław Zając",
+  role: "Jego Magnificencja Rektor Uniwersytetu Ekonomicznego we Wrocławiu",
+};
+
+const prorektorzy = [
+  {
+    name: "dr hab. inż. Andrzej Okruszek, prof. UEW",
+    role: "Prorektor ds. Studenckich i Kształcenia",
+  },
+  {
+    name: "dr hab. Piotr Bednarek, prof. UEW",
+    role: "Prorektor ds. Finansów",
+  },
+  {
+    name: "prof. dr hab. Bogusława Drelich-Skulska",
+    role: "Prorektor ds. Współpracy Międzynarodowej",
+  },
+  {
+    name: "prof. dr hab. Marek Kośny",
+    role: "Prorektor ds. Nauki",
+  },
+];
+
+export function WladzeRektorskieContent() {
+  const reduce = useReducedMotion();
+
+  return (
+    <section className="section-padding" aria-labelledby="wladze-heading">
+      <div className="mx-auto max-w-[1200px]">
+        <ScrollReveal>
+          <p className="text-[0.75rem] font-medium uppercase tracking-[0.08em] text-accent">
+            Władze Uczelni
+          </p>
+          <h2
+            id="wladze-heading"
+            className="mt-3 max-w-[22ch] font-display text-[clamp(1.75rem,3.4vw,2.75rem)] font-semibold leading-[1.15] tracking-[-0.02em] text-ink-primary"
+          >
+            Kto kieruje Uniwersytetem
+          </h2>
+        </ScrollReveal>
+
+        {/* Rektor — featured */}
+        <motion.div
+          initial={reduce ? false : { opacity: 0, y: 20, scale: 0.97 }}
+          whileInView={reduce ? undefined : { opacity: 1, y: 0, scale: 1 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+          className="mt-12 flex flex-col items-center gap-5 rounded-2xl border border-accent/40 bg-bg-surface p-8 text-center sm:flex-row sm:text-left"
+        >
+          <InitialsAvatar name={rektor.name} size={88} />
+          <div>
+            <h3 className="font-display text-[clamp(1.5rem,2.6vw,2rem)] font-semibold tracking-[-0.02em] text-ink-primary">
+              {rektor.name}
+            </h3>
+            <p className="mt-2 text-[0.9375rem] font-medium uppercase tracking-[0.06em] text-accent">
+              {rektor.role}
+            </p>
+          </div>
+        </motion.div>
+
+        {/* Prorektorzy */}
+        <div className="mt-8 grid gap-5 sm:grid-cols-2">
+          {prorektorzy.map((p, i) => (
+            <motion.div
+              key={p.name}
+              initial={reduce ? false : { opacity: 0, y: 20, scale: 0.97 }}
+              whileInView={reduce ? undefined : { opacity: 1, y: 0, scale: 1 }}
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{ duration: 0.5, delay: Math.min(i, 4) * 0.08, ease: [0.16, 1, 0.3, 1] }}
+              className="h-full"
+            >
+              <PersonCard name={p.name} role={p.role} plain className="h-full" />
+            </motion.div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}

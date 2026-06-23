@@ -1,0 +1,150 @@
+import type { Metadata, Viewport } from "next";
+import { Archivo, JetBrains_Mono } from "next/font/google";
+import { ThemeProvider } from "@/components/ThemeProvider";
+import { Nav } from "@/components/Nav";
+import { Footer } from "@/components/Footer";
+import { ScrollProgress } from "@/components/ScrollProgress";
+import { BackToTop } from "@/components/BackToTop";
+import "./globals.css";
+
+const SITE_URL = "https://samorzad.ue.wroc.pl";
+
+// Structured data — helps Google understand the organization and surface
+// rich results / a knowledge panel ("pozycjonowanie").
+const organizationLd = {
+  "@context": "https://schema.org",
+  "@type": "EducationalOrganization",
+  name: "Samorząd Studentów Uniwersytetu Ekonomicznego we Wrocławiu",
+  alternateName: "SSUEW",
+  url: SITE_URL,
+  logo: `${SITE_URL}/logo-dark.svg`,
+  email: "kontakt@samorzad.ue.wroc.pl",
+  foundingDate: "1981",
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: "ul. Kamienna 43, Budynek J, pokój 9",
+    postalCode: "53-307",
+    addressLocality: "Wrocław",
+    addressCountry: "PL",
+  },
+  parentOrganization: {
+    "@type": "CollegeOrUniversity",
+    name: "Uniwersytet Ekonomiczny we Wrocławiu",
+    url: "https://www.ue.wroc.pl",
+  },
+  sameAs: [
+    "https://www.tiktok.com/@samorzaduew",
+    "https://www.facebook.com/samorzad.ue",
+    "https://www.instagram.com/samorzad.ue",
+    "https://www.linkedin.com/company/samorząd-studentów-uniwersytetu-ekonomicznego-we-wrocławiu/",
+  ],
+};
+
+const websiteLd = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  name: "Samorząd Studentów Uniwersytetu Ekonomicznego we Wrocławiu",
+  url: SITE_URL,
+  inLanguage: "pl-PL",
+  potentialAction: {
+    "@type": "SearchAction",
+    target: {
+      "@type": "EntryPoint",
+      urlTemplate: `${SITE_URL}/szukaj?q={search_term_string}`,
+    },
+    "query-input": "required name=search_term_string",
+  },
+};
+
+const archivo = Archivo({
+  variable: "--font-archivo",
+  subsets: ["latin", "latin-ext"],
+  weight: ["400", "500", "600", "700", "800"],
+  display: "swap",
+});
+
+const jetbrainsMono = JetBrains_Mono({
+  variable: "--font-jbm",
+  subsets: ["latin", "latin-ext"],
+  weight: ["400", "500", "700"],
+  display: "swap",
+});
+
+export const metadata: Metadata = {
+  metadataBase: new URL("https://samorzad.ue.wroc.pl"),
+  title: {
+    default: "Samorząd Studentów Uniwersytetu Ekonomicznego we Wrocławiu",
+    template: "%s · Samorząd Studentów Uniwersytetu Ekonomicznego we Wrocławiu",
+  },
+  description:
+    "Reprezentujemy ponad 11 000 studentów Uniwersytetu Ekonomicznego we Wrocławiu. Działamy, żeby Wasze studia miały sens.",
+  keywords: [
+    "Samorząd Studentów Uniwersytetu Ekonomicznego we Wrocławiu",
+    "Samorząd Studentów UEW",
+    "Uniwersytet Ekonomiczny we Wrocławiu",
+    "UEW",
+    "studenci",
+    "stypendia",
+    "prawa studenta",
+  ],
+  openGraph: {
+    type: "website",
+    locale: "pl_PL",
+    url: "/",
+    siteName: "Samorząd Studentów Uniwersytetu Ekonomicznego we Wrocławiu",
+    title: "Samorząd Studentów Uniwersytetu Ekonomicznego we Wrocławiu",
+    description:
+      "Reprezentujemy ponad 11 000 studentów Uniwersytetu Ekonomicznego we Wrocławiu.",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Samorząd Studentów Uniwersytetu Ekonomicznego we Wrocławiu",
+    description:
+      "Reprezentujemy ponad 11 000 studentów Uniwersytetu Ekonomicznego we Wrocławiu.",
+  },
+  alternates: {
+    canonical: "/",
+  },
+};
+
+export const viewport: Viewport = {
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#F6F8FC" },
+    { media: "(prefers-color-scheme: dark)", color: "#0A0D14" },
+  ],
+};
+
+export default function RootLayout({
+  children,
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
+  return (
+    <html
+      lang="pl"
+      className={`${archivo.variable} ${jetbrainsMono.variable}`}
+      suppressHydrationWarning
+    >
+      <body className="min-h-dvh antialiased">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationLd) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteLd) }}
+        />
+        <a href="#main-content" className="skip-link">
+          Przejdź do treści
+        </a>
+        <ThemeProvider>
+          <ScrollProgress />
+          <Nav />
+          {children}
+          <Footer />
+          <BackToTop />
+        </ThemeProvider>
+      </body>
+    </html>
+  );
+}
