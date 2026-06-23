@@ -2,11 +2,9 @@
 
 import { motion, useReducedMotion } from "motion/react";
 import { useTranslations } from "next-intl";
-import { EnvelopeSimple, FileText, CheckCircle } from "@phosphor-icons/react";
+import { EnvelopeSimple, CheckCircle } from "@phosphor-icons/react";
 import { PersonCard } from "../PersonCard";
 import { ScrollReveal } from "../ScrollReveal";
-
-const LIVE_UCHWALY = "https://samorzad.ue.wroc.pl/studencka-komisja-wyborcza";
 
 const czlonkowie = [
   { name: "Martyna Staniszewska", roleKey: "chair" },
@@ -79,17 +77,8 @@ export function KomisjaWyborczaContent() {
         <ScrollReveal>
           <div className="mt-12 flex flex-col flex-wrap gap-4 sm:flex-row">
             <a
-              href={LIVE_UCHWALY}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex h-12 items-center gap-2 rounded-lg bg-accent px-7 text-base font-medium text-bg-base transition-all hover:bg-accent-dim active:scale-[0.98]"
-            >
-              <FileText size={20} weight="regular" aria-hidden="true" />
-              {t("uchwalyButton")}
-            </a>
-            <a
               href="mailto:skw@samorzad.ue.wroc.pl"
-              className="inline-flex h-12 items-center gap-2 rounded-lg border border-border-medium px-7 text-base font-medium text-ink-primary transition-colors hover:border-border-soft hover:bg-bg-elevated"
+              className="inline-flex h-12 items-center gap-2 rounded-lg bg-accent px-7 text-base font-medium text-bg-base transition-all hover:bg-accent-dim active:scale-[0.98]"
             >
               <EnvelopeSimple size={20} weight="regular" aria-hidden="true" />
               skw@samorzad.ue.wroc.pl

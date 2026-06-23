@@ -1,7 +1,8 @@
 {
   "common": {
     "home": "Strona główna",
-    "newTab": "otwiera się w nowej karcie"
+    "newTab": "otwiera się w nowej karcie",
+    "comingSoon": "Wkrótce"
   },
   "nav": {
     "student": "Dla studenta",

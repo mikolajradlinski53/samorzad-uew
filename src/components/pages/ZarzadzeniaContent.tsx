@@ -6,11 +6,10 @@ import { Link } from "@/i18n/navigation";
 import { FolderOpen, EnvelopeSimple, Stamp } from "@phosphor-icons/react";
 import { ScrollReveal } from "../ScrollReveal";
 
-const LIVE_DRIVE = "https://samorzad.ue.wroc.pl/zarzadzenia-przewodniczacego";
-
 export function ZarzadzeniaContent() {
   const reduce = useReducedMotion();
   const t = useTranslations("zarzadzenia");
+  const tc = useTranslations("common");
 
   return (
     <section className="section-padding" aria-labelledby="zarz-heading">
@@ -51,15 +50,10 @@ export function ZarzadzeniaContent() {
               </p>
             </div>
           </div>
-          <a
-            href={LIVE_DRIVE}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex h-12 shrink-0 items-center gap-2 rounded-lg bg-accent px-7 text-base font-medium text-bg-base transition-all hover:bg-accent-dim active:scale-[0.98]"
-          >
+          <span className="inline-flex h-12 shrink-0 items-center gap-2 rounded-lg border border-border-medium px-7 text-base font-medium text-ink-tertiary">
             <FolderOpen size={20} weight="regular" aria-hidden="true" />
-            {t("openButton")}
-          </a>
+            {t("openButton")} · {tc("comingSoon")}
+          </span>
         </motion.div>
 
         {/* Archiwum */}

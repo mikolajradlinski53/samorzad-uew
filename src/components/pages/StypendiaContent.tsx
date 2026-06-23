@@ -7,7 +7,6 @@ import {
   Trophy,
   Wheelchair,
   Lifebuoy,
-  FileText,
   ArrowSquareOut,
   type Icon,
 } from "@phosphor-icons/react";
@@ -124,13 +123,6 @@ export function StypendiaContent() {
                 </li>
               ))}
             </ol>
-            <a
-              href="https://samorzad.ue.wroc.pl/stypendia"
-              className="mt-6 inline-flex h-11 items-center gap-2 rounded-lg border border-border-medium px-6 text-[0.9375rem] font-medium text-ink-primary transition-colors hover:border-border-soft hover:bg-bg-elevated"
-            >
-              <FileText size={18} weight="regular" aria-hidden="true" />
-              {t("downloadAll")}
-            </a>
           </ScrollReveal>
 
           {/* Official links */}

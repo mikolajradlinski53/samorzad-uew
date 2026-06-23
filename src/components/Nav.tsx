@@ -18,8 +18,6 @@ import { NavDropdown, type NavChild } from "./NavDropdown";
 import { SearchCommand } from "./SearchCommand";
 import { LanguageSwitcher } from "./LanguageSwitcher";
 
-const BASE = "https://samorzad.ue.wroc.pl";
-
 export function Nav() {
   const { setTheme, resolvedTheme } = useTheme();
   const pathname = usePathname();
@@ -243,13 +241,6 @@ export function Nav() {
 
           <LanguageSwitcher />
 
-          <a
-            href={`${BASE}/strefa-dzialacza`}
-            className="hidden h-10 items-center rounded-md border border-border-medium bg-transparent px-5 text-[0.875rem] font-medium text-ink-primary transition-colors hover:border-border-soft hover:bg-bg-elevated md:flex"
-          >
-            {t("login")}
-          </a>
-
           <button
             ref={toggleRef}
             onClick={() => setMobileOpen((v) => !v)}
@@ -357,16 +348,6 @@ export function Nav() {
                     </Link>
                   </li>
                 ))}
-
-                <li className="pt-4">
-                  <a
-                    href={`${BASE}/strefa-dzialacza`}
-                    onClick={closeMobile}
-                    className="inline-flex h-11 items-center rounded-md border border-border-medium px-5 text-[0.875rem] font-medium text-ink-primary"
-                  >
-                    {t("login")}
-                  </a>
-                </li>
               </ul>
             </nav>
           </motion.div>

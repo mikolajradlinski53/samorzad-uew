@@ -2,7 +2,6 @@
 
 import { motion, useReducedMotion } from "motion/react";
 import { useTranslations } from "next-intl";
-import { ArrowSquareOut } from "@phosphor-icons/react";
 import { ScrollReveal } from "../ScrollReveal";
 import { PersonCard } from "../PersonCard";
 import { russPhotos } from "@/lib/photos";
@@ -42,15 +41,6 @@ export function RUSSContent() {
             <p className="prose-constrained mt-4 text-[1.0625rem] leading-[1.75] text-ink-secondary">
               {t("introBody")}
             </p>
-            <a
-              href="https://samorzad.ue.wroc.pl/rada-uczelniana-samorzadu-studentow"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="mt-6 inline-flex h-11 items-center gap-2 rounded-lg border border-border-medium px-6 text-[0.9375rem] font-medium text-ink-primary transition-colors hover:border-border-soft hover:bg-bg-elevated"
-            >
-              {t("resolutionsLink")}
-              <ArrowSquareOut size={16} weight="regular" aria-hidden="true" />
-            </a>
           </ScrollReveal>
 
           <ScrollReveal delay={0.1}>

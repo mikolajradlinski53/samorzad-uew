@@ -1,7 +1,8 @@
 {
   "common": {
     "home": "Home",
-    "newTab": "opens in a new tab"
+    "newTab": "opens in a new tab",
+    "comingSoon": "Soon"
   },
   "nav": {
     "student": "For students",

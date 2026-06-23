@@ -2,7 +2,7 @@
 
 import { motion, useReducedMotion } from "motion/react";
 import { useTranslations } from "next-intl";
-import { FileText, DownloadSimple } from "@phosphor-icons/react";
+import { FileText } from "@phosphor-icons/react";
 import { ScrollReveal } from "../ScrollReveal";
 
 const FILES = "https://samorzad.ue.wroc.pl/_files/ugd";
@@ -19,6 +19,7 @@ const documents = [
 export function RegulacjeContent() {
   const reduce = useReducedMotion();
   const t = useTranslations("regulacje");
+  const tc = useTranslations("common");
 
   return (
     <section className="section-padding" aria-labelledby="regulacje-heading">
@@ -41,29 +42,17 @@ export function RegulacjeContent() {
               viewport={{ once: true, amount: 0.4 }}
               transition={{ duration: 0.45, delay: Math.min(i, 6) * 0.06, ease: [0.16, 1, 0.3, 1] }}
             >
-              <a
-                href={doc.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group relative flex items-center gap-4 overflow-hidden rounded-xl border border-border-subtle bg-bg-surface p-5 transition-colors duration-150 hover:border-border-soft hover:bg-bg-elevated"
-              >
-                <span
-                  aria-hidden="true"
-                  className="absolute inset-y-0 left-0 w-[3px] origin-top scale-y-0 bg-accent transition-transform duration-300 group-hover:scale-y-100"
-                />
+              <div className="flex items-center gap-4 rounded-xl border border-border-subtle bg-bg-surface p-5">
                 <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg bg-accent-glow text-accent">
                   <FileText size={22} weight="regular" aria-hidden="true" />
                 </span>
                 <span className="flex-1 text-[1rem] font-medium tracking-[-0.01em] text-ink-primary">
                   {t(`documents.${doc.key}`)}
                 </span>
-                <DownloadSimple
-                  size={20}
-                  weight="regular"
-                  aria-hidden="true"
-                  className="shrink-0 text-ink-tertiary transition-all duration-150 group-hover:translate-y-0.5 group-hover:text-accent"
-                />
-              </a>
+                <span className="shrink-0 rounded-full border border-border-subtle px-2.5 py-0.5 text-[0.6875rem] font-medium uppercase tracking-[0.06em] text-ink-tertiary">
+                  {tc("comingSoon")}
+                </span>
+              </div>
             </motion.li>
           ))}
         </ul>

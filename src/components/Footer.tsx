@@ -12,8 +12,6 @@ import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import { ScrollReveal } from "./ScrollReveal";
 
-const BASE = "https://samorzad.ue.wroc.pl";
-
 const socials = [
   { icon: TiktokLogo, label: "TikTok", href: "https://www.tiktok.com/@samorzaduew" },
   { icon: FacebookLogo, label: "Facebook", href: "https://www.facebook.com/samorzad.ue" },
@@ -47,7 +45,6 @@ const linkGroups: { titleKey: string; links: { labelKey: string; href: string }[
       { labelKey: "struktura", href: "/struktura-samorzadu" },
       { labelKey: "russ", href: "/rada-uczelniana-samorzadu-studentow" },
       { labelKey: "regulacje", href: "/regulacje-wewnetrzne" },
-      { labelKey: "strefaDzialacza", href: `${BASE}/strefa-dzialacza` },
     ],
   },
   {
