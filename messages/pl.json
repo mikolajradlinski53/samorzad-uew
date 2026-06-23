@@ -248,5 +248,48 @@
     "submitIdle": "Wyślij wiadomość",
     "submitSending": "Wysyłanie…",
     "mapTitle": "Mapa — siedziba Samorządu Studentów UEW, ul. Kamienna 43, Wrocław"
+  },
+  "naszaDzialalnosc": {
+    "metaTitle": "Nasza działalność",
+    "metaDesc": "Działamy na rzecz studentów, wspieramy w walce o prawa studenckie i inspirujemy do nowych inicjatyw. Poznaj misję Samorządu Studentów UEW.",
+    "ogLabel": "Samorząd",
+    "heroEyebrow": "Samorząd Studentów",
+    "heroTitle": "Nasza działalność",
+    "heroLead": "Działamy na rzecz studentów, wspieramy Was w walce o prawa studenckie oraz inspirujemy do podejmowania nowych inicjatyw.",
+    "missionEyebrow": "Nasza misja",
+    "missionHeading": "Działamy, wspieramy, inspirujemy",
+    "pillars": {
+      "act": { "title": "Działamy", "desc": "Na rzecz studentów — realizujemy projekty, organizujemy wydarzenia i reprezentujemy Was wobec władz uczelni, miasta i instytucji." },
+      "support": { "title": "Wspieramy", "desc": "Stoimy po Waszej stronie w walce o prawa studenckie i dbamy o dobro wszystkich studentów naszej Uczelni." },
+      "inspire": { "title": "Inspirujemy", "desc": "Zachęcamy do podejmowania nowych inicjatyw, realizacji pasji, samorozwoju i kształtowania postaw społecznych." }
+    },
+    "quote": "„Nadrzędnym celem Samorządu jest stała pomoc i dbanie o dobro wszystkich studentów naszej Uczelni.”",
+    "statsSr": "Samorząd w liczbach",
+    "stats": { "students": "studentów", "committees": "komisji", "projects": "stałych projektów", "founded": "rok założenia" },
+    "ctaHeading": "Zobacz, co tworzymy przez cały rok",
+    "ctaDesc": "Od Adapciaka po TEDxUEW — poznaj projekty, które współtworzą studenci.",
+    "ctaButton": "Nasze projekty",
+    "ctaAria": "Przejdź do strony Nasze projekty"
+  },
+  "naszeProjekty": {
+    "metaTitle": "Nasze projekty",
+    "metaDesc": "Adapciak, Animalia, Bal UEW, Graduetion, Mosty Ekonomiczne, TEDxUEW i więcej — projekty, którymi integrujemy i rozwijamy studentów UEW.",
+    "ogLabel": "Samorząd Studentów",
+    "heroEyebrow": "Samorząd Studentów",
+    "heroTitle": "Nasze projekty",
+    "heroLead": "Bo studia to coś więcej niż wykłady. Realizujemy projekty, które integrują studentów, wspierają ich rozwój i wzbogacają życie akademickie UEW.",
+    "crumbActivities": "Nasza działalność",
+    "heading": "Co roku tworzymy te wydarzenia",
+    "projects": {
+      "adapciak": { "desc": "Ośmiodniowy obóz dla pierwszroczniaków, pełen atrakcji i imprez tematycznych — integracja na ostatniej prostej przed startem roku." },
+      "animalia": { "desc": "Projekt charytatywny na rzecz zagrożonych gatunków — dwa eventy (we wrocławskim ZOO i w beach barze) we współpracy z Fundacją DODO." },
+      "bal": { "desc": "Wspólna inicjatywa Władz Uczelni i Samorządu. Podczas balu wręczamy statuetki „Ekonomki” wyróżnionym pracownikom." },
+      "dni": { "desc": "Prelekcje i szkolenia wprowadzające pierwszoroczniaków w akademicką rzeczywistość — prawa, obowiązki i możliwości rozwoju." },
+      "graduetion": { "desc": "Uroczystość wręczenia dyplomów w amerykańskim stylu — togi, berety i tradycyjny rzut czapeczkami na finał." },
+      "mosty": { "desc": "Czterodniowa wymiana studentów pięciu zaprzyjaźnionych uczelni ekonomicznych: wykłady, warsztaty i case studies." },
+      "test": { "desc": "Międzyuczelniany test wzorowany na Wielkim Teście TVP — eliminacje na każdej uczelni i wielki finał najlepszych." },
+      "tedx": { "desc": "Lokalne TEDx — idee warte rozpowszechniania w kilkuminutowych, inspirujących wystąpieniach prelegentów." },
+      "party": { "desc": "Cykl studenckich imprez dla całego studenckiego Wrocławia — chwila relaksu i rozrywki poza obowiązkami." }
+    }
   }
 }

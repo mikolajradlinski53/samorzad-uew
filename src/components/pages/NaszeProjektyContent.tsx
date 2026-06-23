@@ -1,65 +1,31 @@
 "use client";
 
 import { motion, useReducedMotion } from "motion/react";
+import { useTranslations } from "next-intl";
 import { ScrollReveal } from "../ScrollReveal";
 import { Tilt } from "../Tilt";
 
 interface Project {
+  key: string;
   name: string;
-  desc: string;
   socials: string[];
 }
 
 const projects: Project[] = [
-  {
-    name: "Adapciak",
-    desc: "Ośmiodniowy obóz dla pierwszroczniaków, pełen atrakcji i imprez tematycznych — integracja na ostatniej prostej przed startem roku.",
-    socials: ["Instagram", "Facebook"],
-  },
-  {
-    name: "Animalia",
-    desc: "Projekt charytatywny na rzecz zagrożonych gatunków — dwa eventy (we wrocławskim ZOO i w beach barze) we współpracy z Fundacją DODO.",
-    socials: ["Instagram", "Facebook", "TikTok"],
-  },
-  {
-    name: "Bal UEW",
-    desc: "Wspólna inicjatywa Władz Uczelni i Samorządu. Podczas balu wręczamy statuetki „Ekonomki” wyróżnionym pracownikom.",
-    socials: [],
-  },
-  {
-    name: "Dni Adaptacyjne",
-    desc: "Prelekcje i szkolenia wprowadzające pierwszoroczniaków w akademicką rzeczywistość — prawa, obowiązki i możliwości rozwoju.",
-    socials: [],
-  },
-  {
-    name: "Graduetion",
-    desc: "Uroczystość wręczenia dyplomów w amerykańskim stylu — togi, berety i tradycyjny rzut czapeczkami na finał.",
-    socials: [],
-  },
-  {
-    name: "Mosty Ekonomiczne",
-    desc: "Czterodniowa wymiana studentów pięciu zaprzyjaźnionych uczelni ekonomicznych: wykłady, warsztaty i case studies.",
-    socials: ["Instagram", "Facebook", "TikTok"],
-  },
-  {
-    name: "Test Wiedzy Ekonomicznej",
-    desc: "Międzyuczelniany test wzorowany na Wielkim Teście TVP — eliminacje na każdej uczelni i wielki finał najlepszych.",
-    socials: ["Facebook"],
-  },
-  {
-    name: "TEDxUEW",
-    desc: "Lokalne TEDx — idee warte rozpowszechniania w kilkuminutowych, inspirujących wystąpieniach prelegentów.",
-    socials: ["Instagram", "Facebook", "LinkedIn", "TikTok"],
-  },
-  {
-    name: "UE Party",
-    desc: "Cykl studenckich imprez dla całego studenckiego Wrocławia — chwila relaksu i rozrywki poza obowiązkami.",
-    socials: ["Instagram", "Facebook", "TikTok"],
-  },
+  { key: "adapciak", name: "Adapciak", socials: ["Instagram", "Facebook"] },
+  { key: "animalia", name: "Animalia", socials: ["Instagram", "Facebook", "TikTok"] },
+  { key: "bal", name: "Bal UEW", socials: [] },
+  { key: "dni", name: "Dni Adaptacyjne", socials: [] },
+  { key: "graduetion", name: "Graduetion", socials: [] },
+  { key: "mosty", name: "Mosty Ekonomiczne", socials: ["Instagram", "Facebook", "TikTok"] },
+  { key: "test", name: "Test Wiedzy Ekonomicznej", socials: ["Facebook"] },
+  { key: "tedx", name: "TEDxUEW", socials: ["Instagram", "Facebook", "LinkedIn", "TikTok"] },
+  { key: "party", name: "UE Party", socials: ["Instagram", "Facebook", "TikTok"] },
 ];
 
 export function NaszeProjektyContent() {
   const reduce = useReducedMotion();
+  const t = useTranslations("naszeProjekty");
 
   return (
     <section className="section-padding" aria-labelledby="projekty-lista-heading">
@@ -69,14 +35,14 @@ export function NaszeProjektyContent() {
             id="projekty-lista-heading"
             className="font-display text-[clamp(1.75rem,3.4vw,2.75rem)] font-semibold leading-[1.15] tracking-[-0.02em] text-ink-primary"
           >
-            Co roku tworzymy te wydarzenia
+            {t("heading")}
           </h2>
         </ScrollReveal>
 
         <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {projects.map((project, i) => (
             <motion.div
-              key={project.name}
+              key={project.key}
               initial={reduce ? false : { opacity: 0, y: 20 }}
               whileInView={reduce ? undefined : { opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.15 }}
@@ -103,7 +69,7 @@ export function NaszeProjektyContent() {
                     {project.name}
                   </h3>
                   <p className="mt-2 flex-1 text-[0.9375rem] leading-[1.65] text-ink-secondary">
-                    {project.desc}
+                    {t(`projects.${project.key}.desc`)}
                   </p>
                   {project.socials.length > 0 && (
                     <ul className="mt-5 flex flex-wrap gap-2">

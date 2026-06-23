@@ -1,25 +1,36 @@
 import type { Metadata } from "next";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 import { PageHero } from "@/components/PageHero";
 import { NaszaDzialalnoscContent } from "@/components/pages/NaszaDzialalnoscContent";
 import { ogMeta } from "@/lib/og";
 
-export const metadata: Metadata = {
-  title: "Nasza działalność",
-  description:
-    "Działamy na rzecz studentów, wspieramy w walce o prawa studenckie i inspirujemy do nowych inicjatyw. Poznaj misję Samorządu Studentów UEW.",
-  ...ogMeta("Nasza działalność", "Samorząd"),
-};
+type Props = { params: Promise<{ locale: string }> };
 
-export default function NaszaDzialalnoscPage() {
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "naszaDzialalnosc" });
+  return {
+    title: t("metaTitle"),
+    description: t("metaDesc"),
+    ...ogMeta(t("metaTitle"), t("ogLabel")),
+  };
+}
+
+export default async function NaszaDzialalnoscPage({ params }: Props) {
+  const { locale } = await params;
+  setRequestLocale(locale);
+  const t = await getTranslations({ locale, namespace: "naszaDzialalnosc" });
+  const tc = await getTranslations({ locale, namespace: "common" });
+
   return (
     <>
       <PageHero
-        eyebrow="Samorząd Studentów"
-        title="Nasza działalność"
-        lead="Działamy na rzecz studentów, wspieramy Was w walce o prawa studenckie oraz inspirujemy do podejmowania nowych inicjatyw."
+        eyebrow={t("heroEyebrow")}
+        title={t("heroTitle")}
+        lead={t("heroLead")}
         breadcrumbs={[
-          { label: "Strona główna", href: "/" },
-          { label: "Nasza działalność" },
+          { label: tc("home"), href: "/" },
+          { label: t("heroTitle") },
         ]}
       />
       <NaszaDzialalnoscContent />

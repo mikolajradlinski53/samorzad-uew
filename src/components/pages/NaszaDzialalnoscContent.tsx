@@ -1,6 +1,7 @@
 "use client";
 
 import { motion, useReducedMotion } from "motion/react";
+import { useTranslations } from "next-intl";
 import { Lightning, HandHeart, Lightbulb, ArrowRight } from "@phosphor-icons/react";
 import { ScrollReveal } from "../ScrollReveal";
 import { Tilt } from "../Tilt";
@@ -8,32 +9,21 @@ import { CountUp } from "../CountUp";
 import { MagneticButton } from "../MagneticButton";
 
 const pillars = [
-  {
-    title: "Działamy",
-    desc: "Na rzecz studentów — realizujemy projekty, organizujemy wydarzenia i reprezentujemy Was wobec władz uczelni, miasta i instytucji.",
-    icon: Lightning,
-  },
-  {
-    title: "Wspieramy",
-    desc: "Stoimy po Waszej stronie w walce o prawa studenckie i dbamy o dobro wszystkich studentów naszej Uczelni.",
-    icon: HandHeart,
-  },
-  {
-    title: "Inspirujemy",
-    desc: "Zachęcamy do podejmowania nowych inicjatyw, realizacji pasji, samorozwoju i kształtowania postaw społecznych.",
-    icon: Lightbulb,
-  },
+  { key: "act", icon: Lightning },
+  { key: "support", icon: HandHeart },
+  { key: "inspire", icon: Lightbulb },
 ];
 
 const stats = [
-  { to: 11000, suffix: "+", label: "studentów" },
-  { to: 12, suffix: "", label: "komisji" },
-  { to: 9, suffix: "", label: "stałych projektów" },
-  { year: "1981", label: "rok założenia" },
+  { to: 11000, suffix: "+", labelKey: "students" },
+  { to: 12, suffix: "", labelKey: "committees" },
+  { to: 9, suffix: "", labelKey: "projects" },
+  { year: "1981", labelKey: "founded" },
 ];
 
 export function NaszaDzialalnoscContent() {
   const reduce = useReducedMotion();
+  const t = useTranslations("naszaDzialalnosc");
 
   return (
     <>
@@ -42,13 +32,13 @@ export function NaszaDzialalnoscContent() {
         <div className="mx-auto max-w-[1200px]">
           <ScrollReveal>
             <p className="text-[0.75rem] font-medium uppercase tracking-[0.08em] text-accent">
-              Nasza misja
+              {t("missionEyebrow")}
             </p>
             <h2
               id="misja-heading"
               className="mt-3 max-w-[20ch] font-display text-[clamp(1.75rem,3.4vw,2.75rem)] font-semibold leading-[1.15] tracking-[-0.02em] text-ink-primary"
             >
-              Działamy, wspieramy, inspirujemy
+              {t("missionHeading")}
             </h2>
           </ScrollReveal>
 
@@ -57,7 +47,7 @@ export function NaszaDzialalnoscContent() {
               const Glyph = pillar.icon;
               return (
                 <motion.div
-                  key={pillar.title}
+                  key={pillar.key}
                   initial={reduce ? false : { opacity: 0, y: 20 }}
                   whileInView={reduce ? undefined : { opacity: 1, y: 0 }}
                   viewport={{ once: true, amount: 0.2 }}
@@ -73,10 +63,10 @@ export function NaszaDzialalnoscContent() {
                         <Glyph size={26} weight="regular" aria-hidden="true" />
                       </span>
                       <h3 className="mt-6 text-[1.375rem] font-semibold tracking-[-0.01em] text-ink-primary">
-                        {pillar.title}
+                        {t(`pillars.${pillar.key}.title`)}
                       </h3>
                       <p className="mt-2 text-[0.9375rem] leading-[1.65] text-ink-secondary">
-                        {pillar.desc}
+                        {t(`pillars.${pillar.key}.desc`)}
                       </p>
                     </div>
                   </Tilt>
@@ -89,8 +79,7 @@ export function NaszaDzialalnoscContent() {
           <ScrollReveal>
             <blockquote className="mt-14 border-l-2 border-accent py-1 pl-6">
               <p className="prose-constrained font-display text-[clamp(1.5rem,2.8vw,2.25rem)] font-semibold leading-[1.3] tracking-[-0.02em] text-ink-primary">
-                „Nadrzędnym celem Samorządu jest stała pomoc i dbanie o dobro
-                wszystkich studentów naszej Uczelni.”
+                {t("quote")}
               </p>
             </blockquote>
           </ScrollReveal>
@@ -104,7 +93,7 @@ export function NaszaDzialalnoscContent() {
       >
         <div className="mx-auto max-w-[1200px]">
           <h2 id="liczby-heading" className="sr-only">
-            Samorząd w liczbach
+            {t("statsSr")}
           </h2>
           <div className="grid grid-cols-2 gap-10 md:grid-cols-4">
             {stats.map((stat, i) => (
@@ -122,7 +111,7 @@ export function NaszaDzialalnoscContent() {
                     />
                   )}
                   <p className="mt-2 text-[0.8125rem] font-medium uppercase tracking-[0.08em] text-ink-secondary">
-                    {stat.label}
+                    {t(`stats.${stat.labelKey}`)}
                   </p>
                 </div>
               </ScrollReveal>
@@ -141,19 +130,18 @@ export function NaszaDzialalnoscContent() {
                   id="cta-heading"
                   className="max-w-[20ch] font-display text-[clamp(1.75rem,3vw,2.5rem)] font-semibold leading-[1.15] tracking-[-0.02em] text-ink-primary"
                 >
-                  Zobacz, co tworzymy przez cały rok
+                  {t("ctaHeading")}
                 </h2>
                 <p className="mt-3 text-[1rem] leading-[1.6] text-ink-secondary">
-                  Od Adapciaka po TEDxUEW — poznaj projekty, które współtworzą
-                  studenci.
+                  {t("ctaDesc")}
                 </p>
               </div>
               <MagneticButton
                 href="/nasze-projekty"
-                ariaLabel="Przejdź do strony Nasze projekty"
+                ariaLabel={t("ctaAria")}
                 className="inline-flex h-12 shrink-0 items-center gap-2 rounded-lg bg-accent px-7 text-base font-medium text-bg-base transition-colors hover:bg-accent-dim"
               >
-                Nasze projekty
+                {t("ctaButton")}
                 <ArrowRight size={20} weight="regular" aria-hidden="true" />
               </MagneticButton>
             </div>

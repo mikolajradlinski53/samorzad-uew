@@ -248,5 +248,48 @@
     "submitIdle": "Send message",
     "submitSending": "Sending…",
     "mapTitle": "Map — SSUEW Student Government office, ul. Kamienna 43, Wrocław"
+  },
+  "naszaDzialalnosc": {
+    "metaTitle": "Our activities",
+    "metaDesc": "We act for students, support them in the fight for student rights and inspire new initiatives. Get to know the mission of the UEW Student Government.",
+    "ogLabel": "Student Government",
+    "heroEyebrow": "Student Government",
+    "heroTitle": "Our activities",
+    "heroLead": "We act for students, support you in the fight for student rights and inspire you to take up new initiatives.",
+    "missionEyebrow": "Our mission",
+    "missionHeading": "We act, we support, we inspire",
+    "pillars": {
+      "act": { "title": "We act", "desc": "For students — we run projects, organise events and represent you before the university, the city and other institutions." },
+      "support": { "title": "We support", "desc": "We stand by your side in the fight for student rights and care for the wellbeing of every student at our University." },
+      "inspire": { "title": "We inspire", "desc": "We encourage new initiatives, pursuing your passions, self-development and shaping civic attitudes." }
+    },
+    "quote": "“The Student Government’s overriding goal is the constant support and wellbeing of every student at our University.”",
+    "statsSr": "The Student Government in numbers",
+    "stats": { "students": "students", "committees": "committees", "projects": "ongoing projects", "founded": "founded" },
+    "ctaHeading": "See what we create all year round",
+    "ctaDesc": "From Adapciak to TEDxUEW — discover the projects students co-create.",
+    "ctaButton": "Our projects",
+    "ctaAria": "Go to the Our projects page"
+  },
+  "naszeProjekty": {
+    "metaTitle": "Our projects",
+    "metaDesc": "Adapciak, Animalia, the UEW Ball, Graduetion, Economic Bridges, TEDxUEW and more — projects through which we bring UEW students together and help them grow.",
+    "ogLabel": "Student Government",
+    "heroEyebrow": "Student Government",
+    "heroTitle": "Our projects",
+    "heroLead": "Because studying is more than lectures. We run projects that bring students together, support their growth and enrich academic life at UEW.",
+    "crumbActivities": "Our activities",
+    "heading": "Every year we create these events",
+    "projects": {
+      "adapciak": { "desc": "An eight-day camp for first-years, full of attractions and themed parties — bonding on the final stretch before the year begins." },
+      "animalia": { "desc": "A charity project for endangered species — two events (at Wrocław ZOO and a beach bar) in partnership with the DODO Foundation." },
+      "bal": { "desc": "A joint initiative of the University authorities and the Student Government. At the ball we present the “Ekonomka” statuettes to distinguished staff." },
+      "dni": { "desc": "Talks and training that introduce first-years to academic life — rights, duties and opportunities to grow." },
+      "graduetion": { "desc": "An American-style diploma ceremony — gowns, caps and the traditional cap toss for the finale." },
+      "mosty": { "desc": "A four-day exchange between students of five partner economics universities: lectures, workshops and case studies." },
+      "test": { "desc": "An inter-university quiz modelled on TVP’s Great Test — heats at each university and a grand final of the best." },
+      "tedx": { "desc": "A local TEDx — ideas worth spreading in a few minutes of inspiring talks from speakers." },
+      "party": { "desc": "A series of student parties for all of student Wrocław — a moment of relaxation and fun beyond your duties." }
+    }
   }
 }

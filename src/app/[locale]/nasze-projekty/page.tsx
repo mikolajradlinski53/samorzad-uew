@@ -1,24 +1,37 @@
 import type { Metadata } from "next";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 import { PageHero } from "@/components/PageHero";
 import { NaszeProjektyContent } from "@/components/pages/NaszeProjektyContent";
+import { ogMeta } from "@/lib/og";
 
-export const metadata: Metadata = {
-  title: "Nasze projekty",
-  description:
-    "Adapciak, Animalia, Bal UEW, Graduetion, Mosty Ekonomiczne, TEDxUEW i więcej — projekty, którymi integrujemy i rozwijamy studentów UEW.",
-};
+type Props = { params: Promise<{ locale: string }> };
 
-export default function NaszeProjektyPage() {
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "naszeProjekty" });
+  return {
+    title: t("metaTitle"),
+    description: t("metaDesc"),
+    ...ogMeta(t("metaTitle"), t("ogLabel")),
+  };
+}
+
+export default async function NaszeProjektyPage({ params }: Props) {
+  const { locale } = await params;
+  setRequestLocale(locale);
+  const t = await getTranslations({ locale, namespace: "naszeProjekty" });
+  const tc = await getTranslations({ locale, namespace: "common" });
+
   return (
     <>
       <PageHero
-        eyebrow="Samorząd Studentów"
-        title="Nasze projekty"
-        lead="Bo studia to coś więcej niż wykłady. Realizujemy projekty, które integrują studentów, wspierają ich rozwój i wzbogacają życie akademickie UEW."
+        eyebrow={t("heroEyebrow")}
+        title={t("heroTitle")}
+        lead={t("heroLead")}
         breadcrumbs={[
-          { label: "Strona główna", href: "/" },
-          { label: "Nasza działalność", href: "/nasza-dzialalnosc" },
-          { label: "Nasze projekty" },
+          { label: tc("home"), href: "/" },
+          { label: t("crumbActivities"), href: "/nasza-dzialalnosc" },
+          { label: t("heroTitle") },
         ]}
       />
       <NaszeProjektyContent />
