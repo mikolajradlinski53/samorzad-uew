@@ -1,25 +1,36 @@
 import type { Metadata } from "next";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 import { PageHero } from "@/components/PageHero";
 import { DlaStudentaContent } from "@/components/pages/DlaStudentaContent";
 import { ogMeta } from "@/lib/og";
 
-export const metadata: Metadata = {
-  title: "Strefa studenta",
-  description:
-    "Wszystkie najważniejsze informacje przydatne w codziennym życiu na Uniwersytecie Ekonomicznym we Wrocławiu — prawa studenta, stypendia, mapa kampusu, pomoc i szybkie linki.",
-  ...ogMeta("Strefa studenta", "Dla studenta"),
-};
+type Props = { params: Promise<{ locale: string }> };
 
-export default function DlaStudentaPage() {
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "dlaStudenta" });
+  return {
+    title: t("metaTitle"),
+    description: t("metaDesc"),
+    ...ogMeta(t("metaTitle"), t("ogLabel")),
+  };
+}
+
+export default async function DlaStudentaPage({ params }: Props) {
+  const { locale } = await params;
+  setRequestLocale(locale);
+  const t = await getTranslations({ locale, namespace: "dlaStudenta" });
+  const tc = await getTranslations({ locale, namespace: "common" });
+
   return (
     <>
       <PageHero
-        eyebrow="Strefa studenta"
-        title="Wszystko, co musisz wiedzieć"
-        lead="W tym miejscu znajdziesz wszystkie najważniejsze informacje, jakie mogą Ci się przydać w codziennym życiu na UEW."
+        eyebrow={t("eyebrow")}
+        title={t("title")}
+        lead={t("lead")}
         breadcrumbs={[
-          { label: "Strona główna", href: "/" },
-          { label: "Strefa studenta" },
+          { label: tc("home"), href: "/" },
+          { label: t("metaTitle") },
         ]}
       />
       <DlaStudentaContent />

@@ -1,4 +1,8 @@
 {
+  "common": {
+    "home": "Home",
+    "newTab": "opens in a new tab"
+  },
   "nav": {
     "student": "For students",
     "samorzad": "Student Government",
@@ -135,5 +139,32 @@
     "heading": "Meet our team",
     "org": "Government Board",
     "roles": { "chair": "Chair", "vchair": "Vice-chair", "secretary": "Secretary", "treasurer": "Treasurer", "member": "Board member" }
+  },
+  "dlaStudenta": {
+    "metaTitle": "Student zone",
+    "metaDesc": "All the key information you need in everyday life at Wrocław University of Economics and Business — student rights, scholarships, campus map, support and quick links.",
+    "ogLabel": "For students",
+    "eyebrow": "Student zone",
+    "title": "Everything you need to know",
+    "lead": "Here you’ll find all the key information that can help you in everyday life at UEW.",
+    "topicsHeading": "Key topics",
+    "tiles": {
+      "prawa": { "title": "Student rights", "desc": "Your rights at the university and how to enforce them." },
+      "stypendia": { "title": "Scholarships", "desc": "Social, merit and disability support." },
+      "rzecznik": { "title": "Student Ombudsman", "desc": "On your side in disputes with the university." },
+      "prawo": { "title": "Law for students", "desc": "Regulations and rules in plain language." },
+      "infopacki": { "title": "Infopacks", "desc": "Practical information packs for students." },
+      "mapa": { "title": "Campus map", "desc": "Buildings, rooms and key points across campus." },
+      "pomoc": { "title": "Psychological support", "desc": "Help when you need it." },
+      "wladze": { "title": "University authorities", "desc": "The Rector and Vice-Rectors of UEW." },
+      "dziekani": { "title": "Dean & vice-deans", "desc": "The dean’s office for your field of study." },
+      "ankiety": { "title": "Course surveys", "desc": "Rate your classes and shape the quality of studies." }
+    },
+    "quickEyebrow": "Quick links",
+    "quickHeading": "Everyday student tools",
+    "quickLinks": { "usos": "USOS", "intranet": "Intranet", "plan": "Class schedule", "harmonogram": "Academic year calendar" },
+    "ctaHeading": "Didn’t find what you were looking for?",
+    "ctaDesc": "Write to us — we’ll help or point you to the right person.",
+    "ctaButton": "Write to us"
   }
 }

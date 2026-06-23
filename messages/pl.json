@@ -1,4 +1,8 @@
 {
+  "common": {
+    "home": "Strona główna",
+    "newTab": "otwiera się w nowej karcie"
+  },
   "nav": {
     "student": "Dla studenta",
     "samorzad": "Samorząd",
@@ -135,5 +139,32 @@
     "heading": "Poznaj nasz zespół",
     "org": "Zarząd Samorządu",
     "roles": { "chair": "Przewodniczący", "vchair": "Wiceprzewodnicząca", "secretary": "Sekretarz", "treasurer": "Skarbnik", "member": "Członek Zarządu" }
+  },
+  "dlaStudenta": {
+    "metaTitle": "Strefa studenta",
+    "metaDesc": "Wszystkie najważniejsze informacje przydatne w codziennym życiu na Uniwersytecie Ekonomicznym we Wrocławiu — prawa studenta, stypendia, mapa kampusu, pomoc i szybkie linki.",
+    "ogLabel": "Dla studenta",
+    "eyebrow": "Strefa studenta",
+    "title": "Wszystko, co musisz wiedzieć",
+    "lead": "W tym miejscu znajdziesz wszystkie najważniejsze informacje, jakie mogą Ci się przydać w codziennym życiu na UEW.",
+    "topicsHeading": "Najważniejsze tematy",
+    "tiles": {
+      "prawa": { "title": "Prawa studenta", "desc": "Twoje prawa na uczelni i jak ich dochodzić." },
+      "stypendia": { "title": "Stypendia", "desc": "Socjalne, rektora, dla osób z niepełnosprawnością." },
+      "rzecznik": { "title": "Rzecznik Praw Studenta", "desc": "Stoi po Twojej stronie w sporach z uczelnią." },
+      "prawo": { "title": "Prawo dla studenta", "desc": "Regulaminy i przepisy w przystępnej formie." },
+      "infopacki": { "title": "Infopacki", "desc": "Praktyczne pakiety informacji dla studentów." },
+      "mapa": { "title": "Mapa kampusu", "desc": "Budynki, sale i najważniejsze punkty na uczelni." },
+      "pomoc": { "title": "Pomoc psychologiczna", "desc": "Wsparcie, gdy go potrzebujesz." },
+      "wladze": { "title": "Władze rektorskie", "desc": "Rektor i prorektorzy UEW." },
+      "dziekani": { "title": "Dziekan i prodziekani", "desc": "Władze dziekańskie Twojego kierunku." },
+      "ankiety": { "title": "Ankiety dydaktyczne", "desc": "Oceń zajęcia i wpływaj na jakość studiów." }
+    },
+    "quickEyebrow": "Szybkie linki",
+    "quickHeading": "Codzienne narzędzia studenta",
+    "quickLinks": { "usos": "USOS", "intranet": "Intranet", "plan": "Plan zajęć", "harmonogram": "Harmonogram roku akademickiego" },
+    "ctaHeading": "Nie znalazłeś tego, czego szukasz?",
+    "ctaDesc": "Napisz do nas — pomożemy albo skierujemy do właściwej osoby.",
+    "ctaButton": "Napisz do nas"
   }
 }

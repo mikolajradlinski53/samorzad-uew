@@ -1,6 +1,7 @@
 "use client";
 
 import { motion, useReducedMotion } from "motion/react";
+import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import {
   Scales,
@@ -24,38 +25,38 @@ import { Spotlight } from "../Spotlight";
 const BASE = "https://samorzad.ue.wroc.pl";
 
 interface Tile {
-  title: string;
-  desc: string;
+  key: string;
   href: string;
   icon: Icon;
   internal?: boolean;
 }
 
 const tiles: Tile[] = [
-  { title: "Prawa studenta", desc: "Twoje prawa na uczelni i jak ich dochodzić.", href: "/prawa-studenta", icon: Scales, internal: true },
-  { title: "Stypendia", desc: "Socjalne, rektora, dla osób z niepełnosprawnością.", href: "/stypendia", icon: GraduationCap, internal: true },
-  { title: "Rzecznik Praw Studenta", desc: "Stoi po Twojej stronie w sporach z uczelnią.", href: `${BASE}/rzecznik-praw-studenta`, icon: Megaphone },
-  { title: "Prawo dla studenta", desc: "Regulaminy i przepisy w przystępnej formie.", href: `${BASE}/prawo-dla-studenta`, icon: BookOpen },
-  { title: "Infopacki", desc: "Praktyczne pakiety informacji dla studentów.", href: `${BASE}/infopacki`, icon: Package },
-  { title: "Mapa kampusu", desc: "Budynki, sale i najważniejsze punkty na uczelni.", href: `${BASE}/mapa-kampusu`, icon: MapTrifold },
-  { title: "Pomoc psychologiczna", desc: "Wsparcie, gdy go potrzebujesz.", href: `${BASE}/pomoc-psychologiczna`, icon: FirstAidKit },
-  { title: "Władze rektorskie", desc: "Rektor i prorektorzy UEW.", href: "/wladze-rektorskie", icon: Bank, internal: true },
-  { title: "Dziekan i prodziekani", desc: "Władze dziekańskie Twojego kierunku.", href: "/dziekan-i-prodziekani", icon: UsersThree, internal: true },
-  { title: "Ankiety dydaktyczne", desc: "Oceń zajęcia i wpływaj na jakość studiów.", href: "https://usosweb.ue.wroc.pl/kontroler.php?_action=news/default", icon: ClipboardText },
+  { key: "prawa", href: "/prawa-studenta", icon: Scales, internal: true },
+  { key: "stypendia", href: "/stypendia", icon: GraduationCap, internal: true },
+  { key: "rzecznik", href: `${BASE}/rzecznik-praw-studenta`, icon: Megaphone },
+  { key: "prawo", href: `${BASE}/prawo-dla-studenta`, icon: BookOpen },
+  { key: "infopacki", href: `${BASE}/infopacki`, icon: Package },
+  { key: "mapa", href: `${BASE}/mapa-kampusu`, icon: MapTrifold },
+  { key: "pomoc", href: `${BASE}/pomoc-psychologiczna`, icon: FirstAidKit },
+  { key: "wladze", href: "/wladze-rektorskie", icon: Bank, internal: true },
+  { key: "dziekani", href: "/dziekan-i-prodziekani", icon: UsersThree, internal: true },
+  { key: "ankiety", href: "https://usosweb.ue.wroc.pl/kontroler.php?_action=news/default", icon: ClipboardText },
 ];
 
 const quickLinks = [
-  { label: "USOS", href: "https://usosweb.ue.wroc.pl/kontroler.php?_action=news/default" },
-  { label: "Intranet", href: "https://uewrc.sharepoint.com/sites/IntranetUEW" },
-  { label: "Plan zajęć", href: "https://plan.ue.wroc.pl" },
+  { key: "usos", href: "https://usosweb.ue.wroc.pl/kontroler.php?_action=news/default" },
+  { key: "intranet", href: "https://uewrc.sharepoint.com/sites/IntranetUEW" },
+  { key: "plan", href: "https://plan.ue.wroc.pl" },
   {
-    label: "Harmonogram roku akademickiego",
+    key: "harmonogram",
     href: "https://bip.ue.wroc.pl/download/attachment/3456/harmonogram-roku-akademickiego-2025-2026.pdf",
   },
 ];
 
 export function DlaStudentaContent() {
   const reduce = useReducedMotion();
+  const t = useTranslations("dlaStudenta");
 
   return (
     <>
@@ -68,7 +69,7 @@ export function DlaStudentaContent() {
               id="kafelki-heading"
               className="font-display text-[clamp(1.75rem,3.4vw,2.75rem)] font-semibold leading-[1.15] tracking-[-0.02em] text-ink-primary"
             >
-              Najważniejsze tematy
+              {t("topicsHeading")}
             </h2>
           </ScrollReveal>
 
@@ -78,7 +79,7 @@ export function DlaStudentaContent() {
               const OutIcon = tile.internal ? ArrowUpRight : ArrowSquareOut;
               return (
                 <motion.div
-                  key={tile.title}
+                  key={tile.key}
                   initial={reduce ? false : { opacity: 0, y: 20 }}
                   whileInView={reduce ? undefined : { opacity: 1, y: 0 }}
                   whileHover={
@@ -98,7 +99,7 @@ export function DlaStudentaContent() {
                     <Glyph size={24} weight="regular" aria-hidden="true" />
                   </span>
                   <h3 className="mt-5 flex items-center gap-1.5 text-[1.0625rem] font-semibold tracking-[-0.01em] text-ink-primary">
-                    {tile.title}
+                    {t(`tiles.${tile.key}.title`)}
                     <OutIcon
                       size={16}
                       weight="bold"
@@ -107,13 +108,13 @@ export function DlaStudentaContent() {
                     />
                   </h3>
                   <p className="mt-2 text-[0.875rem] leading-[1.6] text-ink-secondary">
-                    {tile.desc}
+                    {t(`tiles.${tile.key}.desc`)}
                   </p>
                   {/* Stretched link overlay */}
                   {tile.internal ? (
                     <Link
                       href={tile.href}
-                      aria-label={tile.title}
+                      aria-label={t(`tiles.${tile.key}.title`)}
                       className="absolute inset-0 rounded-xl"
                     />
                   ) : (
@@ -121,7 +122,7 @@ export function DlaStudentaContent() {
                       href={tile.href}
                       target="_blank"
                       rel="noopener noreferrer"
-                      aria-label={`${tile.title} (otwiera się w nowej karcie)`}
+                      aria-label={t(`tiles.${tile.key}.title`)}
                       className="absolute inset-0 rounded-xl"
                     />
                   )}
@@ -137,24 +138,24 @@ export function DlaStudentaContent() {
         <div className="mx-auto max-w-[1200px]">
           <ScrollReveal>
             <p className="text-[0.75rem] font-medium uppercase tracking-[0.08em] text-accent">
-              Szybkie linki
+              {t("quickEyebrow")}
             </p>
             <h2
               id="szybkie-heading"
               className="mt-3 font-display text-[clamp(1.5rem,2.6vw,2rem)] font-semibold leading-[1.2] tracking-[-0.02em] text-ink-primary"
             >
-              Codzienne narzędzia studenta
+              {t("quickHeading")}
             </h2>
             <div className="mt-8 flex flex-wrap gap-3">
               {quickLinks.map((link) => (
                 <a
-                  key={link.label}
+                  key={link.key}
                   href={link.href}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 rounded-full border border-border-medium px-5 py-2.5 text-[0.875rem] font-medium text-ink-primary transition-colors hover:border-accent hover:text-accent"
                 >
-                  {link.label}
+                  {t(`quickLinks.${link.key}`)}
                   <ArrowSquareOut size={16} weight="regular" aria-hidden="true" />
                 </a>
               ))}
@@ -166,10 +167,10 @@ export function DlaStudentaContent() {
             <div className="mt-14 flex flex-col items-start justify-between gap-6 rounded-2xl border border-border-subtle bg-bg-surface p-8 sm:flex-row sm:items-center">
               <div>
                 <h2 className="font-display text-[clamp(1.5rem,2.6vw,2rem)] font-semibold leading-[1.2] tracking-[-0.02em] text-ink-primary">
-                  Nie znalazłeś tego, czego szukasz?
+                  {t("ctaHeading")}
                 </h2>
                 <p className="mt-2 text-[0.9375rem] leading-[1.6] text-ink-secondary">
-                  Napisz do nas — pomożemy albo skierujemy do właściwej osoby.
+                  {t("ctaDesc")}
                 </p>
               </div>
               <a
@@ -177,7 +178,7 @@ export function DlaStudentaContent() {
                 className="inline-flex h-12 shrink-0 items-center gap-2 rounded-lg bg-accent px-7 text-base font-medium text-bg-base transition-all hover:bg-accent-dim active:scale-[0.98]"
               >
                 <EnvelopeSimple size={20} weight="regular" aria-hidden="true" />
-                Napisz do nas
+                {t("ctaButton")}
               </a>
             </div>
           </ScrollReveal>
