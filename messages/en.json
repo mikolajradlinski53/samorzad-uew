@@ -797,5 +797,10 @@
     "emptyHint": "Type a term above to see matching pages.",
     "noResults": "Nothing found for “{query}”. Try a different word.",
     "count": "{count, plural, one {# result found} other {# results found}}"
+  },
+  "notFound": {
+    "heading": "We couldn’t find this page",
+    "body": "The address may have changed or the page was moved. Go back to the homepage or use the shortcuts below.",
+    "home": "Home"
   }
 }

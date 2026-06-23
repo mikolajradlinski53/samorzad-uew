@@ -1,14 +1,18 @@
+import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import { ArrowRight, House } from "@phosphor-icons/react/dist/ssr";
 import { AuroraField } from "@/components/AuroraField";
 
 const links = [
-  { label: "Strefa studenta", href: "/dla-studenta" },
-  { label: "Nasza działalność", href: "/nasza-dzialalnosc" },
-  { label: "Kontakt", href: "/kontakt" },
+  { key: "dlaStudenta", href: "/dla-studenta" },
+  { key: "naszaDzialalnosc", href: "/nasza-dzialalnosc" },
+  { key: "kontakt", href: "/kontakt" },
 ];
 
 export default function NotFound() {
+  const t = useTranslations("notFound");
+  const tp = useTranslations("pages");
+
   return (
     <main
       id="main-content"
@@ -27,11 +31,10 @@ export default function NotFound() {
           404
         </p>
         <h1 className="mt-4 font-display text-[clamp(1.75rem,4vw,2.75rem)] font-semibold leading-[1.15] tracking-[-0.02em] text-ink-primary">
-          Tej strony nie znaleźliśmy
+          {t("heading")}
         </h1>
         <p className="mx-auto mt-4 max-w-[44ch] text-[1.0625rem] leading-[1.7] text-ink-secondary">
-          Być może adres się zmienił albo strona została przeniesiona. Wróć na
-          stronę główną lub skorzystaj z poniższych skrótów.
+          {t("body")}
         </p>
 
         <div className="mt-9 flex flex-wrap items-center justify-center gap-4">
@@ -40,7 +43,7 @@ export default function NotFound() {
             className="inline-flex h-12 items-center gap-2 rounded-lg bg-accent px-7 text-base font-medium text-bg-base transition-all hover:bg-accent-dim active:scale-[0.98]"
           >
             <House size={20} weight="regular" aria-hidden="true" />
-            Strona główna
+            {t("home")}
           </Link>
         </div>
 
@@ -51,7 +54,7 @@ export default function NotFound() {
                 href={link.href}
                 className="inline-flex items-center gap-1.5 text-[0.9375rem] font-medium text-accent transition-colors hover:text-accent-dim"
               >
-                {link.label}
+                {tp(link.key)}
                 <ArrowRight size={16} weight="regular" aria-hidden="true" />
               </Link>
             </li>

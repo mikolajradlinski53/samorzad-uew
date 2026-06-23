@@ -797,5 +797,10 @@
     "emptyHint": "Wpisz hasło powyżej, aby zobaczyć pasujące strony.",
     "noResults": "Nic nie znaleziono dla „{query}”. Spróbuj innego słowa.",
     "count": "{count, plural, one {Znaleziono # wynik} few {Znaleziono # wyniki} many {Znaleziono # wyników} other {Znaleziono # wyniku}}"
+  },
+  "notFound": {
+    "heading": "Tej strony nie znaleźliśmy",
+    "body": "Być może adres się zmienił albo strona została przeniesiona. Wróć na stronę główną lub skorzystaj z poniższych skrótów.",
+    "home": "Strona główna"
   }
 }
