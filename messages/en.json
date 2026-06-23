@@ -116,5 +116,24 @@
     "partnerzy": "Partners",
     "wspolpracuj": "Work with us",
     "kontakt": "Contact"
+  },
+  "projects": {
+    "heading": "Featured projects",
+    "all": "All projects",
+    "items": {
+      "adaptacja": { "name": "Adaptation", "commission": "Teaching Committee", "description": "A welcome programme for first-years. We help you find your feet at the university from day one.", "status": "Active" },
+      "juwenalia": { "name": "Economic Juwenalia", "commission": "Culture Committee", "description": "The biggest UEW student festival. Three days of music, sport and fun.", "status": "In preparation" },
+      "tarcza": { "name": "Student Shield", "commission": "Legal Committee", "description": "Free legal help for students. We advise on regulatory matters and beyond.", "status": "Active" }
+    }
+  },
+  "studentlife": {
+    "p1": { "subheading": "Community", "heading": "We build a student community", "lead": "University is the people you meet.", "body": "From Adapciak and Adaptation Days to the UEW Ball, TEDxUEW and UE Party — all year round we create events that bring students together, help them grow and stay in memory for years.", "cta": "See our projects" },
+    "p2": { "subheading": "Support", "heading": "We’re on your side", "lead": "When you need help, we’re right here.", "body": "Student rights, scholarships, psychological support, the Student Ombudsman — in the Student zone we’ve gathered everything you need in your everyday life at the university.", "cta": "See the Student zone" }
+  },
+  "board": {
+    "eyebrow": "Student Government Board",
+    "heading": "Meet our team",
+    "org": "Government Board",
+    "roles": { "chair": "Chair", "vchair": "Vice-chair", "secretary": "Secretary", "treasurer": "Treasurer", "member": "Board member" }
   }
 }

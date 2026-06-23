@@ -116,5 +116,24 @@
     "partnerzy": "Partnerzy",
     "wspolpracuj": "Współpracuj z nami",
     "kontakt": "Kontakt"
+  },
+  "projects": {
+    "heading": "Wyróżnione projekty",
+    "all": "Wszystkie projekty",
+    "items": {
+      "adaptacja": { "name": "Adaptacja", "commission": "Komisja ds. Dydaktyki", "description": "Program powitalny dla pierwszoroczniaków. Pomagamy odnaleźć się na uczelni od pierwszego dnia.", "status": "Aktywny" },
+      "juwenalia": { "name": "Juwenalia Ekonomiczne", "commission": "Komisja ds. Kultury", "description": "Największe święto studentów UEW. Trzy dni muzyki, sportu i zabawy.", "status": "W przygotowaniu" },
+      "tarcza": { "name": "Tarcza Studenta", "commission": "Komisja Prawna", "description": "Bezpłatna pomoc prawna dla studentów. Doradzamy w sprawach regulaminowych i nie tylko.", "status": "Aktywny" }
+    }
+  },
+  "studentlife": {
+    "p1": { "subheading": "Integracja", "heading": "Tworzymy studencką społeczność", "lead": "Studia to ludzie, których spotykasz.", "body": "Od Adapciaka i Dni Adaptacyjnych po Bal UEW, TEDxUEW i UE Party — przez cały rok tworzymy wydarzenia, które łączą studentów, rozwijają i zostają w pamięci na lata.", "cta": "Poznaj nasze projekty" },
+    "p2": { "subheading": "Wsparcie", "heading": "Stoimy po Twojej stronie", "lead": "Gdy potrzebujesz pomocy, jesteśmy obok.", "body": "Prawa studenta, stypendia, pomoc psychologiczna, Rzecznik Praw Studenta — w Strefie studenta zebraliśmy wszystko, co przyda Ci się w codziennym życiu na uczelni.", "cta": "Zobacz Strefę studenta" }
+  },
+  "board": {
+    "eyebrow": "Zarząd Samorządu",
+    "heading": "Poznaj nasz zespół",
+    "org": "Zarząd Samorządu",
+    "roles": { "chair": "Przewodniczący", "vchair": "Wiceprzewodnicząca", "secretary": "Sekretarz", "treasurer": "Skarbnik", "member": "Członek Zarządu" }
   }
 }

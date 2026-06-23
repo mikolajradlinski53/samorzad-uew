@@ -1,20 +1,22 @@
 "use client";
 
 import { motion, useReducedMotion } from "motion/react";
+import { useTranslations } from "next-intl";
 import { ScrollReveal } from "./ScrollReveal";
 import { boardPhotos } from "@/lib/photos";
 import { PersonCard } from "./PersonCard";
 
 const members = [
-  { name: "Mikołaj Kowalski", role: "Przewodniczący", seed: "mikolaj" },
-  { name: "Anna Nowak", role: "Wiceprzewodnicząca", seed: "anna" },
-  { name: "Piotr Wiśniewski", role: "Sekretarz", seed: "piotr" },
-  { name: "Katarzyna Lewandowska", role: "Skarbnik", seed: "katarzyna" },
-  { name: "Tomasz Wójcik", role: "Członek Zarządu", seed: "tomasz" },
+  { name: "Mikołaj Kowalski", roleKey: "chair", seed: "mikolaj" },
+  { name: "Anna Nowak", roleKey: "vchair", seed: "anna" },
+  { name: "Piotr Wiśniewski", roleKey: "secretary", seed: "piotr" },
+  { name: "Katarzyna Lewandowska", roleKey: "treasurer", seed: "katarzyna" },
+  { name: "Tomasz Wójcik", roleKey: "member", seed: "tomasz" },
 ];
 
 export function Board() {
   const reduce = useReducedMotion();
+  const t = useTranslations("board");
 
   return (
     <section
@@ -26,13 +28,13 @@ export function Board() {
         {/* Eyebrow - one of max 2 on the entire page */}
         <ScrollReveal>
           <p className="text-[0.75rem] font-medium uppercase tracking-[0.08em] text-accent">
-            Zarząd Samorządu
+            {t("eyebrow")}
           </p>
           <h2
             id="zarzad-heading"
             className="mt-3 font-display text-[clamp(2.5rem,5vw,4rem)] font-semibold leading-[1.1] tracking-[-0.02em] text-ink-primary"
           >
-            Poznaj nasz zespół
+            {t("heading")}
           </h2>
         </ScrollReveal>
 
@@ -49,10 +51,10 @@ export function Board() {
             >
               <PersonCard
                 name={member.name}
-                role={member.role}
+                role={t(`roles.${member.roleKey}`)}
                 photo={boardPhotos[i]}
                 no={i + 1}
-                org="Zarząd Samorządu"
+                org={t("org")}
                 className="h-full"
               />
             </motion.div>

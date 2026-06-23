@@ -1,5 +1,6 @@
 "use client";
 
+import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import { ArrowUpRight } from "@phosphor-icons/react";
 import { TextParallaxContent } from "./TextParallax";
@@ -35,30 +36,32 @@ function PanelBody({ lead, body, ctaLabel, ctaHref }: PanelCopy) {
 }
 
 export function StudentLife() {
+  const t = useTranslations("studentlife");
+
   return (
     <section aria-label="Życie studenckie">
       <TextParallaxContent
         imgUrl={studentLifePhotos.integracja}
-        subheading="Integracja"
-        heading="Tworzymy studencką społeczność"
+        subheading={t("p1.subheading")}
+        heading={t("p1.heading")}
       >
         <PanelBody
-          lead="Studia to ludzie, których spotykasz."
-          body="Od Adapciaka i Dni Adaptacyjnych po Bal UEW, TEDxUEW i UE Party — przez cały rok tworzymy wydarzenia, które łączą studentów, rozwijają i zostają w pamięci na lata."
-          ctaLabel="Poznaj nasze projekty"
+          lead={t("p1.lead")}
+          body={t("p1.body")}
+          ctaLabel={t("p1.cta")}
           ctaHref="/nasze-projekty"
         />
       </TextParallaxContent>
 
       <TextParallaxContent
         imgUrl={studentLifePhotos.wsparcie}
-        subheading="Wsparcie"
-        heading="Stoimy po Twojej stronie"
+        subheading={t("p2.subheading")}
+        heading={t("p2.heading")}
       >
         <PanelBody
-          lead="Gdy potrzebujesz pomocy, jesteśmy obok."
-          body="Prawa studenta, stypendia, pomoc psychologiczna, Rzecznik Praw Studenta — w Strefie studenta zebraliśmy wszystko, co przyda Ci się w codziennym życiu na uczelni."
-          ctaLabel="Zobacz Strefę studenta"
+          lead={t("p2.lead")}
+          body={t("p2.body")}
+          ctaLabel={t("p2.cta")}
           ctaHref="/dla-studenta"
         />
       </TextParallaxContent>

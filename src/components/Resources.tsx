@@ -1,6 +1,7 @@
 "use client";
 
 import { motion, useReducedMotion } from "motion/react";
+import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import {
   Scales,
@@ -18,8 +19,7 @@ import {
 import { ScrollReveal } from "./ScrollReveal";
 
 interface Resource {
-  title: string;
-  description: string;
+  key: string;
   href: string;
   icon: Icon;
   internal?: boolean;
@@ -28,61 +28,19 @@ interface Resource {
 const BASE = "https://samorzad.ue.wroc.pl";
 
 const resources: Resource[] = [
-  {
-    title: "Prawa studenta",
-    description: "Twoje prawa na uczelni i jak ich dochodzić.",
-    href: "/prawa-studenta",
-    icon: Scales,
-    internal: true,
-  },
-  {
-    title: "Stypendia",
-    description: "Rektorskie, socjalne i dla osób z niepełnosprawnością.",
-    href: "/stypendia",
-    icon: GraduationCap,
-    internal: true,
-  },
-  {
-    title: "Wsparcie i zapomogi",
-    description: "Świadczenia materialne i pomoc w trudnej sytuacji.",
-    href: "/wsparcie-materialne-i-swiadczenia",
-    icon: HandCoins,
-    internal: true,
-  },
-  {
-    title: "Mapa kampusu",
-    description: "Budynki, sale i najważniejsze punkty na uczelni.",
-    href: `${BASE}/mapa-kampusu`,
-    icon: MapTrifold,
-  },
-  {
-    title: "Infopacki",
-    description: "Praktyczne pakiety informacji dla studentów.",
-    href: `${BASE}/infopacki`,
-    icon: Package,
-  },
-  {
-    title: "Pomoc psychologiczna",
-    description: "Gdzie i jak uzyskać wsparcie, gdy go potrzebujesz.",
-    href: `${BASE}/pomoc-psychologiczna`,
-    icon: FirstAidKit,
-  },
-  {
-    title: "Rzecznik Praw Studenta",
-    description: "Stoi po Twojej stronie w sporach z uczelnią.",
-    href: `${BASE}/rzecznik-praw-studenta`,
-    icon: Megaphone,
-  },
-  {
-    title: "Prawo dla studenta",
-    description: "Regulaminy i przepisy w przystępnej formie.",
-    href: `${BASE}/prawo-dla-studenta`,
-    icon: BookOpen,
-  },
+  { key: "prawa", href: "/prawa-studenta", icon: Scales, internal: true },
+  { key: "stypendia", href: "/stypendia", icon: GraduationCap, internal: true },
+  { key: "wsparcie", href: "/wsparcie-materialne-i-swiadczenia", icon: HandCoins, internal: true },
+  { key: "mapa", href: `${BASE}/mapa-kampusu`, icon: MapTrifold },
+  { key: "infopacki", href: `${BASE}/infopacki`, icon: Package },
+  { key: "pomoc", href: `${BASE}/pomoc-psychologiczna`, icon: FirstAidKit },
+  { key: "rzecznik", href: `${BASE}/rzecznik-praw-studenta`, icon: Megaphone },
+  { key: "prawo", href: `${BASE}/prawo-dla-studenta`, icon: BookOpen },
 ];
 
 export function Resources() {
   const reduce = useReducedMotion();
+  const t = useTranslations("resources");
 
   return (
     <section
@@ -93,20 +51,20 @@ export function Resources() {
       <div className="mx-auto max-w-[1200px]">
         <ScrollReveal>
           <p className="text-[0.75rem] font-medium uppercase tracking-[0.08em] text-accent">
-            Strefa studenta
+            {t("eyebrow")}
           </p>
           <div className="mt-3 flex flex-wrap items-end justify-between gap-4">
             <h2
               id="dla-studenta-heading"
               className="max-w-[18ch] font-display text-[clamp(2.5rem,5vw,4rem)] font-semibold leading-[1.1] tracking-[-0.02em] text-ink-primary"
             >
-              Wszystko, czego potrzebujesz
+              {t("heading")}
             </h2>
             <Link
               href="/dla-studenta"
               className="inline-flex items-center gap-1.5 text-[0.9375rem] font-medium text-accent transition-colors hover:text-accent-dim"
             >
-              Zobacz całą strefę
+              {t("seeAll")}
               <ArrowUpRight size={18} weight="regular" aria-hidden="true" />
             </Link>
           </div>
@@ -118,7 +76,7 @@ export function Resources() {
             const OutIcon = item.internal ? ArrowUpRight : ArrowSquareOut;
             return (
               <motion.div
-                key={item.title}
+                key={item.key}
                 initial={reduce ? false : { opacity: 0, y: 20 }}
                 whileInView={reduce ? undefined : { opacity: 1, y: 0 }}
                 whileHover={
@@ -138,7 +96,7 @@ export function Resources() {
                   <Glyph size={24} weight="regular" aria-hidden="true" />
                 </span>
                 <h3 className="mt-5 flex items-center gap-1.5 text-[1.0625rem] font-semibold tracking-[-0.01em] text-ink-primary">
-                  {item.title}
+                  {t(`items.${item.key}.title`)}
                   <OutIcon
                     size={16}
                     weight="bold"
@@ -147,12 +105,12 @@ export function Resources() {
                   />
                 </h3>
                 <p className="mt-2 text-[0.875rem] leading-[1.6] text-ink-secondary">
-                  {item.description}
+                  {t(`items.${item.key}.description`)}
                 </p>
                 {item.internal ? (
                   <Link
                     href={item.href}
-                    aria-label={item.title}
+                    aria-label={t(`items.${item.key}.title`)}
                     className="absolute inset-0 rounded-xl"
                   />
                 ) : (
@@ -160,7 +118,7 @@ export function Resources() {
                     href={item.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    aria-label={`${item.title} (otwiera się w nowej karcie)`}
+                    aria-label={t(`items.${item.key}.title`)}
                     className="absolute inset-0 rounded-xl"
                   />
                 )}
