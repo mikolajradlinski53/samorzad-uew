@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 import { MagnifyingGlass, ArrowRight } from "@phosphor-icons/react/dist/ssr";
 import { PageHero } from "@/components/PageHero";
 import { searchPages, highlightSegments } from "@/lib/searchIndex";

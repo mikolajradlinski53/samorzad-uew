@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useMemo, useRef, useState } from "react";
-import { useRouter } from "next/navigation";
+import { useRouter } from "@/i18n/navigation";
 import { AnimatePresence, motion, useReducedMotion } from "motion/react";
 import { MagnifyingGlass, ArrowRight } from "@phosphor-icons/react";
 import { searchPages, highlightSegments } from "@/lib/searchIndex";

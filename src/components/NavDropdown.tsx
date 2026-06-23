@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useId, useRef, useState } from "react";
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 import { AnimatePresence, motion, useReducedMotion } from "motion/react";
 import { CaretDown, ArrowSquareOut } from "@phosphor-icons/react";
 

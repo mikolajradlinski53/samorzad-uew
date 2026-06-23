@@ -1,0 +1,27 @@
+{
+  "nav": {
+    "student": "Dla studenta",
+    "samorzad": "Samorząd",
+    "wspolpraca": "Współpraca",
+    "kontakt": "Kontakt",
+    "search": "Szukaj",
+    "login": "Zaloguj się",
+    "openMenu": "Otwórz menu",
+    "closeMenu": "Zamknij menu"
+  },
+  "switcher": {
+    "label": "Zmień język",
+    "pl": "PL",
+    "en": "EN"
+  },
+  "hero": {
+    "eyebrow": "Samorząd Studentów Uniwersytetu Ekonomicznego we Wrocławiu",
+    "line1": "Reprezentujemy",
+    "line2": "studentów UEW",
+    "lead": "Jesteśmy głosem ponad 11 000 studentów. Tworzymy wydarzenia, walczymy o Wasze prawa i robimy to, żeby studia miały sens — i smak.",
+    "cta1": "Poznaj nas",
+    "cta2": "Strefa studenta",
+    "scroll": "Przewiń do sekcji „O nas”",
+    "stats": ["11 000+ studentów", "12 komisji", "9 projektów rocznie"]
+  }
+}

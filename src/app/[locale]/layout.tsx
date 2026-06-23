@@ -1,11 +1,15 @@
 import type { Metadata, Viewport } from "next";
 import { Archivo, JetBrains_Mono } from "next/font/google";
+import { notFound } from "next/navigation";
+import { NextIntlClientProvider, hasLocale } from "next-intl";
+import { getMessages, setRequestLocale } from "next-intl/server";
+import { routing } from "@/i18n/routing";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import { Nav } from "@/components/Nav";
 import { Footer } from "@/components/Footer";
 import { ScrollProgress } from "@/components/ScrollProgress";
 import { BackToTop } from "@/components/BackToTop";
-import "./globals.css";
+import "../globals.css";
 
 const SITE_URL = "https://samorzad.ue.wroc.pl";
 
@@ -114,14 +118,27 @@ export const viewport: Viewport = {
   ],
 };
 
-export default function RootLayout({
+export function generateStaticParams() {
+  return routing.locales.map((locale) => ({ locale }));
+}
+
+export default async function LocaleLayout({
   children,
-}: Readonly<{
+  params,
+}: {
   children: React.ReactNode;
-}>) {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+  if (!hasLocale(routing.locales, locale)) {
+    notFound();
+  }
+  setRequestLocale(locale);
+  const messages = await getMessages();
+
   return (
     <html
-      lang="pl"
+      lang={locale}
       className={`${archivo.variable} ${jetbrainsMono.variable}`}
       suppressHydrationWarning
     >
@@ -137,13 +154,15 @@ export default function RootLayout({
         <a href="#main-content" className="skip-link">
           Przejdź do treści
         </a>
-        <ThemeProvider>
-          <ScrollProgress />
-          <Nav />
-          {children}
-          <Footer />
-          <BackToTop />
-        </ThemeProvider>
+        <NextIntlClientProvider messages={messages}>
+          <ThemeProvider>
+            <ScrollProgress />
+            <Nav />
+            {children}
+            <Footer />
+            <BackToTop />
+          </ThemeProvider>
+        </NextIntlClientProvider>
       </body>
     </html>
   );

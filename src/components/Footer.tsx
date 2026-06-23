@@ -8,7 +8,7 @@ import {
   EnvelopeSimple,
   MapPin,
 } from "@phosphor-icons/react";
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 import { ScrollReveal } from "./ScrollReveal";
 
 const BASE = "https://samorzad.ue.wroc.pl";

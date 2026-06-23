@@ -1,4 +1,4 @@
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 import { CaretRight } from "@phosphor-icons/react";
 
 const SITE_URL = "https://samorzad.ue.wroc.pl";

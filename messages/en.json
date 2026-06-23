@@ -1,0 +1,27 @@
+{
+  "nav": {
+    "student": "For students",
+    "samorzad": "Student Union",
+    "wspolpraca": "Partnership",
+    "kontakt": "Contact",
+    "search": "Search",
+    "login": "Log in",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu"
+  },
+  "switcher": {
+    "label": "Change language",
+    "pl": "PL",
+    "en": "EN"
+  },
+  "hero": {
+    "eyebrow": "Student Union of Wrocław University of Economics and Business",
+    "line1": "We represent",
+    "line2": "UEW students",
+    "lead": "We are the voice of over 11,000 students. We create events, fight for your rights, and make sure your studies have meaning — and flavour.",
+    "cta1": "Get to know us",
+    "cta2": "Student zone",
+    "scroll": "Scroll to the “About” section",
+    "stats": ["11,000+ students", "12 committees", "9 projects a year"]
+  }
+}

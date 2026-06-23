@@ -11,10 +11,12 @@ import {
 } from "motion/react";
 import { Sun, Moon, List, X, CaretDown, ArrowSquareOut, MagnifyingGlass } from "@phosphor-icons/react";
 import Image from "next/image";
-import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { Link } from "@/i18n/navigation";
+import { usePathname } from "@/i18n/navigation";
+import { useTranslations } from "next-intl";
 import { NavDropdown, type NavChild } from "./NavDropdown";
 import { SearchCommand } from "./SearchCommand";
+import { LanguageSwitcher } from "./LanguageSwitcher";
 
 const BASE = "https://samorzad.ue.wroc.pl";
 
@@ -52,6 +54,7 @@ const directLinks = [{ label: "Kontakt", href: "/kontakt" }];
 export function Nav() {
   const { setTheme, resolvedTheme } = useTheme();
   const pathname = usePathname();
+  const t = useTranslations("nav");
   const [mounted, setMounted] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -137,9 +140,9 @@ export function Nav() {
   };
 
   const mobileGroups = [
-    { label: "Dla studenta", items: dlaStudenta },
-    { label: "Samorząd", items: samorzad },
-    { label: "Współpraca", items: wspolpraca },
+    { label: t("student"), items: dlaStudenta },
+    { label: t("samorzad"), items: samorzad },
+    { label: t("wspolpraca"), items: wspolpraca },
   ];
 
   return (
@@ -175,9 +178,9 @@ export function Nav() {
 
         {/* Desktop nav */}
         <ul className="hidden items-center gap-7 md:flex">
-          <NavDropdown label="Dla studenta" items={dlaStudenta} active={matchesAny(dlaStudenta)} />
-          <NavDropdown label="Samorząd" items={samorzad} active={matchesAny(samorzad)} />
-          <NavDropdown label="Współpraca" items={wspolpraca} active={matchesAny(wspolpraca)} />
+          <NavDropdown label={t("student")} items={dlaStudenta} active={matchesAny(dlaStudenta)} />
+          <NavDropdown label={t("samorzad")} items={samorzad} active={matchesAny(samorzad)} />
+          <NavDropdown label={t("wspolpraca")} items={wspolpraca} active={matchesAny(wspolpraca)} />
           {directLinks.map((link) => {
             const active = pathname.startsWith(link.href);
             return (
@@ -206,16 +209,16 @@ export function Nav() {
           <button
             onClick={() => setSearchOpen(true)}
             className="hidden h-10 items-center gap-2 rounded-lg border border-border-medium px-3 text-[0.8125rem] font-medium text-ink-secondary transition-colors hover:border-border-soft hover:bg-bg-elevated md:flex"
-            aria-label="Szukaj na stronie"
+            aria-label={t("search")}
           >
             <MagnifyingGlass size={16} weight="regular" aria-hidden="true" />
-            Szukaj
+            {t("search")}
             <kbd className="rounded border border-border-soft px-1 py-0.5 text-[0.625rem] text-ink-tertiary">⌘K</kbd>
           </button>
           <button
             onClick={() => setSearchOpen(true)}
             className="flex h-10 w-10 items-center justify-center rounded-lg text-ink-secondary md:hidden"
-            aria-label="Szukaj na stronie"
+            aria-label={t("search")}
           >
             <MagnifyingGlass size={20} weight="regular" aria-hidden="true" />
           </button>
@@ -236,18 +239,20 @@ export function Nav() {
             </button>
           )}
 
+          <LanguageSwitcher />
+
           <a
             href={`${BASE}/strefa-dzialacza`}
             className="hidden h-10 items-center rounded-md border border-border-medium bg-transparent px-5 text-[0.875rem] font-medium text-ink-primary transition-colors hover:border-border-soft hover:bg-bg-elevated md:flex"
           >
-            Zaloguj się
+            {t("login")}
           </a>
 
           <button
             ref={toggleRef}
             onClick={() => setMobileOpen((v) => !v)}
             className="flex h-10 w-10 items-center justify-center rounded-lg text-ink-secondary md:hidden"
-            aria-label={mobileOpen ? "Zamknij menu" : "Otwórz menu"}
+            aria-label={mobileOpen ? t("closeMenu") : t("openMenu")}
             aria-expanded={mobileOpen}
             aria-controls="mobile-menu"
           >
@@ -346,7 +351,7 @@ export function Nav() {
                           : "text-ink-primary hover:text-accent"
                       }`}
                     >
-                      {link.label}
+                      {t("kontakt")}
                     </Link>
                   </li>
                 ))}
@@ -357,7 +362,7 @@ export function Nav() {
                     onClick={closeMobile}
                     className="inline-flex h-11 items-center rounded-md border border-border-medium px-5 text-[0.875rem] font-medium text-ink-primary"
                   >
-                    Zaloguj się
+                    {t("login")}
                   </a>
                 </li>
               </ul>

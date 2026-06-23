@@ -2,7 +2,7 @@
 
 import { motion, useReducedMotion } from "motion/react";
 import { ArrowUpRight, Megaphone, FileText, CaretDown } from "@phosphor-icons/react";
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 import { ScrollReveal } from "../ScrollReveal";
 
 const rights = [

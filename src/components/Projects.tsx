@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, useReducedMotion } from "motion/react";
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 import { ArrowUpRight } from "@phosphor-icons/react";
 import { ScrollReveal } from "./ScrollReveal";
 import { Spotlight } from "./Spotlight";

@@ -1,4 +1,4 @@
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 import { ArrowRight, House } from "@phosphor-icons/react/dist/ssr";
 import { AuroraField } from "@/components/AuroraField";
 

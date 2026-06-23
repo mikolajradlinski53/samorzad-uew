@@ -2,11 +2,11 @@
 
 import { motion, useReducedMotion, type Variants } from "motion/react";
 import Image from "next/image";
+import { useTranslations } from "next-intl";
 import { CaretDown } from "@phosphor-icons/react";
+import { Link } from "@/i18n/navigation";
 import { Marquee } from "./Marquee";
 import { heroPhotos as photos } from "@/lib/photos";
-
-const headlineLines = ["Reprezentujemy", "studentów UEW"];
 
 const lineVariants: Variants = {
   hidden: { y: "110%" },
@@ -16,7 +16,6 @@ const lineVariants: Variants = {
   }),
 };
 
-const stats = ["11 000+ studentów", "12 komisji", "9 projektów rocznie"];
 
 function PhotoTile({ src, sizes }: { src: string; sizes: string }) {
   return (
@@ -54,6 +53,9 @@ function GalleryColumn({
 
 export function Hero() {
   const reduce = useReducedMotion();
+  const t = useTranslations("hero");
+  const headlineLines = [t("line1"), t("line2")];
+  const stats = t.raw("stats") as string[];
 
   return (
     <section
@@ -86,7 +88,7 @@ export function Hero() {
             className="mb-6 flex items-center gap-3 text-[0.75rem] font-medium uppercase tracking-[0.16em] text-accent"
           >
             <span className="h-px w-8 shrink-0 bg-accent" aria-hidden="true" />
-            Samorząd Studentów Uniwersytetu Ekonomicznego we Wrocławiu
+            {t("eyebrow")}
           </motion.p>
 
           <h1 className="font-display text-[clamp(3rem,6vw,5.25rem)] font-extrabold leading-[1.0] tracking-[-0.045em] text-ink-primary">
@@ -111,8 +113,7 @@ export function Hero() {
             transition={{ duration: 0.7, delay: 0.55, ease: [0.16, 1, 0.3, 1] }}
             className="mt-7 max-w-[480px] text-[1.0625rem] leading-[1.75] text-ink-secondary"
           >
-            Jesteśmy głosem ponad 11 000 studentów. Tworzymy wydarzenia, walczymy
-            o Wasze prawa i robimy to, żeby studia miały sens — i smak.
+            {t("lead")}
           </motion.p>
 
           <motion.div
@@ -125,14 +126,14 @@ export function Hero() {
               href="#o-nas"
               className="inline-flex h-12 items-center rounded-lg bg-accent px-7 text-base font-medium text-bg-base transition-all hover:bg-accent-dim active:scale-[0.98]"
             >
-              Poznaj nas
+              {t("cta1")}
             </a>
-            <a
+            <Link
               href="/dla-studenta"
               className="inline-flex h-12 items-center rounded-lg px-3 text-base font-medium text-ink-secondary transition-colors hover:text-ink-primary"
             >
-              Strefa studenta &rarr;
-            </a>
+              {t("cta2")} &rarr;
+            </Link>
           </motion.div>
 
           {/* Stat chips */}
@@ -187,7 +188,7 @@ export function Hero() {
       {/* Scroll indicator */}
       <a
         href="#o-nas"
-        aria-label="Przewiń do sekcji „O nas”"
+        aria-label={t("scroll")}
         className="absolute bottom-6 left-1/2 hidden h-11 w-11 -translate-x-1/2 items-center justify-center rounded-full text-ink-tertiary transition-colors hover:text-ink-primary lg:flex"
       >
         <CaretDown size={22} weight="regular" className="chevron-bob" aria-hidden="true" />
