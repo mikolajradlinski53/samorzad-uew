@@ -1,6 +1,7 @@
 "use client";
 
 import { motion, useReducedMotion } from "motion/react";
+import { useTranslations } from "next-intl";
 import {
   Confetti,
   Megaphone,
@@ -15,31 +16,19 @@ import { Tilt } from "../Tilt";
 import { MagneticButton } from "../MagneticButton";
 
 interface Kind {
-  title: string;
-  desc: string;
+  key: string;
   icon: Icon;
 }
 
 const kinds: Kind[] = [
-  {
-    title: "Organizacja eventów",
-    desc: "Wspólne wydarzenia, strefy partnerskie i obecność tam, gdzie są studenci.",
-    icon: Confetti,
-  },
-  {
-    title: "Promocja w social media",
-    desc: "Dotarcie do studenckiej społeczności na TikToku, Instagramie i Facebooku.",
-    icon: Megaphone,
-  },
-  {
-    title: "Kampanie marketingowe",
-    desc: "Akcje skrojone pod Twój produkt lub usługę i pod studenta UEW.",
-    icon: Target,
-  },
+  { key: "events", icon: Confetti },
+  { key: "social", icon: Megaphone },
+  { key: "campaigns", icon: Target },
 ];
 
 export function WspolpracaContent() {
   const reduce = useReducedMotion();
+  const t = useTranslations("wspolpracuj");
 
   return (
     <>
@@ -51,12 +40,10 @@ export function WspolpracaContent() {
               id="oferta-heading"
               className="max-w-[24ch] font-display text-[clamp(1.75rem,3.4vw,2.75rem)] font-semibold leading-[1.15] tracking-[-0.02em] text-ink-primary"
             >
-              Chcesz dotrzeć ze swoją marką do studentów?
+              {t("offerHeading")}
             </h2>
             <p className="prose-constrained mt-4 text-[1.0625rem] leading-[1.75] text-ink-secondary">
-              Pomożemy wypromować Twój produkt lub usługę wśród studentów UEW.
-              Przygotujemy ofertę skrojoną pod Twoje cele — wybierz formę
-              współpracy, a resztę dograliśmy.
+              {t("offerLead")}
             </p>
           </ScrollReveal>
 
@@ -65,7 +52,7 @@ export function WspolpracaContent() {
               const Glyph = kind.icon;
               return (
                 <motion.div
-                  key={kind.title}
+                  key={kind.key}
                   initial={reduce ? false : { opacity: 0, y: 20 }}
                   whileInView={reduce ? undefined : { opacity: 1, y: 0 }}
                   viewport={{ once: true, amount: 0.2 }}
@@ -77,10 +64,10 @@ export function WspolpracaContent() {
                         <Glyph size={26} weight="regular" aria-hidden="true" />
                       </span>
                       <h3 className="mt-6 text-[1.25rem] font-semibold tracking-[-0.01em] text-ink-primary">
-                        {kind.title}
+                        {t(`kinds.${kind.key}.title`)}
                       </h3>
                       <p className="mt-2 text-[0.9375rem] leading-[1.6] text-ink-secondary">
-                        {kind.desc}
+                        {t(`kinds.${kind.key}.desc`)}
                       </p>
                     </div>
                   </Tilt>
@@ -101,16 +88,16 @@ export function WspolpracaContent() {
             <div className="grid items-center gap-10 rounded-2xl border border-border-subtle bg-bg-surface p-8 sm:p-10 lg:grid-cols-[1fr_auto]">
               <div>
                 <p className="text-[0.75rem] font-medium uppercase tracking-[0.08em] text-accent">
-                  Kontakt w sprawie współpracy
+                  {t("contactEyebrow")}
                 </p>
                 <h2
                   id="kontakt-osoba-heading"
                   className="mt-2 font-display text-[clamp(1.75rem,3vw,2.5rem)] tracking-[-0.01em] text-ink-primary"
                 >
-                  Karol Vogel
+                  {t("contactName")}
                 </h2>
                 <p className="mt-1 text-[0.9375rem] text-ink-secondary">
-                  Członek Zarządu ds. relacji zewnętrznych
+                  {t("contactRole")}
                 </p>
 
                 <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:gap-8">
@@ -133,10 +120,10 @@ export function WspolpracaContent() {
 
               <MagneticButton
                 href="/kontakt"
-                ariaLabel="Przejdź do formularza kontaktowego"
+                ariaLabel={t("formAria")}
                 className="inline-flex h-12 shrink-0 items-center justify-center gap-2 rounded-lg bg-accent px-7 text-base font-medium text-bg-base transition-colors hover:bg-accent-dim"
               >
-                Wypełnij formularz
+                {t("formButton")}
                 <ArrowRight size={20} weight="regular" aria-hidden="true" />
               </MagneticButton>
             </div>

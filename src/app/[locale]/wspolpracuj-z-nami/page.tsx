@@ -1,24 +1,37 @@
 import type { Metadata } from "next";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 import { PageHero } from "@/components/PageHero";
 import { WspolpracaContent } from "@/components/pages/WspolpracaContent";
+import { ogMeta } from "@/lib/og";
 
-export const metadata: Metadata = {
-  title: "Współpracuj z nami",
-  description:
-    "Dotrzyj ze swoją marką do 11 000 studentów UEW — eventy, promocja w social media i kampanie marketingowe. Skontaktuj się z Zarządem ds. relacji zewnętrznych.",
-};
+type Props = { params: Promise<{ locale: string }> };
 
-export default function WspolpracaPage() {
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "wspolpracuj" });
+  return {
+    title: t("metaTitle"),
+    description: t("metaDesc"),
+    ...ogMeta(t("metaTitle"), t("ogLabel")),
+  };
+}
+
+export default async function WspolpracaPage({ params }: Props) {
+  const { locale } = await params;
+  setRequestLocale(locale);
+  const t = await getTranslations({ locale, namespace: "wspolpracuj" });
+  const tc = await getTranslations({ locale, namespace: "common" });
+
   return (
     <>
       <PageHero
-        eyebrow="Współpraca"
-        title="Współpracuj z nami"
-        lead="Połączmy Twoją markę z najliczniejszą społecznością studencką UEW — wybierz formę współpracy, a ofertę przygotujemy pod Ciebie."
+        eyebrow={t("heroEyebrow")}
+        title={t("heroTitle")}
+        lead={t("heroLead")}
         breadcrumbs={[
-          { label: "Strona główna", href: "/" },
-          { label: "Partnerzy", href: "/partnerzy" },
-          { label: "Współpracuj z nami" },
+          { label: tc("home"), href: "/" },
+          { label: t("crumbPartners"), href: "/partnerzy" },
+          { label: t("heroTitle") },
         ]}
       />
       <WspolpracaContent />

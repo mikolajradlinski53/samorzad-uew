@@ -166,5 +166,59 @@
     "ctaHeading": "Nie znalazłeś tego, czego szukasz?",
     "ctaDesc": "Napisz do nas — pomożemy albo skierujemy do właściwej osoby.",
     "ctaButton": "Napisz do nas"
+  },
+  "partnerzy": {
+    "metaTitle": "Partnerzy i współpraca",
+    "metaDesc": "Dołącz do grona partnerów Samorządu Studentów UEW. Dotrzyj do 11 000 studentów, bądź obecny na największych wydarzeniach i wspieraj młode talenty.",
+    "ogLabel": "Współpraca",
+    "heroEyebrow": "Współpraca",
+    "heroTitle": "Partnerzy",
+    "heroLead": "Łączymy markę z najliczniejszą społecznością studencką UEW. Sprawdź, jak możemy działać razem.",
+    "benefitsEyebrow": "Współpraca",
+    "benefitsHeading": "Dlaczego warto współpracować z Samorządem",
+    "benefits": {
+      "reach": { "title": "Dotarcie do 11 000 studentów", "desc": "Bezpośredni kanał do najliczniejszej społeczności studenckiej UEW." },
+      "events": { "title": "Obecność na wydarzeniach", "desc": "Adapciak, Bal UEW, TEDxUEW, UE Party — Twoja marka tam, gdzie studenci." },
+      "image": { "title": "Wizerunek marki przyjaznej studentom", "desc": "Współpraca z samorządem to realne wsparcie środowiska akademickiego." },
+      "talent": { "title": "Dostęp do młodych talentów", "desc": "Rekrutacja, staże i programy ambasadorskie wśród przyszłych ekonomistów." }
+    },
+    "wallHeading": "Grono partnerów rośnie",
+    "wallSub": "Kliknij wolne miejsce, by zobaczyć, jak może wyglądać Twoja obecność.",
+    "slots": { "brand": "Twoja marka", "partner": "Partner", "sponsor": "Sponsor", "coop": "Współpraca", "patron": "Patron", "mecenas": "Mecenas" },
+    "modalDesc": "Tu mogłoby znaleźć się Twoje logo. Dołącz do grona partnerów wspierających ponad 11 000 studentów UEW.",
+    "modalCta": "Zostań partnerem",
+    "modalClose": "Zamknij",
+    "ctaHeading": "Zbudujmy coś razem",
+    "ctaDesc": "Opowiedz nam o swoim pomyśle na współpracę — przygotujemy ofertę dopasowaną do Twoich celów.",
+    "ctaButton": "Współpracuj z nami",
+    "ctaAria": "Przejdź do strony Współpracuj z nami",
+    "faqHeading": "Współpraca — najczęstsze pytania",
+    "faq": {
+      "start": { "q": "Jak rozpocząć współpracę z Samorządem?", "a": "Napisz do osoby odpowiedzialnej za relacje zewnętrzne — przygotujemy ofertę skrojoną pod Twoje cele. Kontakt: Karol Vogel, karol.vogel@samorzad.ue.wroc.pl, tel. 511 599 376." },
+      "forms": { "q": "Jakie formy współpracy oferujecie?", "a": "Organizację eventów i strefy partnerskie, promocję w social media (TikTok, Instagram, Facebook) oraz kampanie marketingowe skrojone pod studenta UEW." },
+      "reach": { "q": "Do ilu studentów docieracie?", "a": "Reprezentujemy ponad 11 000 studentów Uniwersytetu Ekonomicznego we Wrocławiu." },
+      "tailored": { "q": "Czy przygotujecie ofertę pod konkretny cel?", "a": "Tak — ofertę dopasowujemy do Twojego produktu lub usługi oraz do celów kampanii." }
+    }
+  },
+  "wspolpracuj": {
+    "metaTitle": "Współpracuj z nami",
+    "metaDesc": "Dotrzyj ze swoją marką do 11 000 studentów UEW — eventy, promocja w social media i kampanie marketingowe. Skontaktuj się z Zarządem ds. relacji zewnętrznych.",
+    "ogLabel": "Współpraca",
+    "heroEyebrow": "Współpraca",
+    "heroTitle": "Współpracuj z nami",
+    "heroLead": "Połączmy Twoją markę z najliczniejszą społecznością studencką UEW — wybierz formę współpracy, a ofertę przygotujemy pod Ciebie.",
+    "crumbPartners": "Partnerzy",
+    "offerHeading": "Chcesz dotrzeć ze swoją marką do studentów?",
+    "offerLead": "Pomożemy wypromować Twój produkt lub usługę wśród studentów UEW. Przygotujemy ofertę skrojoną pod Twoje cele — wybierz formę współpracy, a resztę dograliśmy.",
+    "kinds": {
+      "events": { "title": "Organizacja eventów", "desc": "Wspólne wydarzenia, strefy partnerskie i obecność tam, gdzie są studenci." },
+      "social": { "title": "Promocja w social media", "desc": "Dotarcie do studenckiej społeczności na TikToku, Instagramie i Facebooku." },
+      "campaigns": { "title": "Kampanie marketingowe", "desc": "Akcje skrojone pod Twój produkt lub usługę i pod studenta UEW." }
+    },
+    "contactEyebrow": "Kontakt w sprawie współpracy",
+    "contactName": "Karol Vogel",
+    "contactRole": "Członek Zarządu ds. relacji zewnętrznych",
+    "formButton": "Wypełnij formularz",
+    "formAria": "Przejdź do formularza kontaktowego"
   }
 }

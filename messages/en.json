@@ -166,5 +166,59 @@
     "ctaHeading": "Didn’t find what you were looking for?",
     "ctaDesc": "Write to us — we’ll help or point you to the right person.",
     "ctaButton": "Write to us"
+  },
+  "partnerzy": {
+    "metaTitle": "Partners & cooperation",
+    "metaDesc": "Join the partners of the UEW Student Government. Reach 11,000 students, be present at the biggest events and support young talent.",
+    "ogLabel": "Partnership",
+    "heroEyebrow": "Partnership",
+    "heroTitle": "Partners",
+    "heroLead": "We connect your brand with UEW’s largest student community. See how we can work together.",
+    "benefitsEyebrow": "Partnership",
+    "benefitsHeading": "Why partner with the Student Government",
+    "benefits": {
+      "reach": { "title": "Reach 11,000 students", "desc": "A direct channel to UEW’s largest student community." },
+      "events": { "title": "Presence at events", "desc": "Adapciak, the UEW Ball, TEDxUEW, UE Party — your brand where the students are." },
+      "image": { "title": "A student-friendly brand image", "desc": "Working with the Student Government is real support for the academic community." },
+      "talent": { "title": "Access to young talent", "desc": "Recruitment, internships and ambassador programmes among future economists." }
+    },
+    "wallHeading": "Our partner circle is growing",
+    "wallSub": "Click an open slot to see what your presence could look like.",
+    "slots": { "brand": "Your brand", "partner": "Partner", "sponsor": "Sponsor", "coop": "Cooperation", "patron": "Patron", "mecenas": "Benefactor" },
+    "modalDesc": "Your logo could be here. Join the partners supporting over 11,000 UEW students.",
+    "modalCta": "Become a partner",
+    "modalClose": "Close",
+    "ctaHeading": "Let’s build something together",
+    "ctaDesc": "Tell us about your idea for cooperation — we’ll prepare an offer tailored to your goals.",
+    "ctaButton": "Work with us",
+    "ctaAria": "Go to the Work with us page",
+    "faqHeading": "Partnership — frequently asked questions",
+    "faq": {
+      "start": { "q": "How do we start working with the Student Government?", "a": "Write to the person responsible for external relations — we’ll prepare an offer tailored to your goals. Contact: Karol Vogel, karol.vogel@samorzad.ue.wroc.pl, tel. +48 511 599 376." },
+      "forms": { "q": "What forms of cooperation do you offer?", "a": "Event organisation and partner zones, social media promotion (TikTok, Instagram, Facebook) and marketing campaigns tailored to the UEW student." },
+      "reach": { "q": "How many students do you reach?", "a": "We represent over 11,000 students of Wrocław University of Economics and Business." },
+      "tailored": { "q": "Will you prepare an offer for a specific goal?", "a": "Yes — we tailor the offer to your product or service and to your campaign goals." }
+    }
+  },
+  "wspolpracuj": {
+    "metaTitle": "Work with us",
+    "metaDesc": "Reach 11,000 UEW students with your brand — events, social media promotion and marketing campaigns. Get in touch with our external relations board member.",
+    "ogLabel": "Partnership",
+    "heroEyebrow": "Partnership",
+    "heroTitle": "Work with us",
+    "heroLead": "Let’s connect your brand with UEW’s largest student community — choose a form of cooperation and we’ll tailor the offer to you.",
+    "crumbPartners": "Partners",
+    "offerHeading": "Want to reach students with your brand?",
+    "offerLead": "We’ll help promote your product or service among UEW students. We’ll prepare an offer tailored to your goals — pick a form of cooperation and we’ll handle the rest.",
+    "kinds": {
+      "events": { "title": "Event organisation", "desc": "Joint events, partner zones and a presence where the students are." },
+      "social": { "title": "Social media promotion", "desc": "Reaching the student community on TikTok, Instagram and Facebook." },
+      "campaigns": { "title": "Marketing campaigns", "desc": "Activities tailored to your product or service and to the UEW student." }
+    },
+    "contactEyebrow": "Cooperation contact",
+    "contactName": "Karol Vogel",
+    "contactRole": "Board Member for External Relations",
+    "formButton": "Fill in the form",
+    "formAria": "Go to the contact form"
   }
 }

@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion, useReducedMotion } from "motion/react";
+import { useTranslations } from "next-intl";
 import {
   UsersThree,
   Megaphone,
@@ -19,30 +20,36 @@ import { PartnerEffect } from "../partners/PartnerEffect";
 import type { Partner } from "../partners/partnerEffects";
 
 interface Benefit {
-  title: string;
-  desc: string;
+  key: string;
   icon: Icon;
 }
 
 const benefits: Benefit[] = [
-  { title: "Dotarcie do 11 000 studentów", desc: "Bezpośredni kanał do najliczniejszej społeczności studenckiej UEW.", icon: UsersThree },
-  { title: "Obecność na wydarzeniach", desc: "Adapciak, Bal UEW, TEDxUEW, UE Party — Twoja marka tam, gdzie studenci.", icon: Megaphone },
-  { title: "Wizerunek marki przyjaznej studentom", desc: "Współpraca z samorządem to realne wsparcie środowiska akademickiego.", icon: Handshake },
-  { title: "Dostęp do młodych talentów", desc: "Rekrutacja, staże i programy ambasadorskie wśród przyszłych ekonomistów.", icon: ChartLineUp },
+  { key: "reach", icon: UsersThree },
+  { key: "events", icon: Megaphone },
+  { key: "image", icon: Handshake },
+  { key: "talent", icon: ChartLineUp },
 ];
 
 // Sloty placeholderowe. category/color = przykłady do podmiany na realnych partnerów.
-const slots: Partner[] = [
-  { name: "Twoja marka" },
-  { name: "Partner", category: "aviation", color: "#2C4BFF" },
-  { name: "Sponsor" },
-  { name: "Współpraca" },
-  { name: "Patron" },
-  { name: "Mecenas" },
+interface Slot {
+  key: string;
+  category?: Partner["category"];
+  color?: string;
+}
+
+const slots: Slot[] = [
+  { key: "brand" },
+  { key: "partner", category: "aviation", color: "#2C4BFF" },
+  { key: "sponsor" },
+  { key: "coop" },
+  { key: "patron" },
+  { key: "mecenas" },
 ];
 
 function PartnerModal({ partner, onClose }: { partner: Partner; onClose: () => void }) {
   const reduce = useReducedMotion();
+  const t = useTranslations("partnerzy");
   const panelRef = useRef<HTMLDivElement>(null);
   const closeRef = useRef<HTMLButtonElement>(null);
 
@@ -100,7 +107,7 @@ function PartnerModal({ partner, onClose }: { partner: Partner; onClose: () => v
         <button
           ref={closeRef}
           onClick={onClose}
-          aria-label="Zamknij"
+          aria-label={t("modalClose")}
           className="absolute right-4 top-4 flex h-9 w-9 items-center justify-center rounded-lg text-ink-secondary transition-colors hover:bg-bg-elevated hover:text-ink-primary"
         >
           <X size={20} weight="regular" aria-hidden="true" />
@@ -115,14 +122,13 @@ function PartnerModal({ partner, onClose }: { partner: Partner; onClose: () => v
           {partner.name}
         </h3>
         <p className="mx-auto mt-2 max-w-[34ch] text-[0.9375rem] leading-[1.6] text-ink-secondary">
-          Tu mogłoby znaleźć się Twoje logo. Dołącz do grona partnerów
-          wspierających ponad 11 000 studentów UEW.
+          {t("modalDesc")}
         </p>
         <a
           href="mailto:kontakt@samorzad.ue.wroc.pl?subject=Wsp%C3%B3%C5%82praca%20z%20Samorz%C4%85dem%20UEW"
           className="mt-6 inline-flex h-12 items-center gap-2 rounded-lg bg-accent px-7 text-base font-medium text-bg-base transition-all hover:bg-accent-dim active:scale-[0.98]"
         >
-          Zostań partnerem
+          {t("modalCta")}
           <ArrowRight size={20} weight="regular" aria-hidden="true" />
         </a>
       </motion.div>
@@ -132,6 +138,7 @@ function PartnerModal({ partner, onClose }: { partner: Partner; onClose: () => v
 
 export function PartnerzyContent() {
   const reduce = useReducedMotion();
+  const t = useTranslations("partnerzy");
   const [selected, setSelected] = useState<Partner | null>(null);
   const triggerRef = useRef<HTMLElement | null>(null);
 
@@ -151,13 +158,13 @@ export function PartnerzyContent() {
         <div className="mx-auto max-w-[1200px]">
           <ScrollReveal>
             <p className="text-[0.75rem] font-medium uppercase tracking-[0.08em] text-accent">
-              Współpraca
+              {t("benefitsEyebrow")}
             </p>
             <h2
               id="korzysci-heading"
               className="mt-3 max-w-[22ch] font-display text-[clamp(1.75rem,3.4vw,2.75rem)] font-semibold leading-[1.15] tracking-[-0.02em] text-ink-primary"
             >
-              Dlaczego warto współpracować z Samorządem
+              {t("benefitsHeading")}
             </h2>
           </ScrollReveal>
 
@@ -166,7 +173,7 @@ export function PartnerzyContent() {
               const Glyph = benefit.icon;
               return (
                 <motion.div
-                  key={benefit.title}
+                  key={benefit.key}
                   initial={reduce ? false : { opacity: 0, y: 20 }}
                   whileInView={reduce ? undefined : { opacity: 1, y: 0 }}
                   viewport={{ once: true, amount: 0.2 }}
@@ -178,10 +185,10 @@ export function PartnerzyContent() {
                         <Glyph size={24} weight="regular" aria-hidden="true" />
                       </span>
                       <h3 className="mt-5 text-[1.0625rem] font-semibold tracking-[-0.01em] text-ink-primary">
-                        {benefit.title}
+                        {t(`benefits.${benefit.key}.title`)}
                       </h3>
                       <p className="mt-2 text-[0.875rem] leading-[1.6] text-ink-secondary">
-                        {benefit.desc}
+                        {t(`benefits.${benefit.key}.desc`)}
                       </p>
                     </div>
                   </Tilt>
@@ -202,37 +209,37 @@ export function PartnerzyContent() {
             id="partnerzy-heading"
             className="text-center font-display text-[clamp(1.5rem,2.6vw,2rem)] font-semibold tracking-[-0.02em] text-ink-primary"
           >
-            Grono partnerów rośnie
+            {t("wallHeading")}
           </h2>
           <p className="mt-2 text-center text-[0.9375rem] text-ink-secondary">
-            Kliknij wolne miejsce, by zobaczyć, jak może wyglądać Twoja obecność.
+            {t("wallSub")}
           </p>
         </div>
 
         <Marquee>
           {slots.map((s, i) => (
             <div
-              key={`${s.name}-${i}`}
+              key={`${s.key}-${i}`}
               className="flex h-20 w-44 shrink-0 items-center justify-center rounded-xl border border-dashed border-border-medium text-[0.875rem] font-medium uppercase tracking-[0.06em] text-ink-tertiary"
             >
-              {s.name}
+              {t(`slots.${s.key}`)}
             </div>
           ))}
         </Marquee>
 
         {/* Interactive wall */}
         <div className="mx-auto mt-8 grid max-w-[1200px] grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-6">
-          {slots.map((p) => (
+          {slots.map((s) => (
             <motion.button
-              key={p.name}
+              key={s.key}
               type="button"
-              onClick={() => open(p)}
+              onClick={() => open({ name: t(`slots.${s.key}`), category: s.category, color: s.color })}
               whileHover={reduce ? undefined : { y: -4, scale: 1.02 }}
               whileTap={reduce ? undefined : { scale: 0.97 }}
               transition={{ type: "spring", stiffness: 300, damping: 18 }}
               className="flex h-24 items-center justify-center rounded-xl border border-border-subtle bg-bg-base text-[0.8125rem] font-medium uppercase tracking-[0.06em] text-ink-tertiary transition-colors hover:border-accent hover:text-accent"
             >
-              {p.name}
+              {t(`slots.${s.key}`)}
             </motion.button>
           ))}
         </div>
@@ -248,19 +255,18 @@ export function PartnerzyContent() {
                   id="partner-cta-heading"
                   className="max-w-[24ch] font-display text-[clamp(1.75rem,3vw,2.5rem)] font-semibold leading-[1.15] tracking-[-0.02em] text-ink-primary"
                 >
-                  Zbudujmy coś razem
+                  {t("ctaHeading")}
                 </h2>
                 <p className="mt-3 max-w-[48ch] text-[1rem] leading-[1.6] text-ink-secondary">
-                  Opowiedz nam o swoim pomyśle na współpracę — przygotujemy ofertę
-                  dopasowaną do Twoich celów.
+                  {t("ctaDesc")}
                 </p>
               </div>
               <MagneticButton
                 href="/wspolpracuj-z-nami"
-                ariaLabel="Przejdź do strony Współpracuj z nami"
+                ariaLabel={t("ctaAria")}
                 className="inline-flex h-12 shrink-0 items-center gap-2 rounded-lg bg-accent px-7 text-base font-medium text-bg-base transition-colors hover:bg-accent-dim"
               >
-                Współpracuj z nami
+                {t("ctaButton")}
                 <ArrowRight size={20} weight="regular" aria-hidden="true" />
               </MagneticButton>
             </div>

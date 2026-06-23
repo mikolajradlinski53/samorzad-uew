@@ -1,49 +1,48 @@
 import type { Metadata } from "next";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 import { PageHero } from "@/components/PageHero";
 import { PartnerzyContent } from "@/components/pages/PartnerzyContent";
 import { Faq, type QA } from "@/components/Faq";
 import { ogMeta } from "@/lib/og";
 
-const faq: QA[] = [
-  {
-    q: "Jak rozpocząć współpracę z Samorządem?",
-    a: "Napisz do osoby odpowiedzialnej za relacje zewnętrzne — przygotujemy ofertę skrojoną pod Twoje cele. Kontakt: Karol Vogel, karol.vogel@samorzad.ue.wroc.pl, tel. 511 599 376.",
-  },
-  {
-    q: "Jakie formy współpracy oferujecie?",
-    a: "Organizację eventów i strefy partnerskie, promocję w social media (TikTok, Instagram, Facebook) oraz kampanie marketingowe skrojone pod studenta UEW.",
-  },
-  {
-    q: "Do ilu studentów docieracie?",
-    a: "Reprezentujemy ponad 11 000 studentów Uniwersytetu Ekonomicznego we Wrocławiu.",
-  },
-  {
-    q: "Czy przygotujecie ofertę pod konkretny cel?",
-    a: "Tak — ofertę dopasowujemy do Twojego produktu lub usługi oraz do celów kampanii.",
-  },
-];
+type Props = { params: Promise<{ locale: string }> };
 
-export const metadata: Metadata = {
-  title: "Partnerzy i współpraca",
-  description:
-    "Dołącz do grona partnerów Samorządu Studentów UEW. Dotrzyj do 11 000 studentów, bądź obecny na największych wydarzeniach i wspieraj młode talenty.",
-  ...ogMeta("Partnerzy i współpraca", "Współpraca"),
-};
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "partnerzy" });
+  return {
+    title: t("metaTitle"),
+    description: t("metaDesc"),
+    ...ogMeta(t("metaTitle"), t("ogLabel")),
+  };
+}
 
-export default function PartnerzyPage() {
+const FAQ_KEYS = ["start", "forms", "reach", "tailored"] as const;
+
+export default async function PartnerzyPage({ params }: Props) {
+  const { locale } = await params;
+  setRequestLocale(locale);
+  const t = await getTranslations({ locale, namespace: "partnerzy" });
+  const tc = await getTranslations({ locale, namespace: "common" });
+
+  const faq: QA[] = FAQ_KEYS.map((k) => ({
+    q: t(`faq.${k}.q`),
+    a: t(`faq.${k}.a`),
+  }));
+
   return (
     <>
       <PageHero
-        eyebrow="Współpraca"
-        title="Partnerzy"
-        lead="Łączymy markę z najliczniejszą społecznością studencką UEW. Sprawdź, jak możemy działać razem."
+        eyebrow={t("heroEyebrow")}
+        title={t("heroTitle")}
+        lead={t("heroLead")}
         breadcrumbs={[
-          { label: "Strona główna", href: "/" },
-          { label: "Partnerzy" },
+          { label: tc("home"), href: "/" },
+          { label: t("heroTitle") },
         ]}
       />
       <PartnerzyContent />
-      <Faq items={faq} heading="Współpraca — najczęstsze pytania" />
+      <Faq items={faq} heading={t("faqHeading")} />
     </>
   );
 }
