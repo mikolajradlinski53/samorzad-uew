@@ -1,6 +1,7 @@
 "use client";
 
 import { motion, useReducedMotion } from "motion/react";
+import { useTranslations } from "next-intl";
 import { AuroraField } from "./AuroraField";
 import { Breadcrumbs, type Crumb } from "./Breadcrumbs";
 
@@ -13,6 +14,7 @@ interface PageHeroProps {
 
 export function PageHero({ eyebrow, title, lead, breadcrumbs }: PageHeroProps) {
   const reduce = useReducedMotion();
+  const t = useTranslations("ui.aria");
 
   const enter = (delay: number) => ({
     initial: reduce ? false : { opacity: 0, y: 16 },
@@ -21,7 +23,7 @@ export function PageHero({ eyebrow, title, lead, breadcrumbs }: PageHeroProps) {
   });
 
   return (
-    <section aria-label="Nagłówek strony" className="relative overflow-hidden">
+    <section aria-label={t("pageHeader")} className="relative overflow-hidden">
       {/* Ambient signature */}
       <div className="pointer-events-none absolute inset-0" aria-hidden="true">
         <div className="absolute -inset-x-0 -top-[20%] h-[140%]">

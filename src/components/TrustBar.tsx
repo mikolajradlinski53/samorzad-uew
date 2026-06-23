@@ -25,10 +25,11 @@ const markers: Marker[] = [
 export function TrustBar() {
   const reduce = useReducedMotion();
   const t = useTranslations("trustbar");
+  const ta = useTranslations("ui.aria");
 
   return (
     <section
-      aria-label="Wiarygodność"
+      aria-label={ta("trust")}
       className="relative border-y border-border-subtle bg-bg-surface/60"
     >
       {/* Draw-on accent hairline — signature, restrained */}

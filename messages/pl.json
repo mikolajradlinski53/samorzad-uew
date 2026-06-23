@@ -762,5 +762,26 @@
     "description": "Reprezentujemy ponad 11 000 studentów Uniwersytetu Ekonomicznego we Wrocławiu. Działamy, żeby Wasze studia miały sens.",
     "ogDescription": "Reprezentujemy ponad 11 000 studentów Uniwersytetu Ekonomicznego we Wrocławiu.",
     "skipLink": "Przejdź do treści"
+  },
+  "ui": {
+    "search": {
+      "close": "Zamknij wyszukiwarkę",
+      "dialog": "Wyszukiwarka strony",
+      "inputLabel": "Wpisz, czego szukasz",
+      "placeholder": "Szukaj strony — np. stypendia, rzecznik, mapa…",
+      "noResults": "Nic nie znaleziono dla „{query}”. Spróbuj innego słowa.",
+      "resultsLabel": "Wyniki wyszukiwania",
+      "showAll": "Pokaż wszystkie wyniki dla „{query}”"
+    },
+    "aria": {
+      "backToTop": "Wróć na górę strony",
+      "breadcrumb": "Ścieżka nawigacji",
+      "mainNav": "Główna nawigacja",
+      "brandHome": "Samorząd Studentów Uniwersytetu Ekonomicznego we Wrocławiu — strona główna",
+      "brandAlt": "Samorząd Studentów Uniwersytetu Ekonomicznego we Wrocławiu",
+      "pageHeader": "Nagłówek strony",
+      "life": "Życie studenckie",
+      "trust": "Wiarygodność"
+    }
   }
 }

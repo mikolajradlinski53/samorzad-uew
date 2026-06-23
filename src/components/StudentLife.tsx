@@ -37,9 +37,10 @@ function PanelBody({ lead, body, ctaLabel, ctaHref }: PanelCopy) {
 
 export function StudentLife() {
   const t = useTranslations("studentlife");
+  const ta = useTranslations("ui.aria");
 
   return (
-    <section aria-label="Życie studenckie">
+    <section aria-label={ta("life")}>
       <TextParallaxContent
         imgUrl={studentLifePhotos.integracja}
         subheading={t("p1.subheading")}

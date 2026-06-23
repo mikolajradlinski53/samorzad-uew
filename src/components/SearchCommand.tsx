@@ -2,6 +2,7 @@
 
 import { useEffect, useMemo, useRef, useState } from "react";
 import { useRouter } from "@/i18n/navigation";
+import { useTranslations } from "next-intl";
 import { AnimatePresence, motion, useReducedMotion } from "motion/react";
 import { MagnifyingGlass, ArrowRight } from "@phosphor-icons/react";
 import { searchPages, highlightSegments } from "@/lib/searchIndex";
@@ -14,6 +15,7 @@ interface SearchCommandProps {
 export function SearchCommand({ open, onClose }: SearchCommandProps) {
   const router = useRouter();
   const reduce = useReducedMotion();
+  const t = useTranslations("ui.search");
   const [query, setQuery] = useState("");
   const [active, setActive] = useState(0);
   const inputRef = useRef<HTMLInputElement>(null);
@@ -83,7 +85,7 @@ export function SearchCommand({ open, onClose }: SearchCommandProps) {
           {/* Scrim */}
           <button
             type="button"
-            aria-label="Zamknij wyszukiwarkę"
+            aria-label={t("close")}
             onClick={close}
             className="absolute inset-0 bg-black/50 backdrop-blur-sm"
           />
@@ -91,7 +93,7 @@ export function SearchCommand({ open, onClose }: SearchCommandProps) {
           <motion.div
             role="dialog"
             aria-modal="true"
-            aria-label="Wyszukiwarka strony"
+            aria-label={t("dialog")}
             initial={reduce ? false : { opacity: 0, y: -12, scale: 0.98 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={reduce ? { opacity: 0 } : { opacity: 0, y: -8, scale: 0.98 }}
@@ -109,8 +111,8 @@ export function SearchCommand({ open, onClose }: SearchCommandProps) {
                 aria-expanded="true"
                 aria-controls="search-listbox"
                 aria-activedescendant={results[active] ? `search-opt-${active}` : undefined}
-                aria-label="Wpisz, czego szukasz"
-                placeholder="Szukaj strony — np. stypendia, rzecznik, mapa…"
+                aria-label={t("inputLabel")}
+                placeholder={t("placeholder")}
                 value={query}
                 onChange={(e) => {
                   setQuery(e.target.value);
@@ -126,14 +128,14 @@ export function SearchCommand({ open, onClose }: SearchCommandProps) {
             {/* Results */}
             {results.length === 0 ? (
               <p className="px-5 py-10 text-center text-[0.9375rem] text-ink-secondary">
-                Nic nie znaleziono dla „{query}”. Spróbuj innego słowa.
+                {t("noResults", { query })}
               </p>
             ) : (
               <ul
                 ref={listRef}
                 id="search-listbox"
                 role="listbox"
-                aria-label="Wyniki wyszukiwania"
+                aria-label={t("resultsLabel")}
                 className="max-h-[50vh] overflow-y-auto p-2"
               >
                 {results.map((item, i) => {
@@ -187,7 +189,7 @@ export function SearchCommand({ open, onClose }: SearchCommandProps) {
                 onClick={() => go(`/szukaj?q=${encodeURIComponent(query.trim())}`)}
                 className="flex w-full items-center justify-center gap-1.5 border-t border-border-subtle px-5 py-3 text-[0.8125rem] font-medium text-ink-secondary transition-colors hover:bg-bg-elevated hover:text-accent"
               >
-                Pokaż wszystkie wyniki dla „{query.trim()}”
+                {t("showAll", { query: query.trim() })}
                 <ArrowRight size={14} weight="bold" aria-hidden="true" />
               </button>
             )}

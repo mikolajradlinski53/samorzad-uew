@@ -1,3 +1,4 @@
+import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import { CaretRight } from "@phosphor-icons/react";
 
@@ -9,6 +10,7 @@ export interface Crumb {
 }
 
 export function Breadcrumbs({ items }: { items: Crumb[] }) {
+  const t = useTranslations("ui.aria");
   // BreadcrumbList structured data → breadcrumb rich result in Google.
   const breadcrumbLd = {
     "@context": "https://schema.org",
@@ -22,7 +24,7 @@ export function Breadcrumbs({ items }: { items: Crumb[] }) {
   };
 
   return (
-    <nav aria-label="Ścieżka nawigacji">
+    <nav aria-label={t("breadcrumb")}>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }}

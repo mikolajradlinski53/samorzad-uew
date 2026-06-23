@@ -9,6 +9,7 @@ import {
   useScroll,
 } from "motion/react";
 import { ArrowUp } from "@phosphor-icons/react";
+import { useTranslations } from "next-intl";
 
 /**
  * „Do góry" — pojawia się po przewinięciu, skraca drogę powrotu na długich
@@ -17,6 +18,7 @@ import { ArrowUp } from "@phosphor-icons/react";
 export function BackToTop() {
   const { scrollY } = useScroll();
   const reduce = useReducedMotion();
+  const t = useTranslations("ui.aria");
   const [show, setShow] = useState(false);
 
   useMotionValueEvent(scrollY, "change", (latest) => {
@@ -32,7 +34,7 @@ export function BackToTop() {
         <motion.button
           type="button"
           onClick={toTop}
-          aria-label="Wróć na górę strony"
+          aria-label={t("backToTop")}
           initial={reduce ? false : { opacity: 0, scale: 0.8, y: 10 }}
           animate={{ opacity: 1, scale: 1, y: 0 }}
           exit={reduce ? { opacity: 0 } : { opacity: 0, scale: 0.8, y: 10 }}

@@ -762,5 +762,26 @@
     "description": "We represent over 11,000 students of Wrocław University of Economics and Business. We work to make your studies meaningful.",
     "ogDescription": "We represent over 11,000 students of Wrocław University of Economics and Business.",
     "skipLink": "Skip to content"
+  },
+  "ui": {
+    "search": {
+      "close": "Close search",
+      "dialog": "Site search",
+      "inputLabel": "Type what you’re looking for",
+      "placeholder": "Search the site — e.g. scholarships, ombudsman, map…",
+      "noResults": "Nothing found for “{query}”. Try a different word.",
+      "resultsLabel": "Search results",
+      "showAll": "Show all results for “{query}”"
+    },
+    "aria": {
+      "backToTop": "Back to top",
+      "breadcrumb": "Breadcrumb",
+      "mainNav": "Main navigation",
+      "brandHome": "Student Government of Wrocław University of Economics and Business — home",
+      "brandAlt": "Student Government of Wrocław University of Economics and Business",
+      "pageHeader": "Page header",
+      "life": "Student life",
+      "trust": "Trust"
+    }
   }
 }

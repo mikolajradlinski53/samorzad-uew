@@ -55,6 +55,7 @@ export function Nav() {
   const { setTheme, resolvedTheme } = useTheme();
   const pathname = usePathname();
   const t = useTranslations("nav");
+  const ta = useTranslations("ui.aria");
   const [mounted, setMounted] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -157,18 +158,18 @@ export function Nav() {
       }}
     >
       <nav
-        aria-label="Główna nawigacja"
+        aria-label={ta("mainNav")}
         className="mx-auto flex h-[72px] max-w-[1200px] items-center justify-between px-6"
       >
         <Link
           href="/"
-          aria-label="Samorząd Studentów Uniwersytetu Ekonomicznego we Wrocławiu — strona główna"
+          aria-label={ta("brandHome")}
           className="relative h-10 w-40 shrink-0"
         >
           {mounted && (
             <Image
               src={resolvedTheme === "dark" ? "/logo-light.svg" : "/logo-dark.svg"}
-              alt="Samorząd Studentów Uniwersytetu Ekonomicznego we Wrocławiu"
+              alt={ta("brandAlt")}
               fill
               className="object-contain object-left"
               priority
