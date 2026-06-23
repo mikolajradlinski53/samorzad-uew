@@ -1,24 +1,37 @@
 import type { Metadata } from "next";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 import { PageHero } from "@/components/PageHero";
 import { RUSSContent } from "@/components/pages/RUSSContent";
+import { ogMeta } from "@/lib/og";
 
-export const metadata: Metadata = {
-  title: "Rada Uczelniana Samorządu Studentów",
-  description:
-    "RUSS — organ uchwałodawczy i opiniodawczy Samorządu Studentów UEW. 15 radnych reprezentuje postulaty studentów. Poznaj kompetencje i skład Rady.",
-};
+type Props = { params: Promise<{ locale: string }> };
 
-export default function RUSSPage() {
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "russ" });
+  return {
+    title: t("metaTitle"),
+    description: t("metaDesc"),
+    ...ogMeta(t("metaTitle"), t("ogLabel")),
+  };
+}
+
+export default async function RUSSPage({ params }: Props) {
+  const { locale } = await params;
+  setRequestLocale(locale);
+  const t = await getTranslations({ locale, namespace: "russ" });
+  const tc = await getTranslations({ locale, namespace: "common" });
+
   return (
     <>
       <PageHero
-        eyebrow="Samorząd Studentów"
-        title="Rada Uczelniana Samorządu Studentów"
-        lead="Uchwałodawczy głos studentów — RUSS opiniuje, decyduje i czuwa nad działaniem Samorządu."
+        eyebrow={t("heroEyebrow")}
+        title={t("heroTitle")}
+        lead={t("heroLead")}
         breadcrumbs={[
-          { label: "Strona główna", href: "/" },
-          { label: "Nasza działalność", href: "/nasza-dzialalnosc" },
-          { label: "Rada Uczelniana (RUSS)" },
+          { label: tc("home"), href: "/" },
+          { label: t("crumbActivities"), href: "/nasza-dzialalnosc" },
+          { label: t("crumbSelf") },
         ]}
       />
       <RUSSContent />

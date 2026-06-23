@@ -291,5 +291,47 @@
       "tedx": { "desc": "A local TEDx — ideas worth spreading in a few minutes of inspiring talks from speakers." },
       "party": { "desc": "A series of student parties for all of student Wrocław — a moment of relaxation and fun beyond your duties." }
     }
+  },
+  "struktura": {
+    "metaTitle": "Government structure",
+    "metaDesc": "How the UEW Student Government is built — the Chair, the Board, the University Council, the Audit Committee and the Student Electoral Committee.",
+    "ogLabel": "Student Government",
+    "heroEyebrow": "Student Government",
+    "heroTitle": "Government structure",
+    "heroLead": "Get to know the Student Government’s bodies and who is responsible for what — from strategy to overseeing elections.",
+    "crumbActivities": "Our activities",
+    "eyebrow": "Government bodies",
+    "heading": "How the Student Government is built",
+    "top": { "title": "Chair & Vice-chairs", "role": "They shape the Student Government’s development strategy and make the most important decisions." },
+    "organs": {
+      "board": { "title": "The Board", "role": "The executive body — delivers the goals set out in the Higher Education Act (Ustawa 2.0)." },
+      "russ": { "title": "University Council of the Student Government", "role": "The legislative body — sets internal regulations and reviews higher-level legal acts." },
+      "audit": { "title": "Audit Committee", "role": "The oversight body — supervises the activities and finances of the Student Government." },
+      "election": { "title": "Student Electoral Committee", "role": "The electoral body — prepares, runs and oversees elections to the Student Government." }
+    }
+  },
+  "russ": {
+    "metaTitle": "University Council of the Student Government",
+    "metaDesc": "RUSS — the legislative and advisory body of the UEW Student Government. 15 councillors represent students’ demands. See the Council’s powers and members.",
+    "ogLabel": "Student Government",
+    "heroEyebrow": "Student Government",
+    "heroTitle": "University Council of the Student Government",
+    "heroLead": "The legislative voice of students — RUSS reviews, decides and watches over the Student Government’s work.",
+    "crumbActivities": "Our activities",
+    "crumbSelf": "University Council (RUSS)",
+    "introHeading": "The student voice in one place",
+    "introBody": "RUSS is the legislative and advisory body of the Student Government. 15 councillors, elected in general elections for a one-year term, represent students’ demands during sessions and votes.",
+    "resolutionsLink": "Resolutions, minutes and session calendar",
+    "competencies": [
+      "Reviewing matters related to teaching and scholarship benefits",
+      "Taking positions on matters concerning the university’s students",
+      "Reviewing the work of units and bodies dealing with student affairs",
+      "Electing the Chair, approving the Board and granting discharge",
+      "Overseeing the work of the Student Government’s bodies"
+    ],
+    "termEyebrow": "2025 / 2026 term",
+    "membersHeading": "Council members",
+    "memberRole": "University Council",
+    "footnote": "The composition may change during the term."
   }
 }

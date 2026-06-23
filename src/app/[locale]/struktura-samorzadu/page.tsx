@@ -1,24 +1,37 @@
 import type { Metadata } from "next";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 import { PageHero } from "@/components/PageHero";
 import { StrukturaContent } from "@/components/pages/StrukturaContent";
+import { ogMeta } from "@/lib/og";
 
-export const metadata: Metadata = {
-  title: "Struktura Samorządu",
-  description:
-    "Jak zbudowany jest Samorząd Studentów UEW — Przewodniczący, Zarząd, Rada Uczelniana, Komisja Rewizyjna i Studencka Komisja Wyborcza.",
-};
+type Props = { params: Promise<{ locale: string }> };
 
-export default function StrukturaPage() {
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "struktura" });
+  return {
+    title: t("metaTitle"),
+    description: t("metaDesc"),
+    ...ogMeta(t("metaTitle"), t("ogLabel")),
+  };
+}
+
+export default async function StrukturaPage({ params }: Props) {
+  const { locale } = await params;
+  setRequestLocale(locale);
+  const t = await getTranslations({ locale, namespace: "struktura" });
+  const tc = await getTranslations({ locale, namespace: "common" });
+
   return (
     <>
       <PageHero
-        eyebrow="Samorząd Studentów"
-        title="Struktura Samorządu"
-        lead="Poznaj organy Samorządu i to, kto za co odpowiada — od strategii po nadzór nad wyborami."
+        eyebrow={t("heroEyebrow")}
+        title={t("heroTitle")}
+        lead={t("heroLead")}
         breadcrumbs={[
-          { label: "Strona główna", href: "/" },
-          { label: "Nasza działalność", href: "/nasza-dzialalnosc" },
-          { label: "Struktura Samorządu" },
+          { label: tc("home"), href: "/" },
+          { label: t("crumbActivities"), href: "/nasza-dzialalnosc" },
+          { label: t("heroTitle") },
         ]}
       />
       <StrukturaContent />

@@ -291,5 +291,47 @@
       "tedx": { "desc": "Lokalne TEDx — idee warte rozpowszechniania w kilkuminutowych, inspirujących wystąpieniach prelegentów." },
       "party": { "desc": "Cykl studenckich imprez dla całego studenckiego Wrocławia — chwila relaksu i rozrywki poza obowiązkami." }
     }
+  },
+  "struktura": {
+    "metaTitle": "Struktura Samorządu",
+    "metaDesc": "Jak zbudowany jest Samorząd Studentów UEW — Przewodniczący, Zarząd, Rada Uczelniana, Komisja Rewizyjna i Studencka Komisja Wyborcza.",
+    "ogLabel": "Samorząd Studentów",
+    "heroEyebrow": "Samorząd Studentów",
+    "heroTitle": "Struktura Samorządu",
+    "heroLead": "Poznaj organy Samorządu i to, kto za co odpowiada — od strategii po nadzór nad wyborami.",
+    "crumbActivities": "Nasza działalność",
+    "eyebrow": "Organy Samorządu",
+    "heading": "Jak zbudowany jest Samorząd",
+    "top": { "title": "Przewodniczący i Wiceprzewodniczący", "role": "Tworzą strategię rozwoju Samorządu i podejmują najważniejsze decyzje." },
+    "organs": {
+      "board": { "title": "Zarząd", "role": "Organ wykonawczy — realizuje cele wynikające z Ustawy 2.0." },
+      "russ": { "title": "Rada Uczelniana Samorządu Studentów", "role": "Organ uchwałodawczy — ustanawia wewnętrzne regulacje i opiniuje akty prawne wyższego szczebla." },
+      "audit": { "title": "Komisja Rewizyjna", "role": "Organ kontrolny — nadzoruje działalność i finanse Samorządu Studentów." },
+      "election": { "title": "Studencka Komisja Wyborcza", "role": "Organ wyborczy — przygotowuje, przeprowadza i nadzoruje wybory do Samorządu." }
+    }
+  },
+  "russ": {
+    "metaTitle": "Rada Uczelniana Samorządu Studentów",
+    "metaDesc": "RUSS — organ uchwałodawczy i opiniodawczy Samorządu Studentów UEW. 15 radnych reprezentuje postulaty studentów. Poznaj kompetencje i skład Rady.",
+    "ogLabel": "Samorząd Studentów",
+    "heroEyebrow": "Samorząd Studentów",
+    "heroTitle": "Rada Uczelniana Samorządu Studentów",
+    "heroLead": "Uchwałodawczy głos studentów — RUSS opiniuje, decyduje i czuwa nad działaniem Samorządu.",
+    "crumbActivities": "Nasza działalność",
+    "crumbSelf": "Rada Uczelniana (RUSS)",
+    "introHeading": "Głos studentów w jednym miejscu",
+    "introBody": "RUSS to organ uchwałodawczy i opiniodawczy Samorządu. 15 radnych wybieranych w wyborach powszechnych na roczną kadencję reprezentuje postulaty studentów podczas obrad i głosowań.",
+    "resolutionsLink": "Uchwały, protokoły i kalendarz obrad",
+    "competencies": [
+      "Opiniowanie spraw dotyczących dydaktyki i świadczeń stypendialnych",
+      "Zajmowanie stanowiska w sprawach dotyczących studentów uczelni",
+      "Opiniowanie działalności jednostek i organów zajmujących się sprawami studenckimi",
+      "Wybór Przewodniczącego, zatwierdzanie składu Zarządu i udzielanie absolutorium",
+      "Nadzór nad działalnością organów Samorządu"
+    ],
+    "termEyebrow": "Kadencja 2025 / 2026",
+    "membersHeading": "Skład Rady",
+    "memberRole": "Rada Uczelniana",
+    "footnote": "Skład może ulegać zmianom w trakcie kadencji."
   }
 }

@@ -1,18 +1,11 @@
 "use client";
 
 import { motion, useReducedMotion } from "motion/react";
+import { useTranslations } from "next-intl";
 import { ArrowSquareOut } from "@phosphor-icons/react";
 import { ScrollReveal } from "../ScrollReveal";
 import { PersonCard } from "../PersonCard";
 import { russPhotos } from "@/lib/photos";
-
-const competencies = [
-  "Opiniowanie spraw dotyczących dydaktyki i świadczeń stypendialnych",
-  "Zajmowanie stanowiska w sprawach dotyczących studentów uczelni",
-  "Opiniowanie działalności jednostek i organów zajmujących się sprawami studenckimi",
-  "Wybór Przewodniczącego, zatwierdzanie składu Zarządu i udzielanie absolutorium",
-  "Nadzór nad działalnością organów Samorządu",
-];
 
 const members = [
   "Jarosław Bałut",
@@ -31,6 +24,8 @@ const members = [
 
 export function RUSSContent() {
   const reduce = useReducedMotion();
+  const t = useTranslations("russ");
+  const competencies = t.raw("competencies") as string[];
 
   return (
     <>
@@ -42,12 +37,10 @@ export function RUSSContent() {
               id="russ-intro-heading"
               className="font-display text-[clamp(1.75rem,3.4vw,2.75rem)] font-semibold leading-[1.15] tracking-[-0.02em] text-ink-primary"
             >
-              Głos studentów w jednym miejscu
+              {t("introHeading")}
             </h2>
             <p className="prose-constrained mt-4 text-[1.0625rem] leading-[1.75] text-ink-secondary">
-              RUSS to organ uchwałodawczy i opiniodawczy Samorządu. 15 radnych
-              wybieranych w wyborach powszechnych na roczną kadencję reprezentuje
-              postulaty studentów podczas obrad i głosowań.
+              {t("introBody")}
             </p>
             <a
               href="https://samorzad.ue.wroc.pl/rada-uczelniana-samorzadu-studentow"
@@ -55,7 +48,7 @@ export function RUSSContent() {
               rel="noopener noreferrer"
               className="mt-6 inline-flex h-11 items-center gap-2 rounded-lg border border-border-medium px-6 text-[0.9375rem] font-medium text-ink-primary transition-colors hover:border-border-soft hover:bg-bg-elevated"
             >
-              Uchwały, protokoły i kalendarz obrad
+              {t("resolutionsLink")}
               <ArrowSquareOut size={16} weight="regular" aria-hidden="true" />
             </a>
           </ScrollReveal>
@@ -89,13 +82,13 @@ export function RUSSContent() {
         <div className="mx-auto max-w-[1200px]">
           <ScrollReveal>
             <p className="text-[0.75rem] font-medium uppercase tracking-[0.08em] text-accent">
-              Kadencja 2025 / 2026
+              {t("termEyebrow")}
             </p>
             <h2
               id="russ-members-heading"
               className="mt-3 font-display text-[clamp(1.75rem,3.4vw,2.75rem)] font-semibold leading-[1.15] tracking-[-0.02em] text-ink-primary"
             >
-              Skład Rady
+              {t("membersHeading")}
             </h2>
           </ScrollReveal>
 
@@ -118,12 +111,12 @@ export function RUSSContent() {
                 }
                 className="h-full"
               >
-                <PersonCard name={name} role="Rada Uczelniana" photo={russPhotos[i]} plain className="h-full" />
+                <PersonCard name={name} role={t("memberRole")} photo={russPhotos[i]} plain className="h-full" />
               </motion.li>
             ))}
           </ul>
           <p className="mt-6 text-[0.8125rem] text-ink-tertiary">
-            Skład może ulegać zmianom w trakcie kadencji.
+            {t("footnote")}
           </p>
         </div>
       </section>

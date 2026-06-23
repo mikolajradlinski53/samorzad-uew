@@ -1,6 +1,7 @@
 "use client";
 
 import { motion, useReducedMotion } from "motion/react";
+import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import {
   Crown,
@@ -14,45 +15,26 @@ import { ScrollReveal } from "../ScrollReveal";
 import { Tilt } from "../Tilt";
 
 const top = {
-  title: "Przewodniczący i Wiceprzewodniczący",
-  role: "Tworzą strategię rozwoju Samorządu i podejmują najważniejsze decyzje.",
   icon: Crown,
   href: "/przewodniczacy-i-wiceprzewodniczacy",
 };
 
 interface Organ {
-  title: string;
-  role: string;
+  key: string;
   icon: Icon;
   href?: string;
 }
 
 const organs: Organ[] = [
-  {
-    title: "Zarząd",
-    role: "Organ wykonawczy — realizuje cele wynikające z Ustawy 2.0.",
-    icon: Gear,
-  },
-  {
-    title: "Rada Uczelniana Samorządu Studentów",
-    role: "Organ uchwałodawczy — ustanawia wewnętrzne regulacje i opiniuje akty prawne wyższego szczebla.",
-    icon: Scroll,
-  },
-  {
-    title: "Komisja Rewizyjna",
-    role: "Organ kontrolny — nadzoruje działalność i finanse Samorządu Studentów.",
-    icon: ShieldCheck,
-  },
-  {
-    title: "Studencka Komisja Wyborcza",
-    role: "Organ wyborczy — przygotowuje, przeprowadza i nadzoruje wybory do Samorządu.",
-    icon: Checks,
-    href: "/studencka-komisja-wyborcza",
-  },
+  { key: "board", icon: Gear },
+  { key: "russ", icon: Scroll },
+  { key: "audit", icon: ShieldCheck },
+  { key: "election", icon: Checks, href: "/studencka-komisja-wyborcza" },
 ];
 
 export function StrukturaContent() {
   const reduce = useReducedMotion();
+  const t = useTranslations("struktura");
   const TopIcon = top.icon;
 
   return (
@@ -60,13 +42,13 @@ export function StrukturaContent() {
       <div className="mx-auto max-w-[1200px]">
         <ScrollReveal>
           <p className="text-[0.75rem] font-medium uppercase tracking-[0.08em] text-accent">
-            Organy Samorządu
+            {t("eyebrow")}
           </p>
           <h2
             id="struktura-heading"
             className="mt-3 max-w-[22ch] font-display text-[clamp(1.75rem,3.4vw,2.75rem)] font-semibold leading-[1.15] tracking-[-0.02em] text-ink-primary"
           >
-            Jak zbudowany jest Samorząd
+            {t("heading")}
           </h2>
         </ScrollReveal>
 
@@ -86,14 +68,14 @@ export function StrukturaContent() {
                   <TopIcon size={26} weight="regular" aria-hidden="true" />
                 </span>
                 <h3 className="mt-4 text-[1.125rem] font-semibold tracking-[-0.01em] text-ink-primary">
-                  {top.title}
+                  {t("top.title")}
                 </h3>
                 <p className="mt-2 text-[0.875rem] leading-[1.6] text-ink-secondary">
-                  {top.role}
+                  {t("top.role")}
                 </p>
                 <Link
                   href={top.href}
-                  aria-label={top.title}
+                  aria-label={t("top.title")}
                   className="absolute inset-0 rounded-xl"
                 />
               </div>
@@ -116,7 +98,7 @@ export function StrukturaContent() {
               const Glyph = organ.icon;
               return (
                 <motion.div
-                  key={organ.title}
+                  key={organ.key}
                   initial={reduce ? false : { opacity: 0, y: 24 }}
                   whileInView={reduce ? undefined : { opacity: 1, y: 0 }}
                   viewport={{ once: true, amount: 0.2 }}
@@ -136,15 +118,15 @@ export function StrukturaContent() {
                         <Glyph size={24} weight="regular" aria-hidden="true" />
                       </span>
                       <h3 className="mt-5 text-[1rem] font-semibold leading-snug tracking-[-0.01em] text-ink-primary">
-                        {organ.title}
+                        {t(`organs.${organ.key}.title`)}
                       </h3>
                       <p className="mt-2 text-[0.875rem] leading-[1.6] text-ink-secondary">
-                        {organ.role}
+                        {t(`organs.${organ.key}.role`)}
                       </p>
                       {organ.href && (
                         <Link
                           href={organ.href}
-                          aria-label={organ.title}
+                          aria-label={t(`organs.${organ.key}.title`)}
                           className="absolute inset-0 rounded-xl"
                         />
                       )}
