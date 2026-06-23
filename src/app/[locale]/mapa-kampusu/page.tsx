@@ -1,24 +1,37 @@
 import type { Metadata } from "next";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 import { PageHero } from "@/components/PageHero";
 import { MapaKampusuContent } from "@/components/pages/MapaKampusuContent";
+import { ogMeta } from "@/lib/og";
 
-export const metadata: Metadata = {
-  title: "Mapa kampusu",
-  description:
-    "Znajdź najważniejsze punkty na kampusie Uniwersytetu Ekonomicznego we Wrocławiu — siedzibę Samorządu, wydziały i bibliotekę. Pobierz mapę i wyznacz trasę.",
-};
+type Props = { params: Promise<{ locale: string }> };
 
-export default function MapaKampusuPage() {
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "mapa" });
+  return {
+    title: t("metaTitle"),
+    description: t("metaDesc"),
+    ...ogMeta(t("metaTitle"), t("ogLabel")),
+  };
+}
+
+export default async function MapaKampusuPage({ params }: Props) {
+  const { locale } = await params;
+  setRequestLocale(locale);
+  const t = await getTranslations({ locale, namespace: "mapa" });
+  const tc = await getTranslations({ locale, namespace: "common" });
+
   return (
     <>
       <PageHero
-        eyebrow="Strefa studenta"
-        title="Mapa kampusu"
-        lead="Nie zgub się pierwszego dnia. Sprawdź, gdzie nas znajdziesz i jak poruszać się po kampusie UEW."
+        eyebrow={t("heroEyebrow")}
+        title={t("heroTitle")}
+        lead={t("heroLead")}
         breadcrumbs={[
-          { label: "Strona główna", href: "/" },
-          { label: "Strefa studenta", href: "/dla-studenta" },
-          { label: "Mapa kampusu" },
+          { label: tc("home"), href: "/" },
+          { label: t("crumbStudent"), href: "/dla-studenta" },
+          { label: t("heroTitle") },
         ]}
       />
       <MapaKampusuContent />

@@ -540,5 +540,72 @@
     "archiveHeading": "Szukasz starszego zarządzenia?",
     "archiveDesc": "Archiwalne zarządzenia z poprzednich kadencji udostępniamy na prośbę — napisz do nas, a prześlemy potrzebny dokument.",
     "archiveButton": "Złóż zapytanie"
+  },
+  "infopacki": {
+    "metaTitle": "Infopacki dla studentów",
+    "metaDesc": "Praktyczne przewodniki dla studentów UEW: USOS, Regulamin Studiów, zaliczenie semestru, podania, biblioteka, dyplomowanie i więcej.",
+    "ogLabel": "Strefa studenta",
+    "heroEyebrow": "Strefa studenta",
+    "heroTitle": "Infopacki",
+    "heroLead": "Krótkie, konkretne przewodniki po najważniejszych sprawach studenckich — od USOS-a po proces dyplomowania.",
+    "crumbStudent": "Strefa studenta",
+    "intro": "Infopacki to krótkie, praktyczne przewodniki, które pomagają zrozumieć regulaminy, podania i swobodnie poruszać się w przestrzeni online naszego uniwersytetu.",
+    "srHeading": "Lista infopacków",
+    "openPdf": "Otwórz PDF",
+    "notFoundText": "Nie znalazłeś odpowiedzi na swoje pytanie? ",
+    "notFoundLink": "Napisz do nas",
+    "packs": {
+      "usos": "Jak poruszać się po systemie USOS?",
+      "studyReg": "Jakie najważniejsze zasady zawiera Uczelniany Regulamin Studiów?",
+      "semester": "Jakie są zasady zaliczenia semestru?",
+      "deanInfo": "Jakie informacje warto znać od Władz Dziekańskich?",
+      "applications": "Jak, gdzie i kiedy składać uczelniane podania?",
+      "library": "Jak korzystać z biblioteki i systemu bibliotecznego?",
+      "life": "Jak zaangażować się w życie studenckie poza zajęciami?",
+      "diploma": "Jak przebiega proces dyplomowania?"
+    }
+  },
+  "mapa": {
+    "metaTitle": "Mapa kampusu",
+    "metaDesc": "Znajdź najważniejsze punkty na kampusie Uniwersytetu Ekonomicznego we Wrocławiu — siedzibę Samorządu, wydziały i bibliotekę. Pobierz mapę i wyznacz trasę.",
+    "ogLabel": "Strefa studenta",
+    "heroEyebrow": "Strefa studenta",
+    "heroTitle": "Mapa kampusu",
+    "heroLead": "Nie zgub się pierwszego dnia. Sprawdź, gdzie nas znajdziesz i jak poruszać się po kampusie UEW.",
+    "crumbStudent": "Strefa studenta",
+    "heading": "Najważniejsze punkty",
+    "downloadButton": "Pobierz mapę kampusu",
+    "locations": {
+      "office": { "name": "Siedziba Samorządu", "detail": "ul. Kamienna 43, Budynek J, pokój 9", "note": "Tu nas znajdziesz — wpadnij z pytaniem albo pomysłem." },
+      "campus": { "name": "Kampus główny UEW", "detail": "ul. Komandorska 118/120", "note": "Większość wydziałów, dziekanaty i Biblioteka Główna." }
+    },
+    "mapTitle": "Mapa kampusu Uniwersytetu Ekonomicznego we Wrocławiu",
+    "routeLink": "Wyznacz trasę dojazdu"
+  },
+  "pomoc": {
+    "metaTitle": "Pomoc psychologiczna",
+    "metaDesc": "Potrzebujesz wsparcia? Zebraliśmy formy pomocy psychologicznej dostępne na UEW i we Wrocławiu oraz telefony zaufania. Nie musisz radzić sobie sam.",
+    "ogLabel": "Strefa studenta",
+    "heroEyebrow": "Strefa studenta",
+    "heroTitle": "Pomoc psychologiczna",
+    "heroLead": "Twoje samopoczucie jest ważne. Zebraliśmy w jednym miejscu sprawdzone formy wsparcia — na uczelni i poza nią.",
+    "crumbStudent": "Strefa studenta",
+    "reassureHeading": "Jeśli jest Ci teraz trudno, nie musisz radzić sobie z tym sam.",
+    "reassureBody": "Nie bój się prosić o wsparcie. Przygotowaliśmy infopack, w którym zebraliśmy najważniejsze informacje o dostępnych formach pomocy — na uczelni i poza nią.",
+    "openInfopack": "Otwórz infopack",
+    "contains": {
+      "places": "Miejsca na uczelni, które udzielają pomocy",
+      "institutions": "Instytucje i punkty wsparcia we Wrocławiu",
+      "contacts": "Kontakty do organizacji — telefony, czaty i inne formy"
+    },
+    "helpEyebrow": "Potrzebujesz pomocy teraz",
+    "helpHeading": "Telefony wsparcia",
+    "helplines": {
+      "adults": "Telefon zaufania dla osób dorosłych w kryzysie emocjonalnym",
+      "youth": "Telefon zaufania dla dzieci i młodzieży",
+      "crisis": "Centrum Wsparcia dla osób w kryzysie psychicznym — całodobowo",
+      "emergency": "Numer alarmowy — w sytuacji bezpośredniego zagrożenia życia"
+    },
+    "emergencyNote": "W sytuacji bezpośredniego zagrożenia życia lub zdrowia zawsze dzwoń pod numer alarmowy <strong>112</strong>."
   }
 }

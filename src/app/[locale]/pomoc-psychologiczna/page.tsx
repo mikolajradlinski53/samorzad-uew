@@ -1,24 +1,37 @@
 import type { Metadata } from "next";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 import { PageHero } from "@/components/PageHero";
 import { PomocPsychologicznaContent } from "@/components/pages/PomocPsychologicznaContent";
+import { ogMeta } from "@/lib/og";
 
-export const metadata: Metadata = {
-  title: "Pomoc psychologiczna",
-  description:
-    "Potrzebujesz wsparcia? Zebraliśmy formy pomocy psychologicznej dostępne na UEW i we Wrocławiu oraz telefony zaufania. Nie musisz radzić sobie sam.",
-};
+type Props = { params: Promise<{ locale: string }> };
 
-export default function PomocPsychologicznaPage() {
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "pomoc" });
+  return {
+    title: t("metaTitle"),
+    description: t("metaDesc"),
+    ...ogMeta(t("metaTitle"), t("ogLabel")),
+  };
+}
+
+export default async function PomocPsychologicznaPage({ params }: Props) {
+  const { locale } = await params;
+  setRequestLocale(locale);
+  const t = await getTranslations({ locale, namespace: "pomoc" });
+  const tc = await getTranslations({ locale, namespace: "common" });
+
   return (
     <>
       <PageHero
-        eyebrow="Strefa studenta"
-        title="Pomoc psychologiczna"
-        lead="Twoje samopoczucie jest ważne. Zebraliśmy w jednym miejscu sprawdzone formy wsparcia — na uczelni i poza nią."
+        eyebrow={t("heroEyebrow")}
+        title={t("heroTitle")}
+        lead={t("heroLead")}
         breadcrumbs={[
-          { label: "Strona główna", href: "/" },
-          { label: "Strefa studenta", href: "/dla-studenta" },
-          { label: "Pomoc psychologiczna" },
+          { label: tc("home"), href: "/" },
+          { label: t("crumbStudent"), href: "/dla-studenta" },
+          { label: t("heroTitle") },
         ]}
       />
       <PomocPsychologicznaContent />

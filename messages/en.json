@@ -540,5 +540,72 @@
     "archiveHeading": "Looking for an older order?",
     "archiveDesc": "We share archived orders from previous terms on request — write to us and we’ll send you the document you need.",
     "archiveButton": "Submit a request"
+  },
+  "infopacki": {
+    "metaTitle": "Infopacks for students",
+    "metaDesc": "Practical guides for UEW students: USOS, the Study Regulations, passing the semester, applications, the library, graduation and more.",
+    "ogLabel": "Student zone",
+    "heroEyebrow": "Student zone",
+    "heroTitle": "Infopacks",
+    "heroLead": "Short, practical guides to the most important student matters — from USOS to the graduation process.",
+    "crumbStudent": "Student zone",
+    "intro": "Infopacks are short, practical guides that help you understand regulations and applications and move easily around our university’s online spaces.",
+    "srHeading": "List of infopacks",
+    "openPdf": "Open PDF",
+    "notFoundText": "Didn’t find the answer to your question? ",
+    "notFoundLink": "Write to us",
+    "packs": {
+      "usos": "How do I navigate the USOS system?",
+      "studyReg": "What are the key rules in the University Study Regulations?",
+      "semester": "What are the rules for passing a semester?",
+      "deanInfo": "What information is worth knowing from the dean’s office?",
+      "applications": "How, where and when do I submit university applications?",
+      "library": "How do I use the library and the library system?",
+      "life": "How do I get involved in student life beyond classes?",
+      "diploma": "How does the graduation process work?"
+    }
+  },
+  "mapa": {
+    "metaTitle": "Campus map",
+    "metaDesc": "Find the key points on the campus of Wrocław University of Economics and Business — the Student Government office, faculties and library. Download the map and get directions.",
+    "ogLabel": "Student zone",
+    "heroEyebrow": "Student zone",
+    "heroTitle": "Campus map",
+    "heroLead": "Don’t get lost on day one. See where to find us and how to get around the UEW campus.",
+    "crumbStudent": "Student zone",
+    "heading": "Key points",
+    "downloadButton": "Download the campus map",
+    "locations": {
+      "office": { "name": "Student Government office", "detail": "ul. Kamienna 43, Building J, room 9", "note": "This is where to find us — drop by with a question or an idea." },
+      "campus": { "name": "Main UEW campus", "detail": "ul. Komandorska 118/120", "note": "Most faculties, the dean’s offices and the Main Library." }
+    },
+    "mapTitle": "Campus map of Wrocław University of Economics and Business",
+    "routeLink": "Get directions"
+  },
+  "pomoc": {
+    "metaTitle": "Psychological support",
+    "metaDesc": "Need support? We’ve gathered the forms of psychological help available at UEW and in Wrocław, plus helplines. You don’t have to cope alone.",
+    "ogLabel": "Student zone",
+    "heroEyebrow": "Student zone",
+    "heroTitle": "Psychological support",
+    "heroLead": "Your wellbeing matters. We’ve gathered trusted forms of support in one place — at the university and beyond.",
+    "crumbStudent": "Student zone",
+    "reassureHeading": "If you’re having a hard time right now, you don’t have to face it alone.",
+    "reassureBody": "Don’t be afraid to ask for support. We’ve prepared an infopack with the key information about the forms of help available — at the university and beyond.",
+    "openInfopack": "Open the infopack",
+    "contains": {
+      "places": "Places at the university that offer help",
+      "institutions": "Institutions and support points in Wrocław",
+      "contacts": "Contacts to organisations — phones, chats and other forms"
+    },
+    "helpEyebrow": "Need help right now",
+    "helpHeading": "Helplines",
+    "helplines": {
+      "adults": "Helpline for adults in emotional crisis",
+      "youth": "Helpline for children and young people",
+      "crisis": "Support Centre for people in mental crisis — 24/7",
+      "emergency": "Emergency number — in a situation of direct threat to life"
+    },
+    "emergencyNote": "In a situation of direct threat to life or health, always call the emergency number <strong>112</strong>."
   }
 }

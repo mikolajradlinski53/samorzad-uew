@@ -1,24 +1,37 @@
 import type { Metadata } from "next";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 import { PageHero } from "@/components/PageHero";
 import { InfopackiContent } from "@/components/pages/InfopackiContent";
+import { ogMeta } from "@/lib/og";
 
-export const metadata: Metadata = {
-  title: "Infopacki dla studentów",
-  description:
-    "Praktyczne przewodniki dla studentów UEW: USOS, Regulamin Studiów, zaliczenie semestru, podania, biblioteka, dyplomowanie i więcej.",
-};
+type Props = { params: Promise<{ locale: string }> };
 
-export default function InfopackiPage() {
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "infopacki" });
+  return {
+    title: t("metaTitle"),
+    description: t("metaDesc"),
+    ...ogMeta(t("metaTitle"), t("ogLabel")),
+  };
+}
+
+export default async function InfopackiPage({ params }: Props) {
+  const { locale } = await params;
+  setRequestLocale(locale);
+  const t = await getTranslations({ locale, namespace: "infopacki" });
+  const tc = await getTranslations({ locale, namespace: "common" });
+
   return (
     <>
       <PageHero
-        eyebrow="Strefa studenta"
-        title="Infopacki"
-        lead="Krótkie, konkretne przewodniki po najważniejszych sprawach studenckich — od USOS-a po proces dyplomowania."
+        eyebrow={t("heroEyebrow")}
+        title={t("heroTitle")}
+        lead={t("heroLead")}
         breadcrumbs={[
-          { label: "Strona główna", href: "/" },
-          { label: "Strefa studenta", href: "/dla-studenta" },
-          { label: "Infopacki" },
+          { label: tc("home"), href: "/" },
+          { label: t("crumbStudent"), href: "/dla-studenta" },
+          { label: t("heroTitle") },
         ]}
       />
       <InfopackiContent />

@@ -1,39 +1,39 @@
 "use client";
 
 import { motion, useReducedMotion } from "motion/react";
+import { useTranslations } from "next-intl";
 import { FilePdf, ArrowSquareOut } from "@phosphor-icons/react";
 import { ScrollReveal } from "../ScrollReveal";
 
 interface Pack {
-  title: string;
+  key: string;
   href: string;
 }
 
 const packs: Pack[] = [
-  { title: "Jak poruszać się po systemie USOS?", href: "https://drive.google.com/file/d/1EmTBHP5GzLrHBA782SBg82rnelb4PD7i/view?usp=sharing" },
-  { title: "Jakie najważniejsze zasady zawiera Uczelniany Regulamin Studiów?", href: "https://drive.google.com/file/d/1QcyoxoV15SJGrvKKONtn0JGFutQ5gRZ1/view?usp=sharing" },
-  { title: "Jakie są zasady zaliczenia semestru?", href: "https://drive.google.com/file/d/1R1mXDt8745vC98J_FBJ5UoKjwMbw4NYA/view?usp=sharing" },
-  { title: "Jakie informacje warto znać od Władz Dziekańskich?", href: "https://drive.google.com/file/d/1NLQRVebkTqXDCxcsmY7tSwc7JHApDyw9/view?usp=sharing" },
-  { title: "Jak, gdzie i kiedy składać uczelniane podania?", href: "https://drive.google.com/file/d/1X5muhuWdgbxlOK1cgLz4fczzaKJwSFAC/view?usp=sharing" },
-  { title: "Jak korzystać z biblioteki i systemu bibliotecznego?", href: "https://drive.google.com/file/d/1R_yZHW5UIIzWerNAlpYp5FOw8p6DHC9N/view?usp=sharing" },
-  { title: "Jak zaangażować się w życie studenckie poza zajęciami?", href: "https://drive.google.com/file/d/1GoMBj_CEFF6ri83ZbED4OocGOKzv8Uot/view?usp=sharing" },
-  { title: "Jak przebiega proces dyplomowania?", href: "https://drive.google.com/file/d/1QPCho3YZIPYvn3Nv9rmZBKd0GkC5Byhs/view?usp=sharing" },
+  { key: "usos", href: "https://drive.google.com/file/d/1EmTBHP5GzLrHBA782SBg82rnelb4PD7i/view?usp=sharing" },
+  { key: "studyReg", href: "https://drive.google.com/file/d/1QcyoxoV15SJGrvKKONtn0JGFutQ5gRZ1/view?usp=sharing" },
+  { key: "semester", href: "https://drive.google.com/file/d/1R1mXDt8745vC98J_FBJ5UoKjwMbw4NYA/view?usp=sharing" },
+  { key: "deanInfo", href: "https://drive.google.com/file/d/1NLQRVebkTqXDCxcsmY7tSwc7JHApDyw9/view?usp=sharing" },
+  { key: "applications", href: "https://drive.google.com/file/d/1X5muhuWdgbxlOK1cgLz4fczzaKJwSFAC/view?usp=sharing" },
+  { key: "library", href: "https://drive.google.com/file/d/1R_yZHW5UIIzWerNAlpYp5FOw8p6DHC9N/view?usp=sharing" },
+  { key: "life", href: "https://drive.google.com/file/d/1GoMBj_CEFF6ri83ZbED4OocGOKzv8Uot/view?usp=sharing" },
+  { key: "diploma", href: "https://drive.google.com/file/d/1QPCho3YZIPYvn3Nv9rmZBKd0GkC5Byhs/view?usp=sharing" },
 ];
 
 export function InfopackiContent() {
   const reduce = useReducedMotion();
+  const t = useTranslations("infopacki");
 
   return (
     <section className="section-padding" aria-labelledby="infopacki-heading">
       <div className="mx-auto max-w-[1200px]">
         <ScrollReveal>
           <p className="prose-constrained text-[1.0625rem] leading-[1.75] text-ink-secondary">
-            Infopacki to krótkie, praktyczne przewodniki, które pomagają zrozumieć
-            regulaminy, podania i swobodnie poruszać się w przestrzeni online
-            naszego uniwersytetu.
+            {t("intro")}
           </p>
           <h2 id="infopacki-heading" className="sr-only">
-            Lista infopacków
+            {t("srHeading")}
           </h2>
         </ScrollReveal>
 
@@ -43,7 +43,7 @@ export function InfopackiContent() {
         >
           {packs.map((pack, i) => (
             <motion.li
-              key={pack.href}
+              key={pack.key}
               initial={reduce ? false : { opacity: 0, rotateX: -90 }}
               whileInView={reduce ? undefined : { opacity: 1, rotateX: 0 }}
               viewport={{ once: true, amount: 0.3 }}
@@ -72,10 +72,10 @@ export function InfopackiContent() {
                   </span>
                 </div>
                 <h3 className="mt-5 flex-1 text-[1.0625rem] font-semibold leading-snug tracking-[-0.01em] text-ink-primary">
-                  {pack.title}
+                  {t(`packs.${pack.key}`)}
                 </h3>
                 <span className="mt-5 inline-flex items-center gap-1.5 text-[0.875rem] font-medium text-accent">
-                  Otwórz PDF
+                  {t("openPdf")}
                   <ArrowSquareOut
                     size={16}
                     weight="bold"
@@ -90,12 +90,12 @@ export function InfopackiContent() {
 
         <ScrollReveal>
           <p className="mt-10 text-[0.9375rem] text-ink-secondary">
-            Nie znalazłeś odpowiedzi na swoje pytanie?{" "}
+            {t("notFoundText")}
             <a
               href="mailto:kontakt@samorzad.ue.wroc.pl"
               className="font-medium text-accent transition-colors hover:text-accent-dim"
             >
-              Napisz do nas
+              {t("notFoundLink")}
             </a>
             .
           </p>
