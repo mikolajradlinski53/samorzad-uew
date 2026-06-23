@@ -783,5 +783,19 @@
       "life": "Student life",
       "trust": "Trust"
     }
+  },
+  "szukaj": {
+    "metaTitle": "Search",
+    "metaDesc": "Search the UEW Student Government website.",
+    "heroEyebrow": "Search",
+    "heroTitle": "Search",
+    "heroLead": "Type what you need — we’ll search the whole Student zone, Student Government and Partnership.",
+    "resultsSr": "Search results",
+    "inputLabel": "What are you looking for?",
+    "placeholder": "e.g. scholarships, ombudsman, map…",
+    "submit": "Search",
+    "emptyHint": "Type a term above to see matching pages.",
+    "noResults": "Nothing found for “{query}”. Try a different word.",
+    "count": "{count, plural, one {# result found} other {# results found}}"
   }
 }

@@ -783,5 +783,19 @@
       "life": "Życie studenckie",
       "trust": "Wiarygodność"
     }
+  },
+  "szukaj": {
+    "metaTitle": "Wyszukiwarka",
+    "metaDesc": "Przeszukaj serwis Samorządu Studentów UEW.",
+    "heroEyebrow": "Wyszukiwarka",
+    "heroTitle": "Szukaj",
+    "heroLead": "Wpisz, czego potrzebujesz — przeszukamy całą Strefę studenta, Samorząd i Współpracę.",
+    "resultsSr": "Wyniki wyszukiwania",
+    "inputLabel": "Czego szukasz?",
+    "placeholder": "np. stypendia, rzecznik, mapa…",
+    "submit": "Szukaj",
+    "emptyHint": "Wpisz hasło powyżej, aby zobaczyć pasujące strony.",
+    "noResults": "Nic nie znaleziono dla „{query}”. Spróbuj innego słowa.",
+    "count": "{count, plural, one {Znaleziono # wynik} few {Znaleziono # wyniki} many {Znaleziono # wyników} other {Znaleziono # wyniku}}"
   }
 }
