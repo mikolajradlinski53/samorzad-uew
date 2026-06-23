@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { useTranslations } from "next-intl";
 import { CaretUp, CaretDown } from "@phosphor-icons/react";
 import { Marquee } from "./Marquee";
 
@@ -22,6 +23,7 @@ interface NbpTable {
 
 export function EconTicker() {
   const [rates, setRates] = useState<Rate[] | null>(null);
+  const t = useTranslations("econ");
 
   useEffect(() => {
     const ctrl = new AbortController();
@@ -57,7 +59,7 @@ export function EconTicker() {
     <section aria-label="Kursy walut NBP" className="border-y border-border-subtle bg-bg-surface">
       <div className="mx-auto flex max-w-[1200px] items-stretch">
         <span className="flex shrink-0 items-center border-r border-border-subtle bg-accent px-4 font-mono text-[10px] uppercase tracking-[0.12em] text-bg-base">
-          Rynek · NBP
+          {t("label")}
         </span>
         <div className="min-w-0 flex-1 py-2.5">
           <Marquee speed={28}>

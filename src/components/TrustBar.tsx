@@ -1,11 +1,12 @@
 "use client";
 
 import { motion, useReducedMotion } from "motion/react";
+import { useTranslations } from "next-intl";
 import { SealCheck, Clock, GraduationCap, Scales, type Icon } from "@phosphor-icons/react";
 
 interface Marker {
   icon: Icon;
-  text: string;
+  key: string;
 }
 
 /**
@@ -15,14 +16,15 @@ interface Marker {
  * przynależność do Uczelni. Wszystkie markery to fakty.
  */
 const markers: Marker[] = [
-  { icon: SealCheck, text: "Oficjalny serwis Samorządu" },
-  { icon: Clock, text: "Działamy od 1981 roku" },
-  { icon: Scales, text: "Ustawowa reprezentacja studentów" },
-  { icon: GraduationCap, text: "Jednostka Uniwersytetu Ekonomicznego we Wrocławiu" },
+  { icon: SealCheck, key: "official" },
+  { icon: Clock, key: "since" },
+  { icon: Scales, key: "statutory" },
+  { icon: GraduationCap, key: "unit" },
 ];
 
 export function TrustBar() {
   const reduce = useReducedMotion();
+  const t = useTranslations("trustbar");
 
   return (
     <section
@@ -43,7 +45,7 @@ export function TrustBar() {
           const Glyph = m.icon;
           return (
             <motion.li
-              key={m.text}
+              key={m.key}
               initial={reduce ? false : { opacity: 0, y: 10 }}
               whileInView={reduce ? undefined : { opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.6 }}
@@ -51,7 +53,7 @@ export function TrustBar() {
               className="flex items-center gap-2.5 text-[0.8125rem] font-medium text-ink-secondary"
             >
               <Glyph size={18} weight="regular" aria-hidden="true" className="shrink-0 text-accent" />
-              {m.text}
+              {t(m.key)}
             </motion.li>
           );
         })}

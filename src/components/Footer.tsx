@@ -8,6 +8,7 @@ import {
   EnvelopeSimple,
   MapPin,
 } from "@phosphor-icons/react";
+import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import { ScrollReveal } from "./ScrollReveal";
 
@@ -24,37 +25,37 @@ const socials = [
   },
 ];
 
-const linkGroups: { title: string; links: { label: string; href: string }[] }[] = [
+const linkGroups: { titleKey: string; links: { labelKey: string; href: string }[] }[] = [
   {
-    title: "Dla studenta",
+    titleKey: "student",
     links: [
-      { label: "Strefa studenta", href: "/dla-studenta" },
-      { label: "Prawa studenta", href: "/prawa-studenta" },
-      { label: "Stypendia", href: "/stypendia" },
-      { label: "Prawo dla studenta", href: "/prawo-dla-studenta" },
-      { label: "Infopacki", href: "/infopacki" },
-      { label: "Rzecznik Praw Studenta", href: "/rzecznik-praw-studenta" },
-      { label: "Mapa kampusu", href: "/mapa-kampusu" },
-      { label: "Pomoc psychologiczna", href: "/pomoc-psychologiczna" },
+      { labelKey: "dlaStudenta", href: "/dla-studenta" },
+      { labelKey: "prawaStudenta", href: "/prawa-studenta" },
+      { labelKey: "stypendia", href: "/stypendia" },
+      { labelKey: "prawoDlaStudenta", href: "/prawo-dla-studenta" },
+      { labelKey: "infopacki", href: "/infopacki" },
+      { labelKey: "rzecznik", href: "/rzecznik-praw-studenta" },
+      { labelKey: "mapaKampusu", href: "/mapa-kampusu" },
+      { labelKey: "pomocPsych", href: "/pomoc-psychologiczna" },
     ],
   },
   {
-    title: "Samorząd",
+    titleKey: "samorzad",
     links: [
-      { label: "Nasza działalność", href: "/nasza-dzialalnosc" },
-      { label: "Nasze projekty", href: "/nasze-projekty" },
-      { label: "Struktura Samorządu", href: "/struktura-samorzadu" },
-      { label: "Rada Uczelniana (RUSS)", href: "/rada-uczelniana-samorzadu-studentow" },
-      { label: "Regulacje wewnętrzne", href: "/regulacje-wewnetrzne" },
-      { label: "Strefa działacza", href: `${BASE}/strefa-dzialacza` },
+      { labelKey: "naszaDzialalnosc", href: "/nasza-dzialalnosc" },
+      { labelKey: "naszeProjekty", href: "/nasze-projekty" },
+      { labelKey: "struktura", href: "/struktura-samorzadu" },
+      { labelKey: "russ", href: "/rada-uczelniana-samorzadu-studentow" },
+      { labelKey: "regulacje", href: "/regulacje-wewnetrzne" },
+      { labelKey: "strefaDzialacza", href: `${BASE}/strefa-dzialacza` },
     ],
   },
   {
-    title: "Współpraca",
+    titleKey: "wspolpraca",
     links: [
-      { label: "Partnerzy", href: "/partnerzy" },
-      { label: "Współpracuj z nami", href: "/wspolpracuj-z-nami" },
-      { label: "Kontakt", href: "/kontakt" },
+      { labelKey: "partnerzy", href: "/partnerzy" },
+      { labelKey: "wspolpracuj", href: "/wspolpracuj-z-nami" },
+      { labelKey: "kontakt", href: "/kontakt" },
     ],
   },
 ];
@@ -74,6 +75,8 @@ function FooterLink({ href, label }: { href: string; label: string }) {
 }
 
 export function Footer() {
+  const t = useTranslations();
+
   return (
     <footer
       id="kontakt"
@@ -89,7 +92,7 @@ export function Footer() {
                 id="kontakt-heading"
                 className="max-w-[22ch] font-display text-[clamp(1.5rem,2.4vw,2rem)] font-semibold leading-[1.25] tracking-[-0.02em] text-ink-primary"
               >
-                Samorząd Studentów Uniwersytetu Ekonomicznego we Wrocławiu
+                {t("footer.brand")}
               </h2>
 
               <address className="mt-6 flex flex-col gap-4 not-italic">
@@ -141,14 +144,14 @@ export function Footer() {
 
             {/* Link columns */}
             {linkGroups.map((group) => (
-              <nav key={group.title} aria-label={group.title}>
+              <nav key={group.titleKey} aria-label={t(`nav.${group.titleKey}`)}>
                 <h3 className="text-[0.75rem] font-medium uppercase tracking-[0.08em] text-ink-secondary">
-                  {group.title}
+                  {t(`nav.${group.titleKey}`)}
                 </h3>
                 <ul className="mt-4 flex flex-col gap-3">
                   {group.links.map((link) => (
-                    <li key={link.label}>
-                      <FooterLink href={link.href} label={link.label} />
+                    <li key={link.labelKey}>
+                      <FooterLink href={link.href} label={t(`pages.${link.labelKey}`)} />
                     </li>
                   ))}
                 </ul>
@@ -160,8 +163,7 @@ export function Footer() {
         {/* Copyright */}
         <div className="mt-16 border-t border-border-subtle pt-6">
           <p className="text-[0.8125rem] text-ink-secondary">
-            &copy; {new Date().getFullYear()} Samorząd Studentów Uniwersytetu
-            Ekonomicznego we Wrocławiu. Wszelkie prawa zastrzeżone.
+            &copy; {new Date().getFullYear()} {t("footer.brand")}. {t("footer.rights")}
           </p>
         </div>
       </div>

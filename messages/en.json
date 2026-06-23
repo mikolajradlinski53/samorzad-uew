@@ -1,7 +1,7 @@
 {
   "nav": {
     "student": "For students",
-    "samorzad": "Student Union",
+    "samorzad": "Student Government",
     "wspolpraca": "Partnership",
     "kontakt": "Contact",
     "search": "Search",
@@ -15,7 +15,7 @@
     "en": "EN"
   },
   "hero": {
-    "eyebrow": "Student Union of Wrocław University of Economics and Business",
+    "eyebrow": "Student Government of Wrocław University of Economics and Business",
     "line1": "We represent",
     "line2": "UEW students",
     "lead": "We are the voice of over 11,000 students. We create events, fight for your rights, and make sure your studies have meaning — and flavour.",
@@ -23,5 +23,98 @@
     "cta2": "Student zone",
     "scroll": "Scroll to the “About” section",
     "stats": ["11,000+ students", "12 committees", "9 projects a year"]
+  },
+  "trustbar": {
+    "official": "Official Student Government site",
+    "since": "Active since 1981",
+    "statutory": "Statutory student representation",
+    "unit": "A unit of Wrocław University of Economics and Business"
+  },
+  "econ": {
+    "label": "Market · NBP"
+  },
+  "audience": {
+    "label": "Quick entry",
+    "heading": "Who are you? We’ll point the way",
+    "go": "Go",
+    "student": {
+      "eyebrow": "Are you a student?",
+      "title": "Student zone",
+      "desc": "Get things done fast — everything you need throughout your studies.",
+      "scent": "Scholarships · Student rights · Ombudsman · Campus map"
+    },
+    "staff": {
+      "eyebrow": "Do you work at the University?",
+      "title": "Government & structure",
+      "desc": "Explore the Student Government’s bodies, regulations and the people representing students.",
+      "scent": "Structure · Council · Regulations · Authorities"
+    },
+    "partner": {
+      "eyebrow": "Representing a company?",
+      "title": "Partnership & cooperation",
+      "desc": "Reach over 11,000 students. See how we can work together.",
+      "scent": "Partners · Work with us · B2B contact"
+    },
+    "discover": {
+      "eyebrow": "Want to get to know us?",
+      "title": "Who we are",
+      "desc": "The mission, people and projects that genuinely change student life.",
+      "scent": "Our projects · About us · Activities"
+    }
+  },
+  "about": {
+    "eyebrow": "About us",
+    "heading": "An organisation that has been working for over 40 years",
+    "statStudents": "students",
+    "statCommittees": "committees",
+    "statFounded": "founded",
+    "p1": "The Student Government of Wrocław University of Economics and Business is an organisation that for over 40 years has represented students’ interests before the university authorities, the city and national institutions. We run projects, organise events and make sure the student voice is heard.",
+    "p2": "We bring together people who care. Anyone of you can join our team and help shape the UEW academic community.",
+    "quote": "We don’t wait for change. We create it."
+  },
+  "resources": {
+    "eyebrow": "Student zone",
+    "heading": "Everything you need",
+    "seeAll": "See the whole zone",
+    "items": {
+      "prawa": { "title": "Student rights", "desc": "Your rights at the university and how to enforce them." },
+      "stypendia": { "title": "Scholarships", "desc": "Merit, social and disability support." },
+      "wsparcie": { "title": "Support & grants", "desc": "Financial benefits and help in difficult situations." },
+      "mapa": { "title": "Campus map", "desc": "Buildings, rooms and key points across campus." },
+      "infopacki": { "title": "Infopacks", "desc": "Practical information packs for students." },
+      "pomoc": { "title": "Psychological support", "desc": "Where and how to get help when you need it." },
+      "rzecznik": { "title": "Student Ombudsman", "desc": "On your side in disputes with the university." },
+      "prawo": { "title": "Law for students", "desc": "Regulations and rules in plain language." }
+    }
+  },
+  "events": {
+    "label": "Calendar",
+    "heading": "Coming up next",
+    "nearest": "Next event",
+    "all": "All events",
+    "countdown": "{days, plural, =0 {TODAY} one {IN # DAY} other {IN # DAYS}}"
+  },
+  "footer": {
+    "brand": "Student Government of Wrocław University of Economics and Business",
+    "rights": "All rights reserved."
+  },
+  "pages": {
+    "dlaStudenta": "Student zone",
+    "prawaStudenta": "Student rights",
+    "stypendia": "Scholarships",
+    "prawoDlaStudenta": "Law for students",
+    "infopacki": "Infopacks",
+    "rzecznik": "Student Ombudsman",
+    "mapaKampusu": "Campus map",
+    "pomocPsych": "Psychological support",
+    "naszaDzialalnosc": "Our activities",
+    "naszeProjekty": "Our projects",
+    "struktura": "Government structure",
+    "russ": "University Council (RUSS)",
+    "regulacje": "Internal regulations",
+    "strefaDzialacza": "Members area",
+    "partnerzy": "Partners",
+    "wspolpracuj": "Work with us",
+    "kontakt": "Contact"
   }
 }

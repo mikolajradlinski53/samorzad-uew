@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { useTranslations, useLocale } from "next-intl";
 import { ArrowUpRight } from "@phosphor-icons/react";
 import { ScrollReveal } from "./ScrollReveal";
 import { SplitFlap } from "./SplitFlap";
@@ -28,16 +29,13 @@ function nextEvent(list: RawEvent[], now: number): EventItem | null {
   return future[0] ?? null;
 }
 
-function daysLabel(days: number): string {
-  if (days <= 0) return "DZIŚ";
-  return `ZA ${days} ${days === 1 ? "DZIEŃ" : "DNI"}`;
-}
-
 export function NextEvent() {
   const [state, setState] = useState<{ ev: EventItem | null; days: number }>({
     ev: null,
     days: 0,
   });
+  const t = useTranslations("events");
+  const locale = useLocale();
 
   useEffect(() => {
     const ctrl = new AbortController();
@@ -58,7 +56,7 @@ export function NextEvent() {
   const { ev, days } = state;
   if (!ev) return null;
 
-  const dateLabel = new Date(ev.ts).toLocaleDateString("pl-PL", {
+  const dateLabel = new Date(ev.ts).toLocaleDateString(locale === "en" ? "en-GB" : "pl-PL", {
     day: "2-digit",
     month: "long",
     year: "numeric",
@@ -69,20 +67,20 @@ export function NextEvent() {
       <div className="mx-auto max-w-[1200px]">
         <ScrollReveal>
           <p className="font-mono text-[0.75rem] uppercase tracking-[0.1em] text-accent">
-            Kalendarz
+            {t("label")}
           </p>
           <h2
             id="event-heading"
             className="mt-3 font-display text-[clamp(1.75rem,3.4vw,2.75rem)] font-semibold leading-[1.15] tracking-[-0.02em] text-ink-primary"
           >
-            Najbliżej w kalendarzu
+            {t("heading")}
           </h2>
         </ScrollReveal>
 
         <ScrollReveal delay={0.1}>
           <div className="mt-8 overflow-hidden rounded-2xl border border-border-subtle bg-bg-surface">
             <div className="flex items-center justify-between gap-3 bg-[#0B1322] px-5 py-2.5 font-mono text-[10px] uppercase tracking-[0.12em] text-white/70">
-              <span>Najbliższe wydarzenie</span>
+              <span>{t("nearest")}</span>
               <span>{ev.tag}</span>
             </div>
             <div className="flex flex-col gap-5 p-6 sm:flex-row sm:items-center sm:justify-between">
@@ -90,7 +88,7 @@ export function NextEvent() {
               <div className="shrink-0 sm:text-right">
                 <p className="font-mono text-[0.8125rem] text-ink-secondary">{dateLabel}</p>
                 <p className="mt-1 font-display text-[1.5rem] font-extrabold tracking-[-0.02em] text-accent">
-                  {daysLabel(days)}
+                  {t("countdown", { days })}
                 </p>
               </div>
             </div>
@@ -104,7 +102,7 @@ export function NextEvent() {
             rel="noopener noreferrer"
             className="mt-6 inline-flex items-center gap-1.5 font-medium text-accent transition-colors hover:text-accent-dim"
           >
-            Wszystkie wydarzenia
+            {t("all")}
             <ArrowUpRight size={18} weight="regular" aria-hidden="true" />
           </a>
         </ScrollReveal>

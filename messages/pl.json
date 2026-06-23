@@ -23,5 +23,98 @@
     "cta2": "Strefa studenta",
     "scroll": "Przewiń do sekcji „O nas”",
     "stats": ["11 000+ studentów", "12 komisji", "9 projektów rocznie"]
+  },
+  "trustbar": {
+    "official": "Oficjalny serwis Samorządu",
+    "since": "Działamy od 1981 roku",
+    "statutory": "Ustawowa reprezentacja studentów",
+    "unit": "Jednostka Uniwersytetu Ekonomicznego we Wrocławiu"
+  },
+  "econ": {
+    "label": "Rynek · NBP"
+  },
+  "audience": {
+    "label": "Szybkie wejście",
+    "heading": "Kim jesteś? Wskażemy Ci drogę",
+    "go": "Przejdź",
+    "student": {
+      "eyebrow": "Jesteś studentem?",
+      "title": "Strefa studenta",
+      "desc": "Załatw sprawę szybko — wszystko, czego potrzebujesz w trakcie studiów.",
+      "scent": "Stypendia · Prawa studenta · Rzecznik · Mapa kampusu"
+    },
+    "staff": {
+      "eyebrow": "Pracujesz na Uczelni?",
+      "title": "Samorząd i struktura",
+      "desc": "Poznaj organy Samorządu, regulacje i osoby reprezentujące studentów.",
+      "scent": "Struktura · RUSS · Regulacje · Władze"
+    },
+    "partner": {
+      "eyebrow": "Reprezentujesz firmę?",
+      "title": "Współpraca i partnerstwo",
+      "desc": "Dotrzyj do ponad 11 000 studentów. Zobacz, jak możemy działać razem.",
+      "scent": "Partnerzy · Współpracuj z nami · Kontakt B2B"
+    },
+    "discover": {
+      "eyebrow": "Chcesz nas poznać?",
+      "title": "Kim jesteśmy",
+      "desc": "Misja, ludzie i projekty, które realnie zmieniają studenckie życie.",
+      "scent": "Nasze projekty · O nas · Działalność"
+    }
+  },
+  "about": {
+    "eyebrow": "O nas",
+    "heading": "Organizacja, która działa od ponad 40 lat",
+    "statStudents": "studentów",
+    "statCommittees": "komisji",
+    "statFounded": "rok założenia",
+    "p1": "Samorząd Studentów Uniwersytetu Ekonomicznego we Wrocławiu to organizacja, która od ponad 40 lat reprezentuje interesy studentów wobec władz uczelni, miasta i ogólnopolskich instytucji. Prowadzimy projekty, organizujemy wydarzenia i dbamy o to, żeby głos studentów był słyszany.",
+    "p2": "Łączymy ludzi, którym zależy. Każdy z Was może dołączyć do naszego zespołu i współtworzyć społeczność akademicką UEW.",
+    "quote": "Nie czekamy na zmiany. Tworzymy je."
+  },
+  "resources": {
+    "eyebrow": "Strefa studenta",
+    "heading": "Wszystko, czego potrzebujesz",
+    "seeAll": "Zobacz całą strefę",
+    "items": {
+      "prawa": { "title": "Prawa studenta", "desc": "Twoje prawa na uczelni i jak ich dochodzić." },
+      "stypendia": { "title": "Stypendia", "desc": "Rektorskie, socjalne i dla osób z niepełnosprawnością." },
+      "wsparcie": { "title": "Wsparcie i zapomogi", "desc": "Świadczenia materialne i pomoc w trudnej sytuacji." },
+      "mapa": { "title": "Mapa kampusu", "desc": "Budynki, sale i najważniejsze punkty na uczelni." },
+      "infopacki": { "title": "Infopacki", "desc": "Praktyczne pakiety informacji dla studentów." },
+      "pomoc": { "title": "Pomoc psychologiczna", "desc": "Gdzie i jak uzyskać wsparcie, gdy go potrzebujesz." },
+      "rzecznik": { "title": "Rzecznik Praw Studenta", "desc": "Stoi po Twojej stronie w sporach z uczelnią." },
+      "prawo": { "title": "Prawo dla studenta", "desc": "Regulaminy i przepisy w przystępnej formie." }
+    }
+  },
+  "events": {
+    "label": "Kalendarz",
+    "heading": "Najbliżej w kalendarzu",
+    "nearest": "Najbliższe wydarzenie",
+    "all": "Wszystkie wydarzenia",
+    "countdown": "{days, plural, =0 {DZIŚ} one {ZA # DZIEŃ} other {ZA # DNI}}"
+  },
+  "footer": {
+    "brand": "Samorząd Studentów Uniwersytetu Ekonomicznego we Wrocławiu",
+    "rights": "Wszelkie prawa zastrzeżone."
+  },
+  "pages": {
+    "dlaStudenta": "Strefa studenta",
+    "prawaStudenta": "Prawa studenta",
+    "stypendia": "Stypendia",
+    "prawoDlaStudenta": "Prawo dla studenta",
+    "infopacki": "Infopacki",
+    "rzecznik": "Rzecznik Praw Studenta",
+    "mapaKampusu": "Mapa kampusu",
+    "pomocPsych": "Pomoc psychologiczna",
+    "naszaDzialalnosc": "Nasza działalność",
+    "naszeProjekty": "Nasze projekty",
+    "struktura": "Struktura Samorządu",
+    "russ": "Rada Uczelniana (RUSS)",
+    "regulacje": "Regulacje wewnętrzne",
+    "strefaDzialacza": "Strefa działacza",
+    "partnerzy": "Partnerzy",
+    "wspolpracuj": "Współpracuj z nami",
+    "kontakt": "Kontakt"
   }
 }

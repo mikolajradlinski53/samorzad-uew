@@ -1,6 +1,7 @@
 "use client";
 
 import { motion, useReducedMotion } from "motion/react";
+import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import {
   Student,
@@ -13,65 +14,34 @@ import {
 import { ScrollReveal } from "./ScrollReveal";
 
 interface Audience {
-  eyebrow: string;
-  title: string;
-  desc: string;
-  /** Example destinations — information scent, not links (card is one target). */
-  scent: string;
+  key: string;
   href: string;
   icon: Icon;
 }
 
 const audiences: Audience[] = [
-  {
-    eyebrow: "Jesteś studentem?",
-    title: "Strefa studenta",
-    desc: "Załatw sprawę szybko — wszystko, czego potrzebujesz w trakcie studiów.",
-    scent: "Stypendia · Prawa studenta · Rzecznik · Mapa kampusu",
-    href: "/dla-studenta",
-    icon: Student,
-  },
-  {
-    eyebrow: "Pracujesz na Uczelni?",
-    title: "Samorząd i struktura",
-    desc: "Poznaj organy Samorządu, regulacje i osoby reprezentujące studentów.",
-    scent: "Struktura · RUSS · Regulacje · Władze",
-    href: "/nasza-dzialalnosc",
-    icon: ChalkboardTeacher,
-  },
-  {
-    eyebrow: "Reprezentujesz firmę?",
-    title: "Współpraca i partnerstwo",
-    desc: "Dotrzyj do ponad 11 000 studentów. Zobacz, jak możemy działać razem.",
-    scent: "Partnerzy · Współpracuj z nami · Kontakt B2B",
-    href: "/partnerzy",
-    icon: Handshake,
-  },
-  {
-    eyebrow: "Chcesz nas poznać?",
-    title: "Kim jesteśmy",
-    desc: "Misja, ludzie i projekty, które realnie zmieniają studenckie życie.",
-    scent: "Nasze projekty · O nas · Działalność",
-    href: "/nasze-projekty",
-    icon: Compass,
-  },
+  { key: "student", href: "/dla-studenta", icon: Student },
+  { key: "staff", href: "/nasza-dzialalnosc", icon: ChalkboardTeacher },
+  { key: "partner", href: "/partnerzy", icon: Handshake },
+  { key: "discover", href: "/nasze-projekty", icon: Compass },
 ];
 
 export function AudienceStrip() {
   const reduce = useReducedMotion();
+  const t = useTranslations("audience");
 
   return (
     <section className="section-padding pt-0" aria-labelledby="audience-heading">
       <div className="mx-auto max-w-[1200px]">
         <ScrollReveal>
           <p className="text-[0.75rem] font-medium uppercase tracking-[0.08em] text-accent">
-            Szybkie wejście
+            {t("label")}
           </p>
           <h2
             id="audience-heading"
             className="mt-3 max-w-[20ch] font-display text-[clamp(1.75rem,3.4vw,2.75rem)] font-semibold leading-[1.15] tracking-[-0.02em] text-ink-primary"
           >
-            Kim jesteś? Wskażemy Ci drogę
+            {t("heading")}
           </h2>
         </ScrollReveal>
 
@@ -100,19 +70,19 @@ export function AudienceStrip() {
                   <Glyph size={26} weight="regular" aria-hidden="true" />
                 </span>
                 <p className="mt-5 text-[0.75rem] font-medium uppercase tracking-[0.08em] text-accent">
-                  {a.eyebrow}
+                  {t(`${a.key}.eyebrow`)}
                 </p>
                 <h3 className="mt-2 text-[1.125rem] font-semibold tracking-[-0.01em] text-ink-primary">
-                  {a.title}
+                  {t(`${a.key}.title`)}
                 </h3>
                 <p className="mt-2 text-[0.875rem] leading-[1.6] text-ink-secondary">
-                  {a.desc}
+                  {t(`${a.key}.desc`)}
                 </p>
                 <p className="mt-4 text-[0.75rem] leading-[1.5] text-ink-tertiary">
-                  {a.scent}
+                  {t(`${a.key}.scent`)}
                 </p>
                 <span className="mt-5 inline-flex items-center gap-1.5 text-[0.875rem] font-medium text-accent">
-                  Przejdź
+                  {t("go")}
                   <ArrowRight
                     size={16}
                     weight="bold"
@@ -122,7 +92,7 @@ export function AudienceStrip() {
                 </span>
                 <Link
                   href={a.href}
-                  aria-label={`${a.title} — ${a.eyebrow}`}
+                  aria-label={`${t(`${a.key}.title`)} — ${t(`${a.key}.eyebrow`)}`}
                   className="absolute inset-0 rounded-xl"
                 />
               </motion.li>
