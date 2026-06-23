@@ -1,25 +1,36 @@
 import type { Metadata } from "next";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 import { PageHero } from "@/components/PageHero";
 import { KontaktContent } from "@/components/pages/KontaktContent";
 import { ogMeta } from "@/lib/og";
 
-export const metadata: Metadata = {
-  title: "Kontakt",
-  description:
-    "Skontaktuj się z Samorządem Studentów Uniwersytetu Ekonomicznego we Wrocławiu — formularz, e-mail, adres (ul. Kamienna 43) i media społecznościowe.",
-  ...ogMeta("Kontakt", "Samorząd Studentów UEW"),
-};
+type Props = { params: Promise<{ locale: string }> };
 
-export default function KontaktPage() {
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "kontakt" });
+  return {
+    title: t("metaTitle"),
+    description: t("metaDesc"),
+    ...ogMeta(t("metaTitle"), t("ogLabel")),
+  };
+}
+
+export default async function KontaktPage({ params }: Props) {
+  const { locale } = await params;
+  setRequestLocale(locale);
+  const t = await getTranslations({ locale, namespace: "kontakt" });
+  const tc = await getTranslations({ locale, namespace: "common" });
+
   return (
     <>
       <PageHero
-        eyebrow="Kontakt"
-        title="Napisz do nas"
-        lead="Jesteśmy dla Was. Wybierz wygodną formę kontaktu — formularz, e-mail albo media społecznościowe."
+        eyebrow={t("heroEyebrow")}
+        title={t("heroTitle")}
+        lead={t("heroLead")}
         breadcrumbs={[
-          { label: "Strona główna", href: "/" },
-          { label: "Kontakt" },
+          { label: tc("home"), href: "/" },
+          { label: t("heroTitle") },
         ]}
       />
       <KontaktContent />

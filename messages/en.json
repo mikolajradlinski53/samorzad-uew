@@ -220,5 +220,33 @@
     "contactRole": "Board Member for External Relations",
     "formButton": "Fill in the form",
     "formAria": "Go to the contact form"
+  },
+  "kontakt": {
+    "metaTitle": "Contact",
+    "metaDesc": "Get in touch with the Student Government of Wrocław University of Economics and Business — form, email, address (ul. Kamienna 43) and social media.",
+    "ogLabel": "SSUEW Student Government",
+    "heroEyebrow": "Contact",
+    "heroTitle": "Write to us",
+    "heroLead": "We’re here for you. Choose the way that suits you best — the form, email or social media.",
+    "detailsHeading": "Let’s talk",
+    "detailsLead": "Got a question, an idea for cooperation or something to sort out? Write to us — we reply as fast as we can.",
+    "addr1": "ul. Kamienna 43",
+    "addr2": "Building J, room 9",
+    "addr3": "53-307 Wrocław",
+    "labelName": "Full name",
+    "labelEmail": "Email",
+    "labelSubject": "Subject",
+    "labelMessage": "Message",
+    "errName": "Enter your full name (min. 2 characters).",
+    "errEmail": "Enter a valid email address, e.g. jan@example.com.",
+    "errSubject": "Enter a message subject.",
+    "errMessage": "Your message is too short (min. 10 characters).",
+    "errServer": "We couldn’t send your message.",
+    "successHeading": "Thank you!",
+    "successBody": "Your message has been received. We’ll get back to you as soon as possible.",
+    "successAgain": "Send another message",
+    "submitIdle": "Send message",
+    "submitSending": "Sending…",
+    "mapTitle": "Map — SSUEW Student Government office, ul. Kamienna 43, Wrocław"
   }
 }

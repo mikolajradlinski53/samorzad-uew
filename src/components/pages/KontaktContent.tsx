@@ -2,6 +2,7 @@
 
 import { useRef, useState } from "react";
 import { motion, useReducedMotion } from "motion/react";
+import { useTranslations } from "next-intl";
 import {
   MapPin,
   EnvelopeSimple,
@@ -35,22 +36,20 @@ const socials = [
   },
 ];
 
-function validate(values: FormState): Errors {
-  const errors: Errors = {};
-  if (values.name.trim().length < 2)
-    errors.name = "Podaj imię i nazwisko (min. 2 znaki).";
-  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(values.email))
-    errors.email = "Podaj poprawny adres e-mail, np. jan@przyklad.pl.";
-  if (values.subject.trim().length < 2)
-    errors.subject = "Wpisz temat wiadomości.";
-  if (values.message.trim().length < 10)
-    errors.message = "Wiadomość jest za krótka (min. 10 znaków).";
-  return errors;
-}
-
 export function KontaktContent() {
   const reduce = useReducedMotion();
+  const t = useTranslations("kontakt");
   const formRef = useRef<HTMLFormElement>(null);
+
+  const validate = (vals: FormState): Errors => {
+    const errs: Errors = {};
+    if (vals.name.trim().length < 2) errs.name = t("errName");
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(vals.email)) errs.email = t("errEmail");
+    if (vals.subject.trim().length < 2) errs.subject = t("errSubject");
+    if (vals.message.trim().length < 10) errs.message = t("errMessage");
+    return errs;
+  };
+
   const [values, setValues] = useState<FormState>(empty);
   const [errors, setErrors] = useState<Errors>({});
   const [touched, setTouched] = useState<Partial<Record<keyof FormState, boolean>>>({});
@@ -92,15 +91,13 @@ export function KontaktContent() {
       });
       if (!res.ok) {
         const data = (await res.json().catch(() => null)) as { error?: string } | null;
-        throw new Error(data?.error ?? "Nie udało się wysłać wiadomości.");
+        throw new Error(data?.error ?? t("errServer"));
       }
       setStatus("success");
       setValues(empty);
       setTouched({});
     } catch (err) {
-      setServerError(
-        err instanceof Error ? err.message : "Nie udało się wysłać wiadomości.",
-      );
+      setServerError(err instanceof Error ? err.message : t("errServer"));
       setStatus("error");
     }
   };
@@ -121,22 +118,21 @@ export function KontaktContent() {
             id="kontakt-form-heading"
             className="font-display text-[clamp(1.75rem,3.4vw,2.75rem)] font-semibold leading-[1.15] tracking-[-0.02em] text-ink-primary"
           >
-            Porozmawiajmy
+            {t("detailsHeading")}
           </h2>
           <p className="prose-constrained mt-4 text-[1.0625rem] leading-[1.75] text-ink-secondary">
-            Masz pytanie, pomysł na współpracę albo sprawę do załatwienia? Napisz
-            do nas — odpowiadamy najszybciej, jak się da.
+            {t("detailsLead")}
           </p>
 
           <address className="mt-8 flex flex-col gap-4 not-italic">
             <div className="flex items-start gap-3 text-ink-secondary">
               <MapPin size={20} weight="regular" aria-hidden="true" className="mt-0.5 shrink-0" />
               <p className="text-[0.9375rem] leading-[1.7]">
-                ul. Kamienna 43
+                {t("addr1")}
                 <br />
-                Budynek J, pokój 9
+                {t("addr2")}
                 <br />
-                53-307 Wrocław
+                {t("addr3")}
               </p>
             </div>
             <a
@@ -155,7 +151,7 @@ export function KontaktContent() {
                   href={s.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  aria-label={`${s.label} (otwiera się w nowej karcie)`}
+                  aria-label={s.label}
                   className="flex h-11 w-11 items-center justify-center rounded-lg text-ink-secondary transition-colors hover:bg-bg-elevated hover:text-accent"
                 >
                   <s.icon size={22} weight="regular" aria-hidden="true" />
@@ -177,18 +173,17 @@ export function KontaktContent() {
               >
                 <CheckCircle size={56} weight="fill" className="text-accent" aria-hidden="true" />
                 <h3 className="font-display text-[1.5rem] text-ink-primary">
-                  Dziękujemy!
+                  {t("successHeading")}
                 </h3>
                 <p className="max-w-[40ch] text-[0.9375rem] leading-[1.6] text-ink-secondary">
-                  Twoja wiadomość została przyjęta. Odezwiemy się najszybciej, jak
-                  to możliwe.
+                  {t("successBody")}
                 </p>
                 <button
                   type="button"
                   onClick={() => setStatus("idle")}
                   className="mt-2 text-[0.9375rem] font-medium text-accent transition-colors hover:text-accent-dim"
                 >
-                  Wyślij kolejną wiadomość
+                  {t("successAgain")}
                 </button>
               </motion.div>
             ) : (
@@ -196,7 +191,7 @@ export function KontaktContent() {
                 <div className="grid gap-5 sm:grid-cols-2">
                   <div className="sm:col-span-1">
                     <label htmlFor="name" className="mb-2 block text-[0.875rem] font-medium text-ink-primary">
-                      Imię i nazwisko <span className="text-accent">*</span>
+                      {t("labelName")} <span className="text-accent">*</span>
                     </label>
                     <input
                       id="name"
@@ -220,7 +215,7 @@ export function KontaktContent() {
 
                   <div className="sm:col-span-1">
                     <label htmlFor="email" className="mb-2 block text-[0.875rem] font-medium text-ink-primary">
-                      E-mail <span className="text-accent">*</span>
+                      {t("labelEmail")} <span className="text-accent">*</span>
                     </label>
                     <input
                       id="email"
@@ -244,7 +239,7 @@ export function KontaktContent() {
 
                   <div className="sm:col-span-2">
                     <label htmlFor="subject" className="mb-2 block text-[0.875rem] font-medium text-ink-primary">
-                      Temat <span className="text-accent">*</span>
+                      {t("labelSubject")} <span className="text-accent">*</span>
                     </label>
                     <input
                       id="subject"
@@ -267,7 +262,7 @@ export function KontaktContent() {
 
                   <div className="sm:col-span-2">
                     <label htmlFor="message" className="mb-2 block text-[0.875rem] font-medium text-ink-primary">
-                      Wiadomość <span className="text-accent">*</span>
+                      {t("labelMessage")} <span className="text-accent">*</span>
                     </label>
                     <textarea
                       id="message"
@@ -303,7 +298,7 @@ export function KontaktContent() {
                   disabled={status === "sending"}
                   className="mt-6 inline-flex h-12 items-center justify-center gap-2 rounded-lg bg-accent px-7 text-base font-medium text-bg-base transition-all hover:bg-accent-dim active:scale-[0.98] disabled:cursor-not-allowed disabled:opacity-60"
                 >
-                  {status === "sending" ? "Wysyłanie…" : "Wyślij wiadomość"}
+                  {status === "sending" ? t("submitSending") : t("submitIdle")}
                 </button>
               </form>
             )}
@@ -315,7 +310,7 @@ export function KontaktContent() {
       <ScrollReveal>
         <div className="mx-auto mt-12 max-w-[1200px] overflow-hidden rounded-2xl border border-border-subtle">
           <iframe
-            title="Mapa — siedziba Samorządu Studentów UEW, ul. Kamienna 43, Wrocław"
+            title={t("mapTitle")}
             src="https://www.google.com/maps?q=ul.+Kamienna+43,+53-307+Wroc%C5%82aw&output=embed"
             loading="lazy"
             referrerPolicy="no-referrer-when-downgrade"

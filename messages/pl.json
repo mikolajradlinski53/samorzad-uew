@@ -220,5 +220,33 @@
     "contactRole": "Członek Zarządu ds. relacji zewnętrznych",
     "formButton": "Wypełnij formularz",
     "formAria": "Przejdź do formularza kontaktowego"
+  },
+  "kontakt": {
+    "metaTitle": "Kontakt",
+    "metaDesc": "Skontaktuj się z Samorządem Studentów Uniwersytetu Ekonomicznego we Wrocławiu — formularz, e-mail, adres (ul. Kamienna 43) i media społecznościowe.",
+    "ogLabel": "Samorząd Studentów UEW",
+    "heroEyebrow": "Kontakt",
+    "heroTitle": "Napisz do nas",
+    "heroLead": "Jesteśmy dla Was. Wybierz wygodną formę kontaktu — formularz, e-mail albo media społecznościowe.",
+    "detailsHeading": "Porozmawiajmy",
+    "detailsLead": "Masz pytanie, pomysł na współpracę albo sprawę do załatwienia? Napisz do nas — odpowiadamy najszybciej, jak się da.",
+    "addr1": "ul. Kamienna 43",
+    "addr2": "Budynek J, pokój 9",
+    "addr3": "53-307 Wrocław",
+    "labelName": "Imię i nazwisko",
+    "labelEmail": "E-mail",
+    "labelSubject": "Temat",
+    "labelMessage": "Wiadomość",
+    "errName": "Podaj imię i nazwisko (min. 2 znaki).",
+    "errEmail": "Podaj poprawny adres e-mail, np. jan@przyklad.pl.",
+    "errSubject": "Wpisz temat wiadomości.",
+    "errMessage": "Wiadomość jest za krótka (min. 10 znaków).",
+    "errServer": "Nie udało się wysłać wiadomości.",
+    "successHeading": "Dziękujemy!",
+    "successBody": "Twoja wiadomość została przyjęta. Odezwiemy się najszybciej, jak to możliwe.",
+    "successAgain": "Wyślij kolejną wiadomość",
+    "submitIdle": "Wyślij wiadomość",
+    "submitSending": "Wysyłanie…",
+    "mapTitle": "Mapa — siedziba Samorządu Studentów UEW, ul. Kamienna 43, Wrocław"
   }
 }
