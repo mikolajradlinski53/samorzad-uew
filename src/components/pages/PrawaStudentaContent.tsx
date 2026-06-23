@@ -1,76 +1,39 @@
 "use client";
 
 import { motion, useReducedMotion } from "motion/react";
+import { useTranslations } from "next-intl";
 import { ArrowUpRight, Megaphone, FileText, CaretDown } from "@phosphor-icons/react";
 import { Link } from "@/i18n/navigation";
 import { ScrollReveal } from "../ScrollReveal";
 
-const rights = [
-  {
-    title: "Powtarzanie zajęć",
-    desc: "Prawo do powtarzania określonych zajęć w przypadku niezadowalających wyników w nauce, na warunkach z regulaminu uczelni.",
-    expl: "Jeśli oblejesz przedmiot, masz prawo go powtórzyć na zasadach z regulaminu studiów — nie wylatujesz automatycznie.",
-  },
-  {
-    title: "Indywidualna organizacja studiów",
-    desc: "Możliwość ubiegania się o IOS — elastyczne dostosowanie programu kształcenia do Twoich potrzeb.",
-    expl: "Pracujesz, trenujesz wyczynowo albo masz inną ważną sytuację życiową? Możesz wnioskować o elastyczny plan i indywidualne terminy zaliczeń.",
-  },
-  {
-    title: "Usprawiedliwienie nieobecności",
-    desc: "Prawo do usprawiedliwienia nieobecności i urlopu od zajęć, w tym przystąpienia do egzaminów w innym terminie.",
-    expl: "Choroba lub ważne zdarzenie losowe? Masz prawo usprawiedliwić nieobecność i podejść do egzaminu w innym terminie.",
-  },
-  {
-    title: "Zmiana kierunku studiów",
-    desc: "Ustawa umożliwia zmianę kierunku studiów przy zachowaniu określonych procedur.",
-    expl: "Czujesz, że to nie ten kierunek? Możesz go zmienić, a już zaliczone przedmioty zostaną Ci uznane zgodnie z procedurą.",
-  },
-  {
-    title: "Przenoszenie i uznawanie punktów ECTS",
-    desc: "Prawo do przenoszenia i uznawania punktów ECTS z innych uczelni — krajowych i zagranicznych — zgodnie z zasadami mobilności.",
-    expl: "Punkty zdobyte na innej uczelni, też zagranicznej (np. Erasmus), mogą zostać Ci uznane — nie zaliczasz tego samego drugi raz.",
-  },
-  {
-    title: "Egzamin komisyjny",
-    desc: "Prawo do przystąpienia do egzaminu komisyjnego, przy udziale wskazanego przez Ciebie obserwatora.",
-    expl: "Nie zgadzasz się z oceną z egzaminu? Możesz żądać egzaminu komisyjnego, a na nim ma prawo być wskazany przez Ciebie obserwator.",
-  },
-  {
-    title: "Zmiana trybu studiów",
-    desc: "Możliwość przeniesienia się między studiami stacjonarnymi a niestacjonarnymi, zgodnie z regulaminem uczelni.",
-    expl: "Zmieniła się Twoja sytuacja (np. praca)? Możesz przejść ze studiów stacjonarnych na niestacjonarne lub odwrotnie, zgodnie z regulaminem.",
-  },
-];
+const rightKeys = ["repeat", "ios", "absence", "change", "ects", "commission", "mode"];
 
 export function PrawaStudentaContent() {
   const reduce = useReducedMotion();
+  const t = useTranslations("prawaStudenta");
 
   return (
     <section className="section-padding" aria-labelledby="prawa-lista-heading">
       <div className="mx-auto max-w-[1200px]">
         <ScrollReveal>
           <p className="text-[0.75rem] font-medium uppercase tracking-[0.08em] text-accent">
-            Ustawa 2.0 — Konstytucja dla Nauki
+            {t("eyebrow")}
           </p>
           <h2
             id="prawa-lista-heading"
             className="mt-3 max-w-[24ch] font-display text-[clamp(1.75rem,3.4vw,2.75rem)] font-semibold leading-[1.15] tracking-[-0.02em] text-ink-primary"
           >
-            Każdy student ma prawo poznać swoje prawa
+            {t("heading")}
           </h2>
           <p className="prose-constrained mt-4 text-[1.0625rem] leading-[1.75] text-ink-secondary">
-            Dzięki Ustawie 2.0 każdy student ma prawo do przeszkolenia w zakresie
-            swoich praw i obowiązków. Za organizację tego szkolenia odpowiada
-            samorząd studencki we współpracy z Parlamentem Studentów
-            Rzeczypospolitej Polskiej.
+            {t("intro")}
           </p>
         </ScrollReveal>
 
         <ol className="mt-12 grid gap-5 md:grid-cols-2">
-          {rights.map((right, i) => (
+          {rightKeys.map((key, i) => (
             <motion.li
-              key={right.title}
+              key={key}
               initial={reduce ? false : { opacity: 0, y: 20 }}
               whileInView={reduce ? undefined : { opacity: 1, y: 0 }}
               whileHover={
@@ -94,14 +57,14 @@ export function PrawaStudentaContent() {
               </span>
               <div>
                 <h3 className="text-[1.0625rem] font-semibold tracking-[-0.01em] text-ink-primary">
-                  {right.title}
+                  {t(`rights.${key}.title`)}
                 </h3>
                 <p className="mt-2 text-[0.9375rem] leading-[1.65] text-ink-secondary">
-                  {right.desc}
+                  {t(`rights.${key}.desc`)}
                 </p>
                 <details className="group/expl mt-3">
                   <summary className="inline-flex cursor-pointer list-none items-center gap-1.5 font-mono text-[0.75rem] uppercase tracking-[0.06em] text-accent [&::-webkit-details-marker]:hidden">
-                    Co to znaczy
+                    {t("expandLabel")}
                     <CaretDown
                       size={12}
                       weight="bold"
@@ -110,7 +73,7 @@ export function PrawaStudentaContent() {
                     />
                   </summary>
                   <p className="mt-2 text-[0.875rem] leading-[1.6] text-ink-secondary">
-                    {right.expl}
+                    {t(`rights.${key}.expl`)}
                   </p>
                 </details>
               </div>
@@ -128,20 +91,20 @@ export function PrawaStudentaContent() {
               className="inline-flex h-12 items-center gap-2 rounded-lg bg-accent px-7 text-base font-medium text-bg-base transition-all hover:bg-accent-dim active:scale-[0.98]"
             >
               <FileText size={20} weight="regular" aria-hidden="true" />
-              Pełny tekst ustawy (PDF)
+              {t("ctaPdf")}
             </a>
             <Link
               href="/rzecznik-praw-studenta"
               className="inline-flex h-12 items-center gap-2 rounded-lg border border-border-medium px-7 text-base font-medium text-ink-primary transition-colors hover:border-border-soft hover:bg-bg-elevated"
             >
               <Megaphone size={20} weight="regular" aria-hidden="true" />
-              Rzecznik Praw Studenta
+              {t("ctaRzecznik")}
             </Link>
             <Link
               href="/dla-studenta"
               className="inline-flex h-12 items-center gap-1.5 px-3 text-base font-medium text-accent transition-colors hover:text-accent-dim"
             >
-              Wróć do Strefy studenta
+              {t("ctaBack")}
               <ArrowUpRight size={18} weight="regular" aria-hidden="true" />
             </Link>
           </div>

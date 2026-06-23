@@ -1,50 +1,46 @@
 import type { Metadata } from "next";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 import { PageHero } from "@/components/PageHero";
 import { RzecznikContent } from "@/components/pages/RzecznikContent";
 import { Faq, type QA } from "@/components/Faq";
 import { ogMeta } from "@/lib/og";
 
-const faq: QA[] = [
-  {
-    q: "Kim jest Rzecznik Praw Studenta?",
-    a: "To osoba, która wspiera studentów w interpretacji przepisów i reprezentuje ich w kontaktach z jednostkami administracyjnymi uczelni. Funkcję pełni Jakub Buchta.",
-  },
-  {
-    q: "Kiedy się do niego zgłosić?",
-    a: "Gdy nie potrafisz zinterpretować przepisów, nie udało Ci się załatwić sprawy w dziekanacie albo masz wątpliwości co do swoich praw i obowiązków jako student.",
-  },
-  {
-    q: "Jak się skontaktować?",
-    a: "Napisz na rps@samorzad.ue.wroc.pl lub skorzystaj z formularza kontaktu. Wcześniej zbierz fakty: co się stało, z kim rozmawiałeś i jakich przepisów dotyczy sprawa.",
-  },
-  {
-    q: "Co Rzecznik może dla mnie zrobić?",
-    a: "Pomoże zinterpretować przepisy, skieruje do właściwych źródeł informacji, a w razie potrzeby reprezentuje Cię wobec uczelni.",
-  },
-];
+type Props = { params: Promise<{ locale: string }> };
 
-export const metadata: Metadata = {
-  title: "Rzecznik Praw Studenta",
-  description:
-    "Rzecznik Praw Studenta UEW — Jakub Buchta — wspiera studentów w interpretacji przepisów i reprezentuje ich wobec uczelni. Sprawdź, jak skorzystać z pomocy.",
-  ...ogMeta("Rzecznik Praw Studenta", "Strefa studenta"),
-};
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "rzecznik" });
+  return {
+    title: t("metaTitle"),
+    description: t("metaDesc"),
+    ...ogMeta(t("metaTitle"), t("ogLabel")),
+  };
+}
 
-export default function RzecznikPage() {
+const FAQ_KEYS = ["who", "when", "how", "what"] as const;
+
+export default async function RzecznikPage({ params }: Props) {
+  const { locale } = await params;
+  setRequestLocale(locale);
+  const t = await getTranslations({ locale, namespace: "rzecznik" });
+  const tc = await getTranslations({ locale, namespace: "common" });
+
+  const faq: QA[] = FAQ_KEYS.map((k) => ({ q: t(`faq.${k}.q`), a: t(`faq.${k}.a`) }));
+
   return (
     <>
       <PageHero
-        eyebrow="Strefa studenta"
-        title="Rzecznik Praw Studenta"
-        lead="Gdy przepisy są niejasne, a sprawa utknęła — Rzecznik pomoże Ci je zrozumieć i stanie po Twojej stronie."
+        eyebrow={t("heroEyebrow")}
+        title={t("heroTitle")}
+        lead={t("heroLead")}
         breadcrumbs={[
-          { label: "Strona główna", href: "/" },
-          { label: "Strefa studenta", href: "/dla-studenta" },
-          { label: "Rzecznik Praw Studenta" },
+          { label: tc("home"), href: "/" },
+          { label: t("crumbStudent"), href: "/dla-studenta" },
+          { label: t("heroTitle") },
         ]}
       />
       <RzecznikContent />
-      <Faq items={faq} heading="Rzecznik — najczęstsze pytania" />
+      <Faq items={faq} heading={t("faqHeading")} />
     </>
   );
 }

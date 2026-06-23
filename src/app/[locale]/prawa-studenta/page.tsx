@@ -1,50 +1,46 @@
 import type { Metadata } from "next";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 import { PageHero } from "@/components/PageHero";
 import { PrawaStudentaContent } from "@/components/pages/PrawaStudentaContent";
 import { Faq, type QA } from "@/components/Faq";
 import { ogMeta } from "@/lib/og";
 
-const faq: QA[] = [
-  {
-    q: "Skąd biorą się moje prawa jako studenta?",
-    a: "Z Ustawy 2.0 (Konstytucji dla Nauki) oraz regulaminu studiów UEW. Ustawa gwarantuje m.in. prawo do przeszkolenia z zakresu praw i obowiązków studenta.",
-  },
-  {
-    q: "Czym jest indywidualna organizacja studiów (IOS)?",
-    a: "To możliwość elastycznego dostosowania programu i organizacji studiów do Twojej sytuacji. O IOS wnioskujesz na warunkach określonych w regulaminie uczelni.",
-  },
-  {
-    q: "Czy mogę przystąpić do egzaminu komisyjnego?",
-    a: "Tak. Masz prawo do egzaminu komisyjnego, przy udziale wskazanego przez Ciebie obserwatora.",
-  },
-  {
-    q: "Gdzie zgłosić, że moje prawa są łamane?",
-    a: "Skontaktuj się z Rzecznikiem Praw Studenta — pomoże zinterpretować przepisy i, jeśli trzeba, reprezentuje Cię wobec jednostek uczelni.",
-  },
-];
+type Props = { params: Promise<{ locale: string }> };
 
-export const metadata: Metadata = {
-  title: "Prawa studenta",
-  description:
-    "Poznaj swoje prawa na Uniwersytecie Ekonomicznym we Wrocławiu — od indywidualnej organizacji studiów po egzamin komisyjny. Ustawa 2.0 w przystępnej formie.",
-  ...ogMeta("Prawa studenta", "Strefa studenta"),
-};
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "prawaStudenta" });
+  return {
+    title: t("metaTitle"),
+    description: t("metaDesc"),
+    ...ogMeta(t("metaTitle"), t("ogLabel")),
+  };
+}
 
-export default function PrawaStudentaPage() {
+const FAQ_KEYS = ["source", "ios", "commission", "report"] as const;
+
+export default async function PrawaStudentaPage({ params }: Props) {
+  const { locale } = await params;
+  setRequestLocale(locale);
+  const t = await getTranslations({ locale, namespace: "prawaStudenta" });
+  const tc = await getTranslations({ locale, namespace: "common" });
+
+  const faq: QA[] = FAQ_KEYS.map((k) => ({ q: t(`faq.${k}.q`), a: t(`faq.${k}.a`) }));
+
   return (
     <>
       <PageHero
-        eyebrow="Strefa studenta"
-        title="Prawa studenta"
-        lead="Studia to nie tylko obowiązki. Poznaj prawa, które przysługują Ci na każdym etapie nauki — i wiedz, gdzie szukać wsparcia, gdy są łamane."
+        eyebrow={t("heroEyebrow")}
+        title={t("heroTitle")}
+        lead={t("heroLead")}
         breadcrumbs={[
-          { label: "Strona główna", href: "/" },
-          { label: "Strefa studenta", href: "/dla-studenta" },
-          { label: "Prawa studenta" },
+          { label: tc("home"), href: "/" },
+          { label: t("crumbStudent"), href: "/dla-studenta" },
+          { label: t("heroTitle") },
         ]}
       />
       <PrawaStudentaContent />
-      <Faq items={faq} heading="Prawa studenta — najczęstsze pytania" />
+      <Faq items={faq} heading={t("faqHeading")} />
     </>
   );
 }

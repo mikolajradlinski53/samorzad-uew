@@ -414,5 +414,75 @@
     "skladHeading": "Committee members",
     "roles": { "chair": "Chair", "memberF": "Member", "memberM": "Member" },
     "uchwalyButton": "SKW resolutions 2025/2026"
+  },
+  "rzecznik": {
+    "metaTitle": "Student Ombudsman",
+    "metaDesc": "The UEW Student Ombudsman — Jakub Buchta — helps students interpret regulations and represents them before the university. See how to get help.",
+    "ogLabel": "Student zone",
+    "heroEyebrow": "Student zone",
+    "heroTitle": "Student Ombudsman",
+    "heroLead": "When the rules are unclear and your case is stuck — the Ombudsman will help you understand them and stand by your side.",
+    "crumbStudent": "Student zone",
+    "introHeading": "We’re on your side",
+    "quote": "“The Student Ombudsman helps students interpret regulations and represents them in dealings with the university’s administrative units.”",
+    "introBody": "Get in touch if you can’t interpret the rules, couldn’t resolve your case at the dean’s office, or have doubts about your rights as a student.",
+    "contactEyebrow": "Student Ombudsman",
+    "contactName": "Jakub Buchta",
+    "addr1": "ul. Kamienna 43, Building J, room 9",
+    "addr2": "53-307 Wrocław",
+    "contactButton": "Write to the Ombudsman",
+    "dutiesHeading": "What I do",
+    "duties": {
+      "interpret": "Help interpreting the university’s regulations and rules",
+      "injustice": "Support in cases of injustice when the dean’s office hasn’t resolved the matter",
+      "consult": "Advice on difficult matters concerning students’ rights and duties",
+      "direct": "Pointing you to the right sources of information at the university and in the Student Government"
+    },
+    "stepsHeading": "How to get help",
+    "steps": {
+      "check": { "title": "Check the Infopacks and the Study Regulations", "desc": "Many answers are at hand — start with the materials in the Student zone." },
+      "describe": { "title": "Describe your case", "desc": "Gather the facts: what happened, who you spoke to and which regulations the case concerns." },
+      "write": { "title": "Write to the Ombudsman", "desc": "Send a message to rps@samorzad.ue.wroc.pl or use the contact form." },
+      "together": { "title": "We act together", "desc": "The Ombudsman will help interpret the rules and — if needed — represent you before the university." }
+    },
+    "faqHeading": "Ombudsman — frequently asked questions",
+    "faq": {
+      "who": { "q": "Who is the Student Ombudsman?", "a": "Someone who helps students interpret regulations and represents them in dealings with the university’s administrative units. The role is held by Jakub Buchta." },
+      "when": { "q": "When should I contact them?", "a": "When you can’t interpret the rules, couldn’t resolve your case at the dean’s office, or have doubts about your rights and duties as a student." },
+      "how": { "q": "How do I get in touch?", "a": "Write to rps@samorzad.ue.wroc.pl or use the contact form. First gather the facts: what happened, who you spoke to and which regulations the case concerns." },
+      "what": { "q": "What can the Ombudsman do for me?", "a": "Help interpret the rules, point you to the right sources of information and, if needed, represent you before the university." }
+    }
+  },
+  "prawaStudenta": {
+    "metaTitle": "Student rights",
+    "metaDesc": "Get to know your rights at Wrocław University of Economics and Business — from an individual study plan to a board exam. The Higher Education Act in plain language.",
+    "ogLabel": "Student zone",
+    "heroEyebrow": "Student zone",
+    "heroTitle": "Student rights",
+    "heroLead": "Studying isn’t only duties. Get to know the rights you have at every stage — and where to find support when they’re broken.",
+    "crumbStudent": "Student zone",
+    "eyebrow": "The Higher Education Act (Ustawa 2.0)",
+    "heading": "Every student has the right to know their rights",
+    "intro": "Under the Higher Education Act, every student has the right to training on their rights and duties. The student government organises this training together with the Students’ Parliament of the Republic of Poland.",
+    "expandLabel": "What this means",
+    "rights": {
+      "repeat": { "title": "Repeating classes", "desc": "The right to repeat certain classes in the event of unsatisfactory academic results, on the terms set out in the university regulations.", "expl": "If you fail a subject, you have the right to repeat it under the study regulations — you’re not automatically expelled." },
+      "ios": { "title": "Individual study plan", "desc": "The option to apply for an individual study plan — flexibly adapting the curriculum to your needs.", "expl": "Do you work, train competitively or have another important life situation? You can apply for a flexible plan and individual assessment dates." },
+      "absence": { "title": "Excused absence", "desc": "The right to excuse an absence and take leave from classes, including sitting exams at another date.", "expl": "Illness or an important life event? You have the right to excuse an absence and sit the exam at another date." },
+      "change": { "title": "Changing your field of study", "desc": "The Act allows you to change your field of study while following set procedures.", "expl": "Feel it’s not the right field? You can change it, and subjects you’ve already passed will be recognised under the procedure." },
+      "ects": { "title": "Transferring and recognising ECTS credits", "desc": "The right to transfer and recognise ECTS credits from other universities — domestic and foreign — in line with mobility rules.", "expl": "Credits earned at another university, including abroad (e.g. Erasmus), can be recognised — you don’t pass the same thing twice." },
+      "commission": { "title": "Board exam", "desc": "The right to take a board exam, with an observer of your choice present.", "expl": "Disagree with an exam grade? You can request a board exam, and an observer you choose has the right to be present." },
+      "mode": { "title": "Changing your study mode", "desc": "The option to transfer between full-time and part-time studies, in line with the university regulations.", "expl": "Has your situation changed (e.g. work)? You can move from full-time to part-time studies or vice versa, under the regulations." }
+    },
+    "ctaPdf": "Full text of the Act (PDF)",
+    "ctaRzecznik": "Student Ombudsman",
+    "ctaBack": "Back to the Student zone",
+    "faqHeading": "Student rights — frequently asked questions",
+    "faq": {
+      "source": { "q": "Where do my rights as a student come from?", "a": "From the Higher Education Act (Ustawa 2.0) and the UEW study regulations. The Act guarantees, among other things, the right to training on students’ rights and duties." },
+      "ios": { "q": "What is an individual study plan (IOS)?", "a": "It’s the option to flexibly adapt the curriculum and organisation of your studies to your situation. You apply for it on the terms set out in the university regulations." },
+      "commission": { "q": "Can I take a board exam?", "a": "Yes. You have the right to a board exam, with an observer of your choice present." },
+      "report": { "q": "Where do I report that my rights are being broken?", "a": "Contact the Student Ombudsman — they’ll help interpret the rules and, if needed, represent you before the university’s units." }
+    }
   }
 }

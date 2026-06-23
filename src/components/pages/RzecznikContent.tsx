@@ -1,6 +1,7 @@
 "use client";
 
 import { motion, useReducedMotion } from "motion/react";
+import { useTranslations } from "next-intl";
 import {
   Scales,
   ShieldCheck,
@@ -15,38 +16,22 @@ import { ScrollReveal } from "../ScrollReveal";
 import { Tilt } from "../Tilt";
 
 interface Duty {
-  title: string;
+  key: string;
   icon: Icon;
 }
 
 const duties: Duty[] = [
-  { title: "Pomoc w interpretacji przepisów i regulaminów uczelni", icon: Scales },
-  { title: "Wsparcie w sytuacjach niesprawiedliwości, gdy dziekanat nie rozwiązał sprawy", icon: ShieldCheck },
-  { title: "Konsultacje w trudnych sprawach dotyczących praw i obowiązków studenta", icon: ChatCircleText },
-  { title: "Kierowanie do właściwych źródeł informacji na uczelni i w Samorządzie", icon: Compass },
+  { key: "interpret", icon: Scales },
+  { key: "injustice", icon: ShieldCheck },
+  { key: "consult", icon: ChatCircleText },
+  { key: "direct", icon: Compass },
 ];
 
-const steps = [
-  {
-    title: "Sprawdź Infopacki i Regulamin Studiów",
-    desc: "Wiele odpowiedzi znajdziesz od ręki — zacznij od materiałów w Strefie studenta.",
-  },
-  {
-    title: "Opisz swoją sprawę",
-    desc: "Zbierz fakty: co się stało, z kim rozmawiałeś i jakich przepisów dotyczy sprawa.",
-  },
-  {
-    title: "Napisz do Rzecznika",
-    desc: "Wyślij wiadomość na rps@samorzad.ue.wroc.pl lub skorzystaj z formularza kontaktu.",
-  },
-  {
-    title: "Działamy razem",
-    desc: "Rzecznik pomoże zinterpretować przepisy i — jeśli trzeba — reprezentuje Cię wobec uczelni.",
-  },
-];
+const stepKeys = ["check", "describe", "write", "together"];
 
 export function RzecznikContent() {
   const reduce = useReducedMotion();
+  const t = useTranslations("rzecznik");
 
   return (
     <>
@@ -58,19 +43,15 @@ export function RzecznikContent() {
               id="rzecznik-intro-heading"
               className="font-display text-[clamp(1.75rem,3.4vw,2.75rem)] font-semibold leading-[1.15] tracking-[-0.02em] text-ink-primary"
             >
-              Jesteśmy po Twojej stronie
+              {t("introHeading")}
             </h2>
             <blockquote className="mt-6 border-l-2 border-accent py-1 pl-6">
               <p className="prose-constrained font-display text-[clamp(1.25rem,2.2vw,1.75rem)] font-semibold leading-[1.35] tracking-[-0.01em] text-ink-primary">
-                „Rzecznik Praw Studenta wspiera studentów w interpretacji
-                przepisów i reprezentuje ich w kontakcie z jednostkami
-                administracyjnymi uczelni.”
+                {t("quote")}
               </p>
             </blockquote>
             <p className="prose-constrained mt-6 text-[1.0625rem] leading-[1.75] text-ink-secondary">
-              Skontaktuj się, jeśli nie potrafisz zinterpretować przepisów, nie
-              udało Ci się załatwić sprawy w dziekanacie albo masz wątpliwości co
-              do swoich praw jako student.
+              {t("introBody")}
             </p>
           </ScrollReveal>
 
@@ -79,10 +60,10 @@ export function RzecznikContent() {
             <Tilt max={5}>
               <div className="rounded-2xl border border-border-subtle bg-bg-surface p-7">
                 <p className="text-[0.75rem] font-medium uppercase tracking-[0.08em] text-accent">
-                  Rzecznik Praw Studenta
+                  {t("contactEyebrow")}
                 </p>
                 <p className="mt-2 font-display text-[1.75rem] tracking-[-0.01em] text-ink-primary">
-                  Jakub Buchta
+                  {t("contactName")}
                 </p>
                 <div className="mt-6 flex flex-col gap-3">
                   <a
@@ -95,9 +76,9 @@ export function RzecznikContent() {
                   <div className="flex items-start gap-3 text-ink-secondary">
                     <MapPin size={20} weight="regular" aria-hidden="true" className="mt-0.5 shrink-0 text-accent" />
                     <p className="text-[0.9375rem] leading-[1.6]">
-                      ul. Kamienna 43, Budynek J, pokój 9
+                      {t("addr1")}
                       <br />
-                      53-307 Wrocław
+                      {t("addr2")}
                     </p>
                   </div>
                 </div>
@@ -105,7 +86,7 @@ export function RzecznikContent() {
                   href="mailto:rps@samorzad.ue.wroc.pl"
                   className="mt-7 inline-flex h-12 w-full items-center justify-center gap-2 rounded-lg bg-accent px-7 text-base font-medium text-bg-base transition-all hover:bg-accent-dim active:scale-[0.98]"
                 >
-                  Napisz do Rzecznika
+                  {t("contactButton")}
                   <ArrowRight size={20} weight="regular" aria-hidden="true" />
                 </a>
               </div>
@@ -122,7 +103,7 @@ export function RzecznikContent() {
               id="rzecznik-duties-heading"
               className="font-display text-[clamp(1.5rem,2.8vw,2.25rem)] font-semibold leading-[1.2] tracking-[-0.02em] text-ink-primary"
             >
-              Czym się zajmuję
+              {t("dutiesHeading")}
             </h2>
           </ScrollReveal>
           <div className="mt-8 grid gap-5 sm:grid-cols-2">
@@ -130,7 +111,7 @@ export function RzecznikContent() {
               const Glyph = duty.icon;
               return (
                 <motion.div
-                  key={duty.title}
+                  key={duty.key}
                   initial={reduce ? false : { opacity: 0, y: 20 }}
                   whileInView={reduce ? undefined : { opacity: 1, y: 0 }}
                   viewport={{ once: true, amount: 0.2 }}
@@ -141,7 +122,7 @@ export function RzecznikContent() {
                     <Glyph size={24} weight="regular" aria-hidden="true" />
                   </span>
                   <p className="pt-1.5 text-[0.9375rem] leading-[1.55] text-ink-secondary">
-                    {duty.title}
+                    {t(`duties.${duty.key}`)}
                   </p>
                 </motion.div>
               );
@@ -158,7 +139,7 @@ export function RzecznikContent() {
               id="rzecznik-steps-heading"
               className="font-display text-[clamp(1.5rem,2.8vw,2.25rem)] font-semibold leading-[1.2] tracking-[-0.02em] text-ink-primary"
             >
-              Jak skorzystać z pomocy
+              {t("stepsHeading")}
             </h2>
           </ScrollReveal>
 
@@ -173,9 +154,9 @@ export function RzecznikContent() {
               className="absolute left-[19px] top-3 bottom-3 w-px origin-top bg-accent/40"
             />
             <ol className="flex flex-col gap-8">
-              {steps.map((step, i) => (
+              {stepKeys.map((key, i) => (
                 <motion.li
-                  key={step.title}
+                  key={key}
                   initial={reduce ? false : { opacity: 0, x: 12 }}
                   whileInView={reduce ? undefined : { opacity: 1, x: 0 }}
                   viewport={{ once: true, amount: 0.5 }}
@@ -187,10 +168,10 @@ export function RzecznikContent() {
                   </span>
                   <div className="pt-1">
                     <h3 className="text-[1.0625rem] font-semibold tracking-[-0.01em] text-ink-primary">
-                      {step.title}
+                      {t(`steps.${key}.title`)}
                     </h3>
                     <p className="mt-1.5 text-[0.9375rem] leading-[1.6] text-ink-secondary">
-                      {step.desc}
+                      {t(`steps.${key}.desc`)}
                     </p>
                   </div>
                 </motion.li>

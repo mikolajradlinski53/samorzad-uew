@@ -414,5 +414,75 @@
     "skladHeading": "Skład Komisji",
     "roles": { "chair": "Przewodnicząca", "memberF": "Członkini", "memberM": "Członek" },
     "uchwalyButton": "Uchwały SKW 2025/2026"
+  },
+  "rzecznik": {
+    "metaTitle": "Rzecznik Praw Studenta",
+    "metaDesc": "Rzecznik Praw Studenta UEW — Jakub Buchta — wspiera studentów w interpretacji przepisów i reprezentuje ich wobec uczelni. Sprawdź, jak skorzystać z pomocy.",
+    "ogLabel": "Strefa studenta",
+    "heroEyebrow": "Strefa studenta",
+    "heroTitle": "Rzecznik Praw Studenta",
+    "heroLead": "Gdy przepisy są niejasne, a sprawa utknęła — Rzecznik pomoże Ci je zrozumieć i stanie po Twojej stronie.",
+    "crumbStudent": "Strefa studenta",
+    "introHeading": "Jesteśmy po Twojej stronie",
+    "quote": "„Rzecznik Praw Studenta wspiera studentów w interpretacji przepisów i reprezentuje ich w kontakcie z jednostkami administracyjnymi uczelni.”",
+    "introBody": "Skontaktuj się, jeśli nie potrafisz zinterpretować przepisów, nie udało Ci się załatwić sprawy w dziekanacie albo masz wątpliwości co do swoich praw jako student.",
+    "contactEyebrow": "Rzecznik Praw Studenta",
+    "contactName": "Jakub Buchta",
+    "addr1": "ul. Kamienna 43, Budynek J, pokój 9",
+    "addr2": "53-307 Wrocław",
+    "contactButton": "Napisz do Rzecznika",
+    "dutiesHeading": "Czym się zajmuję",
+    "duties": {
+      "interpret": "Pomoc w interpretacji przepisów i regulaminów uczelni",
+      "injustice": "Wsparcie w sytuacjach niesprawiedliwości, gdy dziekanat nie rozwiązał sprawy",
+      "consult": "Konsultacje w trudnych sprawach dotyczących praw i obowiązków studenta",
+      "direct": "Kierowanie do właściwych źródeł informacji na uczelni i w Samorządzie"
+    },
+    "stepsHeading": "Jak skorzystać z pomocy",
+    "steps": {
+      "check": { "title": "Sprawdź Infopacki i Regulamin Studiów", "desc": "Wiele odpowiedzi znajdziesz od ręki — zacznij od materiałów w Strefie studenta." },
+      "describe": { "title": "Opisz swoją sprawę", "desc": "Zbierz fakty: co się stało, z kim rozmawiałeś i jakich przepisów dotyczy sprawa." },
+      "write": { "title": "Napisz do Rzecznika", "desc": "Wyślij wiadomość na rps@samorzad.ue.wroc.pl lub skorzystaj z formularza kontaktu." },
+      "together": { "title": "Działamy razem", "desc": "Rzecznik pomoże zinterpretować przepisy i — jeśli trzeba — reprezentuje Cię wobec uczelni." }
+    },
+    "faqHeading": "Rzecznik — najczęstsze pytania",
+    "faq": {
+      "who": { "q": "Kim jest Rzecznik Praw Studenta?", "a": "To osoba, która wspiera studentów w interpretacji przepisów i reprezentuje ich w kontaktach z jednostkami administracyjnymi uczelni. Funkcję pełni Jakub Buchta." },
+      "when": { "q": "Kiedy się do niego zgłosić?", "a": "Gdy nie potrafisz zinterpretować przepisów, nie udało Ci się załatwić sprawy w dziekanacie albo masz wątpliwości co do swoich praw i obowiązków jako student." },
+      "how": { "q": "Jak się skontaktować?", "a": "Napisz na rps@samorzad.ue.wroc.pl lub skorzystaj z formularza kontaktu. Wcześniej zbierz fakty: co się stało, z kim rozmawiałeś i jakich przepisów dotyczy sprawa." },
+      "what": { "q": "Co Rzecznik może dla mnie zrobić?", "a": "Pomoże zinterpretować przepisy, skieruje do właściwych źródeł informacji, a w razie potrzeby reprezentuje Cię wobec uczelni." }
+    }
+  },
+  "prawaStudenta": {
+    "metaTitle": "Prawa studenta",
+    "metaDesc": "Poznaj swoje prawa na Uniwersytecie Ekonomicznym we Wrocławiu — od indywidualnej organizacji studiów po egzamin komisyjny. Ustawa 2.0 w przystępnej formie.",
+    "ogLabel": "Strefa studenta",
+    "heroEyebrow": "Strefa studenta",
+    "heroTitle": "Prawa studenta",
+    "heroLead": "Studia to nie tylko obowiązki. Poznaj prawa, które przysługują Ci na każdym etapie nauki — i wiedz, gdzie szukać wsparcia, gdy są łamane.",
+    "crumbStudent": "Strefa studenta",
+    "eyebrow": "Ustawa 2.0 — Konstytucja dla Nauki",
+    "heading": "Każdy student ma prawo poznać swoje prawa",
+    "intro": "Dzięki Ustawie 2.0 każdy student ma prawo do przeszkolenia w zakresie swoich praw i obowiązków. Za organizację tego szkolenia odpowiada samorząd studencki we współpracy z Parlamentem Studentów Rzeczypospolitej Polskiej.",
+    "expandLabel": "Co to znaczy",
+    "rights": {
+      "repeat": { "title": "Powtarzanie zajęć", "desc": "Prawo do powtarzania określonych zajęć w przypadku niezadowalających wyników w nauce, na warunkach z regulaminu uczelni.", "expl": "Jeśli oblejesz przedmiot, masz prawo go powtórzyć na zasadach z regulaminu studiów — nie wylatujesz automatycznie." },
+      "ios": { "title": "Indywidualna organizacja studiów", "desc": "Możliwość ubiegania się o IOS — elastyczne dostosowanie programu kształcenia do Twoich potrzeb.", "expl": "Pracujesz, trenujesz wyczynowo albo masz inną ważną sytuację życiową? Możesz wnioskować o elastyczny plan i indywidualne terminy zaliczeń." },
+      "absence": { "title": "Usprawiedliwienie nieobecności", "desc": "Prawo do usprawiedliwienia nieobecności i urlopu od zajęć, w tym przystąpienia do egzaminów w innym terminie.", "expl": "Choroba lub ważne zdarzenie losowe? Masz prawo usprawiedliwić nieobecność i podejść do egzaminu w innym terminie." },
+      "change": { "title": "Zmiana kierunku studiów", "desc": "Ustawa umożliwia zmianę kierunku studiów przy zachowaniu określonych procedur.", "expl": "Czujesz, że to nie ten kierunek? Możesz go zmienić, a już zaliczone przedmioty zostaną Ci uznane zgodnie z procedurą." },
+      "ects": { "title": "Przenoszenie i uznawanie punktów ECTS", "desc": "Prawo do przenoszenia i uznawania punktów ECTS z innych uczelni — krajowych i zagranicznych — zgodnie z zasadami mobilności.", "expl": "Punkty zdobyte na innej uczelni, też zagranicznej (np. Erasmus), mogą zostać Ci uznane — nie zaliczasz tego samego drugi raz." },
+      "commission": { "title": "Egzamin komisyjny", "desc": "Prawo do przystąpienia do egzaminu komisyjnego, przy udziale wskazanego przez Ciebie obserwatora.", "expl": "Nie zgadzasz się z oceną z egzaminu? Możesz żądać egzaminu komisyjnego, a na nim ma prawo być wskazany przez Ciebie obserwator." },
+      "mode": { "title": "Zmiana trybu studiów", "desc": "Możliwość przeniesienia się między studiami stacjonarnymi a niestacjonarnymi, zgodnie z regulaminem uczelni.", "expl": "Zmieniła się Twoja sytuacja (np. praca)? Możesz przejść ze studiów stacjonarnych na niestacjonarne lub odwrotnie, zgodnie z regulaminem." }
+    },
+    "ctaPdf": "Pełny tekst ustawy (PDF)",
+    "ctaRzecznik": "Rzecznik Praw Studenta",
+    "ctaBack": "Wróć do Strefy studenta",
+    "faqHeading": "Prawa studenta — najczęstsze pytania",
+    "faq": {
+      "source": { "q": "Skąd biorą się moje prawa jako studenta?", "a": "Z Ustawy 2.0 (Konstytucji dla Nauki) oraz regulaminu studiów UEW. Ustawa gwarantuje m.in. prawo do przeszkolenia z zakresu praw i obowiązków studenta." },
+      "ios": { "q": "Czym jest indywidualna organizacja studiów (IOS)?", "a": "To możliwość elastycznego dostosowania programu i organizacji studiów do Twojej sytuacji. O IOS wnioskujesz na warunkach określonych w regulaminie uczelni." },
+      "commission": { "q": "Czy mogę przystąpić do egzaminu komisyjnego?", "a": "Tak. Masz prawo do egzaminu komisyjnego, przy udziale wskazanego przez Ciebie obserwatora." },
+      "report": { "q": "Gdzie zgłosić, że moje prawa są łamane?", "a": "Skontaktuj się z Rzecznikiem Praw Studenta — pomoże zinterpretować przepisy i, jeśli trzeba, reprezentuje Cię wobec jednostek uczelni." }
+    }
   }
 }
