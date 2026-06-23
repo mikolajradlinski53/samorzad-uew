@@ -755,5 +755,12 @@
       { "title": "Kiedy złożyć wniosek", "desc": "O zapomogę wnioskujesz w związku z konkretnym, przejściowo trudnym zdarzeniem losowym. Do wniosku dołącz dokumenty potwierdzające okoliczności." },
       { "title": "Wypłata po odebraniu decyzji", "desc": "Warunkiem wypłaty jest odebranie decyzji w systemie USOSweb. Powiadomienia wysyłane są na uczelniany adres e-mail." }
     ]
+  },
+  "site": {
+    "titleDefault": "Samorząd Studentów Uniwersytetu Ekonomicznego we Wrocławiu",
+    "titleTemplate": "%s · Samorząd Studentów Uniwersytetu Ekonomicznego we Wrocławiu",
+    "description": "Reprezentujemy ponad 11 000 studentów Uniwersytetu Ekonomicznego we Wrocławiu. Działamy, żeby Wasze studia miały sens.",
+    "ogDescription": "Reprezentujemy ponad 11 000 studentów Uniwersytetu Ekonomicznego we Wrocławiu.",
+    "skipLink": "Przejdź do treści"
   }
 }

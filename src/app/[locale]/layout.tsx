@@ -2,7 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Archivo, JetBrains_Mono } from "next/font/google";
 import { notFound } from "next/navigation";
 import { NextIntlClientProvider, hasLocale } from "next-intl";
-import { getMessages, setRequestLocale } from "next-intl/server";
+import { getMessages, getTranslations, setRequestLocale } from "next-intl/server";
 import { routing } from "@/i18n/routing";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import { Nav } from "@/components/Nav";
@@ -74,42 +74,48 @@ const jetbrainsMono = JetBrains_Mono({
   display: "swap",
 });
 
-export const metadata: Metadata = {
-  metadataBase: new URL("https://samorzad.ue.wroc.pl"),
-  title: {
-    default: "Samorząd Studentów Uniwersytetu Ekonomicznego we Wrocławiu",
-    template: "%s · Samorząd Studentów Uniwersytetu Ekonomicznego we Wrocławiu",
-  },
-  description:
-    "Reprezentujemy ponad 11 000 studentów Uniwersytetu Ekonomicznego we Wrocławiu. Działamy, żeby Wasze studia miały sens.",
-  keywords: [
-    "Samorząd Studentów Uniwersytetu Ekonomicznego we Wrocławiu",
-    "Samorząd Studentów UEW",
-    "Uniwersytet Ekonomiczny we Wrocławiu",
-    "UEW",
-    "studenci",
-    "stypendia",
-    "prawa studenta",
-  ],
-  openGraph: {
-    type: "website",
-    locale: "pl_PL",
-    url: "/",
-    siteName: "Samorząd Studentów Uniwersytetu Ekonomicznego we Wrocławiu",
-    title: "Samorząd Studentów Uniwersytetu Ekonomicznego we Wrocławiu",
-    description:
-      "Reprezentujemy ponad 11 000 studentów Uniwersytetu Ekonomicznego we Wrocławiu.",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Samorząd Studentów Uniwersytetu Ekonomicznego we Wrocławiu",
-    description:
-      "Reprezentujemy ponad 11 000 studentów Uniwersytetu Ekonomicznego we Wrocławiu.",
-  },
-  alternates: {
-    canonical: "/",
-  },
-};
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "site" });
+  const ogLocale = locale === "en" ? "en_US" : "pl_PL";
+
+  return {
+    metadataBase: new URL(SITE_URL),
+    title: {
+      default: t("titleDefault"),
+      template: t("titleTemplate"),
+    },
+    description: t("description"),
+    keywords: [
+      "Samorząd Studentów Uniwersytetu Ekonomicznego we Wrocławiu",
+      "Samorząd Studentów UEW",
+      "Uniwersytet Ekonomiczny we Wrocławiu",
+      "UEW",
+      "studenci",
+      "stypendia",
+      "prawa studenta",
+    ],
+    openGraph: {
+      type: "website",
+      locale: ogLocale,
+      url: `/${locale}`,
+      siteName: t("titleDefault"),
+      title: t("titleDefault"),
+      description: t("ogDescription"),
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: t("titleDefault"),
+      description: t("ogDescription"),
+    },
+    // Per-page canonical/hreflang are emitted via sitemap.ts to avoid this
+    // layout's alternates leaking onto every child route.
+  };
+}
 
 export const viewport: Viewport = {
   themeColor: [
@@ -135,6 +141,7 @@ export default async function LocaleLayout({
   }
   setRequestLocale(locale);
   const messages = await getMessages();
+  const t = await getTranslations({ locale, namespace: "site" });
 
   return (
     <html
@@ -152,7 +159,7 @@ export default async function LocaleLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteLd) }}
         />
         <a href="#main-content" className="skip-link">
-          Przejdź do treści
+          {t("skipLink")}
         </a>
         <NextIntlClientProvider messages={messages}>
           <ThemeProvider>

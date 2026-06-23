@@ -755,5 +755,12 @@
       { "title": "When to apply", "desc": "You apply for a hardship grant in connection with a specific, temporarily difficult unforeseen event. Attach documents confirming the circumstances to your application." },
       { "title": "Payment after collecting the decision", "desc": "Payment requires collecting the decision in the USOSweb system. Notifications are sent to your university email address." }
     ]
+  },
+  "site": {
+    "titleDefault": "Student Government of Wrocław University of Economics and Business",
+    "titleTemplate": "%s · Student Government of Wrocław University of Economics and Business",
+    "description": "We represent over 11,000 students of Wrocław University of Economics and Business. We work to make your studies meaningful.",
+    "ogDescription": "We represent over 11,000 students of Wrocław University of Economics and Business.",
+    "skipLink": "Skip to content"
   }
 }
