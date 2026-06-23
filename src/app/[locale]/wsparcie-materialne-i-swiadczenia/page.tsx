@@ -1,24 +1,37 @@
 import type { Metadata } from "next";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 import { PageHero } from "@/components/PageHero";
 import { WsparcieContent } from "@/components/pages/WsparcieContent";
+import { ogMeta } from "@/lib/og";
 
-export const metadata: Metadata = {
-  title: "Wsparcie materialne i świadczenia",
-  description:
-    "Przegląd wszystkich form pomocy materialnej dla studentów UEW — stypendium socjalne, rektora, dla osób z niepełnosprawnością, zapomoga oraz fundusz własny.",
-};
+type Props = { params: Promise<{ locale: string }> };
 
-export default function WsparcieMaterialnePage() {
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "wsparcie" });
+  return {
+    title: t("metaTitle"),
+    description: t("metaDesc"),
+    ...ogMeta(t("metaTitle"), t("ogLabel")),
+  };
+}
+
+export default async function WsparcieMaterialnePage({ params }: Props) {
+  const { locale } = await params;
+  setRequestLocale(locale);
+  const t = await getTranslations({ locale, namespace: "wsparcie" });
+  const tc = await getTranslations({ locale, namespace: "common" });
+
   return (
     <>
       <PageHero
-        eyebrow="Strefa studenta"
-        title="Wsparcie materialne i świadczenia"
-        lead="Stypendia, zapomogi i fundusze, z których możesz skorzystać w trakcie studiów. Zebraliśmy je w jednym miejscu, żeby łatwiej było znaleźć właściwą ścieżkę."
+        eyebrow={t("heroEyebrow")}
+        title={t("heroTitle")}
+        lead={t("heroLead")}
         breadcrumbs={[
-          { label: "Strona główna", href: "/" },
-          { label: "Strefa studenta", href: "/dla-studenta" },
-          { label: "Wsparcie materialne i świadczenia" },
+          { label: tc("home"), href: "/" },
+          { label: t("crumbStudent"), href: "/dla-studenta" },
+          { label: t("heroTitle") },
         ]}
       />
       <WsparcieContent />

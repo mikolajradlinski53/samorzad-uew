@@ -607,5 +607,153 @@
       "emergency": "Numer alarmowy — w sytuacji bezpośredniego zagrożenia życia"
     },
     "emergencyNote": "W sytuacji bezpośredniego zagrożenia życia lub zdrowia zawsze dzwoń pod numer alarmowy <strong>112</strong>."
+  },
+  "stypendiumDetail": {
+    "steps": {
+      "print": { "title": "Wydrukuj wniosek z USOSweb", "desc": "Wniosek wygenerujesz i wydrukujesz na swoim koncie studenta w systemie USOSweb." },
+      "submit": { "title": "Złóż wniosek z dokumentacją", "desc": "Podpisany wniosek wraz z wymaganą dokumentacją składasz w Dziale Obsługi Studenta." },
+      "decision": { "title": "Odbierz decyzję w USOSweb", "desc": "Warunkiem wypłaty świadczenia jest odebranie decyzji w systemie USOSweb. Powiadomienia trafiają na uczelniany adres e-mail." }
+    },
+    "regulaminButton": "Regulamin świadczeń (PDF)",
+    "allButton": "Wszystkie stypendia"
+  },
+  "wsparcie": {
+    "metaTitle": "Wsparcie materialne i świadczenia",
+    "metaDesc": "Przegląd wszystkich form pomocy materialnej dla studentów UEW — stypendium socjalne, rektora, dla osób z niepełnosprawnością, zapomoga oraz fundusz własny.",
+    "ogLabel": "Strefa studenta",
+    "heroEyebrow": "Strefa studenta",
+    "heroTitle": "Wsparcie materialne i świadczenia",
+    "heroLead": "Stypendia, zapomogi i fundusze, z których możesz skorzystać w trakcie studiów. Zebraliśmy je w jednym miejscu, żeby łatwiej było znaleźć właściwą ścieżkę.",
+    "crumbStudent": "Strefa studenta",
+    "eyebrow": "Pomoc materialna",
+    "heading": "Wszystkie formy wsparcia w jednym miejscu",
+    "intro": "Uniwersytet oferuje kilka świadczeń, które mogą pomóc Ci spokojnie przejść przez studia. Część z nich można pobierać równolegle — wybierz to, co dotyczy Twojej sytuacji.",
+    "items": {
+      "socjalne": { "title": "Stypendium socjalne", "desc": "Dla studentów w trudniejszej sytuacji materialnej, przyznawane na podstawie dochodu w rodzinie." },
+      "zapomoga": { "title": "Zapomoga", "desc": "Jednorazowa pomoc w nagłej, przejściowo trudnej sytuacji życiowej." },
+      "niepelnosprawni": { "title": "Stypendium dla osób z niepełnosprawnością", "desc": "Dla studentów z aktualnym orzeczeniem o niepełnosprawności — niezależne od dochodu." },
+      "rektora": { "title": "Stypendium rektora", "desc": "Dla najlepszych studentów — za wysokie wyniki w nauce oraz osiągnięcia." },
+      "fundusz": { "title": "Stypendium z Własnego Funduszu Stypendialnego", "desc": "Jednorazowe wsparcie za dobre wyniki akademickie, obsługiwane w systemie LBD." }
+    },
+    "ctaHeading": "Wszystko w jednym pakiecie",
+    "ctaDesc": "Procedury, terminy i praktyczne wskazówki zebraliśmy w infopackach.",
+    "ctaButton": "Zobacz infopacki"
+  },
+  "stypendia": {
+    "metaTitle": "Stypendia i wsparcie finansowe",
+    "metaDesc": "Stypendia socjalne, rektora, dla osób z niepełnosprawnością oraz zapomogi na Uniwersytecie Ekonomicznym we Wrocławiu. Dokumenty, terminy i odnośniki.",
+    "ogLabel": "Strefa studenta",
+    "heroEyebrow": "Strefa studenta",
+    "heroTitle": "Stypendia i wsparcie finansowe",
+    "heroLead": "Tu znajdziesz kluczowe informacje o stypendiach i świadczeniach oraz wszystkie niezbędne dokumenty — w jednym miejscu.",
+    "crumbStudent": "Strefa studenta",
+    "intro": "Podczas studiów możesz skorzystać z różnych form wsparcia finansowego oferowanych przez uczelnię — zarówno świadczeń dla osób w trudniejszej sytuacji materialnej, jak i stypendiów za bardzo dobre wyniki w nauce oraz osiągnięcia naukowe, sportowe i artystyczne.",
+    "typesHeading": "Rodzaje wsparcia",
+    "kinds": {
+      "socjalne": { "title": "Socjalne", "desc": "Dla studentów znajdujących się w trudniejszej sytuacji materialnej." },
+      "rektora": { "title": "Rektora", "desc": "Za bardzo dobre wyniki w nauce oraz osiągnięcia naukowe, sportowe lub artystyczne." },
+      "niepelnosprawni": { "title": "Dla osób z niepełnosprawnością", "desc": "Wsparcie dla studentów z orzeczoną niepełnosprawnością." },
+      "zapomoga": { "title": "Zapomoga", "desc": "Jednorazowa pomoc w nagłej, przejściowo trudnej sytuacji życiowej." }
+    },
+    "documentsHeading": "Dokumenty i załączniki",
+    "documents": [
+      "Wykaz dokumentacji przy ubieganiu się o stypendium socjalne",
+      "Zasady obliczania dochodu w rodzinie studenta",
+      "Zasady oceny osiągnięć naukowych, artystycznych i sportowych",
+      "Dane do wyznaczania stypendiów i zapomóg",
+      "Oświadczenia do stypendium socjalnego",
+      "Kwestionariusz studenta z orzeczoną niepełnosprawnością",
+      "Zasady zakwaterowania w domach studenckich",
+      "Oświadczenie o braku zmiany sytuacji materialnej",
+      "Oświadczenie o nieprowadzeniu wspólnego gospodarstwa z rodzicami",
+      "Wzór zgody i klauzuli informacyjnej"
+    ],
+    "downloadAll": "Pobierz wszystkie dokumenty",
+    "linksHeading": "Ważne odnośniki",
+    "officialLinks": {
+      "news": "Aktualności dotyczące stypendiów",
+      "infopack": "Infopack: świadczenia i pomoc materialna",
+      "regulamin": "Regulamin świadczeń stypendialnych (PDF)"
+    },
+    "faqHeading": "Stypendia — najczęstsze pytania",
+    "faq": {
+      "where": { "q": "Gdzie złożę wniosek o stypendium?", "a": "Wniosek o każde świadczenie wydrukujesz na swoim koncie studenta w systemie USOSweb. Podpisany wniosek wraz z wymaganą dokumentacją składasz w Dziale Obsługi Studenta." },
+      "when": { "q": "Kiedy zostanie wypłacone stypendium?", "a": "Warunkiem wypłaty jest odebranie decyzji w systemie USOSweb. Powiadomienia o decyzji trafiają na Twój uczelniany adres e-mail." },
+      "multiple": { "q": "Czy mogę pobierać kilka świadczeń jednocześnie?", "a": "Tak. Na przykład stypendium dla osób z niepełnosprawnością jest niezależne od dochodu i można je łączyć z innymi świadczeniami. Szczegóły określa regulamin świadczeń stypendialnych." },
+      "firstTime": { "q": "Składam wniosek o stypendium socjalne po raz pierwszy — o czym pamiętać?", "a": "Dołącz oświadczenie o dochodach oraz pełną dokumentację potwierdzającą dochody rodziny. Jeśli masz uczące się pełnoletnie rodzeństwo, dołącz aktualne zaświadczenie o kontynuacji nauki." },
+      "diff": { "q": "Czym różni się zapomoga od stypendium socjalnego?", "a": "Zapomoga to jednorazowa pomoc w nagłej, przejściowo trudnej sytuacji losowej, przyznawana niezależnie od stypendium socjalnego." }
+    }
+  },
+  "stypRektora": {
+    "metaTitle": "Stypendium rektora",
+    "metaDesc": "Stypendium rektora UEW za bardzo dobre wyniki w nauce oraz osiągnięcia naukowe, sportowe i artystyczne. Jak złożyć wniosek przez USOSweb i gdzie znaleźć regulamin.",
+    "ogLabel": "Strefa studenta",
+    "heroEyebrow": "Strefa studenta · Stypendia",
+    "heroTitle": "Stypendium rektora",
+    "heroLead": "Za bardzo dobre wyniki w nauce oraz osiągnięcia naukowe, sportowe lub artystyczne. Nagroda dla najlepszych studentów Uniwersytetu.",
+    "crumbStudent": "Strefa studenta",
+    "crumbStypendia": "Stypendia",
+    "eyebrow": "Stypendium rektora",
+    "heading": "Dla tych, którzy dają z siebie więcej",
+    "intro": "Stypendium rektora przyznawane jest najlepszym studentom za wysokie wyniki w nauce oraz osiągnięcia naukowe, artystyczne lub sportowe. Szczegółowe kryteria i sposób punktowania osiągnięć określa regulamin świadczeń stypendialnych.",
+    "notes": [
+      { "title": "Co się liczy", "desc": "Pod uwagę brane są średnia ocen oraz udokumentowane osiągnięcia naukowe, artystyczne i sportowe — zgodnie z zasadami oceny zawartymi w regulaminie." },
+      { "title": "Stypendium z Własnego Funduszu Stypendialnego", "desc": "Oprócz stypendium rektora UEW przyznaje jednorazowe wsparcie z własnego funduszu za dobre wyniki akademickie — wniosek obsługiwany jest w systemie LBD." }
+    ]
+  },
+  "stypSocjalne": {
+    "metaTitle": "Stypendium socjalne",
+    "metaDesc": "Stypendium socjalne dla studentów UEW w trudniejszej sytuacji materialnej — jak złożyć wniosek przez USOSweb, jaką dokumentację przygotować i o czym pamiętać.",
+    "ogLabel": "Strefa studenta",
+    "heroEyebrow": "Strefa studenta · Stypendia",
+    "heroTitle": "Stypendium socjalne",
+    "heroLead": "Dla studentów znajdujących się w trudniejszej sytuacji materialnej. Świadczenie przyznawane na podstawie dochodu w rodzinie studenta.",
+    "crumbStudent": "Strefa studenta",
+    "crumbStypendia": "Stypendia",
+    "eyebrow": "Stypendium socjalne",
+    "heading": "Wsparcie, gdy budżet domowy nie domyka się sam",
+    "intro": "Stypendium socjalne przysługuje studentom znajdującym się w trudnej sytuacji materialnej. Wysokość świadczenia zależy od dochodu przypadającego na osobę w rodzinie, obliczanego zgodnie z regulaminem świadczeń.",
+    "notes": [
+      { "title": "Składasz po raz pierwszy?", "desc": "Osoby ubiegające się o stypendium po raz pierwszy muszą złożyć wydrukowany i podpisany wniosek wraz z oświadczeniem o dochodach oraz pełną dokumentacją potwierdzającą dochody rodziny." },
+      { "title": "Pełnoletnie rodzeństwo, które się uczy", "desc": "Jeśli masz uczące się pełnoletnie rodzeństwo, do wniosku na semestr letni dołącz aktualne zaświadczenie o kontynuacji nauki." },
+      { "title": "Zmiana sytuacji w rodzinie", "desc": "Zgłoś zmiany takie jak zgon, urodzenie dziecka, ukończenie nauki przez pełnoletnie rodzeństwo lub zawarcie małżeństwa — wpływają one na wysokość świadczenia." },
+      { "title": "Wypłata po odebraniu decyzji", "desc": "Stypendium wypłacane jest po odebraniu decyzji w systemie USOSweb. Powiadomienia wysyłane są na uczelniany adres e-mail." }
+    ]
+  },
+  "stypNiepelnosprawni": {
+    "metaTitle": "Stypendium dla osób z niepełnosprawnością",
+    "metaDesc": "Stypendium dla studentów UEW z orzeczoną niepełnosprawnością — jak złożyć wniosek przez USOSweb i jakie orzeczenie dołączyć.",
+    "ogLabel": "Strefa studenta",
+    "heroEyebrow": "Strefa studenta · Stypendia",
+    "heroTitle": "Stypendium dla osób z niepełnosprawnością",
+    "heroLead": "Wsparcie dla studentów z orzeczoną niepełnosprawnością — niezależne od sytuacji materialnej i od pozostałych świadczeń.",
+    "crumbStudent": "Strefa studenta",
+    "crumbStypendia": "Stypendia",
+    "crumbSelf": "Dla osób z niepełnosprawnością",
+    "eyebrow": "Stypendium dla osób z niepełnosprawnością",
+    "heading": "Świadczenie niezależne od dochodu",
+    "intro": "Stypendium przysługuje studentom posiadającym aktualne orzeczenie o niepełnosprawności. Nie zależy od sytuacji materialnej i można je pobierać równolegle z innymi świadczeniami.",
+    "notes": [
+      { "title": "Aktualne orzeczenie", "desc": "Podstawą przyznania świadczenia jest ważne orzeczenie o stopniu niepełnosprawności. Po wygaśnięciu orzeczenia konieczne jest złożenie nowej dokumentacji." },
+      { "title": "Wypłata po odebraniu decyzji", "desc": "Tak jak przy pozostałych świadczeniach, wypłata następuje po odebraniu decyzji w systemie USOSweb. Powiadomienia trafiają na uczelniany adres e-mail." }
+    ],
+    "extraLink": "Biuro ds. Osób z Niepełnosprawnościami"
+  },
+  "zapomoga": {
+    "metaTitle": "Zapomoga",
+    "metaDesc": "Zapomoga to jednorazowa pomoc dla studentów UEW, którzy znaleźli się w nagłej, przejściowo trudnej sytuacji życiowej. Jak złożyć wniosek przez USOSweb.",
+    "ogLabel": "Strefa studenta",
+    "heroEyebrow": "Strefa studenta · Stypendia",
+    "heroTitle": "Zapomoga",
+    "heroLead": "Jednorazowa pomoc dla studentów, którzy z przyczyn losowych znaleźli się w przejściowo trudnej sytuacji życiowej.",
+    "crumbStudent": "Strefa studenta",
+    "crumbStypendia": "Stypendia",
+    "eyebrow": "Zapomoga",
+    "heading": "Doraźne wsparcie w nagłej sytuacji",
+    "intro": "Zapomoga to jednorazowe świadczenie dla studentów, którzy przejściowo znaleźli się w trudnej sytuacji życiowej — na przykład z powodu zdarzenia losowego. Przyznawana jest niezależnie od stypendium socjalnego.",
+    "notes": [
+      { "title": "Kiedy złożyć wniosek", "desc": "O zapomogę wnioskujesz w związku z konkretnym, przejściowo trudnym zdarzeniem losowym. Do wniosku dołącz dokumenty potwierdzające okoliczności." },
+      { "title": "Wypłata po odebraniu decyzji", "desc": "Warunkiem wypłaty jest odebranie decyzji w systemie USOSweb. Powiadomienia wysyłane są na uczelniany adres e-mail." }
+    ]
   }
 }

@@ -1,41 +1,48 @@
 import type { Metadata } from "next";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 import { PageHero } from "@/components/PageHero";
-import { StypendiumDetailContent } from "@/components/pages/StypendiumDetailContent";
+import {
+  StypendiumDetailContent,
+  type DetailNote,
+} from "@/components/pages/StypendiumDetailContent";
+import { ogMeta } from "@/lib/og";
 
-export const metadata: Metadata = {
-  title: "Zapomoga",
-  description:
-    "Zapomoga to jednorazowa pomoc dla studentów UEW, którzy znaleźli się w nagłej, przejściowo trudnej sytuacji życiowej. Jak złożyć wniosek przez USOSweb.",
-};
+type Props = { params: Promise<{ locale: string }> };
 
-export default function ZapomogaPage() {
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "zapomoga" });
+  return {
+    title: t("metaTitle"),
+    description: t("metaDesc"),
+    ...ogMeta(t("metaTitle"), t("ogLabel")),
+  };
+}
+
+export default async function ZapomogaPage({ params }: Props) {
+  const { locale } = await params;
+  setRequestLocale(locale);
+  const t = await getTranslations({ locale, namespace: "zapomoga" });
+  const tc = await getTranslations({ locale, namespace: "common" });
+
   return (
     <>
       <PageHero
-        eyebrow="Strefa studenta · Stypendia"
-        title="Zapomoga"
-        lead="Jednorazowa pomoc dla studentów, którzy z przyczyn losowych znaleźli się w przejściowo trudnej sytuacji życiowej."
+        eyebrow={t("heroEyebrow")}
+        title={t("heroTitle")}
+        lead={t("heroLead")}
         breadcrumbs={[
-          { label: "Strona główna", href: "/" },
-          { label: "Strefa studenta", href: "/dla-studenta" },
-          { label: "Stypendia", href: "/stypendia" },
-          { label: "Zapomoga" },
+          { label: tc("home"), href: "/" },
+          { label: t("crumbStudent"), href: "/dla-studenta" },
+          { label: t("crumbStypendia"), href: "/stypendia" },
+          { label: t("heroTitle") },
         ]}
       />
       <StypendiumDetailContent
-        eyebrow="Zapomoga"
-        heading="Doraźne wsparcie w nagłej sytuacji"
-        intro="Zapomoga to jednorazowe świadczenie dla studentów, którzy przejściowo znaleźli się w trudnej sytuacji życiowej — na przykład z powodu zdarzenia losowego. Przyznawana jest niezależnie od stypendium socjalnego."
-        notes={[
-          {
-            title: "Kiedy złożyć wniosek",
-            desc: "O zapomogę wnioskujesz w związku z konkretnym, przejściowo trudnym zdarzeniem losowym. Do wniosku dołącz dokumenty potwierdzające okoliczności.",
-          },
-          {
-            title: "Wypłata po odebraniu decyzji",
-            desc: "Warunkiem wypłaty jest odebranie decyzji w systemie USOSweb. Powiadomienia wysyłane są na uczelniany adres e-mail.",
-          },
-        ]}
+        eyebrow={t("eyebrow")}
+        heading={t("heading")}
+        intro={t("intro")}
+        notes={t.raw("notes") as DetailNote[]}
       />
     </>
   );

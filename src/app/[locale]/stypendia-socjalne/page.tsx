@@ -1,49 +1,48 @@
 import type { Metadata } from "next";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 import { PageHero } from "@/components/PageHero";
-import { StypendiumDetailContent } from "@/components/pages/StypendiumDetailContent";
+import {
+  StypendiumDetailContent,
+  type DetailNote,
+} from "@/components/pages/StypendiumDetailContent";
+import { ogMeta } from "@/lib/og";
 
-export const metadata: Metadata = {
-  title: "Stypendium socjalne",
-  description:
-    "Stypendium socjalne dla studentów UEW w trudniejszej sytuacji materialnej — jak złożyć wniosek przez USOSweb, jaką dokumentację przygotować i o czym pamiętać.",
-};
+type Props = { params: Promise<{ locale: string }> };
 
-export default function StypendiumSocjalnePage() {
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "stypSocjalne" });
+  return {
+    title: t("metaTitle"),
+    description: t("metaDesc"),
+    ...ogMeta(t("metaTitle"), t("ogLabel")),
+  };
+}
+
+export default async function StypendiumSocjalnePage({ params }: Props) {
+  const { locale } = await params;
+  setRequestLocale(locale);
+  const t = await getTranslations({ locale, namespace: "stypSocjalne" });
+  const tc = await getTranslations({ locale, namespace: "common" });
+
   return (
     <>
       <PageHero
-        eyebrow="Strefa studenta · Stypendia"
-        title="Stypendium socjalne"
-        lead="Dla studentów znajdujących się w trudniejszej sytuacji materialnej. Świadczenie przyznawane na podstawie dochodu w rodzinie studenta."
+        eyebrow={t("heroEyebrow")}
+        title={t("heroTitle")}
+        lead={t("heroLead")}
         breadcrumbs={[
-          { label: "Strona główna", href: "/" },
-          { label: "Strefa studenta", href: "/dla-studenta" },
-          { label: "Stypendia", href: "/stypendia" },
-          { label: "Stypendium socjalne" },
+          { label: tc("home"), href: "/" },
+          { label: t("crumbStudent"), href: "/dla-studenta" },
+          { label: t("crumbStypendia"), href: "/stypendia" },
+          { label: t("heroTitle") },
         ]}
       />
       <StypendiumDetailContent
-        eyebrow="Stypendium socjalne"
-        heading="Wsparcie, gdy budżet domowy nie domyka się sam"
-        intro="Stypendium socjalne przysługuje studentom znajdującym się w trudnej sytuacji materialnej. Wysokość świadczenia zależy od dochodu przypadającego na osobę w rodzinie, obliczanego zgodnie z regulaminem świadczeń."
-        notes={[
-          {
-            title: "Składasz po raz pierwszy?",
-            desc: "Osoby ubiegające się o stypendium po raz pierwszy muszą złożyć wydrukowany i podpisany wniosek wraz z oświadczeniem o dochodach oraz pełną dokumentacją potwierdzającą dochody rodziny.",
-          },
-          {
-            title: "Pełnoletnie rodzeństwo, które się uczy",
-            desc: "Jeśli masz uczące się pełnoletnie rodzeństwo, do wniosku na semestr letni dołącz aktualne zaświadczenie o kontynuacji nauki.",
-          },
-          {
-            title: "Zmiana sytuacji w rodzinie",
-            desc: "Zgłoś zmiany takie jak zgon, urodzenie dziecka, ukończenie nauki przez pełnoletnie rodzeństwo lub zawarcie małżeństwa — wpływają one na wysokość świadczenia.",
-          },
-          {
-            title: "Wypłata po odebraniu decyzji",
-            desc: "Stypendium wypłacane jest po odebraniu decyzji w systemie USOSweb. Powiadomienia wysyłane są na uczelniany adres e-mail.",
-          },
-        ]}
+        eyebrow={t("eyebrow")}
+        heading={t("heading")}
+        intro={t("intro")}
+        notes={t.raw("notes") as DetailNote[]}
       />
     </>
   );

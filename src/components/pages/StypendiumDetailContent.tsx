@@ -1,6 +1,7 @@
 "use client";
 
 import { motion, useReducedMotion } from "motion/react";
+import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import {
   ArrowUpRight,
@@ -34,31 +35,23 @@ export interface StypendiumDetailProps {
   extraLinks?: ExtraLink[];
 }
 
-const defaultSteps = [
-  {
-    title: "Wydrukuj wniosek z USOSweb",
-    desc: "Wniosek wygenerujesz i wydrukujesz na swoim koncie studenta w systemie USOSweb.",
-  },
-  {
-    title: "Złóż wniosek z dokumentacją",
-    desc: "Podpisany wniosek wraz z wymaganą dokumentacją składasz w Dziale Obsługi Studenta.",
-  },
-  {
-    title: "Odbierz decyzję w USOSweb",
-    desc: "Warunkiem wypłaty świadczenia jest odebranie decyzji w systemie USOSweb. Powiadomienia trafiają na uczelniany adres e-mail.",
-  },
-];
-
 export function StypendiumDetailContent({
   eyebrow,
   heading,
   intro,
   notes,
-  steps = defaultSteps,
+  steps: stepsProp,
   regulaminHref = REGULAMIN_HREF,
   extraLinks = [],
 }: StypendiumDetailProps) {
   const reduce = useReducedMotion();
+  const t = useTranslations("stypendiumDetail");
+
+  const defaultSteps = (["print", "submit", "decision"] as const).map((k) => ({
+    title: t(`steps.${k}.title`),
+    desc: t(`steps.${k}.desc`),
+  }));
+  const steps = stepsProp ?? defaultSteps;
 
   return (
     <section className="section-padding" aria-labelledby="styp-heading">
@@ -139,7 +132,7 @@ export function StypendiumDetailContent({
               className="inline-flex h-12 items-center gap-2 rounded-lg bg-accent px-7 text-base font-medium text-bg-base transition-all hover:bg-accent-dim active:scale-[0.98]"
             >
               <FileText size={20} weight="regular" aria-hidden="true" />
-              Regulamin świadczeń (PDF)
+              {t("regulaminButton")}
             </a>
             {extraLinks.map((link) => {
               const OutIcon: Icon = ArrowSquareOut;
@@ -160,7 +153,7 @@ export function StypendiumDetailContent({
               href="/stypendia"
               className="inline-flex h-12 items-center gap-1.5 px-3 text-base font-medium text-accent transition-colors hover:text-accent-dim"
             >
-              Wszystkie stypendia
+              {t("allButton")}
               <ArrowUpRight size={18} weight="regular" aria-hidden="true" />
             </Link>
           </div>

@@ -607,5 +607,153 @@
       "emergency": "Emergency number — in a situation of direct threat to life"
     },
     "emergencyNote": "In a situation of direct threat to life or health, always call the emergency number <strong>112</strong>."
+  },
+  "stypendiumDetail": {
+    "steps": {
+      "print": { "title": "Print the application from USOSweb", "desc": "You generate and print the application from your student account in the USOSweb system." },
+      "submit": { "title": "Submit the application with documentation", "desc": "Submit the signed application together with the required documentation at the Student Service Office." },
+      "decision": { "title": "Collect the decision in USOSweb", "desc": "Payment of the benefit requires collecting the decision in the USOSweb system. Notifications are sent to your university email address." }
+    },
+    "regulaminButton": "Benefits regulations (PDF)",
+    "allButton": "All scholarships"
+  },
+  "wsparcie": {
+    "metaTitle": "Financial support and benefits",
+    "metaDesc": "An overview of all forms of financial support for UEW students — social, merit and disability scholarships, hardship grants and the university’s own fund.",
+    "ogLabel": "Student zone",
+    "heroEyebrow": "Student zone",
+    "heroTitle": "Financial support and benefits",
+    "heroLead": "Scholarships, hardship grants and funds you can use during your studies. We’ve gathered them in one place to make finding the right path easier.",
+    "crumbStudent": "Student zone",
+    "eyebrow": "Financial aid",
+    "heading": "Every form of support in one place",
+    "intro": "The University offers several benefits that can help you get through your studies with peace of mind. Some of them can be received at the same time — choose what fits your situation.",
+    "items": {
+      "socjalne": { "title": "Social scholarship", "desc": "For students in a more difficult financial situation, awarded on the basis of family income." },
+      "zapomoga": { "title": "Hardship grant", "desc": "One-off help in a sudden, temporarily difficult life situation." },
+      "niepelnosprawni": { "title": "Disability scholarship", "desc": "For students with a current disability certificate — independent of income." },
+      "rektora": { "title": "Rector’s scholarship", "desc": "For the best students — for high academic results and achievements." },
+      "fundusz": { "title": "Own Scholarship Fund grant", "desc": "One-off support for good academic results, handled in the LBD system." }
+    },
+    "ctaHeading": "Everything in one pack",
+    "ctaDesc": "We’ve gathered the procedures, deadlines and practical tips in our infopacks.",
+    "ctaButton": "See the infopacks"
+  },
+  "stypendia": {
+    "metaTitle": "Scholarships and financial support",
+    "metaDesc": "Social, merit and disability scholarships and hardship grants at Wrocław University of Economics and Business. Documents, deadlines and links.",
+    "ogLabel": "Student zone",
+    "heroEyebrow": "Student zone",
+    "heroTitle": "Scholarships and financial support",
+    "heroLead": "Here you’ll find the key information about scholarships and benefits, plus all the documents you need — in one place.",
+    "crumbStudent": "Student zone",
+    "intro": "During your studies you can use various forms of financial support offered by the University — both benefits for those in a more difficult financial situation and scholarships for very good academic results and scientific, sporting and artistic achievements.",
+    "typesHeading": "Types of support",
+    "kinds": {
+      "socjalne": { "title": "Social", "desc": "For students in a more difficult financial situation." },
+      "rektora": { "title": "Rector’s", "desc": "For very good academic results and scientific, sporting or artistic achievements." },
+      "niepelnosprawni": { "title": "For people with disabilities", "desc": "Support for students with a certified disability." },
+      "zapomoga": { "title": "Hardship grant", "desc": "One-off help in a sudden, temporarily difficult life situation." }
+    },
+    "documentsHeading": "Documents and attachments",
+    "documents": [
+      "List of documents for applying for a social scholarship",
+      "Rules for calculating income in a student’s family",
+      "Rules for assessing academic, artistic and sporting achievements",
+      "Data for determining scholarships and grants",
+      "Declarations for the social scholarship",
+      "Questionnaire for a student with a certified disability",
+      "Rules for accommodation in student dormitories",
+      "Declaration of no change in financial situation",
+      "Declaration of not running a joint household with parents",
+      "Template consent and information clause"
+    ],
+    "downloadAll": "Download all documents",
+    "linksHeading": "Important links",
+    "officialLinks": {
+      "news": "Scholarship news",
+      "infopack": "Infopack: benefits and financial aid",
+      "regulamin": "Scholarship benefits regulations (PDF)"
+    },
+    "faqHeading": "Scholarships — frequently asked questions",
+    "faq": {
+      "where": { "q": "Where do I submit a scholarship application?", "a": "You print every benefit application from your student account in the USOSweb system. You submit the signed application together with the required documentation at the Student Service Office." },
+      "when": { "q": "When will the scholarship be paid?", "a": "Payment requires collecting the decision in the USOSweb system. Decision notifications are sent to your university email address." },
+      "multiple": { "q": "Can I receive several benefits at once?", "a": "Yes. For example, the disability scholarship is independent of income and can be combined with other benefits. The details are set out in the scholarship benefits regulations." },
+      "firstTime": { "q": "I’m applying for a social scholarship for the first time — what should I remember?", "a": "Attach an income declaration and full documentation confirming your family’s income. If you have an adult sibling who is studying, attach a current certificate of continued education." },
+      "diff": { "q": "How does a hardship grant differ from a social scholarship?", "a": "A hardship grant is one-off help in a sudden, temporarily difficult life event, awarded independently of the social scholarship." }
+    }
+  },
+  "stypRektora": {
+    "metaTitle": "Rector’s scholarship",
+    "metaDesc": "The UEW Rector’s scholarship for very good academic results and scientific, sporting and artistic achievements. How to apply via USOSweb and where to find the regulations.",
+    "ogLabel": "Student zone",
+    "heroEyebrow": "Student zone · Scholarships",
+    "heroTitle": "Rector’s scholarship",
+    "heroLead": "For very good academic results and scientific, sporting or artistic achievements. A reward for the University’s best students.",
+    "crumbStudent": "Student zone",
+    "crumbStypendia": "Scholarships",
+    "eyebrow": "Rector’s scholarship",
+    "heading": "For those who give a little more",
+    "intro": "The Rector’s scholarship is awarded to the best students for high academic results and scientific, artistic or sporting achievements. The detailed criteria and the way achievements are scored are set out in the scholarship benefits regulations.",
+    "notes": [
+      { "title": "What counts", "desc": "Your grade average and documented scientific, artistic and sporting achievements are taken into account — in line with the assessment rules in the regulations." },
+      { "title": "Own Scholarship Fund grant", "desc": "In addition to the Rector’s scholarship, UEW awards one-off support from its own fund for good academic results — the application is handled in the LBD system." }
+    ]
+  },
+  "stypSocjalne": {
+    "metaTitle": "Social scholarship",
+    "metaDesc": "A social scholarship for UEW students in a more difficult financial situation — how to apply via USOSweb, what documentation to prepare and what to remember.",
+    "ogLabel": "Student zone",
+    "heroEyebrow": "Student zone · Scholarships",
+    "heroTitle": "Social scholarship",
+    "heroLead": "For students in a more difficult financial situation. The benefit is awarded on the basis of the student’s family income.",
+    "crumbStudent": "Student zone",
+    "crumbStypendia": "Scholarships",
+    "eyebrow": "Social scholarship",
+    "heading": "Support when the household budget doesn’t add up",
+    "intro": "The social scholarship is available to students in a difficult financial situation. The amount depends on the income per person in the family, calculated in line with the benefits regulations.",
+    "notes": [
+      { "title": "Applying for the first time?", "desc": "First-time applicants must submit a printed, signed application together with an income declaration and full documentation confirming the family’s income." },
+      { "title": "Adult sibling who is studying", "desc": "If you have an adult sibling who is studying, attach a current certificate of continued education to your summer-semester application." },
+      { "title": "Change in family situation", "desc": "Report changes such as a death, the birth of a child, an adult sibling finishing their education or getting married — they affect the amount of the benefit." },
+      { "title": "Payment after collecting the decision", "desc": "The scholarship is paid after you collect the decision in the USOSweb system. Notifications are sent to your university email address." }
+    ]
+  },
+  "stypNiepelnosprawni": {
+    "metaTitle": "Disability scholarship",
+    "metaDesc": "A scholarship for UEW students with a certified disability — how to apply via USOSweb and what certificate to attach.",
+    "ogLabel": "Student zone",
+    "heroEyebrow": "Student zone · Scholarships",
+    "heroTitle": "Disability scholarship",
+    "heroLead": "Support for students with a certified disability — independent of financial situation and of other benefits.",
+    "crumbStudent": "Student zone",
+    "crumbStypendia": "Scholarships",
+    "crumbSelf": "For people with disabilities",
+    "eyebrow": "Disability scholarship",
+    "heading": "A benefit independent of income",
+    "intro": "The scholarship is available to students who hold a current disability certificate. It does not depend on your financial situation and can be received alongside other benefits.",
+    "notes": [
+      { "title": "Current certificate", "desc": "The benefit is awarded on the basis of a valid disability certificate. Once the certificate expires, you must submit new documentation." },
+      { "title": "Payment after collecting the decision", "desc": "As with other benefits, payment follows after you collect the decision in the USOSweb system. Notifications are sent to your university email address." }
+    ],
+    "extraLink": "Office for People with Disabilities"
+  },
+  "zapomoga": {
+    "metaTitle": "Hardship grant",
+    "metaDesc": "A hardship grant is one-off help for UEW students who find themselves in a sudden, temporarily difficult life situation. How to apply via USOSweb.",
+    "ogLabel": "Student zone",
+    "heroEyebrow": "Student zone · Scholarships",
+    "heroTitle": "Hardship grant",
+    "heroLead": "One-off help for students who, for reasons beyond their control, find themselves in a temporarily difficult life situation.",
+    "crumbStudent": "Student zone",
+    "crumbStypendia": "Scholarships",
+    "eyebrow": "Hardship grant",
+    "heading": "Immediate support in a sudden situation",
+    "intro": "A hardship grant is a one-off benefit for students who are temporarily in a difficult life situation — for example, due to an unforeseen event. It is awarded independently of the social scholarship.",
+    "notes": [
+      { "title": "When to apply", "desc": "You apply for a hardship grant in connection with a specific, temporarily difficult unforeseen event. Attach documents confirming the circumstances to your application." },
+      { "title": "Payment after collecting the decision", "desc": "Payment requires collecting the decision in the USOSweb system. Notifications are sent to your university email address." }
+    ]
   }
 }

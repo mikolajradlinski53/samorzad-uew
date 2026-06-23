@@ -1,6 +1,7 @@
 "use client";
 
 import { motion, useReducedMotion } from "motion/react";
+import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import {
   Coins,
@@ -15,65 +16,38 @@ import {
 import { ScrollReveal } from "../ScrollReveal";
 
 interface Swiadczenie {
-  title: string;
-  desc: string;
+  key: string;
   href: string;
   icon: Icon;
 }
 
 const swiadczenia: Swiadczenie[] = [
-  {
-    title: "Stypendium socjalne",
-    desc: "Dla studentów w trudniejszej sytuacji materialnej, przyznawane na podstawie dochodu w rodzinie.",
-    href: "/stypendia-socjalne",
-    icon: Coins,
-  },
-  {
-    title: "Zapomoga",
-    desc: "Jednorazowa pomoc w nagłej, przejściowo trudnej sytuacji życiowej.",
-    href: "/zapomoga",
-    icon: Lifebuoy,
-  },
-  {
-    title: "Stypendium dla osób z niepełnosprawnością",
-    desc: "Dla studentów z aktualnym orzeczeniem o niepełnosprawności — niezależne od dochodu.",
-    href: "/stypendia-dla-niepelnosprawnych",
-    icon: Wheelchair,
-  },
-  {
-    title: "Stypendium rektora",
-    desc: "Dla najlepszych studentów — za wysokie wyniki w nauce oraz osiągnięcia.",
-    href: "/stypendia-rektora",
-    icon: Trophy,
-  },
-  {
-    title: "Stypendium z Własnego Funduszu Stypendialnego",
-    desc: "Jednorazowe wsparcie za dobre wyniki akademickie, obsługiwane w systemie LBD.",
-    href: "/stypendia-rektora",
-    icon: PiggyBank,
-  },
+  { key: "socjalne", href: "/stypendia-socjalne", icon: Coins },
+  { key: "zapomoga", href: "/zapomoga", icon: Lifebuoy },
+  { key: "niepelnosprawni", href: "/stypendia-dla-niepelnosprawnych", icon: Wheelchair },
+  { key: "rektora", href: "/stypendia-rektora", icon: Trophy },
+  { key: "fundusz", href: "/stypendia-rektora", icon: PiggyBank },
 ];
 
 export function WsparcieContent() {
   const reduce = useReducedMotion();
+  const t = useTranslations("wsparcie");
 
   return (
     <section className="section-padding" aria-labelledby="wsparcie-heading">
       <div className="mx-auto max-w-[1200px]">
         <ScrollReveal>
           <p className="text-[0.75rem] font-medium uppercase tracking-[0.08em] text-accent">
-            Pomoc materialna
+            {t("eyebrow")}
           </p>
           <h2
             id="wsparcie-heading"
             className="mt-3 max-w-[24ch] font-display text-[clamp(1.75rem,3.4vw,2.75rem)] font-semibold leading-[1.15] tracking-[-0.02em] text-ink-primary"
           >
-            Wszystkie formy wsparcia w jednym miejscu
+            {t("heading")}
           </h2>
           <p className="prose-constrained mt-4 text-[1.0625rem] leading-[1.75] text-ink-secondary">
-            Uniwersytet oferuje kilka świadczeń, które mogą pomóc Ci spokojnie
-            przejść przez studia. Część z nich można pobierać równolegle — wybierz
-            to, co dotyczy Twojej sytuacji.
+            {t("intro")}
           </p>
         </ScrollReveal>
 
@@ -82,7 +56,7 @@ export function WsparcieContent() {
             const Glyph = s.icon;
             return (
               <motion.div
-                key={s.title}
+                key={s.key}
                 initial={reduce ? false : { opacity: 0, y: 20 }}
                 whileInView={reduce ? undefined : { opacity: 1, y: 0 }}
                 whileHover={
@@ -98,7 +72,7 @@ export function WsparcieContent() {
                   <Glyph size={24} weight="regular" aria-hidden="true" />
                 </span>
                 <h3 className="mt-5 flex items-start gap-1.5 text-[1.0625rem] font-semibold leading-snug tracking-[-0.01em] text-ink-primary">
-                  {s.title}
+                  {t(`items.${s.key}.title`)}
                   <ArrowUpRight
                     size={16}
                     weight="bold"
@@ -107,9 +81,9 @@ export function WsparcieContent() {
                   />
                 </h3>
                 <p className="mt-2 text-[0.875rem] leading-[1.6] text-ink-secondary">
-                  {s.desc}
+                  {t(`items.${s.key}.desc`)}
                 </p>
-                <Link href={s.href} aria-label={s.title} className="absolute inset-0 rounded-xl" />
+                <Link href={s.href} aria-label={t(`items.${s.key}.title`)} className="absolute inset-0 rounded-xl" />
               </motion.div>
             );
           })}
@@ -120,10 +94,10 @@ export function WsparcieContent() {
           <div className="mt-12 flex flex-col items-start justify-between gap-6 rounded-2xl border border-border-subtle bg-bg-surface p-8 sm:flex-row sm:items-center">
             <div>
               <h3 className="font-display text-[clamp(1.5rem,2.6vw,2rem)] font-semibold leading-[1.2] tracking-[-0.02em] text-ink-primary">
-                Wszystko w jednym pakiecie
+                {t("ctaHeading")}
               </h3>
               <p className="mt-2 text-[0.9375rem] leading-[1.6] text-ink-secondary">
-                Procedury, terminy i praktyczne wskazówki zebraliśmy w infopackach.
+                {t("ctaDesc")}
               </p>
             </div>
             <Link
@@ -131,7 +105,7 @@ export function WsparcieContent() {
               className="inline-flex h-12 shrink-0 items-center gap-2 rounded-lg bg-accent px-7 text-base font-medium text-bg-base transition-all hover:bg-accent-dim active:scale-[0.98]"
             >
               <Package size={20} weight="regular" aria-hidden="true" />
-              Zobacz infopacki
+              {t("ctaButton")}
             </Link>
           </div>
         </ScrollReveal>

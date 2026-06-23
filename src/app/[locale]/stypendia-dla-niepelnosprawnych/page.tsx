@@ -1,44 +1,51 @@
 import type { Metadata } from "next";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 import { PageHero } from "@/components/PageHero";
-import { StypendiumDetailContent } from "@/components/pages/StypendiumDetailContent";
+import {
+  StypendiumDetailContent,
+  type DetailNote,
+} from "@/components/pages/StypendiumDetailContent";
+import { ogMeta } from "@/lib/og";
 
-export const metadata: Metadata = {
-  title: "Stypendium dla osób z niepełnosprawnością",
-  description:
-    "Stypendium dla studentów UEW z orzeczoną niepełnosprawnością — jak złożyć wniosek przez USOSweb i jakie orzeczenie dołączyć.",
-};
+type Props = { params: Promise<{ locale: string }> };
 
-export default function StypendiumNiepelnosprawniPage() {
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "stypNiepelnosprawni" });
+  return {
+    title: t("metaTitle"),
+    description: t("metaDesc"),
+    ...ogMeta(t("metaTitle"), t("ogLabel")),
+  };
+}
+
+export default async function StypendiumNiepelnosprawniPage({ params }: Props) {
+  const { locale } = await params;
+  setRequestLocale(locale);
+  const t = await getTranslations({ locale, namespace: "stypNiepelnosprawni" });
+  const tc = await getTranslations({ locale, namespace: "common" });
+
   return (
     <>
       <PageHero
-        eyebrow="Strefa studenta · Stypendia"
-        title="Stypendium dla osób z niepełnosprawnością"
-        lead="Wsparcie dla studentów z orzeczoną niepełnosprawnością — niezależne od sytuacji materialnej i od pozostałych świadczeń."
+        eyebrow={t("heroEyebrow")}
+        title={t("heroTitle")}
+        lead={t("heroLead")}
         breadcrumbs={[
-          { label: "Strona główna", href: "/" },
-          { label: "Strefa studenta", href: "/dla-studenta" },
-          { label: "Stypendia", href: "/stypendia" },
-          { label: "Dla osób z niepełnosprawnością" },
+          { label: tc("home"), href: "/" },
+          { label: t("crumbStudent"), href: "/dla-studenta" },
+          { label: t("crumbStypendia"), href: "/stypendia" },
+          { label: t("crumbSelf") },
         ]}
       />
       <StypendiumDetailContent
-        eyebrow="Stypendium dla osób z niepełnosprawnością"
-        heading="Świadczenie niezależne od dochodu"
-        intro="Stypendium przysługuje studentom posiadającym aktualne orzeczenie o niepełnosprawności. Nie zależy od sytuacji materialnej i można je pobierać równolegle z innymi świadczeniami."
-        notes={[
-          {
-            title: "Aktualne orzeczenie",
-            desc: "Podstawą przyznania świadczenia jest ważne orzeczenie o stopniu niepełnosprawności. Po wygaśnięciu orzeczenia konieczne jest złożenie nowej dokumentacji.",
-          },
-          {
-            title: "Wypłata po odebraniu decyzji",
-            desc: "Tak jak przy pozostałych świadczeniach, wypłata następuje po odebraniu decyzji w systemie USOSweb. Powiadomienia trafiają na uczelniany adres e-mail.",
-          },
-        ]}
+        eyebrow={t("eyebrow")}
+        heading={t("heading")}
+        intro={t("intro")}
+        notes={t.raw("notes") as DetailNote[]}
         extraLinks={[
           {
-            label: "Biuro ds. Osób z Niepełnosprawnościami",
+            label: t("extraLink"),
             href: "https://www.ue.wroc.pl/studenci/9745/biuro_ds_osob_z_niepelnosprawnosciami.html",
           },
         ]}
