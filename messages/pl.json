@@ -139,7 +139,7 @@
     "eyebrow": "Zarząd Samorządu",
     "heading": "Poznaj nasz zespół",
     "org": "Zarząd Samorządu",
-    "roles": { "chair": "Przewodniczący", "vchair": "Wiceprzewodnicząca", "secretary": "Sekretarz", "treasurer": "Skarbnik", "member": "Członek Zarządu" }
+    "roles": { "chair": "Przewodniczący", "vchair": "Wiceprzewodnicząca", "secretary": "Sekretarz", "treasurer": "Skarbnik", "member": "Członek Zarządu", "admin": "Członek Zarządu ds. Administracji", "finance": "Członek Zarządu ds. Finansów", "teaching": "Członek Zarządu ds. Dydaktyki i Jakości Kształcenia", "external": "Członek Zarządu ds. Kontaktów Zewnętrznych", "branch": "Członek Zarządu ds. Filii w Jeleniej Górze", "hr": "Członek Zarządu ds. Human Resources", "promo": "Członek Zarządu ds. Promocji" }
   },
   "dlaStudenta": {
     "metaTitle": "Strefa studenta",
@@ -415,6 +415,7 @@
       "Organizacja wyborów uzupełniających, gdy zajdzie taka potrzeba."
     ],
     "skladHeading": "Skład Komisji",
+    "skladSoon": "Skład Komisji zostanie ogłoszony wkrótce.",
     "roles": { "chair": "Przewodnicząca", "memberF": "Członkini", "memberM": "Członek" },
     "uchwalyButton": "Uchwały SKW 2025/2026"
   },

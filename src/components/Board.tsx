@@ -48,6 +48,7 @@ export function Board() {
                 photo={boardPhotos[i]}
                 no={i + 1}
                 org={t("org")}
+                email={member.email}
                 className="h-full"
               />
             </motion.div>

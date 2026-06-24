@@ -139,7 +139,7 @@
     "eyebrow": "Student Government Board",
     "heading": "Meet our team",
     "org": "Government Board",
-    "roles": { "chair": "Chair", "vchair": "Vice-chair", "secretary": "Secretary", "treasurer": "Treasurer", "member": "Board member" }
+    "roles": { "chair": "Chair", "vchair": "Vice-chair", "secretary": "Secretary", "treasurer": "Treasurer", "member": "Board member", "admin": "Board Member for Administration", "finance": "Board Member for Finance", "teaching": "Board Member for Teaching & Quality of Education", "external": "Board Member for External Relations", "branch": "Board Member for the Jelenia Góra Branch", "hr": "Board Member for Human Resources", "promo": "Board Member for Promotion" }
   },
   "dlaStudenta": {
     "metaTitle": "Student zone",
@@ -415,6 +415,7 @@
       "Organising by-elections when needed."
     ],
     "skladHeading": "Committee members",
+    "skladSoon": "The committee’s members will be announced soon.",
     "roles": { "chair": "Chair", "memberF": "Member", "memberM": "Member" },
     "uchwalyButton": "SKW resolutions 2025/2026"
   },

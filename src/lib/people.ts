@@ -20,23 +20,25 @@ export interface Member {
 // — Zarząd — sekcja „Zarząd" na stronie głównej (Board.tsx). roleKey ∈ board.roles.*
 // Zdjęcia: public/photos/zarzad/01.jpg … (kolejność jak niżej).
 export const board: Member[] = [
-  { name: "Mikołaj Kowalski", roleKey: "chair" },
-  { name: "Anna Nowak", roleKey: "vchair" },
-  { name: "Piotr Wiśniewski", roleKey: "secretary" },
-  { name: "Katarzyna Lewandowska", roleKey: "treasurer" },
-  { name: "Tomasz Wójcik", roleKey: "member" },
+  { name: "Martyna Porębska", roleKey: "chair" },
+  { name: "Zuzanna Bąk", roleKey: "vchair" },
+  { name: "Martyna Staniszewska", roleKey: "secretary" },
+  { name: "Alicja Rózik", roleKey: "treasurer" },
+  { name: "Katarzyna Krzepkowska", roleKey: "member" },
+  { name: "Lena Kwoka", roleKey: "member" },
+  { name: "Szymon Woźniak", roleKey: "member" },
 ];
 
 // — Przewodnicząca + Wiceprzewodniczący (PrzewodniczacyContent). roleKey ∈ przewodniczacy.roles.*
 export const chair: Member = {
-  name: "Emilia Ćwiklińska",
-  email: "emilia.cwiklinska@samorzad.ue.wroc.pl",
+  name: "Karol Vogel",
+  email: "karol.vogel@samorzad.ue.wroc.pl",
 };
 
 export const viceChairs: Member[] = [
-  { name: "Magdalena Skoczylas", roleKey: "strategy", email: "magdalena.skoczylas@samorzad.ue.wroc.pl" },
-  { name: "Daria Szewczyk", roleKey: "projects", email: "daria.szewczyk@samorzad.ue.wroc.pl" },
-  { name: "Jakub Panas", roleKey: "pr", email: "jakub.panas@samorzad.ue.wroc.pl" },
+  { name: "Mikołaj Radliński", roleKey: "strategy", email: "mikolaj.radlinski@samorzad.ue.wroc.pl" },
+  { name: "Julia Pytel", roleKey: "projects", email: "julia.pytel@samorzad.ue.wroc.pl" },
+  { name: "Alicja Góralska", roleKey: "pr", email: "alicja.goralska@samorzad.ue.wroc.pl" },
 ];
 
 // — Władze rektorskie (WladzeRektorskieContent). roleKey ∈ wladze.roles.*
@@ -60,23 +62,24 @@ export const viceDeans: { name: string; key: string }[] = [
 
 // — RUSS, skład Rady (RUSSContent). Kolejność = zdjęcia public/photos/russ/01.jpg …
 export const russMembers: string[] = [
-  "Jarosław Bałut",
-  "Martyna Bedlechowicz",
-  "Jakub Buchta",
+  "Aleksandra Sobańtka",
   "Bartosz Buczkowski",
-  "Aleksandra Dauerman",
-  "Oliwier Kaszewski",
-  "Zuzanna Kordus",
-  "Zuzanna Kuśmińska",
-  "Zofia Palus",
-  "Natalia Pietrzak",
-  "Agata Rusak",
+  "Bartosz Bakalarz",
+  "Bartosz Giełzak",
+  "Ewa Sosińska",
+  "Ewelina Kaźmierczak",
+  "Jakub Buchta",
   "Karina Służyńska",
+  "Karolina Bąk",
+  "Kornelia Wojtasik",
+  "Maja Łońska",
+  "Marta Lisowska",
+  "Mateusz Szczepański",
+  "Wiktoria Stokłosa",
+  "Zofia Palus",
 ];
 
 // — Studencka Komisja Wyborcza (KomisjaWyborczaContent). roleKey ∈ skw.roles.*
-export const electionCommittee: Member[] = [
-  { name: "Martyna Staniszewska", roleKey: "chair" },
-  { name: "Katarzyna Emerych", roleKey: "memberF" },
-  { name: "Hubert Gościmski", roleKey: "memberM" },
-];
+// PUSTA lista = sekcja „Skład" pokazuje stan „Wkrótce" (skład jeszcze nieogłoszony).
+// Gdy będzie skład: { name: "Imię Nazwisko", roleKey: "chair" | "memberF" | "memberM" }
+export const electionCommittee: Member[] = [];

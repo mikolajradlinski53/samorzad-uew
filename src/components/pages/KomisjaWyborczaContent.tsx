@@ -10,6 +10,7 @@ import { electionCommittee as czlonkowie } from "@/lib/people";
 export function KomisjaWyborczaContent() {
   const reduce = useReducedMotion();
   const t = useTranslations("skw");
+  const tc = useTranslations("common");
   const zadania = t.raw("zadania") as string[];
 
   return (
@@ -53,20 +54,29 @@ export function KomisjaWyborczaContent() {
             {t("skladHeading")}
           </h3>
         </ScrollReveal>
-        <div className="mt-6 grid gap-5 sm:grid-cols-2">
-          {czlonkowie.map((c, i) => (
-            <motion.div
-              key={c.name}
-              initial={reduce ? false : { opacity: 0, y: 20, scale: 0.97 }}
-              whileInView={reduce ? undefined : { opacity: 1, y: 0, scale: 1 }}
-              viewport={{ once: true, amount: 0.2 }}
-              transition={{ duration: 0.5, delay: Math.min(i, 4) * 0.08, ease: [0.16, 1, 0.3, 1] }}
-              className="h-full"
-            >
-              <PersonCard name={c.name} role={t(`roles.${c.roleKey}`)} className="h-full" />
-            </motion.div>
-          ))}
-        </div>
+        {czlonkowie.length > 0 ? (
+          <div className="mt-6 grid gap-5 sm:grid-cols-2">
+            {czlonkowie.map((c, i) => (
+              <motion.div
+                key={c.name}
+                initial={reduce ? false : { opacity: 0, y: 20, scale: 0.97 }}
+                whileInView={reduce ? undefined : { opacity: 1, y: 0, scale: 1 }}
+                viewport={{ once: true, amount: 0.2 }}
+                transition={{ duration: 0.5, delay: Math.min(i, 4) * 0.08, ease: [0.16, 1, 0.3, 1] }}
+                className="h-full"
+              >
+                <PersonCard name={c.name} role={t(`roles.${c.roleKey}`)} className="h-full" />
+              </motion.div>
+            ))}
+          </div>
+        ) : (
+          <div className="mt-6 flex flex-wrap items-center gap-3 rounded-xl border border-dashed border-border-medium bg-bg-surface p-6">
+            <span className="rounded-full border border-border-subtle px-2.5 py-0.5 text-[0.6875rem] font-medium uppercase tracking-[0.06em] text-ink-tertiary">
+              {tc("comingSoon")}
+            </span>
+            <p className="text-[0.9375rem] text-ink-secondary">{t("skladSoon")}</p>
+          </div>
+        )}
 
         {/* CTA */}
         <ScrollReveal>
