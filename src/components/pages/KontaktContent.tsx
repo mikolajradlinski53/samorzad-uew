@@ -106,7 +106,7 @@ export function KontaktContent() {
     `w-full rounded-lg border bg-bg-base px-4 py-3 text-[0.9375rem] text-ink-primary placeholder:text-ink-tertiary transition-colors focus:border-accent ${
       errors[field] && touched[field]
         ? "border-red-500"
-        : "border-border-medium"
+        : "border-border-strong"
     }`;
 
   return (
@@ -207,7 +207,7 @@ export function KontaktContent() {
                       className={fieldClass("name")}
                     />
                     {errors.name && touched.name && (
-                      <p id="name-error" role="alert" className="mt-1.5 text-[0.8125rem] text-red-500">
+                      <p id="name-error" role="alert" className="mt-1.5 text-[0.8125rem] text-red-600 dark:text-red-400">
                         {errors.name}
                       </p>
                     )}
@@ -231,7 +231,7 @@ export function KontaktContent() {
                       className={fieldClass("email")}
                     />
                     {errors.email && touched.email && (
-                      <p id="email-error" role="alert" className="mt-1.5 text-[0.8125rem] text-red-500">
+                      <p id="email-error" role="alert" className="mt-1.5 text-[0.8125rem] text-red-600 dark:text-red-400">
                         {errors.email}
                       </p>
                     )}
@@ -254,7 +254,7 @@ export function KontaktContent() {
                       className={fieldClass("subject")}
                     />
                     {errors.subject && touched.subject && (
-                      <p id="subject-error" role="alert" className="mt-1.5 text-[0.8125rem] text-red-500">
+                      <p id="subject-error" role="alert" className="mt-1.5 text-[0.8125rem] text-red-600 dark:text-red-400">
                         {errors.subject}
                       </p>
                     )}
@@ -277,7 +277,7 @@ export function KontaktContent() {
                       className={`${fieldClass("message")} resize-y`}
                     />
                     {errors.message && touched.message && (
-                      <p id="message-error" role="alert" className="mt-1.5 text-[0.8125rem] text-red-500">
+                      <p id="message-error" role="alert" className="mt-1.5 text-[0.8125rem] text-red-600 dark:text-red-400">
                         {errors.message}
                       </p>
                     )}

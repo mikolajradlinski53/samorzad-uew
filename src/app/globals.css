@@ -21,6 +21,8 @@
   --border-subtle: rgba(11, 19, 34, 0.06);
   --border-soft: rgba(11, 19, 34, 0.10);
   --border-medium: rgba(11, 19, 34, 0.16);
+  /* For form-control boundaries — WCAG 1.4.11 (≥3:1 on bg base/surface). */
+  --border-strong: #838B9A;
 }
 
 .dark {
@@ -41,6 +43,8 @@
   --border-subtle: rgba(255, 255, 255, 0.06);
   --border-soft: rgba(255, 255, 255, 0.10);
   --border-medium: rgba(255, 255, 255, 0.16);
+  /* For form-control boundaries — WCAG 1.4.11 (≥3:1 on bg base/surface). */
+  --border-strong: #667085;
 }
 
 /* ── Tailwind v4 theme ── */
@@ -62,6 +66,7 @@
   --color-border-subtle: var(--border-subtle);
   --color-border-soft: var(--border-soft);
   --color-border-medium: var(--border-medium);
+  --color-border-strong: var(--border-strong);
 
   --font-display: var(--font-archivo);
   --font-body: var(--font-archivo);
