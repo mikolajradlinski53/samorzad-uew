@@ -335,7 +335,10 @@
     "termEyebrow": "2025 / 2026 term",
     "membersHeading": "Council members",
     "memberRole": "University Council",
-    "footnote": "The composition may change during the term."
+    "footnote": "The composition may change during the term.",
+    "meetingsEyebrow": "Session calendar",
+    "meetingsHeading": "Meeting dates",
+    "meetingsSoon": "The dates of upcoming sessions will be announced soon."
   },
   "wladze": {
     "metaTitle": "University authorities",
@@ -810,6 +813,7 @@
     "regulacje": "Internal regulations",
     "zarzadzenia": "Chair’s orders",
     "projekty": "Our projects",
+    "rekrutacja": "Recruitment",
     "partnerzy": "Partners",
     "wspolpracuj": "Work with us"
   },
@@ -826,6 +830,22 @@
     "emptyHint": "Type a term above to see matching pages.",
     "noResults": "Nothing found for “{query}”. Try a different word.",
     "count": "{count, plural, one {# result found} other {# results found}}"
+  },
+  "rekrutacja": {
+    "metaTitle": "Recruitment",
+    "metaDesc": "Join the SSUEW Student Government — see current openings, materials and application forms.",
+    "ogLabel": "Join us",
+    "heroEyebrow": "Join us",
+    "heroTitle": "Recruitment",
+    "heroLead": "Want to help shape student life at UEW? See where we’re currently looking for people and apply.",
+    "openHeading": "Current openings",
+    "deadlineLabel": "Application deadline",
+    "formButton": "Fill in the form",
+    "materialsButton": "Recruitment materials",
+    "noneHeading": "No open recruitment right now",
+    "noneBody": "We’re not recruiting at the moment, but that changes fast. Write to us — we’ll let you know when applications open.",
+    "generalButton": "Write to us",
+    "interestButton": "Express interest"
   },
   "notFound": {
     "heading": "We couldn’t find this page",

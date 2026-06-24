@@ -335,7 +335,10 @@
     "termEyebrow": "Kadencja 2025 / 2026",
     "membersHeading": "Skład Rady",
     "memberRole": "Rada Uczelniana",
-    "footnote": "Skład może ulegać zmianom w trakcie kadencji."
+    "footnote": "Skład może ulegać zmianom w trakcie kadencji.",
+    "meetingsEyebrow": "Kalendarz obrad",
+    "meetingsHeading": "Terminy posiedzeń",
+    "meetingsSoon": "Terminy najbliższych posiedzeń zostaną ogłoszone wkrótce."
   },
   "wladze": {
     "metaTitle": "Władze rektorskie",
@@ -810,6 +813,7 @@
     "regulacje": "Regulacje wewnętrzne",
     "zarzadzenia": "Zarządzenia Przewodniczącej",
     "projekty": "Nasze projekty",
+    "rekrutacja": "Rekrutacja",
     "partnerzy": "Partnerzy",
     "wspolpracuj": "Współpracuj z nami"
   },
@@ -826,6 +830,22 @@
     "emptyHint": "Wpisz hasło powyżej, aby zobaczyć pasujące strony.",
     "noResults": "Nic nie znaleziono dla „{query}”. Spróbuj innego słowa.",
     "count": "{count, plural, one {Znaleziono # wynik} few {Znaleziono # wyniki} many {Znaleziono # wyników} other {Znaleziono # wyniku}}"
+  },
+  "rekrutacja": {
+    "metaTitle": "Rekrutacja",
+    "metaDesc": "Dołącz do Samorządu Studentów UEW — sprawdź aktualne rekrutacje, materiały i formularze zgłoszeniowe.",
+    "ogLabel": "Dołącz do nas",
+    "heroEyebrow": "Dołącz do nas",
+    "heroTitle": "Rekrutacja",
+    "heroLead": "Chcesz współtworzyć życie studenckie UEW? Zobacz, gdzie aktualnie szukamy ludzi, i zgłoś się.",
+    "openHeading": "Aktualne rekrutacje",
+    "deadlineLabel": "Termin zgłoszeń",
+    "formButton": "Wypełnij formularz",
+    "materialsButton": "Materiały rekrutacyjne",
+    "noneHeading": "Aktualnie nie prowadzimy otwartej rekrutacji",
+    "noneBody": "Nie szukamy teraz nowych osób, ale to się szybko zmienia. Napisz do nas — damy znać, gdy ruszy nabór.",
+    "generalButton": "Napisz do nas",
+    "interestButton": "Zostaw zgłoszenie"
   },
   "notFound": {
     "heading": "Tej strony nie znaleźliśmy",

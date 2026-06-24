@@ -1,16 +1,25 @@
 "use client";
 
 import { motion, useReducedMotion } from "motion/react";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
+import { CalendarBlank } from "@phosphor-icons/react";
 import { ScrollReveal } from "../ScrollReveal";
 import { PersonCard } from "../PersonCard";
 import { russPhotos } from "@/lib/photos";
-import { russMembers as members } from "@/lib/people";
+import { russMembers as members, russMeetings as meetings } from "@/lib/people";
 
 export function RUSSContent() {
   const reduce = useReducedMotion();
   const t = useTranslations("russ");
+  const tc = useTranslations("common");
+  const locale = useLocale();
   const competencies = t.raw("competencies") as string[];
+  const fmtDate = (d: string) =>
+    new Intl.DateTimeFormat(locale === "en" ? "en-GB" : "pl-PL", {
+      day: "numeric",
+      month: "long",
+      year: "numeric",
+    }).format(new Date(`${d}T00:00:00`));
 
   return (
     <>
@@ -47,6 +56,58 @@ export function RUSSContent() {
               ))}
             </ul>
           </ScrollReveal>
+        </div>
+      </section>
+
+      {/* Terminy posiedzeń */}
+      <section
+        className="section-padding border-t border-border-subtle pt-16"
+        aria-labelledby="russ-terminy-heading"
+      >
+        <div className="mx-auto max-w-[1200px]">
+          <ScrollReveal>
+            <p className="text-[0.75rem] font-medium uppercase tracking-[0.08em] text-accent">
+              {t("meetingsEyebrow")}
+            </p>
+            <h2
+              id="russ-terminy-heading"
+              className="mt-3 font-display text-[clamp(1.75rem,3.4vw,2.75rem)] font-semibold leading-[1.15] tracking-[-0.02em] text-ink-primary"
+            >
+              {t("meetingsHeading")}
+            </h2>
+          </ScrollReveal>
+
+          {meetings.length > 0 ? (
+            <ul className="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+              {meetings.map((m, i) => (
+                <motion.li
+                  key={m.date + i}
+                  initial={reduce ? false : { opacity: 0, y: 16 }}
+                  whileInView={reduce ? undefined : { opacity: 1, y: 0 }}
+                  viewport={{ once: true, amount: 0.3 }}
+                  transition={{ duration: 0.45, delay: Math.min(i, 6) * 0.05, ease: [0.16, 1, 0.3, 1] }}
+                  className="flex items-start gap-3 rounded-xl border border-border-subtle bg-bg-surface p-4"
+                >
+                  <CalendarBlank size={22} weight="regular" aria-hidden="true" className="mt-0.5 shrink-0 text-accent" />
+                  <div className="min-w-0">
+                    <p className="font-mono text-[0.9375rem] tracking-[-0.01em] text-ink-primary">
+                      {fmtDate(m.date)}
+                    </p>
+                    {m.note && (
+                      <p className="mt-0.5 text-[0.8125rem] leading-[1.5] text-ink-secondary">{m.note}</p>
+                    )}
+                  </div>
+                </motion.li>
+              ))}
+            </ul>
+          ) : (
+            <div className="mt-8 flex flex-wrap items-center gap-3 rounded-xl border border-dashed border-border-medium bg-bg-surface p-6">
+              <span className="rounded-full border border-border-subtle px-2.5 py-0.5 text-[0.6875rem] font-medium uppercase tracking-[0.06em] text-ink-tertiary">
+                {tc("comingSoon")}
+              </span>
+              <p className="text-[0.9375rem] text-ink-secondary">{t("meetingsSoon")}</p>
+            </div>
+          )}
         </div>
       </section>
 

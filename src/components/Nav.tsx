@@ -47,6 +47,7 @@ export function Nav() {
     { label: tm("regulacje"), href: "/regulacje-wewnetrzne" },
     { label: tm("zarzadzenia"), href: "/zarzadzenia-przewodniczacego" },
     { label: tm("projekty"), href: "/nasze-projekty" },
+    { label: tm("rekrutacja"), href: "/rekrutacja" },
   ];
 
   const wspolpraca: NavChild[] = [

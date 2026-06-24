@@ -20,12 +20,12 @@ export interface Member {
 // — Zarząd — sekcja „Zarząd" na stronie głównej (Board.tsx). roleKey ∈ board.roles.*
 // Zdjęcia: public/photos/zarzad/01.jpg … (kolejność jak niżej).
 export const board: Member[] = [
-  { name: "Martyna Porębska", roleKey: "admin" },
-  { name: "Zuzanna Bąk", roleKey: "external" },
-  { name: "Martyna Staniszewska", roleKey: "teaching" },
-  { name: "Alicja Rózik", roleKey: "promo" },
-  { name: "Katarzyna Krzepkowska", roleKey: "finance" },
-  { name: "Lena Kwoka", roleKey: "hr" },
+  { name: "Martyna Porębska", roleKey: "admin", email: "martyna.porebska@samorzad.ue.wroc.pl" },
+  { name: "Zuzanna Bąk", roleKey: "external", email: "zuzanna.bak@samorzad.ue.wroc.pl" },
+  { name: "Martyna Staniszewska", roleKey: "teaching", email: "martyna.staniszewska@samorzad.ue.wroc.pl" },
+  { name: "Alicja Rózik", roleKey: "promo", email: "alicja.rozik@samorzad.ue.wroc.pl" },
+  { name: "Katarzyna Krzepkowska", roleKey: "finance", email: "katarzyna.krzepkowska@samorzad.ue.wroc.pl" },
+  { name: "Lena Kwoka", roleKey: "hr", email: "lena.kwoka@samorzad.ue.wroc.pl" },
   { name: "Szymon Woźniak", roleKey: "branch" },
 ];
 
@@ -78,6 +78,10 @@ export const russMembers: string[] = [
   "Wiktoria Stokłosa",
   "Zofia Palus",
 ];
+
+// — RUSS: terminy posiedzeń (RUSSContent). PUSTA lista = „Wkrótce".
+// Format: { date: "2026-03-15", note?: "godz. 18:00, sala 101 bud. Z" }
+export const russMeetings: { date: string; note?: string }[] = [];
 
 // — Studencka Komisja Wyborcza (KomisjaWyborczaContent). roleKey ∈ skw.roles.*
 // PUSTA lista = sekcja „Skład" pokazuje stan „Wkrótce" (skład jeszcze nieogłoszony).
