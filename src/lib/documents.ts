@@ -52,4 +52,9 @@ export const documents = {
   russResolutions: {} as DocSlot,
   // old: https://samorzad.ue.wroc.pl/studencka-komisja-wyborcza
   skwResolutions: {} as DocSlot,
+
+  // — Hub transparentności (/transparentnosc) — nowe kategorie dokumentów.
+  sprawozdania: {} as DocSlot, // sprawozdania z działalności
+  finansowanie: {} as DocSlot, // regulamin finansowania działalności studenckiej
+  ksiega: {} as DocSlot, // księga identyfikacji wizualnej
 };

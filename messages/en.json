@@ -813,6 +813,7 @@
     "skw": "Student Electoral Committee",
     "regulacje": "Internal regulations",
     "zarzadzenia": "Chair’s orders",
+    "transparentnosc": "Transparency",
     "projekty": "Our projects",
     "rekrutacja": "Recruitment",
     "fuePsrp": "FUE & PSRP",
@@ -832,6 +833,26 @@
     "emptyHint": "Type a term above to see matching pages.",
     "noResults": "Nothing found for “{query}”. Try a different word.",
     "count": "{count, plural, one {# result found} other {# results found}}"
+  },
+  "transparentnosc": {
+    "metaTitle": "Transparency",
+    "metaDesc": "Full transparency of the SSUEW Student Government — regulations, orders, reports, funding and documents in one place.",
+    "ogLabel": "Transparency",
+    "heroEyebrow": "Transparency",
+    "heroTitle": "Transparency",
+    "heroLead": "We operate in full openness. We’ve gathered all the Student Government’s organizational documents in one place — regulations, orders, reports and finances.",
+    "intro": "We believe trust is built on openness. Below you’ll find the full set of documents that govern our work and show how we make decisions and spend funds.",
+    "open": "Open",
+    "download": "Download",
+    "categories": {
+      "regulacje": { "title": "Internal regulations", "desc": "Rules of the Government’s bodies and how it operates." },
+      "zarzadzenia": { "title": "Chair’s orders", "desc": "Executive acts issued during the term." },
+      "prawo": { "title": "Law & university documents", "desc": "The statute, study regulations and higher-level acts." },
+      "russRaporty": { "title": "University Council resolutions & minutes", "desc": "Documents from the Council’s sessions." },
+      "sprawozdania": { "title": "Reports", "desc": "Reports on the Student Government’s activities." },
+      "finansowanie": { "title": "Student activity funding regulations", "desc": "Rules for funding student initiatives and organizations." },
+      "ksiega": { "title": "Visual identity guidelines", "desc": "Logo, colours and brand usage rules." }
+    }
   },
   "organizacje": {
     "metaTitle": "Student organizations",

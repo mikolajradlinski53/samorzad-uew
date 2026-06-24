@@ -813,6 +813,7 @@
     "skw": "Studencka Komisja Wyborcza",
     "regulacje": "Regulacje wewnętrzne",
     "zarzadzenia": "Zarządzenia Przewodniczącej",
+    "transparentnosc": "Transparentność",
     "projekty": "Nasze projekty",
     "rekrutacja": "Rekrutacja",
     "fuePsrp": "FUE i PSRP",
@@ -832,6 +833,26 @@
     "emptyHint": "Wpisz hasło powyżej, aby zobaczyć pasujące strony.",
     "noResults": "Nic nie znaleziono dla „{query}”. Spróbuj innego słowa.",
     "count": "{count, plural, one {Znaleziono # wynik} few {Znaleziono # wyniki} many {Znaleziono # wyników} other {Znaleziono # wyniku}}"
+  },
+  "transparentnosc": {
+    "metaTitle": "Transparentność",
+    "metaDesc": "Pełna jawność działań Samorządu Studentów UEW — regulacje, zarządzenia, sprawozdania, finansowanie i dokumenty w jednym miejscu.",
+    "ogLabel": "Jawność",
+    "heroEyebrow": "Jawność",
+    "heroTitle": "Transparentność",
+    "heroLead": "Działamy w pełni jawnie. W jednym miejscu zebraliśmy wszystkie dokumenty organizacyjne Samorządu — regulacje, zarządzenia, sprawozdania i finanse.",
+    "intro": "Wierzymy, że zaufanie buduje się jawnością. Poniżej znajdziesz komplet dokumentów, które porządkują naszą działalność i pokazują, jak podejmujemy decyzje oraz wydajemy środki.",
+    "open": "Otwórz",
+    "download": "Pobierz",
+    "categories": {
+      "regulacje": { "title": "Regulacje wewnętrzne", "desc": "Regulaminy organów Samorządu i zasady jego działania." },
+      "zarzadzenia": { "title": "Zarządzenia Przewodniczącej", "desc": "Akty wykonawcze wydawane w trakcie kadencji." },
+      "prawo": { "title": "Prawo i dokumenty uczelni", "desc": "Statut, regulamin studiów i akty wyższego szczebla." },
+      "russRaporty": { "title": "Uchwały i protokoły RUSS", "desc": "Dokumenty z posiedzeń Rady Uczelnianej." },
+      "sprawozdania": { "title": "Sprawozdania", "desc": "Sprawozdania z działalności Samorządu." },
+      "finansowanie": { "title": "Regulamin finansowania działalności studenckiej", "desc": "Zasady finansowania inicjatyw i organizacji studenckich." },
+      "ksiega": { "title": "Księga identyfikacji wizualnej", "desc": "Logo, kolory i zasady używania marki Samorządu." }
+    }
   },
   "organizacje": {
     "metaTitle": "Organizacje studenckie",
