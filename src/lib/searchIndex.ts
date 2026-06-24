@@ -48,6 +48,7 @@ const sources: SearchSource[] = [
   { href: "/regulacje-wewnetrzne", group: G.samorzad, label: { pl: "Regulacje wewnętrzne", en: "Internal regulations" }, keywords: { pl: "regulaminy dokumenty akty", en: "regulations documents acts" } },
   { href: "/zarzadzenia-przewodniczacego", group: G.samorzad, label: { pl: "Zarządzenia Przewodniczącej", en: "Chair’s orders" }, keywords: { pl: "akty wykonawcze dokumenty kadencja", en: "executive acts documents term" } },
   { href: "/rekrutacja", group: G.samorzad, label: { pl: "Rekrutacja", en: "Recruitment" }, keywords: { pl: "dołącz nabór formularz komisja wolontariat praca dla studenta", en: "join apply openings form committee volunteer" } },
+  { href: "/fue-i-psrp", group: G.samorzad, label: { pl: "FUE i PSRP", en: "FUE & PSRP" }, keywords: { pl: "forum uczelni ekonomicznych parlament studentów reprezentacja ogólnopolska krajowa", en: "forum economic universities students parliament national representation" } },
 
   // Współpraca
   { href: "/partnerzy", group: G.wspolpraca, label: { pl: "Partnerzy", en: "Partners" }, keywords: { pl: "sponsorzy firmy współpraca biznes", en: "sponsors companies cooperation business" } },

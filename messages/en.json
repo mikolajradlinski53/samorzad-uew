@@ -814,6 +814,7 @@
     "zarzadzenia": "Chair’s orders",
     "projekty": "Our projects",
     "rekrutacja": "Recruitment",
+    "fuePsrp": "FUE & PSRP",
     "partnerzy": "Partners",
     "wspolpracuj": "Work with us"
   },
@@ -830,6 +831,21 @@
     "emptyHint": "Type a term above to see matching pages.",
     "noResults": "Nothing found for “{query}”. Try a different word.",
     "count": "{count, plural, one {# result found} other {# results found}}"
+  },
+  "fuePsrp": {
+    "metaTitle": "FUE & PSRP",
+    "metaDesc": "We represent UEW students beyond the university — active in the Forum of Economic Universities and part of the nationwide student community (PSRP).",
+    "ogLabel": "National representation",
+    "heroEyebrow": "National representation",
+    "heroTitle": "We act nationwide",
+    "heroLead": "We don’t act alone. We represent UEW students beyond the university too — among the economic universities and within the nationwide representation of students.",
+    "fueEyebrow": "Forum of Economic Universities",
+    "fueHeading": "FUE — together with economic universities",
+    "fueBody": "The Forum of Economic Universities (FUE) is an alliance of the student governments of Poland’s largest economic universities. We share experience, run joint projects (like Economic Bridges) and speak with one voice on matters important to students of economics.",
+    "psrpEyebrow": "Students’ Parliament of Poland",
+    "psrpHeading": "PSRP — the students’ voice nationwide",
+    "psrpBody": "The Students’ Parliament of the Republic of Poland (PSRP) is the statutory, nationwide representative of all students in Poland. It represents students before state authorities, reviews legislation on higher education and supports student governments with training. As a Student Government, we are part of this nationwide community.",
+    "psrpLink": "PSRP website"
   },
   "rekrutacja": {
     "metaTitle": "Recruitment",

@@ -1,9 +1,11 @@
 "use client";
 
+import Image from "next/image";
 import { motion, useReducedMotion } from "motion/react";
 import { useTranslations } from "next-intl";
 import { ScrollReveal } from "../ScrollReveal";
 import { Tilt } from "../Tilt";
+import { projectPhoto } from "@/lib/photos";
 
 interface Project {
   key: string;
@@ -40,7 +42,9 @@ export function NaszeProjektyContent() {
         </ScrollReveal>
 
         <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-          {projects.map((project, i) => (
+          {projects.map((project, i) => {
+            const photo = projectPhoto(project.key);
+            return (
             <motion.div
               key={project.key}
               initial={reduce ? false : { opacity: 0, y: 20 }}
@@ -59,6 +63,17 @@ export function NaszeProjektyContent() {
                     aria-hidden="true"
                     className="absolute inset-x-0 top-0 h-[2px] origin-left scale-x-0 bg-accent transition-transform duration-300 group-hover:scale-x-100"
                   />
+                  {photo && (
+                    <div className="relative mb-5 aspect-[16/10] w-full overflow-hidden rounded-lg border border-border-subtle bg-bg-elevated">
+                      <Image
+                        src={photo}
+                        alt={project.name}
+                        fill
+                        sizes="(max-width: 768px) 100vw, 33vw"
+                        className="object-cover transition-transform duration-300 group-hover:scale-[1.03]"
+                      />
+                    </div>
+                  )}
                   <span
                     aria-hidden="true"
                     className="font-display text-[1.75rem] font-semibold leading-none tracking-[-0.02em] text-accent tabular-nums"
@@ -86,7 +101,8 @@ export function NaszeProjektyContent() {
                 </article>
               </Tilt>
             </motion.div>
-          ))}
+            );
+          })}
         </div>
       </div>
     </section>

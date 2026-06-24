@@ -15,6 +15,7 @@ export const USE_LOCAL = {
   zycie: false, // public/photos/zycie/integracja.jpg, wsparcie.jpg
   zarzad: false, // public/photos/zarzad/01.jpg …
   russ: false, // public/photos/russ/01.jpg …
+  projekty: false, // public/photos/projekty/<klucz-projektu>.jpg
 };
 
 // Liczba zdjęć hero w folderze (dopasuj do liczby plików 0N.jpg).
@@ -53,3 +54,7 @@ export const boardPhotos: string[] = USE_LOCAL.zarzad
 export const russPhotos: string[] = USE_LOCAL.russ
   ? localList("russ", 15)
   : Array.from({ length: 15 }, (_, i) => pic(`russ-${i + 1}`, 500, 640));
+
+/** Zdjęcie projektu (NaszeProjekty) — kadr poziomy. public/photos/projekty/<klucz>.jpg */
+export const projectPhoto = (key: string): string | undefined =>
+  USE_LOCAL.projekty ? `/photos/projekty/${key}.jpg` : undefined;

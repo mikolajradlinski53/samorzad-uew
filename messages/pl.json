@@ -814,6 +814,7 @@
     "zarzadzenia": "Zarządzenia Przewodniczącej",
     "projekty": "Nasze projekty",
     "rekrutacja": "Rekrutacja",
+    "fuePsrp": "FUE i PSRP",
     "partnerzy": "Partnerzy",
     "wspolpracuj": "Współpracuj z nami"
   },
@@ -830,6 +831,21 @@
     "emptyHint": "Wpisz hasło powyżej, aby zobaczyć pasujące strony.",
     "noResults": "Nic nie znaleziono dla „{query}”. Spróbuj innego słowa.",
     "count": "{count, plural, one {Znaleziono # wynik} few {Znaleziono # wyniki} many {Znaleziono # wyników} other {Znaleziono # wyniku}}"
+  },
+  "fuePsrp": {
+    "metaTitle": "FUE i PSRP",
+    "metaDesc": "Reprezentujemy studentów UEW nie tylko na uczelni — działamy w Forum Uczelni Ekonomicznych i jesteśmy częścią ogólnopolskiej społeczności studenckiej PSRP.",
+    "ogLabel": "Reprezentacja ogólnopolska",
+    "heroEyebrow": "Reprezentacja ogólnopolska",
+    "heroTitle": "Działamy ogólnopolsko",
+    "heroLead": "Nie działamy w pojedynkę. Reprezentujemy studentów UEW także poza uczelnią — w gronie uczelni ekonomicznych i w ogólnopolskim przedstawicielstwie studentów.",
+    "fueEyebrow": "Forum Uczelni Ekonomicznych",
+    "fueHeading": "FUE — razem z uczelniami ekonomicznymi",
+    "fueBody": "Forum Uczelni Ekonomicznych to porozumienie samorządów studenckich największych uczelni ekonomicznych w Polsce. Wymieniamy się doświadczeniem, realizujemy wspólne projekty (jak Mosty Ekonomiczne) i mówimy wspólnym głosem w sprawach ważnych dla studentów kierunków ekonomicznych.",
+    "psrpEyebrow": "Parlament Studentów RP",
+    "psrpHeading": "PSRP — głos studentów w skali kraju",
+    "psrpBody": "Parlament Studentów Rzeczypospolitej Polskiej to ustawowy, ogólnopolski przedstawiciel wszystkich studentów w Polsce. Reprezentuje studentów wobec władz państwowych, opiniuje akty prawne dotyczące szkolnictwa wyższego i wspiera samorządy szkoleniami. Jako Samorząd jesteśmy częścią tej ogólnopolskiej społeczności.",
+    "psrpLink": "Strona PSRP"
   },
   "rekrutacja": {
     "metaTitle": "Rekrutacja",

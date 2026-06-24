@@ -48,6 +48,7 @@ export function Nav() {
     { label: tm("zarzadzenia"), href: "/zarzadzenia-przewodniczacego" },
     { label: tm("projekty"), href: "/nasze-projekty" },
     { label: tm("rekrutacja"), href: "/rekrutacja" },
+    { label: tm("fuePsrp"), href: "/fue-i-psrp" },
   ];
 
   const wspolpraca: NavChild[] = [
