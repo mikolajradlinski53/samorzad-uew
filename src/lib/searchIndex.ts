@@ -37,6 +37,7 @@ const sources: SearchSource[] = [
   { href: "/pomoc-psychologiczna", group: G.student, label: { pl: "Pomoc psychologiczna", en: "Psychological support" }, keywords: { pl: "wsparcie kryzys telefon zaufania zdrowie psychiczne", en: "support crisis helpline mental health" } },
   { href: "/wladze-rektorskie", group: G.student, label: { pl: "Władze rektorskie", en: "University authorities" }, keywords: { pl: "rektor prorektor uczelnia", en: "rector vice-rector university" } },
   { href: "/dziekan-i-prodziekani", group: G.student, label: { pl: "Dziekan i prodziekani", en: "Dean & vice-deans" }, keywords: { pl: "dziekanat kierunek prodziekan", en: "dean office field vice-dean" } },
+  { href: "/organizacje-studenckie", group: G.student, label: { pl: "Organizacje studenckie", en: "Student organizations" }, keywords: { pl: "koła naukowe organizacje inicjatywy społeczność dołącz", en: "academic clubs organizations initiatives community join" } },
 
   // Samorząd
   { href: "/nasza-dzialalnosc", group: G.samorzad, label: { pl: "Nasza działalność", en: "Our activities" }, keywords: { pl: "samorząd organy działalność", en: "student government bodies activities" } },

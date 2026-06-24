@@ -804,6 +804,7 @@
     "rzecznik": "Rzecznik Praw Studenta",
     "mapa": "Mapa kampusu",
     "pomoc": "Pomoc psychologiczna",
+    "organizacje": "Organizacje studenckie",
     "onas": "O nas",
     "dzialalnosc": "Nasza działalność",
     "struktura": "Struktura Samorządu",
@@ -831,6 +832,20 @@
     "emptyHint": "Wpisz hasło powyżej, aby zobaczyć pasujące strony.",
     "noResults": "Nic nie znaleziono dla „{query}”. Spróbuj innego słowa.",
     "count": "{count, plural, one {Znaleziono # wynik} few {Znaleziono # wyniki} many {Znaleziono # wyników} other {Znaleziono # wyniku}}"
+  },
+  "organizacje": {
+    "metaTitle": "Organizacje studenckie",
+    "metaDesc": "Koła naukowe i organizacje studenckie na Uniwersytecie Ekonomicznym we Wrocławiu — poznaj, gdzie możesz rozwijać pasje i działać.",
+    "ogLabel": "Dla studenta",
+    "heroEyebrow": "Społeczność",
+    "heroTitle": "Organizacje studenckie",
+    "heroLead": "Koła naukowe, organizacje, inicjatywy — miejsca, w których studenci UEW rozwijają pasje, zdobywają doświadczenie i poznają ludzi.",
+    "intro": "Na UEW działa wiele kół naukowych i organizacji studenckich. To najlepszy sposób, żeby wyjść poza salę wykładową — rozwinąć umiejętności, zrealizować projekt i poznać osoby o podobnych zainteresowaniach.",
+    "listHeading": "Katalog organizacji",
+    "soon": "Katalog organizacji jest w budowie — wkrótce znajdziesz tu pełną listę.",
+    "ctaHeading": "Prowadzisz organizację lub koło naukowe?",
+    "ctaBody": "Chcesz, żeby Twoja organizacja znalazła się w katalogu? Napisz do nas — dodamy Was do listy.",
+    "ctaButton": "Zgłoś organizację"
   },
   "fuePsrp": {
     "metaTitle": "FUE i PSRP",

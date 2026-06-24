@@ -804,6 +804,7 @@
     "rzecznik": "Student Ombudsman",
     "mapa": "Campus map",
     "pomoc": "Psychological support",
+    "organizacje": "Student organizations",
     "onas": "About us",
     "dzialalnosc": "Our activities",
     "struktura": "Government structure",
@@ -831,6 +832,20 @@
     "emptyHint": "Type a term above to see matching pages.",
     "noResults": "Nothing found for “{query}”. Try a different word.",
     "count": "{count, plural, one {# result found} other {# results found}}"
+  },
+  "organizacje": {
+    "metaTitle": "Student organizations",
+    "metaDesc": "Academic clubs and student organizations at Wrocław University of Economics and Business — find where to pursue your passions and get involved.",
+    "ogLabel": "For students",
+    "heroEyebrow": "Community",
+    "heroTitle": "Student organizations",
+    "heroLead": "Academic clubs, organizations, initiatives — where UEW students pursue passions, gain experience and meet people.",
+    "intro": "Many academic clubs and student organizations are active at UEW. It’s the best way to step beyond the lecture hall — build skills, run a project and meet people who share your interests.",
+    "listHeading": "Organization directory",
+    "soon": "The directory is being built — the full list will appear here soon.",
+    "ctaHeading": "Run an organization or academic club?",
+    "ctaBody": "Want your organization in the directory? Write to us — we’ll add you to the list.",
+    "ctaButton": "Submit your organization"
   },
   "fuePsrp": {
     "metaTitle": "FUE & PSRP",
