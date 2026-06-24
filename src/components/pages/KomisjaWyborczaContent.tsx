@@ -5,12 +5,7 @@ import { useTranslations } from "next-intl";
 import { EnvelopeSimple, CheckCircle } from "@phosphor-icons/react";
 import { PersonCard } from "../PersonCard";
 import { ScrollReveal } from "../ScrollReveal";
-
-const czlonkowie = [
-  { name: "Martyna Staniszewska", roleKey: "chair" },
-  { name: "Katarzyna Emerych", roleKey: "memberF" },
-  { name: "Hubert Gościmski", roleKey: "memberM" },
-];
+import { electionCommittee as czlonkowie } from "@/lib/people";
 
 export function KomisjaWyborczaContent() {
   const reduce = useReducedMotion();

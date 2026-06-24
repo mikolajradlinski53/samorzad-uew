@@ -5,21 +5,7 @@ import { useTranslations } from "next-intl";
 import { ScrollReveal } from "../ScrollReveal";
 import { PersonCard } from "../PersonCard";
 import { russPhotos } from "@/lib/photos";
-
-const members = [
-  "Jarosław Bałut",
-  "Martyna Bedlechowicz",
-  "Jakub Buchta",
-  "Bartosz Buczkowski",
-  "Aleksandra Dauerman",
-  "Oliwier Kaszewski",
-  "Zuzanna Kordus",
-  "Zuzanna Kuśmińska",
-  "Zofia Palus",
-  "Natalia Pietrzak",
-  "Agata Rusak",
-  "Karina Służyńska",
-];
+import { russMembers as members } from "@/lib/people";
 
 export function RUSSContent() {
   const reduce = useReducedMotion();

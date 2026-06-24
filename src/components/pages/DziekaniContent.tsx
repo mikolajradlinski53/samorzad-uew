@@ -5,14 +5,9 @@ import { useTranslations } from "next-intl";
 import { InitialsAvatar } from "../InitialsAvatar";
 import { ScrollReveal } from "../ScrollReveal";
 import { PersonCard } from "../PersonCard";
+import { dean, viceDeans as prodziekani } from "@/lib/people";
 
-const dziekanName = "dr hab. Wawrzyniec Michalczyk, prof. UEW";
-
-const prodziekani = [
-  { name: "dr Wioletta Turowska", key: "turowska" },
-  { name: "dr inż. Monika Wereńska", key: "werenska" },
-  { name: "dr hab. Sebastian Bobowski, prof. UEW", key: "bobowski" },
-];
+const dziekanName = dean.name;
 
 export function DziekaniContent() {
   const reduce = useReducedMotion();

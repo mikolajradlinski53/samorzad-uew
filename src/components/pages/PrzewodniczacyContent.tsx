@@ -6,17 +6,7 @@ import { EnvelopeSimple } from "@phosphor-icons/react";
 import { InitialsAvatar } from "../InitialsAvatar";
 import { PersonCard } from "../PersonCard";
 import { ScrollReveal } from "../ScrollReveal";
-
-const przewodniczaca = {
-  name: "Emilia Ćwiklińska",
-  email: "emilia.cwiklinska@samorzad.ue.wroc.pl",
-};
-
-const wice = [
-  { name: "Magdalena Skoczylas", roleKey: "strategy", email: "magdalena.skoczylas@samorzad.ue.wroc.pl" },
-  { name: "Daria Szewczyk", roleKey: "projects", email: "daria.szewczyk@samorzad.ue.wroc.pl" },
-  { name: "Jakub Panas", roleKey: "pr", email: "jakub.panas@samorzad.ue.wroc.pl" },
-];
+import { chair as przewodniczaca, viceChairs as wice } from "@/lib/people";
 
 export function PrzewodniczacyContent() {
   const reduce = useReducedMotion();

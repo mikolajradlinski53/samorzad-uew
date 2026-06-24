@@ -5,15 +5,9 @@ import { useTranslations } from "next-intl";
 import { InitialsAvatar } from "../InitialsAvatar";
 import { ScrollReveal } from "../ScrollReveal";
 import { PersonCard } from "../PersonCard";
+import { rector, viceRectors as prorektorzy } from "@/lib/people";
 
-const rektorName = "prof. dr hab. Czesław Zając";
-
-const prorektorzy = [
-  { name: "dr hab. inż. Andrzej Okruszek, prof. UEW", roleKey: "student" },
-  { name: "dr hab. Piotr Bednarek, prof. UEW", roleKey: "finance" },
-  { name: "prof. dr hab. Bogusława Drelich-Skulska", roleKey: "intl" },
-  { name: "prof. dr hab. Marek Kośny", roleKey: "science" },
-];
+const rektorName = rector.name;
 
 export function WladzeRektorskieContent() {
   const reduce = useReducedMotion();

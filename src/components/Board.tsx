@@ -4,15 +4,8 @@ import { motion, useReducedMotion } from "motion/react";
 import { useTranslations } from "next-intl";
 import { ScrollReveal } from "./ScrollReveal";
 import { boardPhotos } from "@/lib/photos";
+import { board as members } from "@/lib/people";
 import { PersonCard } from "./PersonCard";
-
-const members = [
-  { name: "Mikołaj Kowalski", roleKey: "chair", seed: "mikolaj" },
-  { name: "Anna Nowak", roleKey: "vchair", seed: "anna" },
-  { name: "Piotr Wiśniewski", roleKey: "secretary", seed: "piotr" },
-  { name: "Katarzyna Lewandowska", roleKey: "treasurer", seed: "katarzyna" },
-  { name: "Tomasz Wójcik", roleKey: "member", seed: "tomasz" },
-];
 
 export function Board() {
   const reduce = useReducedMotion();
