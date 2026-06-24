@@ -208,7 +208,7 @@ export function Nav() {
         <div className="flex items-center gap-3">
           <button
             onClick={() => setSearchOpen(true)}
-            className="hidden h-10 items-center gap-2 rounded-lg border border-border-medium px-3 text-[0.8125rem] font-medium text-ink-secondary transition-colors hover:border-border-soft hover:bg-bg-elevated md:flex"
+            className="hidden h-11 items-center gap-2 rounded-lg border border-border-medium px-3 text-[0.8125rem] font-medium text-ink-secondary transition-colors hover:border-border-soft hover:bg-bg-elevated md:flex"
             aria-label={t("search")}
           >
             <MagnifyingGlass size={16} weight="regular" aria-hidden="true" />
@@ -217,7 +217,7 @@ export function Nav() {
           </button>
           <button
             onClick={() => setSearchOpen(true)}
-            className="flex h-10 w-10 items-center justify-center rounded-lg text-ink-secondary md:hidden"
+            className="flex h-11 w-11 items-center justify-center rounded-lg text-ink-secondary md:hidden"
             aria-label={t("search")}
           >
             <MagnifyingGlass size={20} weight="regular" aria-hidden="true" />
@@ -226,7 +226,7 @@ export function Nav() {
           {mounted && (
             <button
               onClick={toggleTheme}
-              className="flex h-10 w-10 items-center justify-center rounded-lg text-ink-secondary transition-colors hover:bg-bg-elevated hover:text-ink-primary"
+              className="flex h-11 w-11 items-center justify-center rounded-lg text-ink-secondary transition-colors hover:bg-bg-elevated hover:text-ink-primary"
               aria-label={
                 resolvedTheme === "dark" ? ta("themeLight") : ta("themeDark")
               }
@@ -244,7 +244,7 @@ export function Nav() {
           <button
             ref={toggleRef}
             onClick={() => setMobileOpen((v) => !v)}
-            className="flex h-10 w-10 items-center justify-center rounded-lg text-ink-secondary md:hidden"
+            className="flex h-11 w-11 items-center justify-center rounded-lg text-ink-secondary md:hidden"
             aria-label={mobileOpen ? t("closeMenu") : t("openMenu")}
             aria-expanded={mobileOpen}
             aria-controls="mobile-menu"

@@ -109,7 +109,7 @@ function PartnerModal({ partner, onClose }: { partner: PartnerEntry; onClose: ()
           ref={closeRef}
           onClick={onClose}
           aria-label={t("modalClose")}
-          className="absolute right-4 top-4 flex h-9 w-9 items-center justify-center rounded-lg text-ink-secondary transition-colors hover:bg-bg-elevated hover:text-ink-primary"
+          className="absolute right-4 top-4 flex h-11 w-11 items-center justify-center rounded-lg text-ink-secondary transition-colors hover:bg-bg-elevated hover:text-ink-primary"
         >
           <X size={20} weight="regular" aria-hidden="true" />
         </button>

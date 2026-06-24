@@ -156,7 +156,7 @@ export function SearchCommand({ open, onClose }: SearchCommandProps) {
                         aria-selected={isActive}
                         onClick={() => go(item.href)}
                         onMouseMove={() => setActive(i)}
-                        className={`flex w-full items-center justify-between gap-3 rounded-lg px-3 py-2.5 text-left transition-colors ${
+                        className={`flex min-h-11 w-full items-center justify-between gap-3 rounded-lg px-3 py-2.5 text-left transition-colors ${
                           isActive ? "bg-bg-elevated text-ink-primary" : "text-ink-secondary"
                         }`}
                       >
@@ -188,7 +188,7 @@ export function SearchCommand({ open, onClose }: SearchCommandProps) {
               <button
                 type="button"
                 onClick={() => go(`/szukaj?q=${encodeURIComponent(query.trim())}`)}
-                className="flex w-full items-center justify-center gap-1.5 border-t border-border-subtle px-5 py-3 text-[0.8125rem] font-medium text-ink-secondary transition-colors hover:bg-bg-elevated hover:text-accent"
+                className="flex min-h-11 w-full items-center justify-center gap-1.5 border-t border-border-subtle px-5 py-3 text-[0.8125rem] font-medium text-ink-secondary transition-colors hover:bg-bg-elevated hover:text-accent"
               >
                 {t("showAll", { query: query.trim() })}
                 <ArrowRight size={14} weight="bold" aria-hidden="true" />
