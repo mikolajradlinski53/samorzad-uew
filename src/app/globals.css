@@ -11,7 +11,8 @@
 
   --ink-primary: #0B1322;
   --ink-secondary: #475467;
-  --ink-tertiary: #98A2B3;
+  /* WCAG AA: 4.5:1+ on bg base/surface/elevated (was #98A2B3 ≈ 2.4:1). */
+  --ink-tertiary: #636D81;
 
   --accent: #2C4BFF;
   --accent-dim: #1F3AE0;
@@ -30,7 +31,8 @@
 
   --ink-primary: #EEF2F8;
   --ink-secondary: #9BA6B7;
-  --ink-tertiary: #5C6678;
+  /* WCAG AA: 4.5:1+ on bg base/surface/elevated (was #5C6678 ≈ 3.0:1). */
+  --ink-tertiary: #7E889C;
 
   --accent: #6C84FF;
   --accent-dim: #4D63F0;
