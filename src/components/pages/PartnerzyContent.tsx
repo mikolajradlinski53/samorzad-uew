@@ -18,6 +18,7 @@ import { Marquee } from "../Marquee";
 import { MagneticButton } from "../MagneticButton";
 import { PartnerEffect } from "../partners/PartnerEffect";
 import type { Partner } from "../partners/partnerEffects";
+import { partners, type PartnerEntry } from "@/lib/partners";
 
 interface Benefit {
   key: string;
@@ -47,7 +48,7 @@ const slots: Slot[] = [
   { key: "mecenas" },
 ];
 
-function PartnerModal({ partner, onClose }: { partner: Partner; onClose: () => void }) {
+function PartnerModal({ partner, onClose }: { partner: PartnerEntry; onClose: () => void }) {
   const reduce = useReducedMotion();
   const t = useTranslations("partnerzy");
   const panelRef = useRef<HTMLDivElement>(null);
@@ -122,15 +123,27 @@ function PartnerModal({ partner, onClose }: { partner: Partner; onClose: () => v
           {partner.name}
         </h3>
         <p className="mx-auto mt-2 max-w-[34ch] text-[0.9375rem] leading-[1.6] text-ink-secondary">
-          {t("modalDesc")}
+          {partner.href ? t("modalRealDesc") : t("modalDesc")}
         </p>
-        <a
-          href="mailto:kontakt@samorzad.ue.wroc.pl?subject=Wsp%C3%B3%C5%82praca%20z%20Samorz%C4%85dem%20UEW"
-          className="mt-6 inline-flex h-12 items-center gap-2 rounded-lg bg-accent px-7 text-base font-medium text-bg-base transition-all hover:bg-accent-dim active:scale-[0.98]"
-        >
-          {t("modalCta")}
-          <ArrowRight size={20} weight="regular" aria-hidden="true" />
-        </a>
+        {partner.href ? (
+          <a
+            href={partner.href}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-6 inline-flex h-12 items-center gap-2 rounded-lg bg-accent px-7 text-base font-medium text-bg-base transition-all hover:bg-accent-dim active:scale-[0.98]"
+          >
+            {t("modalVisit")}
+            <ArrowRight size={20} weight="regular" aria-hidden="true" />
+          </a>
+        ) : (
+          <a
+            href="mailto:kontakt@samorzad.ue.wroc.pl?subject=Wsp%C3%B3%C5%82praca%20z%20Samorz%C4%85dem%20UEW"
+            className="mt-6 inline-flex h-12 items-center gap-2 rounded-lg bg-accent px-7 text-base font-medium text-bg-base transition-all hover:bg-accent-dim active:scale-[0.98]"
+          >
+            {t("modalCta")}
+            <ArrowRight size={20} weight="regular" aria-hidden="true" />
+          </a>
+        )}
       </motion.div>
     </motion.div>
   );
@@ -139,10 +152,10 @@ function PartnerModal({ partner, onClose }: { partner: Partner; onClose: () => v
 export function PartnerzyContent() {
   const reduce = useReducedMotion();
   const t = useTranslations("partnerzy");
-  const [selected, setSelected] = useState<Partner | null>(null);
+  const [selected, setSelected] = useState<PartnerEntry | null>(null);
   const triggerRef = useRef<HTMLElement | null>(null);
 
-  const open = (partner: Partner) => {
+  const open = (partner: PartnerEntry) => {
     triggerRef.current = document.activeElement as HTMLElement;
     setSelected(partner);
   };
@@ -150,6 +163,17 @@ export function PartnerzyContent() {
     setSelected(null);
     triggerRef.current?.focus();
   };
+
+  // Realni partnerzy z src/lib/partners.ts; pusto → teaser „Twoja marka".
+  const hasReal = partners.length > 0;
+  const wallItems = hasReal
+    ? partners.map((p) => ({ key: p.name, label: p.name, logo: p.logo, partner: p }))
+    : slots.map((s) => ({
+        key: s.key,
+        label: t(`slots.${s.key}`),
+        logo: undefined as string | undefined,
+        partner: { name: t(`slots.${s.key}`), category: s.category, color: s.color } as PartnerEntry,
+      }));
 
   return (
     <>
@@ -211,35 +235,49 @@ export function PartnerzyContent() {
           >
             {t("wallHeading")}
           </h2>
-          <p className="mt-2 text-center text-[0.9375rem] text-ink-secondary">
-            {t("wallSub")}
-          </p>
+          {!hasReal && (
+            <p className="mt-2 text-center text-[0.9375rem] text-ink-secondary">
+              {t("wallSub")}
+            </p>
+          )}
         </div>
 
         <Marquee>
-          {slots.map((s, i) => (
+          {wallItems.map((item, i) => (
             <div
-              key={`${s.key}-${i}`}
-              className="flex h-20 w-44 shrink-0 items-center justify-center rounded-xl border border-dashed border-border-medium text-[0.875rem] font-medium uppercase tracking-[0.06em] text-ink-tertiary"
+              key={`${item.key}-${i}`}
+              className={`flex h-20 w-44 shrink-0 items-center justify-center rounded-xl border px-4 text-[0.875rem] font-medium uppercase tracking-[0.06em] text-ink-tertiary ${
+                hasReal ? "border-border-subtle bg-bg-base" : "border-dashed border-border-medium"
+              }`}
             >
-              {t(`slots.${s.key}`)}
+              {item.logo ? (
+                // eslint-disable-next-line @next/next/no-img-element
+                <img src={item.logo} alt={item.label} className="max-h-10 max-w-full object-contain" />
+              ) : (
+                item.label
+              )}
             </div>
           ))}
         </Marquee>
 
         {/* Interactive wall */}
         <div className="mx-auto mt-8 grid max-w-[1200px] grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-6">
-          {slots.map((s) => (
+          {wallItems.map((item) => (
             <motion.button
-              key={s.key}
+              key={item.key}
               type="button"
-              onClick={() => open({ name: t(`slots.${s.key}`), category: s.category, color: s.color })}
+              onClick={() => open(item.partner)}
               whileHover={reduce ? undefined : { y: -4, scale: 1.02 }}
               whileTap={reduce ? undefined : { scale: 0.97 }}
               transition={{ type: "spring", stiffness: 300, damping: 18 }}
-              className="flex h-24 items-center justify-center rounded-xl border border-border-subtle bg-bg-base text-[0.8125rem] font-medium uppercase tracking-[0.06em] text-ink-tertiary transition-colors hover:border-accent hover:text-accent"
+              className="flex h-24 items-center justify-center rounded-xl border border-border-subtle bg-bg-base px-4 text-[0.8125rem] font-medium uppercase tracking-[0.06em] text-ink-tertiary transition-colors hover:border-accent hover:text-accent"
             >
-              {t(`slots.${s.key}`)}
+              {item.logo ? (
+                // eslint-disable-next-line @next/next/no-img-element
+                <img src={item.logo} alt={item.label} className="max-h-12 max-w-full object-contain" />
+              ) : (
+                item.label
+              )}
             </motion.button>
           ))}
         </div>

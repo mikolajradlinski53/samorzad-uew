@@ -188,6 +188,8 @@
     "slots": { "brand": "Twoja marka", "partner": "Partner", "sponsor": "Sponsor", "coop": "Współpraca", "patron": "Patron", "mecenas": "Mecenas" },
     "modalDesc": "Tu mogłoby znaleźć się Twoje logo. Dołącz do grona partnerów wspierających ponad 11 000 studentów UEW.",
     "modalCta": "Zostań partnerem",
+    "modalRealDesc": "Partner Samorządu Studentów UEW. Dziękujemy, że jesteście z nami.",
+    "modalVisit": "Odwiedź stronę",
     "modalClose": "Zamknij",
     "ctaHeading": "Zbudujmy coś razem",
     "ctaDesc": "Opowiedz nam o swoim pomyśle na współpracę — przygotujemy ofertę dopasowaną do Twoich celów.",

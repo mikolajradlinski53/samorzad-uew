@@ -188,6 +188,8 @@
     "slots": { "brand": "Your brand", "partner": "Partner", "sponsor": "Sponsor", "coop": "Cooperation", "patron": "Patron", "mecenas": "Benefactor" },
     "modalDesc": "Your logo could be here. Join the partners supporting over 11,000 UEW students.",
     "modalCta": "Become a partner",
+    "modalRealDesc": "A partner of the SSUEW Student Government. Thank you for being with us.",
+    "modalVisit": "Visit site",
     "modalClose": "Close",
     "ctaHeading": "Let’s build something together",
     "ctaDesc": "Tell us about your idea for cooperation — we’ll prepare an offer tailored to your goals.",
