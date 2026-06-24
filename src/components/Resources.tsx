@@ -103,7 +103,7 @@ export function Resources() {
                   />
                 </h3>
                 <p className="mt-2 text-[0.875rem] leading-[1.6] text-ink-secondary">
-                  {t(`items.${item.key}.description`)}
+                  {t(`items.${item.key}.desc`)}
                 </p>
                 {item.internal ? (
                   <Link
