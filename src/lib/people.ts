@@ -20,13 +20,13 @@ export interface Member {
 // — Zarząd — sekcja „Zarząd" na stronie głównej (Board.tsx). roleKey ∈ board.roles.*
 // Zdjęcia: public/photos/zarzad/01.jpg … (kolejność jak niżej).
 export const board: Member[] = [
-  { name: "Martyna Porębska", roleKey: "chair" },
-  { name: "Zuzanna Bąk", roleKey: "vchair" },
-  { name: "Martyna Staniszewska", roleKey: "secretary" },
-  { name: "Alicja Rózik", roleKey: "treasurer" },
-  { name: "Katarzyna Krzepkowska", roleKey: "member" },
-  { name: "Lena Kwoka", roleKey: "member" },
-  { name: "Szymon Woźniak", roleKey: "member" },
+  { name: "Martyna Porębska", roleKey: "admin" },
+  { name: "Zuzanna Bąk", roleKey: "external" },
+  { name: "Martyna Staniszewska", roleKey: "teaching" },
+  { name: "Alicja Rózik", roleKey: "promo" },
+  { name: "Katarzyna Krzepkowska", roleKey: "finance" },
+  { name: "Lena Kwoka", roleKey: "hr" },
+  { name: "Szymon Woźniak", roleKey: "branch" },
 ];
 
 // — Przewodnicząca + Wiceprzewodniczący (PrzewodniczacyContent). roleKey ∈ przewodniczacy.roles.*
