@@ -2,19 +2,11 @@
 
 import { motion, useReducedMotion } from "motion/react";
 import { useTranslations } from "next-intl";
-import { FileText } from "@phosphor-icons/react";
+import { FileText, DownloadSimple } from "@phosphor-icons/react";
 import { ScrollReveal } from "../ScrollReveal";
+import { documents as docManifest } from "@/lib/documents";
 
-const FILES = "https://samorzad.ue.wroc.pl/_files/ugd";
-
-const documents = [
-  { key: "government", href: `${FILES}/3dec01_e2f5e6255f3a4e02b3486fce9345da3d.pdf` },
-  { key: "ros", href: `${FILES}/3dec01_8e95b203e91e47d1b2a5be489ab3136c.pdf` },
-  { key: "russ", href: `${FILES}/3dec01_f29102abac934f8fbb771a0e0033b71b.pdf` },
-  { key: "residents", href: `${FILES}/3dec01_ce9e1526865444b9a8b2890406b4887e.pdf` },
-  { key: "electoral", href: `${FILES}/3dec01_e1abe35d67a44e9aacecbe501da0d5a1.pdf` },
-  { key: "visual", href: `${FILES}/3dec01_746b01182be140039f8a0930403c0df3.pdf` },
-];
+const docKeys = ["government", "ros", "russ", "residents", "electoral", "visual"];
 
 export function RegulacjeContent() {
   const reduce = useReducedMotion();
@@ -34,27 +26,56 @@ export function RegulacjeContent() {
         </ScrollReveal>
 
         <ul className="mt-10 flex flex-col gap-3">
-          {documents.map((doc, i) => (
-            <motion.li
-              key={doc.key}
-              initial={reduce ? false : { opacity: 0, x: -16 }}
-              whileInView={reduce ? undefined : { opacity: 1, x: 0 }}
-              viewport={{ once: true, amount: 0.4 }}
-              transition={{ duration: 0.45, delay: Math.min(i, 6) * 0.06, ease: [0.16, 1, 0.3, 1] }}
-            >
-              <div className="flex items-center gap-4 rounded-xl border border-border-subtle bg-bg-surface p-5">
+          {docKeys.map((key, i) => {
+            const slot = docManifest.regulacje[key];
+            const inner = (
+              <>
                 <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg bg-accent-glow text-accent">
                   <FileText size={22} weight="regular" aria-hidden="true" />
                 </span>
                 <span className="flex-1 text-[1rem] font-medium tracking-[-0.01em] text-ink-primary">
-                  {t(`documents.${doc.key}`)}
+                  {t(`documents.${key}`)}
                 </span>
-                <span className="shrink-0 rounded-full border border-border-subtle px-2.5 py-0.5 text-[0.6875rem] font-medium uppercase tracking-[0.06em] text-ink-tertiary">
-                  {tc("comingSoon")}
-                </span>
-              </div>
-            </motion.li>
-          ))}
+                {slot?.href ? (
+                  <DownloadSimple
+                    size={20}
+                    weight="regular"
+                    aria-hidden="true"
+                    className="shrink-0 text-ink-tertiary transition-all duration-150 group-hover:translate-y-0.5 group-hover:text-accent"
+                  />
+                ) : (
+                  <span className="shrink-0 rounded-full border border-border-subtle px-2.5 py-0.5 text-[0.6875rem] font-medium uppercase tracking-[0.06em] text-ink-tertiary">
+                    {tc("comingSoon")}
+                  </span>
+                )}
+              </>
+            );
+            return (
+              <motion.li
+                key={key}
+                initial={reduce ? false : { opacity: 0, x: -16 }}
+                whileInView={reduce ? undefined : { opacity: 1, x: 0 }}
+                viewport={{ once: true, amount: 0.4 }}
+                transition={{ duration: 0.45, delay: Math.min(i, 6) * 0.06, ease: [0.16, 1, 0.3, 1] }}
+              >
+                {slot?.href ? (
+                  <a
+                    href={slot.href}
+                    {...(slot.external
+                      ? { target: "_blank", rel: "noopener noreferrer" }
+                      : { download: true })}
+                    className="group flex items-center gap-4 rounded-xl border border-border-subtle bg-bg-surface p-5 transition-colors duration-150 hover:border-border-soft hover:bg-bg-elevated"
+                  >
+                    {inner}
+                  </a>
+                ) : (
+                  <div className="flex items-center gap-4 rounded-xl border border-border-subtle bg-bg-surface p-5">
+                    {inner}
+                  </div>
+                )}
+              </motion.li>
+            );
+          })}
         </ul>
       </div>
     </section>
