@@ -1,10 +1,16 @@
 # Zdjęcia na stronę SSUEW
 
-Wrzuć pliki dokładnie wg poniższej listy, a następnie w pliku
-`src/lib/photos.ts` zmień `USE_LOCAL_PHOTOS` z `false` na `true`.
+Wrzuć pliki wg poniższej listy, a następnie w `src/lib/photos.ts` w obiekcie
+`USE_LOCAL` ustaw daną sekcję na `true` (każda sekcja niezależnie:
+`hero` / `zycie` / `zarzad` / `russ`).
 
-Format: **JPG** lub **WebP**, zoptymalizowane (każdy plik najlepiej < ~400 KB).
+Format: **JPG** lub **WebP**, zoptymalizowane (każdy plik najlepiej < ~300 KB).
 Kadr (proporcje) jest ważny — zdjęcia są przycinane do podanego kształtu.
+Duże pliki nie szkodzą jakości, ale spowalniają repo — warto je najpierw
+zmniejszyć (np. do ~800×1000 px dla kadrów 4:5).
+
+> Hero jest już WŁĄCZONE (`hero: true`) na 5 zdjęciach. Dorzucisz kolejne —
+> zmień `HERO_COUNT` w `photos.ts` na liczbę plików.
 
 ---
 

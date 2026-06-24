@@ -164,8 +164,8 @@ export function Hero() {
         >
           <div className="absolute inset-0 -rotate-6 scale-[1.18] [mask-image:radial-gradient(ellipse_at_center,black_55%,transparent_85%)]">
             <div className="flex h-full gap-4">
-              <GalleryColumn items={photos.slice(0, 4)} duration={42} />
-              <GalleryColumn items={photos.slice(4, 8)} duration={52} reverse />
+              <GalleryColumn items={photos.slice(0, Math.ceil(photos.length / 2))} duration={42} />
+              <GalleryColumn items={photos.slice(Math.ceil(photos.length / 2))} duration={52} reverse />
             </div>
           </div>
         </motion.div>
