@@ -50,6 +50,33 @@ data/`date`, tag/`kategoria`/`typ`.
 
 ---
 
+## 3. Strefa działacza — logowanie Google (OAuth)
+
+**Bez kluczy:** `/strefa-dzialacza` pokazuje „Wkrótce". Po skonfigurowaniu
+działacze logują się kontem `@samorzad.ue.wroc.pl` i widzą panel z kafelkami
+(CRA, RadaStudentów24, … — edytujesz w `src/lib/panel.ts`).
+
+**Konfiguracja:**
+1. <https://console.cloud.google.com> → utwórz/wybierz projekt.
+2. **APIs & Services → OAuth consent screen** → typ **Internal** (jeśli macie
+   Google Workspace na domenie samorzad.ue.wroc.pl) → uzupełnij nazwę i e-mail.
+3. **APIs & Services → Credentials → Create credentials → OAuth client ID** →
+   typ **Web application**.
+4. W **Authorized redirect URIs** dodaj (dokładnie, z `/api/auth/callback`):
+   - produkcja: `https://TWOJA-DOMENA/api/auth/callback`
+   - (opcjonalnie dev) `http://localhost:3000/api/auth/callback`
+5. Skopiuj **Client ID** i **Client secret** → w Vercel:
+   - `GOOGLE_CLIENT_ID` = `...apps.googleusercontent.com`
+   - `GOOGLE_CLIENT_SECRET` = `...`
+6. Wygeneruj sekret sesji i dodaj:
+   - `AUTH_SECRET` = wynik `openssl rand -base64 32`
+7. **Redeploy**. Wejdź na `/strefa-dzialacza` → „Zaloguj przez Google".
+
+Dostęp jest twardo ograniczony w kodzie do domeny `@samorzad.ue.wroc.pl`
+(`ALLOWED_DOMAIN` w `src/lib/auth.ts`) — konta spoza domeny są odrzucane.
+
+---
+
 ## Podsumowanie zmiennych
 
 | Zmienna | Wymagana? | Co robi |
@@ -58,6 +85,9 @@ data/`date`, tag/`kategoria`/`typ`.
 | `CONTACT_TO` | nie | odbiorca zgłoszeń (domyślnie kontakt@samorzad.ue.wroc.pl) |
 | `CONTACT_FROM` | nie | nadawca maili (domena zweryfikowana w Resend) |
 | `EVENTS_SHEET_CSV_URL` | nie | podpina kalendarz wydarzeń z Google Sheets |
+| `GOOGLE_CLIENT_ID` | nie | logowanie do Strefy działacza (OAuth Google) |
+| `GOOGLE_CLIENT_SECRET` | nie | j.w. — sekret aplikacji OAuth |
+| `AUTH_SECRET` | nie | podpis ciasteczka sesji działacza |
 
 Wszystkie pełnią rolę „opcjonalnego ulepszenia" — strona jest w pełni używalna
 bez nich, więc możesz dodawać je stopniowo.

@@ -1,18 +1,110 @@
 "use client";
 
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
-import { LockKey, ArrowRight, ArrowSquareOut } from "@phosphor-icons/react";
+import { LockKey, SignOut, ArrowRight, ArrowSquareOut, SquaresFour } from "@phosphor-icons/react";
 import { ScrollReveal } from "../ScrollReveal";
-import { craUrl } from "@/lib/cra";
+import { panelTiles } from "@/lib/panel";
 
-export function StrefaDzialaczaContent() {
+interface Props {
+  user: { name: string } | null;
+  configured: boolean;
+  error?: string;
+}
+
+export function StrefaDzialaczaContent({ user, configured, error }: Props) {
   const t = useTranslations("strefaDzialacza");
   const tc = useTranslations("common");
+  const locale = useLocale();
 
+  // — Zalogowany: panel z kafelkami —
+  if (user) {
+    return (
+      <section className="section-padding" aria-labelledby="panel-heading">
+        <div className="mx-auto max-w-[1200px]">
+          <ScrollReveal>
+            <div className="flex flex-wrap items-center justify-between gap-4">
+              <p className="text-[1.0625rem] text-ink-secondary">
+                {t("greeting", { name: user.name })}
+              </p>
+              <a
+                href={`/api/auth/logout?locale=${locale}`}
+                className="inline-flex h-10 items-center gap-2 rounded-lg border border-border-medium px-4 text-[0.875rem] font-medium text-ink-secondary transition-colors hover:border-border-soft hover:bg-bg-elevated hover:text-ink-primary"
+              >
+                <SignOut size={16} weight="regular" aria-hidden="true" />
+                {t("logout")}
+              </a>
+            </div>
+            <h2
+              id="panel-heading"
+              className="mt-6 flex items-center gap-2 font-display text-[clamp(1.5rem,2.6vw,2rem)] font-semibold tracking-[-0.02em] text-ink-primary"
+            >
+              <SquaresFour size={26} weight="regular" aria-hidden="true" className="text-accent" />
+              {t("toolsHeading")}
+            </h2>
+          </ScrollReveal>
+
+          <div className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+            {panelTiles.map((tile, i) => {
+              const inner = (
+                <>
+                  <h3 className="text-[1.125rem] font-semibold tracking-[-0.01em] text-ink-primary">
+                    {tile.name}
+                  </h3>
+                  {tile.desc && (
+                    <p className="mt-2 flex-1 text-[0.9375rem] leading-[1.6] text-ink-secondary">
+                      {tile.desc}
+                    </p>
+                  )}
+                  <span className="mt-4 inline-flex items-center gap-1.5 text-[0.875rem] font-medium">
+                    {tile.url ? (
+                      <>
+                        <span className="text-accent">{t("open")}</span>
+                        <ArrowSquareOut size={15} weight="bold" aria-hidden="true" className="text-accent" />
+                      </>
+                    ) : (
+                      <span className="rounded-full border border-border-subtle px-2.5 py-0.5 text-[0.6875rem] font-medium uppercase tracking-[0.06em] text-ink-tertiary">
+                        {tc("comingSoon")}
+                      </span>
+                    )}
+                  </span>
+                </>
+              );
+              const cls =
+                "group relative flex h-full flex-col rounded-xl border border-border-subtle bg-bg-surface p-6 transition-colors duration-150 hover:border-border-soft hover:bg-bg-elevated";
+              return (
+                <ScrollReveal key={tile.name + i} delay={Math.min(i, 5) * 0.04}>
+                  {tile.url ? (
+                    <a href={tile.url} target="_blank" rel="noopener noreferrer" aria-label={tile.name} className={cls}>
+                      {inner}
+                    </a>
+                  ) : (
+                    <div className={cls}>{inner}</div>
+                  )}
+                </ScrollReveal>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+    );
+  }
+
+  // — Niezalogowany —
   return (
     <section className="section-padding" aria-labelledby="strefa-heading">
       <div className="mx-auto max-w-[760px]">
+        {error && (
+          <ScrollReveal>
+            <p
+              role="alert"
+              className="mb-6 rounded-lg border border-red-500/40 bg-red-500/10 px-4 py-3 text-[0.9375rem] text-red-600 dark:text-red-400"
+            >
+              {error === "domain" ? t("errorDomain") : t("errorAuth")}
+            </p>
+          </ScrollReveal>
+        )}
+
         <ScrollReveal>
           <div className="rounded-2xl border border-border-subtle bg-bg-surface p-8 sm:p-10">
             <span className="flex h-12 w-12 items-center justify-center rounded-lg bg-accent-glow text-accent">
@@ -24,20 +116,15 @@ export function StrefaDzialaczaContent() {
             >
               {t("cardHeading")}
             </h2>
-            <p className="mt-3 text-[1rem] leading-[1.7] text-ink-secondary">
-              {t("cardBody")}
-            </p>
+            <p className="mt-3 text-[1rem] leading-[1.7] text-ink-secondary">{t("cardBody")}</p>
 
-            {craUrl ? (
+            {configured ? (
               <a
-                href={craUrl}
-                target="_blank"
-                rel="noopener noreferrer"
+                href={`/api/auth/login?locale=${locale}`}
                 className="mt-7 inline-flex h-12 items-center gap-2 rounded-lg bg-accent px-7 text-base font-medium text-bg-base transition-all hover:bg-accent-dim active:scale-[0.98]"
               >
                 <LockKey size={20} weight="regular" aria-hidden="true" />
                 {t("loginButton")}
-                <ArrowSquareOut size={18} weight="regular" aria-hidden="true" />
               </a>
             ) : (
               <div className="mt-7 flex flex-wrap items-center gap-3 rounded-xl border border-dashed border-border-medium bg-bg-base p-5">
