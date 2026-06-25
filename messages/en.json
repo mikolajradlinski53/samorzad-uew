@@ -805,6 +805,7 @@
     "mapa": "Campus map",
     "pomoc": "Psychological support",
     "organizacje": "Student organizations",
+    "kalendarz": "University calendar",
     "onas": "About us",
     "dzialalnosc": "Our activities",
     "struktura": "Government structure",
@@ -814,6 +815,10 @@
     "regulacje": "Internal regulations",
     "zarzadzenia": "Chair’s orders",
     "transparentnosc": "Transparency",
+    "groupAbout": "About",
+    "groupOrgans": "Bodies",
+    "groupDocs": "Documents",
+    "groupActivity": "Activity",
     "projekty": "Our projects",
     "rekrutacja": "Recruitment",
     "fuePsrp": "FUE & PSRP",
@@ -853,6 +858,18 @@
       "finansowanie": { "title": "Student activity funding regulations", "desc": "Rules for funding student initiatives and organizations." },
       "ksiega": { "title": "Visual identity guidelines", "desc": "Logo, colours and brand usage rules." }
     }
+  },
+  "kalendarz": {
+    "metaTitle": "University events calendar",
+    "metaDesc": "The events calendar of Wrocław University of Economics and Business — dates, rector’s days and key deadlines in one place.",
+    "ogLabel": "Calendar",
+    "heroEyebrow": "Calendar",
+    "heroTitle": "University events",
+    "heroLead": "The key dates from University life — in one always-up-to-date calendar.",
+    "frameTitle": "University events calendar",
+    "soon": "The calendar will appear here soon.",
+    "ourEvents": "Looking for our events? See what’s coming up on the homepage.",
+    "ourEventsLink": "Our events"
   },
   "organizacje": {
     "metaTitle": "Student organizations",

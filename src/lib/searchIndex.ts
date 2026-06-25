@@ -38,6 +38,7 @@ const sources: SearchSource[] = [
   { href: "/wladze-rektorskie", group: G.student, label: { pl: "Władze rektorskie", en: "University authorities" }, keywords: { pl: "rektor prorektor uczelnia", en: "rector vice-rector university" } },
   { href: "/dziekan-i-prodziekani", group: G.student, label: { pl: "Dziekan i prodziekani", en: "Dean & vice-deans" }, keywords: { pl: "dziekanat kierunek prodziekan", en: "dean office field vice-dean" } },
   { href: "/organizacje-studenckie", group: G.student, label: { pl: "Organizacje studenckie", en: "Student organizations" }, keywords: { pl: "koła naukowe organizacje inicjatywy społeczność dołącz", en: "academic clubs organizations initiatives community join" } },
+  { href: "/kalendarz", group: G.student, label: { pl: "Kalendarz wydarzeń uczelnianych", en: "University events calendar" }, keywords: { pl: "kalendarz wydarzenia terminy uczelnia daty dni rektorskie", en: "calendar events dates university deadlines schedule" } },
 
   // Samorząd
   { href: "/nasza-dzialalnosc", group: G.samorzad, label: { pl: "Nasza działalność", en: "Our activities" }, keywords: { pl: "samorząd organy działalność", en: "student government bodies activities" } },

@@ -36,18 +36,23 @@ export function Nav() {
     { label: tm("mapa"), href: "/mapa-kampusu" },
     { label: tm("pomoc"), href: "/pomoc-psychologiczna" },
     { label: tm("organizacje"), href: "/organizacje-studenckie" },
+    { label: tm("kalendarz"), href: "/kalendarz" },
   ];
 
   const samorzad: NavChild[] = [
+    { label: tm("groupAbout"), heading: true },
     { label: tm("onas"), href: "/#o-nas" },
     { label: tm("dzialalnosc"), href: "/nasza-dzialalnosc" },
     { label: tm("struktura"), href: "/struktura-samorzadu" },
+    { label: tm("groupOrgans"), heading: true },
     { label: tm("przewodniczacy"), href: "/przewodniczacy-i-wiceprzewodniczacy" },
     { label: tm("russ"), href: "/rada-uczelniana-samorzadu-studentow" },
     { label: tm("skw"), href: "/studencka-komisja-wyborcza" },
+    { label: tm("groupDocs"), heading: true },
+    { label: tm("transparentnosc"), href: "/transparentnosc" },
     { label: tm("regulacje"), href: "/regulacje-wewnetrzne" },
     { label: tm("zarzadzenia"), href: "/zarzadzenia-przewodniczacego" },
-    { label: tm("transparentnosc"), href: "/transparentnosc" },
+    { label: tm("groupActivity"), heading: true },
     { label: tm("projekty"), href: "/nasze-projekty" },
     { label: tm("rekrutacja"), href: "/rekrutacja" },
     { label: tm("fuePsrp"), href: "/fue-i-psrp" },
@@ -132,6 +137,7 @@ export function Nav() {
     items.some(
       (it) =>
         !it.external &&
+        !!it.href &&
         it.href.startsWith("/") &&
         !it.href.startsWith("/#") &&
         it.href !== "/" &&
@@ -306,8 +312,12 @@ export function Nav() {
                             className="overflow-hidden"
                           >
                             {group.items.map((item) => (
-                              <li key={item.href}>
-                                {item.external ? (
+                              <li key={item.href ?? item.label}>
+                                {item.heading ? (
+                                  <p className="px-3 pb-1 pt-3 text-[0.625rem] font-semibold uppercase tracking-[0.12em] text-ink-tertiary">
+                                    {item.label}
+                                  </p>
+                                ) : item.external ? (
                                   <a
                                     href={item.href}
                                     target="_blank"
@@ -320,7 +330,7 @@ export function Nav() {
                                   </a>
                                 ) : (
                                   <Link
-                                    href={item.href}
+                                    href={item.href ?? "/"}
                                     onClick={closeMobile}
                                     className="block py-2.5 pl-3 text-[0.875rem] text-ink-secondary transition-colors hover:text-ink-primary"
                                   >

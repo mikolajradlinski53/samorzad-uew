@@ -7,8 +7,10 @@ import { CaretDown, ArrowSquareOut } from "@phosphor-icons/react";
 
 export interface NavChild {
   label: string;
-  href: string;
+  href?: string;
   external?: boolean;
+  /** Nagłówek sekcji (nieklikalny) — do grupowania długiego dropdownu. */
+  heading?: boolean;
 }
 
 interface NavDropdownProps {
@@ -105,8 +107,12 @@ export function NavDropdown({ label, items, active }: NavDropdownProps) {
           >
             <ul className="flex flex-col">
               {items.map((item) => (
-                <li key={item.href}>
-                  {item.external ? (
+                <li key={item.href ?? item.label}>
+                  {item.heading ? (
+                    <p className="px-3 pb-1 pt-3 text-[0.625rem] font-semibold uppercase tracking-[0.12em] text-ink-tertiary first:pt-1">
+                      {item.label}
+                    </p>
+                  ) : item.external ? (
                     <a
                       href={item.href}
                       target="_blank"
@@ -124,7 +130,7 @@ export function NavDropdown({ label, items, active }: NavDropdownProps) {
                     </a>
                   ) : (
                     <Link
-                      href={item.href}
+                      href={item.href ?? "/"}
                       onClick={() => setOpen(false)}
                       className="block rounded-lg px-3 py-2.5 text-[0.875rem] text-ink-secondary transition-colors hover:bg-bg-elevated hover:text-ink-primary"
                     >

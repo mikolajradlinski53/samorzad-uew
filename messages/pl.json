@@ -805,6 +805,7 @@
     "mapa": "Mapa kampusu",
     "pomoc": "Pomoc psychologiczna",
     "organizacje": "Organizacje studenckie",
+    "kalendarz": "Kalendarz uczelniany",
     "onas": "O nas",
     "dzialalnosc": "Nasza działalność",
     "struktura": "Struktura Samorządu",
@@ -814,6 +815,10 @@
     "regulacje": "Regulacje wewnętrzne",
     "zarzadzenia": "Zarządzenia Przewodniczącej",
     "transparentnosc": "Transparentność",
+    "groupAbout": "O Samorządzie",
+    "groupOrgans": "Organy",
+    "groupDocs": "Dokumenty",
+    "groupActivity": "Działalność",
     "projekty": "Nasze projekty",
     "rekrutacja": "Rekrutacja",
     "fuePsrp": "FUE i PSRP",
@@ -853,6 +858,18 @@
       "finansowanie": { "title": "Regulamin finansowania działalności studenckiej", "desc": "Zasady finansowania inicjatyw i organizacji studenckich." },
       "ksiega": { "title": "Księga identyfikacji wizualnej", "desc": "Logo, kolory i zasady używania marki Samorządu." }
     }
+  },
+  "kalendarz": {
+    "metaTitle": "Kalendarz wydarzeń uczelnianych",
+    "metaDesc": "Kalendarz wydarzeń Uniwersytetu Ekonomicznego we Wrocławiu — terminy, dni rektorskie i ważne daty w jednym miejscu.",
+    "ogLabel": "Kalendarz",
+    "heroEyebrow": "Kalendarz",
+    "heroTitle": "Wydarzenia uczelniane",
+    "heroLead": "Najważniejsze terminy z życia Uniwersytetu — w jednym, zawsze aktualnym kalendarzu.",
+    "frameTitle": "Kalendarz wydarzeń uczelnianych",
+    "soon": "Kalendarz pojawi się tutaj wkrótce.",
+    "ourEvents": "Szukasz naszych wydarzeń? Najbliższe znajdziesz na stronie głównej.",
+    "ourEventsLink": "Nasze wydarzenia"
   },
   "organizacje": {
     "metaTitle": "Organizacje studenckie",
