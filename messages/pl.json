@@ -4,6 +4,13 @@
     "newTab": "otwiera się w nowej karcie",
     "comingSoon": "Wkrótce"
   },
+  "consent": {
+    "message": "Używamy anonimowej analityki, aby ulepszać stronę. Niezbędne pliki cookie (logowanie, język) działają zawsze.",
+    "accept": "Akceptuję",
+    "reject": "Tylko niezbędne",
+    "more": "Polityka prywatności",
+    "aria": "Zgoda na pliki cookie"
+  },
   "nav": {
     "student": "Dla studenta",
     "samorzad": "Samorząd",
@@ -101,7 +108,8 @@
   },
   "footer": {
     "brand": "Samorząd Studentów Uniwersytetu Ekonomicznego we Wrocławiu",
-    "rights": "Wszelkie prawa zastrzeżone."
+    "rights": "Wszelkie prawa zastrzeżone.",
+    "privacy": "Polityka prywatności"
   },
   "pages": {
     "dlaStudenta": "Strefa studenta",
@@ -915,6 +923,22 @@
     "noneBody": "Nie szukamy teraz nowych osób, ale to się szybko zmienia. Napisz do nas — damy znać, gdy ruszy nabór.",
     "generalButton": "Napisz do nas",
     "interestButton": "Zostaw zgłoszenie"
+  },
+  "prywatnosc": {
+    "metaTitle": "Polityka prywatności",
+    "metaDesc": "Jak Samorząd Studentów UEW przetwarza dane na tej stronie — formularz kontaktowy, analityka, pliki cookie i Twoje prawa (RODO).",
+    "ogLabel": "Prywatność",
+    "heroEyebrow": "Prywatność",
+    "heroTitle": "Polityka prywatności",
+    "heroLead": "Wyjaśniamy, jakie dane przetwarzamy na tej stronie, w jakim celu i jakie masz prawa.",
+    "sections": [
+      { "title": "Administrator danych", "body": "Administratorem danych jest Samorząd Studentów Uniwersytetu Ekonomicznego we Wrocławiu, ul. Kamienna 43, 53-307 Wrocław. W sprawach dotyczących danych pisz na: kontakt@samorzad.ue.wroc.pl." },
+      { "title": "Jakie dane przetwarzamy", "body": "Formularz kontaktowy: imię i nazwisko, adres e-mail oraz treść wiadomości — wyłącznie po to, by odpowiedzieć na zgłoszenie. Wiadomości dostarcza usługa Resend. Logowanie działaczy odbywa się przez konto Google w domenie @samorzad.ue.wroc.pl; przechowujemy jedynie techniczną sesję w niezbędnym pliku cookie." },
+      { "title": "Pliki cookie", "body": "Niezbędne pliki cookie (sesja zalogowanego działacza oraz preferencja języka) działają zawsze — są konieczne do działania strony. Pliki i skrypty analityczne uruchamiamy wyłącznie po Twojej zgodzie; zgodę możesz w każdej chwili zmienić, czyszcząc dane strony w przeglądarce." },
+      { "title": "Analityka", "body": "Korzystamy z Vercel Web Analytics — anonimowej, zagregowanej statystyki odwiedzin. Nie używa ona plików cookie ani nie identyfikuje pojedynczych osób. Zbieramy ją tylko, jeśli wyrazisz zgodę." },
+      { "title": "Twoje prawa", "body": "Masz prawo dostępu do swoich danych, ich sprostowania, usunięcia lub ograniczenia przetwarzania, a także prawo sprzeciwu i wniesienia skargi do Prezesa Urzędu Ochrony Danych Osobowych. Dane z formularza przechowujemy tylko tak długo, jak to potrzebne do obsługi sprawy." },
+      { "title": "Kontakt", "body": "Pytania dotyczące prywatności i danych kieruj na: kontakt@samorzad.ue.wroc.pl." }
+    ]
   },
   "strefaDzialacza": {
     "metaTitle": "Strefa działacza",

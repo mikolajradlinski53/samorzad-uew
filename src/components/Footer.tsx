@@ -159,10 +159,16 @@ export function Footer() {
         </ScrollReveal>
 
         {/* Copyright */}
-        <div className="mt-16 border-t border-border-subtle pt-6">
+        <div className="mt-16 flex flex-col gap-2 border-t border-border-subtle pt-6 sm:flex-row sm:items-center sm:justify-between">
           <p className="text-[0.8125rem] text-ink-secondary">
             &copy; {new Date().getFullYear()} {t("footer.brand")}. {t("footer.rights")}
           </p>
+          <Link
+            href="/prywatnosc"
+            className="text-[0.8125rem] font-medium text-ink-secondary transition-colors hover:text-accent"
+          >
+            {t("footer.privacy")}
+          </Link>
         </div>
       </div>
     </footer>

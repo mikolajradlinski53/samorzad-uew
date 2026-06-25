@@ -9,6 +9,7 @@ import { Nav } from "@/components/Nav";
 import { Footer } from "@/components/Footer";
 import { ScrollProgress } from "@/components/ScrollProgress";
 import { BackToTop } from "@/components/BackToTop";
+import { AnalyticsConsent } from "@/components/AnalyticsConsent";
 import "../globals.css";
 
 const SITE_URL = "https://samorzad.ue.wroc.pl";
@@ -168,6 +169,7 @@ export default async function LocaleLayout({
             {children}
             <Footer />
             <BackToTop />
+            <AnalyticsConsent />
           </ThemeProvider>
         </NextIntlClientProvider>
       </body>

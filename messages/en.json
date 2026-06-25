@@ -4,6 +4,13 @@
     "newTab": "opens in a new tab",
     "comingSoon": "Soon"
   },
+  "consent": {
+    "message": "We use anonymous analytics to improve the site. Necessary cookies (login, language) always work.",
+    "accept": "Accept",
+    "reject": "Only necessary",
+    "more": "Privacy policy",
+    "aria": "Cookie consent"
+  },
   "nav": {
     "student": "For students",
     "samorzad": "Student Government",
@@ -101,7 +108,8 @@
   },
   "footer": {
     "brand": "Student Government of Wrocław University of Economics and Business",
-    "rights": "All rights reserved."
+    "rights": "All rights reserved.",
+    "privacy": "Privacy policy"
   },
   "pages": {
     "dlaStudenta": "Student zone",
@@ -915,6 +923,22 @@
     "noneBody": "We’re not recruiting at the moment, but that changes fast. Write to us — we’ll let you know when applications open.",
     "generalButton": "Write to us",
     "interestButton": "Express interest"
+  },
+  "prywatnosc": {
+    "metaTitle": "Privacy policy",
+    "metaDesc": "How the SSUEW Student Government processes data on this site — contact form, analytics, cookies and your rights (GDPR).",
+    "ogLabel": "Privacy",
+    "heroEyebrow": "Privacy",
+    "heroTitle": "Privacy policy",
+    "heroLead": "We explain what data we process on this site, why, and what rights you have.",
+    "sections": [
+      { "title": "Data controller", "body": "The data controller is the Student Government of Wrocław University of Economics and Business, ul. Kamienna 43, 53-307 Wrocław. For data matters, write to: kontakt@samorzad.ue.wroc.pl." },
+      { "title": "What data we process", "body": "Contact form: your name, email address and message — solely to respond to your enquiry. Messages are delivered by the Resend service. Member login uses a Google account in the @samorzad.ue.wroc.pl domain; we only store a technical session in a necessary cookie." },
+      { "title": "Cookies", "body": "Necessary cookies (a logged-in member’s session and your language preference) always work — they are required for the site to function. Analytics cookies and scripts run only with your consent; you can change your choice at any time by clearing the site’s data in your browser." },
+      { "title": "Analytics", "body": "We use Vercel Web Analytics — anonymous, aggregated visit statistics. It uses no cookies and does not identify individuals. We collect it only if you consent." },
+      { "title": "Your rights", "body": "You have the right to access, rectify, erase or restrict the processing of your data, as well as the right to object and to lodge a complaint with the supervisory authority (in Poland: the President of the Personal Data Protection Office). We keep contact-form data only as long as needed to handle your case." },
+      { "title": "Contact", "body": "Send privacy and data questions to: kontakt@samorzad.ue.wroc.pl." }
+    ]
   },
   "strefaDzialacza": {
     "metaTitle": "Members area",
