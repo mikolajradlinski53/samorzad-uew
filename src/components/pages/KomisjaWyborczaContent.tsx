@@ -2,10 +2,11 @@
 
 import { motion, useReducedMotion } from "motion/react";
 import { useTranslations } from "next-intl";
-import { EnvelopeSimple, CheckCircle } from "@phosphor-icons/react";
+import { EnvelopeSimple, CheckCircle, FileText } from "@phosphor-icons/react";
 import { PersonCard } from "../PersonCard";
 import { ScrollReveal } from "../ScrollReveal";
 import { electionCommittee as czlonkowie } from "@/lib/people";
+import { documents } from "@/lib/documents";
 
 export function KomisjaWyborczaContent() {
   const reduce = useReducedMotion();
@@ -88,6 +89,18 @@ export function KomisjaWyborczaContent() {
               <EnvelopeSimple size={20} weight="regular" aria-hidden="true" />
               skw@samorzad.ue.wroc.pl
             </a>
+            {documents.skwResolutions.href && (
+              <a
+                href={documents.skwResolutions.href}
+                {...(documents.skwResolutions.external
+                  ? { target: "_blank", rel: "noopener noreferrer" }
+                  : { download: true })}
+                className="inline-flex h-12 items-center gap-2 rounded-lg border border-border-medium px-7 text-base font-medium text-ink-primary transition-colors hover:border-border-soft hover:bg-bg-elevated"
+              >
+                <FileText size={20} weight="regular" aria-hidden="true" />
+                {t("uchwalyButton")}
+              </a>
+            )}
           </div>
         </ScrollReveal>
       </div>

@@ -8,9 +8,11 @@ import {
   Wheelchair,
   Lifebuoy,
   ArrowSquareOut,
+  FileText,
   type Icon,
 } from "@phosphor-icons/react";
 import { ScrollReveal } from "../ScrollReveal";
+import { documents as docManifest } from "@/lib/documents";
 
 interface Kind {
   key: string;
@@ -123,6 +125,18 @@ export function StypendiaContent() {
                 </li>
               ))}
             </ol>
+            {docManifest.stypendiaAll.href && (
+              <a
+                href={docManifest.stypendiaAll.href}
+                {...(docManifest.stypendiaAll.external
+                  ? { target: "_blank", rel: "noopener noreferrer" }
+                  : { download: true })}
+                className="mt-6 inline-flex h-11 items-center gap-2 rounded-lg border border-border-medium px-6 text-[0.9375rem] font-medium text-ink-primary transition-colors hover:border-border-soft hover:bg-bg-elevated"
+              >
+                <FileText size={18} weight="regular" aria-hidden="true" />
+                {t("downloadAll")}
+              </a>
+            )}
           </ScrollReveal>
 
           {/* Official links */}

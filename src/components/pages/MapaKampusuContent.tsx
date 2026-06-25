@@ -2,8 +2,9 @@
 
 import { motion, useReducedMotion } from "motion/react";
 import { useTranslations } from "next-intl";
-import { MapPin, NavigationArrow } from "@phosphor-icons/react";
+import { MapPin, NavigationArrow, DownloadSimple } from "@phosphor-icons/react";
 import { ScrollReveal } from "../ScrollReveal";
+import { documents } from "@/lib/documents";
 
 const locationKeys = ["office", "campus"];
 
@@ -15,12 +16,26 @@ export function MapaKampusuContent() {
     <section className="section-padding" aria-labelledby="mapa-heading">
       <div className="mx-auto max-w-[1200px]">
         <ScrollReveal>
-          <h2
-            id="mapa-heading"
-            className="font-display text-[clamp(1.75rem,3.4vw,2.75rem)] font-semibold leading-[1.15] tracking-[-0.02em] text-ink-primary"
-          >
-            {t("heading")}
-          </h2>
+          <div className="flex flex-wrap items-end justify-between gap-4">
+            <h2
+              id="mapa-heading"
+              className="font-display text-[clamp(1.75rem,3.4vw,2.75rem)] font-semibold leading-[1.15] tracking-[-0.02em] text-ink-primary"
+            >
+              {t("heading")}
+            </h2>
+            {documents.mapa.href && (
+              <a
+                href={documents.mapa.href}
+                {...(documents.mapa.external
+                  ? { target: "_blank", rel: "noopener noreferrer" }
+                  : { download: true })}
+                className="inline-flex h-11 items-center gap-2 rounded-lg border border-border-medium px-6 text-[0.9375rem] font-medium text-ink-primary transition-colors hover:border-border-soft hover:bg-bg-elevated"
+              >
+                <DownloadSimple size={18} weight="regular" aria-hidden="true" />
+                {t("downloadButton")}
+              </a>
+            )}
+          </div>
         </ScrollReveal>
 
         {/* Location pins drop in */}
