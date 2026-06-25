@@ -11,8 +11,11 @@ export function KalendarzContent() {
   const tc = useTranslations("common");
 
   return (
-    <section className="section-padding" aria-label={t("frameTitle")}>
+    <section className="section-padding" aria-labelledby="kalendarz-heading">
       <div className="mx-auto max-w-[1200px]">
+        <h2 id="kalendarz-heading" className="sr-only">
+          {t("frameTitle")}
+        </h2>
         {universityCalendarEmbedUrl ? (
           <ScrollReveal>
             <div className="overflow-hidden rounded-2xl border border-border-subtle bg-bg-surface">

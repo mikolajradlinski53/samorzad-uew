@@ -19,7 +19,7 @@ export function FuePsrpContent() {
   const t = useTranslations("fuePsrp");
 
   return (
-    <section className="section-padding" aria-label="FUE i PSRP">
+    <section className="section-padding" aria-label={t("metaTitle")}>
       <div className="mx-auto grid max-w-[1200px] gap-6 md:grid-cols-2">
         {blocks.map((b, i) => {
           const Glyph = b.icon;

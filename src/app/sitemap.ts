@@ -12,6 +12,8 @@ const HIGH_PRIORITY = new Set<string>([
   "/nasza-dzialalnosc",
   "/partnerzy",
   "/kontakt",
+  "/transparentnosc",
+  "/rekrutacja",
 ]);
 
 function loc(locale: string, href: string): string {
