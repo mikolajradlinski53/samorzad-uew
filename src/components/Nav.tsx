@@ -251,6 +251,13 @@ export function Nav() {
 
           <LanguageSwitcher />
 
+          <Link
+            href="/strefa-dzialacza"
+            className="hidden h-11 items-center rounded-md border border-border-medium bg-transparent px-5 text-[0.875rem] font-medium text-ink-primary transition-colors hover:border-border-soft hover:bg-bg-elevated md:flex"
+          >
+            {t("login")}
+          </Link>
+
           <button
             ref={toggleRef}
             onClick={() => setMobileOpen((v) => !v)}
@@ -362,6 +369,16 @@ export function Nav() {
                     </Link>
                   </li>
                 ))}
+
+                <li className="pt-4">
+                  <Link
+                    href="/strefa-dzialacza"
+                    onClick={closeMobile}
+                    className="inline-flex h-11 items-center rounded-md border border-border-medium px-5 text-[0.875rem] font-medium text-ink-primary"
+                  >
+                    {t("login")}
+                  </Link>
+                </li>
               </ul>
             </nav>
           </motion.div>

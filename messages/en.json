@@ -916,6 +916,21 @@
     "generalButton": "Write to us",
     "interestButton": "Express interest"
   },
+  "strefaDzialacza": {
+    "metaTitle": "Members area",
+    "metaDesc": "The internal area for SSUEW Student Government members — log in via the CRA system.",
+    "ogLabel": "Members area",
+    "heroEyebrow": "Members area",
+    "heroTitle": "Log in",
+    "heroLead": "The internal space for Student Government members. Logging in is handled by the CRA system.",
+    "cardHeading": "Log in via CRA",
+    "cardBody": "Access to the Student Government’s internal tools is for members — the Board, committees and the University Council. Log in via CRA using your credentials.",
+    "loginButton": "Log in via CRA",
+    "soon": "Login will be available soon.",
+    "noAccessHeading": "Not a member yet?",
+    "noAccessBody": "Join the Student Government — check current openings and apply.",
+    "noAccessButton": "See recruitment"
+  },
   "notFound": {
     "heading": "We couldn’t find this page",
     "body": "The address may have changed or the page was moved. Go back to the homepage or use the shortcuts below.",

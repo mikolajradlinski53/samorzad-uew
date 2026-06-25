@@ -45,6 +45,7 @@ const linkGroups: { titleKey: string; links: { labelKey: string; href: string }[
       { labelKey: "struktura", href: "/struktura-samorzadu" },
       { labelKey: "russ", href: "/rada-uczelniana-samorzadu-studentow" },
       { labelKey: "regulacje", href: "/regulacje-wewnetrzne" },
+      { labelKey: "strefaDzialacza", href: "/strefa-dzialacza" },
     ],
   },
   {
