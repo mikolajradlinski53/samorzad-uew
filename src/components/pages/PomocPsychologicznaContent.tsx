@@ -133,7 +133,7 @@ export function PomocPsychologicznaContent() {
             <p className="mt-8 text-[0.875rem] leading-[1.6] text-ink-tertiary">
               {t.rich("emergencyNote", {
                 strong: (chunks) => (
-                  <strong className="text-ink-secondary">{chunks}</strong>
+                  <strong className="font-semibold text-ink-secondary">{chunks}</strong>
                 ),
               })}
             </p>

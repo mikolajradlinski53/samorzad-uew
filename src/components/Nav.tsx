@@ -180,6 +180,7 @@ export function Nav() {
               src={resolvedTheme === "dark" ? "/logo-light.svg" : "/logo-dark.svg"}
               alt={ta("brandAlt")}
               fill
+              sizes="160px"
               className="object-contain object-left"
               priority
             />
