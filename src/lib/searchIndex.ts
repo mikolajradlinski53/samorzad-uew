@@ -62,6 +62,7 @@ const sources: SearchSource[] = [
   { href: "/", group: G.ogolne, label: { pl: "Strona główna", en: "Home" }, keywords: { pl: "home start", en: "home start" } },
   { href: "/kontakt", group: G.ogolne, label: { pl: "Kontakt", en: "Contact" }, keywords: { pl: "adres email formularz napisz", en: "address email form write" } },
   { href: "/prywatnosc", group: G.ogolne, label: { pl: "Polityka prywatności", en: "Privacy policy" }, keywords: { pl: "rodo dane cookie ciasteczka analityka prywatność", en: "gdpr data cookies analytics privacy" } },
+  { href: "/deklaracja-dostepnosci", group: G.ogolne, label: { pl: "Deklaracja dostępności", en: "Accessibility statement" }, keywords: { pl: "dostępność wcag niepełnosprawność klawiatura kontrast", en: "accessibility wcag disability keyboard contrast" } },
 ];
 
 /** Stable list of routes (href only) — used by sitemap.ts. */

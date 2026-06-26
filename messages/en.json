@@ -109,7 +109,8 @@
   "footer": {
     "brand": "Student Government of Wrocław University of Economics and Business",
     "rights": "All rights reserved.",
-    "privacy": "Privacy policy"
+    "privacy": "Privacy policy",
+    "accessibility": "Accessibility statement"
   },
   "pages": {
     "dlaStudenta": "Student zone",
@@ -923,6 +924,23 @@
     "noneBody": "We’re not recruiting at the moment, but that changes fast. Write to us — we’ll let you know when applications open.",
     "generalButton": "Write to us",
     "interestButton": "Express interest"
+  },
+  "deklaracja": {
+    "metaTitle": "Accessibility statement",
+    "metaDesc": "Digital accessibility statement for the SSUEW Student Government website — WCAG 2.1 conformance, the complaints procedure and contact details.",
+    "ogLabel": "Accessibility",
+    "heroEyebrow": "Accessibility",
+    "heroTitle": "Accessibility statement",
+    "heroLead": "The Student Government of Wrocław University of Economics and Business is committed to the digital accessibility of this site in line with the Polish Digital Accessibility Act of 4 April 2019.",
+    "metaDate": "Statement prepared on: 26 June 2026. Method: self-assessment by the team that built the site.",
+    "intro": "The site is designed to WCAG 2.1 level AA, and in many places AAA: sufficient contrast, visible focus, full keyboard support, semantic headings, text alternatives and respect for reduced-motion preferences.",
+    "sections": [
+      { "title": "Conformance status", "body": "The site is partially conformant with WCAG 2.1 (level AA). Possible exceptions: some attached documents (PDFs) and external tools linked from the site may not meet all accessibility requirements. The site interface itself was built to level AA, and many elements to AAA (e.g. touch target sizes ≥ 44 px)." },
+      { "title": "Keyboard support & aids", "body": "You can navigate the site with the keyboard (Tab / Shift+Tab, Enter, Esc). A “skip to content” link, clearly visible focus and a search opened with Ctrl/⌘ + K are available. The site respects the system reduced-motion setting (prefers-reduced-motion) and works in light and dark mode." },
+      { "title": "Feedback and complaints procedure", "body": "Anyone has the right to request that the website or an element of it be made accessible. Send your request to kontakt@samorzad.ue.wroc.pl, indicating the page concerned and a convenient form of contact. If accessibility cannot be ensured, we will propose alternative access. If a request is refused, you may file a complaint with the supervising authority and a petition to the Ombudsman." },
+      { "title": "Architectural accessibility", "body": "Student Government office: ul. Kamienna 43, Building J, room 9, 53-307 Wrocław. Detailed information about the building’s architectural accessibility (entrance, lifts, parking, access for assistance-dog users) is available on request — write to kontakt@samorzad.ue.wroc.pl. [To be completed with specific details by the Student Government.]" },
+      { "title": "Contact", "body": "For accessibility matters write to: kontakt@samorzad.ue.wroc.pl." }
+    ]
   },
   "prywatnosc": {
     "metaTitle": "Privacy policy",

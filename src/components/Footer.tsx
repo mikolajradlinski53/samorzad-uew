@@ -163,12 +163,20 @@ export function Footer() {
           <p className="text-[0.8125rem] text-ink-secondary">
             &copy; {new Date().getFullYear()} {t("footer.brand")}. {t("footer.rights")}
           </p>
-          <Link
-            href="/prywatnosc"
-            className="text-[0.8125rem] font-medium text-ink-secondary transition-colors hover:text-accent"
-          >
-            {t("footer.privacy")}
-          </Link>
+          <nav className="flex flex-wrap items-center gap-x-5 gap-y-1" aria-label={t("footer.privacy")}>
+            <Link
+              href="/prywatnosc"
+              className="text-[0.8125rem] font-medium text-ink-secondary transition-colors hover:text-accent"
+            >
+              {t("footer.privacy")}
+            </Link>
+            <Link
+              href="/deklaracja-dostepnosci"
+              className="text-[0.8125rem] font-medium text-ink-secondary transition-colors hover:text-accent"
+            >
+              {t("footer.accessibility")}
+            </Link>
+          </nav>
         </div>
       </div>
     </footer>

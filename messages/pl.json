@@ -109,7 +109,8 @@
   "footer": {
     "brand": "Samorząd Studentów Uniwersytetu Ekonomicznego we Wrocławiu",
     "rights": "Wszelkie prawa zastrzeżone.",
-    "privacy": "Polityka prywatności"
+    "privacy": "Polityka prywatności",
+    "accessibility": "Deklaracja dostępności"
   },
   "pages": {
     "dlaStudenta": "Strefa studenta",
@@ -923,6 +924,23 @@
     "noneBody": "Nie szukamy teraz nowych osób, ale to się szybko zmienia. Napisz do nas — damy znać, gdy ruszy nabór.",
     "generalButton": "Napisz do nas",
     "interestButton": "Zostaw zgłoszenie"
+  },
+  "deklaracja": {
+    "metaTitle": "Deklaracja dostępności",
+    "metaDesc": "Deklaracja dostępności cyfrowej serwisu Samorządu Studentów UEW — zgodność z WCAG 2.1, procedura wnioskowo-skargowa i dane kontaktowe.",
+    "ogLabel": "Dostępność",
+    "heroEyebrow": "Dostępność",
+    "heroTitle": "Deklaracja dostępności",
+    "heroLead": "Samorząd Studentów Uniwersytetu Ekonomicznego we Wrocławiu dba o dostępność cyfrową tego serwisu zgodnie z ustawą z dnia 4 kwietnia 2019 r. o dostępności cyfrowej stron internetowych i aplikacji mobilnych podmiotów publicznych.",
+    "metaDate": "Data sporządzenia deklaracji: 26 czerwca 2026 r. Metoda: samoocena zespołu tworzącego serwis.",
+    "intro": "Serwis został zaprojektowany zgodnie z wytycznymi WCAG 2.1 na poziomie AA, a w wielu miejscach AAA: odpowiedni kontrast, widoczny fokus, pełna obsługa klawiaturą, semantyczne nagłówki, alternatywy tekstowe oraz poszanowanie preferencji ograniczenia ruchu.",
+    "sections": [
+      { "title": "Status zgodności", "body": "Serwis jest częściowo zgodny z WCAG 2.1 (poziom AA). Możliwe wyłączenia: część załączonych dokumentów (PDF) oraz zewnętrznych narzędzi, do których prowadzą linki, może nie spełniać wszystkich wymagań dostępności. Sam interfejs serwisu zbudowano zgodnie z poziomem AA, a w wielu elementach AAA (m.in. rozmiary celów dotykowych ≥ 44 px)." },
+      { "title": "Obsługa klawiaturą i ułatwienia", "body": "Po stronie można poruszać się klawiaturą (Tab / Shift+Tab, Enter, Esc). Dostępny jest link „przejdź do treści”, wyraźnie widoczny fokus oraz wyszukiwarka uruchamiana skrótem Ctrl/⌘ + K. Serwis respektuje systemowe ustawienie ograniczenia animacji (prefers-reduced-motion) i działa w trybie jasnym oraz ciemnym." },
+      { "title": "Procedura wnioskowo-skargowa", "body": "Każdy ma prawo wystąpić z żądaniem zapewnienia dostępności cyfrowej strony lub jej elementu. Żądanie prześlij na adres kontakt@samorzad.ue.wroc.pl, wskazując stronę, której dotyczy, oraz dogodną formę kontaktu. Jeśli zapewnienie dostępności nie będzie możliwe, zaproponujemy dostęp alternatywny. W przypadku odmowy przysługuje prawo złożenia skargi do organu nadzorującego oraz wniosku do Rzecznika Praw Obywatelskich." },
+      { "title": "Dostępność architektoniczna", "body": "Siedziba Samorządu: ul. Kamienna 43, Budynek J, pokój 9, 53-307 Wrocław. Szczegółowe informacje o dostępności architektonicznej budynku (wejście, windy, miejsca parkingowe, dostęp dla osób z psem asystującym) udostępniamy na życzenie — napisz na kontakt@samorzad.ue.wroc.pl. [Do uzupełnienia o konkretne informacje przez Samorząd.]" },
+      { "title": "Kontakt", "body": "W sprawach dostępności pisz na: kontakt@samorzad.ue.wroc.pl." }
+    ]
   },
   "prywatnosc": {
     "metaTitle": "Polityka prywatności",
