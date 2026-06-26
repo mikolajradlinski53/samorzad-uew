@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import { motion, useReducedMotion } from "motion/react";
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
@@ -36,6 +37,7 @@ export function StrukturaContent() {
   const reduce = useReducedMotion();
   const t = useTranslations("struktura");
   const TopIcon = top.icon;
+  const [hovered, setHovered] = useState<number | null>(null);
 
   return (
     <section className="section-padding" aria-labelledby="struktura-heading">
@@ -89,7 +91,9 @@ export function StrukturaContent() {
             whileInView={reduce ? undefined : { scaleY: 1 }}
             viewport={{ once: true, amount: 0.4 }}
             transition={{ duration: 0.5, delay: 0.25, ease: [0.16, 1, 0.3, 1] }}
-            className="my-2 h-10 w-px origin-top bg-border-medium"
+            className={`my-2 h-10 w-px origin-top transition-colors duration-300 ${
+              hovered !== null ? "bg-accent" : "bg-border-medium"
+            }`}
           />
 
           {/* Organ nodes */}
@@ -99,6 +103,10 @@ export function StrukturaContent() {
               return (
                 <motion.div
                   key={organ.key}
+                  onMouseEnter={() => setHovered(i)}
+                  onMouseLeave={() => setHovered(null)}
+                  onFocus={() => setHovered(i)}
+                  onBlur={() => setHovered(null)}
                   initial={reduce ? false : { opacity: 0, y: 24 }}
                   whileInView={reduce ? undefined : { opacity: 1, y: 0 }}
                   viewport={{ once: true, amount: 0.2 }}
@@ -109,10 +117,18 @@ export function StrukturaContent() {
                   }}
                 >
                   <Tilt className="h-full" max={6}>
-                    <div className="group relative flex h-full flex-col overflow-hidden rounded-xl border border-border-subtle bg-bg-surface p-6 transition-colors duration-150 hover:border-border-soft hover:bg-bg-elevated">
+                    <div
+                      className={`relative flex h-full flex-col overflow-hidden rounded-xl border bg-bg-surface p-6 transition-all duration-300 ${
+                        hovered === i
+                          ? "border-accent/60 shadow-lg shadow-black/5"
+                          : "border-border-subtle hover:border-border-soft hover:bg-bg-elevated"
+                      } ${hovered !== null && hovered !== i ? "opacity-50" : "opacity-100"}`}
+                    >
                       <span
                         aria-hidden="true"
-                        className="absolute inset-x-0 top-0 h-[2px] origin-left scale-x-0 bg-accent transition-transform duration-300 group-hover:scale-x-100"
+                        className={`absolute inset-x-0 top-0 h-[2px] origin-left bg-accent transition-transform duration-300 ${
+                          hovered === i ? "scale-x-100" : "scale-x-0"
+                        }`}
                       />
                       <span className="flex h-11 w-11 items-center justify-center rounded-lg bg-accent-glow text-accent">
                         <Glyph size={24} weight="regular" aria-hidden="true" />

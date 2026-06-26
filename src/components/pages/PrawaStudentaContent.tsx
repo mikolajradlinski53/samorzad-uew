@@ -5,6 +5,7 @@ import { useTranslations } from "next-intl";
 import { ArrowUpRight, Megaphone, FileText, CaretDown } from "@phosphor-icons/react";
 import { Link } from "@/i18n/navigation";
 import { ScrollReveal } from "../ScrollReveal";
+import { SectionRail } from "../SectionRail";
 
 const rightKeys = ["repeat", "ios", "absence", "change", "ects", "commission", "mode"];
 
@@ -13,6 +14,8 @@ export function PrawaStudentaContent() {
   const t = useTranslations("prawaStudenta");
 
   return (
+    <>
+    <SectionRail ids={rightKeys.map((_, i) => `prawo-${i + 1}`)} label={t("sectionIndex")} />
     <section className="section-padding" aria-labelledby="prawa-lista-heading">
       <div className="mx-auto max-w-[1200px]">
         <ScrollReveal>
@@ -34,6 +37,7 @@ export function PrawaStudentaContent() {
           {rightKeys.map((key, i) => (
             <motion.li
               key={key}
+              id={`prawo-${i + 1}`}
               initial={reduce ? false : { opacity: 0, y: 20 }}
               whileInView={reduce ? undefined : { opacity: 1, y: 0 }}
               whileHover={
@@ -111,5 +115,6 @@ export function PrawaStudentaContent() {
         </ScrollReveal>
       </div>
     </section>
+    </>
   );
 }

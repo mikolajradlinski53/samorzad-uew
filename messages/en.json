@@ -481,6 +481,7 @@
     "heading": "Every student has the right to know their rights",
     "intro": "Under the Higher Education Act, every student has the right to training on their rights and duties. The student government organises this training together with the Students’ Parliament of the Republic of Poland.",
     "expandLabel": "What this means",
+    "sectionIndex": "Section index",
     "rights": {
       "repeat": { "title": "Repeating classes", "desc": "The right to repeat certain classes in the event of unsatisfactory academic results, on the terms set out in the university regulations.", "expl": "If you fail a subject, you have the right to repeat it under the study regulations — you’re not automatically expelled." },
       "ios": { "title": "Individual study plan", "desc": "The option to apply for an individual study plan — flexibly adapting the curriculum to your needs.", "expl": "Do you work, train competitively or have another important life situation? You can apply for a flexible plan and individual assessment dates." },

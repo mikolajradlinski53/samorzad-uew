@@ -481,6 +481,7 @@
     "heading": "Każdy student ma prawo poznać swoje prawa",
     "intro": "Dzięki Ustawie 2.0 każdy student ma prawo do przeszkolenia w zakresie swoich praw i obowiązków. Za organizację tego szkolenia odpowiada samorząd studencki we współpracy z Parlamentem Studentów Rzeczypospolitej Polskiej.",
     "expandLabel": "Co to znaczy",
+    "sectionIndex": "Spis paragrafów",
     "rights": {
       "repeat": { "title": "Powtarzanie zajęć", "desc": "Prawo do powtarzania określonych zajęć w przypadku niezadowalających wyników w nauce, na warunkach z regulaminu uczelni.", "expl": "Jeśli oblejesz przedmiot, masz prawo go powtórzyć na zasadach z regulaminu studiów — nie wylatujesz automatycznie." },
       "ios": { "title": "Indywidualna organizacja studiów", "desc": "Możliwość ubiegania się o IOS — elastyczne dostosowanie programu kształcenia do Twoich potrzeb.", "expl": "Pracujesz, trenujesz wyczynowo albo masz inną ważną sytuację życiową? Możesz wnioskować o elastyczny plan i indywidualne terminy zaliczeń." },
