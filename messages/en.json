@@ -195,6 +195,7 @@
     "tiles": {
       "prawa": { "title": "Student rights", "desc": "Your rights at the university and how to enforce them." },
       "stypendia": { "title": "Scholarships", "desc": "Social, merit and disability support." },
+      "kalkulator": { "title": "Grade calculator", "desc": "Compute your ECTS-weighted average for your programme and year." },
       "rzecznik": { "title": "Student Ombudsman", "desc": "On your side in disputes with the university." },
       "prawo": { "title": "Law for students", "desc": "Regulations and rules in plain language." },
       "infopacki": { "title": "Infopacks", "desc": "Practical information packs for students." },

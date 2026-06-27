@@ -25,6 +25,7 @@ const sources: SearchSource[] = [
   { href: "/dla-studenta", group: G.student, label: { pl: "Strefa studenta", en: "Student zone" }, keywords: { pl: "dla studenta hub tematy", en: "student zone hub topics" } },
   { href: "/prawa-studenta", group: G.student, label: { pl: "Prawa studenta", en: "Student rights" }, keywords: { pl: "ustawa 2.0 prawo egzamin ios", en: "act rights exam ios board" } },
   { href: "/stypendia", group: G.student, label: { pl: "Stypendia", en: "Scholarships" }, keywords: { pl: "pieniądze wsparcie świadczenia rodzaje", en: "money support benefits types" } },
+  { href: "/kalkulator-sredniej", group: G.student, label: { pl: "Kalkulator średniej", en: "Grade average calculator" }, keywords: { pl: "średnia ważona ects oceny punkty stypendium policz", en: "weighted average ects grades points scholarship compute" } },
   { href: "/stypendia-socjalne", group: G.student, label: { pl: "Stypendium socjalne", en: "Social scholarship" }, keywords: { pl: "dochód pomoc materialna usosweb", en: "income financial aid usosweb" } },
   { href: "/stypendia-rektora", group: G.student, label: { pl: "Stypendium rektora", en: "Rector’s scholarship" }, keywords: { pl: "wyniki nauka osiągnięcia najlepsi", en: "results merit achievements best" } },
   { href: "/stypendia-dla-niepelnosprawnych", group: G.student, label: { pl: "Stypendium dla osób z niepełnosprawnością", en: "Disability scholarship" }, keywords: { pl: "orzeczenie niepełnosprawność", en: "disability certificate" } },

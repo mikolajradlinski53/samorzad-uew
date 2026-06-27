@@ -17,6 +17,7 @@ import {
   ArrowUpRight,
   ArrowSquareOut,
   EnvelopeSimple,
+  Calculator,
   type Icon,
 } from "@phosphor-icons/react";
 import { ScrollReveal } from "../ScrollReveal";
@@ -32,6 +33,7 @@ interface Tile {
 const tiles: Tile[] = [
   { key: "prawa", href: "/prawa-studenta", icon: Scales, internal: true },
   { key: "stypendia", href: "/stypendia", icon: GraduationCap, internal: true },
+  { key: "kalkulator", href: "/kalkulator-sredniej", icon: Calculator, internal: true },
   { key: "rzecznik", href: "/rzecznik-praw-studenta", icon: Megaphone, internal: true },
   { key: "prawo", href: "/prawo-dla-studenta", icon: BookOpen, internal: true },
   { key: "infopacki", href: "/infopacki", icon: Package, internal: true },

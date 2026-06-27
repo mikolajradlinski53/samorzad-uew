@@ -195,6 +195,7 @@
     "tiles": {
       "prawa": { "title": "Prawa studenta", "desc": "Twoje prawa na uczelni i jak ich dochodzić." },
       "stypendia": { "title": "Stypendia", "desc": "Socjalne, rektora, dla osób z niepełnosprawnością." },
+      "kalkulator": { "title": "Kalkulator średniej", "desc": "Policz średnią ważoną ECTS dla swojego kierunku i roku." },
       "rzecznik": { "title": "Rzecznik Praw Studenta", "desc": "Stoi po Twojej stronie w sporach z uczelnią." },
       "prawo": { "title": "Prawo dla studenta", "desc": "Regulaminy i przepisy w przystępnej formie." },
       "infopacki": { "title": "Infopacki", "desc": "Praktyczne pakiety informacji dla studentów." },
