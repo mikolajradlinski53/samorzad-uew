@@ -30,7 +30,7 @@ describe("getCoursesFor", () => {
   it("flattens all terms of a year into one course list", () => {
     const courses = getCoursesFor(first.id, level, year);
     const expected = first.degrees[0].years[0].terms.flatMap((t) => t.courses);
-    expect(courses).toHaveLength(expected.length);
+    expect(courses).toEqual(expected);
   });
 
   it("returns an empty array for an unknown selection", () => {

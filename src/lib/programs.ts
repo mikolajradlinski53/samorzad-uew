@@ -54,16 +54,14 @@ export const programs: Program[] = [
             terms: [
               {
                 semester: 1,
-                courses: (
-                  [
-                    { name: "Mikroekonomia", ects: 6 },
-                    { name: "Matematyka", ects: 5 },
-                    { name: "Podstawy zarządzania", ects: 4 },
-                    { name: "Wprowadzenie do prawa", ects: 3 },
-                    { name: "Technologie informacyjne", ects: 3, pass: "zal" },
-                    { name: "Wychowanie fizyczne", ects: 0, pass: "zal" },
-                  ] as Course[]
-                ).filter((c) => c.ects > 0), // WF 0 ECTS pominięty — placeholder reguły
+                // Uwaga: przedmioty 0 ECTS (np. WF) pomijamy — nie liczą się do ECTS ani do średniej.
+                courses: [
+                  { name: "Mikroekonomia", ects: 6 },
+                  { name: "Matematyka", ects: 5 },
+                  { name: "Podstawy zarządzania", ects: 4 },
+                  { name: "Wprowadzenie do prawa", ects: 3 },
+                  { name: "Technologie informacyjne", ects: 3, pass: "zal" },
+                ],
               },
               {
                 semester: 2,
