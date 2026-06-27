@@ -92,12 +92,22 @@ export function KalkulatorSredniejContent() {
 
   const summary = computeAverage(inputs);
 
-  function setProgramId(id: string) {
-    setForm((f) => ({ ...f, programId: id }));
+  // Changing program may invalidate the current level/year (they might not
+  // exist on the new program) -> reclamp both to the new program's first valid
+  // option so getCoursesFor never receives a stale combination.
+  function selectProgram(id: string) {
+    const p = programs.find((x) => x.id === id) ?? programs[0];
+    const newLevel = p?.degrees[0]?.level ?? "I";
+    const newYear = p?.degrees.find((d) => d.level === newLevel)?.years[0]?.year ?? 1;
+    setForm((f) => ({ ...f, programId: id, level: newLevel, year: newYear }));
   }
 
-  function setLevel(l: DegreeLevel) {
-    setForm((f) => ({ ...f, level: l }));
+  // Changing level may invalidate the current year -> reclamp to the level's
+  // first valid year.
+  function selectLevel(newLevel: DegreeLevel) {
+    const d = program?.degrees.find((x) => x.level === newLevel) ?? program?.degrees[0];
+    const newYear = d?.years[0]?.year ?? 1;
+    setForm((f) => ({ ...f, level: newLevel, year: newYear }));
   }
 
   function setYear(y: number) {
@@ -135,7 +145,7 @@ export function KalkulatorSredniejContent() {
               {t("program")}
               <select
                 value={programId}
-                onChange={(e) => setProgramId(e.target.value)}
+                onChange={(e) => selectProgram(e.target.value)}
                 className="h-10 rounded-md border border-border-medium bg-bg-surface px-3 text-[0.9375rem] text-ink-primary"
               >
                 {programs.map((p) => (
@@ -149,7 +159,7 @@ export function KalkulatorSredniejContent() {
               {t("level")}
               <select
                 value={level}
-                onChange={(e) => setLevel(e.target.value as DegreeLevel)}
+                onChange={(e) => selectLevel(e.target.value as DegreeLevel)}
                 className="h-10 rounded-md border border-border-medium bg-bg-surface px-3 text-[0.9375rem] text-ink-primary"
               >
                 {program?.degrees.map((d) => (
