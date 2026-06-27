@@ -35,6 +35,8 @@ VISUAL_DENSITY:   4   (generous whitespace, editorial rhythm)
 
 **The "wow" is in restraint executed perfectly, not in effects stacked on effects.**
 
+**North-star principle — "per-page soul":** Every subpage must have a *soul* — its motion and any interactive widget must arise from what that page is *for*, never decoration bolted on top. The test for any animation or tool: does it come from the function of this page? If it would work just as well on any other page, it is decoration — cut it. Examples: the szczegóły of a person morph (not fade) into their detail view; legal pages get a `§` scroll-spy that aids reading; the scholarship page gets a threshold meter the student drives; the psychological-support page *slows down* with an ambient breathing pacer. Substance is the wow.
+
 What this means in practice:
 - Blue & white (light) as default — the institution's identity, matching the logo. Dark mode available via toggle. Both must feel intentional, not inverted.
 - Large, slow, precise typography in the hero. The headline is a statement, not a tagline.
