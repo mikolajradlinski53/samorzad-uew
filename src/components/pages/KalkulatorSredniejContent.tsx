@@ -20,12 +20,16 @@ interface FormState {
   programId: string;
   level: DegreeLevel;
   year: number;
-  grades: Record<string, number>; // courseKey -> grade
+  grades: Record<string, number>; // gradeKey -> grade
   manual: ManualRow[];
 }
 
-function courseKey(programId: string, level: string, year: number, index: number) {
-  return `${programId}|${level}|${year}|${index}`;
+// Stable, name-based key so saved grades follow the COURSE, not its slot.
+// programs.ts is a growing human-maintained dataset: keying by positional
+// index would silently reattribute grades when a course is inserted/reordered.
+// Course names within one program/level/year are unique (curriculum invariant).
+function gradeKey(programId: string, level: DegreeLevel, year: number, courseName: string) {
+  return `${programId}|${level}|${year}|${courseName}`;
 }
 
 const defaultProgram = programs[0];
@@ -82,9 +86,9 @@ export function KalkulatorSredniejContent() {
   const courses = getCoursesFor(programId, level, year);
 
   const inputs: CourseInput[] = useMemo(() => {
-    const fromProgram: CourseInput[] = courses.map((c, i) => ({
+    const fromProgram: CourseInput[] = courses.map((c) => ({
       ects: c.ects,
-      grade: c.pass === "zal" ? null : (grades[courseKey(programId, level, year, i)] ?? null),
+      grade: c.pass === "zal" ? null : (grades[gradeKey(programId, level, year, c.name)] ?? null),
     }));
     const fromManual: CourseInput[] = manual.map((m) => ({ ects: m.ects, grade: m.grade }));
     return [...fromProgram, ...fromManual];
@@ -114,8 +118,8 @@ export function KalkulatorSredniejContent() {
     setForm((f) => ({ ...f, year: y }));
   }
 
-  function setGrade(index: number, value: number | null) {
-    const key = courseKey(programId, level, year, index);
+  function setGrade(courseName: string, value: number | null) {
+    const key = gradeKey(programId, level, year, courseName);
     setForm((f) => {
       const next = { ...f.grades };
       if (value === null) delete next[key];
@@ -199,7 +203,7 @@ export function KalkulatorSredniejContent() {
               </thead>
               <tbody>
                 {courses.map((c, i) => (
-                  <tr key={courseKey(programId, level, year, i)} className="border-t border-border-subtle">
+                  <tr key={`${programId}|${level}|${year}|${i}|${c.name}`} className="border-t border-border-subtle">
                     <td className="px-4 py-3 text-ink-primary">{c.name}</td>
                     <td className="px-4 py-3 font-mono text-ink-secondary">{c.ects}</td>
                     <td className="px-4 py-3">
@@ -210,9 +214,9 @@ export function KalkulatorSredniejContent() {
                       ) : (
                         <select
                           aria-label={`${t("colGrade")}: ${c.name}`}
-                          value={grades[courseKey(programId, level, year, i)] ?? ""}
+                          value={grades[gradeKey(programId, level, year, c.name)] ?? ""}
                           onChange={(e) =>
-                            setGrade(i, e.target.value === "" ? null : Number(e.target.value))
+                            setGrade(c.name, e.target.value === "" ? null : Number(e.target.value))
                           }
                           className="h-9 w-full rounded-md border border-border-medium bg-bg-surface px-2 text-ink-primary"
                         >
