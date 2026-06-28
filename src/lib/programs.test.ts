@@ -1,39 +1,60 @@
 import { describe, expect, it } from "vitest";
-import { getCoursesFor, programs } from "./programs";
+import {
+  type Program,
+  listPrograms,
+  listLevels,
+  listModes,
+  listCohorts,
+  listYears,
+  getCoursesFor,
+} from "./programs";
 
-describe("programs data", () => {
-  it("has at least one pilot program", () => {
-    expect(programs.length).toBeGreaterThanOrEqual(1);
+const fixture: Program[] = [
+  {
+    id: "eko",
+    name: "Ekonomia",
+    degrees: [
+      {
+        level: "I",
+        cohorts: [
+          {
+            rocznik: "2024/2025",
+            tracks: [
+              {
+                mode: "stacjonarne",
+                years: [
+                  { year: 1, terms: [
+                    { semester: 1, courses: [{ name: "A", ects: 6, semester: 1 }] },
+                    { semester: 2, courses: [{ name: "B", ects: 4, semester: 2 }] },
+                  ] },
+                ],
+              },
+            ],
+          },
+        ],
+      },
+    ],
+  },
+];
+
+describe("selectors", () => {
+  it("lists levels/modes/cohorts/years for a selection", () => {
+    expect(listLevels(fixture, "eko")).toEqual(["I"]);
+    expect(listModes(fixture, "eko", "I")).toEqual(["stacjonarne"]);
+    expect(listCohorts(fixture, "eko", "I", "stacjonarne")).toEqual(["2024/2025"]);
+    expect(listYears(fixture, "eko", "I", "stacjonarne", "2024/2025")).toEqual([1]);
   });
 
-  it("every course has a positive ECTS value", () => {
-    for (const p of programs) {
-      for (const d of p.degrees) {
-        for (const y of d.years) {
-          for (const term of y.terms) {
-            for (const course of term.courses) {
-              expect(course.ects).toBeGreaterThan(0);
-              expect(course.name.length).toBeGreaterThan(0);
-            }
-          }
-        }
-      }
-    }
-  });
-});
-
-describe("getCoursesFor", () => {
-  const first = programs[0];
-  const level = first.degrees[0].level;
-  const year = first.degrees[0].years[0].year;
-
-  it("flattens all terms of a year into one course list", () => {
-    const courses = getCoursesFor(first.id, level, year);
-    const expected = first.degrees[0].years[0].terms.flatMap((t) => t.courses);
-    expect(courses).toEqual(expected);
+  it("flattens a year's terms into courses", () => {
+    const cs = getCoursesFor(fixture, "eko", "I", "stacjonarne", "2024/2025", 1);
+    expect(cs.map((c) => c.name)).toEqual(["A", "B"]);
   });
 
-  it("returns an empty array for an unknown selection", () => {
-    expect(getCoursesFor("__nope__", "I", 99)).toEqual([]);
+  it("returns [] for an unknown selection", () => {
+    expect(getCoursesFor(fixture, "nope", "I", "stacjonarne", "2024/2025", 9)).toEqual([]);
+  });
+
+  it("listPrograms returns id+name pairs", () => {
+    expect(listPrograms(fixture)).toEqual([{ id: "eko", name: "Ekonomia" }]);
   });
 });
