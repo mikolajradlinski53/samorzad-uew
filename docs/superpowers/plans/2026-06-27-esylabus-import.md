@@ -2,6 +2,12 @@
 
 > **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
 
+> **AMENDMENT (2026-06-28, size gate triggered).** Task 4 produced a **3.9 MB** dataset (32 programmes, 12 961 courses) — far over the 800 KB gate. Per the spec's contingency we therefore **do NOT bundle the JSON**. Instead:
+> - The dataset lives at **`public/data/programs.json`** (served as a static asset; Vercel gzip/brotli shrinks it to a few hundred KB over the wire; cached; only the calculator page fetches it). The importer writes there, **minified** (`JSON.stringify(programs)` — no indentation).
+> - `src/lib/programs.ts` does **NOT** `import` the JSON. It exports types + pure selectors (unchanged, take `data`) **plus an async `loadPrograms()`** that `fetch`es `/data/programs.json` (memoised).
+> - The calculator (`KalkulatorSredniejContent`) **loads data on mount** (`loadPrograms().then(...)`, async — not flagged by `react-hooks/set-state-in-effect`), shows a loading state, then renders the cascade. Initial form values are derived once data arrives, not at module load.
+> This supersedes Task 4 Step 4's `src/lib/...` path, Task 5's `import generated` line, and Task 6's module-load `initialState`. The rest stands. Tasks 5 selectors and their fixture tests are unchanged (selectors still take `data`).
+
 **Goal:** Replace the hand-written pilot `programs.ts` with real UEW study-plan data imported from the public `ue.e-sylabus.pl` JSON API, and extend the calculator to pick **kierunek → stopień → tryb → rocznik → rok**.
 
 **Architecture:** A standalone Node importer script walks the e-sylabus API and writes `src/lib/programs.generated.json`. Pure parsing/aggregation logic lives in a separate module tested on synthetic fixtures (no network in tests). `src/lib/programs.ts` becomes types + JSON loader + pure selectors (tested on a fixture). The calculator UI gains two cascading selects (tryb, rocznik) and uses English course names in the `en` locale. `average.ts` and `AverageResult.tsx` are untouched.
