@@ -5,7 +5,7 @@
 import { writeFileSync, mkdirSync } from "node:fs";
 import { fileURLToPath } from "node:url";
 import { dirname, join } from "node:path";
-import { parsePlan, buildPrograms, levelLabel, cleanName } from "./esylabus-parse.mjs";
+import { parsePlan, buildPrograms, levelLabel, cleanName, decodeResponse } from "./esylabus-parse.mjs";
 
 const BASE = "https://ue.e-sylabus.pl/";
 const UA = "Mozilla/5.0 (compatible; SSUEW-calculator-import)";
@@ -31,7 +31,7 @@ async function api(path, params) {
     body: new URLSearchParams(params).toString(),
   });
   const buf = Buffer.from(await res.arrayBuffer());
-  const text = new TextDecoder("windows-1250").decode(buf);
+  const text = decodeResponse(buf);
   let v;
   try { v = JSON.parse(text); } catch { return null; }
   if (v === "" || v === null) return null;

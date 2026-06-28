@@ -16,6 +16,19 @@ export function levelLabel(stopien, studiaJednolite) {
   return Number(stopien) === 2 ? "II" : "I";
 }
 
+/**
+ * e-sylabus responses are inconsistently encoded (some UTF-8, some cp1250).
+ * Strict-UTF-8 first: valid UTF-8 (incl. pure ASCII) decodes as UTF-8; bytes that
+ * aren't valid UTF-8 (cp1250 Polish text) throw → fall back to windows-1250.
+ */
+export function decodeResponse(bytes) {
+  try {
+    return new TextDecoder("utf-8", { fatal: true }).decode(bytes);
+  } catch {
+    return new TextDecoder("windows-1250").decode(bytes);
+  }
+}
+
 /** "[KWO] Informatyka" → "Informatyka"; also trims. */
 export function cleanName(name) {
   return String(name || "").replace(/^\s*\[[^\]]*\]\s*/, "").trim();

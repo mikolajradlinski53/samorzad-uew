@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { romanToInt, yearFromSemester, levelLabel, cleanName, parsePlan, buildPrograms } from "./esylabus-parse.mjs";
+import { romanToInt, yearFromSemester, levelLabel, cleanName, parsePlan, buildPrograms, decodeResponse } from "./esylabus-parse.mjs";
 
 describe("romanToInt", () => {
   it("maps roman semesters", () => {
@@ -64,6 +64,20 @@ describe("parsePlan", () => {
     const r = parsePlan(samplePlan, "niestacjonarne");
     expect(r.map((c) => c.name)).toEqual(["Finanse", "Język obcy"]);
     expect(r[0].ects).toBe(4);
+  });
+});
+
+describe("decodeResponse", () => {
+  it("decodes UTF-8 bodies correctly", () => {
+    const bytes = new TextEncoder().encode("Rachunkowość");
+    expect(decodeResponse(bytes)).toBe("Rachunkowość");
+  });
+  it("falls back to windows-1250 for cp1250 bodies", () => {
+    // cp1250 bytes for "ść": ś=0x9C, ć=0xE6 — invalid as strict UTF-8 → cp1250 path
+    expect(decodeResponse(Uint8Array.from([0x9c, 0xe6]))).toBe("ść");
+  });
+  it("handles pure ASCII", () => {
+    expect(decodeResponse(new TextEncoder().encode("Finanse"))).toBe("Finanse");
   });
 });
 
