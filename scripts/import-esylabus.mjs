@@ -1,15 +1,15 @@
 // Imports UEW study plans from the public e-sylabus JSON API into
-// src/lib/programs.generated.json. Run: npm run import:sylabus
+// public/data/programs.json. Run: npm run import:sylabus
 // Notes: responses are cp1250 + double-JSON-encoded; endpoints are POST.
 
-import { writeFileSync } from "node:fs";
+import { writeFileSync, mkdirSync } from "node:fs";
 import { fileURLToPath } from "node:url";
 import { dirname, join } from "node:path";
 import { parsePlan, buildPrograms, levelLabel, cleanName } from "./esylabus-parse.mjs";
 
 const BASE = "https://ue.e-sylabus.pl/";
 const UA = "Mozilla/5.0 (compatible; SSUEW-calculator-import)";
-const OUT = join(dirname(fileURLToPath(import.meta.url)), "..", "src", "lib", "programs.generated.json");
+const OUT = join(dirname(fileURLToPath(import.meta.url)), "..", "public", "data", "programs.json");
 
 let cookie = "";
 
@@ -90,7 +90,8 @@ async function main() {
   }
 
   const programs = buildPrograms(entries);
-  writeFileSync(OUT, JSON.stringify(programs, null, 2) + "\n", "utf-8");
+  mkdirSync(dirname(OUT), { recursive: true });
+  writeFileSync(OUT, JSON.stringify(programs) + "\n", "utf-8");
 
   const courseCount = entries.reduce((n, e) => n + e.courses.length, 0);
   console.log(`\nDONE. combos=${total} withData=${withData} skipped=${skipped}`);
