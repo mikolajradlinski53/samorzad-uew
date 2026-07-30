@@ -299,7 +299,9 @@
     "successAgain": "Send another message",
     "submitIdle": "Send message",
     "submitSending": "Sending…",
-    "mapTitle": "Map — SSUEW Student Government office, ul. Kamienna 43, Wrocław"
+    "mapTitle": "Map — SSUEW Student Government office, ul. Kamienna 43, Wrocław",
+    "rodoIntro": "The controller of the personal data submitted in this form is the Students' Union of Wroclaw University of Economics and Business. We process the data solely to reply to your message (Art. 6(1)(f) GDPR — legitimate interest). You have the right to access, rectify and erase your data. Details in the",
+    "rodoLink": "Privacy Policy"
   },
   "naszaDzialalnosc": {
     "metaTitle": "Our activities",

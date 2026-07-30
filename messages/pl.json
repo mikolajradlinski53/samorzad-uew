@@ -299,7 +299,9 @@
     "successAgain": "Wyślij kolejną wiadomość",
     "submitIdle": "Wyślij wiadomość",
     "submitSending": "Wysyłanie…",
-    "mapTitle": "Mapa — siedziba Samorządu Studentów UEW, ul. Kamienna 43, Wrocław"
+    "mapTitle": "Mapa — siedziba Samorządu Studentów UEW, ul. Kamienna 43, Wrocław",
+    "rodoIntro": "Administratorem danych osobowych podanych w formularzu jest Samorząd Studentów Uniwersytetu Ekonomicznego we Wrocławiu. Dane przetwarzamy wyłącznie w celu odpowiedzi na Twoją wiadomość (art. 6 ust. 1 lit. f RODO — prawnie uzasadniony interes). Masz prawo dostępu do danych, ich sprostowania i usunięcia. Szczegóły w",
+    "rodoLink": "Polityce prywatności"
   },
   "naszaDzialalnosc": {
     "metaTitle": "Nasza działalność",

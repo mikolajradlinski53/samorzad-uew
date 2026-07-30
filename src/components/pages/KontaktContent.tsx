@@ -12,6 +12,7 @@ import {
   InstagramLogo,
   LinkedinLogo,
 } from "@phosphor-icons/react";
+import { Link } from "@/i18n/navigation";
 import { ScrollReveal } from "../ScrollReveal";
 
 interface FormState {
@@ -300,6 +301,14 @@ export function KontaktContent() {
                 >
                   {status === "sending" ? t("submitSending") : t("submitIdle")}
                 </button>
+
+                <p className="mt-4 text-[0.75rem] leading-[1.6] text-ink-tertiary">
+                  {t("rodoIntro")}{" "}
+                  <Link href="/prywatnosc" className="underline decoration-border-medium underline-offset-2 transition-colors hover:text-ink-secondary">
+                    {t("rodoLink")}
+                  </Link>
+                  .
+                </p>
               </form>
             )}
           </div>
