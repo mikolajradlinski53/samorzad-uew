@@ -14,6 +14,7 @@ import {
 } from "@phosphor-icons/react";
 import { Link } from "@/i18n/navigation";
 import { ScrollReveal } from "../ScrollReveal";
+import { MapEmbed } from "../MapEmbed";
 
 interface FormState {
   name: string;
@@ -318,12 +319,12 @@ export function KontaktContent() {
       {/* Map */}
       <ScrollReveal>
         <div className="mx-auto mt-12 max-w-[1200px] overflow-hidden rounded-2xl border border-border-subtle">
-          <iframe
-            title={t("mapTitle")}
+          <MapEmbed
             src="https://www.google.com/maps?q=ul.+Kamienna+43,+53-307+Wroc%C5%82aw&output=embed"
-            loading="lazy"
-            referrerPolicy="no-referrer-when-downgrade"
-            className="block h-[360px] w-full border-0"
+            title={t("mapTitle")}
+            address={`${t("addr1")}, ${t("addr2")}`}
+            loadLabel={t("mapLoad")}
+            consentNote={t("mapConsent")}
           />
         </div>
       </ScrollReveal>
