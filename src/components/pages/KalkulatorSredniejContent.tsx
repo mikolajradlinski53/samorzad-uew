@@ -318,7 +318,7 @@ export function KalkulatorSredniejContent() {
                           type="button"
                           aria-label={t("removeRow")}
                           onClick={() => setForm((f) => ({ ...f, manual: f.manual.filter((r) => r.id !== m.id) }))}
-                          className="text-ink-tertiary transition-colors hover:text-accent"
+                          className="flex h-11 w-11 shrink-0 items-center justify-center text-ink-tertiary transition-colors hover:text-accent"
                         >
                           <Trash size={18} aria-hidden="true" />
                         </button>
