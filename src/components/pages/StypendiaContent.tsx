@@ -21,15 +21,15 @@ interface Kind {
 }
 
 const kinds: Kind[] = [
-  { key: "socjalne", href: "/stypendia-socjalne", icon: Coins },
-  { key: "rektora", href: "/stypendia-rektora", icon: Trophy },
-  { key: "niepelnosprawni", href: "/stypendia-dla-niepelnosprawnych", icon: Wheelchair },
-  { key: "zapomoga", href: "/zapomoga", icon: Lifebuoy },
+  { key: "socjalne", href: "/stypendia#socjalne", icon: Coins },
+  { key: "rektora", href: "/stypendia#rektora", icon: Trophy },
+  { key: "niepelnosprawni", href: "/stypendia#niepelnosprawni", icon: Wheelchair },
+  { key: "zapomoga", href: "/stypendia#zapomoga", icon: Lifebuoy },
 ];
 
 const officialLinks = [
   { key: "news", href: "https://uew.pl/kandydaci/wsparcie-finansowe-dla-studentow/" },
-  { key: "infopack", href: "/wsparcie-materialne-i-swiadczenia" },
+  { key: "infopack", href: "/stypendia#wsparcie" },
   { key: "regulamin", href: "https://drive.google.com/file/d/18eMIfTCKHe2VkeNhqpbcnE2_dnEfzpv8/view?usp=drive_link" },
 ];
 

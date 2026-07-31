@@ -28,7 +28,7 @@ interface Resource {
 const resources: Resource[] = [
   { key: "prawa", href: "/prawa-studenta", icon: Scales, internal: true },
   { key: "stypendia", href: "/stypendia", icon: GraduationCap, internal: true },
-  { key: "wsparcie", href: "/wsparcie-materialne-i-swiadczenia", icon: HandCoins, internal: true },
+  { key: "wsparcie", href: "/stypendia#wsparcie", icon: HandCoins, internal: true },
   { key: "mapa", href: "/mapa-kampusu", icon: MapTrifold, internal: true },
   { key: "infopacki", href: "/infopacki", icon: Package, internal: true },
   { key: "pomoc", href: "/pomoc-psychologiczna", icon: FirstAidKit, internal: true },

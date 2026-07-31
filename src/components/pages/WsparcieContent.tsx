@@ -22,11 +22,11 @@ interface Swiadczenie {
 }
 
 const swiadczenia: Swiadczenie[] = [
-  { key: "socjalne", href: "/stypendia-socjalne", icon: Coins },
-  { key: "zapomoga", href: "/zapomoga", icon: Lifebuoy },
-  { key: "niepelnosprawni", href: "/stypendia-dla-niepelnosprawnych", icon: Wheelchair },
-  { key: "rektora", href: "/stypendia-rektora", icon: Trophy },
-  { key: "fundusz", href: "/stypendia-rektora", icon: PiggyBank },
+  { key: "socjalne", href: "/stypendia#socjalne", icon: Coins },
+  { key: "zapomoga", href: "/stypendia#zapomoga", icon: Lifebuoy },
+  { key: "niepelnosprawni", href: "/stypendia#niepelnosprawni", icon: Wheelchair },
+  { key: "rektora", href: "/stypendia#rektora", icon: Trophy },
+  { key: "fundusz", href: "/stypendia#rektora", icon: PiggyBank },
 ];
 
 export function WsparcieContent() {
