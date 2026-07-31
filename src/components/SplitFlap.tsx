@@ -24,7 +24,7 @@ export function SplitFlap({
       : "h-9 min-w-[22px] text-[17px]";
 
   return (
-    <span className={`inline-flex flex-wrap gap-[3px] ${className ?? ""}`} aria-label={text}>
+    <span className={`inline-flex flex-wrap gap-[3px] ${className ?? ""}`} role="img" aria-label={text}>
       {chars.map((ch, i) => (
         <span
           key={i}
