@@ -1,8 +1,14 @@
 import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { PageHero } from "@/components/PageHero";
+import { HubNav } from "@/components/HubNav";
 import { StypendiaContent } from "@/components/pages/StypendiaContent";
+import { StypendiumDetailContent, type DetailNote } from "@/components/pages/StypendiumDetailContent";
+import { WsparcieContent } from "@/components/pages/WsparcieContent";
+import { KalkulatorSredniejContent } from "@/components/pages/KalkulatorSredniejContent";
+import { VideoEmbed } from "@/components/VideoEmbed";
 import { Faq, type QA } from "@/components/Faq";
+import { videos } from "@/lib/videos";
 import { ogMeta } from "@/lib/og";
 
 type Props = { params: Promise<{ locale: string }> };
@@ -24,8 +30,25 @@ export default async function StypendiaPage({ params }: Props) {
   setRequestLocale(locale);
   const t = await getTranslations({ locale, namespace: "stypendia" });
   const tc = await getTranslations({ locale, namespace: "common" });
+  const tr = await getTranslations({ locale, namespace: "stypRektora" });
+  const ts = await getTranslations({ locale, namespace: "stypSocjalne" });
+  const tn = await getTranslations({ locale, namespace: "stypNiepelnosprawni" });
+  const tz = await getTranslations({ locale, namespace: "zapomoga" });
 
   const faq: QA[] = FAQ_KEYS.map((k) => ({ q: t(`faq.${k}.q`), a: t(`faq.${k}.a`) }));
+
+  const video = videos["stypendia-wniosek"];
+
+  const navItems = [
+    { id: "przeglad", label: t("hub.przeglad") },
+    { id: "rektora", label: t("hub.rektora") },
+    { id: "socjalne", label: t("hub.socjalne") },
+    { id: "niepelnosprawni", label: t("hub.niepelnosprawni") },
+    { id: "zapomoga", label: t("hub.zapomoga") },
+    { id: "wsparcie", label: t("hub.wsparcie") },
+    ...(video ? [{ id: "wideo", label: t("hub.wideo") }] : []),
+    { id: "faq", label: t("hub.faq") },
+  ];
 
   return (
     <>
@@ -39,8 +62,75 @@ export default async function StypendiaPage({ params }: Props) {
           { label: t("heroTitle") },
         ]}
       />
-      <StypendiaContent />
-      <Faq items={faq} heading={t("faqHeading")} />
+
+      <HubNav items={navItems} label={t("hub.nav")} />
+
+      <div id="przeglad" className="scroll-mt-24">
+        <StypendiaContent />
+      </div>
+
+      <StypendiumDetailContent
+        sectionId="rektora"
+        eyebrow={tr("eyebrow")}
+        heading={tr("heading")}
+        intro={tr("intro")}
+        notes={tr.raw("notes") as DetailNote[]}
+      />
+
+      <div id="kalkulator" className="scroll-mt-24">
+        <KalkulatorSredniejContent />
+      </div>
+
+      <StypendiumDetailContent
+        sectionId="socjalne"
+        eyebrow={ts("eyebrow")}
+        heading={ts("heading")}
+        intro={ts("intro")}
+        notes={ts.raw("notes") as DetailNote[]}
+      />
+
+      <StypendiumDetailContent
+        sectionId="niepelnosprawni"
+        eyebrow={tn("eyebrow")}
+        heading={tn("heading")}
+        intro={tn("intro")}
+        notes={tn.raw("notes") as DetailNote[]}
+        extraLinks={[
+          {
+            label: tn("extraLink"),
+            href: "https://www.ue.wroc.pl/studenci/9745/biuro_ds_osob_z_niepelnosprawnosciami.html",
+          },
+        ]}
+      />
+
+      <StypendiumDetailContent
+        sectionId="zapomoga"
+        eyebrow={tz("eyebrow")}
+        heading={tz("heading")}
+        intro={tz("intro")}
+        notes={tz.raw("notes") as DetailNote[]}
+      />
+
+      <div id="wsparcie" className="scroll-mt-24">
+        <WsparcieContent />
+      </div>
+
+      {video && (
+        <section id="wideo" className="section-padding scroll-mt-24" aria-labelledby="wideo-heading">
+          <div className="mx-auto max-w-[1200px]">
+            <h2 id="wideo-heading" className="font-display text-[clamp(1.75rem,3.4vw,2.75rem)] font-semibold tracking-[-0.02em] text-ink-primary">
+              {t("hub.wideoHeading")}
+            </h2>
+            <div className="mt-8 max-w-[800px]">
+              <VideoEmbed youtubeId={video.youtubeId} title={t(video.titleKey)} />
+            </div>
+          </div>
+        </section>
+      )}
+
+      <div id="faq" className="scroll-mt-24">
+        <Faq items={faq} heading={t("faqHeading")} />
+      </div>
     </>
   );
 }

@@ -705,7 +705,7 @@
     "metaDesc": "Social, merit and disability scholarships and hardship grants at Wrocław University of Economics and Business. Documents, deadlines and links.",
     "ogLabel": "Student zone",
     "heroEyebrow": "Student zone",
-    "heroTitle": "Scholarships and financial support",
+    "heroTitle": "Scholarships & support",
     "heroLead": "Here you’ll find the key information about scholarships and benefits, plus all the documents you need — in one place.",
     "crumbStudent": "Student zone",
     "intro": "During your studies you can use various forms of financial support offered by the University — both benefits for those in a more difficult financial situation and scholarships for very good academic results and scientific, sporting and artistic achievements.",
@@ -743,6 +743,19 @@
       "multiple": { "q": "Can I receive several benefits at once?", "a": "Yes. For example, the disability scholarship is independent of income and can be combined with other benefits. The details are set out in the scholarship benefits regulations." },
       "firstTime": { "q": "I’m applying for a social scholarship for the first time — what should I remember?", "a": "Attach an income declaration and full documentation confirming your family’s income. If you have an adult sibling who is studying, attach a current certificate of continued education." },
       "diff": { "q": "How does a hardship grant differ from a social scholarship?", "a": "A hardship grant is one-off help in a sudden, temporarily difficult life event, awarded independently of the social scholarship." }
+    },
+    "hub": {
+      "nav": "Sections",
+      "przeglad": "Overview",
+      "rektora": "Rector's",
+      "socjalne": "Social",
+      "niepelnosprawni": "Disability",
+      "zapomoga": "Hardship",
+      "wsparcie": "Support",
+      "wideo": "Video",
+      "faq": "FAQ",
+      "wideoHeading": "How to apply",
+      "wideoTitle": "How to apply for a scholarship — guide"
     }
   },
   "stypRektora": {

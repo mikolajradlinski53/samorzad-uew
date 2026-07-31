@@ -705,7 +705,7 @@
     "metaDesc": "Stypendia socjalne, rektora, dla osób z niepełnosprawnością oraz zapomogi na Uniwersytecie Ekonomicznym we Wrocławiu. Dokumenty, terminy i odnośniki.",
     "ogLabel": "Strefa studenta",
     "heroEyebrow": "Strefa studenta",
-    "heroTitle": "Stypendia i wsparcie finansowe",
+    "heroTitle": "Stypendia i wsparcie",
     "heroLead": "Tu znajdziesz kluczowe informacje o stypendiach i świadczeniach oraz wszystkie niezbędne dokumenty — w jednym miejscu.",
     "crumbStudent": "Strefa studenta",
     "intro": "Podczas studiów możesz skorzystać z różnych form wsparcia finansowego oferowanych przez uczelnię — zarówno świadczeń dla osób w trudniejszej sytuacji materialnej, jak i stypendiów za bardzo dobre wyniki w nauce oraz osiągnięcia naukowe, sportowe i artystyczne.",
@@ -743,6 +743,19 @@
       "multiple": { "q": "Czy mogę pobierać kilka świadczeń jednocześnie?", "a": "Tak. Na przykład stypendium dla osób z niepełnosprawnością jest niezależne od dochodu i można je łączyć z innymi świadczeniami. Szczegóły określa regulamin świadczeń stypendialnych." },
       "firstTime": { "q": "Składam wniosek o stypendium socjalne po raz pierwszy — o czym pamiętać?", "a": "Dołącz oświadczenie o dochodach oraz pełną dokumentację potwierdzającą dochody rodziny. Jeśli masz uczące się pełnoletnie rodzeństwo, dołącz aktualne zaświadczenie o kontynuacji nauki." },
       "diff": { "q": "Czym różni się zapomoga od stypendium socjalnego?", "a": "Zapomoga to jednorazowa pomoc w nagłej, przejściowo trudnej sytuacji losowej, przyznawana niezależnie od stypendium socjalnego." }
+    },
+    "hub": {
+      "nav": "Spis sekcji",
+      "przeglad": "Przegląd",
+      "rektora": "Rektora",
+      "socjalne": "Socjalne",
+      "niepelnosprawni": "Niepełnosprawni",
+      "zapomoga": "Zapomoga",
+      "wsparcie": "Wsparcie",
+      "wideo": "Film",
+      "faq": "FAQ",
+      "wideoHeading": "Jak złożyć wniosek",
+      "wideoTitle": "Jak złożyć wniosek o stypendium — instrukcja"
     }
   },
   "stypRektora": {
