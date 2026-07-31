@@ -21,6 +21,7 @@ export function SearchCommand({ open, onClose }: SearchCommandProps) {
   const [active, setActive] = useState(0);
   const inputRef = useRef<HTMLInputElement>(null);
   const listRef = useRef<HTMLUListElement>(null);
+  const dialogRef = useRef<HTMLDivElement>(null);
 
   const results = useMemo(() => searchPages(query, locale), [query, locale]);
 
@@ -54,6 +55,24 @@ export function SearchCommand({ open, onClose }: SearchCommandProps) {
     if (e.key === "Escape") {
       e.preventDefault();
       close();
+    } else if (e.key === "Tab") {
+      // Focus trap: keep Tab/Shift+Tab cycling inside the dialog (mirrors
+      // Nav.tsx's mobile-menu trap) since aria-modal claims a modal that
+      // isn't otherwise inert.
+      if (!dialogRef.current) return;
+      const focusable = dialogRef.current.querySelectorAll<HTMLElement>(
+        'a[href], button:not([disabled]), input:not([disabled])',
+      );
+      if (focusable.length === 0) return;
+      const first = focusable[0];
+      const last = focusable[focusable.length - 1];
+      if (e.shiftKey && document.activeElement === first) {
+        e.preventDefault();
+        last.focus();
+      } else if (!e.shiftKey && document.activeElement === last) {
+        e.preventDefault();
+        first.focus();
+      }
     } else if (e.key === "ArrowDown") {
       e.preventDefault();
       setActive((a) => Math.min(a + 1, results.length - 1));
@@ -92,6 +111,7 @@ export function SearchCommand({ open, onClose }: SearchCommandProps) {
           />
 
           <motion.div
+            ref={dialogRef}
             role="dialog"
             aria-modal="true"
             aria-label={t("dialog")}
@@ -128,7 +148,11 @@ export function SearchCommand({ open, onClose }: SearchCommandProps) {
 
             {/* Results */}
             {results.length === 0 ? (
-              <p className="px-5 py-10 text-center text-[0.9375rem] text-ink-secondary">
+              <p
+                role="status"
+                aria-live="polite"
+                className="px-5 py-10 text-center text-[0.9375rem] text-ink-secondary"
+              >
                 {t("noResults", { query })}
               </p>
             ) : (
