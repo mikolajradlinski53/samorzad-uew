@@ -29,7 +29,6 @@ export function Nav() {
     { label: tm("strefa"), href: "/dla-studenta" },
     { label: tm("prawa"), href: "/prawa-studenta" },
     { label: tm("stypendia"), href: "/stypendia" },
-    { label: tm("wsparcie"), href: "/wsparcie-materialne-i-swiadczenia" },
     { label: tm("prawo"), href: "/prawo-dla-studenta" },
     { label: tm("infopacki"), href: "/infopacki" },
     { label: tm("rzecznik"), href: "/rzecznik-praw-studenta" },
