@@ -164,7 +164,7 @@ export function KalkulatorSredniejContent() {
     setForm((f) => ({ ...f, grades: {}, manual: [] }));
   }
 
-  const selectCls = "h-10 rounded-md border border-border-medium bg-bg-surface px-3 text-[0.9375rem] text-ink-primary";
+  const selectCls = "h-10 rounded-md border border-border-strong bg-bg-surface px-3 text-[0.9375rem] text-ink-primary";
   const labelCls = "flex flex-col gap-1.5 text-[0.8125rem] text-ink-secondary";
 
   if (!data) {
@@ -263,7 +263,7 @@ export function KalkulatorSredniejContent() {
                             aria-label={`${t("colGrade")}: ${displayName}`}
                             value={form.grades[gradeKey(programId, level, mode, rocznik, year, c.name)] ?? ""}
                             onChange={(e) => setGrade(c.name, e.target.value === "" ? null : Number(e.target.value))}
-                            className="h-9 w-full rounded-md border border-border-medium bg-bg-surface px-2 text-ink-primary"
+                            className="h-9 w-full rounded-md border border-border-strong bg-bg-surface px-2 text-ink-primary"
                           >
                             <option value="">{t("gradeNone")}</option>
                             {GRADES.map((g) => (
@@ -286,7 +286,7 @@ export function KalkulatorSredniejContent() {
                         value={m.name}
                         placeholder={t("courseNamePlaceholder")}
                         onChange={(e) => setForm((f) => ({ ...f, manual: f.manual.map((r) => (r.id === m.id ? { ...r, name: e.target.value } : r)) }))}
-                        className="w-full rounded-md border border-border-medium bg-bg-surface px-2 py-1.5 text-ink-primary"
+                        className="w-full rounded-md border border-border-strong bg-bg-surface px-2 py-1.5 text-ink-primary"
                       />
                     </td>
                     <td className="px-4 py-3">
@@ -296,7 +296,7 @@ export function KalkulatorSredniejContent() {
                         aria-label={t("colEcts")}
                         value={m.ects || ""}
                         onChange={(e) => setForm((f) => ({ ...f, manual: f.manual.map((r) => (r.id === m.id ? { ...r, ects: Number(e.target.value) || 0 } : r)) }))}
-                        className="w-16 rounded-md border border-border-medium bg-bg-surface px-2 py-1.5 font-mono text-ink-primary"
+                        className="w-16 rounded-md border border-border-strong bg-bg-surface px-2 py-1.5 font-mono text-ink-primary"
                       />
                     </td>
                     <td className="px-4 py-3">
@@ -305,7 +305,7 @@ export function KalkulatorSredniejContent() {
                           aria-label={t("colGrade")}
                           value={m.grade ?? ""}
                           onChange={(e) => setForm((f) => ({ ...f, manual: f.manual.map((r) => (r.id === m.id ? { ...r, grade: e.target.value === "" ? null : Number(e.target.value) } : r)) }))}
-                          className="h-9 flex-1 rounded-md border border-border-medium bg-bg-surface px-2 text-ink-primary"
+                          className="h-9 flex-1 rounded-md border border-border-strong bg-bg-surface px-2 text-ink-primary"
                         >
                           <option value="">{t("gradeNone")}</option>
                           {GRADES.map((g) => (
@@ -334,7 +334,7 @@ export function KalkulatorSredniejContent() {
             <button
               type="button"
               onClick={() => setForm((f) => ({ ...f, manual: [...f.manual, { id: crypto.randomUUID(), name: "", ects: 0, grade: null }] }))}
-              className="inline-flex items-center gap-2 rounded-full border border-border-medium px-4 py-2 text-[0.875rem] font-medium text-ink-primary transition-colors hover:border-accent hover:text-accent"
+              className="inline-flex items-center gap-2 rounded-full border border-border-strong px-4 py-2 text-[0.875rem] font-medium text-ink-primary transition-colors hover:border-accent hover:text-accent"
             >
               <Plus size={16} aria-hidden="true" />
               {t("addRow")}

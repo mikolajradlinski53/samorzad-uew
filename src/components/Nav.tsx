@@ -218,7 +218,7 @@ export function Nav() {
         <div className="flex items-center gap-3">
           <button
             onClick={() => setSearchOpen(true)}
-            className="hidden h-11 items-center gap-2 rounded-lg border border-border-medium px-3 text-[0.8125rem] font-medium text-ink-secondary transition-colors hover:border-border-soft hover:bg-bg-elevated md:flex"
+            className="hidden h-11 items-center gap-2 rounded-lg border border-border-strong px-3 text-[0.8125rem] font-medium text-ink-secondary transition-colors hover:border-border-soft hover:bg-bg-elevated md:flex"
             aria-label={t("search")}
           >
             <MagnifyingGlass size={16} weight="regular" aria-hidden="true" />
@@ -253,7 +253,7 @@ export function Nav() {
 
           <Link
             href="/strefa-dzialacza"
-            className="hidden h-11 items-center rounded-md border border-border-medium bg-transparent px-5 text-[0.875rem] font-medium text-ink-primary transition-colors hover:border-border-soft hover:bg-bg-elevated md:flex"
+            className="hidden h-11 items-center rounded-md border border-border-strong bg-transparent px-5 text-[0.875rem] font-medium text-ink-primary transition-colors hover:border-border-soft hover:bg-bg-elevated md:flex"
           >
             {t("login")}
           </Link>
@@ -374,7 +374,7 @@ export function Nav() {
                   <Link
                     href="/strefa-dzialacza"
                     onClick={closeMobile}
-                    className="inline-flex h-11 items-center rounded-md border border-border-medium px-5 text-[0.875rem] font-medium text-ink-primary"
+                    className="inline-flex h-11 items-center rounded-md border border-border-strong px-5 text-[0.875rem] font-medium text-ink-primary"
                   >
                     {t("login")}
                   </Link>

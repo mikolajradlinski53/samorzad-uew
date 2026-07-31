@@ -153,7 +153,7 @@ export function DlaStudentaContent() {
                   href={link.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 rounded-full border border-border-medium px-5 py-2.5 text-[0.875rem] font-medium text-ink-primary transition-colors hover:border-accent hover:text-accent"
+                  className="inline-flex items-center gap-2 rounded-full border border-border-strong px-5 py-2.5 text-[0.875rem] font-medium text-ink-primary transition-colors hover:border-accent hover:text-accent"
                 >
                   {t(`quickLinks.${link.key}`)}
                   <ArrowSquareOut size={16} weight="regular" aria-hidden="true" />

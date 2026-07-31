@@ -56,7 +56,7 @@ export function SectionRail({ ids, label }: { ids: string[]; label: string }) {
           <span
             aria-hidden="true"
             className={`h-px shrink-0 rounded-full transition-all duration-300 ${
-              active === i ? "w-7 bg-accent" : "w-3.5 bg-border-medium group-hover:w-5"
+              active === i ? "w-7 bg-accent" : "w-3.5 bg-border-strong group-hover:w-5"
             }`}
           />
         </button>

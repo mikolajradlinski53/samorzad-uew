@@ -122,7 +122,7 @@ export function RekrutacjaContent() {
                 href={recruitmentDrive}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex h-11 items-center gap-2 rounded-lg border border-border-medium px-6 text-[0.9375rem] font-medium text-ink-primary transition-colors hover:border-border-soft hover:bg-bg-elevated"
+                className="inline-flex h-11 items-center gap-2 rounded-lg border border-border-strong px-6 text-[0.9375rem] font-medium text-ink-primary transition-colors hover:border-border-soft hover:bg-bg-elevated"
               >
                 <FolderOpen size={18} weight="regular" aria-hidden="true" />
                 {t("materialsButton")}

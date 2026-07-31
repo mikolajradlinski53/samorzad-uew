@@ -84,7 +84,7 @@ export function ZarzadzeniaContent() {
             </div>
             <Link
               href="/kontakt"
-              className="inline-flex h-12 shrink-0 items-center gap-2 rounded-lg border border-border-medium px-7 text-base font-medium text-ink-primary transition-colors hover:border-border-soft hover:bg-bg-elevated"
+              className="inline-flex h-12 shrink-0 items-center gap-2 rounded-lg border border-border-strong px-7 text-base font-medium text-ink-primary transition-colors hover:border-border-soft hover:bg-bg-elevated"
             >
               <EnvelopeSimple size={20} weight="regular" aria-hidden="true" />
               {t("archiveButton")}

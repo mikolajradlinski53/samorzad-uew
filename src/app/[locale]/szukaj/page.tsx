@@ -55,7 +55,7 @@ export default async function SzukajPage({ params, searchParams }: Props) {
             action={`/${locale}/szukaj`}
             method="get"
             role="search"
-            className="flex items-center gap-3 rounded-xl border border-border-medium bg-bg-surface px-5 focus-within:border-accent"
+            className="flex items-center gap-3 rounded-xl border border-border-strong bg-bg-surface px-5 focus-within:border-accent"
           >
             <MagnifyingGlass size={20} weight="regular" aria-hidden="true" className="shrink-0 text-ink-tertiary" />
             <label htmlFor="q" className="sr-only">

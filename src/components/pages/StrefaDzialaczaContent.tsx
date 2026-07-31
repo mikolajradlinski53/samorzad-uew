@@ -29,7 +29,7 @@ export function StrefaDzialaczaContent({ user, configured, error }: Props) {
               </p>
               <a
                 href={`/api/auth/logout?locale=${locale}`}
-                className="inline-flex h-10 items-center gap-2 rounded-lg border border-border-medium px-4 text-[0.875rem] font-medium text-ink-secondary transition-colors hover:border-border-soft hover:bg-bg-elevated hover:text-ink-primary"
+                className="inline-flex h-10 items-center gap-2 rounded-lg border border-border-strong px-4 text-[0.875rem] font-medium text-ink-secondary transition-colors hover:border-border-soft hover:bg-bg-elevated hover:text-ink-primary"
               >
                 <SignOut size={16} weight="regular" aria-hidden="true" />
                 {t("logout")}
@@ -149,7 +149,7 @@ export function StrefaDzialaczaContent({ user, configured, error }: Props) {
             </div>
             <Link
               href="/rekrutacja"
-              className="inline-flex h-11 shrink-0 items-center gap-2 rounded-lg border border-border-medium px-6 text-[0.9375rem] font-medium text-ink-primary transition-colors hover:border-border-soft hover:bg-bg-elevated"
+              className="inline-flex h-11 shrink-0 items-center gap-2 rounded-lg border border-border-strong px-6 text-[0.9375rem] font-medium text-ink-primary transition-colors hover:border-border-soft hover:bg-bg-elevated"
             >
               {t("noAccessButton")}
               <ArrowRight size={18} weight="regular" aria-hidden="true" />

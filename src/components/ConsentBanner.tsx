@@ -40,7 +40,7 @@ export function ConsentBanner({
         <button
           type="button"
           onClick={onReject}
-          className="inline-flex h-11 items-center rounded-lg border border-border-medium px-6 text-[0.875rem] font-medium text-ink-primary transition-colors hover:border-border-soft hover:bg-bg-elevated"
+          className="inline-flex h-11 items-center rounded-lg border border-border-strong px-6 text-[0.875rem] font-medium text-ink-primary transition-colors hover:border-border-soft hover:bg-bg-elevated"
         >
           {t("reject")}
         </button>

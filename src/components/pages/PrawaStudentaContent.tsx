@@ -99,7 +99,7 @@ export function PrawaStudentaContent() {
             </a>
             <Link
               href="/rzecznik-praw-studenta"
-              className="inline-flex h-12 items-center gap-2 rounded-lg border border-border-medium px-7 text-base font-medium text-ink-primary transition-colors hover:border-border-soft hover:bg-bg-elevated"
+              className="inline-flex h-12 items-center gap-2 rounded-lg border border-border-strong px-7 text-base font-medium text-ink-primary transition-colors hover:border-border-soft hover:bg-bg-elevated"
             >
               <Megaphone size={20} weight="regular" aria-hidden="true" />
               {t("ctaRzecznik")}

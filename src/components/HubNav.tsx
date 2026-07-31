@@ -58,7 +58,7 @@ export function HubNav({
             <span
               aria-hidden="true"
               className={`h-px shrink-0 rounded-full transition-all duration-300 ${
-                active === it.id ? "w-7 bg-accent" : "w-3.5 bg-border-medium group-hover:w-5"
+                active === it.id ? "w-7 bg-accent" : "w-3.5 bg-border-strong group-hover:w-5"
               }`}
             />
             {it.label}
@@ -81,7 +81,7 @@ export function HubNav({
                 className={`rounded-full border px-3 py-1.5 text-[0.8125rem] font-medium transition-colors ${
                   active === it.id
                     ? "border-accent text-accent"
-                    : "border-border-medium text-ink-secondary hover:text-ink-primary"
+                    : "border-border-strong text-ink-secondary hover:text-ink-primary"
                 }`}
               >
                 {it.label}
