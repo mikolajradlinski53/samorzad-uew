@@ -156,13 +156,15 @@ export function StypendiumDetailContent({
                 </a>
               );
             })}
-            <Link
-              href="/stypendia"
-              className="inline-flex h-12 items-center gap-1.5 px-3 text-base font-medium text-accent transition-colors hover:text-accent-dim"
-            >
-              {t("allButton")}
-              <ArrowUpRight size={18} weight="regular" aria-hidden="true" />
-            </Link>
+            {!sectionId && (
+              <Link
+                href="/stypendia"
+                className="inline-flex h-12 items-center gap-1.5 px-3 text-base font-medium text-accent transition-colors hover:text-accent-dim"
+              >
+                {t("allButton")}
+                <ArrowUpRight size={18} weight="regular" aria-hidden="true" />
+              </Link>
+            )}
           </div>
         </ScrollReveal>
       </div>
