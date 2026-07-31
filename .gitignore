@@ -35,3 +35,7 @@ next-env.d.ts
 
 # claude local machine settings
 .claude/settings.local.json
+
+# playwright a11y test artifacts
+/playwright-report/
+/test-results/
