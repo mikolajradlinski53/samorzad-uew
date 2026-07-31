@@ -33,6 +33,8 @@ export interface StypendiumDetailProps {
   steps?: { title: string; desc: string }[];
   regulaminHref?: string;
   extraLinks?: ExtraLink[];
+  /** Unikalny id sekcji na hubie (kotwica + id nagłówka). Domyślnie pojedyncza strona. */
+  sectionId?: string;
 }
 
 export function StypendiumDetailContent({
@@ -43,6 +45,7 @@ export function StypendiumDetailContent({
   steps: stepsProp,
   regulaminHref = REGULAMIN_HREF,
   extraLinks = [],
+  sectionId,
 }: StypendiumDetailProps) {
   const reduce = useReducedMotion();
   const t = useTranslations("stypendiumDetail");
@@ -54,14 +57,18 @@ export function StypendiumDetailContent({
   const steps = stepsProp ?? defaultSteps;
 
   return (
-    <section className="section-padding" aria-labelledby="styp-heading">
+    <section
+      id={sectionId}
+      className={`section-padding${sectionId ? " scroll-mt-24" : ""}`}
+      aria-labelledby={sectionId ? `${sectionId}-heading` : "styp-heading"}
+    >
       <div className="mx-auto max-w-[1200px]">
         <ScrollReveal>
           <p className="text-[0.75rem] font-medium uppercase tracking-[0.08em] text-accent">
             {eyebrow}
           </p>
           <h2
-            id="styp-heading"
+            id={sectionId ? `${sectionId}-heading` : "styp-heading"}
             className="mt-3 max-w-[24ch] font-display text-[clamp(1.75rem,3.4vw,2.75rem)] font-semibold leading-[1.15] tracking-[-0.02em] text-ink-primary"
           >
             {heading}
