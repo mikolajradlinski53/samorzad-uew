@@ -97,7 +97,7 @@ What this means in practice:
 --ink-tertiary:  #5C6678
 
 --accent:        #6C84FF   /* Lighter electric blue for contrast on dark */
---accent-dim:    #4D63F0
+--accent-dim:    #6578F2   /* (2026-07: rozjaśnione z #4D63F0 — kontrast WCAG 1.4.3 dla tekstu na hover) */
 --accent-glow:   rgba(108, 132, 255, 0.14)
 
 --border-subtle: rgba(255, 255, 255, 0.06)

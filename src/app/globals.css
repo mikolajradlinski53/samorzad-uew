@@ -37,7 +37,9 @@
   --ink-tertiary: #7E889C;
 
   --accent: #6C84FF;
-  --accent-dim: #4D63F0;
+  /* WCAG 1.4.3: lightened from #4D63F0 (4.03:1) to clear 4.5:1 as hover
+     text-color and as bg-base-on-accent-dim button-hover text (5.11:1). */
+  --accent-dim: #6578F2;
   --accent-glow: rgba(108, 132, 255, 0.14);
 
   --border-subtle: rgba(255, 255, 255, 0.06);
