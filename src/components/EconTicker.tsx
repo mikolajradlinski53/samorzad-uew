@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import { CaretUp, CaretDown } from "@phosphor-icons/react";
 import { Marquee } from "./Marquee";
 
@@ -24,6 +24,7 @@ interface NbpTable {
 export function EconTicker() {
   const [rates, setRates] = useState<Rate[] | null>(null);
   const t = useTranslations("econ");
+  const locale = useLocale();
 
   useEffect(() => {
     const ctrl = new AbortController();
@@ -79,6 +80,24 @@ export function EconTicker() {
             ))}
           </Marquee>
         </div>
+      </div>
+
+      {/* Accessible equivalent of the aria-hidden marquee above (WCAG 1.1.1). */}
+      <div className="sr-only">
+        <p>{t("srHeading")}</p>
+        <ul>
+          {rates.map((r) => (
+            <li key={r.code}>
+              {t("rateLabel", {
+                code: r.code,
+                value: new Intl.NumberFormat(locale, {
+                  minimumFractionDigits: 2,
+                  maximumFractionDigits: 2,
+                }).format(r.value),
+              })}
+            </li>
+          ))}
+        </ul>
       </div>
     </section>
   );

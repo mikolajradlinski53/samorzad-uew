@@ -82,7 +82,9 @@
     "unit": "Jednostka Uniwersytetu Ekonomicznego we Wrocławiu"
   },
   "econ": {
-    "label": "Rynek · NBP"
+    "label": "Rynek · NBP",
+    "srHeading": "Aktualne kursy walut (NBP)",
+    "rateLabel": "Kurs {code}: {value} zł"
   },
   "audience": {
     "label": "Szybkie wejście",

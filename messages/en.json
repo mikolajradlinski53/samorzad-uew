@@ -82,7 +82,9 @@
     "unit": "A unit of Wrocław University of Economics and Business"
   },
   "econ": {
-    "label": "Market · NBP"
+    "label": "Market · NBP",
+    "srHeading": "Current exchange rates (NBP)",
+    "rateLabel": "{code} rate: {value} PLN"
   },
   "audience": {
     "label": "Quick entry",
