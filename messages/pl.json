@@ -847,7 +847,8 @@
       "placeholder": "Szukaj strony — np. stypendia, rzecznik, mapa…",
       "noResults": "Nic nie znaleziono dla „{query}”. Spróbuj innego słowa.",
       "resultsLabel": "Wyniki wyszukiwania",
-      "showAll": "Pokaż wszystkie wyniki dla „{query}”"
+      "showAll": "Pokaż wszystkie wyniki dla „{query}”",
+      "inContent": "W treści"
     },
     "aria": {
       "backToTop": "Wróć na górę strony",

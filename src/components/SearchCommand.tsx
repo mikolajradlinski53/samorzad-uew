@@ -2,10 +2,11 @@
 
 import { useEffect, useMemo, useRef, useState } from "react";
 import { useRouter } from "@/i18n/navigation";
-import { useLocale, useTranslations } from "next-intl";
+import { useLocale, useMessages, useTranslations } from "next-intl";
 import { AnimatePresence, motion, useReducedMotion } from "motion/react";
 import { MagnifyingGlass, ArrowRight } from "@phosphor-icons/react";
 import { searchPages, highlightSegments } from "@/lib/searchIndex";
+import { buildPassages, searchPassages, excerpt } from "@/lib/knowledge";
 
 interface SearchCommandProps {
   open: boolean;
@@ -24,6 +25,14 @@ export function SearchCommand({ open, onClose }: SearchCommandProps) {
   const dialogRef = useRef<HTMLDivElement>(null);
 
   const results = useMemo(() => searchPages(query, locale), [query, locale]);
+
+  const messages = useMessages();
+  const passages = useMemo(() => buildPassages(messages, locale), [messages, locale]);
+  const contentHits = useMemo(() => searchPassages(passages, query, 5), [passages, query]);
+
+  // Shared keyboard-navigation list: page results first, then content hits —
+  // one active index spans both sections.
+  const totalCount = results.length + contentHits.length;
 
   // Focus input + lock body scroll while open; restore focus on close.
   useEffect(() => {
@@ -75,14 +84,17 @@ export function SearchCommand({ open, onClose }: SearchCommandProps) {
       }
     } else if (e.key === "ArrowDown") {
       e.preventDefault();
-      setActive((a) => Math.min(a + 1, results.length - 1));
+      setActive((a) => Math.min(a + 1, totalCount - 1));
     } else if (e.key === "ArrowUp") {
       e.preventDefault();
       setActive((a) => Math.max(a - 1, 0));
     } else if (e.key === "Enter") {
       e.preventDefault();
-      const item = results[active];
-      if (item) go(item.href);
+      const href =
+        active < results.length
+          ? results[active]?.href
+          : contentHits[active - results.length]?.passage.href;
+      if (href) go(href);
     }
   };
 
@@ -131,7 +143,7 @@ export function SearchCommand({ open, onClose }: SearchCommandProps) {
                 role="combobox"
                 aria-expanded="true"
                 aria-controls="search-listbox"
-                aria-activedescendant={results[active] ? `search-opt-${active}` : undefined}
+                aria-activedescendant={active < totalCount ? `search-opt-${active}` : undefined}
                 aria-label={t("inputLabel")}
                 placeholder={t("placeholder")}
                 value={query}
@@ -147,7 +159,7 @@ export function SearchCommand({ open, onClose }: SearchCommandProps) {
             </div>
 
             {/* Results */}
-            {results.length === 0 ? (
+            {totalCount === 0 ? (
               <p
                 role="status"
                 aria-live="polite"
@@ -205,6 +217,39 @@ export function SearchCommand({ open, onClose }: SearchCommandProps) {
                     </li>
                   );
                 })}
+                {contentHits.length > 0 && (
+                  <>
+                    <p className="px-3 pb-1 pt-3 text-[0.6875rem] font-medium uppercase tracking-[0.08em] text-ink-tertiary">
+                      {t("inContent")}
+                    </p>
+                    {contentHits.map((hit, j) => {
+                      const i = results.length + j;
+                      const isActive = i === active;
+                      return (
+                        <li key={`${hit.passage.href}-${j}`}>
+                          <button
+                            type="button"
+                            id={`search-opt-${i}`}
+                            role="option"
+                            aria-selected={isActive}
+                            onClick={() => go(hit.passage.href)}
+                            onMouseMove={() => setActive(i)}
+                            className={`flex min-h-11 w-full flex-col items-start gap-0.5 rounded-lg px-3 py-2.5 text-left transition-colors ${
+                              isActive ? "bg-bg-elevated text-ink-primary" : "text-ink-secondary"
+                            }`}
+                          >
+                            <span className="text-[0.9375rem] text-ink-secondary">
+                              {excerpt(hit.passage.text, hit.index)}
+                            </span>
+                            <span className="text-[0.6875rem] font-medium uppercase tracking-[0.05em] text-ink-tertiary">
+                              {hit.passage.label}
+                            </span>
+                          </button>
+                        </li>
+                      );
+                    })}
+                  </>
+                )}
               </ul>
             )}
 

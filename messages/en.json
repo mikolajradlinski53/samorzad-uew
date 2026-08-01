@@ -847,7 +847,8 @@
       "placeholder": "Search the site — e.g. scholarships, ombudsman, map…",
       "noResults": "Nothing found for “{query}”. Try a different word.",
       "resultsLabel": "Search results",
-      "showAll": "Show all results for “{query}”"
+      "showAll": "Show all results for “{query}”",
+      "inContent": "In page content"
     },
     "aria": {
       "backToTop": "Back to top",
