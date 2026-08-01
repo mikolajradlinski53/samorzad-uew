@@ -12,16 +12,22 @@ import { Board } from "@/components/Board";
 export default function Home() {
   return (
     <>
+      {/*
+        Kolejność opowiada historię: kim jesteśmy → dokąd Cię skierować →
+        skąd się wzięliśmy → KTO za tym stoi → co robimy → co się dzieje →
+        z czego skorzystasz → jak to wygląda. Ticker NBP zamyka stronę jako
+        sygnaturowy pasek (uczelnia ekonomiczna), zamiast otwierać ją gadżetem.
+      */}
       <Hero />
       <TrustBar />
-      <EconTicker />
       <AudienceStrip />
       <About />
-      <Resources />
+      <Board />
       <Projects />
       <NextEvent />
+      <Resources />
       <StudentLife />
-      <Board />
+      <EconTicker />
     </>
   );
 }
