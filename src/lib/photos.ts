@@ -45,15 +45,18 @@ export const studentLifePhotos = USE_LOCAL.zycie
         "https://images.unsplash.com/photo-1504610926078-a1611febcad3?q=80&w=2416&auto=format&fit=crop",
     };
 
-/** Zarząd — zdjęcia (kadr 4:5). public/photos/zarzad/01.jpg … */
-export const boardPhotos: string[] = USE_LOCAL.zarzad
-  ? localList("zarzad", 7)
-  : ["mikolaj", "anna", "piotr", "katarzyna", "tomasz", "lena", "szymon"].map((s) => pic(s, 500, 640));
+/**
+ * Zarząd — zdjęcia (kadr 4:5). public/photos/zarzad/01.jpg …
+ *
+ * Dopóki nie ma prawdziwych zdjęć, lista jest PUSTA — `PersonCard` pokazuje
+ * wtedy inicjały (`InitialsAvatar`). Świadomie NIE podstawiamy tu zdjęć
+ * stockowych: przy prawdziwych nazwiskach członków Zarządu twarze obcych osób
+ * wyglądają na nieukończone i wprowadzają w błąd.
+ */
+export const boardPhotos: string[] = USE_LOCAL.zarzad ? localList("zarzad", 7) : [];
 
-/** RUSS — zdjęcia (kadr 4:5). public/photos/russ/01.jpg … */
-export const russPhotos: string[] = USE_LOCAL.russ
-  ? localList("russ", 15)
-  : Array.from({ length: 15 }, (_, i) => pic(`russ-${i + 1}`, 500, 640));
+/** RUSS — zdjęcia (kadr 4:5). public/photos/russ/01.jpg … Bez zdjęć → inicjały (jak wyżej). */
+export const russPhotos: string[] = USE_LOCAL.russ ? localList("russ", 15) : [];
 
 /** Zdjęcie projektu (NaszeProjekty) — kadr poziomy. public/photos/projekty/<klucz>.jpg */
 export const projectPhoto = (key: string): string | undefined =>
