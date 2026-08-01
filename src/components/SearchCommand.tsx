@@ -27,7 +27,7 @@ export function SearchCommand({ open, onClose }: SearchCommandProps) {
   const results = useMemo(() => searchPages(query, locale), [query, locale]);
 
   const messages = useMessages();
-  const passages = useMemo(() => buildPassages(messages, locale), [messages, locale]);
+  const passages = useMemo(() => buildPassages(messages), [messages]);
   const contentHits = useMemo(() => searchPassages(passages, query, 5), [passages, query]);
 
   // Shared keyboard-navigation list: page results first, then content hits —

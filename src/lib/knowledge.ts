@@ -71,7 +71,7 @@ export function normalize(s: string): string {
     .toLowerCase();
 }
 
-export function buildPassages(messages: unknown, _locale: string): Passage[] {
+export function buildPassages(messages: unknown): Passage[] {
   const out: Passage[] = [];
   if (!messages || typeof messages !== "object") return out;
 

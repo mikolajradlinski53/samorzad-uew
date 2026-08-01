@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { buildPassages, searchPassages, normalize, type Passage } from "./knowledge";
+import { buildPassages, searchPassages, normalize } from "./knowledge";
 
 const messages = {
   stypendia: {
@@ -24,7 +24,7 @@ describe("normalize", () => {
 });
 
 describe("buildPassages", () => {
-  const passages = buildPassages(messages, "pl");
+  const passages = buildPassages(messages);
 
   it("skips technical keys (meta*/og*/aria*)", () => {
     expect(passages.some((p) => p.text === "Stypendia")).toBe(false);
@@ -47,7 +47,7 @@ describe("buildPassages", () => {
 });
 
 describe("searchPassages", () => {
-  const passages = buildPassages(messages, "pl");
+  const passages = buildPassages(messages);
 
   it("finds content when the query has no diacritics", () => {
     const hits = searchPassages(passages, "wniosek stypendium rektora", 5);
