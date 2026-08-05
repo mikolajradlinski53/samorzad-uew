@@ -73,7 +73,7 @@
     "cta1": "Get to know us",
     "cta2": "Student zone",
     "scroll": "Scroll to the “About” section",
-    "stats": ["11,000+ students", "12 committees", "9 projects a year"]
+    "stats": ["10,000+ students", "6 committees", "9 projects a year"]
   },
   "trustbar": {
     "official": "Official Student Government site",
@@ -277,15 +277,15 @@
   },
   "kontakt": {
     "metaTitle": "Contact",
-    "metaDesc": "Get in touch with the Student Government of Wrocław University of Economics and Business — form, email, address (ul. Kamienna 43) and social media.",
+    "metaDesc": "Get in touch with the Student Government of Wrocław University of Economics and Business — form, email, address (ul. Kamienna 44) and social media.",
     "ogLabel": "SSUEW Student Government",
     "heroEyebrow": "Contact",
     "heroTitle": "Write to us",
     "heroLead": "We’re here for you. Choose the way that suits you best — the form, email or social media.",
     "detailsHeading": "Let’s talk",
     "detailsLead": "Got a question, an idea for cooperation or something to sort out? Write to us — we reply as fast as we can.",
-    "addr1": "ul. Kamienna 43",
-    "addr2": "Building J, room 9",
+    "addr1": "ul. Kamienna 44",
+    "addr2": "Building L, room 110",
     "addr3": "53-307 Wrocław",
     "labelName": "Full name",
     "labelEmail": "Email",
@@ -301,7 +301,7 @@
     "successAgain": "Send another message",
     "submitIdle": "Send message",
     "submitSending": "Sending…",
-    "mapTitle": "Map — SSUEW Student Government office, ul. Kamienna 43, Wrocław",
+    "mapTitle": "Map — SSUEW Student Government office, ul. Kamienna 44, Wrocław",
     "rodoIntro": "The controller of the personal data submitted in this form is the Students' Union of Wroclaw University of Economics and Business. We process the data solely to reply to your message (Art. 6(1)(f) GDPR — legitimate interest). You have the right to access, rectify and erase your data. Details in the",
     "rodoLink": "Privacy Policy",
     "mapLoad": "Show Google Map",
@@ -504,7 +504,7 @@
     "introBody": "Get in touch if you can’t interpret the rules, couldn’t resolve your case at the dean’s office, or have doubts about your rights as a student.",
     "contactEyebrow": "Student Ombudsman",
     "contactName": "Jakub Buchta",
-    "addr1": "ul. Kamienna 43, Building J, room 9",
+    "addr1": "ul. Kamienna 44, Building L, room 110",
     "addr2": "53-307 Wrocław",
     "contactButton": "Write to the Ombudsman",
     "dutiesHeading": "What I do",
@@ -653,7 +653,7 @@
     "heading": "Key points",
     "downloadButton": "Download the campus map",
     "locations": {
-      "office": { "name": "Student Government office", "detail": "ul. Kamienna 43, Building J, room 9", "note": "This is where to find us — drop by with a question or an idea." },
+      "office": { "name": "Student Government office", "detail": "ul. Kamienna 44, Building L, room 110", "note": "This is where to find us — drop by with a question or an idea." },
       "campus": { "name": "Main UEW campus", "detail": "ul. Komandorska 118/120", "note": "Most faculties, the dean’s offices and the Main Library." }
     },
     "mapTitle": "Campus map of Wrocław University of Economics and Business",
@@ -1012,7 +1012,7 @@
       { "title": "Conformance status", "body": "The site is partially conformant with the Digital Accessibility Act — it meets WCAG 2.1 level AA within the scope covered by the audit carried out. The audit of 30 July 2026 combined automated testing (45/45 axe-core scans, zero violations) with a code review (contrast, keyboard operation and focus, semantics, forms, touch targets ≥ 44 px); every issue found was fixed. Exclusions — elements not yet verified: (1) how the site is experienced through a screen reader (an NVDA/VoiceOver session is planned — automated tests and code review do not replace it), (2) the accessibility of PDF documents and photo alt texts that will be published on the site in future. Each of these will undergo a separate accessibility review, and this statement will be updated accordingly." },
       { "title": "Keyboard support & aids", "body": "You can navigate the site with the keyboard (Tab / Shift+Tab, Enter, Esc). A “skip to content” link, clearly visible focus and a search opened with Ctrl/⌘ + K are available. The site respects the system reduced-motion setting (prefers-reduced-motion) and works in light and dark mode." },
       { "title": "Feedback and complaints procedure", "body": "Anyone has the right to request that the website or an element of it be made accessible. Send your request to kontakt@samorzad.ue.wroc.pl, indicating the page concerned and a convenient form of contact. If accessibility cannot be ensured, we will propose alternative access. If a request is refused, you may file a complaint with the supervising authority and a petition to the Ombudsman." },
-      { "title": "Architectural accessibility", "body": "Student Government office: ul. Kamienna 43, Building J, room 9, 53-307 Wrocław. Detailed information about the building’s architectural accessibility (entrance, lifts, parking, access for assistance-dog users) is available on request — write to kontakt@samorzad.ue.wroc.pl. [To be completed with specific details by the Student Government.]" },
+      { "title": "Architectural accessibility", "body": "Student Government office: ul. Kamienna 44, Building L, room 110, 53-307 Wrocław. Detailed information about the building’s architectural accessibility (entrance, lifts, parking, access for assistance-dog users) is available on request — write to kontakt@samorzad.ue.wroc.pl. [To be completed with specific details by the Student Government.]" },
       { "title": "Contact", "body": "For accessibility matters write to: kontakt@samorzad.ue.wroc.pl." }
     ]
   },
@@ -1024,7 +1024,7 @@
     "heroTitle": "Privacy policy",
     "heroLead": "We explain what data we process on this site, why, and what rights you have.",
     "sections": [
-      { "title": "Data controller", "body": "The data controller is the Student Government of Wrocław University of Economics and Business, ul. Kamienna 43, 53-307 Wrocław. For data matters, write to: kontakt@samorzad.ue.wroc.pl." },
+      { "title": "Data controller", "body": "The data controller is the Student Government of Wrocław University of Economics and Business, ul. Kamienna 44, 53-307 Wrocław. For data matters, write to: kontakt@samorzad.ue.wroc.pl." },
       { "title": "What data we process", "body": "Contact form: your name, email address and message — solely to respond to your enquiry. Messages are delivered by the Resend service. Member login uses a Google account in the @samorzad.ue.wroc.pl domain; we only store a technical session in a necessary cookie." },
       { "title": "Cookies", "body": "Necessary cookies (a logged-in member’s session and your language preference) always work — they are required for the site to function. Analytics cookies and scripts run only with your consent; you can change your choice at any time by clearing the site’s data in your browser." },
       { "title": "Analytics", "body": "We use Vercel Web Analytics — anonymous, aggregated visit statistics. It uses no cookies and does not identify individuals. We collect it only if you consent." },

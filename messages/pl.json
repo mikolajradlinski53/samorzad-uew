@@ -73,7 +73,7 @@
     "cta1": "Poznaj nas",
     "cta2": "Strefa studenta",
     "scroll": "Przewiń do sekcji „O nas”",
-    "stats": ["11 000+ studentów", "12 komisji", "9 projektów rocznie"]
+    "stats": ["10 000+ studentów", "6 komisji", "9 projektów rocznie"]
   },
   "trustbar": {
     "official": "Oficjalny serwis Samorządu",
@@ -277,15 +277,15 @@
   },
   "kontakt": {
     "metaTitle": "Kontakt",
-    "metaDesc": "Skontaktuj się z Samorządem Studentów Uniwersytetu Ekonomicznego we Wrocławiu — formularz, e-mail, adres (ul. Kamienna 43) i media społecznościowe.",
+    "metaDesc": "Skontaktuj się z Samorządem Studentów Uniwersytetu Ekonomicznego we Wrocławiu — formularz, e-mail, adres (ul. Kamienna 44) i media społecznościowe.",
     "ogLabel": "Samorząd Studentów UEW",
     "heroEyebrow": "Kontakt",
     "heroTitle": "Napisz do nas",
     "heroLead": "Jesteśmy dla Was. Wybierz wygodną formę kontaktu — formularz, e-mail albo media społecznościowe.",
     "detailsHeading": "Porozmawiajmy",
     "detailsLead": "Masz pytanie, pomysł na współpracę albo sprawę do załatwienia? Napisz do nas — odpowiadamy najszybciej, jak się da.",
-    "addr1": "ul. Kamienna 43",
-    "addr2": "Budynek J, pokój 9",
+    "addr1": "ul. Kamienna 44",
+    "addr2": "Budynek L, pok. 110",
     "addr3": "53-307 Wrocław",
     "labelName": "Imię i nazwisko",
     "labelEmail": "E-mail",
@@ -301,7 +301,7 @@
     "successAgain": "Wyślij kolejną wiadomość",
     "submitIdle": "Wyślij wiadomość",
     "submitSending": "Wysyłanie…",
-    "mapTitle": "Mapa — siedziba Samorządu Studentów UEW, ul. Kamienna 43, Wrocław",
+    "mapTitle": "Mapa — siedziba Samorządu Studentów UEW, ul. Kamienna 44, Wrocław",
     "rodoIntro": "Administratorem danych osobowych podanych w formularzu jest Samorząd Studentów Uniwersytetu Ekonomicznego we Wrocławiu. Dane przetwarzamy wyłącznie w celu odpowiedzi na Twoją wiadomość (art. 6 ust. 1 lit. f RODO — prawnie uzasadniony interes). Masz prawo dostępu do danych, ich sprostowania i usunięcia. Szczegóły w",
     "rodoLink": "Polityce prywatności",
     "mapLoad": "Pokaż mapę Google",
@@ -443,13 +443,13 @@
     "crumbStructure": "Struktura",
     "eyebrow": "Kierownictwo Samorządu",
     "heading": "Osoby, które prowadzą Samorząd",
-    "chairRole": "Przewodnicząca Samorządu Studentów",
-    "chairDesc": "Ustawowa reprezentantka wszystkich Studentów Uczelni, która działa na rzecz środowiska studenckiego przy pomocy organów kierowniczych, wykonawczych i uchwałodawczych.",
-    "wiceIntro": "Wiceprzewodniczący wspierają Przewodniczącą w bieżącej działalności Samorządu, realizując zadania w wyznaczonych obszarach oraz koordynując wybrane działania i projekty.",
+    "chairRole": "Przewodniczący Samorządu Studentów",
+    "chairDesc": "Ustawowy reprezentant wszystkich Studentów Uczelni, który działa na rzecz środowiska studenckiego przy pomocy organów kierowniczych, wykonawczych i uchwałodawczych.",
+    "wiceIntro": "Wiceprzewodniczący wspierają Przewodniczącego w bieżącej działalności Samorządu, realizując zadania w wyznaczonych obszarach oraz koordynując wybrane działania i projekty.",
     "roles": {
-      "strategy": "Wiceprzewodnicząca ds. Strategii i Działań Operacyjnych",
+      "strategy": "Wiceprzewodniczący ds. Strategii i Działań Operacyjnych",
       "projects": "Wiceprzewodnicząca ds. Projektów",
-      "pr": "Wiceprzewodniczący ds. Public Relations"
+      "pr": "Wiceprzewodnicząca ds. Public Relations"
     }
   },
   "zarzad": {
@@ -504,7 +504,7 @@
     "introBody": "Skontaktuj się, jeśli nie potrafisz zinterpretować przepisów, nie udało Ci się załatwić sprawy w dziekanacie albo masz wątpliwości co do swoich praw jako student.",
     "contactEyebrow": "Rzecznik Praw Studenta",
     "contactName": "Jakub Buchta",
-    "addr1": "ul. Kamienna 43, Budynek J, pokój 9",
+    "addr1": "ul. Kamienna 44, Budynek L, pok. 110",
     "addr2": "53-307 Wrocław",
     "contactButton": "Napisz do Rzecznika",
     "dutiesHeading": "Czym się zajmuję",
@@ -653,7 +653,7 @@
     "heading": "Najważniejsze punkty",
     "downloadButton": "Pobierz mapę kampusu",
     "locations": {
-      "office": { "name": "Siedziba Samorządu", "detail": "ul. Kamienna 43, Budynek J, pokój 9", "note": "Tu nas znajdziesz — wpadnij z pytaniem albo pomysłem." },
+      "office": { "name": "Siedziba Samorządu", "detail": "ul. Kamienna 44, Budynek L, pok. 110", "note": "Tu nas znajdziesz — wpadnij z pytaniem albo pomysłem." },
       "campus": { "name": "Kampus główny UEW", "detail": "ul. Komandorska 118/120", "note": "Większość wydziałów, dziekanaty i Biblioteka Główna." }
     },
     "mapTitle": "Mapa kampusu Uniwersytetu Ekonomicznego we Wrocławiu",
@@ -1012,7 +1012,7 @@
       { "title": "Status zgodności", "body": "Serwis jest częściowo zgodny z ustawą o dostępności cyfrowej — spełnia wymagania WCAG 2.1 na poziomie AA w zakresie objętym przeprowadzonym audytem. Audyt z 30 lipca 2026 r. połączył testy automatyczne (45/45 skanów axe-core bez naruszeń) z przeglądem kodu (kontrast, obsługa klawiaturą i fokus, semantyka, formularze, cele dotykowe ≥ 44 px); wszystkie wykryte nieprawidłowości zostały usunięte. Wyłączenia — elementy dotąd niezweryfikowane: (1) odbiór serwisu przez czytnik ekranu (planowana sesja z NVDA/VoiceOver — testy automatyczne i przegląd kodu jej nie zastępują), (2) dostępność dokumentów PDF oraz tekstów alternatywnych zdjęć, które zostaną opublikowane w serwisie w przyszłości. Każdy z tych elementów zostanie poddany odrębnej ocenie dostępności, a niniejsza deklaracja — odpowiednio zaktualizowana." },
       { "title": "Obsługa klawiaturą i ułatwienia", "body": "Po stronie można poruszać się klawiaturą (Tab / Shift+Tab, Enter, Esc). Dostępny jest link „przejdź do treści”, wyraźnie widoczny fokus oraz wyszukiwarka uruchamiana skrótem Ctrl/⌘ + K. Serwis respektuje systemowe ustawienie ograniczenia animacji (prefers-reduced-motion) i działa w trybie jasnym oraz ciemnym." },
       { "title": "Procedura wnioskowo-skargowa", "body": "Każdy ma prawo wystąpić z żądaniem zapewnienia dostępności cyfrowej strony lub jej elementu. Żądanie prześlij na adres kontakt@samorzad.ue.wroc.pl, wskazując stronę, której dotyczy, oraz dogodną formę kontaktu. Jeśli zapewnienie dostępności nie będzie możliwe, zaproponujemy dostęp alternatywny. W przypadku odmowy przysługuje prawo złożenia skargi do organu nadzorującego oraz wniosku do Rzecznika Praw Obywatelskich." },
-      { "title": "Dostępność architektoniczna", "body": "Siedziba Samorządu: ul. Kamienna 43, Budynek J, pokój 9, 53-307 Wrocław. Szczegółowe informacje o dostępności architektonicznej budynku (wejście, windy, miejsca parkingowe, dostęp dla osób z psem asystującym) udostępniamy na życzenie — napisz na kontakt@samorzad.ue.wroc.pl. [Do uzupełnienia o konkretne informacje przez Samorząd.]" },
+      { "title": "Dostępność architektoniczna", "body": "Siedziba Samorządu: ul. Kamienna 44, Budynek L, pok. 110, 53-307 Wrocław. Szczegółowe informacje o dostępności architektonicznej budynku (wejście, windy, miejsca parkingowe, dostęp dla osób z psem asystującym) udostępniamy na życzenie — napisz na kontakt@samorzad.ue.wroc.pl. [Do uzupełnienia o konkretne informacje przez Samorząd.]" },
       { "title": "Kontakt", "body": "W sprawach dostępności pisz na: kontakt@samorzad.ue.wroc.pl." }
     ]
   },
@@ -1024,7 +1024,7 @@
     "heroTitle": "Polityka prywatności",
     "heroLead": "Wyjaśniamy, jakie dane przetwarzamy na tej stronie, w jakim celu i jakie masz prawa.",
     "sections": [
-      { "title": "Administrator danych", "body": "Administratorem danych jest Samorząd Studentów Uniwersytetu Ekonomicznego we Wrocławiu, ul. Kamienna 43, 53-307 Wrocław. W sprawach dotyczących danych pisz na: kontakt@samorzad.ue.wroc.pl." },
+      { "title": "Administrator danych", "body": "Administratorem danych jest Samorząd Studentów Uniwersytetu Ekonomicznego we Wrocławiu, ul. Kamienna 44, 53-307 Wrocław. W sprawach dotyczących danych pisz na: kontakt@samorzad.ue.wroc.pl." },
       { "title": "Jakie dane przetwarzamy", "body": "Formularz kontaktowy: imię i nazwisko, adres e-mail oraz treść wiadomości — wyłącznie po to, by odpowiedzieć na zgłoszenie. Wiadomości dostarcza usługa Resend. Logowanie działaczy odbywa się przez konto Google w domenie @samorzad.ue.wroc.pl; przechowujemy jedynie techniczną sesję w niezbędnym pliku cookie." },
       { "title": "Pliki cookie", "body": "Niezbędne pliki cookie (sesja zalogowanego działacza oraz preferencja języka) działają zawsze — są konieczne do działania strony. Pliki i skrypty analityczne uruchamiamy wyłącznie po Twojej zgodzie; zgodę możesz w każdej chwili zmienić, czyszcząc dane strony w przeglądarce." },
       { "title": "Analityka", "body": "Korzystamy z Vercel Web Analytics — anonimowej, zagregowanej statystyki odwiedzin. Nie używa ona plików cookie ani nie identyfikuje pojedynczych osób. Zbieramy ją tylko, jeśli wyrazisz zgodę." },

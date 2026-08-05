@@ -320,7 +320,7 @@ export function KontaktContent() {
       <ScrollReveal>
         <div className="mx-auto mt-12 max-w-[1200px] overflow-hidden rounded-2xl border border-border-subtle">
           <MapEmbed
-            src="https://www.google.com/maps?q=ul.+Kamienna+43,+53-307+Wroc%C5%82aw&output=embed"
+            src="https://www.google.com/maps?q=ul.+Kamienna+44,+53-307+Wroc%C5%82aw&output=embed"
             title={t("mapTitle")}
             address={`${t("addr1")}, ${t("addr2")}`}
             loadLabel={t("mapLoad")}
