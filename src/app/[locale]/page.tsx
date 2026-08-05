@@ -7,22 +7,22 @@ import { StudentLife } from "@/components/StudentLife";
 import { Resources } from "@/components/Resources";
 import { Projects } from "@/components/Projects";
 import { NextEvent } from "@/components/NextEvent";
-import { Board } from "@/components/Board";
 
 export default function Home() {
   return (
     <>
       {/*
         Kolejność opowiada historię: kim jesteśmy → dokąd Cię skierować →
-        skąd się wzięliśmy → KTO za tym stoi → co robimy → co się dzieje →
+        skąd się wzięliśmy → co robimy → co się dzieje →
         z czego skorzystasz → jak to wygląda. Ticker NBP zamyka stronę jako
         sygnaturowy pasek (uczelnia ekonomiczna), zamiast otwierać ją gadżetem.
+        Zarząd (Prezydium + Członkowie) ma teraz osobną stronę /zarzad —
+        nie duplikujemy go na stronie głównej.
       */}
       <Hero />
       <TrustBar />
       <AudienceStrip />
       <About />
-      <Board />
       <Projects />
       <NextEvent />
       <Resources />

@@ -44,7 +44,7 @@ export function Nav() {
     { label: tm("dzialalnosc"), href: "/nasza-dzialalnosc" },
     { label: tm("struktura"), href: "/struktura-samorzadu" },
     { label: tm("groupOrgans"), heading: true },
-    { label: tm("przewodniczacy"), href: "/przewodniczacy-i-wiceprzewodniczacy" },
+    { label: tm("przewodniczacy"), href: "/zarzad" },
     { label: tm("russ"), href: "/rada-uczelniana-samorzadu-studentow" },
     { label: tm("skw"), href: "/studencka-komisja-wyborcza" },
     { label: tm("groupDocs"), heading: true },

@@ -21,6 +21,8 @@ const nextConfig: NextConfig = {
       out.push({ source: `/:locale/${from}`, destination: `/:locale/stypendia#${hash}`, permanent: true });
       out.push({ source: `/${from}`, destination: `/stypendia#${hash}`, permanent: true });
     }
+    out.push({ source: "/:locale/przewodniczacy-i-wiceprzewodniczacy", destination: "/:locale/zarzad", permanent: true });
+    out.push({ source: "/przewodniczacy-i-wiceprzewodniczacy", destination: "/zarzad", permanent: true });
     return out;
   },
   images: {

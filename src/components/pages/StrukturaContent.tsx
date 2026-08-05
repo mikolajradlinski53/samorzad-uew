@@ -17,7 +17,7 @@ import { Tilt } from "../Tilt";
 
 const top = {
   icon: Crown,
-  href: "/przewodniczacy-i-wiceprzewodniczacy",
+  href: "/zarzad",
 };
 
 interface Organ {
@@ -27,7 +27,7 @@ interface Organ {
 }
 
 const organs: Organ[] = [
-  { key: "board", icon: Gear },
+  { key: "board", icon: Gear, href: "/zarzad" },
   { key: "russ", icon: Scroll },
   { key: "audit", icon: ShieldCheck },
   { key: "election", icon: Checks, href: "/studencka-komisja-wyborcza" },
