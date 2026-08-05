@@ -452,6 +452,20 @@
       "pr": "Wiceprzewodniczący ds. Public Relations"
     }
   },
+  "zarzad": {
+    "metaTitle": "Zarząd Samorządu",
+    "metaDesc": "Zarząd Samorządu Studentów UEW — Prezydium (Przewodniczący i Wiceprzewodniczący) oraz Członkowie Zarządu, ich obszary odpowiedzialności i kontakt.",
+    "ogLabel": "Samorząd",
+    "heroEyebrow": "Samorząd",
+    "heroTitle": "Zarząd Samorządu",
+    "heroLead": "Zarząd tworzy Prezydium — Przewodniczący i Wiceprzewodniczący — oraz Członkowie Zarządu odpowiadający za poszczególne obszary działalności.",
+    "crumbGov": "Samorząd",
+    "prezydiumEyebrow": "Prezydium",
+    "prezydiumHeading": "Kierownictwo Samorządu",
+    "czlonkowieEyebrow": "Członkowie Zarządu",
+    "czlonkowieHeading": "Obszary odpowiedzialności",
+    "czlonkowieIntro": "Każdy Członek Zarządu odpowiada za wyznaczony obszar działalności Samorządu i koordynuje związane z nim projekty."
+  },
   "skw": {
     "metaTitle": "Studencka Komisja Wyborcza",
     "metaDesc": "Studencka Komisja Wyborcza (SKW) Samorządu Studentów UEW — zadania, skład i uchwały. Organ, który przygotowuje i nadzoruje wybory samorządowe.",
@@ -878,7 +892,7 @@
     "onas": "O nas",
     "dzialalnosc": "Nasza działalność",
     "struktura": "Struktura Samorządu",
-    "przewodniczacy": "Przewodniczący i Wiceprzewodniczący",
+    "przewodniczacy": "Zarząd",
     "russ": "Rada Uczelniana (RUSS)",
     "skw": "Studencka Komisja Wyborcza",
     "regulacje": "Regulacje wewnętrzne",

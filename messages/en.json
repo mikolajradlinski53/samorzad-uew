@@ -452,6 +452,20 @@
       "pr": "Vice-chair for Public Relations"
     }
   },
+  "zarzad": {
+    "metaTitle": "Student Government Board",
+    "metaDesc": "The Board of the UEW Student Government — the Presidium (Chair and Vice-chairs) and Board members, their areas of responsibility and contact details.",
+    "ogLabel": "Student Government",
+    "heroEyebrow": "Student Government",
+    "heroTitle": "Student Government Board",
+    "heroLead": "The Board is made up of the Presidium — the Chair and Vice-chairs — and Board members, each responsible for a specific area of the Government's work.",
+    "crumbGov": "Student Government",
+    "prezydiumEyebrow": "Presidium",
+    "prezydiumHeading": "Student Government leadership",
+    "czlonkowieEyebrow": "Board members",
+    "czlonkowieHeading": "Areas of responsibility",
+    "czlonkowieIntro": "Each Board member is responsible for a designated area of the Government's work and coordinates the related projects."
+  },
   "skw": {
     "metaTitle": "Student Electoral Committee",
     "metaDesc": "The Student Electoral Committee (SKW) of the UEW Student Government — duties, members and resolutions. The body that prepares and oversees the government elections.",
@@ -878,7 +892,7 @@
     "onas": "About us",
     "dzialalnosc": "Our activities",
     "struktura": "Government structure",
-    "przewodniczacy": "Chair & Vice-chairs",
+    "przewodniczacy": "Board",
     "russ": "University Council (RUSS)",
     "skw": "Student Electoral Committee",
     "regulacje": "Internal regulations",

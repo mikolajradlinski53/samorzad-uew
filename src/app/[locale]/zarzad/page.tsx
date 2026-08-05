@@ -1,14 +1,14 @@
 import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { PageHero } from "@/components/PageHero";
-import { PrzewodniczacyContent } from "@/components/pages/PrzewodniczacyContent";
+import { ZarzadContent } from "@/components/pages/ZarzadContent";
 import { ogMeta } from "@/lib/og";
 
 type Props = { params: Promise<{ locale: string }> };
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params;
-  const t = await getTranslations({ locale, namespace: "przewodniczacy" });
+  const t = await getTranslations({ locale, namespace: "zarzad" });
   return {
     title: t("metaTitle"),
     description: t("metaDesc"),
@@ -16,10 +16,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
-export default async function PrzewodniczacyPage({ params }: Props) {
+export default async function ZarzadPage({ params }: Props) {
   const { locale } = await params;
   setRequestLocale(locale);
-  const t = await getTranslations({ locale, namespace: "przewodniczacy" });
+  const t = await getTranslations({ locale, namespace: "zarzad" });
   const tc = await getTranslations({ locale, namespace: "common" });
 
   return (
@@ -31,11 +31,10 @@ export default async function PrzewodniczacyPage({ params }: Props) {
         breadcrumbs={[
           { label: tc("home"), href: "/" },
           { label: t("crumbGov"), href: "/nasza-dzialalnosc" },
-          { label: t("crumbStructure"), href: "/struktura-samorzadu" },
           { label: t("heroTitle") },
         ]}
       />
-      <PrzewodniczacyContent />
+      <ZarzadContent />
     </>
   );
 }
