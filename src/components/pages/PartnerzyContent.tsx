@@ -19,6 +19,10 @@ import { MagneticButton } from "../MagneticButton";
 import { PartnerEffect } from "../partners/PartnerEffect";
 import type { Partner } from "../partners/partnerEffects";
 import { partners, type PartnerEntry } from "@/lib/partners";
+import { ContactForm, type ContactFormField } from "../ContactForm";
+import { formspree } from "@/lib/forms";
+
+const CONTACT_EMAIL = "kontakt@samorzad.ue.wroc.pl";
 
 interface Benefit {
   key: string;
@@ -152,8 +156,55 @@ function PartnerModal({ partner, onClose }: { partner: PartnerEntry; onClose: ()
 export function PartnerzyContent() {
   const reduce = useReducedMotion();
   const t = useTranslations("partnerzy");
+  const tk = useTranslations("kontakt");
   const [selected, setSelected] = useState<PartnerEntry | null>(null);
   const triggerRef = useRef<HTMLElement | null>(null);
+
+  const fields: ContactFormField[] = [
+    {
+      key: "organisation",
+      type: "text",
+      label: t("labelOrganisation"),
+      autoComplete: "organization",
+      colSpan: 1,
+      validate: (v) => (v.trim().length < 2 ? t("errOrganisation") : undefined),
+    },
+    {
+      key: "contactPerson",
+      type: "text",
+      label: t("labelContactPerson"),
+      autoComplete: "name",
+      colSpan: 1,
+      validate: (v) => (v.trim().length < 2 ? t("errContactPerson") : undefined),
+    },
+    {
+      key: "email",
+      type: "email",
+      label: tk("labelEmail"),
+      autoComplete: "email",
+      colSpan: 2,
+      validate: (v) => (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v) ? tk("errEmail") : undefined),
+    },
+    {
+      key: "message",
+      type: "textarea",
+      label: tk("labelMessage"),
+      colSpan: 2,
+      validate: (v) => (v.trim().length < 10 ? tk("errMessage") : undefined),
+    },
+  ];
+
+  const labels = {
+    submitIdle: tk("submitIdle"),
+    submitSending: tk("submitSending"),
+    successHeading: tk("successHeading"),
+    successBody: tk("successBody"),
+    successAgain: tk("successAgain"),
+    errServer: tk("errServer"),
+    rodoIntro: tk("rodoIntro"),
+    rodoLink: tk("rodoLink"),
+    notConfiguredIntro: tk("formNotConfiguredIntro"),
+  };
 
   const open = (partner: PartnerEntry) => {
     triggerRef.current = document.activeElement as HTMLElement;
@@ -308,6 +359,33 @@ export function PartnerzyContent() {
                 <ArrowRight size={20} weight="regular" aria-hidden="true" />
               </MagneticButton>
             </div>
+          </ScrollReveal>
+        </div>
+      </section>
+
+      {/* Contact form */}
+      <section className="section-padding pt-0" aria-labelledby="partnerzy-form-heading">
+        <div className="mx-auto max-w-[1200px]">
+          <ScrollReveal>
+            <h2
+              id="partnerzy-form-heading"
+              className="max-w-[24ch] font-display text-[clamp(1.5rem,2.8vw,2.25rem)] font-semibold leading-[1.2] tracking-[-0.02em] text-ink-primary"
+            >
+              {t("formHeading")}
+            </h2>
+            <p className="prose-constrained mt-3 max-w-[60ch] text-[1.0625rem] leading-[1.75] text-ink-secondary">
+              {t("formLead")}
+            </p>
+          </ScrollReveal>
+
+          <ScrollReveal delay={0.1} className="mt-8 max-w-[720px]">
+            <ContactForm
+              endpoint={formspree.partnerzy}
+              fields={fields}
+              labels={labels}
+              contactEmail={CONTACT_EMAIL}
+              extraHiddenFields={{ source: "partnerzy" }}
+            />
           </ScrollReveal>
         </div>
       </section>

@@ -246,6 +246,12 @@
     "ctaDesc": "Opowiedz nam o swoim pomyśle na współpracę — przygotujemy ofertę dopasowaną do Twoich celów.",
     "ctaButton": "Współpracuj z nami",
     "ctaAria": "Przejdź do strony Współpracuj z nami",
+    "formHeading": "Zgłoś chęć współpracy",
+    "formLead": "Reprezentujesz firmę lub organizację? Wypełnij formularz — odezwiemy się z ofertą dopasowaną do Twoich celów.",
+    "labelOrganisation": "Nazwa organizacji",
+    "labelContactPerson": "Osoba kontaktowa",
+    "errOrganisation": "Podaj nazwę organizacji (min. 2 znaki).",
+    "errContactPerson": "Podaj osobę kontaktową (min. 2 znaki).",
     "faqHeading": "Współpraca — najczęstsze pytania",
     "faq": {
       "start": { "q": "Jak rozpocząć współpracę z Samorządem?", "a": "Napisz do osoby odpowiedzialnej za relacje zewnętrzne — przygotujemy ofertę skrojoną pod Twoje cele. Kontakt: Karol Vogel, karol.vogel@samorzad.ue.wroc.pl, tel. 511 599 376." },
@@ -304,6 +310,7 @@
     "mapTitle": "Mapa — siedziba Samorządu Studentów UEW, ul. Kamienna 44, Wrocław",
     "rodoIntro": "Administratorem danych osobowych podanych w formularzu jest Samorząd Studentów Uniwersytetu Ekonomicznego we Wrocławiu. Dane przetwarzamy wyłącznie w celu odpowiedzi na Twoją wiadomość (art. 6 ust. 1 lit. f RODO — prawnie uzasadniony interes). Masz prawo dostępu do danych, ich sprostowania i usunięcia. Szczegóły w",
     "rodoLink": "Polityce prywatności",
+    "formNotConfiguredIntro": "Formularz nie jest jeszcze skonfigurowany — napisz na",
     "mapLoad": "Pokaż mapę Google",
     "mapConsent": "Kliknięcie załaduje mapę od Google (Google może ustawić pliki cookie)."
   },
@@ -521,6 +528,9 @@
       "write": { "title": "Napisz do Rzecznika", "desc": "Wyślij wiadomość na rps@samorzad.ue.wroc.pl lub skorzystaj z formularza kontaktu." },
       "together": { "title": "Działamy razem", "desc": "Rzecznik pomoże zinterpretować przepisy i — jeśli trzeba — reprezentuje Cię wobec uczelni." }
     },
+    "formHeading": "Napisz do Rzecznika",
+    "formLead": "Opisz swoją sprawę — im więcej faktów podasz, tym szybciej pomożemy. Odpowiadamy indywidualnie na każde zgłoszenie.",
+    "formNote": "Wiadomość trafia bezpośrednio do Rzecznika Praw Studenta i jest traktowana poufnie.",
     "faqHeading": "Rzecznik — najczęstsze pytania",
     "faq": {
       "who": { "q": "Kim jest Rzecznik Praw Studenta?", "a": "To osoba, która wspiera studentów w interpretacji przepisów i reprezentuje ich w kontaktach z jednostkami administracyjnymi uczelni. Funkcję pełni Jakub Buchta." },

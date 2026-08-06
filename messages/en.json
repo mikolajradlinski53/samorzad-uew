@@ -246,6 +246,12 @@
     "ctaDesc": "Tell us about your idea for cooperation — we’ll prepare an offer tailored to your goals.",
     "ctaButton": "Work with us",
     "ctaAria": "Go to the Work with us page",
+    "formHeading": "Propose a partnership",
+    "formLead": "Represent a company or organisation? Fill in the form — we’ll get back to you with an offer tailored to your goals.",
+    "labelOrganisation": "Organisation name",
+    "labelContactPerson": "Contact person",
+    "errOrganisation": "Enter the organisation name (min. 2 characters).",
+    "errContactPerson": "Enter a contact person (min. 2 characters).",
     "faqHeading": "Partnership — frequently asked questions",
     "faq": {
       "start": { "q": "How do we start working with the Student Government?", "a": "Write to the person responsible for external relations — we’ll prepare an offer tailored to your goals. Contact: Karol Vogel, karol.vogel@samorzad.ue.wroc.pl, tel. +48 511 599 376." },
@@ -304,6 +310,7 @@
     "mapTitle": "Map — SSUEW Student Government office, ul. Kamienna 44, Wrocław",
     "rodoIntro": "The controller of the personal data submitted in this form is the Students' Union of Wroclaw University of Economics and Business. We process the data solely to reply to your message (Art. 6(1)(f) GDPR — legitimate interest). You have the right to access, rectify and erase your data. Details in the",
     "rodoLink": "Privacy Policy",
+    "formNotConfiguredIntro": "This form isn’t configured yet — write to",
     "mapLoad": "Show Google Map",
     "mapConsent": "Clicking loads the map from Google (Google may set cookies)."
   },
@@ -521,6 +528,9 @@
       "write": { "title": "Write to the Ombudsman", "desc": "Send a message to rps@samorzad.ue.wroc.pl or use the contact form." },
       "together": { "title": "We act together", "desc": "The Ombudsman will help interpret the rules and — if needed — represent you before the university." }
     },
+    "formHeading": "Write to the Ombudsman",
+    "formLead": "Describe your case — the more facts you give us, the faster we can help. Every submission gets an individual reply.",
+    "formNote": "Your message goes directly to the Student Ombudsman and is treated confidentially.",
     "faqHeading": "Ombudsman — frequently asked questions",
     "faq": {
       "who": { "q": "Who is the Student Ombudsman?", "a": "Someone who helps students interpret regulations and represents them in dealings with the university’s administrative units. The role is held by Jakub Buchta." },

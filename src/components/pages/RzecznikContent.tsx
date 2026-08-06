@@ -14,6 +14,10 @@ import {
 } from "@phosphor-icons/react";
 import { ScrollReveal } from "../ScrollReveal";
 import { Tilt } from "../Tilt";
+import { ContactForm, type ContactFormField } from "../ContactForm";
+import { formspree } from "@/lib/forms";
+
+const CONTACT_EMAIL = "rps@samorzad.ue.wroc.pl";
 
 interface Duty {
   key: string;
@@ -32,6 +36,52 @@ const stepKeys = ["check", "describe", "write", "together"];
 export function RzecznikContent() {
   const reduce = useReducedMotion();
   const t = useTranslations("rzecznik");
+  const tk = useTranslations("kontakt");
+
+  const fields: ContactFormField[] = [
+    {
+      key: "name",
+      type: "text",
+      label: tk("labelName"),
+      autoComplete: "name",
+      colSpan: 1,
+      validate: (v) => (v.trim().length < 2 ? tk("errName") : undefined),
+    },
+    {
+      key: "email",
+      type: "email",
+      label: tk("labelEmail"),
+      autoComplete: "email",
+      colSpan: 1,
+      validate: (v) => (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v) ? tk("errEmail") : undefined),
+    },
+    {
+      key: "subject",
+      type: "text",
+      label: tk("labelSubject"),
+      colSpan: 2,
+      validate: (v) => (v.trim().length < 2 ? tk("errSubject") : undefined),
+    },
+    {
+      key: "message",
+      type: "textarea",
+      label: tk("labelMessage"),
+      colSpan: 2,
+      validate: (v) => (v.trim().length < 10 ? tk("errMessage") : undefined),
+    },
+  ];
+
+  const labels = {
+    submitIdle: tk("submitIdle"),
+    submitSending: tk("submitSending"),
+    successHeading: tk("successHeading"),
+    successBody: tk("successBody"),
+    successAgain: tk("successAgain"),
+    errServer: tk("errServer"),
+    rodoIntro: tk("rodoIntro"),
+    rodoLink: tk("rodoLink"),
+    notConfiguredIntro: tk("formNotConfiguredIntro"),
+  };
 
   return (
     <>
@@ -178,6 +228,34 @@ export function RzecznikContent() {
               ))}
             </ol>
           </div>
+        </div>
+      </section>
+
+      {/* Contact form */}
+      <section className="section-padding pt-0" aria-labelledby="rzecznik-form-heading">
+        <div className="mx-auto grid max-w-[1200px] gap-12 lg:grid-cols-[5fr_7fr]">
+          <ScrollReveal>
+            <h2
+              id="rzecznik-form-heading"
+              className="font-display text-[clamp(1.5rem,2.8vw,2.25rem)] font-semibold leading-[1.2] tracking-[-0.02em] text-ink-primary"
+            >
+              {t("formHeading")}
+            </h2>
+            <p className="prose-constrained mt-4 text-[1.0625rem] leading-[1.75] text-ink-secondary">
+              {t("formLead")}
+            </p>
+          </ScrollReveal>
+
+          <ScrollReveal delay={0.1}>
+            <ContactForm
+              endpoint={formspree.rzecznik}
+              fields={fields}
+              labels={labels}
+              contactEmail={CONTACT_EMAIL}
+              extraNote={t("formNote")}
+              extraHiddenFields={{ source: "rzecznik" }}
+            />
+          </ScrollReveal>
         </div>
       </section>
     </>
