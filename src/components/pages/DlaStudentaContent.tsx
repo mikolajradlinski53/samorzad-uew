@@ -4,44 +4,40 @@ import { motion, useReducedMotion } from "motion/react";
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import {
-  Scales,
+  HandCoins,
   GraduationCap,
-  Megaphone,
-  BookOpen,
-  Package,
+  Calculator,
+  Scales,
+  Gavel,
+  Heart,
   MapTrifold,
-  FirstAidKit,
-  Bank,
-  UsersThree,
-  ClipboardText,
-  ArrowUpRight,
+  Compass,
+  Question,
+  UsersFour,
   ArrowSquareOut,
   EnvelopeSimple,
-  Calculator,
   type Icon,
 } from "@phosphor-icons/react";
 import { ScrollReveal } from "../ScrollReveal";
 import { Spotlight } from "../Spotlight";
 
-interface Tile {
+interface Situation {
   key: string;
   href: string;
   icon: Icon;
-  internal?: boolean;
 }
 
-const tiles: Tile[] = [
-  { key: "prawa", href: "/prawa-studenta", icon: Scales, internal: true },
-  { key: "stypendia", href: "/stypendia", icon: GraduationCap, internal: true },
-  { key: "kalkulator", href: "/stypendia#kalkulator", icon: Calculator, internal: true },
-  { key: "rzecznik", href: "/rzecznik-praw-studenta", icon: Megaphone, internal: true },
-  { key: "prawo", href: "/prawo-dla-studenta", icon: BookOpen, internal: true },
-  { key: "infopacki", href: "/infopacki", icon: Package, internal: true },
-  { key: "mapa", href: "/mapa-kampusu", icon: MapTrifold, internal: true },
-  { key: "pomoc", href: "/pomoc-psychologiczna", icon: FirstAidKit, internal: true },
-  { key: "wladze", href: "/wladze-rektorskie", icon: Bank, internal: true },
-  { key: "dziekani", href: "/dziekan-i-prodziekani", icon: UsersThree, internal: true },
-  { key: "ankiety", href: "https://usosweb.ue.wroc.pl/kontroler.php?_action=news/default", icon: ClipboardText },
+const situations: Situation[] = [
+  { key: "zapomoga", href: "/stypendia#zapomoga", icon: HandCoins },
+  { key: "stypendium", href: "/stypendia", icon: GraduationCap },
+  { key: "srednia", href: "/stypendia#kalkulator", icon: Calculator },
+  { key: "ocena", href: "/prawa-studenta", icon: Scales },
+  { key: "spor", href: "/rzecznik-praw-studenta", icon: Gavel },
+  { key: "psychika", href: "/pomoc-psychologiczna", icon: Heart },
+  { key: "zajecia", href: "/mapa-kampusu", icon: MapTrifold },
+  { key: "start", href: "/infopacki", icon: Compass },
+  { key: "kontakt", href: "/wladze-rektorskie", icon: Question },
+  { key: "zaangazowanie", href: "/organizacje-studenckie", icon: UsersFour },
 ];
 
 const quickLinks = [
@@ -60,26 +56,25 @@ export function DlaStudentaContent() {
 
   return (
     <>
-      {/* Tiles */}
-      <section className="section-padding" aria-labelledby="kafelki-heading">
+      {/* Situation router */}
+      <section className="section-padding" aria-labelledby="sytuacje-heading">
         <Spotlight />
         <div className="relative z-10 mx-auto max-w-[1200px]">
           <ScrollReveal>
             <h2
-              id="kafelki-heading"
+              id="sytuacje-heading"
               className="font-display text-[clamp(1.75rem,3.4vw,2.75rem)] font-semibold leading-[1.15] tracking-[-0.02em] text-ink-primary"
             >
-              {t("topicsHeading")}
+              {t("situationsHeading")}
             </h2>
           </ScrollReveal>
 
           <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-            {tiles.map((tile, i) => {
-              const Glyph = tile.icon;
-              const OutIcon = tile.internal ? ArrowUpRight : ArrowSquareOut;
+            {situations.map((situation, i) => {
+              const Glyph = situation.icon;
               return (
                 <motion.div
-                  key={tile.key}
+                  key={situation.key}
                   initial={reduce ? false : { opacity: 0, y: 20 }}
                   whileInView={reduce ? undefined : { opacity: 1, y: 0 }}
                   whileHover={
@@ -98,34 +93,21 @@ export function DlaStudentaContent() {
                   <span className="flex h-11 w-11 items-center justify-center rounded-lg bg-accent-glow text-accent">
                     <Glyph size={24} weight="regular" aria-hidden="true" />
                   </span>
-                  <h3 className="mt-5 flex items-center gap-1.5 text-[1.0625rem] font-semibold tracking-[-0.01em] text-ink-primary">
-                    {t(`tiles.${tile.key}.title`)}
-                    <OutIcon
-                      size={16}
-                      weight="bold"
-                      aria-hidden="true"
-                      className="text-ink-tertiary transition-all duration-150 group-hover:translate-x-0.5 group-hover:text-accent"
-                    />
+                  <h3 className="mt-5 text-[1.0625rem] font-semibold leading-[1.3] tracking-[-0.01em] text-ink-primary">
+                    {t(`situations.${situation.key}.title`)}
                   </h3>
                   <p className="mt-2 text-[0.875rem] leading-[1.6] text-ink-secondary">
-                    {t(`tiles.${tile.key}.desc`)}
+                    {t(`situations.${situation.key}.desc`)}
+                  </p>
+                  <p className="mt-4 font-mono text-[0.6875rem] uppercase tracking-[0.08em] text-ink-tertiary">
+                    {t(`situations.${situation.key}.dest`)}
                   </p>
                   {/* Stretched link overlay */}
-                  {tile.internal ? (
-                    <Link
-                      href={tile.href}
-                      aria-label={t(`tiles.${tile.key}.title`)}
-                      className="absolute inset-0 rounded-xl"
-                    />
-                  ) : (
-                    <a
-                      href={tile.href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      aria-label={t(`tiles.${tile.key}.title`)}
-                      className="absolute inset-0 rounded-xl"
-                    />
-                  )}
+                  <Link
+                    href={situation.href}
+                    aria-label={t(`situations.${situation.key}.title`)}
+                    className="absolute inset-0 rounded-xl"
+                  />
                 </motion.div>
               );
             })}
