@@ -1069,5 +1069,76 @@
     "heading": "Tej strony nie znaleźliśmy",
     "body": "Być może adres się zmienił albo strona została przeniesiona. Wróć na stronę główną lub skorzystaj z poniższych skrótów.",
     "home": "Strona główna"
+  },
+  "wydawnictwo": {
+    "metaTitle": "Wydawnictwo — Debiuty Studenckie",
+    "metaDesc": "Debiuty Studenckie — seria Wydawnictwa Uniwersytetu Ekonomicznego we Wrocławiu dla studentów I i II roku. Otwarty dostęp, CC BY-SA 4.0.",
+    "ogLabel": "Wydawnictwo UEW",
+    "heroEyebrow": "Wydawnictwo UEW",
+    "heroTitle": "Debiuty Studenckie",
+    "heroLead": "Twój tekst z zajęć albo koła naukowego może stać się prawdziwą publikacją — z ISBN i w otwartym dostępie. Bar jest niżej, niż myślisz.",
+    "crumbStudent": "Strefa studenta",
+    "aboutEyebrow": "O serii",
+    "aboutHeading": "Czym są Debiuty Studenckie",
+    "aboutIntro": "Debiuty Studenckie to seria wydawnicza Wydawnictwa Uniwersytetu Ekonomicznego we Wrocławiu — wydawnictwa, które działa od 1955 roku i publikuje ponad 100 tytułów rocznie. Seria jest adresowana wprost do kół naukowych: to miejsce, w którym referat, artykuł czy rozdział napisany w kole może stać się realną publikacją.",
+    "facts": {
+      "years": {
+        "title": "Wystarczy I lub II rok",
+        "desc": "Autorami są studenci I i II roku studiów. Nie trzeba czekać do pracy magisterskiej ani mieć dorobku naukowego — wystarczy tekst, który warto pokazać."
+      },
+      "license": {
+        "title": "CC BY-SA 4.0 — bez ukrytych barier",
+        "desc": "Każda publikacja trafia do otwartego dostępu na licencji Creative Commons. Możesz się nią swobodnie dzielić, cytować ją i budować na niej dalej."
+      },
+      "circles": {
+        "title": "Dla kół naukowych",
+        "desc": "Seria jest adresowana wprost do kół naukowych — to naturalne miejsce, by przekuć projekt koła w prawdziwą publikację z ISBN."
+      }
+    },
+    "pathEyebrow": "Krok po kroku",
+    "pathHeading": "Ścieżka publikacji",
+    "pathIntro": "Nie mamy tu za zadanie zastąpić oficjalnej procedury Wydawnictwa UEW — poniżej ogólny obraz drogi od tekstu z zajęć do publikacji. Szczegóły i aktualne zasady zgłoszeń potwierdzisz bezpośrednio w Wydawnictwie.",
+    "path": {
+      "draft": {
+        "title": "Masz tekst",
+        "desc": "Punktem wyjścia jest referat, artykuł albo rozdział, który powstał na zajęciach lub w kole naukowym."
+      },
+      "mentor": {
+        "title": "Dopracowujesz go z opiekunem",
+        "desc": "Wspólnie z opiekunem naukowym lub prowadzącym doprecyzowujecie tezę, strukturę i warsztat pisarski tekstu."
+      },
+      "submit": {
+        "title": "Zgłaszasz do serii",
+        "desc": "Gotowy tekst trafia do Wydawnictwa UEW jako zgłoszenie do serii Debiuty Studenckie."
+      },
+      "review": {
+        "title": "Przechodzi recenzję",
+        "desc": "Tekst jest oceniany pod kątem merytorycznym i formalnym, zanim trafi dalej w proces wydawniczy."
+      },
+      "layout": {
+        "title": "Skład i nadanie ISBN",
+        "desc": "Po pozytywnej recenzji tekst przechodzi skład redakcyjny i otrzymuje numer ISBN."
+      },
+      "publish": {
+        "title": "Publikacja w otwartym dostępie",
+        "desc": "Gotowa publikacja trafia do otwartego dostępu na licencji CC BY-SA 4.0 — dostępna dla każdego, bez opłat."
+      }
+    },
+    "wallEyebrow": "Co już powstało",
+    "wallHeading": "Wydane teksty",
+    "wallIntro": "Wybrane publikacje z serii Debiuty Studenckie — kliknij grzbiet, aby zobaczyć szczegóły i cytowanie.",
+    "spineLabels": {
+      "emptyTitle": "Jeszcze nic tu nie ma",
+      "emptyDesc": "Lista publikacji z serii Debiuty Studenckie pojawi się tutaj, gdy tylko potwierdzimy dane z Wydawnictwem UEW.",
+      "circleLabel": "Koło naukowe",
+      "linkLabel": "Pełny tekst",
+      "hint": "Wybierz grzbiet publikacji, aby zobaczyć szczegóły poniżej."
+    },
+    "citeHeading": "Jak cytować",
+    "citeIntro": "Przykładowe cytowanie w stylu przyjętym dla serii — autorzy, rok, tytuł, seria, wydawnictwo i (jeśli dostępny) numer ISBN.",
+    "citeEmpty": "Cytowanie pojawi się tutaj, gdy w serii ukaże się pierwsza publikacja.",
+    "copyButton": "Kopiuj cytowanie",
+    "copiedConfirm": "Skopiowano",
+    "copyError": "Nie udało się skopiować — zaznacz tekst ręcznie."
   }
 }
