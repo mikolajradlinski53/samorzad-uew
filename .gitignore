@@ -39,3 +39,6 @@ next-env.d.ts
 # playwright a11y test artifacts
 /playwright-report/
 /test-results/
+
+# mobile audit screenshots (findings.json + AUDIT.md are committed, images are not)
+docs/mobile/shots/

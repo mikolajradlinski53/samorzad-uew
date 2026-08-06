@@ -71,7 +71,7 @@ export function ZarzadContent() {
                 whileInView={reduce ? undefined : { opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.15 }}
                 transition={{ duration: 0.5, delay: Math.min(i, 4) * 0.08, ease: [0.16, 1, 0.3, 1] }}
-                className="h-full"
+                className="h-full min-w-0"
               >
                 <PersonCard name={w.name} role={tPrez(`roles.${w.roleKey}`)} email={w.email} className="h-full" />
               </motion.div>
@@ -106,7 +106,7 @@ export function ZarzadContent() {
                 whileInView={reduce ? undefined : { opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.15 }}
                 transition={{ duration: 0.6, delay: i * 0.05, ease: [0.16, 1, 0.3, 1] }}
-                className="h-full"
+                className="h-full min-w-0"
               >
                 <PersonCard
                   name={member.name}
@@ -114,7 +114,7 @@ export function ZarzadContent() {
                   no={i + 1}
                   org={tBoard("org")}
                   email={member.email}
-                  className="h-full"
+                  className="h-full min-w-0"
                 />
               </motion.div>
             ))}

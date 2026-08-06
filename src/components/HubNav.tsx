@@ -69,7 +69,7 @@ export function HubNav({
       {/* Mobile/tablet (< xl): sticky top chip bar, under the 72px header */}
       <nav
         aria-label={label}
-        className="sticky top-[72px] z-30 -mx-6 mb-4 overflow-x-auto border-b border-border-subtle bg-bg-base/90 px-6 py-3 backdrop-blur xl:hidden"
+        className="sticky top-[72px] z-30 mb-4 overflow-x-auto border-b border-border-subtle bg-bg-base/90 px-6 py-3 backdrop-blur xl:hidden"
       >
         <ul className="flex gap-2 whitespace-nowrap">
           {items.map((it) => (

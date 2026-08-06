@@ -44,7 +44,7 @@ export function PersonCard({
   if (plain) {
     return (
       <div
-        className={`flex flex-col rounded-xl border border-border-subtle bg-bg-surface p-5 transition-colors duration-150 hover:border-border-soft ${className ?? ""}`}
+        className={`flex min-w-0 flex-col rounded-xl border border-border-subtle bg-bg-surface p-5 transition-colors duration-150 hover:border-border-soft ${className ?? ""}`}
       >
         <div className="flex items-center gap-4">
           {photo ? (
@@ -62,7 +62,7 @@ export function PersonCard({
             {email && (
               <a
                 href={`mailto:${email}`}
-                className="mt-1.5 inline-flex items-center gap-1.5 text-[0.8125rem] text-ink-secondary transition-colors hover:text-accent"
+                className="mt-1.5 inline-flex items-center gap-1.5 break-all text-[0.8125rem] text-ink-secondary transition-colors hover:text-accent"
               >
                 <EnvelopeSimple size={14} weight="regular" aria-hidden="true" />
                 {email}
@@ -85,7 +85,7 @@ export function PersonCard({
 
   return (
     <article
-      className={`group relative flex flex-col overflow-hidden rounded-2xl border border-border-subtle bg-bg-surface transition-transform duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] hover:-translate-y-1 motion-reduce:transform-none ${className ?? ""}`}
+      className={`group relative flex min-w-0 flex-col overflow-hidden rounded-2xl border border-border-subtle bg-bg-surface transition-transform duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] hover:-translate-y-1 motion-reduce:transform-none ${className ?? ""}`}
     >
       {/* Pasek mono */}
       <div className="flex items-center justify-between gap-3 bg-accent px-4 py-2 font-mono text-[10px] uppercase tracking-[0.08em] text-bg-base">
@@ -122,7 +122,7 @@ export function PersonCard({
           {email && (
             <a
               href={`mailto:${email}`}
-              className="mt-2 inline-flex items-center gap-1.5 text-[0.8125rem] text-ink-secondary transition-colors hover:text-accent"
+              className="mt-2 inline-flex items-center gap-1.5 break-all text-[0.8125rem] text-ink-secondary transition-colors hover:text-accent"
             >
               <EnvelopeSimple size={14} weight="regular" aria-hidden="true" />
               {email}
