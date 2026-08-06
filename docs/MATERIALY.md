@@ -56,10 +56,10 @@ Podeślij jako prostą listę (np. w tabelce/po przecinku). Wymienię placeholde
 ## 7. Klucze i integracje (wklejasz w Vercel → Settings → Environment Variables)
 (Dokładną instrukcję „skąd wziąć" opiszę w `docs/ENV.md`.)
 
-- ☐ **RESEND_API_KEY** — żeby formularz kontaktowy realnie wysyłał maile
 - ☐ **EVENTS_SHEET_CSV_URL** — arkusz Google z wydarzeniami (CMS kalendarza)
 - ☐ (opcjonalnie) **Google Calendar ID** — jeśli chcemy widget kalendarza
 - ☐ Potwierdzenie kont social (TikTok/FB/IG/LinkedIn) i danych kontaktowych
+- ☐ **ID formularzy Formspree** (Kontakt/Rzecznik/Partnerzy) — nie w Vercel, tylko w kodzie: `src/lib/forms.ts`
 
 ---
 

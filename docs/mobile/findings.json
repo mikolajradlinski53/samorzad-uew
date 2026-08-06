@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-06T06:57:54.777Z",
+  "generatedAt": "2026-08-06T07:53:42.302Z",
   "viewport": {
     "width": 375,
     "height": 812
@@ -827,7 +827,7 @@
         "culprits": []
       },
       "tapTargets": {
-        "checked": 46,
+        "checked": 47,
         "tooSmall": [
           {
             "tag": "a",
@@ -842,6 +842,13 @@
             "accessibleName": "kontakt@samorzad.ue.wroc.pl",
             "width": 327,
             "height": 22.5
+          },
+          {
+            "tag": "a",
+            "classSnippet": "underline underline-offset-2",
+            "accessibleName": "kontakt@samorzad.ue.wroc.pl",
+            "width": 189.66,
+            "height": 15
           },
           {
             "tag": "a",
@@ -1425,7 +1432,7 @@
         "culprits": []
       },
       "tapTargets": {
-        "checked": 42,
+        "checked": 48,
         "tooSmall": [
           {
             "tag": "a",
@@ -1433,6 +1440,13 @@
             "accessibleName": "Strona główna",
             "width": 82.64,
             "height": 19.5
+          },
+          {
+            "tag": "a",
+            "classSnippet": "underline underline-offset-2",
+            "accessibleName": "kontakt@samorzad.ue.wroc.pl",
+            "width": 189.66,
+            "height": 15
           },
           {
             "tag": "a",
@@ -2328,7 +2342,7 @@
         "culprits": []
       },
       "tapTargets": {
-        "checked": 38,
+        "checked": 44,
         "tooSmall": [
           {
             "tag": "a",
@@ -2350,6 +2364,13 @@
             "accessibleName": "rps@samorzad.ue.wroc.pl",
             "width": 269,
             "height": 22.5
+          },
+          {
+            "tag": "a",
+            "classSnippet": "underline underline-offset-2",
+            "accessibleName": "rps@samorzad.ue.wroc.pl",
+            "width": 163.64,
+            "height": 15
           },
           {
             "tag": "a",

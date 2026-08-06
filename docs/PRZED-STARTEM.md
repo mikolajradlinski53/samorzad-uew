@@ -9,10 +9,10 @@ od Ciebie, żeby ruszyć „na ostro". Legenda: ☐ do zrobienia.
 ## 1. Zmienne środowiskowe (Vercel → Settings → Environment Variables)
 Szczegóły i instrukcje krok po kroku: [`docs/ENV.md`](ENV.md).
 
-- ☐ `RESEND_API_KEY` — formularz kontaktowy realnie wysyła maile
 - ☐ `EVENTS_SHEET_CSV_URL` — kalendarz „nasze wydarzenia" z Google Sheets
 - ☐ `GOOGLE_CLIENT_ID` + `GOOGLE_CLIENT_SECRET` + `AUTH_SECRET` — logowanie działaczy (Strefa działacza)
 - ☐ (po dodaniu kluczy) **Redeploy**
+- ☐ `src/lib/forms.ts` — wklej ID formularzy Formspree (Kontakt/Rzecznik/Partnerzy); to nie jest zmienna środowiskowa, tylko wpis w kodzie — patrz [`docs/ENV.md`](ENV.md)
 
 ## 2. Analityka
 - ☐ Vercel → zakładka **Analytics → Enable** (kod już wpięty, baner zgody działa)

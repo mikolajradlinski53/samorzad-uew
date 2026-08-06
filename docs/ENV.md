@@ -10,24 +10,31 @@ fallback. Dodanie klucza po prostu „ożywia" daną funkcję. Klucze wklejasz w
 
 ---
 
-## 1. Formularz kontaktowy → e-mail (Resend)
+## 1. Formularze kontaktowe → e-mail (Formspree)
 
-**Bez klucza:** formularz waliduje i przyjmuje zgłoszenie, pokazuje sukces,
-a treść trafia do logów serwera (Vercel → Logs). Nic nie ginie — maile zaczną
-wychodzić od razu po dodaniu klucza.
+Formularze na `/kontakt`, `/rzecznik-praw-studenta` i `/partnerzy` wysyłają
+przez [Formspree](https://formspree.io). To **nie jest** zmienna środowiskowa —
+ID formularzy wpisuje się w kodzie, w `src/lib/forms.ts`.
+
+**Bez skonfigurowanych ID:** formularz pokazuje komunikat „nie jest jeszcze
+skonfigurowany" z linkiem `mailto:` jako zapasowy kontakt i blokuje wysyłkę
+(przycisk wyłączony). Nic się nie „psuje po cichu".
 
 **Konfiguracja:**
-1. Załóż konto na <https://resend.com> (darmowy plan wystarcza na start).
-2. **API Keys → Create API Key** → skopiuj klucz (zaczyna się od `re_...`).
-3. W Vercel dodaj zmienną:
-   - `RESEND_API_KEY` = `re_...`
-4. (Opcjonalnie) ustaw odbiorcę i nadawcę:
-   - `CONTACT_TO` = `kontakt@samorzad.ue.wroc.pl` (domyślne, jeśli pominiesz)
-   - `CONTACT_FROM` = `Formularz SSUEW <onboarding@resend.dev>`
-     — do testów OK; **docelowo** zweryfikuj własną domenę w Resend
-     (Domains → Add) i ustaw np. `Samorząd UEW <kontakt@samorzad.ue.wroc.pl>`,
-     żeby maile nie wpadały do spamu.
-5. **Redeploy**. Wyślij testową wiadomość przez `/kontakt`.
+1. Załóż konto na <https://formspree.io> (darmowy plan wystarcza na start).
+2. **New Form** — załóż osobny formularz dla każdej z trzech stron
+   (Kontakt, Rzecznik Praw Studenta, Partnerzy), żeby zgłoszenia dało się
+   rozróżnić w panelu Formspree.
+3. Skopiuj ID z adresu formularza (`https://formspree.io/f/xxxxxxxx` → `xxxxxxxx`).
+4. Wklej ID w `src/lib/forms.ts`:
+   ```ts
+   export const formspree = {
+     kontakt: "xxxxxxxx",
+     rzecznik: "yyyyyyyy",
+     partnerzy: "zzzzzzzz",
+   } as const;
+   ```
+5. Commit + deploy. Wyślij testową wiadomość przez `/kontakt`.
 
 ---
 
@@ -81,9 +88,6 @@ Dostęp jest twardo ograniczony w kodzie do domeny `@samorzad.ue.wroc.pl`
 
 | Zmienna | Wymagana? | Co robi |
 |---|---|---|
-| `RESEND_API_KEY` | nie (zalecana) | włącza realną wysyłkę maili z formularza |
-| `CONTACT_TO` | nie | odbiorca zgłoszeń (domyślnie kontakt@samorzad.ue.wroc.pl) |
-| `CONTACT_FROM` | nie | nadawca maili (domena zweryfikowana w Resend) |
 | `EVENTS_SHEET_CSV_URL` | nie | podpina kalendarz wydarzeń z Google Sheets |
 | `GOOGLE_CLIENT_ID` | nie | logowanie do Strefy działacza (OAuth Google) |
 | `GOOGLE_CLIENT_SECRET` | nie | j.w. — sekret aplikacji OAuth |
