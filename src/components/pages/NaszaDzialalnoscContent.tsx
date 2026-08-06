@@ -18,7 +18,7 @@ const stats = [
   { to: 11000, suffix: "+", labelKey: "students" },
   { to: 12, suffix: "", labelKey: "committees" },
   { to: 9, suffix: "", labelKey: "projects" },
-  { year: "1981", labelKey: "founded" },
+  { year: "1987", labelKey: "founded" },
 ];
 
 export function NaszaDzialalnoscContent() {

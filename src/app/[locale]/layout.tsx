@@ -24,7 +24,7 @@ const organizationLd = {
   url: SITE_URL,
   logo: `${SITE_URL}/logo-dark.svg`,
   email: "kontakt@samorzad.ue.wroc.pl",
-  foundingDate: "1981",
+  foundingDate: "1987",
   address: {
     "@type": "PostalAddress",
     streetAddress: "ul. Kamienna 44, Budynek L, pok. 110",

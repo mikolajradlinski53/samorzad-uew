@@ -14,7 +14,7 @@ type Stat = { label: string; icon: Icon } & (
 const stats: Stat[] = [
   { to: 10000, suffix: "+", label: "statStudents", icon: GraduationCap },
   { to: 6, suffix: "", label: "statCommittees", icon: UsersThree },
-  { year: "1981", label: "statFounded", icon: CalendarCheck },
+  { year: "1987", label: "statFounded", icon: CalendarCheck },
 ];
 
 export function About() {
