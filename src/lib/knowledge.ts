@@ -20,8 +20,12 @@ export interface Hit {
   index: number;
 }
 
-/** Namespace i18n → dokąd prowadzi jego treść. Bez wpisu = nie indeksujemy. */
-const NAMESPACE_ROUTES: Record<string, { href: string; label: string }> = {
+/**
+ * Namespace i18n → dokąd prowadzi jego treść. Bez wpisu = nie indeksujemy.
+ * Eksportowane też dla `src/lib/corpus.ts` (korpus asystenta AI) — jedno
+ * źródło prawdy dla obu.
+ */
+export const NAMESPACE_ROUTES: Record<string, { href: string; label: string }> = {
   stypendia: { href: "/stypendia", label: "Stypendia i wsparcie" },
   stypRektora: { href: "/stypendia#rektora", label: "Stypendium Rektora" },
   stypSocjalne: { href: "/stypendia#socjalne", label: "Stypendium socjalne" },
