@@ -872,7 +872,17 @@
       "noResults": "Nic nie znaleziono dla „{query}”. Spróbuj innego słowa.",
       "resultsLabel": "Wyniki wyszukiwania",
       "showAll": "Pokaż wszystkie wyniki dla „{query}”",
-      "inContent": "W treści"
+      "inContent": "W treści",
+      "ask": "Zapytaj Samorząd: „{query}”",
+      "answerBack": "Wróć do wyników",
+      "answerQuestionLabel": "Twoje pytanie",
+      "answerStreaming": "Szukam odpowiedzi…",
+      "answerSourcesHeading": "Źródła",
+      "answerSourceFallback": "Źródło",
+      "answerDisclaimer": "Asystent odpowiada na podstawie treści strony i może się mylić. Wiążące są regulaminy i zarządzenia Samorządu.",
+      "answerNotConfigured": "Asystent AI nie jest jeszcze włączony. Napisz do nas przez <link>stronę kontaktową</link>.",
+      "answerRefusal": "Asystent nie potrafił odpowiedzieć na to pytanie. Spróbuj sformułować je inaczej albo skorzystaj z wyszukiwarki.",
+      "answerError": "Coś poszło nie tak. Spróbuj ponownie albo skorzystaj z wyszukiwarki."
     },
     "aria": {
       "backToTop": "Wróć na górę strony",

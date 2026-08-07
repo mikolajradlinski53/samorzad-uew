@@ -872,7 +872,17 @@
       "noResults": "Nothing found for “{query}”. Try a different word.",
       "resultsLabel": "Search results",
       "showAll": "Show all results for “{query}”",
-      "inContent": "In page content"
+      "inContent": "In page content",
+      "ask": "Ask the Student Government: “{query}”",
+      "answerBack": "Back to results",
+      "answerQuestionLabel": "Your question",
+      "answerStreaming": "Looking for an answer…",
+      "answerSourcesHeading": "Sources",
+      "answerSourceFallback": "Source",
+      "answerDisclaimer": "The assistant answers from the site's content and can be wrong. The regulations are the binding source.",
+      "answerNotConfigured": "The AI assistant isn't switched on yet. Reach us via the <link>contact page</link>.",
+      "answerRefusal": "The assistant couldn't answer this one. Try rephrasing it, or use search instead.",
+      "answerError": "Something went wrong. Try again, or use search instead."
     },
     "aria": {
       "backToTop": "Back to top",
