@@ -22,7 +22,7 @@ import { partners, type PartnerEntry } from "@/lib/partners";
 import { ContactForm, type ContactFormField } from "../ContactForm";
 import { formspree } from "@/lib/forms";
 
-const CONTACT_EMAIL = "kontakt@samorzad.ue.wroc.pl";
+const CONTACT_EMAIL = "zuzanna.bak@samorzad.ue.wroc.pl";
 
 interface Benefit {
   key: string;
@@ -141,7 +141,7 @@ function PartnerModal({ partner, onClose }: { partner: PartnerEntry; onClose: ()
           </a>
         ) : (
           <a
-            href="mailto:kontakt@samorzad.ue.wroc.pl?subject=Wsp%C3%B3%C5%82praca%20z%20Samorz%C4%85dem%20UEW"
+            href={`mailto:${CONTACT_EMAIL}?subject=Wsp%C3%B3%C5%82praca%20z%20Samorz%C4%85dem%20UEW`}
             className="mt-6 inline-flex h-12 items-center gap-2 rounded-lg bg-accent px-7 text-base font-medium text-bg-base transition-all hover:bg-accent-dim active:scale-[0.98]"
           >
             {t("modalCta")}

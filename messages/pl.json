@@ -496,7 +496,7 @@
     "skladHeading": "Skład Komisji",
     "skladSoon": "Skład Komisji zostanie ogłoszony wkrótce.",
     "roles": { "chair": "Przewodnicząca", "memberF": "Członkini", "memberM": "Członek" },
-    "uchwalyButton": "Uchwały SKW 2025/2026"
+    "uchwalyButton": "Uchwały SKW {term}"
   },
   "rzecznik": {
     "metaTitle": "Rzecznik Praw Studenta",
@@ -621,7 +621,7 @@
     "eyebrow": "Akty wewnętrzne",
     "heading": "Zarządzenia Przewodniczącej",
     "intro": "Zarządzenia Przewodniczącej to akty wykonawcze, które porządkują bieżącą działalność Samorządu Studentów. Dokumenty z aktualnej kadencji udostępniamy w jednym, wspólnym folderze.",
-    "termCardHeading": "Zarządzenia — kadencja 2025/2026",
+    "termCardHeading": "Zarządzenia — kadencja {term}",
     "termCardDesc": "Komplet aktualnych zarządzeń w folderze Google Drive.",
     "openButton": "Otwórz dokumenty",
     "archiveHeading": "Szukasz starszego zarządzenia?",

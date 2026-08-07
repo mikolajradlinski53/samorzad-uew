@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { EnvelopeSimple } from "@phosphor-icons/react";
 import { InitialsAvatar } from "./InitialsAvatar";
+import { TERM } from "@/lib/term";
 
 export interface PersonCardProps {
   name: string;
@@ -90,7 +91,7 @@ export function PersonCard({
       {/* Pasek mono */}
       <div className="flex items-center justify-between gap-3 bg-accent px-4 py-2 font-mono text-[10px] uppercase tracking-[0.08em] text-bg-base">
         <span className="truncate">{org}</span>
-        <span className="shrink-0">2025/2026</span>
+        <span className="shrink-0">{TERM}</span>
       </div>
 
       {/* Korpus */}

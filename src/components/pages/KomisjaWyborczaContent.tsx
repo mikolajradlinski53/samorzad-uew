@@ -1,6 +1,7 @@
 "use client";
 
 import { motion, useReducedMotion } from "motion/react";
+import { TERM } from "@/lib/term";
 import { useTranslations } from "next-intl";
 import { EnvelopeSimple, CheckCircle, FileText } from "@phosphor-icons/react";
 import { PersonCard } from "../PersonCard";
@@ -98,7 +99,7 @@ export function KomisjaWyborczaContent() {
                 className="inline-flex h-12 items-center gap-2 rounded-lg border border-border-strong px-7 text-base font-medium text-ink-primary transition-colors hover:border-border-soft hover:bg-bg-elevated"
               >
                 <FileText size={20} weight="regular" aria-hidden="true" />
-                {t("uchwalyButton")}
+                {t("uchwalyButton", { term: TERM })}
               </a>
             )}
           </div>

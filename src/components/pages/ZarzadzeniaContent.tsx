@@ -1,6 +1,7 @@
 "use client";
 
 import { motion, useReducedMotion } from "motion/react";
+import { TERM } from "@/lib/term";
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import { FolderOpen, EnvelopeSimple, Stamp } from "@phosphor-icons/react";
@@ -45,7 +46,7 @@ export function ZarzadzeniaContent() {
             </span>
             <div>
               <h3 className="text-[1.125rem] font-semibold tracking-[-0.01em] text-ink-primary">
-                {t("termCardHeading")}
+                {t("termCardHeading", { term: TERM })}
               </h3>
               <p className="mt-1 text-[0.9375rem] leading-[1.6] text-ink-secondary">
                 {t("termCardDesc")}
