@@ -37,6 +37,32 @@ formularzy. W sesji stypendialnej może to być za mało — warto obserwować l
 
 ---
 
+## 🔴 Asystent AI "Zapytaj Samorząd" — klucz Anthropic
+
+Serwerowa część asystenta (`/api/asystent`) jest gotowa i odpowiada wyłącznie na
+podstawie treści strony (z cytowaniami źródeł). Dopóki brakuje klucza, trasa
+zwraca uczciwy komunikat „niedostępne" zamiast udawać, że działa.
+
+**Skąd wziąć:** wejdź na [console.anthropic.com](https://console.anthropic.com),
+załóż konto (albo użyj istniejącego), w sekcji **API Keys** kliknij **Create Key**.
+Klucz zaczyna się od `sk-ant-...`.
+
+**Gdzie wkleić — NIE do repozytorium.** Vercel → ustawienia projektu →
+**Settings → Environment Variables** → dodaj `ANTHROPIC_API_KEY` z wklejonym
+kluczem (środowisko: Production, ewentualnie też Preview). Do lokalnego
+developmentu wklej ten sam klucz do `.env.local` (plik ten jest w `.gitignore`
+— nigdy nie trafi do repo).
+
+| Zmienna | Wklej wartość |
+|---|---|
+| `ANTHROPIC_API_KEY` | → |
+
+**Koszt:** korpus strony jest cache'owany po stronie Anthropic (prompt caching),
+więc typowe pytanie kosztuje ok. **8 groszy**. Przy tysiącu pytań miesięcznie to
+ok. **80 zł/mc** — warto obserwować zużycie w konsoli Anthropic (Usage).
+
+---
+
 ## 🟡 Fakty do potwierdzenia
 
 Rzeczy, które są już na stronie, ale opierają się na niepewnym źródle.
