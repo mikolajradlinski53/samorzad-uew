@@ -37,6 +37,7 @@ const NAMESPACE_ROUTES: Record<string, { href: string; label: string }> = {
   infopacki: { href: "/infopacki", label: "Infopacki" },
   mapa: { href: "/mapa-kampusu", label: "Mapa kampusu" },
   organizacje: { href: "/organizacje-studenckie", label: "Organizacje studenckie" },
+  wydawnictwo: { href: "/wydawnictwo", label: "Wydawnictwo UEW" },
   kalendarz: { href: "/kalendarz", label: "Kalendarz" },
   kontakt: { href: "/kontakt", label: "Kontakt" },
   naszaDzialalnosc: { href: "/nasza-dzialalnosc", label: "Nasza działalność" },

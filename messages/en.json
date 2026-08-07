@@ -209,7 +209,8 @@
       "zajecia": { "title": "I can't find my classroom", "desc": "Buildings, rooms and key points across campus, all on one map.", "dest": "Campus map" },
       "start": { "title": "I'm starting out and nothing makes sense", "desc": "Practical information packs that explain step by step how the university works.", "dest": "Infopacks" },
       "kontakt": { "title": "I don't know who to ask", "desc": "The Rector, Vice-Rectors and other university authorities — who's responsible for what.", "dest": "University authorities" },
-      "zaangazowanie": { "title": "I want to get involved", "desc": "Student clubs, organisations and self-government — find where you fit in.", "dest": "Student organisations" }
+      "zaangazowanie": { "title": "I want to get involved", "desc": "Student clubs, organisations and self-government — find where you fit in.", "dest": "Student organisations" },
+      "publikacja": { "title": "I wrote something and want it published", "desc": "Debiuty Studenckie accepts articles by first- and second-year students — open access, a real ISBN.", "dest": "UEW Publishing House" }
     },
     "quickEyebrow": "Quick links",
     "quickHeading": "Everyday student tools",
@@ -897,6 +898,7 @@
     "mapa": "Campus map",
     "pomoc": "Psychological support",
     "organizacje": "Student organizations",
+    "wydawnictwo": "UEW Publishing House",
     "kalendarz": "University calendar",
     "onas": "About us",
     "dzialalnosc": "Our activities",

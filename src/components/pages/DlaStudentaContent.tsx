@@ -14,6 +14,7 @@ import {
   Compass,
   Question,
   UsersFour,
+  BookOpenText,
   ArrowSquareOut,
   EnvelopeSimple,
   type Icon,
@@ -38,6 +39,7 @@ const situations: Situation[] = [
   { key: "start", href: "/infopacki", icon: Compass },
   { key: "kontakt", href: "/wladze-rektorskie", icon: Question },
   { key: "zaangazowanie", href: "/organizacje-studenckie", icon: UsersFour },
+  { key: "publikacja", href: "/wydawnictwo", icon: BookOpenText },
 ];
 
 const quickLinks = [

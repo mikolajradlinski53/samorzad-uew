@@ -1,15 +1,15 @@
 {
-  "generatedAt": "2026-08-06T09:17:24.527Z",
+  "generatedAt": "2026-08-07T09:50:09.859Z",
   "viewport": {
     "width": 375,
     "height": 812
   },
   "minTapTargetPx": 24,
   "minFontSizePx": 12,
-  "routesMeasured": 30,
+  "routesMeasured": 31,
   "routesWithOverflow": 0,
-  "routesWithSmallTapTargets": 30,
-  "routesWithSmallText": 30,
+  "routesWithSmallTapTargets": 31,
+  "routesWithSmallText": 31,
   "routesWithErrors": 0,
   "routes": [
     {
@@ -304,7 +304,7 @@
         "culprits": []
       },
       "tapTargets": {
-        "checked": 50,
+        "checked": 51,
         "tooSmall": [
           {
             "tag": "a",
@@ -416,6 +416,12 @@
             "classSnippet": "mt-4 font-mono text-[0.6875rem] uppercase tracking-[0.08em] text-ink-tertiary",
             "fontSize": 11,
             "textSnippet": "Organizacje studenckie"
+          },
+          {
+            "tag": "p",
+            "classSnippet": "mt-4 font-mono text-[0.6875rem] uppercase tracking-[0.08em] text-ink-tertiary",
+            "fontSize": 11,
+            "textSnippet": "Wydawnictwo UEW"
           }
         ]
       },
@@ -3280,6 +3286,133 @@
             "classSnippet": "flex min-h-11 items-center justify-center px-3 transition-colors text-ink-second",
             "fontSize": 11,
             "textSnippet": "en"
+          }
+        ]
+      },
+      "contentWidth": {
+        "offenders": [
+          {
+            "tag": "div",
+            "classSnippet": "flex items-center gap-3",
+            "width": 244.41,
+            "rectRight": 428.41
+          },
+          {
+            "tag": "button",
+            "classSnippet": "flex h-11 w-11 items-center justify-center rounded-lg text-ink-secondary md:hidd",
+            "width": 44,
+            "rectRight": 428.41
+          },
+          {
+            "tag": "svg",
+            "classSnippet": "",
+            "width": 24,
+            "rectRight": 418.41
+          },
+          {
+            "tag": "path",
+            "classSnippet": "",
+            "width": 18,
+            "rectRight": 415.41
+          }
+        ]
+      }
+    },
+    {
+      "route": "/wydawnictwo",
+      "path": "/pl/wydawnictwo",
+      "ok": true,
+      "horizontalOverflow": {
+        "scrollWidth": 375,
+        "innerWidth": 375,
+        "overflows": false,
+        "culprits": []
+      },
+      "tapTargets": {
+        "checked": 38,
+        "tooSmall": [
+          {
+            "tag": "a",
+            "classSnippet": "transition-colors hover:text-ink-primary",
+            "accessibleName": "Strona główna",
+            "width": 82.64,
+            "height": 19.5
+          },
+          {
+            "tag": "a",
+            "classSnippet": "transition-colors hover:text-ink-primary",
+            "accessibleName": "Strefa studenta",
+            "width": 87.86,
+            "height": 19.5
+          },
+          {
+            "tag": "a",
+            "classSnippet": "mt-3 inline-flex items-center gap-1.5 text-[0.875rem] font-medium text-accent tr",
+            "accessibleName": "Pełny tekst",
+            "width": 91.08,
+            "height": 21
+          },
+          {
+            "tag": "a",
+            "classSnippet": "flex items-center gap-3 text-[0.9375rem] text-ink-secondary transition-colors ho",
+            "accessibleName": "kontakt@samorzad.ue.wroc.pl",
+            "width": 327,
+            "height": 22.5
+          },
+          {
+            "tag": "a",
+            "classSnippet": "text-[0.8125rem] font-medium text-ink-secondary transition-colors hover:text-acc",
+            "accessibleName": "Polityka prywatności",
+            "width": 120.58,
+            "height": 19.5
+          },
+          {
+            "tag": "a",
+            "classSnippet": "text-[0.8125rem] font-medium text-ink-secondary transition-colors hover:text-acc",
+            "accessibleName": "Deklaracja dostępności",
+            "width": 137.59,
+            "height": 19.5
+          },
+          {
+            "tag": "a",
+            "classSnippet": "font-medium text-accent transition-colors hover:text-accent-dim",
+            "accessibleName": "Polityka prywatności",
+            "width": 129.86,
+            "height": 15
+          }
+        ]
+      },
+      "textLegibility": {
+        "tooSmall": [
+          {
+            "tag": "button",
+            "classSnippet": "flex min-h-11 items-center justify-center px-3 transition-colors bg-accent text-",
+            "fontSize": 11,
+            "textSnippet": "pl"
+          },
+          {
+            "tag": "button",
+            "classSnippet": "flex min-h-11 items-center justify-center px-3 transition-colors text-ink-second",
+            "fontSize": 11,
+            "textSnippet": "en"
+          },
+          {
+            "tag": "span",
+            "classSnippet": "inline-block rounded px-2 py-0.5 font-mono text-[0.6875rem] uppercase tracking-[",
+            "fontSize": 11,
+            "textSnippet": "2024"
+          },
+          {
+            "tag": "span",
+            "classSnippet": "inline-block rounded px-2 py-0.5 font-mono text-[0.6875rem] uppercase tracking-[",
+            "fontSize": 11,
+            "textSnippet": "2023"
+          },
+          {
+            "tag": "span",
+            "classSnippet": "inline-block rounded px-2 py-0.5 font-mono text-[0.6875rem] uppercase tracking-[",
+            "fontSize": 11,
+            "textSnippet": "2024"
           }
         ]
       },

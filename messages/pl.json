@@ -209,7 +209,8 @@
       "zajecia": { "title": "Nie wiem, gdzie mam zajęcia", "desc": "Budynki, sale i najważniejsze punkty kampusu na jednej mapie.", "dest": "Mapa kampusu" },
       "start": { "title": "Zaczynam studia i nic nie rozumiem", "desc": "Praktyczne pakiety informacji, które tłumaczą krok po kroku, jak działa uczelnia.", "dest": "Infopacki" },
       "kontakt": { "title": "Nie wiem, do kogo się zwrócić", "desc": "Rektor, prorektorzy i pozostałe władze uczelni — kto za co odpowiada.", "dest": "Władze rektorskie" },
-      "zaangazowanie": { "title": "Chcę się zaangażować", "desc": "Koła naukowe, organizacje i samorząd — sprawdź, gdzie się odnajdziesz.", "dest": "Organizacje studenckie" }
+      "zaangazowanie": { "title": "Chcę się zaangażować", "desc": "Koła naukowe, organizacje i samorząd — sprawdź, gdzie się odnajdziesz.", "dest": "Organizacje studenckie" },
+      "publikacja": { "title": "Napisałem tekst i chcę go wydać", "desc": "Debiuty Studenckie przyjmują artykuły studentów I i II roku — otwarty dostęp, prawdziwy ISBN.", "dest": "Wydawnictwo UEW" }
     },
     "quickEyebrow": "Szybkie linki",
     "quickHeading": "Codzienne narzędzia studenta",
@@ -897,6 +898,7 @@
     "mapa": "Mapa kampusu",
     "pomoc": "Pomoc psychologiczna",
     "organizacje": "Organizacje studenckie",
+    "wydawnictwo": "Wydawnictwo UEW",
     "kalendarz": "Kalendarz uczelniany",
     "onas": "O nas",
     "dzialalnosc": "Nasza działalność",

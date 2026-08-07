@@ -77,15 +77,14 @@ export function SpineWall({ publications, labels }: SpineWallProps) {
       </p>
 
       {/* Desktop / tablet — book spines */}
-      <div className="hidden md:flex md:flex-wrap md:items-end md:gap-4" role="list">
+      <ul className="hidden md:flex md:flex-wrap md:items-end md:gap-4">
         {publications.map((p, i) => {
           const t = toneFor(p.title);
           const isActive = i === selected;
           return (
-            <motion.button
-              key={`${p.title}-${i}`}
+            <li key={`${p.title}-${i}`} className="flex">
+              <motion.button
               type="button"
-              role="listitem"
               aria-expanded={isActive}
               aria-controls={panelId}
               aria-label={`${p.title} — ${p.authors.join(", ")}, ${p.year}`}
@@ -119,9 +118,10 @@ export function SpineWall({ publications, labels }: SpineWallProps) {
                 {authorSurnames(p.authors)} · {p.year}
               </span>
             </motion.button>
+            </li>
           );
         })}
-      </div>
+      </ul>
 
       {/* Mobile — vertical cards, same data (no hidden toggle: everything is
           already on the card, so no <button> disclosure is needed here). */}

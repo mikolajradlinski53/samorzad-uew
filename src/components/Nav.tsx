@@ -35,6 +35,7 @@ export function Nav() {
     { label: tm("mapa"), href: "/mapa-kampusu" },
     { label: tm("pomoc"), href: "/pomoc-psychologiczna" },
     { label: tm("organizacje"), href: "/organizacje-studenckie" },
+    { label: tm("wydawnictwo"), href: "/wydawnictwo" },
     { label: tm("kalendarz"), href: "/kalendarz" },
   ];
 

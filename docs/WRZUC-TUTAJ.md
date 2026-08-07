@@ -65,6 +65,36 @@ odblokowują konkretną funkcję.
 
 ---
 
+## 🟡 Wydawnictwo UEW — Debiuty Studenckie
+
+Strona `/wydawnictwo` działa, ale **ściana grzbietów pokazuje trzy publikacje-atrapy**
+(oznaczone w kodzie jako `PLACEHOLDER — DO WERYFIKACJI`). Wyglądają wiarygodnie,
+więc trzeba je podmienić, zanim ktoś weźmie je za prawdziwe.
+
+**Publikacje** — dla każdej: tytuł, autorzy, rok, koło naukowe, ISBN, link do
+pełnego tekstu, krótki abstrakt. Wpisz poniżej albo prześlij listę, ja przeniosę
+do `src/lib/publications.ts`.
+
+→
+
+**Szczegóły proceduralne z Wydawnictwa** — świadomie ich nie wymyśliłem, bo
+uczelniane serwery blokowały pobieranie, a zmyślony termin albo procedura byłyby
+gorsze niż ich brak. Potrzebuję:
+
+| Co | Odpowiedź |
+|---|---|
+| Termin/terminy zgłaszania tekstów | → |
+| Jak dokładnie wygląda zgłoszenie (formularz? mail? przez opiekuna koła?) | → |
+| Osoba lub adres kontaktowy w Wydawnictwie | → |
+| Wymogi formalne (objętość, format, przypisy) | → |
+| Czy publikacja jest bezpłatna dla studenta | → |
+
+Potwierdzone i już użyte na stronie: seria wydawana przez Wydawnictwo UEW
+(działa od 1955, ponad 100 tytułów rocznie), autorami są studenci **I i II roku**,
+adresat to **koła naukowe**, licencja **CC BY-SA 4.0**.
+
+---
+
 ## Jak to działa po Twojej stronie
 
 1. Wpisujesz wartość obok `→` w tabelce (albo wrzucasz plik we wskazane miejsce).
