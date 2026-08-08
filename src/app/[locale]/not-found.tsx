@@ -52,7 +52,7 @@ export default function NotFound() {
             <li key={link.href}>
               <Link
                 href={link.href}
-                className="inline-flex items-center gap-1.5 text-[0.9375rem] font-medium text-accent transition-colors hover:text-accent-dim"
+                className="inline-flex items-center gap-1.5 py-1 text-[0.9375rem] font-medium text-accent transition-colors hover:text-accent-dim"
               >
                 {tp(link.key)}
                 <ArrowRight size={16} weight="regular" aria-hidden="true" />

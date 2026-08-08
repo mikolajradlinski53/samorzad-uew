@@ -45,7 +45,7 @@ export function KalendarzContent() {
             {t("ourEvents")}
             <Link
               href="/"
-              className="inline-flex items-center gap-1 font-medium text-accent transition-colors hover:text-accent-dim"
+              className="inline-flex items-center gap-1 py-1 font-medium text-accent transition-colors hover:text-accent-dim"
             >
               {t("ourEventsLink")}
               <ArrowRight size={16} weight="regular" aria-hidden="true" />

@@ -60,7 +60,7 @@ export function Resources() {
             </h2>
             <Link
               href="/dla-studenta"
-              className="inline-flex items-center gap-1.5 text-[0.9375rem] font-medium text-accent transition-colors hover:text-accent-dim"
+              className="inline-flex items-center gap-1.5 py-1 text-[0.9375rem] font-medium text-accent transition-colors hover:text-accent-dim"
             >
               {t("seeAll")}
               <ArrowUpRight size={18} weight="regular" aria-hidden="true" />

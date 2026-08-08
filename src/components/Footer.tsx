@@ -113,7 +113,7 @@ export function Footer() {
                 </div>
                 <a
                   href="mailto:kontakt@samorzad.ue.wroc.pl"
-                  className="flex items-center gap-3 text-[0.9375rem] text-ink-secondary transition-colors hover:text-ink-primary"
+                  className="flex items-center gap-3 py-1 text-[0.9375rem] text-ink-secondary transition-colors hover:text-ink-primary"
                 >
                   <EnvelopeSimple
                     size={20}
@@ -168,13 +168,13 @@ export function Footer() {
           <nav className="flex flex-wrap items-center gap-x-5 gap-y-1" aria-label={t("footer.privacy")}>
             <Link
               href="/prywatnosc"
-              className="text-[0.8125rem] font-medium text-ink-secondary transition-colors hover:text-accent"
+              className="inline-block py-1 text-[0.8125rem] font-medium text-ink-secondary transition-colors hover:text-accent"
             >
               {t("footer.privacy")}
             </Link>
             <Link
               href="/deklaracja-dostepnosci"
-              className="text-[0.8125rem] font-medium text-ink-secondary transition-colors hover:text-accent"
+              className="inline-block py-1 text-[0.8125rem] font-medium text-ink-secondary transition-colors hover:text-accent"
             >
               {t("footer.accessibility")}
             </Link>

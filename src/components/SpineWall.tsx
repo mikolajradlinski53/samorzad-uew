@@ -155,7 +155,7 @@ export function SpineWall({ publications, labels }: SpineWallProps) {
                   href={p.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="mt-3 inline-flex items-center gap-1.5 text-[0.875rem] font-medium text-accent transition-colors hover:text-accent-dim"
+                  className="mt-3 inline-flex items-center gap-1.5 py-1 text-[0.875rem] font-medium text-accent transition-colors hover:text-accent-dim"
                 >
                   {labels.linkLabel}
                   <ArrowSquareOut size={16} weight="regular" aria-hidden="true" />

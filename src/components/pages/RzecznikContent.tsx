@@ -118,7 +118,7 @@ export function RzecznikContent() {
                 <div className="mt-6 flex flex-col gap-3">
                   <a
                     href="mailto:rps@samorzad.ue.wroc.pl"
-                    className="flex items-center gap-3 text-[0.9375rem] text-ink-secondary transition-colors hover:text-ink-primary"
+                    className="flex items-center gap-3 py-1 text-[0.9375rem] text-ink-secondary transition-colors hover:text-ink-primary"
                   >
                     <EnvelopeSimple size={20} weight="regular" aria-hidden="true" className="shrink-0 text-accent" />
                     rps@samorzad.ue.wroc.pl

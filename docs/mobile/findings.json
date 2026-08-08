@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-07T09:50:09.859Z",
+  "generatedAt": "2026-08-08T20:03:01.189Z",
   "viewport": {
     "width": 375,
     "height": 812
@@ -25,41 +25,6 @@
       "tapTargets": {
         "checked": 53,
         "tooSmall": [
-          {
-            "tag": "a",
-            "classSnippet": "inline-flex items-center gap-1.5 text-[0.9375rem] font-medium text-accent transi",
-            "accessibleName": "Wszystkie projekty",
-            "width": 150.53,
-            "height": 22.5
-          },
-          {
-            "tag": "a",
-            "classSnippet": "inline-flex items-center gap-1.5 text-[0.9375rem] font-medium text-accent transi",
-            "accessibleName": "Zobacz całą strefę",
-            "width": 147.42,
-            "height": 22.5
-          },
-          {
-            "tag": "a",
-            "classSnippet": "flex items-center gap-3 text-[0.9375rem] text-ink-secondary transition-colors ho",
-            "accessibleName": "kontakt@samorzad.ue.wroc.pl",
-            "width": 327,
-            "height": 22.5
-          },
-          {
-            "tag": "a",
-            "classSnippet": "text-[0.8125rem] font-medium text-ink-secondary transition-colors hover:text-acc",
-            "accessibleName": "Polityka prywatności",
-            "width": 120.58,
-            "height": 19.5
-          },
-          {
-            "tag": "a",
-            "classSnippet": "text-[0.8125rem] font-medium text-ink-secondary transition-colors hover:text-acc",
-            "accessibleName": "Deklaracja dostępności",
-            "width": 137.59,
-            "height": 19.5
-          },
           {
             "tag": "a",
             "classSnippet": "font-medium text-accent transition-colors hover:text-accent-dim",
@@ -213,34 +178,6 @@
         "tooSmall": [
           {
             "tag": "a",
-            "classSnippet": "transition-colors hover:text-ink-primary",
-            "accessibleName": "Strona główna",
-            "width": 82.64,
-            "height": 19.5
-          },
-          {
-            "tag": "a",
-            "classSnippet": "flex items-center gap-3 text-[0.9375rem] text-ink-secondary transition-colors ho",
-            "accessibleName": "kontakt@samorzad.ue.wroc.pl",
-            "width": 327,
-            "height": 22.5
-          },
-          {
-            "tag": "a",
-            "classSnippet": "text-[0.8125rem] font-medium text-ink-secondary transition-colors hover:text-acc",
-            "accessibleName": "Polityka prywatności",
-            "width": 120.58,
-            "height": 19.5
-          },
-          {
-            "tag": "a",
-            "classSnippet": "text-[0.8125rem] font-medium text-ink-secondary transition-colors hover:text-acc",
-            "accessibleName": "Deklaracja dostępności",
-            "width": 137.59,
-            "height": 19.5
-          },
-          {
-            "tag": "a",
             "classSnippet": "font-medium text-accent transition-colors hover:text-accent-dim",
             "accessibleName": "Polityka prywatności",
             "width": 129.86,
@@ -306,34 +243,6 @@
       "tapTargets": {
         "checked": 51,
         "tooSmall": [
-          {
-            "tag": "a",
-            "classSnippet": "transition-colors hover:text-ink-primary",
-            "accessibleName": "Strona główna",
-            "width": 82.64,
-            "height": 19.5
-          },
-          {
-            "tag": "a",
-            "classSnippet": "flex items-center gap-3 text-[0.9375rem] text-ink-secondary transition-colors ho",
-            "accessibleName": "kontakt@samorzad.ue.wroc.pl",
-            "width": 327,
-            "height": 22.5
-          },
-          {
-            "tag": "a",
-            "classSnippet": "text-[0.8125rem] font-medium text-ink-secondary transition-colors hover:text-acc",
-            "accessibleName": "Polityka prywatności",
-            "width": 120.58,
-            "height": 19.5
-          },
-          {
-            "tag": "a",
-            "classSnippet": "text-[0.8125rem] font-medium text-ink-secondary transition-colors hover:text-acc",
-            "accessibleName": "Deklaracja dostępności",
-            "width": 137.59,
-            "height": 19.5
-          },
           {
             "tag": "a",
             "classSnippet": "font-medium text-accent transition-colors hover:text-accent-dim",
@@ -469,41 +378,6 @@
         "tooSmall": [
           {
             "tag": "a",
-            "classSnippet": "transition-colors hover:text-ink-primary",
-            "accessibleName": "Strona główna",
-            "width": 82.64,
-            "height": 19.5
-          },
-          {
-            "tag": "a",
-            "classSnippet": "transition-colors hover:text-ink-primary",
-            "accessibleName": "Strefa studenta",
-            "width": 87.86,
-            "height": 19.5
-          },
-          {
-            "tag": "a",
-            "classSnippet": "flex items-center gap-3 text-[0.9375rem] text-ink-secondary transition-colors ho",
-            "accessibleName": "kontakt@samorzad.ue.wroc.pl",
-            "width": 327,
-            "height": 22.5
-          },
-          {
-            "tag": "a",
-            "classSnippet": "text-[0.8125rem] font-medium text-ink-secondary transition-colors hover:text-acc",
-            "accessibleName": "Polityka prywatności",
-            "width": 120.58,
-            "height": 19.5
-          },
-          {
-            "tag": "a",
-            "classSnippet": "text-[0.8125rem] font-medium text-ink-secondary transition-colors hover:text-acc",
-            "accessibleName": "Deklaracja dostępności",
-            "width": 137.59,
-            "height": 19.5
-          },
-          {
-            "tag": "a",
             "classSnippet": "font-medium text-accent transition-colors hover:text-accent-dim",
             "accessibleName": "Polityka prywatności",
             "width": 129.86,
@@ -569,41 +443,6 @@
       "tapTargets": {
         "checked": 36,
         "tooSmall": [
-          {
-            "tag": "a",
-            "classSnippet": "transition-colors hover:text-ink-primary",
-            "accessibleName": "Strona główna",
-            "width": 82.64,
-            "height": 19.5
-          },
-          {
-            "tag": "a",
-            "classSnippet": "mt-6 inline-flex w-fit items-center gap-2 text-[0.9375rem] font-medium text-acce",
-            "accessibleName": "Strona PSRP",
-            "width": 113.23,
-            "height": 22.5
-          },
-          {
-            "tag": "a",
-            "classSnippet": "flex items-center gap-3 text-[0.9375rem] text-ink-secondary transition-colors ho",
-            "accessibleName": "kontakt@samorzad.ue.wroc.pl",
-            "width": 327,
-            "height": 22.5
-          },
-          {
-            "tag": "a",
-            "classSnippet": "text-[0.8125rem] font-medium text-ink-secondary transition-colors hover:text-acc",
-            "accessibleName": "Polityka prywatności",
-            "width": 120.58,
-            "height": 19.5
-          },
-          {
-            "tag": "a",
-            "classSnippet": "text-[0.8125rem] font-medium text-ink-secondary transition-colors hover:text-acc",
-            "accessibleName": "Deklaracja dostępności",
-            "width": 137.59,
-            "height": 19.5
-          },
           {
             "tag": "a",
             "classSnippet": "font-medium text-accent transition-colors hover:text-accent-dim",
@@ -673,20 +512,6 @@
         "tooSmall": [
           {
             "tag": "a",
-            "classSnippet": "transition-colors hover:text-ink-primary",
-            "accessibleName": "Strona główna",
-            "width": 82.64,
-            "height": 19.5
-          },
-          {
-            "tag": "a",
-            "classSnippet": "transition-colors hover:text-ink-primary",
-            "accessibleName": "Strefa studenta",
-            "width": 87.86,
-            "height": 19.5
-          },
-          {
-            "tag": "a",
             "classSnippet": "group flex h-full flex-col rounded-xl border border-border-subtle bg-bg-surface ",
             "accessibleName": "05Jak, gdzie i kiedy składać uczelniane podania?Otwórz PDF",
             "width": 327,
@@ -698,27 +523,6 @@
             "accessibleName": "Napisz do nas",
             "width": 95.22,
             "height": 16
-          },
-          {
-            "tag": "a",
-            "classSnippet": "flex items-center gap-3 text-[0.9375rem] text-ink-secondary transition-colors ho",
-            "accessibleName": "kontakt@samorzad.ue.wroc.pl",
-            "width": 327,
-            "height": 22.5
-          },
-          {
-            "tag": "a",
-            "classSnippet": "text-[0.8125rem] font-medium text-ink-secondary transition-colors hover:text-acc",
-            "accessibleName": "Polityka prywatności",
-            "width": 120.58,
-            "height": 19.5
-          },
-          {
-            "tag": "a",
-            "classSnippet": "text-[0.8125rem] font-medium text-ink-secondary transition-colors hover:text-acc",
-            "accessibleName": "Deklaracja dostępności",
-            "width": 137.59,
-            "height": 19.5
           },
           {
             "tag": "a",
@@ -787,41 +591,6 @@
       "tapTargets": {
         "checked": 36,
         "tooSmall": [
-          {
-            "tag": "a",
-            "classSnippet": "transition-colors hover:text-ink-primary",
-            "accessibleName": "Strona główna",
-            "width": 82.64,
-            "height": 19.5
-          },
-          {
-            "tag": "a",
-            "classSnippet": "inline-flex items-center gap-1 font-medium text-accent transition-colors hover:t",
-            "accessibleName": "Nasze wydarzenia",
-            "width": 142.66,
-            "height": 22.5
-          },
-          {
-            "tag": "a",
-            "classSnippet": "flex items-center gap-3 text-[0.9375rem] text-ink-secondary transition-colors ho",
-            "accessibleName": "kontakt@samorzad.ue.wroc.pl",
-            "width": 327,
-            "height": 22.5
-          },
-          {
-            "tag": "a",
-            "classSnippet": "text-[0.8125rem] font-medium text-ink-secondary transition-colors hover:text-acc",
-            "accessibleName": "Polityka prywatności",
-            "width": 120.58,
-            "height": 19.5
-          },
-          {
-            "tag": "a",
-            "classSnippet": "text-[0.8125rem] font-medium text-ink-secondary transition-colors hover:text-acc",
-            "accessibleName": "Deklaracja dostępności",
-            "width": 137.59,
-            "height": 19.5
-          },
           {
             "tag": "a",
             "classSnippet": "font-medium text-accent transition-colors hover:text-accent-dim",
@@ -897,13 +666,6 @@
         "tooSmall": [
           {
             "tag": "a",
-            "classSnippet": "transition-colors hover:text-ink-primary",
-            "accessibleName": "Strona główna",
-            "width": 82.64,
-            "height": 19.5
-          },
-          {
-            "tag": "a",
             "classSnippet": "flex items-center gap-3 text-[0.9375rem] text-ink-secondary transition-colors ho",
             "accessibleName": "kontakt@samorzad.ue.wroc.pl",
             "width": 327,
@@ -915,27 +677,6 @@
             "accessibleName": "kontakt@samorzad.ue.wroc.pl",
             "width": 189.66,
             "height": 15
-          },
-          {
-            "tag": "a",
-            "classSnippet": "flex items-center gap-3 text-[0.9375rem] text-ink-secondary transition-colors ho",
-            "accessibleName": "kontakt@samorzad.ue.wroc.pl",
-            "width": 327,
-            "height": 22.5
-          },
-          {
-            "tag": "a",
-            "classSnippet": "text-[0.8125rem] font-medium text-ink-secondary transition-colors hover:text-acc",
-            "accessibleName": "Polityka prywatności",
-            "width": 120.58,
-            "height": 19.5
-          },
-          {
-            "tag": "a",
-            "classSnippet": "text-[0.8125rem] font-medium text-ink-secondary transition-colors hover:text-acc",
-            "accessibleName": "Deklaracja dostępności",
-            "width": 137.59,
-            "height": 19.5
           },
           {
             "tag": "a",
@@ -1006,41 +747,6 @@
         "tooSmall": [
           {
             "tag": "a",
-            "classSnippet": "transition-colors hover:text-ink-primary",
-            "accessibleName": "Strona główna",
-            "width": 82.64,
-            "height": 19.5
-          },
-          {
-            "tag": "a",
-            "classSnippet": "transition-colors hover:text-ink-primary",
-            "accessibleName": "Strefa studenta",
-            "width": 87.86,
-            "height": 19.5
-          },
-          {
-            "tag": "a",
-            "classSnippet": "flex items-center gap-3 text-[0.9375rem] text-ink-secondary transition-colors ho",
-            "accessibleName": "kontakt@samorzad.ue.wroc.pl",
-            "width": 327,
-            "height": 22.5
-          },
-          {
-            "tag": "a",
-            "classSnippet": "text-[0.8125rem] font-medium text-ink-secondary transition-colors hover:text-acc",
-            "accessibleName": "Polityka prywatności",
-            "width": 120.58,
-            "height": 19.5
-          },
-          {
-            "tag": "a",
-            "classSnippet": "text-[0.8125rem] font-medium text-ink-secondary transition-colors hover:text-acc",
-            "accessibleName": "Deklaracja dostępności",
-            "width": 137.59,
-            "height": 19.5
-          },
-          {
-            "tag": "a",
             "classSnippet": "font-medium text-accent transition-colors hover:text-accent-dim",
             "accessibleName": "Polityka prywatności",
             "width": 129.86,
@@ -1108,34 +814,6 @@
         "tooSmall": [
           {
             "tag": "a",
-            "classSnippet": "transition-colors hover:text-ink-primary",
-            "accessibleName": "Strona główna",
-            "width": 82.64,
-            "height": 19.5
-          },
-          {
-            "tag": "a",
-            "classSnippet": "flex items-center gap-3 text-[0.9375rem] text-ink-secondary transition-colors ho",
-            "accessibleName": "kontakt@samorzad.ue.wroc.pl",
-            "width": 327,
-            "height": 22.5
-          },
-          {
-            "tag": "a",
-            "classSnippet": "text-[0.8125rem] font-medium text-ink-secondary transition-colors hover:text-acc",
-            "accessibleName": "Polityka prywatności",
-            "width": 120.58,
-            "height": 19.5
-          },
-          {
-            "tag": "a",
-            "classSnippet": "text-[0.8125rem] font-medium text-ink-secondary transition-colors hover:text-acc",
-            "accessibleName": "Deklaracja dostępności",
-            "width": 137.59,
-            "height": 19.5
-          },
-          {
-            "tag": "a",
             "classSnippet": "font-medium text-accent transition-colors hover:text-accent-dim",
             "accessibleName": "Polityka prywatności",
             "width": 129.86,
@@ -1201,41 +879,6 @@
       "tapTargets": {
         "checked": 36,
         "tooSmall": [
-          {
-            "tag": "a",
-            "classSnippet": "transition-colors hover:text-ink-primary",
-            "accessibleName": "Strona główna",
-            "width": 82.64,
-            "height": 19.5
-          },
-          {
-            "tag": "a",
-            "classSnippet": "transition-colors hover:text-ink-primary",
-            "accessibleName": "Nasza działalność",
-            "width": 104.2,
-            "height": 19.5
-          },
-          {
-            "tag": "a",
-            "classSnippet": "flex items-center gap-3 text-[0.9375rem] text-ink-secondary transition-colors ho",
-            "accessibleName": "kontakt@samorzad.ue.wroc.pl",
-            "width": 327,
-            "height": 22.5
-          },
-          {
-            "tag": "a",
-            "classSnippet": "text-[0.8125rem] font-medium text-ink-secondary transition-colors hover:text-acc",
-            "accessibleName": "Polityka prywatności",
-            "width": 120.58,
-            "height": 19.5
-          },
-          {
-            "tag": "a",
-            "classSnippet": "text-[0.8125rem] font-medium text-ink-secondary transition-colors hover:text-acc",
-            "accessibleName": "Deklaracja dostępności",
-            "width": 137.59,
-            "height": 19.5
-          },
           {
             "tag": "a",
             "classSnippet": "font-medium text-accent transition-colors hover:text-accent-dim",
@@ -1401,34 +1044,6 @@
         "tooSmall": [
           {
             "tag": "a",
-            "classSnippet": "transition-colors hover:text-ink-primary",
-            "accessibleName": "Strona główna",
-            "width": 82.64,
-            "height": 19.5
-          },
-          {
-            "tag": "a",
-            "classSnippet": "flex items-center gap-3 text-[0.9375rem] text-ink-secondary transition-colors ho",
-            "accessibleName": "kontakt@samorzad.ue.wroc.pl",
-            "width": 327,
-            "height": 22.5
-          },
-          {
-            "tag": "a",
-            "classSnippet": "text-[0.8125rem] font-medium text-ink-secondary transition-colors hover:text-acc",
-            "accessibleName": "Polityka prywatności",
-            "width": 120.58,
-            "height": 19.5
-          },
-          {
-            "tag": "a",
-            "classSnippet": "text-[0.8125rem] font-medium text-ink-secondary transition-colors hover:text-acc",
-            "accessibleName": "Deklaracja dostępności",
-            "width": 137.59,
-            "height": 19.5
-          },
-          {
-            "tag": "a",
             "classSnippet": "font-medium text-accent transition-colors hover:text-accent-dim",
             "accessibleName": "Polityka prywatności",
             "width": 129.86,
@@ -1502,38 +1117,10 @@
         "tooSmall": [
           {
             "tag": "a",
-            "classSnippet": "transition-colors hover:text-ink-primary",
-            "accessibleName": "Strona główna",
-            "width": 82.64,
-            "height": 19.5
-          },
-          {
-            "tag": "a",
             "classSnippet": "underline underline-offset-2",
-            "accessibleName": "kontakt@samorzad.ue.wroc.pl",
-            "width": 189.66,
+            "accessibleName": "zuzanna.bak@samorzad.ue.wroc.pl",
+            "width": 223.11,
             "height": 15
-          },
-          {
-            "tag": "a",
-            "classSnippet": "flex items-center gap-3 text-[0.9375rem] text-ink-secondary transition-colors ho",
-            "accessibleName": "kontakt@samorzad.ue.wroc.pl",
-            "width": 327,
-            "height": 22.5
-          },
-          {
-            "tag": "a",
-            "classSnippet": "text-[0.8125rem] font-medium text-ink-secondary transition-colors hover:text-acc",
-            "accessibleName": "Polityka prywatności",
-            "width": 120.58,
-            "height": 19.5
-          },
-          {
-            "tag": "a",
-            "classSnippet": "text-[0.8125rem] font-medium text-ink-secondary transition-colors hover:text-acc",
-            "accessibleName": "Deklaracja dostępności",
-            "width": 137.59,
-            "height": 19.5
           },
           {
             "tag": "a",
@@ -1604,41 +1191,6 @@
         "tooSmall": [
           {
             "tag": "a",
-            "classSnippet": "transition-colors hover:text-ink-primary",
-            "accessibleName": "Strona główna",
-            "width": 82.64,
-            "height": 19.5
-          },
-          {
-            "tag": "a",
-            "classSnippet": "transition-colors hover:text-ink-primary",
-            "accessibleName": "Strefa studenta",
-            "width": 87.86,
-            "height": 19.5
-          },
-          {
-            "tag": "a",
-            "classSnippet": "flex items-center gap-3 text-[0.9375rem] text-ink-secondary transition-colors ho",
-            "accessibleName": "kontakt@samorzad.ue.wroc.pl",
-            "width": 327,
-            "height": 22.5
-          },
-          {
-            "tag": "a",
-            "classSnippet": "text-[0.8125rem] font-medium text-ink-secondary transition-colors hover:text-acc",
-            "accessibleName": "Polityka prywatności",
-            "width": 120.58,
-            "height": 19.5
-          },
-          {
-            "tag": "a",
-            "classSnippet": "text-[0.8125rem] font-medium text-ink-secondary transition-colors hover:text-acc",
-            "accessibleName": "Deklaracja dostępności",
-            "width": 137.59,
-            "height": 19.5
-          },
-          {
-            "tag": "a",
             "classSnippet": "font-medium text-accent transition-colors hover:text-accent-dim",
             "accessibleName": "Polityka prywatności",
             "width": 129.86,
@@ -1706,41 +1258,6 @@
         "tooSmall": [
           {
             "tag": "a",
-            "classSnippet": "transition-colors hover:text-ink-primary",
-            "accessibleName": "Strona główna",
-            "width": 82.64,
-            "height": 19.5
-          },
-          {
-            "tag": "a",
-            "classSnippet": "transition-colors hover:text-ink-primary",
-            "accessibleName": "Strefa studenta",
-            "width": 87.86,
-            "height": 19.5
-          },
-          {
-            "tag": "a",
-            "classSnippet": "flex items-center gap-3 text-[0.9375rem] text-ink-secondary transition-colors ho",
-            "accessibleName": "kontakt@samorzad.ue.wroc.pl",
-            "width": 327,
-            "height": 22.5
-          },
-          {
-            "tag": "a",
-            "classSnippet": "text-[0.8125rem] font-medium text-ink-secondary transition-colors hover:text-acc",
-            "accessibleName": "Polityka prywatności",
-            "width": 120.58,
-            "height": 19.5
-          },
-          {
-            "tag": "a",
-            "classSnippet": "text-[0.8125rem] font-medium text-ink-secondary transition-colors hover:text-acc",
-            "accessibleName": "Deklaracja dostępności",
-            "width": 137.59,
-            "height": 19.5
-          },
-          {
-            "tag": "a",
             "classSnippet": "font-medium text-accent transition-colors hover:text-accent-dim",
             "accessibleName": "Polityka prywatności",
             "width": 129.86,
@@ -1806,41 +1323,6 @@
       "tapTargets": {
         "checked": 37,
         "tooSmall": [
-          {
-            "tag": "a",
-            "classSnippet": "transition-colors hover:text-ink-primary",
-            "accessibleName": "Strona główna",
-            "width": 82.64,
-            "height": 19.5
-          },
-          {
-            "tag": "a",
-            "classSnippet": "transition-colors hover:text-ink-primary",
-            "accessibleName": "Strefa studenta",
-            "width": 87.86,
-            "height": 19.5
-          },
-          {
-            "tag": "a",
-            "classSnippet": "flex items-center gap-3 text-[0.9375rem] text-ink-secondary transition-colors ho",
-            "accessibleName": "kontakt@samorzad.ue.wroc.pl",
-            "width": 327,
-            "height": 22.5
-          },
-          {
-            "tag": "a",
-            "classSnippet": "text-[0.8125rem] font-medium text-ink-secondary transition-colors hover:text-acc",
-            "accessibleName": "Polityka prywatności",
-            "width": 120.58,
-            "height": 19.5
-          },
-          {
-            "tag": "a",
-            "classSnippet": "text-[0.8125rem] font-medium text-ink-secondary transition-colors hover:text-acc",
-            "accessibleName": "Deklaracja dostępności",
-            "width": 137.59,
-            "height": 19.5
-          },
           {
             "tag": "a",
             "classSnippet": "font-medium text-accent transition-colors hover:text-accent-dim",
@@ -1976,34 +1458,6 @@
         "tooSmall": [
           {
             "tag": "a",
-            "classSnippet": "transition-colors hover:text-ink-primary",
-            "accessibleName": "Strona główna",
-            "width": 82.64,
-            "height": 19.5
-          },
-          {
-            "tag": "a",
-            "classSnippet": "flex items-center gap-3 text-[0.9375rem] text-ink-secondary transition-colors ho",
-            "accessibleName": "kontakt@samorzad.ue.wroc.pl",
-            "width": 327,
-            "height": 22.5
-          },
-          {
-            "tag": "a",
-            "classSnippet": "text-[0.8125rem] font-medium text-ink-secondary transition-colors hover:text-acc",
-            "accessibleName": "Polityka prywatności",
-            "width": 120.58,
-            "height": 19.5
-          },
-          {
-            "tag": "a",
-            "classSnippet": "text-[0.8125rem] font-medium text-ink-secondary transition-colors hover:text-acc",
-            "accessibleName": "Deklaracja dostępności",
-            "width": 137.59,
-            "height": 19.5
-          },
-          {
-            "tag": "a",
             "classSnippet": "font-medium text-accent transition-colors hover:text-accent-dim",
             "accessibleName": "Polityka prywatności",
             "width": 129.86,
@@ -2069,41 +1523,6 @@
       "tapTargets": {
         "checked": 36,
         "tooSmall": [
-          {
-            "tag": "a",
-            "classSnippet": "transition-colors hover:text-ink-primary",
-            "accessibleName": "Strona główna",
-            "width": 82.64,
-            "height": 19.5
-          },
-          {
-            "tag": "a",
-            "classSnippet": "transition-colors hover:text-ink-primary",
-            "accessibleName": "Nasza działalność",
-            "width": 104.2,
-            "height": 19.5
-          },
-          {
-            "tag": "a",
-            "classSnippet": "flex items-center gap-3 text-[0.9375rem] text-ink-secondary transition-colors ho",
-            "accessibleName": "kontakt@samorzad.ue.wroc.pl",
-            "width": 327,
-            "height": 22.5
-          },
-          {
-            "tag": "a",
-            "classSnippet": "text-[0.8125rem] font-medium text-ink-secondary transition-colors hover:text-acc",
-            "accessibleName": "Polityka prywatności",
-            "width": 120.58,
-            "height": 19.5
-          },
-          {
-            "tag": "a",
-            "classSnippet": "text-[0.8125rem] font-medium text-ink-secondary transition-colors hover:text-acc",
-            "accessibleName": "Deklaracja dostępności",
-            "width": 137.59,
-            "height": 19.5
-          },
           {
             "tag": "a",
             "classSnippet": "font-medium text-accent transition-colors hover:text-accent-dim",
@@ -2177,41 +1596,6 @@
       "tapTargets": {
         "checked": 36,
         "tooSmall": [
-          {
-            "tag": "a",
-            "classSnippet": "transition-colors hover:text-ink-primary",
-            "accessibleName": "Strona główna",
-            "width": 82.64,
-            "height": 19.5
-          },
-          {
-            "tag": "a",
-            "classSnippet": "transition-colors hover:text-ink-primary",
-            "accessibleName": "Nasza działalność",
-            "width": 104.2,
-            "height": 19.5
-          },
-          {
-            "tag": "a",
-            "classSnippet": "flex items-center gap-3 text-[0.9375rem] text-ink-secondary transition-colors ho",
-            "accessibleName": "kontakt@samorzad.ue.wroc.pl",
-            "width": 327,
-            "height": 22.5
-          },
-          {
-            "tag": "a",
-            "classSnippet": "text-[0.8125rem] font-medium text-ink-secondary transition-colors hover:text-acc",
-            "accessibleName": "Polityka prywatności",
-            "width": 120.58,
-            "height": 19.5
-          },
-          {
-            "tag": "a",
-            "classSnippet": "text-[0.8125rem] font-medium text-ink-secondary transition-colors hover:text-acc",
-            "accessibleName": "Deklaracja dostępności",
-            "width": 137.59,
-            "height": 19.5
-          },
           {
             "tag": "a",
             "classSnippet": "font-medium text-accent transition-colors hover:text-accent-dim",
@@ -2317,34 +1701,6 @@
         "tooSmall": [
           {
             "tag": "a",
-            "classSnippet": "transition-colors hover:text-ink-primary",
-            "accessibleName": "Strona główna",
-            "width": 82.64,
-            "height": 19.5
-          },
-          {
-            "tag": "a",
-            "classSnippet": "flex items-center gap-3 text-[0.9375rem] text-ink-secondary transition-colors ho",
-            "accessibleName": "kontakt@samorzad.ue.wroc.pl",
-            "width": 327,
-            "height": 22.5
-          },
-          {
-            "tag": "a",
-            "classSnippet": "text-[0.8125rem] font-medium text-ink-secondary transition-colors hover:text-acc",
-            "accessibleName": "Polityka prywatności",
-            "width": 120.58,
-            "height": 19.5
-          },
-          {
-            "tag": "a",
-            "classSnippet": "text-[0.8125rem] font-medium text-ink-secondary transition-colors hover:text-acc",
-            "accessibleName": "Deklaracja dostępności",
-            "width": 137.59,
-            "height": 19.5
-          },
-          {
-            "tag": "a",
             "classSnippet": "font-medium text-accent transition-colors hover:text-accent-dim",
             "accessibleName": "Polityka prywatności",
             "width": 129.86,
@@ -2412,20 +1768,6 @@
         "tooSmall": [
           {
             "tag": "a",
-            "classSnippet": "transition-colors hover:text-ink-primary",
-            "accessibleName": "Strona główna",
-            "width": 82.64,
-            "height": 19.5
-          },
-          {
-            "tag": "a",
-            "classSnippet": "transition-colors hover:text-ink-primary",
-            "accessibleName": "Strefa studenta",
-            "width": 87.86,
-            "height": 19.5
-          },
-          {
-            "tag": "a",
             "classSnippet": "flex items-center gap-3 text-[0.9375rem] text-ink-secondary transition-colors ho",
             "accessibleName": "rps@samorzad.ue.wroc.pl",
             "width": 269,
@@ -2437,27 +1779,6 @@
             "accessibleName": "rps@samorzad.ue.wroc.pl",
             "width": 163.64,
             "height": 15
-          },
-          {
-            "tag": "a",
-            "classSnippet": "flex items-center gap-3 text-[0.9375rem] text-ink-secondary transition-colors ho",
-            "accessibleName": "kontakt@samorzad.ue.wroc.pl",
-            "width": 327,
-            "height": 22.5
-          },
-          {
-            "tag": "a",
-            "classSnippet": "text-[0.8125rem] font-medium text-ink-secondary transition-colors hover:text-acc",
-            "accessibleName": "Polityka prywatności",
-            "width": 120.58,
-            "height": 19.5
-          },
-          {
-            "tag": "a",
-            "classSnippet": "text-[0.8125rem] font-medium text-ink-secondary transition-colors hover:text-acc",
-            "accessibleName": "Deklaracja dostępności",
-            "width": 137.59,
-            "height": 19.5
           },
           {
             "tag": "a",
@@ -2526,34 +1847,6 @@
       "tapTargets": {
         "checked": 36,
         "tooSmall": [
-          {
-            "tag": "a",
-            "classSnippet": "transition-colors hover:text-ink-primary",
-            "accessibleName": "Strona główna",
-            "width": 82.64,
-            "height": 19.5
-          },
-          {
-            "tag": "a",
-            "classSnippet": "flex items-center gap-3 text-[0.9375rem] text-ink-secondary transition-colors ho",
-            "accessibleName": "kontakt@samorzad.ue.wroc.pl",
-            "width": 327,
-            "height": 22.5
-          },
-          {
-            "tag": "a",
-            "classSnippet": "text-[0.8125rem] font-medium text-ink-secondary transition-colors hover:text-acc",
-            "accessibleName": "Polityka prywatności",
-            "width": 120.58,
-            "height": 19.5
-          },
-          {
-            "tag": "a",
-            "classSnippet": "text-[0.8125rem] font-medium text-ink-secondary transition-colors hover:text-acc",
-            "accessibleName": "Deklaracja dostępności",
-            "width": 137.59,
-            "height": 19.5
-          },
           {
             "tag": "a",
             "classSnippet": "font-medium text-accent transition-colors hover:text-accent-dim",
@@ -2629,41 +1922,6 @@
         "tooSmall": [
           {
             "tag": "a",
-            "classSnippet": "transition-colors hover:text-ink-primary",
-            "accessibleName": "Strona główna",
-            "width": 82.64,
-            "height": 19.5
-          },
-          {
-            "tag": "a",
-            "classSnippet": "transition-colors hover:text-ink-primary",
-            "accessibleName": "Nasza działalność",
-            "width": 104.2,
-            "height": 19.5
-          },
-          {
-            "tag": "a",
-            "classSnippet": "flex items-center gap-3 text-[0.9375rem] text-ink-secondary transition-colors ho",
-            "accessibleName": "kontakt@samorzad.ue.wroc.pl",
-            "width": 327,
-            "height": 22.5
-          },
-          {
-            "tag": "a",
-            "classSnippet": "text-[0.8125rem] font-medium text-ink-secondary transition-colors hover:text-acc",
-            "accessibleName": "Polityka prywatności",
-            "width": 120.58,
-            "height": 19.5
-          },
-          {
-            "tag": "a",
-            "classSnippet": "text-[0.8125rem] font-medium text-ink-secondary transition-colors hover:text-acc",
-            "accessibleName": "Deklaracja dostępności",
-            "width": 137.59,
-            "height": 19.5
-          },
-          {
-            "tag": "a",
             "classSnippet": "font-medium text-accent transition-colors hover:text-accent-dim",
             "accessibleName": "Polityka prywatności",
             "width": 129.86,
@@ -2729,48 +1987,6 @@
       "tapTargets": {
         "checked": 38,
         "tooSmall": [
-          {
-            "tag": "a",
-            "classSnippet": "transition-colors hover:text-ink-primary",
-            "accessibleName": "Strona główna",
-            "width": 82.64,
-            "height": 19.5
-          },
-          {
-            "tag": "a",
-            "classSnippet": "transition-colors hover:text-ink-primary",
-            "accessibleName": "Samorząd",
-            "width": 59.67,
-            "height": 19.5
-          },
-          {
-            "tag": "a",
-            "classSnippet": "transition-colors hover:text-ink-primary",
-            "accessibleName": "Struktura",
-            "width": 53.36,
-            "height": 19.5
-          },
-          {
-            "tag": "a",
-            "classSnippet": "flex items-center gap-3 text-[0.9375rem] text-ink-secondary transition-colors ho",
-            "accessibleName": "kontakt@samorzad.ue.wroc.pl",
-            "width": 327,
-            "height": 22.5
-          },
-          {
-            "tag": "a",
-            "classSnippet": "text-[0.8125rem] font-medium text-ink-secondary transition-colors hover:text-acc",
-            "accessibleName": "Polityka prywatności",
-            "width": 120.58,
-            "height": 19.5
-          },
-          {
-            "tag": "a",
-            "classSnippet": "text-[0.8125rem] font-medium text-ink-secondary transition-colors hover:text-acc",
-            "accessibleName": "Deklaracja dostępności",
-            "width": 137.59,
-            "height": 19.5
-          },
           {
             "tag": "a",
             "classSnippet": "font-medium text-accent transition-colors hover:text-accent-dim",
@@ -2844,41 +2060,6 @@
       "tapTargets": {
         "checked": 81,
         "tooSmall": [
-          {
-            "tag": "a",
-            "classSnippet": "transition-colors hover:text-ink-primary",
-            "accessibleName": "Strona główna",
-            "width": 82.64,
-            "height": 19.5
-          },
-          {
-            "tag": "a",
-            "classSnippet": "transition-colors hover:text-ink-primary",
-            "accessibleName": "Strefa studenta",
-            "width": 87.86,
-            "height": 19.5
-          },
-          {
-            "tag": "a",
-            "classSnippet": "flex items-center gap-3 text-[0.9375rem] text-ink-secondary transition-colors ho",
-            "accessibleName": "kontakt@samorzad.ue.wroc.pl",
-            "width": 327,
-            "height": 22.5
-          },
-          {
-            "tag": "a",
-            "classSnippet": "text-[0.8125rem] font-medium text-ink-secondary transition-colors hover:text-acc",
-            "accessibleName": "Polityka prywatności",
-            "width": 120.58,
-            "height": 19.5
-          },
-          {
-            "tag": "a",
-            "classSnippet": "text-[0.8125rem] font-medium text-ink-secondary transition-colors hover:text-acc",
-            "accessibleName": "Deklaracja dostępności",
-            "width": 137.59,
-            "height": 19.5
-          },
           {
             "tag": "a",
             "classSnippet": "font-medium text-accent transition-colors hover:text-accent-dim",
@@ -2996,34 +2177,6 @@
         "tooSmall": [
           {
             "tag": "a",
-            "classSnippet": "transition-colors hover:text-ink-primary",
-            "accessibleName": "Strona główna",
-            "width": 82.64,
-            "height": 19.5
-          },
-          {
-            "tag": "a",
-            "classSnippet": "flex items-center gap-3 text-[0.9375rem] text-ink-secondary transition-colors ho",
-            "accessibleName": "kontakt@samorzad.ue.wroc.pl",
-            "width": 327,
-            "height": 22.5
-          },
-          {
-            "tag": "a",
-            "classSnippet": "text-[0.8125rem] font-medium text-ink-secondary transition-colors hover:text-acc",
-            "accessibleName": "Polityka prywatności",
-            "width": 120.58,
-            "height": 19.5
-          },
-          {
-            "tag": "a",
-            "classSnippet": "text-[0.8125rem] font-medium text-ink-secondary transition-colors hover:text-acc",
-            "accessibleName": "Deklaracja dostępności",
-            "width": 137.59,
-            "height": 19.5
-          },
-          {
-            "tag": "a",
             "classSnippet": "font-medium text-accent transition-colors hover:text-accent-dim",
             "accessibleName": "Polityka prywatności",
             "width": 129.86,
@@ -3115,41 +2268,6 @@
         "tooSmall": [
           {
             "tag": "a",
-            "classSnippet": "transition-colors hover:text-ink-primary",
-            "accessibleName": "Strona główna",
-            "width": 82.64,
-            "height": 19.5
-          },
-          {
-            "tag": "a",
-            "classSnippet": "transition-colors hover:text-ink-primary",
-            "accessibleName": "Strefa studenta",
-            "width": 87.86,
-            "height": 19.5
-          },
-          {
-            "tag": "a",
-            "classSnippet": "flex items-center gap-3 text-[0.9375rem] text-ink-secondary transition-colors ho",
-            "accessibleName": "kontakt@samorzad.ue.wroc.pl",
-            "width": 327,
-            "height": 22.5
-          },
-          {
-            "tag": "a",
-            "classSnippet": "text-[0.8125rem] font-medium text-ink-secondary transition-colors hover:text-acc",
-            "accessibleName": "Polityka prywatności",
-            "width": 120.58,
-            "height": 19.5
-          },
-          {
-            "tag": "a",
-            "classSnippet": "text-[0.8125rem] font-medium text-ink-secondary transition-colors hover:text-acc",
-            "accessibleName": "Deklaracja dostępności",
-            "width": 137.59,
-            "height": 19.5
-          },
-          {
-            "tag": "a",
             "classSnippet": "font-medium text-accent transition-colors hover:text-accent-dim",
             "accessibleName": "Polityka prywatności",
             "width": 129.86,
@@ -3217,20 +2335,6 @@
         "tooSmall": [
           {
             "tag": "a",
-            "classSnippet": "transition-colors hover:text-ink-primary",
-            "accessibleName": "Strona główna",
-            "width": 82.64,
-            "height": 19.5
-          },
-          {
-            "tag": "a",
-            "classSnippet": "transition-colors hover:text-ink-primary",
-            "accessibleName": "Partnerzy",
-            "width": 55.56,
-            "height": 19.5
-          },
-          {
-            "tag": "a",
             "classSnippet": "flex items-center gap-3 text-[0.9375rem] text-ink-secondary transition-colors ho",
             "accessibleName": "karol.vogel@samorzad.ue.wroc.pl",
             "width": 261,
@@ -3242,27 +2346,6 @@
             "accessibleName": "511 599 376",
             "width": 261,
             "height": 22.5
-          },
-          {
-            "tag": "a",
-            "classSnippet": "flex items-center gap-3 text-[0.9375rem] text-ink-secondary transition-colors ho",
-            "accessibleName": "kontakt@samorzad.ue.wroc.pl",
-            "width": 327,
-            "height": 22.5
-          },
-          {
-            "tag": "a",
-            "classSnippet": "text-[0.8125rem] font-medium text-ink-secondary transition-colors hover:text-acc",
-            "accessibleName": "Polityka prywatności",
-            "width": 120.58,
-            "height": 19.5
-          },
-          {
-            "tag": "a",
-            "classSnippet": "text-[0.8125rem] font-medium text-ink-secondary transition-colors hover:text-acc",
-            "accessibleName": "Deklaracja dostępności",
-            "width": 137.59,
-            "height": 19.5
           },
           {
             "tag": "a",
@@ -3331,48 +2414,6 @@
       "tapTargets": {
         "checked": 38,
         "tooSmall": [
-          {
-            "tag": "a",
-            "classSnippet": "transition-colors hover:text-ink-primary",
-            "accessibleName": "Strona główna",
-            "width": 82.64,
-            "height": 19.5
-          },
-          {
-            "tag": "a",
-            "classSnippet": "transition-colors hover:text-ink-primary",
-            "accessibleName": "Strefa studenta",
-            "width": 87.86,
-            "height": 19.5
-          },
-          {
-            "tag": "a",
-            "classSnippet": "mt-3 inline-flex items-center gap-1.5 text-[0.875rem] font-medium text-accent tr",
-            "accessibleName": "Pełny tekst",
-            "width": 91.08,
-            "height": 21
-          },
-          {
-            "tag": "a",
-            "classSnippet": "flex items-center gap-3 text-[0.9375rem] text-ink-secondary transition-colors ho",
-            "accessibleName": "kontakt@samorzad.ue.wroc.pl",
-            "width": 327,
-            "height": 22.5
-          },
-          {
-            "tag": "a",
-            "classSnippet": "text-[0.8125rem] font-medium text-ink-secondary transition-colors hover:text-acc",
-            "accessibleName": "Polityka prywatności",
-            "width": 120.58,
-            "height": 19.5
-          },
-          {
-            "tag": "a",
-            "classSnippet": "text-[0.8125rem] font-medium text-ink-secondary transition-colors hover:text-acc",
-            "accessibleName": "Deklaracja dostępności",
-            "width": 137.59,
-            "height": 19.5
-          },
           {
             "tag": "a",
             "classSnippet": "font-medium text-accent transition-colors hover:text-accent-dim",
@@ -3460,48 +2501,6 @@
         "tooSmall": [
           {
             "tag": "a",
-            "classSnippet": "transition-colors hover:text-ink-primary",
-            "accessibleName": "Strona główna",
-            "width": 82.64,
-            "height": 19.5
-          },
-          {
-            "tag": "a",
-            "classSnippet": "transition-colors hover:text-ink-primary",
-            "accessibleName": "Samorząd",
-            "width": 59.67,
-            "height": 19.5
-          },
-          {
-            "tag": "a",
-            "classSnippet": "mt-3 inline-flex items-center gap-2 text-[0.9375rem] text-ink-secondary transiti",
-            "accessibleName": "karol.vogel@samorzad.ue.wroc.pl",
-            "width": 245.05,
-            "height": 21.82
-          },
-          {
-            "tag": "a",
-            "classSnippet": "flex items-center gap-3 text-[0.9375rem] text-ink-secondary transition-colors ho",
-            "accessibleName": "kontakt@samorzad.ue.wroc.pl",
-            "width": 327,
-            "height": 22.5
-          },
-          {
-            "tag": "a",
-            "classSnippet": "text-[0.8125rem] font-medium text-ink-secondary transition-colors hover:text-acc",
-            "accessibleName": "Polityka prywatności",
-            "width": 120.58,
-            "height": 19.5
-          },
-          {
-            "tag": "a",
-            "classSnippet": "text-[0.8125rem] font-medium text-ink-secondary transition-colors hover:text-acc",
-            "accessibleName": "Deklaracja dostępności",
-            "width": 137.59,
-            "height": 19.5
-          },
-          {
-            "tag": "a",
             "classSnippet": "font-medium text-accent transition-colors hover:text-accent-dim",
             "accessibleName": "Polityka prywatności",
             "width": 129.86,
@@ -3533,7 +2532,7 @@
             "tag": "span",
             "classSnippet": "shrink-0",
             "fontSize": 10,
-            "textSnippet": "2025/2026"
+            "textSnippet": "2026/2027"
           },
           {
             "tag": "p",
@@ -3557,7 +2556,7 @@
             "tag": "span",
             "classSnippet": "shrink-0",
             "fontSize": 10,
-            "textSnippet": "2025/2026"
+            "textSnippet": "2026/2027"
           },
           {
             "tag": "p",
@@ -3581,7 +2580,7 @@
             "tag": "span",
             "classSnippet": "shrink-0",
             "fontSize": 10,
-            "textSnippet": "2025/2026"
+            "textSnippet": "2026/2027"
           },
           {
             "tag": "p",
@@ -3605,7 +2604,7 @@
             "tag": "span",
             "classSnippet": "shrink-0",
             "fontSize": 10,
-            "textSnippet": "2025/2026"
+            "textSnippet": "2026/2027"
           },
           {
             "tag": "p",
@@ -3641,7 +2640,7 @@
             "tag": "span",
             "classSnippet": "shrink-0",
             "fontSize": 10,
-            "textSnippet": "2025/2026"
+            "textSnippet": "2026/2027"
           },
           {
             "tag": "p",
@@ -3677,7 +2676,7 @@
             "tag": "span",
             "classSnippet": "shrink-0",
             "fontSize": 10,
-            "textSnippet": "2025/2026"
+            "textSnippet": "2026/2027"
           },
           {
             "tag": "p",
@@ -3735,41 +2734,6 @@
       "tapTargets": {
         "checked": 37,
         "tooSmall": [
-          {
-            "tag": "a",
-            "classSnippet": "transition-colors hover:text-ink-primary",
-            "accessibleName": "Strona główna",
-            "width": 82.64,
-            "height": 19.5
-          },
-          {
-            "tag": "a",
-            "classSnippet": "transition-colors hover:text-ink-primary",
-            "accessibleName": "Samorząd",
-            "width": 59.67,
-            "height": 19.5
-          },
-          {
-            "tag": "a",
-            "classSnippet": "flex items-center gap-3 text-[0.9375rem] text-ink-secondary transition-colors ho",
-            "accessibleName": "kontakt@samorzad.ue.wroc.pl",
-            "width": 327,
-            "height": 22.5
-          },
-          {
-            "tag": "a",
-            "classSnippet": "text-[0.8125rem] font-medium text-ink-secondary transition-colors hover:text-acc",
-            "accessibleName": "Polityka prywatności",
-            "width": 120.58,
-            "height": 19.5
-          },
-          {
-            "tag": "a",
-            "classSnippet": "text-[0.8125rem] font-medium text-ink-secondary transition-colors hover:text-acc",
-            "accessibleName": "Deklaracja dostępności",
-            "width": 137.59,
-            "height": 19.5
-          },
           {
             "tag": "a",
             "classSnippet": "font-medium text-accent transition-colors hover:text-accent-dim",

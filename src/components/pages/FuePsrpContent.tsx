@@ -43,7 +43,7 @@ export function FuePsrpContent() {
                     href={b.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="mt-6 inline-flex w-fit items-center gap-2 text-[0.9375rem] font-medium text-accent transition-colors hover:text-accent-dim"
+                    className="mt-6 inline-flex w-fit items-center gap-2 py-1 text-[0.9375rem] font-medium text-accent transition-colors hover:text-accent-dim"
                   >
                     {t(`${b.key}Link`)}
                     <ArrowSquareOut size={16} weight="regular" aria-hidden="true" />

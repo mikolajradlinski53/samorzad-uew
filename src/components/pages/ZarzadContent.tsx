@@ -50,7 +50,7 @@ export function ZarzadContent() {
                 </p>
                 <a
                   href={`mailto:${chair.email}`}
-                  className="mt-3 inline-flex items-center gap-2 text-[0.9375rem] text-ink-secondary transition-colors hover:text-accent"
+                  className="mt-3 inline-flex items-center gap-2 py-1 text-[0.9375rem] text-ink-secondary transition-colors hover:text-accent"
                 >
                   <EnvelopeSimple size={18} weight="regular" aria-hidden="true" />
                   {chair.email}

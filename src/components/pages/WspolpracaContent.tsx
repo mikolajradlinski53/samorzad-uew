@@ -103,14 +103,14 @@ export function WspolpracaContent() {
                 <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:gap-8">
                   <a
                     href="mailto:karol.vogel@samorzad.ue.wroc.pl"
-                    className="flex items-center gap-3 text-[0.9375rem] text-ink-secondary transition-colors hover:text-ink-primary"
+                    className="flex items-center gap-3 py-1 text-[0.9375rem] text-ink-secondary transition-colors hover:text-ink-primary"
                   >
                     <EnvelopeSimple size={20} weight="regular" aria-hidden="true" className="shrink-0 text-accent" />
                     karol.vogel@samorzad.ue.wroc.pl
                   </a>
                   <a
                     href="tel:511599376"
-                    className="flex items-center gap-3 text-[0.9375rem] text-ink-secondary transition-colors hover:text-ink-primary"
+                    className="flex items-center gap-3 py-1 text-[0.9375rem] text-ink-secondary transition-colors hover:text-ink-primary"
                   >
                     <Phone size={20} weight="regular" aria-hidden="true" className="shrink-0 text-accent" />
                     511 599 376
