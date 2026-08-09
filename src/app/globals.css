@@ -1,5 +1,13 @@
 @import "tailwindcss";
 
+/* Motyw steruje klasą `.dark` (next-themes, attribute="class"), ale wariant
+   `dark:` w Tailwind v4 domyślnie słucha `prefers-color-scheme`, czyli
+   ustawienia systemu. Te dwa źródła bywają odwrotne — użytkownik z jasnym
+   systemem i ciemnym motywem strony dostawał jasny tekst błędu na ciemnym tle
+   (kontrast 3.08:1 zamiast wymaganych 4.5:1). Wiążemy `dark:` z tą samą klasą,
+   co resztę tokenów. */
+@custom-variant dark (&:where(.dark, .dark *));
+
 /* ── Design tokens from DESIGN.md ── */
 
 :root {
