@@ -43,12 +43,12 @@ export function MapaKampusuContent() {
           {locationKeys.map((key, i) => (
             <motion.div
               key={key}
-              initial={reduce ? false : { opacity: 0, y: -28 }}
-              whileInView={reduce ? undefined : { opacity: 1, y: 0 }}
+              initial={{ opacity: 0, y: -28 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.4 }}
               transition={
                 reduce
-                  ? undefined
+                  ? { duration: 0 }
                   : { type: "spring", stiffness: 320, damping: 16, delay: i * 0.12 }
               }
               className="flex items-start gap-4 rounded-xl border border-border-subtle bg-bg-surface p-6"

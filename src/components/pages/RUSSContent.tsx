@@ -82,10 +82,14 @@ export function RUSSContent() {
               {meetings.map((m, i) => (
                 <motion.li
                   key={m.date + i}
-                  initial={reduce ? false : { opacity: 0, y: 16 }}
-                  whileInView={reduce ? undefined : { opacity: 1, y: 0 }}
+                  initial={{ opacity: 0, y: 16 }}
+                  whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, amount: 0.3 }}
-                  transition={{ duration: 0.45, delay: Math.min(i, 6) * 0.05, ease: [0.16, 1, 0.3, 1] }}
+                  transition={
+                    reduce
+                      ? { duration: 0 }
+                      : { duration: 0.45, delay: Math.min(i, 6) * 0.05, ease: [0.16, 1, 0.3, 1] }
+                  }
                   className="flex items-start gap-3 rounded-xl border border-border-subtle bg-bg-surface p-4"
                 >
                   <CalendarBlank size={22} weight="regular" aria-hidden="true" className="mt-0.5 shrink-0 text-accent" />
@@ -133,12 +137,12 @@ export function RUSSContent() {
             {members.map((name, i) => (
               <motion.li
                 key={name}
-                initial={reduce ? false : { opacity: 0, scale: 0.8 }}
-                whileInView={reduce ? undefined : { opacity: 1, scale: 1 }}
+                initial={{ opacity: 0, scale: 0.8 }}
+                whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true, amount: 0.3 }}
                 transition={
                   reduce
-                    ? undefined
+                    ? { duration: 0 }
                     : {
                         type: "spring",
                         stiffness: 320,

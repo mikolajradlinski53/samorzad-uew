@@ -33,10 +33,10 @@ export function ZarzadContent() {
 
           {/* Przewodniczący — featured */}
           <motion.div
-            initial={reduce ? false : { opacity: 0, y: 20, scale: 0.97 }}
-            whileInView={reduce ? undefined : { opacity: 1, y: 0, scale: 1 }}
+            initial={{ opacity: 0, y: 20, scale: 0.97 }}
+            whileInView={{ opacity: 1, y: 0, scale: 1 }}
             viewport={{ once: true, amount: 0.3 }}
-            transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+            transition={reduce ? { duration: 0 } : { duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
             className="mt-12 rounded-2xl border border-accent/40 bg-bg-surface p-8"
           >
             <div className="flex flex-col items-center gap-5 text-center sm:flex-row sm:text-left">
@@ -67,10 +67,14 @@ export function ZarzadContent() {
             {viceChairs.map((w, i) => (
               <motion.div
                 key={w.name}
-                initial={reduce ? false : { opacity: 0, y: 24 }}
-                whileInView={reduce ? undefined : { opacity: 1, y: 0 }}
+                initial={{ opacity: 0, y: 24 }}
+                whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.15 }}
-                transition={{ duration: 0.5, delay: Math.min(i, 4) * 0.08, ease: [0.16, 1, 0.3, 1] }}
+                transition={
+                  reduce
+                    ? { duration: 0 }
+                    : { duration: 0.5, delay: Math.min(i, 4) * 0.08, ease: [0.16, 1, 0.3, 1] }
+                }
                 className="h-full min-w-0"
               >
                 <PersonCard name={w.name} role={tPrez(`roles.${w.roleKey}`)} email={w.email} className="h-full" />
@@ -102,10 +106,14 @@ export function ZarzadContent() {
             {board.map((member, i) => (
               <motion.div
                 key={member.name}
-                initial={reduce ? false : { opacity: 0, y: 20 }}
-                whileInView={reduce ? undefined : { opacity: 1, y: 0 }}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.15 }}
-                transition={{ duration: 0.6, delay: i * 0.05, ease: [0.16, 1, 0.3, 1] }}
+                transition={
+                  reduce
+                    ? { duration: 0 }
+                    : { duration: 0.6, delay: i * 0.05, ease: [0.16, 1, 0.3, 1] }
+                }
                 className="h-full min-w-0"
               >
                 <PersonCard

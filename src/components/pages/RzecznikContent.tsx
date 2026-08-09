@@ -162,10 +162,14 @@ export function RzecznikContent() {
               return (
                 <motion.div
                   key={duty.key}
-                  initial={reduce ? false : { opacity: 0, y: 20 }}
-                  whileInView={reduce ? undefined : { opacity: 1, y: 0 }}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, amount: 0.2 }}
-                  transition={{ duration: 0.5, delay: i * 0.05, ease: [0.16, 1, 0.3, 1] }}
+                  transition={
+                    reduce
+                      ? { duration: 0 }
+                      : { duration: 0.5, delay: i * 0.05, ease: [0.16, 1, 0.3, 1] }
+                  }
                   className="flex items-start gap-4 rounded-xl border border-border-subtle bg-bg-surface p-6"
                 >
                   <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg bg-accent-glow text-accent">
@@ -197,20 +201,24 @@ export function RzecznikContent() {
             {/* Filling progress line */}
             <motion.span
               aria-hidden="true"
-              initial={reduce ? false : { scaleY: 0 }}
-              whileInView={reduce ? undefined : { scaleY: 1 }}
+              initial={{ scaleY: 0 }}
+              whileInView={{ scaleY: 1 }}
               viewport={{ once: true, amount: 0.2 }}
-              transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
+              transition={reduce ? { duration: 0 } : { duration: 1, ease: [0.16, 1, 0.3, 1] }}
               className="absolute left-[19px] top-3 bottom-3 w-px origin-top bg-accent/40"
             />
             <ol className="flex flex-col gap-8">
               {stepKeys.map((key, i) => (
                 <motion.li
                   key={key}
-                  initial={reduce ? false : { opacity: 0, x: 12 }}
-                  whileInView={reduce ? undefined : { opacity: 1, x: 0 }}
+                  initial={{ opacity: 0, x: 12 }}
+                  whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true, amount: 0.5 }}
-                  transition={{ duration: 0.45, delay: i * 0.12, ease: [0.16, 1, 0.3, 1] }}
+                  transition={
+                    reduce
+                      ? { duration: 0 }
+                      : { duration: 0.45, delay: i * 0.12, ease: [0.16, 1, 0.3, 1] }
+                  }
                   className="relative flex gap-5"
                 >
                   <span className="relative z-10 flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-accent bg-bg-base font-display text-[1.0625rem] text-accent tabular-nums">

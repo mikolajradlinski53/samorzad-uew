@@ -64,14 +64,18 @@ export function About() {
                     {/* Signature draw-on underline */}
                     <motion.span
                       aria-hidden="true"
-                      initial={reduce ? false : { scaleX: 0 }}
-                      whileInView={reduce ? undefined : { scaleX: 1 }}
+                      initial={{ scaleX: 0 }}
+                      whileInView={{ scaleX: 1 }}
                       viewport={{ once: true, amount: 0.6 }}
-                      transition={{
-                        duration: 0.7,
-                        delay: 0.15 + Math.min(i, 4) * 0.12,
-                        ease: [0.16, 1, 0.3, 1],
-                      }}
+                      transition={
+                        reduce
+                          ? { duration: 0 }
+                          : {
+                              duration: 0.7,
+                              delay: 0.15 + Math.min(i, 4) * 0.12,
+                              ease: [0.16, 1, 0.3, 1],
+                            }
+                      }
                       className="mt-3 block h-[3px] w-14 origin-left rounded-full bg-accent"
                     />
                     <p className="mt-3 text-[0.8125rem] font-medium uppercase tracking-[0.08em] text-ink-secondary">

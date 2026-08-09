@@ -96,10 +96,14 @@ export function TransparentnoscContent() {
             return (
               <motion.div
                 key={c.key}
-                initial={reduce ? false : { opacity: 0, y: 20 }}
-                whileInView={reduce ? undefined : { opacity: 1, y: 0 }}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.15 }}
-                transition={{ duration: 0.5, delay: Math.min(i, 5) * 0.04, ease: [0.16, 1, 0.3, 1] }}
+                transition={
+                  reduce
+                    ? { duration: 0 }
+                    : { duration: 0.5, delay: Math.min(i, 5) * 0.04, ease: [0.16, 1, 0.3, 1] }
+                }
               >
                 {c.href ? (
                   <div className={cardClass}>

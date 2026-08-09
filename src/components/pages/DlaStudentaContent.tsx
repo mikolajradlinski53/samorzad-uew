@@ -77,19 +77,23 @@ export function DlaStudentaContent() {
               return (
                 <motion.div
                   key={situation.key}
-                  initial={reduce ? false : { opacity: 0, y: 20 }}
-                  whileInView={reduce ? undefined : { opacity: 1, y: 0 }}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
                   whileHover={
                     reduce
                       ? undefined
                       : { y: -6, transition: { type: "spring", stiffness: 300, damping: 20 } }
                   }
                   viewport={{ once: true, amount: 0.15 }}
-                  transition={{
-                    duration: 0.5,
-                    delay: Math.min(i, 5) * 0.04,
-                    ease: [0.16, 1, 0.3, 1],
-                  }}
+                  transition={
+                    reduce
+                      ? { duration: 0 }
+                      : {
+                          duration: 0.5,
+                          delay: Math.min(i, 5) * 0.04,
+                          ease: [0.16, 1, 0.3, 1],
+                        }
+                  }
                   className="group relative rounded-xl border border-border-subtle bg-bg-surface p-6 transition-colors duration-150 hover:border-border-soft hover:bg-bg-elevated"
                 >
                   <span className="flex h-11 w-11 items-center justify-center rounded-lg bg-accent-glow text-accent">

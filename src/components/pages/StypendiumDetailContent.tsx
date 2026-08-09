@@ -87,10 +87,14 @@ export function StypendiumDetailContent({
           {steps.map((step, i) => (
             <motion.li
               key={step.title}
-              initial={reduce ? false : { opacity: 0, y: 18 }}
-              whileInView={reduce ? undefined : { opacity: 1, y: 0 }}
+              initial={{ opacity: 0, y: 18 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.3 }}
-              transition={{ duration: 0.5, delay: Math.min(i, 4) * 0.1, ease: [0.16, 1, 0.3, 1] }}
+              transition={
+                reduce
+                  ? { duration: 0 }
+                  : { duration: 0.5, delay: Math.min(i, 4) * 0.1, ease: [0.16, 1, 0.3, 1] }
+              }
               className="relative"
             >
               <span className="relative z-10 flex h-10 w-10 items-center justify-center rounded-full border border-accent bg-bg-base font-display text-[1.125rem] text-accent tabular-nums">
@@ -112,10 +116,14 @@ export function StypendiumDetailContent({
             {notes.map((note, i) => (
               <motion.div
                 key={note.title}
-                initial={reduce ? false : { opacity: 0, y: 20 }}
-                whileInView={reduce ? undefined : { opacity: 1, y: 0 }}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.2 }}
-                transition={{ duration: 0.5, delay: Math.min(i, 4) * 0.05, ease: [0.16, 1, 0.3, 1] }}
+                transition={
+                  reduce
+                    ? { duration: 0 }
+                    : { duration: 0.5, delay: Math.min(i, 4) * 0.05, ease: [0.16, 1, 0.3, 1] }
+                }
                 className="rounded-xl border border-border-subtle bg-bg-surface p-6"
               >
                 <h3 className="text-[1.0625rem] font-semibold tracking-[-0.01em] text-ink-primary">

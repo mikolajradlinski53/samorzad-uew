@@ -47,10 +47,14 @@ export function RekrutacjaContent() {
               {recruitments.map((r, i) => (
                 <motion.article
                   key={r.title + i}
-                  initial={reduce ? false : { opacity: 0, y: 20 }}
-                  whileInView={reduce ? undefined : { opacity: 1, y: 0 }}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, amount: 0.15 }}
-                  transition={{ duration: 0.5, delay: Math.min(i, 4) * 0.06, ease: [0.16, 1, 0.3, 1] }}
+                  transition={
+                    reduce
+                      ? { duration: 0 }
+                      : { duration: 0.5, delay: Math.min(i, 4) * 0.06, ease: [0.16, 1, 0.3, 1] }
+                  }
                   className="flex flex-col rounded-xl border border-border-subtle bg-bg-surface p-6 transition-colors duration-150 hover:border-border-soft hover:bg-bg-elevated"
                 >
                   {r.deadline && (

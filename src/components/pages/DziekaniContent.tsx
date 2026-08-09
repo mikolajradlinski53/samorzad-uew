@@ -33,10 +33,10 @@ export function DziekaniContent() {
 
         {/* Dziekan — featured */}
         <motion.div
-          initial={reduce ? false : { opacity: 0, y: 20, scale: 0.97 }}
-          whileInView={reduce ? undefined : { opacity: 1, y: 0, scale: 1 }}
+          initial={{ opacity: 0, y: 20, scale: 0.97 }}
+          whileInView={{ opacity: 1, y: 0, scale: 1 }}
           viewport={{ once: true, amount: 0.3 }}
-          transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+          transition={reduce ? { duration: 0 } : { duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
           className="mt-12 flex flex-col items-center gap-5 rounded-2xl border border-accent/40 bg-bg-surface p-8 text-center sm:flex-row sm:text-left"
         >
           <InitialsAvatar name={dziekanName} size={88} />
@@ -55,10 +55,14 @@ export function DziekaniContent() {
           {prodziekani.map((p, i) => (
             <motion.div
               key={p.key}
-              initial={reduce ? false : { opacity: 0, y: 24 }}
-              whileInView={reduce ? undefined : { opacity: 1, y: 0 }}
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.15 }}
-              transition={{ duration: 0.5, delay: Math.min(i, 4) * 0.08, ease: [0.16, 1, 0.3, 1] }}
+              transition={
+                reduce
+                  ? { duration: 0 }
+                  : { duration: 0.5, delay: Math.min(i, 4) * 0.08, ease: [0.16, 1, 0.3, 1] }
+              }
               className="h-full"
             >
               <PersonCard name={p.name} role={t("prodziekanRole")} meta={t.raw(`kierunki.${p.key}`) as string[]} plain className="h-full" />

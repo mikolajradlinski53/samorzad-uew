@@ -44,14 +44,18 @@ export function InfopackiContent() {
           {packs.map((pack, i) => (
             <motion.li
               key={pack.key}
-              initial={reduce ? false : { opacity: 0, rotateX: -90 }}
-              whileInView={reduce ? undefined : { opacity: 1, rotateX: 0 }}
+              initial={{ opacity: 0, rotateX: -90 }}
+              whileInView={{ opacity: 1, rotateX: 0 }}
               viewport={{ once: true, amount: 0.3 }}
-              transition={{
-                duration: 0.6,
-                delay: Math.min(i, 5) * 0.06,
-                ease: [0.16, 1, 0.3, 1],
-              }}
+              transition={
+                reduce
+                  ? { duration: 0 }
+                  : {
+                      duration: 0.6,
+                      delay: Math.min(i, 5) * 0.06,
+                      ease: [0.16, 1, 0.3, 1],
+                    }
+              }
               style={{ transformOrigin: "top center" }}
             >
               <a

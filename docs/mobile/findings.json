@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-08T20:03:01.189Z",
+  "generatedAt": "2026-08-09T09:38:11.555Z",
   "viewport": {
     "width": 375,
     "height": 812
@@ -664,13 +664,6 @@
       "tapTargets": {
         "checked": 47,
         "tooSmall": [
-          {
-            "tag": "a",
-            "classSnippet": "flex items-center gap-3 text-[0.9375rem] text-ink-secondary transition-colors ho",
-            "accessibleName": "kontakt@samorzad.ue.wroc.pl",
-            "width": 327,
-            "height": 22.5
-          },
           {
             "tag": "a",
             "classSnippet": "underline underline-offset-2",
@@ -1768,13 +1761,6 @@
         "tooSmall": [
           {
             "tag": "a",
-            "classSnippet": "flex items-center gap-3 text-[0.9375rem] text-ink-secondary transition-colors ho",
-            "accessibleName": "rps@samorzad.ue.wroc.pl",
-            "width": 269,
-            "height": 22.5
-          },
-          {
-            "tag": "a",
             "classSnippet": "underline underline-offset-2",
             "accessibleName": "rps@samorzad.ue.wroc.pl",
             "width": 163.64,
@@ -2333,20 +2319,6 @@
       "tapTargets": {
         "checked": 39,
         "tooSmall": [
-          {
-            "tag": "a",
-            "classSnippet": "flex items-center gap-3 text-[0.9375rem] text-ink-secondary transition-colors ho",
-            "accessibleName": "karol.vogel@samorzad.ue.wroc.pl",
-            "width": 261,
-            "height": 22.5
-          },
-          {
-            "tag": "a",
-            "classSnippet": "flex items-center gap-3 text-[0.9375rem] text-ink-secondary transition-colors ho",
-            "accessibleName": "511 599 376",
-            "width": 261,
-            "height": 22.5
-          },
           {
             "tag": "a",
             "classSnippet": "font-medium text-accent transition-colors hover:text-accent-dim",

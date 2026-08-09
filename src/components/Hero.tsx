@@ -8,13 +8,17 @@ import { Link } from "@/i18n/navigation";
 import { Marquee } from "./Marquee";
 import { heroPhotos as photos } from "@/lib/photos";
 
-const lineVariants: Variants = {
-  hidden: { y: "110%" },
-  visible: (i: number) => ({
-    y: "0%",
-    transition: { duration: 0.9, delay: 0.15 + i * 0.12, ease: [0.16, 1, 0.3, 1] },
-  }),
-};
+function getLineVariants(reduce: boolean): Variants {
+  return {
+    hidden: { y: "110%" },
+    visible: (i: number) => ({
+      y: "0%",
+      transition: reduce
+        ? { duration: 0 }
+        : { duration: 0.9, delay: 0.15 + i * 0.12, ease: [0.16, 1, 0.3, 1] },
+    }),
+  };
+}
 
 
 function PhotoTile({ src, sizes }: { src: string; sizes: string }) {
@@ -53,6 +57,7 @@ function GalleryColumn({
 
 export function Hero() {
   const reduce = useReducedMotion();
+  const lineVariants = getLineVariants(!!reduce);
   const t = useTranslations("hero");
   const headlineLines = [t("line1"), t("line2")];
   const stats = t.raw("stats") as string[];
@@ -82,9 +87,9 @@ export function Hero() {
         {/* Content */}
         <div className="relative z-10 py-12">
           <motion.p
-            initial={reduce ? false : { opacity: 0 }}
-            animate={reduce ? undefined : { opacity: 1 }}
-            transition={{ duration: 0.6, delay: 0.1 }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={reduce ? { duration: 0 } : { duration: 0.6, delay: 0.1 }}
             className="mb-6 flex items-center gap-3 text-[0.75rem] font-medium uppercase tracking-[0.16em] text-accent"
           >
             <span className="h-px w-8 shrink-0 bg-accent" aria-hidden="true" />
@@ -97,9 +102,9 @@ export function Hero() {
                 <motion.span
                   className={`block ${i === 1 ? "text-accent" : ""}`}
                   custom={i}
-                  variants={reduce ? undefined : lineVariants}
-                  initial={reduce ? false : "hidden"}
-                  animate={reduce ? undefined : "visible"}
+                  variants={lineVariants}
+                  initial="hidden"
+                  animate="visible"
                 >
                   {line}
                 </motion.span>
@@ -108,18 +113,22 @@ export function Hero() {
           </h1>
 
           <motion.p
-            initial={reduce ? false : { opacity: 0, y: 20 }}
-            animate={reduce ? undefined : { opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.55, ease: [0.16, 1, 0.3, 1] }}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={
+              reduce ? { duration: 0 } : { duration: 0.7, delay: 0.55, ease: [0.16, 1, 0.3, 1] }
+            }
             className="mt-7 max-w-[480px] text-[1.0625rem] leading-[1.75] text-ink-secondary"
           >
             {t("lead")}
           </motion.p>
 
           <motion.div
-            initial={reduce ? false : { opacity: 0, y: 16 }}
-            animate={reduce ? undefined : { opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.7, ease: [0.16, 1, 0.3, 1] }}
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={
+              reduce ? { duration: 0 } : { duration: 0.6, delay: 0.7, ease: [0.16, 1, 0.3, 1] }
+            }
             className="mt-9 flex flex-wrap items-center gap-4"
           >
             <a
@@ -138,9 +147,9 @@ export function Hero() {
 
           {/* Stat chips */}
           <motion.ul
-            initial={reduce ? false : { opacity: 0 }}
-            animate={reduce ? undefined : { opacity: 1 }}
-            transition={{ duration: 0.6, delay: 0.85 }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={reduce ? { duration: 0 } : { duration: 0.6, delay: 0.85 }}
             className="mt-10 flex flex-wrap gap-2.5"
           >
             {stats.map((s) => (
@@ -156,9 +165,11 @@ export function Hero() {
 
         {/* Desktop gallery */}
         <motion.div
-          initial={reduce ? false : { opacity: 0, scale: 0.96 }}
-          animate={reduce ? undefined : { opacity: 1, scale: 1 }}
-          transition={{ duration: 0.9, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+          initial={{ opacity: 0, scale: 0.96 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={
+            reduce ? { duration: 0 } : { duration: 0.9, delay: 0.2, ease: [0.16, 1, 0.3, 1] }
+          }
           className="relative hidden h-[100dvh] lg:block"
           aria-hidden="true"
         >

@@ -69,10 +69,14 @@ export function WydawnictwoContent() {
               return (
                 <motion.div
                   key={key}
-                  initial={reduce ? false : { opacity: 0, y: 20 }}
-                  whileInView={reduce ? undefined : { opacity: 1, y: 0 }}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, amount: 0.2 }}
-                  transition={{ duration: 0.5, delay: i * 0.06, ease: [0.16, 1, 0.3, 1] }}
+                  transition={
+                    reduce
+                      ? { duration: 0 }
+                      : { duration: 0.5, delay: i * 0.06, ease: [0.16, 1, 0.3, 1] }
+                  }
                   className="flex flex-col rounded-xl border border-border-subtle bg-bg-surface p-6"
                 >
                   <span className="flex h-11 w-11 items-center justify-center rounded-lg bg-accent-glow text-accent">
@@ -113,10 +117,14 @@ export function WydawnictwoContent() {
             {pathKeys.map((key, i) => (
               <motion.li
                 key={key}
-                initial={reduce ? false : { opacity: 0, y: 20 }}
-                whileInView={reduce ? undefined : { opacity: 1, y: 0 }}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.2 }}
-                transition={{ duration: 0.5, delay: Math.min(i, 4) * 0.05, ease: [0.16, 1, 0.3, 1] }}
+                transition={
+                  reduce
+                    ? { duration: 0 }
+                    : { duration: 0.5, delay: Math.min(i, 4) * 0.05, ease: [0.16, 1, 0.3, 1] }
+                }
                 className="flex gap-4 rounded-xl border border-border-subtle bg-bg-surface p-6"
               >
                 <span

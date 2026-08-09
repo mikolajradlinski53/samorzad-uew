@@ -17,9 +17,11 @@ export function PageHero({ eyebrow, title, lead, breadcrumbs }: PageHeroProps) {
   const t = useTranslations("ui.aria");
 
   const enter = (delay: number) => ({
-    initial: reduce ? false : { opacity: 0, y: 16 },
-    animate: reduce ? undefined : { opacity: 1, y: 0 },
-    transition: { duration: 0.6, delay, ease: [0.16, 1, 0.3, 1] as const },
+    initial: { opacity: 0, y: 16 },
+    animate: { opacity: 1, y: 0 },
+    transition: reduce
+      ? { duration: 0 }
+      : { duration: 0.6, delay, ease: [0.16, 1, 0.3, 1] as const },
   });
 
   return (

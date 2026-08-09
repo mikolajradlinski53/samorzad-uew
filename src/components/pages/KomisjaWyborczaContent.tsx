@@ -38,10 +38,14 @@ export function KomisjaWyborczaContent() {
           {zadania.map((z, i) => (
             <motion.li
               key={i}
-              initial={reduce ? false : { opacity: 0, x: -20 }}
-              whileInView={reduce ? undefined : { opacity: 1, x: 0 }}
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true, amount: 0.2 }}
-              transition={{ duration: 0.5, delay: Math.min(i, 4) * 0.06, ease: [0.16, 1, 0.3, 1] }}
+              transition={
+                reduce
+                  ? { duration: 0 }
+                  : { duration: 0.5, delay: Math.min(i, 4) * 0.06, ease: [0.16, 1, 0.3, 1] }
+              }
               className="flex gap-3 rounded-xl border border-border-subtle bg-bg-surface p-5"
             >
               <CheckCircle size={22} weight="regular" aria-hidden="true" className="mt-0.5 shrink-0 text-accent" />
@@ -61,10 +65,14 @@ export function KomisjaWyborczaContent() {
             {czlonkowie.map((c, i) => (
               <motion.div
                 key={c.name}
-                initial={reduce ? false : { opacity: 0, y: 20, scale: 0.97 }}
-                whileInView={reduce ? undefined : { opacity: 1, y: 0, scale: 1 }}
+                initial={{ opacity: 0, y: 20, scale: 0.97 }}
+                whileInView={{ opacity: 1, y: 0, scale: 1 }}
                 viewport={{ once: true, amount: 0.2 }}
-                transition={{ duration: 0.5, delay: Math.min(i, 4) * 0.08, ease: [0.16, 1, 0.3, 1] }}
+                transition={
+                  reduce
+                    ? { duration: 0 }
+                    : { duration: 0.5, delay: Math.min(i, 4) * 0.08, ease: [0.16, 1, 0.3, 1] }
+                }
                 className="h-full"
               >
                 <PersonCard name={c.name} role={t(`roles.${c.roleKey}`)} className="h-full" />

@@ -53,10 +53,14 @@ export function RegulacjeContent() {
             return (
               <motion.li
                 key={key}
-                initial={reduce ? false : { opacity: 0, x: -16 }}
-                whileInView={reduce ? undefined : { opacity: 1, x: 0 }}
+                initial={{ opacity: 0, x: -16 }}
+                whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true, amount: 0.4 }}
-                transition={{ duration: 0.45, delay: Math.min(i, 6) * 0.06, ease: [0.16, 1, 0.3, 1] }}
+                transition={
+                  reduce
+                    ? { duration: 0 }
+                    : { duration: 0.45, delay: Math.min(i, 6) * 0.06, ease: [0.16, 1, 0.3, 1] }
+                }
               >
                 {slot?.href ? (
                   <a

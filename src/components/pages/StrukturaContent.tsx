@@ -58,10 +58,10 @@ export function StrukturaContent() {
         <div className="mt-14 flex flex-col items-center">
           {/* Top node */}
           <motion.div
-            initial={reduce ? false : { opacity: 0, y: 20, scale: 0.96 }}
-            whileInView={reduce ? undefined : { opacity: 1, y: 0, scale: 1 }}
+            initial={{ opacity: 0, y: 20, scale: 0.96 }}
+            whileInView={{ opacity: 1, y: 0, scale: 1 }}
             viewport={{ once: true, amount: 0.4 }}
-            transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+            transition={reduce ? { duration: 0 } : { duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
             className="w-full max-w-md"
           >
             <Tilt max={5}>
@@ -87,10 +87,12 @@ export function StrukturaContent() {
           {/* Drawing connector */}
           <motion.div
             aria-hidden="true"
-            initial={reduce ? false : { scaleY: 0 }}
-            whileInView={reduce ? undefined : { scaleY: 1 }}
+            initial={{ scaleY: 0 }}
+            whileInView={{ scaleY: 1 }}
             viewport={{ once: true, amount: 0.4 }}
-            transition={{ duration: 0.5, delay: 0.25, ease: [0.16, 1, 0.3, 1] }}
+            transition={
+              reduce ? { duration: 0 } : { duration: 0.5, delay: 0.25, ease: [0.16, 1, 0.3, 1] }
+            }
             className={`my-2 h-10 w-px origin-top transition-colors duration-300 ${
               hovered !== null ? "bg-accent" : "bg-border-medium"
             }`}
@@ -107,14 +109,18 @@ export function StrukturaContent() {
                   onMouseLeave={() => setHovered(null)}
                   onFocus={() => setHovered(i)}
                   onBlur={() => setHovered(null)}
-                  initial={reduce ? false : { opacity: 0, y: 24 }}
-                  whileInView={reduce ? undefined : { opacity: 1, y: 0 }}
+                  initial={{ opacity: 0, y: 24 }}
+                  whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, amount: 0.2 }}
-                  transition={{
-                    duration: 0.5,
-                    delay: 0.4 + i * 0.08,
-                    ease: [0.16, 1, 0.3, 1],
-                  }}
+                  transition={
+                    reduce
+                      ? { duration: 0 }
+                      : {
+                          duration: 0.5,
+                          delay: 0.4 + i * 0.08,
+                          ease: [0.16, 1, 0.3, 1],
+                        }
+                  }
                 >
                   <Tilt className="h-full" max={6}>
                     <div
