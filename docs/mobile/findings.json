@@ -1,15 +1,15 @@
 {
-  "generatedAt": "2026-08-13T13:12:15.690Z",
+  "generatedAt": "2026-08-13T19:58:46.012Z",
   "viewport": {
     "width": 375,
     "height": 812
   },
   "minTapTargetPx": 24,
   "minFontSizePx": 12,
-  "routesMeasured": 32,
+  "routesMeasured": 35,
   "routesWithOverflow": 0,
-  "routesWithSmallTapTargets": 32,
-  "routesWithSmallText": 32,
+  "routesWithSmallTapTargets": 35,
+  "routesWithSmallText": 35,
   "routesWithErrors": 0,
   "routes": [
     {
@@ -23,7 +23,7 @@
         "culprits": []
       },
       "tapTargets": {
-        "checked": 54,
+        "checked": 53,
         "tooSmall": [
           {
             "tag": "a",
@@ -164,73 +164,6 @@
       }
     },
     {
-      "route": "/asystent",
-      "path": "/pl/asystent",
-      "ok": true,
-      "horizontalOverflow": {
-        "scrollWidth": 375,
-        "innerWidth": 375,
-        "overflows": false,
-        "culprits": []
-      },
-      "tapTargets": {
-        "checked": 42,
-        "tooSmall": [
-          {
-            "tag": "a",
-            "classSnippet": "font-medium text-accent transition-colors hover:text-accent-dim",
-            "accessibleName": "Polityka prywatności",
-            "width": 120.58,
-            "height": 14
-          }
-        ]
-      },
-      "textLegibility": {
-        "tooSmall": [
-          {
-            "tag": "button",
-            "classSnippet": "flex min-h-11 items-center justify-center px-3 transition-colors bg-accent text-",
-            "fontSize": 11,
-            "textSnippet": "pl"
-          },
-          {
-            "tag": "button",
-            "classSnippet": "flex min-h-11 items-center justify-center px-3 transition-colors text-ink-second",
-            "fontSize": 11,
-            "textSnippet": "en"
-          }
-        ]
-      },
-      "contentWidth": {
-        "offenders": [
-          {
-            "tag": "div",
-            "classSnippet": "flex items-center gap-3",
-            "width": 244.41,
-            "rectRight": 428.41
-          },
-          {
-            "tag": "button",
-            "classSnippet": "flex h-11 w-11 items-center justify-center rounded-lg text-ink-secondary md:hidd",
-            "width": 44,
-            "rectRight": 428.41
-          },
-          {
-            "tag": "svg",
-            "classSnippet": "",
-            "width": 24,
-            "rectRight": 418.41
-          },
-          {
-            "tag": "path",
-            "classSnippet": "",
-            "width": 18,
-            "rectRight": 415.41
-          }
-        ]
-      }
-    },
-    {
       "route": "/deklaracja-dostepnosci",
       "path": "/pl/deklaracja-dostepnosci",
       "ok": true,
@@ -241,7 +174,7 @@
         "culprits": []
       },
       "tapTargets": {
-        "checked": 36,
+        "checked": 35,
         "tooSmall": [
           {
             "tag": "a",
@@ -308,7 +241,7 @@
         "culprits": []
       },
       "tapTargets": {
-        "checked": 52,
+        "checked": 51,
         "tooSmall": [
           {
             "tag": "a",
@@ -441,7 +374,7 @@
         "culprits": []
       },
       "tapTargets": {
-        "checked": 37,
+        "checked": 36,
         "tooSmall": [
           {
             "tag": "a",
@@ -508,7 +441,7 @@
         "culprits": []
       },
       "tapTargets": {
-        "checked": 37,
+        "checked": 36,
         "tooSmall": [
           {
             "tag": "a",
@@ -575,15 +508,8 @@
         "culprits": []
       },
       "tapTargets": {
-        "checked": 46,
+        "checked": 45,
         "tooSmall": [
-          {
-            "tag": "a",
-            "classSnippet": "group flex h-full flex-col rounded-xl border border-border-subtle bg-bg-surface ",
-            "accessibleName": "05Jak, gdzie i kiedy składać uczelniane podania?Otwórz PDF",
-            "width": 327,
-            "height": 1.44
-          },
           {
             "tag": "a",
             "classSnippet": "font-medium text-accent transition-colors hover:text-accent-dim",
@@ -613,11 +539,849 @@
             "classSnippet": "flex min-h-11 items-center justify-center px-3 transition-colors text-ink-second",
             "fontSize": 11,
             "textSnippet": "en"
+          },
+          {
+            "tag": "span",
+            "classSnippet": "font-mono text-[0.6875rem] font-medium text-ink-tertiary tabular-nums",
+            "fontSize": 11,
+            "textSnippet": "01"
+          },
+          {
+            "tag": "span",
+            "classSnippet": "font-mono text-[0.6875rem] font-medium text-ink-tertiary tabular-nums",
+            "fontSize": 11,
+            "textSnippet": "02"
+          },
+          {
+            "tag": "span",
+            "classSnippet": "font-mono text-[0.6875rem] font-medium text-ink-tertiary tabular-nums",
+            "fontSize": 11,
+            "textSnippet": "03"
+          },
+          {
+            "tag": "span",
+            "classSnippet": "font-mono text-[0.6875rem] font-medium text-ink-tertiary tabular-nums",
+            "fontSize": 11,
+            "textSnippet": "04"
+          },
+          {
+            "tag": "span",
+            "classSnippet": "font-mono text-[0.6875rem] font-medium text-ink-tertiary tabular-nums",
+            "fontSize": 11,
+            "textSnippet": "05"
+          },
+          {
+            "tag": "span",
+            "classSnippet": "font-mono text-[0.6875rem] font-medium text-ink-tertiary tabular-nums",
+            "fontSize": 11,
+            "textSnippet": "06"
+          },
+          {
+            "tag": "span",
+            "classSnippet": "font-mono text-[0.6875rem] font-medium text-ink-tertiary tabular-nums",
+            "fontSize": 11,
+            "textSnippet": "07"
+          },
+          {
+            "tag": "span",
+            "classSnippet": "font-mono text-[0.6875rem] font-medium text-ink-tertiary tabular-nums",
+            "fontSize": 11,
+            "textSnippet": "08"
           }
         ]
       },
       "contentWidth": {
         "offenders": [
+          {
+            "tag": "div",
+            "classSnippet": "flex items-center gap-3",
+            "width": 244.41,
+            "rectRight": 428.41
+          },
+          {
+            "tag": "button",
+            "classSnippet": "flex h-11 w-11 items-center justify-center rounded-lg text-ink-secondary md:hidd",
+            "width": 44,
+            "rectRight": 428.41
+          },
+          {
+            "tag": "svg",
+            "classSnippet": "",
+            "width": 24,
+            "rectRight": 418.41
+          },
+          {
+            "tag": "path",
+            "classSnippet": "",
+            "width": 18,
+            "rectRight": 415.41
+          }
+        ]
+      }
+    },
+    {
+      "route": "/infopacki/podania",
+      "path": "/pl/infopacki/podania",
+      "ok": true,
+      "horizontalOverflow": {
+        "scrollWidth": 375,
+        "innerWidth": 375,
+        "overflows": false,
+        "culprits": []
+      },
+      "tapTargets": {
+        "checked": 51,
+        "tooSmall": [
+          {
+            "tag": "a",
+            "classSnippet": "font-medium text-accent transition-colors hover:text-accent-dim",
+            "accessibleName": "Polityka prywatności",
+            "width": 120.58,
+            "height": 14
+          }
+        ]
+      },
+      "textLegibility": {
+        "tooSmall": [
+          {
+            "tag": "button",
+            "classSnippet": "flex min-h-11 items-center justify-center px-3 transition-colors bg-accent text-",
+            "fontSize": 11,
+            "textSnippet": "pl"
+          },
+          {
+            "tag": "button",
+            "classSnippet": "flex min-h-11 items-center justify-center px-3 transition-colors text-ink-second",
+            "fontSize": 11,
+            "textSnippet": "en"
+          },
+          {
+            "tag": "p",
+            "classSnippet": "font-mono text-[0.6875rem] font-medium uppercase tracking-[0.12em] text-white/55",
+            "fontSize": 11,
+            "textSnippet": "Zakres przewodnika"
+          },
+          {
+            "tag": "span",
+            "classSnippet": "",
+            "fontSize": 11,
+            "textSnippet": "Infopack · s. 5"
+          },
+          {
+            "tag": "span",
+            "classSnippet": "",
+            "fontSize": 11,
+            "textSnippet": "Infopack · s. 6"
+          },
+          {
+            "tag": "span",
+            "classSnippet": "",
+            "fontSize": 11,
+            "textSnippet": "Infopack · s. 11"
+          },
+          {
+            "tag": "span",
+            "classSnippet": "font-semibold text-[#a64121] dark:text-[#ffad93]",
+            "fontSize": 11,
+            "textSnippet": "krótki termin"
+          },
+          {
+            "tag": "span",
+            "classSnippet": "",
+            "fontSize": 11,
+            "textSnippet": "Infopack · s. 13"
+          },
+          {
+            "tag": "span",
+            "classSnippet": "font-semibold text-[#a64121] dark:text-[#ffad93]",
+            "fontSize": 11,
+            "textSnippet": "krótki termin"
+          },
+          {
+            "tag": "p",
+            "classSnippet": "font-mono text-[0.6875rem] font-medium text-ink-secondary",
+            "fontSize": 11,
+            "textSnippet": "§ 36–38"
+          },
+          {
+            "tag": "p",
+            "classSnippet": "font-mono text-[0.6875rem] font-medium text-ink-secondary",
+            "fontSize": 11,
+            "textSnippet": "·"
+          },
+          {
+            "tag": "p",
+            "classSnippet": "font-mono text-[0.6875rem] font-medium text-ink-secondary",
+            "fontSize": 11,
+            "textSnippet": "Infopack · s. 13"
+          },
+          {
+            "tag": "span",
+            "classSnippet": "inline-flex items-center gap-2 text-[0.6875rem] font-semibold text-[#17643b] dar",
+            "fontSize": 11,
+            "textSnippet": "potwierdzone w Regulaminie"
+          }
+        ]
+      },
+      "contentWidth": {
+        "offenders": [
+          {
+            "tag": "span",
+            "classSnippet": "applications-sheet applications-sheet-one",
+            "width": 246.58,
+            "rectRight": 445.79
+          },
+          {
+            "tag": "div",
+            "classSnippet": "flex items-center gap-3",
+            "width": 244.41,
+            "rectRight": 428.41
+          },
+          {
+            "tag": "button",
+            "classSnippet": "applications-motion min-h-11 shrink-0 rounded-full px-4 text-[0.8125rem] font-se",
+            "width": 155.53,
+            "rectRight": 719.36
+          },
+          {
+            "tag": "button",
+            "classSnippet": "applications-motion min-h-11 shrink-0 rounded-full px-4 text-[0.8125rem] font-se",
+            "width": 131.56,
+            "rectRight": 555.83
+          },
+          {
+            "tag": "button",
+            "classSnippet": "applications-motion min-h-11 shrink-0 rounded-full px-4 text-[0.8125rem] font-se",
+            "width": 128.16,
+            "rectRight": 416.27
+          },
+          {
+            "tag": "button",
+            "classSnippet": "flex h-11 w-11 items-center justify-center rounded-lg text-ink-secondary md:hidd",
+            "width": 44,
+            "rectRight": 428.41
+          },
+          {
+            "tag": "svg",
+            "classSnippet": "",
+            "width": 24,
+            "rectRight": 418.41
+          },
+          {
+            "tag": "path",
+            "classSnippet": "",
+            "width": 18,
+            "rectRight": 415.41
+          }
+        ]
+      }
+    },
+    {
+      "route": "/infopacki/regulamin-studiow",
+      "path": "/pl/infopacki/regulamin-studiow",
+      "ok": true,
+      "horizontalOverflow": {
+        "scrollWidth": 375,
+        "innerWidth": 375,
+        "overflows": false,
+        "culprits": []
+      },
+      "tapTargets": {
+        "checked": 50,
+        "tooSmall": [
+          {
+            "tag": "a",
+            "classSnippet": "font-medium text-accent transition-colors hover:text-accent-dim",
+            "accessibleName": "Polityka prywatności",
+            "width": 120.58,
+            "height": 14
+          }
+        ]
+      },
+      "textLegibility": {
+        "tooSmall": [
+          {
+            "tag": "button",
+            "classSnippet": "flex min-h-11 items-center justify-center px-3 transition-colors bg-accent text-",
+            "fontSize": 11,
+            "textSnippet": "pl"
+          },
+          {
+            "tag": "button",
+            "classSnippet": "flex min-h-11 items-center justify-center px-3 transition-colors text-ink-second",
+            "fontSize": 11,
+            "textSnippet": "en"
+          },
+          {
+            "tag": "p",
+            "classSnippet": "font-mono text-[0.6875rem] font-medium uppercase tracking-[0.12em] text-white/55",
+            "fontSize": 11,
+            "textSnippet": "Stan źródła"
+          },
+          {
+            "tag": "span",
+            "classSnippet": "mt-1 block font-mono text-[0.6875rem] text-ink-secondary",
+            "fontSize": 11,
+            "textSnippet": "§ 18"
+          },
+          {
+            "tag": "span",
+            "classSnippet": "mt-1 block font-mono text-[0.6875rem] text-ink-tertiary",
+            "fontSize": 11,
+            "textSnippet": "§ 23–24"
+          },
+          {
+            "tag": "span",
+            "classSnippet": "mt-1 block font-mono text-[0.6875rem] text-ink-tertiary",
+            "fontSize": 11,
+            "textSnippet": "§ 26–27"
+          },
+          {
+            "tag": "span",
+            "classSnippet": "mt-1 block font-mono text-[0.6875rem] text-ink-tertiary",
+            "fontSize": 11,
+            "textSnippet": "§ 28–31"
+          },
+          {
+            "tag": "span",
+            "classSnippet": "mt-1 block font-mono text-[0.6875rem] text-ink-tertiary",
+            "fontSize": 11,
+            "textSnippet": "§ 39–40"
+          },
+          {
+            "tag": "span",
+            "classSnippet": "mt-1 block font-mono text-[0.6875rem] text-ink-tertiary",
+            "fontSize": 11,
+            "textSnippet": "§ 23–24"
+          },
+          {
+            "tag": "span",
+            "classSnippet": "mt-1 block font-mono text-[0.6875rem] text-ink-tertiary",
+            "fontSize": 11,
+            "textSnippet": "§ 19–20"
+          },
+          {
+            "tag": "span",
+            "classSnippet": "mt-1 block font-mono text-[0.6875rem] text-ink-tertiary",
+            "fontSize": 11,
+            "textSnippet": "§ 11–14"
+          },
+          {
+            "tag": "p",
+            "classSnippet": "font-mono text-[0.6875rem] font-medium text-ink-secondary",
+            "fontSize": 11,
+            "textSnippet": "§ 18"
+          },
+          {
+            "tag": "p",
+            "classSnippet": "font-mono text-[0.6875rem] font-medium text-ink-secondary",
+            "fontSize": 11,
+            "textSnippet": "·"
+          },
+          {
+            "tag": "p",
+            "classSnippet": "font-mono text-[0.6875rem] font-medium text-ink-secondary",
+            "fontSize": 11,
+            "textSnippet": "strona 16"
+          },
+          {
+            "tag": "span",
+            "classSnippet": "inline-flex items-center gap-2 text-[0.6875rem] font-semibold text-accent",
+            "fontSize": 11,
+            "textSnippet": "sprawdzone ze źródłem"
+          }
+        ]
+      },
+      "contentWidth": {
+        "offenders": [
+          {
+            "tag": "div",
+            "classSnippet": "flex items-center gap-3",
+            "width": 244.41,
+            "rectRight": 428.41
+          },
+          {
+            "tag": "button",
+            "classSnippet": "flex h-11 w-11 items-center justify-center rounded-lg text-ink-secondary md:hidd",
+            "width": 44,
+            "rectRight": 428.41
+          },
+          {
+            "tag": "svg",
+            "classSnippet": "",
+            "width": 24,
+            "rectRight": 418.41
+          },
+          {
+            "tag": "path",
+            "classSnippet": "",
+            "width": 18,
+            "rectRight": 415.41
+          }
+        ]
+      }
+    },
+    {
+      "route": "/infopacki/usos",
+      "path": "/pl/infopacki/usos",
+      "ok": true,
+      "horizontalOverflow": {
+        "scrollWidth": 375,
+        "innerWidth": 375,
+        "overflows": false,
+        "culprits": []
+      },
+      "tapTargets": {
+        "checked": 56,
+        "tooSmall": [
+          {
+            "tag": "a",
+            "classSnippet": "font-medium text-accent transition-colors hover:text-accent-dim",
+            "accessibleName": "Polityka prywatności",
+            "width": 120.58,
+            "height": 14
+          }
+        ]
+      },
+      "textLegibility": {
+        "tooSmall": [
+          {
+            "tag": "button",
+            "classSnippet": "flex min-h-11 items-center justify-center px-3 transition-colors bg-accent text-",
+            "fontSize": 11,
+            "textSnippet": "pl"
+          },
+          {
+            "tag": "button",
+            "classSnippet": "flex min-h-11 items-center justify-center px-3 transition-colors text-ink-second",
+            "fontSize": 11,
+            "textSnippet": "en"
+          },
+          {
+            "tag": "p",
+            "classSnippet": "font-mono text-[0.6875rem] uppercase tracking-[0.12em] text-white/55",
+            "fontSize": 11,
+            "textSnippet": "Mapa systemu"
+          },
+          {
+            "tag": "span",
+            "classSnippet": "mt-1 block text-[0.6875rem] text-ink-tertiary",
+            "fontSize": 11,
+            "textSnippet": "Mój USOSweb"
+          },
+          {
+            "tag": "span",
+            "classSnippet": "mt-1 block text-[0.6875rem] text-ink-tertiary",
+            "fontSize": 11,
+            "textSnippet": "·"
+          },
+          {
+            "tag": "span",
+            "classSnippet": "mt-1 block text-[0.6875rem] text-ink-tertiary",
+            "fontSize": 11,
+            "textSnippet": "Infopack · s. 3"
+          },
+          {
+            "tag": "span",
+            "classSnippet": "mt-1 block text-[0.6875rem] text-ink-tertiary",
+            "fontSize": 11,
+            "textSnippet": "Mój USOSweb"
+          },
+          {
+            "tag": "span",
+            "classSnippet": "mt-1 block text-[0.6875rem] text-ink-tertiary",
+            "fontSize": 11,
+            "textSnippet": "·"
+          },
+          {
+            "tag": "span",
+            "classSnippet": "mt-1 block text-[0.6875rem] text-ink-tertiary",
+            "fontSize": 11,
+            "textSnippet": "Infopack · s. 5"
+          },
+          {
+            "tag": "span",
+            "classSnippet": "mt-1 block text-[0.6875rem] text-ink-tertiary",
+            "fontSize": 11,
+            "textSnippet": "Aktualności i skróty"
+          },
+          {
+            "tag": "span",
+            "classSnippet": "mt-1 block text-[0.6875rem] text-ink-tertiary",
+            "fontSize": 11,
+            "textSnippet": "·"
+          },
+          {
+            "tag": "span",
+            "classSnippet": "mt-1 block text-[0.6875rem] text-ink-tertiary",
+            "fontSize": 11,
+            "textSnippet": "Infopack · s. 6"
+          },
+          {
+            "tag": "span",
+            "classSnippet": "mt-1 block text-[0.6875rem] text-ink-tertiary",
+            "fontSize": 11,
+            "textSnippet": "Aktualności i skróty"
+          },
+          {
+            "tag": "span",
+            "classSnippet": "mt-1 block text-[0.6875rem] text-ink-tertiary",
+            "fontSize": 11,
+            "textSnippet": "·"
+          },
+          {
+            "tag": "span",
+            "classSnippet": "mt-1 block text-[0.6875rem] text-ink-tertiary",
+            "fontSize": 11,
+            "textSnippet": "Infopack · s. 7"
+          },
+          {
+            "tag": "span",
+            "classSnippet": "mt-1 block text-[0.6875rem] text-ink-tertiary",
+            "fontSize": 11,
+            "textSnippet": "Aktualności i skróty"
+          },
+          {
+            "tag": "span",
+            "classSnippet": "mt-1 block text-[0.6875rem] text-ink-tertiary",
+            "fontSize": 11,
+            "textSnippet": "·"
+          },
+          {
+            "tag": "span",
+            "classSnippet": "mt-1 block text-[0.6875rem] text-ink-tertiary",
+            "fontSize": 11,
+            "textSnippet": "Infopack · s. 8"
+          },
+          {
+            "tag": "span",
+            "classSnippet": "mt-1 block text-[0.6875rem] text-ink-tertiary",
+            "fontSize": 11,
+            "textSnippet": "Dla studentów"
+          },
+          {
+            "tag": "span",
+            "classSnippet": "mt-1 block text-[0.6875rem] text-ink-tertiary",
+            "fontSize": 11,
+            "textSnippet": "·"
+          },
+          {
+            "tag": "span",
+            "classSnippet": "mt-1 block text-[0.6875rem] text-ink-tertiary",
+            "fontSize": 11,
+            "textSnippet": "Infopack · s. 10"
+          },
+          {
+            "tag": "span",
+            "classSnippet": "mt-1 block text-[0.6875rem] text-ink-tertiary",
+            "fontSize": 11,
+            "textSnippet": "Dla studentów"
+          },
+          {
+            "tag": "span",
+            "classSnippet": "mt-1 block text-[0.6875rem] text-ink-tertiary",
+            "fontSize": 11,
+            "textSnippet": "·"
+          },
+          {
+            "tag": "span",
+            "classSnippet": "mt-1 block text-[0.6875rem] text-ink-tertiary",
+            "fontSize": 11,
+            "textSnippet": "Infopack · s. 11"
+          },
+          {
+            "tag": "span",
+            "classSnippet": "mt-1 block text-[0.6875rem] text-ink-secondary",
+            "fontSize": 11,
+            "textSnippet": "Dla studentów"
+          },
+          {
+            "tag": "span",
+            "classSnippet": "mt-1 block text-[0.6875rem] text-ink-secondary",
+            "fontSize": 11,
+            "textSnippet": "·"
+          },
+          {
+            "tag": "span",
+            "classSnippet": "mt-1 block text-[0.6875rem] text-ink-secondary",
+            "fontSize": 11,
+            "textSnippet": "Infopack · s. 12"
+          },
+          {
+            "tag": "span",
+            "classSnippet": "mt-1 block text-[0.6875rem] text-ink-tertiary",
+            "fontSize": 11,
+            "textSnippet": "Dla studentów"
+          },
+          {
+            "tag": "span",
+            "classSnippet": "mt-1 block text-[0.6875rem] text-ink-tertiary",
+            "fontSize": 11,
+            "textSnippet": "·"
+          },
+          {
+            "tag": "span",
+            "classSnippet": "mt-1 block text-[0.6875rem] text-ink-tertiary",
+            "fontSize": 11,
+            "textSnippet": "Infopack · s. 13"
+          }
+        ]
+      },
+      "contentWidth": {
+        "offenders": [
+          {
+            "tag": "span",
+            "classSnippet": "usos-window-bar",
+            "width": 420,
+            "rectRight": 592.5
+          },
+          {
+            "tag": "span",
+            "classSnippet": "usos-window-panel usos-window-panel-a",
+            "width": 307.5,
+            "rectRight": 540
+          },
+          {
+            "tag": "div",
+            "classSnippet": "flex items-center gap-3",
+            "width": 244.41,
+            "rectRight": 428.41
+          },
+          {
+            "tag": "button",
+            "classSnippet": "flex h-11 w-11 items-center justify-center rounded-lg text-ink-secondary md:hidd",
+            "width": 44,
+            "rectRight": 428.41
+          },
+          {
+            "tag": "svg",
+            "classSnippet": "",
+            "width": 24,
+            "rectRight": 418.41
+          },
+          {
+            "tag": "path",
+            "classSnippet": "",
+            "width": 18,
+            "rectRight": 415.41
+          }
+        ]
+      }
+    },
+    {
+      "route": "/infopacki/zaliczenie-semestru",
+      "path": "/pl/infopacki/zaliczenie-semestru",
+      "ok": true,
+      "horizontalOverflow": {
+        "scrollWidth": 375,
+        "innerWidth": 375,
+        "overflows": false,
+        "culprits": []
+      },
+      "tapTargets": {
+        "checked": 55,
+        "tooSmall": [
+          {
+            "tag": "a",
+            "classSnippet": "font-medium text-accent transition-colors hover:text-accent-dim",
+            "accessibleName": "Polityka prywatności",
+            "width": 120.58,
+            "height": 14
+          }
+        ]
+      },
+      "textLegibility": {
+        "tooSmall": [
+          {
+            "tag": "button",
+            "classSnippet": "flex min-h-11 items-center justify-center px-3 transition-colors bg-accent text-",
+            "fontSize": 11,
+            "textSnippet": "pl"
+          },
+          {
+            "tag": "button",
+            "classSnippet": "flex min-h-11 items-center justify-center px-3 transition-colors text-ink-second",
+            "fontSize": 11,
+            "textSnippet": "en"
+          },
+          {
+            "tag": "p",
+            "classSnippet": "font-mono text-[0.6875rem] uppercase tracking-[0.12em] text-white/55",
+            "fontSize": 11,
+            "textSnippet": "Mapa decyzji"
+          },
+          {
+            "tag": "p",
+            "classSnippet": "font-mono text-[0.6875rem] font-medium uppercase tracking-[0.12em] text-accent",
+            "fontSize": 11,
+            "textSnippet": "Terminy, które zmieniają decyzję"
+          },
+          {
+            "tag": "span",
+            "classSnippet": "mt-2 block text-[0.6875rem] leading-[1.4] text-ink-secondary",
+            "fontSize": 11,
+            "textSnippet": "na przedstawienie egzaminatorowi przyczyny nieobecności po j"
+          },
+          {
+            "tag": "span",
+            "classSnippet": "mt-2 block text-[0.6875rem] leading-[1.4] text-ink-secondary",
+            "fontSize": 11,
+            "textSnippet": "robocze na wniosek o egzamin lub zaliczenie komisyjne"
+          },
+          {
+            "tag": "span",
+            "classSnippet": "mt-2 block text-[0.6875rem] leading-[1.4] text-ink-secondary",
+            "fontSize": 11,
+            "textSnippet": "od końca sesji poprawkowej na sprawdzenie ocen łącznych w US"
+          },
+          {
+            "tag": "span",
+            "classSnippet": "mt-2 block text-[0.6875rem] leading-[1.4] text-ink-secondary",
+            "fontSize": 11,
+            "textSnippet": "od końca sesji poprawkowej na wniosek o warunek lub powtarza"
+          },
+          {
+            "tag": "span",
+            "classSnippet": "font-mono text-[0.6875rem] text-ink-tertiary",
+            "fontSize": 11,
+            "textSnippet": "01"
+          },
+          {
+            "tag": "span",
+            "classSnippet": "mt-1 block text-[0.6875rem] text-ink-tertiary",
+            "fontSize": 11,
+            "textSnippet": "przed sesją i w jej trakcie"
+          },
+          {
+            "tag": "span",
+            "classSnippet": "font-mono text-[0.6875rem] text-ink-tertiary",
+            "fontSize": 11,
+            "textSnippet": "02"
+          },
+          {
+            "tag": "span",
+            "classSnippet": "mt-1 block text-[0.6875rem] text-ink-tertiary",
+            "fontSize": 11,
+            "textSnippet": "liczy się przyczyna i szybka reakcja"
+          },
+          {
+            "tag": "span",
+            "classSnippet": "font-mono text-[0.6875rem] text-accent",
+            "fontSize": 11,
+            "textSnippet": "03"
+          },
+          {
+            "tag": "span",
+            "classSnippet": "mt-1 block text-[0.6875rem] text-ink-secondary",
+            "fontSize": 11,
+            "textSnippet": "po sesji, w USOS"
+          },
+          {
+            "tag": "span",
+            "classSnippet": "font-mono text-[0.6875rem] text-ink-tertiary",
+            "fontSize": 11,
+            "textSnippet": "04"
+          },
+          {
+            "tag": "span",
+            "classSnippet": "mt-1 block text-[0.6875rem] text-ink-tertiary",
+            "fontSize": 11,
+            "textSnippet": "po ogłoszeniu oceny podstawowej lub poprawkowej"
+          },
+          {
+            "tag": "span",
+            "classSnippet": "font-mono text-[0.6875rem] text-ink-tertiary",
+            "fontSize": 11,
+            "textSnippet": "05"
+          },
+          {
+            "tag": "span",
+            "classSnippet": "mt-1 block text-[0.6875rem] text-ink-tertiary",
+            "fontSize": 11,
+            "textSnippet": "po komplecie wpisów i sesji poprawkowej"
+          },
+          {
+            "tag": "p",
+            "classSnippet": "font-mono text-[0.6875rem] font-medium text-ink-secondary",
+            "fontSize": 11,
+            "textSnippet": "§ 31"
+          },
+          {
+            "tag": "p",
+            "classSnippet": "font-mono text-[0.6875rem] font-medium text-ink-secondary",
+            "fontSize": 11,
+            "textSnippet": "·"
+          },
+          {
+            "tag": "p",
+            "classSnippet": "font-mono text-[0.6875rem] font-medium text-ink-secondary",
+            "fontSize": 11,
+            "textSnippet": "Infopack · s. 8"
+          },
+          {
+            "tag": "span",
+            "classSnippet": "inline-flex items-center gap-2 text-[0.6875rem] font-semibold text-[#9a411f] dar",
+            "fontSize": 11,
+            "textSnippet": "7 dni na kontrolę"
+          },
+          {
+            "tag": "span",
+            "classSnippet": "flex h-7 w-7 items-center justify-center rounded-full bg-accent text-[0.6875rem]",
+            "fontSize": 11,
+            "textSnippet": "1"
+          },
+          {
+            "tag": "span",
+            "classSnippet": "flex h-7 w-7 items-center justify-center rounded-full bg-accent text-[0.6875rem]",
+            "fontSize": 11,
+            "textSnippet": "2"
+          },
+          {
+            "tag": "span",
+            "classSnippet": "flex h-7 w-7 items-center justify-center rounded-full bg-accent text-[0.6875rem]",
+            "fontSize": 11,
+            "textSnippet": "3"
+          },
+          {
+            "tag": "p",
+            "classSnippet": "font-mono text-[0.6875rem] font-medium uppercase tracking-[0.12em] text-accent",
+            "fontSize": 11,
+            "textSnippet": "Symulator § 27"
+          },
+          {
+            "tag": "span",
+            "classSnippet": "mt-1 block text-[0.6875rem] text-ink-tertiary",
+            "fontSize": 11,
+            "textSnippet": "50% oceny łącznej"
+          },
+          {
+            "tag": "span",
+            "classSnippet": "mt-1 block text-[0.6875rem] text-ink-tertiary",
+            "fontSize": 11,
+            "textSnippet": "Równy udział w pozostałych 50% · form: 2"
+          },
+          {
+            "tag": "span",
+            "classSnippet": "mt-1 block text-[0.6875rem] text-ink-tertiary",
+            "fontSize": 11,
+            "textSnippet": "Równy udział w pozostałych 50% · form: 2"
+          },
+          {
+            "tag": "p",
+            "classSnippet": "font-mono text-[0.6875rem] uppercase tracking-[0.1em] text-ink-tertiary",
+            "fontSize": 11,
+            "textSnippet": "średnia ważona"
+          }
+        ]
+      },
+      "contentWidth": {
+        "offenders": [
+          {
+            "tag": "span",
+            "classSnippet": "semester-orbit-line",
+            "width": 964.61,
+            "rectRight": 894.81
+          },
           {
             "tag": "div",
             "classSnippet": "flex items-center gap-3",
@@ -656,7 +1420,7 @@
         "culprits": []
       },
       "tapTargets": {
-        "checked": 37,
+        "checked": 36,
         "tooSmall": [
           {
             "tag": "a",
@@ -729,7 +1493,7 @@
         "culprits": []
       },
       "tapTargets": {
-        "checked": 48,
+        "checked": 47,
         "tooSmall": [
           {
             "tag": "a",
@@ -803,7 +1567,7 @@
         "culprits": []
       },
       "tapTargets": {
-        "checked": 38,
+        "checked": 37,
         "tooSmall": [
           {
             "tag": "a",
@@ -870,7 +1634,7 @@
         "culprits": []
       },
       "tapTargets": {
-        "checked": 37,
+        "checked": 36,
         "tooSmall": [
           {
             "tag": "a",
@@ -937,7 +1701,7 @@
         "culprits": []
       },
       "tapTargets": {
-        "checked": 37,
+        "checked": 36,
         "tooSmall": [
           {
             "tag": "a",
@@ -1100,7 +1864,7 @@
         "culprits": []
       },
       "tapTargets": {
-        "checked": 37,
+        "checked": 36,
         "tooSmall": [
           {
             "tag": "a",
@@ -1173,7 +1937,7 @@
         "culprits": []
       },
       "tapTargets": {
-        "checked": 49,
+        "checked": 48,
         "tooSmall": [
           {
             "tag": "a",
@@ -1247,7 +2011,7 @@
         "culprits": []
       },
       "tapTargets": {
-        "checked": 47,
+        "checked": 46,
         "tooSmall": [
           {
             "tag": "a",
@@ -1321,7 +2085,7 @@
         "culprits": []
       },
       "tapTargets": {
-        "checked": 40,
+        "checked": 39,
         "tooSmall": [
           {
             "tag": "a",
@@ -1388,7 +2152,7 @@
         "culprits": []
       },
       "tapTargets": {
-        "checked": 38,
+        "checked": 37,
         "tooSmall": [
           {
             "tag": "a",
@@ -1521,7 +2285,7 @@
         "culprits": []
       },
       "tapTargets": {
-        "checked": 36,
+        "checked": 35,
         "tooSmall": [
           {
             "tag": "a",
@@ -1588,7 +2352,7 @@
         "culprits": []
       },
       "tapTargets": {
-        "checked": 37,
+        "checked": 36,
         "tooSmall": [
           {
             "tag": "a",
@@ -1661,7 +2425,7 @@
         "culprits": []
       },
       "tapTargets": {
-        "checked": 37,
+        "checked": 36,
         "tooSmall": [
           {
             "tag": "a",
@@ -1764,7 +2528,7 @@
         "culprits": []
       },
       "tapTargets": {
-        "checked": 37,
+        "checked": 36,
         "tooSmall": [
           {
             "tag": "a",
@@ -1831,7 +2595,7 @@
         "culprits": []
       },
       "tapTargets": {
-        "checked": 45,
+        "checked": 44,
         "tooSmall": [
           {
             "tag": "a",
@@ -1905,7 +2669,7 @@
         "culprits": []
       },
       "tapTargets": {
-        "checked": 37,
+        "checked": 36,
         "tooSmall": [
           {
             "tag": "a",
@@ -1978,7 +2742,7 @@
         "culprits": []
       },
       "tapTargets": {
-        "checked": 40,
+        "checked": 39,
         "tooSmall": [
           {
             "tag": "a",
@@ -2045,7 +2809,7 @@
         "culprits": []
       },
       "tapTargets": {
-        "checked": 39,
+        "checked": 38,
         "tooSmall": [
           {
             "tag": "a",
@@ -2118,7 +2882,7 @@
         "culprits": []
       },
       "tapTargets": {
-        "checked": 83,
+        "checked": 82,
         "tooSmall": [
           {
             "tag": "a",
@@ -2233,7 +2997,7 @@
         "culprits": []
       },
       "tapTargets": {
-        "checked": 39,
+        "checked": 44,
         "tooSmall": [
           {
             "tag": "a",
@@ -2259,28 +3023,148 @@
             "textSnippet": "en"
           },
           {
-            "tag": "span",
-            "classSnippet": "rounded-full border border-border-subtle px-2.5 py-0.5 text-[0.6875rem] font-med",
+            "tag": "p",
+            "classSnippet": "font-mono text-[0.6875rem] uppercase tracking-[0.14em] text-white/55",
             "fontSize": 11,
-            "textSnippet": "Wkrótce"
+            "textSnippet": "Ścieżka dowodowa"
           },
           {
             "tag": "span",
-            "classSnippet": "rounded-full border border-border-subtle px-2.5 py-0.5 text-[0.6875rem] font-med",
+            "classSnippet": "inline-flex items-center gap-2 rounded-full border border-[#f1c862]/40 bg-[#f1c8",
             "fontSize": 11,
-            "textSnippet": "Wkrótce"
+            "textSnippet": "Dane w przygotowaniu"
           },
           {
             "tag": "span",
-            "classSnippet": "rounded-full border border-border-subtle px-2.5 py-0.5 text-[0.6875rem] font-med",
+            "classSnippet": "transparency-console-node transparency-console-node-1 relative z-10 flex h-9 w-9",
             "fontSize": 11,
-            "textSnippet": "Wkrótce"
+            "textSnippet": "01"
           },
           {
             "tag": "span",
-            "classSnippet": "rounded-full border border-border-subtle px-2.5 py-0.5 text-[0.6875rem] font-med",
+            "classSnippet": "transparency-console-node transparency-console-node-2 relative z-10 flex h-9 w-9",
             "fontSize": 11,
-            "textSnippet": "Wkrótce"
+            "textSnippet": "02"
+          },
+          {
+            "tag": "span",
+            "classSnippet": "transparency-console-node transparency-console-node-3 relative z-10 flex h-9 w-9",
+            "fontSize": 11,
+            "textSnippet": "03"
+          },
+          {
+            "tag": "span",
+            "classSnippet": "transparency-console-node transparency-console-node-4 relative z-10 flex h-9 w-9",
+            "fontSize": 11,
+            "textSnippet": "04"
+          },
+          {
+            "tag": "p",
+            "classSnippet": "font-mono text-[0.6875rem] font-medium uppercase tracking-[0.12em] text-ink-tert",
+            "fontSize": 11,
+            "textSnippet": "Śledzenie rekordu / wersja 0"
+          },
+          {
+            "tag": "span",
+            "classSnippet": "inline-flex items-center gap-2 rounded-full border border-border-medium bg-bg-su",
+            "fontSize": 11,
+            "textSnippet": "Oczekuje na dane"
+          },
+          {
+            "tag": "span",
+            "classSnippet": "flex h-[46px] w-[46px] items-center justify-center rounded-full border font-mono",
+            "fontSize": 11,
+            "textSnippet": "01"
+          },
+          {
+            "tag": "span",
+            "classSnippet": "flex h-[46px] w-[46px] items-center justify-center rounded-full border font-mono",
+            "fontSize": 11,
+            "textSnippet": "02"
+          },
+          {
+            "tag": "span",
+            "classSnippet": "flex h-[46px] w-[46px] items-center justify-center rounded-full border font-mono",
+            "fontSize": 11,
+            "textSnippet": "03"
+          },
+          {
+            "tag": "span",
+            "classSnippet": "flex h-[46px] w-[46px] items-center justify-center rounded-full border font-mono",
+            "fontSize": 11,
+            "textSnippet": "04"
+          },
+          {
+            "tag": "p",
+            "classSnippet": "font-mono text-[0.6875rem] font-medium uppercase tracking-[0.12em] text-white/60",
+            "fontSize": 11,
+            "textSnippet": "Etap 01 / 04"
+          },
+          {
+            "tag": "dt",
+            "classSnippet": "font-mono text-[0.6875rem] text-white/60",
+            "fontSize": 11,
+            "textSnippet": "01"
+          },
+          {
+            "tag": "dt",
+            "classSnippet": "font-mono text-[0.6875rem] text-white/60",
+            "fontSize": 11,
+            "textSnippet": "02"
+          },
+          {
+            "tag": "dt",
+            "classSnippet": "font-mono text-[0.6875rem] text-white/60",
+            "fontSize": 11,
+            "textSnippet": "03"
+          },
+          {
+            "tag": "dt",
+            "classSnippet": "font-mono text-[0.6875rem] text-white/60",
+            "fontSize": 11,
+            "textSnippet": "04"
+          },
+          {
+            "tag": "span",
+            "classSnippet": "font-mono text-[0.6875rem] font-medium text-ink-tertiary tabular-nums",
+            "fontSize": 11,
+            "textSnippet": "01"
+          },
+          {
+            "tag": "span",
+            "classSnippet": "font-mono text-[0.6875rem] font-medium text-ink-tertiary tabular-nums",
+            "fontSize": 11,
+            "textSnippet": "02"
+          },
+          {
+            "tag": "span",
+            "classSnippet": "font-mono text-[0.6875rem] font-medium text-ink-tertiary tabular-nums",
+            "fontSize": 11,
+            "textSnippet": "03"
+          },
+          {
+            "tag": "span",
+            "classSnippet": "font-mono text-[0.6875rem] font-medium text-ink-tertiary tabular-nums",
+            "fontSize": 11,
+            "textSnippet": "04"
+          },
+          {
+            "tag": "span",
+            "classSnippet": "font-mono text-[0.6875rem] font-medium text-ink-tertiary tabular-nums",
+            "fontSize": 11,
+            "textSnippet": "05"
+          },
+          {
+            "tag": "span",
+            "classSnippet": "font-mono text-[0.6875rem] font-medium text-ink-tertiary tabular-nums",
+            "fontSize": 11,
+            "textSnippet": "06"
+          },
+          {
+            "tag": "span",
+            "classSnippet": "font-mono text-[0.6875rem] font-medium text-ink-tertiary tabular-nums",
+            "fontSize": 11,
+            "textSnippet": "07"
           }
         ]
       },
@@ -2324,7 +3208,7 @@
         "culprits": []
       },
       "tapTargets": {
-        "checked": 37,
+        "checked": 36,
         "tooSmall": [
           {
             "tag": "a",
@@ -2391,7 +3275,7 @@
         "culprits": []
       },
       "tapTargets": {
-        "checked": 40,
+        "checked": 39,
         "tooSmall": [
           {
             "tag": "a",
@@ -2458,7 +3342,7 @@
         "culprits": []
       },
       "tapTargets": {
-        "checked": 39,
+        "checked": 38,
         "tooSmall": [
           {
             "tag": "a",
@@ -2543,7 +3427,7 @@
         "culprits": []
       },
       "tapTargets": {
-        "checked": 47,
+        "checked": 46,
         "tooSmall": [
           {
             "tag": "a",
@@ -2778,7 +3662,7 @@
         "culprits": []
       },
       "tapTargets": {
-        "checked": 38,
+        "checked": 37,
         "tooSmall": [
           {
             "tag": "a",

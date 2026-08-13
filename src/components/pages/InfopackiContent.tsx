@@ -1,109 +1,129 @@
 "use client";
 
-import { motion, useReducedMotion } from "motion/react";
 import { useTranslations } from "next-intl";
-import { FilePdf, ArrowSquareOut } from "@phosphor-icons/react";
-import { ScrollReveal } from "../ScrollReveal";
+import { ArrowRight, ArrowSquareOut, BookOpen, FilePdf } from "@phosphor-icons/react";
+import { Link } from "@/i18n/navigation";
 
 interface Pack {
   key: string;
   href: string;
+  living?: boolean;
 }
 
 const packs: Pack[] = [
-  { key: "usos", href: "https://drive.google.com/file/d/1EmTBHP5GzLrHBA782SBg82rnelb4PD7i/view?usp=sharing" },
-  { key: "studyReg", href: "https://drive.google.com/file/d/1QcyoxoV15SJGrvKKONtn0JGFutQ5gRZ1/view?usp=sharing" },
-  { key: "semester", href: "https://drive.google.com/file/d/1R1mXDt8745vC98J_FBJ5UoKjwMbw4NYA/view?usp=sharing" },
+  { key: "studyReg", href: "/infopacki/regulamin-studiow", living: true },
+  { key: "usos", href: "/infopacki/usos", living: true },
+  { key: "semester", href: "/infopacki/zaliczenie-semestru", living: true },
   { key: "deanInfo", href: "https://drive.google.com/file/d/1NLQRVebkTqXDCxcsmY7tSwc7JHApDyw9/view?usp=sharing" },
-  { key: "applications", href: "https://drive.google.com/file/d/1X5muhuWdgbxlOK1cgLz4fczzaKJwSFAC/view?usp=sharing" },
+  { key: "applications", href: "/infopacki/podania", living: true },
   { key: "library", href: "https://drive.google.com/file/d/1R_yZHW5UIIzWerNAlpYp5FOw8p6DHC9N/view?usp=sharing" },
   { key: "life", href: "https://drive.google.com/file/d/1GoMBj_CEFF6ri83ZbED4OocGOKzv8Uot/view?usp=sharing" },
   { key: "diploma", href: "https://drive.google.com/file/d/1QPCho3YZIPYvn3Nv9rmZBKd0GkC5Byhs/view?usp=sharing" },
 ];
 
 export function InfopackiContent() {
-  const reduce = useReducedMotion();
   const t = useTranslations("infopacki");
+  const livingCount = packs.filter((pack) => pack.living).length;
 
   return (
     <section className="section-padding" aria-labelledby="infopacki-heading">
       <div className="mx-auto max-w-[1200px]">
-        <ScrollReveal>
-          <p className="prose-constrained text-[1.0625rem] leading-[1.75] text-ink-secondary">
-            {t("intro")}
-          </p>
-          <h2 id="infopacki-heading" className="sr-only">
-            {t("srHeading")}
-          </h2>
-        </ScrollReveal>
-
-        <ul
-          className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3"
-          style={{ perspective: 1200 }}
-        >
-          {packs.map((pack, i) => (
-            <motion.li
-              key={pack.key}
-              initial={{ opacity: 0, rotateX: -90 }}
-              whileInView={{ opacity: 1, rotateX: 0 }}
-              viewport={{ once: true, amount: 0.3 }}
-              transition={
-                reduce
-                  ? { duration: 0 }
-                  : {
-                      duration: 0.6,
-                      delay: Math.min(i, 5) * 0.06,
-                      ease: [0.16, 1, 0.3, 1],
-                    }
-              }
-              style={{ transformOrigin: "top center" }}
+        <div className="grid gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(260px,0.5fr)] lg:items-end lg:gap-20">
+          <div>
+            <h2
+              id="infopacki-heading"
+              className="max-w-[18ch] text-balance font-display text-[clamp(2.1rem,4.5vw,3.75rem)] font-semibold leading-[1.04] tracking-[-0.035em] text-ink-primary"
             >
-              <a
-                href={pack.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group flex h-full flex-col rounded-xl border border-border-subtle bg-bg-surface p-6 transition-all duration-150 hover:-translate-y-1.5 hover:border-border-soft hover:bg-bg-elevated"
-              >
-                <div className="flex items-center justify-between">
-                  <span className="flex h-11 w-11 items-center justify-center rounded-lg bg-accent-glow text-accent">
-                    <FilePdf size={24} weight="regular" aria-hidden="true" />
-                  </span>
-                  <span
-                    aria-hidden="true"
-                    className="font-display text-[1.25rem] text-ink-tertiary tabular-nums"
-                  >
-                    {String(i + 1).padStart(2, "0")}
-                  </span>
-                </div>
-                <h3 className="mt-5 flex-1 text-[1.0625rem] font-semibold leading-snug tracking-[-0.01em] text-ink-primary">
-                  {t(`packs.${pack.key}`)}
-                </h3>
-                <span className="mt-5 inline-flex items-center gap-1.5 text-[0.875rem] font-medium text-accent">
-                  {t("openPdf")}
-                  <ArrowSquareOut
-                    size={16}
-                    weight="bold"
-                    aria-hidden="true"
-                    className="transition-transform duration-150 group-hover:translate-x-0.5"
-                  />
+              {t("libraryHeading")}
+            </h2>
+            <p className="mt-5 max-w-[68ch] text-pretty text-[1.0625rem] leading-[1.75] text-ink-secondary">
+              {t("intro")}
+            </p>
+          </div>
+
+          <div className="border-y border-border-medium py-5">
+            <p className="font-mono text-[0.75rem] font-medium text-ink-primary tabular-nums">
+              {t("migrationStatus", { living: livingCount, total: packs.length })}
+            </p>
+            <p className="mt-2 text-[0.75rem] leading-[1.55] text-ink-tertiary">
+              {t("migrationNote")}
+            </p>
+          </div>
+        </div>
+
+        <ol className="mt-12 border-y border-border-medium">
+          {packs.map((pack, index) => {
+            const inner = (
+              <>
+                <span className="font-mono text-[0.6875rem] font-medium text-ink-tertiary tabular-nums" aria-hidden="true">
+                  {String(index + 1).padStart(2, "0")}
                 </span>
-              </a>
-            </motion.li>
-          ))}
-        </ul>
+                <span
+                  className={`flex h-11 w-11 items-center justify-center rounded-full ${
+                    pack.living ? "bg-accent text-white" : "bg-accent-glow text-accent"
+                  }`}
+                  aria-hidden="true"
+                >
+                  {pack.living ? <BookOpen size={21} weight="fill" /> : <FilePdf size={21} weight="duotone" />}
+                </span>
+                <span className="min-w-0">
+                  <span className="block text-[0.9375rem] font-semibold leading-[1.5] text-ink-primary">
+                    {t(`packs.${pack.key}`)}
+                  </span>
+                  <span className={`mt-1 block text-[0.75rem] font-medium ${pack.living ? "text-accent" : "text-ink-tertiary"}`}>
+                    {pack.living ? t("livingLabel") : t("pdfLabel")}
+                  </span>
+                </span>
+                <span className="hidden text-[0.75rem] font-semibold text-ink-secondary sm:block">
+                  {pack.living ? t("openLiving") : t("openPdf")}
+                </span>
+                {pack.living ? (
+                  <ArrowRight
+                    size={20}
+                    weight="bold"
+                    className="text-accent transition-transform duration-200 group-hover:translate-x-1"
+                    aria-hidden="true"
+                  />
+                ) : (
+                  <ArrowSquareOut
+                    size={19}
+                    weight="bold"
+                    className="text-accent transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+                    aria-hidden="true"
+                  />
+                )}
+              </>
+            );
+            const rowClass =
+              "infopack-row group grid min-h-[104px] grid-cols-[28px_44px_minmax(0,1fr)_22px] items-center gap-4 border-b border-border-subtle px-1 py-5 text-left transition-colors duration-150 last:border-b-0 hover:bg-bg-elevated sm:grid-cols-[32px_44px_minmax(0,1fr)_auto_24px] sm:px-5";
 
-        <ScrollReveal>
-          <p className="mt-10 text-[0.9375rem] text-ink-secondary">
-            {t("notFoundText")}
-            <a
-              href="mailto:kontakt@samorzad.ue.wroc.pl"
-              className="font-medium text-accent transition-colors hover:text-accent-dim"
-            >
-              {t("notFoundLink")}
-            </a>
-            .
-          </p>
-        </ScrollReveal>
+            return (
+              <li key={pack.key}>
+                {pack.living ? (
+                  <Link href={pack.href} className={rowClass}>
+                    {inner}
+                  </Link>
+                ) : (
+                  <a href={pack.href} target="_blank" rel="noopener noreferrer" className={rowClass}>
+                    {inner}
+                    <span className="sr-only">{t("opensNew")}</span>
+                  </a>
+                )}
+              </li>
+            );
+          })}
+        </ol>
+
+        <p className="mt-10 text-[0.9375rem] text-ink-secondary">
+          {t("notFoundText")}
+          <a
+            href="mailto:kontakt@samorzad.ue.wroc.pl"
+            className="font-medium text-accent transition-colors hover:text-accent-dim"
+          >
+            {t("notFoundLink")}
+          </a>
+          .
+        </p>
       </div>
     </section>
   );

@@ -101,6 +101,32 @@ stanu na dzień — zgodnie z zasadą „każda liczba ma źródło i datę".
 
 ---
 
+## 🟡 Infopacki „żywe dokumenty" — sprawdzenie numerów paragrafów
+
+Podstrony infopacków (regulamin studiów, podania, USOS, zaliczenie semestru)
+odsyłają do **konkretnych paragrafów** Uczelnianego Regulaminu Studiów, np.
+„§ 18 · str. 16", z linkiem otwierającym PDF na danej stronie.
+
+**Co zweryfikowałem maszynowo:** źródło jest prawdziwe — uchwała Senatu
+R.0000.21.2025 z 27 marca 2025, obowiązuje od roku 2025/2026, opublikowana w
+BIP UEW. PDF się pobiera, ma 33 strony, a wszystkie numery stron użyte w
+linkach mieszczą się w tym zakresie. Treść opisów jest ostrożna — nie wymyśla
+liczb ani terminów, mówi „regulamin określa…", zamiast podawać konkret.
+
+**Czego NIE dało się sprawdzić:** czy dany paragraf faktycznie dotyczy
+opisanego tematu. PDF używa własnego kodowania czcionki i znak `§` nie daje się
+z niego wyciągnąć programowo.
+
+**Prośba:** otwórz PDF i sprawdź wyrywkowo 2–3 pozycje (np. czy § 18 to
+rzeczywiście nieobecności, a § 39–40 warunek i powtarzanie semestru). Jeśli
+któryś numer nie pasuje — napisz który, poprawię.
+
+| Sprawdzone? | Twoja odpowiedź |
+|---|---|
+| Numery paragrafów zgodne z regulaminem | → |
+
+---
+
 ## ⚪️ Treści i pliki
 
 Osobna, szczegółowa lista jest w [MATERIALY.md](MATERIALY.md) — zdjęcia, dokumenty

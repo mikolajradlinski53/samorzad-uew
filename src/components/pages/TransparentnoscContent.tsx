@@ -192,7 +192,7 @@ export function TransparentnoscContent() {
                     <dl className="mt-8 border-t border-white/20">
                       {fields.map((field, index) => (
                         <div key={field} className="grid grid-cols-[26px_1fr] gap-3 border-b border-white/15 py-3.5">
-                          <dt className="font-mono text-[0.6875rem] text-white/45" aria-hidden="true">
+                          <dt className="font-mono text-[0.6875rem] text-white/60" aria-hidden="true">
                             {String(index + 1).padStart(2, "0")}
                           </dt>
                           <dd className="text-[0.8125rem] font-medium text-white/90">{field}</dd>

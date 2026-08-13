@@ -426,15 +426,14 @@
     "ogLabel": "Student zone",
     "heroEyebrow": "Student zone",
     "heroTitle": "Dean & vice-deans",
-    "heroLead": "The dean’s office for student affairs. Matters such as an individual study plan, leave or appeals are handled by the vice-dean assigned to your field of study.",
+    "heroLead": "The current student-affairs dean and vice-deans, with programmes assigned to each vice-dean. For formal matters, begin with the appropriate Dean’s Office adviser.",
     "crumbStudent": "Student zone",
     "eyebrow": "Dean’s office",
     "heading": "Find the vice-dean for your field of study",
-    "intro": "Student matters — from an individual study plan to appeals — are handled by vice-deans assigned to particular fields of study. Check who is responsible for yours.",
+    "intro": "Vice-deans handle matters for their assigned programmes, while some decisions — including leave, resumption and transfers between programmes or study modes — belong to the Dean. The Dean’s Office provides the first information.",
     "dziekanRole": "Dean for Student Affairs",
     "prodziekanRole": "Vice-Dean for Student Affairs",
     "kierunki": {
-      "turowska": ["Finance and Accounting", "Accounting and Controlling", "Accounting and Taxes", "Management"],
       "werenska": ["Controlling", "E-business", "Business Informatics", "Legal and Business Consulting", "Logistics", "Management and Production Engineering", "Project Management", "Informatics in Production Management"],
       "bobowski": ["All English-language programmes", "Business Analytics", "Eco-business", "Economics", "Social Communication", "International Economic Relations", "Real Estate and Spatial Economy"]
     }
@@ -664,7 +663,7 @@
     "metaDesc": "The key UEW study rules explained by task, with links to the exact sections of the current Study Regulations.",
     "ogLabel": "Living guide",
     "breadcrumbs": { "infopacks": "Infopacks" },
-    "heroLabel": "Living document · source under continuous review",
+    "heroLabel": "Infopack brought to life · source under continuous review",
     "heroTitle": "Regulations that answer",
     "heroLead": "You do not need to read all 33 pages from the beginning. Choose your situation, learn the key rule and jump directly to the relevant section of the official document.",
     "heroCta": "Choose your situation",
@@ -684,9 +683,14 @@
       "lead": "Each answer is a short explanation of the current source. We surface the most important rules without hiding the document they come from.",
       "disclaimer": "This is an informational summary. The competent UEW authority makes the binding decision in an individual case.",
       "ariaLabel": "Choose a topic from the Study Regulations",
+      "infopackStructure": "We kept all eight chapters and the sequence of the original “Regulations in brief” Infopack.",
       "sourcePage": "page {page}",
       "verified": "checked against source",
       "keyFacts": "What the regulations say",
+      "gradeScale": "The Infopack grading scale, checked against §26",
+      "gradeName": "Grade in words",
+      "gradeValue": "Grade",
+      "gradeThreshold": "Required percentage",
       "openSource": "Open {section} on page {page}"
     },
     "correction": {
@@ -705,6 +709,17 @@
           "The Dean excuses an absence from a diploma exam and sets a new date."
         ]
       },
+      "supplementary": {
+        "label": "Supplementary courses",
+        "title": "Check your study programme first, then the registration date",
+        "summary": "The Infopack rightly gives humanities, social-science, language and PE courses their own chapter. Their exact number and semester depend on the programme for a particular course of study, while the Regulations define how registration works.",
+        "facts": [
+          "Check the programme assigned to your course, degree level and year of entry for the courses that apply to you.",
+          "Registration for courses and course groups takes place in USOS on dates set by the Dean.",
+          "Foreign-language registration is managed by the Foreign Languages Centre.",
+          "Registration dates must be announced at least 2 weeks before registration opens."
+        ]
+      },
       "grades": {
         "label": "Grades and percentage thresholds",
         "title": "The same grading scale applies to assessments and exams",
@@ -714,6 +729,14 @@
           "4.0: 70% to under 80%; 3.5: 60% to under 70%.",
           "3.0: 50% to under 60%; 2.0: below 50%.",
           "Programmes with external accreditation may apply the accrediting institution’s requirements."
+        ],
+        "scale": [
+          { "name": "very good", "grade": "5.0", "threshold": "90% and above" },
+          { "name": "good plus", "grade": "4.5", "threshold": "[80%; 90%)" },
+          { "name": "good", "grade": "4.0", "threshold": "[70%; 80%)" },
+          { "name": "satisfactory plus", "grade": "3.5", "threshold": "[60%; 70%)" },
+          { "name": "satisfactory", "grade": "3.0", "threshold": "[50%; 60%)" },
+          { "name": "unsatisfactory", "grade": "2.0", "threshold": "below 50%" }
         ]
       },
       "exams": {
@@ -775,13 +798,423 @@
     },
     "sources": {
       "heading": "A summary leads to the source; it never replaces it",
-      "lead": "This page is the practical layer. The BIP document remains authoritative, while the previous Infopack is retained to make the migration process transparent.",
+      "lead": "The original Infopack remains the authored starting point and downloadable edition. This page builds on it with interaction, updates and precise links to the authoritative BIP document.",
       "bipTitle": "Study Regulations record in UEW BIP",
       "bipDesc": "Publication record, archived versions and document metadata.",
       "pdfTitle": "Current Study Regulations — full PDF",
       "pdfDesc": "Resolution R.0000.21.2025 with the Regulations, 33 pages, in Polish.",
-      "infopackTitle": "Previous “Regulations in brief” Infopack",
-      "infopackDesc": "A supporting document now being replaced by this living version."
+      "infopackTitle": "Original “Regulations in brief” Infopack",
+      "infopackDesc": "The starting point for this living page’s language, chapter order and visual emphasis."
+    }
+  },
+  "semesterLive": {
+    "metaTitle": "Passing the semester — living decision cockpit",
+    "metaDesc": "An interactive UEW guide to exam sessions, grades, committee exams, conditional progression and repeating a semester.",
+    "ogLabel": "Semester cockpit",
+    "breadcrumbs": { "infopacks": "Infopacks" },
+    "heroLabel": "Infopack brought to life · from situation to action",
+    "heroTitle": "Your semester under control",
+    "heroLead": "Do not start by reading thirteen pages. Tell us what just happened and see the deadline, next move and official basis — without guessing whether it is already time to file an application.",
+    "heroCta": "Check your situation",
+    "source": {
+      "ariaLabel": "Semester cockpit status",
+      "label": "Decision map",
+      "title": "Infopack “Rules for passing a semester”",
+      "chapters": "Source chapters",
+      "states": "Student situations",
+      "checked": "Checked"
+    },
+    "deadlines": {
+      "label": "Deadlines that change the decision",
+      "heading": "Four clocks after the session",
+      "absence": { "number": "3 days", "label": "to give the examiner the reason for an absence after that reason ends" },
+      "committee": { "number": "2 days", "label": "working days to apply for a committee assessment or exam" },
+      "grades": { "number": "7 days", "label": "after the resit session to verify final grades in USOS" },
+      "request": { "number": "10 days", "label": "after the resit session to request conditional progression or repetition" }
+    },
+    "decision": {
+      "heading": "What has just happened to you?",
+      "lead": "One answer opens the relevant part of the Infopack, procedure and source. This is not a machine that makes the Dean’s decision — it is a map that helps you avoid missing the next step.",
+      "disclaimer": "Deadlines run from specific events, not from the day you open this page. For urgent matters, verify the date the grade was announced or the session ended.",
+      "ariaLabel": "Choose your current situation",
+      "infopackPages": "Infopack · pp. {pages}",
+      "next": "What to do now",
+      "check": "Before you continue",
+      "source": "Open Regulations {section}"
+    },
+    "situations": {
+      "prepare": {
+        "label": "I am preparing for assessments or exams",
+        "moment": "before and during the session",
+        "badge": "core rules",
+        "title": "Pass the class components before sitting the exam",
+        "summary": "Passing every other component of the course is required for admission to the exam. A negative grade at the first attempt gives you a resit, but a positive exam grade cannot be improved.",
+        "signal": "Control-test dates should be announced at least 2 weeks ahead, and exam dates no later than 4 weeks before the session.",
+        "actions": ["Review the requirements given during the first class.", "Compare the exam timetable with all component assessments.", "After every grade, check whether you are entitled to a resit."],
+        "checks": ["No more than four exams in one semester.", "An unexcused absence results in a 2.0 grade.", "One negative component grade makes the final course grade negative." ]
+      },
+      "absence": {
+        "label": "I missed an assessment or exam",
+        "moment": "the reason and a quick response matter",
+        "badge": "clock running",
+        "title": "An excused absence opens the way to an individual date",
+        "summary": "Give the teacher the reason and documents within 14 days, or the examiner within 3 days after the reason ends. If accepted, an individual date can be set.",
+        "signal": "If the new date falls after the relevant session ends, the Dean’s consent is required.",
+        "actions": ["Record the date on which the reason for your absence ended.", "Send the explanation and evidence to the teacher or examiner.", "If the date falls outside the session, submit a reasoned application to the Dean."],
+        "checks": ["The document supports a significant reason for the absence.", "The message reached the right person on time.", "You have a confirmed new date or instructions for an application."],
+        "cta": "Prepare a date-change application"
+      },
+      "missing": {
+        "label": "A grade is missing or incorrect",
+        "moment": "after the session, in USOS",
+        "badge": "7 days to verify",
+        "title": "Teacher first; after three working days, the Dean’s Office",
+        "summary": "You must verify final grades within 7 days after the resit session. Report a missing or inconsistent grade immediately to the teacher, who has up to 3 working days to correct it.",
+        "signal": "A missing entry is not the same as a failing grade — start the correction procedure first.",
+        "actions": ["Take a screenshot of the grade or empty field and record the date.", "Write to the teacher with the course, group and correct grade.", "If there is no entry or correction after 3 working days, notify the Dean’s Office."],
+        "checks": ["You are checking the final course grade, not only a component.", "You have proof that the first report was sent.", "Do not request conditional progression until every grade is entered in USOS."],
+        "cta": "Open the USOS grade path"
+      },
+      "dispute": {
+        "label": "I believe the grade is unfair",
+        "moment": "after a first-attempt or resit grade is announced",
+        "badge": "2 working days",
+        "title": "A committee is not a third attempt — identify a concrete flaw",
+        "summary": "The application may concern impartiality, inconsistency with the rules or scope given in the first class, or the conduct of the assessment or exam. The committee’s grade is final.",
+        "signal": "A negative committee grade rules out conditional progression; requesting repetition of the semester remains possible.",
+        "actions": ["Record the exact date the disputed grade was announced.", "Collect the requirements, your work and facts about the process.", "Submit a detailed application within 2 working days."],
+        "checks": ["Your reasons describe a procedural concern, not only disappointment with the result.", "You know that the committee chair decides the form.", "You may nominate your own observer."],
+        "cta": "Prepare a committee application"
+      },
+      "failed": {
+        "label": "I failed a course or the semester",
+        "moment": "after all entries and the resit session",
+        "badge": "10 days to apply",
+        "title": "Conditional progression and repetition are different decisions — both require an application",
+        "summary": "Conditional progression lets you continue while repeating failed courses if the Dean considers the ECTS deficit not excessive. Repeating the semester may also involve programme differences.",
+        "signal": "Apply only after every grade is entered in USOS, but no later than 10 days after the resit session. No justification is required.",
+        "actions": ["Check all grades and list failed courses with their ECTS.", "Compare conditional progression with repeating the semester; the Dean decides eligibility.", "Submit the correct USOS application, then verify the date, courses and fee in the decision."],
+        "checks": ["A negative committee result rules out conditional progression.", "Repeating the first semester of first-cycle studies exceptionally requires the Rector’s consent.", "Check the current fee in the order applicable to your cohort, not in an old PDF."],
+        "cta": "Compare progression and repetition"
+      }
+    },
+    "calculator": {
+      "label": "Section 27 simulator",
+      "heading": "See how the final course grade is formed",
+      "lead": "When a course has a lecture or exam, that grade accounts for 50%, while the other components share the remaining 50%. Without a lecture, all components carry equal weight.",
+      "note": "The simulator reflects the general rule in the Regulations. The course programme and correctly entered component grades remain the data source.",
+      "hasLecture": "Does the course have a lecture or exam?",
+      "yes": "Yes",
+      "no": "No",
+      "lecture": "Lecture / exam",
+      "weightHalf": "50% of the final grade",
+      "other": "Other component {number}",
+      "sharedHalf": "Equal share of the remaining 50% · components: {count}",
+      "equalWeight": "Equal weight · components: {count}",
+      "remove": "Remove component {number}",
+      "add": "Add class component",
+      "outputLabel": "Calculated final course grade",
+      "raw": "weighted average",
+      "final": "final grade under Section 27 thresholds",
+      "negative": "negative component → 2.0 final grade"
+    },
+    "sources": {
+      "label": "Complete source trail",
+      "heading": "Verify the rule at its source",
+      "lead": "The cockpit organises action but does not replace the Regulations, the Dean’s decision or the fee order applicable to your cohort.",
+      "open": "Open source",
+      "regulation": { "title": "University Study Regulations", "desc": "Official Sections 25–40: grades, deadlines, committees and repetition." },
+      "infopack": { "title": "Infopack “Rules for passing a semester”", "desc": "13 pages and 11 chapters prepared by the Student Government." },
+      "fees": { "title": "Current fee legislation", "desc": "UEW Public Information Bulletin with cohort orders and later amendments." }
+    }
+  },
+  "usosLive": {
+    "metaTitle": "USOS without wandering — living guide",
+    "metaDesc": "An interactive map of 14 key tasks in UEW USOSweb, based on the Student Government Infopack.",
+    "ogLabel": "USOS Navigator",
+    "breadcrumbs": { "infopacks": "Infopacks" },
+    "heroLabel": "Infopack brought to life · 14 paths",
+    "heroTitle": "USOS that guides you",
+    "heroLead": "Choose what you need to do and we will show the right tab, sequence of clicks and the result to look for — without opening every menu in turn.",
+    "heroCta": "Choose a task",
+    "openUsos": "Open USOSweb",
+    "source": { "ariaLabel": "USOS guide status", "label": "System map", "title": "“Navigating USOS” Infopack", "tasks": "Tasks", "areas": "Main areas", "checked": "Checked" },
+    "navigator": {
+      "heading": "What do you need to do in USOS?",
+      "lead": "The Navigator keeps every Infopack topic but reverses the perspective: you do not need to know the system structure to reach the right function.",
+      "disclaimer": "USOS is an external system and minor labels may change. Paths reflect the May 2026 Infopack; always read the on-screen message before confirming.",
+      "page": "Infopack · p. {page}",
+      "mapped": "path mapped",
+      "path": "Click path",
+      "result": "How to recognise the right screen",
+      "openInfopack": "See Infopack page {page}"
+    },
+    "mode": { "ariaLabel": "Guide browsing mode", "task": "I want to…", "area": "Where am I?" },
+    "areas": { "ariaLabel": "Choose a USOS area", "home": "My USOSweb", "news": "News and shortcuts", "student": "For students", "everyone": "For everyone" },
+    "tasks": {
+      "surveys": {
+        "label": "Complete a teaching survey", "title": "Evaluate classes anonymously after the semester", "summary": "At the end of a semester USOS displays surveys about teachers and classes. The Infopack notes that teachers see results only after the resit session ends.",
+        "steps": ["My USOSweb", "Surveys / Complete survey", "Choose a class", "Submit answers"],
+        "result": ["You see surveys assigned to your classes.", "After submission, the survey is marked complete."]
+      },
+      "groups": {
+        "label": "Check my group and teacher", "title": "Connect the USOS group number with your timetable", "summary": "On the home page you can distinguish lectures, classes and other course forms, and check the teacher, group number and participants.",
+        "steps": ["My USOSweb", "Current-semester classes", "Choose class type", "Group details"],
+        "result": ["You see the group number used in the timetable.", "You can check the teacher and group members."]
+      },
+      "news": {
+        "label": "Check current notices", "title": "News is your radar for dates and changes", "summary": "The tab gathers system changes, payment information and registration dates. Check it especially before registration and the start of a semester.",
+        "steps": ["Top USOS menu", "News", "Find the current notice", "Check its date and audience"],
+        "result": ["The notice identifies a date or change and who it concerns.", "The newest notices appear at the top."]
+      },
+      "redirects": {
+        "label": "Find a university system or document", "title": "USOS is also a gateway to other UEW services", "summary": "The Infopack lists links to the Library, scholarship information, disability support, academic calendar, syllabuses and payment details.",
+        "steps": ["News / home page", "Shortcuts", "Choose a service", "Open the UEW service"],
+        "result": ["A separate official UEW service opens.", "The address belongs to the university or the named service."]
+      },
+      "registration": {
+        "label": "Register for classes", "title": "Find the correct registration round first", "summary": "Rounds include humanities, social-science and sports classes. The newest rounds appear on the site and their dates are announced in News.",
+        "warning": "Do not wait until the last moment — each round has an exact opening and closing time.",
+        "steps": ["Check the date in News", "Course registration", "Choose the correct round", "Select and confirm a course"],
+        "result": ["The course appears as selected or registered.", "The system shows its status and any capacity limit."]
+      },
+      "mlegitimation": {
+        "label": "Order a mobile student ID", "title": "USOS creates an order and QR code for mObywatel", "summary": "After choosing Order, the system prepares the request for several minutes, then displays a QR code and instructions for adding the document in mObywatel.",
+        "steps": ["For students", "Mobile student ID", "Order", "Wait for the QR code and follow the instructions"],
+        "result": ["The order is ready for activation.", "A QR code or next-step instruction appears."]
+      },
+      "grades": {
+        "label": "Check final grades", "title": "After the session, verify every grade", "summary": "The Regulations require students to check final USOS grades within 7 days after the resit session. Report a missing or incorrect grade immediately.",
+        "warning": "You have 7 days after the resit session to check final grades.",
+        "steps": ["For students", "Final grades", "Choose the semester", "Compare every course"],
+        "result": ["Every required course has a final grade.", "The system grade matches the grade communicated by the teacher."]
+      },
+      "applications": {
+        "label": "Submit an application", "title": "The application list is under “For students”", "summary": "Here you select the application type, add wording and attachments, and later receive the decision. The living Application Compass covers 16 case types.",
+        "steps": ["For students", "Applications", "Choose a type", "Complete, attach and submit"],
+        "result": ["The application appears in your list with a status.", "Requests and the decision are made available in USOS."],
+        "cta": "Open the Application Compass"
+      },
+      "exchange": {
+        "label": "Manage a student exchange", "title": "Exchange offers and documents are available in USOS", "summary": "The module lets you browse mobility offers and manage the application and programme agreement. The official UEW guide explains Learning Agreement tables in detail.",
+        "steps": ["For students", "Student exchange", "Choose an offer or application", "Complete the required components"],
+        "result": ["You see the current stage of the application or exchange document.", "UEW and host-university courses appear in the correct tables."],
+        "cta": "Open the official UEW exchange guide"
+      },
+      "rankings": {
+        "label": "Check my average and ranking", "title": "A ranking helps before applying for a Rector’s scholarship", "summary": "The tab may show your average and ranking position. Availability depends on the current period and publication of results.",
+        "steps": ["For students", "Rankings", "Choose the relevant ranking", "Check average and position"],
+        "result": ["The ranking states its period and comparison group.", "You see the average or position if published."]
+      },
+      "clearance": {
+        "label": "Complete the clearance form", "title": "Check the electronic clearance form before defence", "summary": "The Infopack points to “For everyone” as the place for completing the clearance form needed to finish studies and proceed to defence.",
+        "steps": ["For everyone", "Clearance forms", "Open the active form", "Check every unit"],
+        "result": ["Every required unit is marked cleared.", "Outstanding actions are described next to the relevant item."]
+      },
+      "payments": {
+        "label": "Find the account for a payment", "title": "Do not copy an account number from a random document", "summary": "USOS provides current receivables and account numbers. Always use the details assigned to your specific payment.",
+        "steps": ["For everyone", "Payments / bank accounts", "Choose the receivable", "Copy the assigned account and reference"],
+        "result": ["The receivable shows its amount, deadline and correct account.", "Its status changes after the payment is posted."]
+      },
+      "scholarships": {
+        "label": "Submit a scholarship application", "title": "Benefit applications are under “For everyone”", "summary": "USOS provides lists of scholarship applications. Before starting, check the benefit type, current deadline and required documents.",
+        "steps": ["For everyone", "Applications / application list", "Choose the benefit", "Complete it and follow the instructions"],
+        "result": ["The application has a saved status and complete required sections.", "The system shows the next action or document to submit."],
+        "cta": "See the living scholarship guide"
+      },
+      "elections": {
+        "label": "Vote in an election", "title": "University voting may take place through USOS", "summary": "The Infopack names USOS as the channel for Senate and Student Government Council elections. An active ballot appears only during the specified period.",
+        "steps": ["For everyone", "Elections", "Open the active ballot", "Cast and confirm your vote"],
+        "result": ["The ballot names the body and exact voting period.", "After voting, the system confirms participation."]
+      }
+    }
+  },
+  "applicationsLive": {
+    "metaTitle": "UEW applications — living guide",
+    "metaDesc": "An interactive guide to 16 student matters: the right application, deadline, attachments, wording and source.",
+    "ogLabel": "Application Compass",
+    "breadcrumbs": { "infopacks": "Infopacks" },
+    "heroLabel": "Infopack brought to life · 16 student matters",
+    "heroTitle": "Apply without guessing",
+    "heroLead": "Tell us what you need to arrange. The Compass will show the right USOS path, deadline, documents and a draft structure — based on the “All about applications” Infopack and the current Study Regulations.",
+    "heroCta": "Find your case",
+    "source": {
+      "ariaLabel": "Guide source status",
+      "label": "Guide scope",
+      "title": "“All about applications” Infopack + Study Regulations",
+      "casesLabel": "Types of cases",
+      "checkedLabel": "Verified",
+      "channelLabel": "Submission channel"
+    },
+    "compass": {
+      "heading": "What do you need to arrange?",
+      "lead": "Start with your situation, not the official form name. Each case combines practical Infopack guidance with what can be confirmed in the current Regulations.",
+      "disclaimer": "Forms and available application types in USOS may change during the year. Check the application name and Dean’s Office notices before submitting.",
+      "infopackPage": "Infopack · p. {page}",
+      "infopackOnly": "supporting source",
+      "urgent": "short deadline",
+      "checklist": "Prepare before submitting",
+      "steps": "Application path",
+      "template": "Draft wording to complete",
+      "copy": "Copy wording",
+      "copied": "Copied",
+      "openSource": "Check {section} in the Regulations",
+      "openInfopack": "See Infopack page {page}"
+    },
+    "groups": {
+      "ariaLabel": "Choose the type of student situation",
+      "start": "How to apply",
+      "study": "Study organisation",
+      "results": "Grades and semester",
+      "return": "Returning to study",
+      "formal": "Decisions and documents"
+    },
+    "confidence": {
+      "regulation": "confirmed in the Regulations",
+      "mixed": "Regulations + Infopack details",
+      "infopack": "according to the Infopack"
+    },
+    "cases": {
+      "where": {
+        "label": "Where do I submit applications?",
+        "title": "Submit applications and appeals through USOS",
+        "summary": "Current §14 names USOS as the main channel for individual student matters, including applications, appeals and attachments, as well as receiving decisions.",
+        "checklist": ["Access to your USOS account", "The correct application type", "Attachments in a readable format", "A checked university email inbox"],
+        "steps": ["Open USOS and the “For students” section.", "Open “Applications” and choose the correct type.", "Complete the wording, add attachments and submit.", "Track requests and the decision in USOS."],
+        "template": "I request [state exactly what you expect].\nGrounds: [describe the facts relevant to the case].\nI attach: [list of documents]."
+      },
+      "template": {
+        "label": "How do I write an application?",
+        "title": "A clear request, facts and evidence",
+        "summary": "A good application does not need to be long. §12 requires a concise and precise request, substantive and, where possible, formal grounds, plus documents supporting the facts described.",
+        "checklist": ["One specific request", "Facts in chronological order", "Correct dates and course names", "Evidence for each material circumstance"],
+        "steps": ["Begin with “I request…”.", "Briefly explain why the request is justified.", "Name the attachments and legal basis if known.", "Read the wording once more before submitting."],
+        "template": "I request [specific decision].\n\nGrounds\n[What happened? When? Why is it relevant?]\n\nAttachments\n1. [document name]\n2. [document name]"
+      },
+      "conditional": {
+        "label": "Conditional continuation",
+        "title": "Apply after all grades appear in USOS",
+        "summary": "If you have not passed the semester, the Dean may allow continuation while you repeat failed courses. In the Dean’s assessment, the ECTS deficit must not be excessive.",
+        "checklist": ["All grades entered in USOS", "List of failed courses", "Check for programme obstacles", "Submission within 10 days after the resit session"],
+        "steps": ["Wait until all grades are entered.", "Choose conditional continuation.", "Name the failed courses.", "Submit without grounds within the regulatory deadline."],
+        "template": "I request conditional permission to continue my studies in the next semester while repeating the following courses: [list]."
+      },
+      "repeat": {
+        "label": "Repeating a semester",
+        "title": "Repeating a semester also requires an application",
+        "summary": "The Dean may permit a semester to be repeated due to unsatisfactory results and will set how programme differences are made up. Repeating the first semester of a first-cycle programme exceptionally requires the Rector’s consent.",
+        "checklist": ["Complete USOS grades", "Application within 10 days after the resit session", "List of failed courses", "Awareness of possible programme differences"],
+        "steps": ["Choose the semester repetition application.", "State the semester and failed courses.", "Submit — no grounds are required.", "After the decision, check the conditions and programme differences."],
+        "template": "I request permission to repeat semester [number] due to unsatisfactory academic results."
+      },
+      "ios": {
+        "label": "Individual study organisation (IOS)",
+        "title": "IOS changes organisation, not the study programme",
+        "summary": "IOS may allow a change of administrative group or an individual assessment mode in special circumstances. The seven-day deadline comes from the Infopack; §15 itself defines IOS scope and conditions.",
+        "checklist": ["Description of the reason for IOS", "The classes or groups concerned", "Evidence of the circumstances", "Initial consultation with the Dean’s Office"],
+        "steps": ["Identify the adjustment you need.", "Collect documents supporting your situation.", "Apply as early in the semester as possible.", "After approval, agree changes with teachers and notify the Dean’s Office."],
+        "template": "I request individual study organisation in semester [semester], consisting of [group change / individual assessment mode].\nGrounds: [situation and required adjustment]."
+      },
+      "ips": {
+        "label": "Individual study programme (IPS)",
+        "title": "IPS replaces courses under an academic supervisor",
+        "summary": "IPS lets you replace non-mandatory courses with others aligned with your development path without losing required learning outcomes. Detailed deadlines and the proposal form come from the Infopack and the circular it cites.",
+        "checklist": ["Proposed course replacements", "Matching learning outcomes", "No lower total ECTS", "Supervisor’s signature or approval"],
+        "steps": ["Find an IPS supervisor.", "Compare outcomes, content and ECTS.", "Prepare the proposal using the current form.", "Apply before the semester begins."],
+        "template": "I request permission to follow an individual study programme in semester(s) [scope].\nI propose replacing [course] with [class].\nDevelopment-path grounds: [description]."
+      },
+      "transfer": {
+        "label": "Transfer",
+        "title": "Check the conditions and available place first",
+        "summary": "A transfer may concern the university, programme, mode of study, course group or administrative group. Depending on the type, the Rector or Dean considers the application.",
+        "checklist": ["Exact origin and destination", "Available place in the group", "Recruitment requirements met", "Academic record documentation"],
+        "steps": ["Ask the Dean’s Office whether transfer is possible.", "Check requirements and grade average where relevant.", "State the reason and target programme or group.", "Attach documents and submit."],
+        "template": "I request a transfer from [current programme/mode/group] to [target programme/mode/group] from semester [number].\nGrounds: [specific reasons]."
+      },
+      "extension": {
+        "label": "Session extension",
+        "title": "A different exam date requires exceptional grounds",
+        "deadline": "Latest assessment date: 8 March or 28 September",
+        "summary": "The Dean may agree to assessments or exams at different dates only on a particularly justified application. The Regulations set final dates for winter and summer semesters.",
+        "checklist": ["Named exams or assessments", "Detailed grounds", "Evidence of the reason", "A realistic proposed date"],
+        "steps": ["Contact the teacher.", "Collect evidence of the obstacle.", "Apply before the relevant final date.", "After approval, agree the date with the teacher."],
+        "template": "I request permission to take the [assessment/exam] in [course] on a date other than scheduled.\nReason: [detailed explanation].\nProposed date: [date]."
+      },
+      "recognition": {
+        "label": "Recognition of a course or grade",
+        "title": "Compare one specific course with another",
+        "summary": "The Dean assesses matching learning outcomes. For classes completed at another university, proof of completion and a syllabus are needed; separate levels apply to language certificates.",
+        "checklist": ["Names of previous and target courses", "Academic transcript", "Syllabus with outcomes and ECTS", "Language certificate where relevant"],
+        "steps": ["Name the pair of courses to compare.", "Obtain the full syllabus and proof of grade.", "Attach them to the application.", "Wait for the learning-outcome assessment."],
+        "template": "I request recognition of [previous course, university] as equivalent to [UEW course].\nThe request is based on matching [outcomes, content, hours, ECTS]."
+      },
+      "committee": {
+        "label": "Committee assessment or exam",
+        "title": "A review of fairness, not a third attempt",
+        "deadline": "You have 2 working days from publication of the disputed grade",
+        "summary": "The application must identify detailed concerns about impartiality, consistency with requirements or the conduct of the assessment. A negative committee grade rules out conditional continuation.",
+        "checklist": ["Date the grade was announced", "A specific objection", "Requirements stated in the first class", "Evidence or a proposed observer"],
+        "steps": ["Record the publication date.", "Collect materials supporting the objection.", "Submit detailed grounds within 2 working days.", "Await information about the committee and assessment form."],
+        "template": "I request permission for a committee [assessment/exam] in [course].\nThe disputed grade was announced on [date].\nMy objection concerns [impartiality / requirements / conduct].\nGrounds: [specific facts]."
+      },
+      "lateRegistration": {
+        "label": "Registration outside the system",
+        "title": "Explain why you missed the deadline through no fault of your own",
+        "summary": "§24 permits an application for course registration where the deadline was missed for reasons not attributable to the student. The Infopack recommends checking for an available place first.",
+        "checklist": ["Course and group name", "Confirmation of an available place", "Explanation of the no-fault reason", "Evidence of that reason"],
+        "steps": ["Check availability with the Dean’s Office.", "Collect evidence of the no-fault reason.", "Apply for course registration.", "Check USOS to confirm registration."],
+        "template": "I request registration outside the system for [course, code, group].\nI did not register on time because [reason beyond my control].\nA place is available in group [identifier]: [confirmation]."
+      },
+      "resumption": {
+        "label": "Resuming studies",
+        "title": "Returning is possible, but not in every situation",
+        "summary": "The Dean may permit resumption within 3 years after removal from the student list if none of the §22 barriers applies. Resumption may involve programme differences and a different starting semester.",
+        "checklist": ["Date and reason for removal", "No outstanding UEW liabilities", "Confirmation the programme still runs", "Supervisor’s approval when returning only for defence"],
+        "steps": ["Check the barriers listed in §22.", "Discuss the possible semester with the Dean’s Office.", "Submit with supporting documents.", "After approval, check programme differences and deadlines."],
+        "template": "I request resumption of studies in [programme] from semester [proposed semester].\nI was removed from the student list on [date] because [reason].\nGrounds for returning: [description]."
+      },
+      "leave": {
+        "label": "Leave from classes",
+        "title": "Apply as soon as the reason arises",
+        "summary": "Leave may be short- or long-term and may concern health, education, parenthood, financial hardship or an unexpected event. It cannot be granted for a completed semester.",
+        "checklist": ["Type and period of leave", "Evidence of the reason", "Date the reason arose", "Classes you wish to continue"],
+        "steps": ["For a short absence, contact teachers first.", "Define the leave period needed.", "Apply immediately after the reason arises.", "After the decision, check classes and how differences are made up."],
+        "template": "I request [short-/long-term] leave from classes from [date] to [date] because [reason].\nI attach [document]."
+      },
+      "promoter": {
+        "label": "Changing thesis supervisor",
+        "title": "A change also depends on seminar capacity",
+        "summary": "§41 allows the Dean to approve a supervisor change. The Infopack adds practical requirements: checking capacity, opinions from both supervisors and a 30-day deadline from the start of the final seminar semester.",
+        "checklist": ["Available place with the target supervisor", "Current supervisor’s opinion", "Target supervisor’s opinion", "Grounds for the change"],
+        "steps": ["Ask the Dean’s Office about capacity.", "Speak to both supervisors.", "Obtain their opinions.", "Apply early in the semester."],
+        "template": "I request permission to change my thesis supervisor from [name] to [name].\nGrounds: [reason].\nI attach both opinions and confirmation of capacity."
+      },
+      "appeal": {
+        "label": "Appealing a decision",
+        "title": "You may appeal an adverse decision to the Rector",
+        "deadline": "Submit within 7 days after the decision is made available in USOS",
+        "summary": "Current §13 names the Rector as the appeal authority. The appeal needs grounds and is submitted directly to the Rector through USOS.",
+        "checklist": ["Decision delivery date", "Identification of the disputed decision", "Requested change", "New facts and documents"],
+        "steps": ["Read the reasons and appeal notice.", "Calculate the 7-day deadline.", "State what should be revoked or changed.", "Submit a reasoned appeal through USOS."],
+        "template": "I appeal the decision dated [date] concerning [subject].\nI request that it be [revoked/changed].\nGrounds: [objections, new facts, documents]."
+      },
+      "studentId": {
+        "label": "Plastic student ID, duplicate or replacement",
+        "title": "The mobile ID is primary; plastic requires an application",
+        "summary": "The Infopack states that since 1 July 2025 the mobile ID in mObywatel is the primary document. You may apply for a first plastic ID, a duplicate or replacement after personal-data changes.",
+        "checklist": ["Correct application type", "Current personal data", "Loss or damage description where relevant", "Current fee and USOS instructions checked"],
+        "steps": ["Check your mobile ID in mObywatel.", "Choose the correct USOS application.", "Complete the reason and required data.", "Check the document collection notice."],
+        "template": "I request [a first plastic ID / a duplicate / replacement] student ID because [reason]."
+      }
+    },
+    "sources": {
+      "heading": "Every tip has a confidence level",
+      "lead": "We do not merge rules, practical advice and non-public documents into one category. Each case shows what the Regulations confirm and what comes from the Infopack.",
+      "regulationTitle": "Current Study Regulations 2025/2026",
+      "regulationDesc": "Authoritative rules for applications, deadlines, appeals and most case types.",
+      "infopackTitle": "Original “All about applications” Infopack",
+      "infopackDesc": "18 pages and 16 practical paths prepared by the Student Government’s Education team.",
+      "circularDesc": "A 3 June 2025 document cited by the Infopack for IOS and IPS. We found no matching public BIP URL and therefore do not link a different circular with the same number."
     }
   },
   "mapa": {
