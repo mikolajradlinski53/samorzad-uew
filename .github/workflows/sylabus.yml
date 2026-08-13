@@ -1,0 +1,80 @@
+name: Odśwież plany studiów z e-sylabusa
+
+# Plany studiów NIE aktualizują się same. `public/data/programs.json` to plik
+# wygenerowany skryptem i zapisany w repozytorium, więc dopóki ktoś nie uruchomi
+# importu i nie wypchnie zmian, strona pokazuje dane z dnia ostatniego importu.
+# Ten workflow robi ten pierwszy krok za nas i zgłasza różnice.
+#
+# Świadomie NIE wypychamy prosto na `main`: z tych danych korzysta kalkulator
+# średniej, więc cicha podmiana przedmiotów albo punktów ECTS zmieniłaby wynik
+# liczony studentom. Zmiana ma przejść przez Pull Request i czyjeś spojrzenie.
+
+on:
+  schedule:
+    # 5:17 UTC pierwszego dnia miesiąca. Nowe roczniki pojawiają się raz w roku,
+    # więc miesiąc w zupełności wystarcza; nietypowa godzina, żeby nie trafiać
+    # w szczyt kolejki GitHuba.
+    - cron: "17 5 1 * *"
+  workflow_dispatch: # ręczne uruchomienie, gdy wiemy, że coś się zmieniło
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+
+      - run: npm ci
+
+      - name: Pobierz plany z ue.e-sylabus.pl
+        run: npm run import:sylabus
+
+      - name: Sprawdź, czy cokolwiek się zmieniło
+        id: diff
+        run: |
+          if git diff --quiet -- public/data/programs.json; then
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+            echo "Bez zmian — e-sylabus zwrócił to samo, co mamy."
+          else
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+            git diff --stat -- public/data/programs.json
+          fi
+
+      # Dane trafiają na stronę, więc muszą przejść te same bramki co kod.
+      - name: Testy jednostkowe
+        if: steps.diff.outputs.changed == 'true'
+        run: npm test
+
+      - name: Build produkcyjny
+        if: steps.diff.outputs.changed == 'true'
+        run: npm run build
+
+      - name: Otwórz Pull Request ze zmianami
+        if: steps.diff.outputs.changed == 'true'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          BRANCH="data/sylabus-$(date -u +%Y-%m-%d)"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git checkout -b "$BRANCH"
+          git add public/data/programs.json
+          git commit -m "data: refresh study plans from e-sylabus (automated)"
+          git push -u origin "$BRANCH"
+          gh pr create \
+            --title "Plany studiów: zmiany w e-sylabusie" \
+            --body "Automatyczny import z ue.e-sylabus.pl wykrył różnice względem \`public/data/programs.json\`.
+
+          **Zanim scalisz — sprawdź, czego dotyczy zmiana.** Z tych danych korzysta kalkulator średniej, więc podmiana przedmiotu, liczby ECTS albo semestru zmienia wynik liczony studentom.
+
+          Testy jednostkowe i build przeszły na tych danych." \
+            --base main \
+            --head "$BRANCH"

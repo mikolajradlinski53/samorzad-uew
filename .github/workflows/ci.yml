@@ -1,0 +1,67 @@
+name: CI
+
+# Bramka dla `main`. Powstała po tym, jak niedokończona podstrona wywróciła
+# build produkcyjny — bez CI takie rzeczy wychodzą dopiero przy wdrożeniu.
+#
+# Dostępność jest w tym projekcie wymogiem twardym, nie miłym dodatkiem, więc
+# testy a11y, reduced-motion i mobilne mają własną bramkę, a nie tylko lokalny
+# przebieg „kiedy ktoś pamięta".
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  # Szybka pętla: sekundy, nie minuty. Ma się wywalić, zanim ktokolwiek zdąży
+  # czekać na przeglądarki.
+  checks:
+    name: Typy, lint, testy, build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+      - run: npm ci
+      - run: npx tsc --noEmit
+      - run: npm run lint
+      - run: npm test
+      - run: npm run build
+      # Build produkcyjny przyda się testom przeglądarkowym w drugim zadaniu.
+      - uses: actions/upload-artifact@v4
+        with:
+          name: next-build
+          path: .next
+          retention-days: 1
+          include-hidden-files: true
+
+  browser:
+    name: Dostępność, reduced-motion, mobile
+    needs: checks
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+      - run: npm ci
+      - uses: actions/download-artifact@v4
+        with:
+          name: next-build
+          path: .next
+      - name: Zainstaluj przeglądarkę
+        run: npx playwright install --with-deps chromium
+      - name: Testy przeglądarkowe
+        run: npx playwright test tests/a11y.spec.ts tests/reduced-motion.spec.ts tests/mobile.spec.ts
+      # Raport z diagnostyki mobilnej bywa jedynym śladem, dlaczego coś przeszło
+      # albo nie — trzymamy go przy przebiegu.
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: mobile-findings
+          path: docs/mobile/findings.json
+          retention-days: 7
