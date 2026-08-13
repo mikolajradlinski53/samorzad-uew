@@ -24,8 +24,15 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 24
-          cache: npm
-      - run: npm ci
+      # Bez `cache: npm`. Instalacja padała na runnerze, mimo że `npm ci` z tego
+      # samego lockfile przechodzi lokalnie — a cache npm jest tu pierwszym
+      # podejrzanym: raz zapisany uszkodzony wpis wraca przy każdym kolejnym
+      # przebiegu i psuje je identycznie. Wrócimy do niego, gdy CI będzie zielone.
+      - name: Wersje narzędzi
+        run: node -v && npm -v && npm config get registry
+      # `--foreground-scripts` pokazuje wyjście skryptów instalacyjnych, bez
+      # niego przyczyna potrafi zniknąć w zwiniętym logu.
+      - run: npm ci --no-audit --no-fund --foreground-scripts
       - run: npx tsc --noEmit
       - run: npm run lint
       - run: npm test
@@ -47,8 +54,7 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 24
-          cache: npm
-      - run: npm ci
+      - run: npm ci --no-audit --no-fund
       - uses: actions/download-artifact@v4
         with:
           name: next-build
