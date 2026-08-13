@@ -17,6 +17,7 @@ import {
   type Icon,
 } from "@phosphor-icons/react";
 import { ScrollReveal } from "./ScrollReveal";
+import { EASE } from "@/lib/motion";
 
 interface Resource {
   key: string;
@@ -78,7 +79,7 @@ export function Resources() {
                 whileHover={
                   reduce
                     ? undefined
-                    : { y: -6, transition: { type: "spring", stiffness: 300, damping: 20 } }
+                    : { y: -5, transition: { duration: 0.24, ease: EASE } }
                 }
                 className="group relative flex flex-col rounded-xl border border-border-subtle bg-bg-surface p-6 transition-colors duration-150 hover:border-border-soft hover:bg-bg-elevated"
               >

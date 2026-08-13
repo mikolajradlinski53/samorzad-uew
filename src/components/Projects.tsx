@@ -6,6 +6,7 @@ import { Link } from "@/i18n/navigation";
 import { ArrowUpRight } from "@phosphor-icons/react";
 import { ScrollReveal } from "./ScrollReveal";
 import { Spotlight } from "./Spotlight";
+import { EASE } from "@/lib/motion";
 
 const projects = [{ key: "adaptacja" }, { key: "juwenalia" }, { key: "tarcza" }];
 
@@ -57,8 +58,8 @@ export function Projects() {
                   reduce
                     ? undefined
                     : {
-                        y: -6,
-                        transition: { type: "spring", stiffness: 300, damping: 20 },
+                        y: -5,
+                        transition: { duration: 0.24, ease: EASE },
                       }
                 }
                 className={`group rounded-xl border border-border-subtle bg-bg-surface p-6 transition-all duration-150 hover:border-border-soft hover:bg-bg-elevated ${colClass}`}

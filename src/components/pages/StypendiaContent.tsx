@@ -13,6 +13,7 @@ import {
 } from "@phosphor-icons/react";
 import { ScrollReveal } from "../ScrollReveal";
 import { documents as docManifest } from "@/lib/documents";
+import { EASE } from "@/lib/motion";
 
 interface Kind {
   key: string;
@@ -67,7 +68,7 @@ export function StypendiaContent() {
                   whileHover={
                     reduce
                       ? undefined
-                      : { y: -6, transition: { type: "spring", stiffness: 300, damping: 20 } }
+                      : { y: -5, transition: { duration: 0.24, ease: EASE } }
                   }
                   viewport={{ once: true, amount: 0.2 }}
                   transition={

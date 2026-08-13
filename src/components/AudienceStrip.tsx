@@ -12,6 +12,7 @@ import {
   type Icon,
 } from "@phosphor-icons/react";
 import { ScrollReveal } from "./ScrollReveal";
+import { EASE } from "@/lib/motion";
 
 interface Audience {
   key: string;
@@ -54,7 +55,7 @@ export function AudienceStrip() {
                 whileHover={
                   reduce
                     ? undefined
-                    : { y: -6, transition: { type: "spring", stiffness: 300, damping: 20 } }
+                    : { y: -5, transition: { duration: 0.24, ease: EASE } }
                 }
                 className="group relative flex flex-col overflow-hidden rounded-xl border border-border-subtle bg-bg-surface p-6 transition-colors duration-150 hover:border-border-soft hover:bg-bg-elevated"
               >

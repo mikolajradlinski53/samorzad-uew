@@ -21,6 +21,7 @@ import {
 } from "@phosphor-icons/react";
 import { ScrollReveal } from "../ScrollReveal";
 import { Spotlight } from "../Spotlight";
+import { EASE } from "@/lib/motion";
 
 interface Situation {
   key: string;
@@ -77,11 +78,11 @@ export function DlaStudentaContent() {
                   key={situation.key}
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  whileHover={
-                    reduce
-                      ? undefined
-                      : { y: -6, transition: { type: "spring", stiffness: 300, damping: 20 } }
-                  }
+                whileHover={
+                  reduce
+                    ? undefined
+                      : { y: -5, transition: { duration: 0.24, ease: EASE } }
+                }
                   viewport={{ once: true, amount: 0.15 }}
                   transition={
                     reduce

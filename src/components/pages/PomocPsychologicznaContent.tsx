@@ -83,47 +83,55 @@ export function PomocPsychologicznaContent() {
         </div>
 
         <div className="relative mx-auto max-w-[1200px] px-6 pb-14 pt-[128px] md:pb-20 md:pt-[140px]">
-          <Breadcrumbs
-            items={[
-              { label: tc("home"), href: "/" },
-              { label: t("crumbStudent"), href: "/dla-studenta" },
-              { label: t("heroTitle") },
-            ]}
-          />
+          <div className="psychology-enter psychology-enter-1">
+            <Breadcrumbs
+              items={[
+                { label: tc("home"), href: "/" },
+                { label: t("crumbStudent"), href: "/dla-studenta" },
+                { label: t("heroTitle") },
+              ]}
+            />
+          </div>
 
           <div className="mt-9 grid items-end gap-10 lg:grid-cols-[minmax(0,1.18fr)_minmax(320px,0.82fr)] lg:gap-16">
             <div>
-              <p className="inline-flex items-center gap-2 rounded-full bg-bg-surface px-4 py-2 text-[0.875rem] font-medium text-accent">
+              <p className="psychology-enter psychology-enter-2 inline-flex items-center gap-2 rounded-full bg-bg-surface px-4 py-2 text-[0.875rem] font-medium text-accent">
                 <ShieldCheck size={18} weight="fill" aria-hidden="true" />
                 {t("calmLabel")}
               </p>
               <h1
                 id="pomoc-title"
-                className="mt-6 max-w-[14ch] text-balance font-display text-[clamp(2.75rem,6vw,5.5rem)] font-semibold leading-[0.98] tracking-[-0.035em] text-ink-primary"
+                className="psychology-enter psychology-enter-3 mt-6 max-w-[14ch] text-balance font-display text-[clamp(2.75rem,6vw,5.5rem)] font-semibold leading-[0.98] tracking-[-0.035em] text-ink-primary"
               >
                 {t("heroTitle")}
               </h1>
-              <p className="mt-6 max-w-[62ch] text-pretty text-[1.0625rem] leading-[1.75] text-ink-secondary sm:text-[1.125rem]">
+              <p className="psychology-enter psychology-enter-4 mt-6 max-w-[62ch] text-pretty text-[1.0625rem] leading-[1.75] text-ink-secondary sm:text-[1.125rem]">
                 {t("heroLead")}
               </p>
-              <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+              <div className="psychology-enter psychology-enter-5 mt-8 flex flex-col gap-3 sm:flex-row">
                 <a
                   href="#pomoc-teraz"
-                  className="inline-flex min-h-12 items-center justify-center gap-2 rounded-lg bg-accent px-6 py-3 text-center font-semibold text-bg-base transition-colors hover:bg-accent-dim"
+                  className="psychology-motion-control group inline-flex min-h-12 items-center justify-center gap-2 rounded-lg bg-accent px-6 py-3 text-center font-semibold text-bg-base transition-[background-color,transform] duration-150 hover:bg-accent-dim active:scale-[0.98]"
                 >
                   {t("needHelpNow")}
-                  <ArrowRight size={19} weight="bold" aria-hidden="true" />
+                  <ArrowRight
+                    size={19}
+                    weight="bold"
+                    aria-hidden="true"
+                    className="transition-transform duration-200 group-hover:translate-x-1"
+                  />
                 </a>
                 <a
                   href="#formy-wsparcia"
-                  className="inline-flex min-h-12 items-center justify-center rounded-lg border border-border-strong bg-bg-surface px-6 py-3 text-center font-semibold text-ink-primary transition-colors hover:bg-bg-subtle"
+                  className="psychology-motion-control inline-flex min-h-12 items-center justify-center rounded-lg border border-border-strong bg-bg-surface px-6 py-3 text-center font-semibold text-ink-primary transition-[background-color,transform] duration-150 hover:bg-bg-subtle active:scale-[0.98]"
                 >
                   {t("browseSupport")}
                 </a>
               </div>
             </div>
 
-            <aside className="relative rounded-2xl bg-[#1837c9] p-6 text-white sm:p-8 dark:bg-[#1d348f]" aria-labelledby="emergency-heading">
+            <aside className="psychology-emergency-enter relative overflow-hidden rounded-2xl bg-[#1837c9] p-6 text-white sm:p-8 dark:bg-[#1d348f]" aria-labelledby="emergency-heading">
+              <span className="psychology-emergency-signal absolute inset-x-0 top-0 h-px origin-left bg-white/60" aria-hidden="true" />
               <p className="text-[0.875rem] font-semibold text-white/80">{t("emergencyLabel")}</p>
               <h2 id="emergency-heading" className="mt-3 text-balance font-display text-[1.5rem] font-semibold leading-[1.2] tracking-[-0.02em]">
                 {t("emergencyHeading")}
@@ -133,7 +141,7 @@ export function PomocPsychologicznaContent() {
               </p>
               <a
                 href="tel:112"
-                className="mt-6 inline-flex min-h-12 w-full items-center justify-between rounded-lg bg-white px-5 py-3 font-semibold text-[#10256f] transition-colors hover:bg-[#eef2ff]"
+                className="psychology-emergency-call psychology-motion-control mt-6 inline-flex min-h-12 w-full items-center justify-between rounded-lg bg-white px-5 py-3 font-semibold text-[#10256f] transition-[background-color,transform] duration-150 hover:bg-[#eef2ff] active:scale-[0.985]"
                 aria-label={t("callEmergencyAria")}
               >
                 <span className="flex items-center gap-3">
@@ -167,9 +175,9 @@ export function PomocPsychologicznaContent() {
               href={CHAT}
               target="_blank"
               rel="noopener noreferrer"
-              className="mt-7 inline-flex min-h-12 items-center gap-3 rounded-lg border border-border-strong px-5 py-3 font-semibold text-ink-primary transition-colors hover:bg-bg-elevated"
+              className="psychology-motion-control group mt-7 inline-flex min-h-12 items-center gap-3 rounded-lg border border-border-strong px-5 py-3 font-semibold text-ink-primary transition-[background-color,transform] duration-150 hover:bg-bg-elevated active:scale-[0.98]"
             >
-              <ChatCircleDots size={21} weight="fill" className="text-accent" aria-hidden="true" />
+              <ChatCircleDots size={21} weight="fill" className="text-accent transition-transform duration-200 group-hover:-translate-y-0.5 group-hover:scale-105" aria-hidden="true" />
               {t("openChat")}
             </a>
             <p className="mt-3 text-[0.8125rem] leading-[1.55] text-ink-tertiary">
@@ -183,7 +191,7 @@ export function PomocPsychologicznaContent() {
                 <a
                   key={line.descKey}
                   href={`tel:${line.tel}`}
-                  className="group flex min-h-[132px] flex-col justify-between gap-5 border-b border-border-subtle py-6 transition-colors last:border-b-0 hover:bg-bg-elevated sm:flex-row sm:items-center sm:px-5"
+                  className="psychology-help-row group flex min-h-[132px] flex-col justify-between gap-5 border-b border-border-subtle py-6 transition-colors last:border-b-0 hover:bg-bg-elevated sm:flex-row sm:items-center sm:px-5"
                   aria-label={`${line.number} — ${t(`helplines.${line.descKey}`)}`}
                 >
                   <p className="font-display text-[clamp(2rem,5vw,3.25rem)] font-semibold leading-none tracking-[-0.03em] text-ink-primary tabular-nums">
@@ -197,8 +205,9 @@ export function PomocPsychologicznaContent() {
                       {t(`helplines.${line.metaKey}`)}
                     </p>
                   </div>
-                  <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-accent text-bg-base transition-transform group-hover:scale-105" aria-hidden="true">
-                    <Phone size={20} weight="fill" />
+                  <span className="relative flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-accent text-bg-base" aria-hidden="true">
+                    <span className="psychology-call-ring absolute inset-0 rounded-full border border-accent" />
+                    <Phone size={20} weight="fill" className="relative z-10 transition-transform duration-200 group-hover:scale-105" />
                   </span>
                 </a>
               ))}
@@ -211,15 +220,15 @@ export function PomocPsychologicznaContent() {
               <p className="mt-2 text-[0.9375rem] leading-[1.65] text-ink-secondary">
                 {t("openingBody")}
               </p>
-              <blockquote className="mt-5 border-y border-border-medium py-5 text-pretty text-[1.0625rem] font-medium leading-[1.65] text-ink-primary">
+              <blockquote className={`psychology-opening-quote mt-5 border-y border-border-medium py-5 text-pretty text-[1.0625rem] font-medium leading-[1.65] text-ink-primary ${copied ? "is-copied" : ""}`}>
                 “{t("openingSentence")}”
               </blockquote>
               <button
                 type="button"
                 onClick={copyOpeningSentence}
-                className="mt-5 inline-flex min-h-11 items-center gap-2 rounded-lg border border-border-strong bg-bg-surface px-4 py-2.5 text-[0.875rem] font-semibold text-ink-primary transition-colors hover:bg-bg-subtle"
+                className="psychology-motion-control mt-5 inline-flex min-h-11 items-center gap-2 rounded-lg border border-border-strong bg-bg-surface px-4 py-2.5 text-[0.875rem] font-semibold text-ink-primary transition-[background-color,border-color,color,transform] duration-150 hover:bg-bg-subtle active:scale-[0.98]"
               >
-                {copied ? <Check size={18} weight="bold" aria-hidden="true" /> : <Copy size={18} aria-hidden="true" />}
+                {copied ? <Check size={18} weight="bold" aria-hidden="true" className="psychology-copy-icon text-accent" /> : <Copy size={18} aria-hidden="true" />}
                 <span aria-live="polite">{copied ? t("copied") : t("copySentence")}</span>
               </button>
             </div>
@@ -250,7 +259,7 @@ export function PomocPsychologicznaContent() {
               href={INFOPACK}
               target="_blank"
               rel="noopener noreferrer"
-              className="mt-8 inline-flex min-h-12 items-center gap-2 rounded-lg bg-accent px-6 py-3 font-semibold text-bg-base transition-colors hover:bg-accent-dim"
+              className="psychology-motion-control mt-8 inline-flex min-h-12 items-center gap-2 rounded-lg bg-accent px-6 py-3 font-semibold text-bg-base transition-[background-color,transform] duration-150 hover:bg-accent-dim active:scale-[0.98]"
             >
               <FilePdf size={20} aria-hidden="true" />
               {t("openInfopack")}
@@ -261,7 +270,7 @@ export function PomocPsychologicznaContent() {
             {contains.map((item) => {
               const Glyph = item.icon;
               return (
-                <div key={item.key} className="flex min-h-[116px] items-center gap-5 border-b border-border-subtle py-6 last:border-b-0">
+                <div key={item.key} className="psychology-option-row flex min-h-[116px] items-center gap-5 border-b border-border-subtle py-6 last:border-b-0">
                   <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-accent-glow text-accent">
                     <Glyph size={22} aria-hidden="true" />
                   </span>

@@ -6,6 +6,7 @@ import { ArrowUpRight, Megaphone, FileText, CaretDown } from "@phosphor-icons/re
 import { Link } from "@/i18n/navigation";
 import { ScrollReveal } from "../ScrollReveal";
 import { SectionRail } from "../SectionRail";
+import { EASE } from "@/lib/motion";
 
 const rightKeys = ["repeat", "ios", "absence", "change", "ects", "commission", "mode"];
 
@@ -40,11 +41,11 @@ export function PrawaStudentaContent() {
               id={`prawo-${i + 1}`}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              whileHover={
-                reduce
-                  ? undefined
-                  : { y: -6, transition: { type: "spring", stiffness: 300, damping: 20 } }
-              }
+                whileHover={
+                  reduce
+                    ? undefined
+                  : { y: -5, transition: { duration: 0.24, ease: EASE } }
+                }
               viewport={{ once: true, amount: 0.2 }}
               transition={
                 reduce

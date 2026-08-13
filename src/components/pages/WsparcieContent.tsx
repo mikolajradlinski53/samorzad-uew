@@ -14,6 +14,7 @@ import {
   type Icon,
 } from "@phosphor-icons/react";
 import { ScrollReveal } from "../ScrollReveal";
+import { EASE } from "@/lib/motion";
 
 interface Swiadczenie {
   key: string;
@@ -62,7 +63,7 @@ export function WsparcieContent() {
                 whileHover={
                   reduce
                     ? undefined
-                    : { y: -6, transition: { type: "spring", stiffness: 300, damping: 20 } }
+                    : { y: -5, transition: { duration: 0.24, ease: EASE } }
                 }
                 viewport={{ once: true, amount: 0.15 }}
                 transition={
