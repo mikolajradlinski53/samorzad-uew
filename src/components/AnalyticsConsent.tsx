@@ -3,9 +3,7 @@
 import { useEffect, useState } from "react";
 import { Analytics } from "@vercel/analytics/react";
 import { ConsentBanner } from "./ConsentBanner";
-
-type Consent = "accepted" | "rejected";
-const KEY = "ssuew-consent";
+import { readConsent, writeConsent, type Consent } from "@/lib/consent";
 
 /**
  * Analityka (Vercel, bez ciasteczek) ładowana TYLKO po zgodzie. Niezbędne
@@ -20,14 +18,12 @@ export function AnalyticsConsent() {
 
   // localStorage jest dostępny dopiero po stronie klienta.
   useEffect(() => {
-    const stored = localStorage.getItem(KEY);
-    const consent = stored === "accepted" || stored === "rejected" ? (stored as Consent) : null;
     // eslint-disable-next-line react-hooks/set-state-in-effect
-    setState({ ready: true, consent });
+    setState({ ready: true, consent: readConsent() });
   }, []);
 
   const choose = (c: Consent) => {
-    localStorage.setItem(KEY, c);
+    writeConsent(c);
     setState({ ready: true, consent: c });
   };
 

@@ -23,12 +23,12 @@ const G = {
 const sources: SearchSource[] = [
   // Strefa studenta
   { href: "/dla-studenta", group: G.student, label: { pl: "Strefa studenta", en: "Student zone" }, keywords: { pl: "dla studenta hub tematy", en: "student zone hub topics" } },
-  { href: "/asystent", group: G.student, label: { pl: "Zapytaj Samorząd (asystent AI)", en: "Ask the Student Government (AI assistant)" }, keywords: { pl: "asystent ai bot pytanie zapytaj czat pomoc sztuczna inteligencja", en: "assistant ai bot question ask chat help artificial intelligence" } },
   { href: "/prawa-studenta", group: G.student, label: { pl: "Prawa studenta", en: "Student rights" }, keywords: { pl: "ustawa 2.0 prawo egzamin ios", en: "act rights exam ios board" } },
   { href: "/stypendia", group: G.student, label: { pl: "Stypendia i wsparcie", en: "Scholarships & support" }, keywords: { pl: "pieniądze wsparcie świadczenia rodzaje rektora socjalne zapomoga niepełnosprawność wyniki dochód świadczenia", en: "money support benefits types merit social hardship disability results income benefits" } },
   { href: "/stypendia#kalkulator", group: G.student, label: { pl: "Kalkulator średniej", en: "Grade average calculator" }, keywords: { pl: "średnia ważona ects oceny punkty stypendium policz", en: "weighted average ects grades points scholarship compute" } },
   { href: "/prawo-dla-studenta", group: G.student, label: { pl: "Prawo dla studenta", en: "Law for students" }, keywords: { pl: "regulaminy przepisy zarządzenia", en: "regulations rules orders" } },
   { href: "/infopacki", group: G.student, label: { pl: "Infopacki", en: "Infopacks" }, keywords: { pl: "pakiety informacje pdf poradnik", en: "packs information pdf guide" } },
+  { href: "/infopacki/regulamin-studiow", group: G.student, label: { pl: "Regulamin studiów — żywy poradnik", en: "Study Regulations — living guide" }, keywords: { pl: "regulamin studiów nieobecność oceny egzamin warunek urlop zapisy podania", en: "study regulations absence grades exam conditional leave registration applications" } },
   { href: "/rzecznik-praw-studenta", group: G.student, label: { pl: "Rzecznik Praw Studenta", en: "Student Ombudsman" }, keywords: { pl: "spór uczelnia obrona buchta", en: "dispute university defense ombudsman" } },
   { href: "/mapa-kampusu", group: G.student, label: { pl: "Mapa kampusu", en: "Campus map" }, keywords: { pl: "budynki sale lokalizacja dojazd", en: "buildings rooms location directions" } },
   { href: "/pomoc-psychologiczna", group: G.student, label: { pl: "Pomoc psychologiczna", en: "Psychological support" }, keywords: { pl: "wsparcie kryzys telefon zaufania zdrowie psychiczne", en: "support crisis helpline mental health" } },

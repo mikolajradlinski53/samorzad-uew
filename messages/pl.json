@@ -73,7 +73,7 @@
     "cta1": "Poznaj nas",
     "cta2": "Strefa studenta",
     "scroll": "Przewiń do sekcji „O nas”",
-    "stats": ["10 000+ studentów", "6 komisji", "9 projektów rocznie"]
+    "stats": ["ok. 9 000 studentów", "6 komisji", "9 projektów rocznie"]
   },
   "trustbar": {
     "official": "Oficjalny serwis Samorządu",
@@ -155,7 +155,6 @@
   },
   "pages": {
     "dlaStudenta": "Strefa studenta",
-    "asystent": "Zapytaj Samorząd (AI)",
     "prawaStudenta": "Prawa studenta",
     "stypendia": "Stypendia",
     "prawoDlaStudenta": "Prawo dla studenta",
@@ -638,8 +637,15 @@
     "heroLead": "Krótkie, konkretne przewodniki po najważniejszych sprawach studenckich — od USOS-a po proces dyplomowania.",
     "crumbStudent": "Strefa studenta",
     "intro": "Infopacki to krótkie, praktyczne przewodniki, które pomagają zrozumieć regulaminy, podania i swobodnie poruszać się w przestrzeni online naszego uniwersytetu.",
+    "libraryHeading": "Poradnik ma odpowiadać, a nie kazać pobierać",
+    "migrationStatus": "{living} / {total} w formie żywej",
+    "migrationNote": "Kolejne PDF-y będą zastępowane zadaniowymi podstronami z odnośnikami do źródeł.",
     "srHeading": "Lista infopacków",
     "openPdf": "Otwórz PDF",
+    "openLiving": "Otwórz poradnik",
+    "livingLabel": "Żywy poradnik · zweryfikowane źródło",
+    "pdfLabel": "Infopack PDF · oczekuje na migrację",
+    "opensNew": "Dokument otwiera się w nowej karcie.",
     "notFoundText": "Nie znalazłeś odpowiedzi na swoje pytanie? ",
     "notFoundLink": "Napisz do nas",
     "packs": {
@@ -651,6 +657,131 @@
       "library": "Jak korzystać z biblioteki i systemu bibliotecznego?",
       "life": "Jak zaangażować się w życie studenckie poza zajęciami?",
       "diploma": "Jak przebiega proces dyplomowania?"
+    }
+  },
+  "studyRegLive": {
+    "metaTitle": "Regulamin studiów — żywy poradnik",
+    "metaDesc": "Najważniejsze zasady studiowania na UEW wyjaśnione zadaniowo, z odnośnikami do konkretnych paragrafów aktualnego Regulaminu Studiów.",
+    "ogLabel": "Żywy poradnik",
+    "breadcrumbs": { "infopacks": "Infopacki" },
+    "heroLabel": "Żywy dokument · źródło pod stałą kontrolą",
+    "heroTitle": "Regulamin, który odpowiada",
+    "heroLead": "Nie musisz czytać 33 stron od początku. Wybierz swoją sytuację, poznaj najważniejsze zasady i przejdź bezpośrednio do właściwego paragrafu oficjalnego dokumentu.",
+    "heroCta": "Wybierz swoją sprawę",
+    "source": {
+      "label": "Stan źródła",
+      "title": "Uczelniany Regulamin Studiów UEW",
+      "versionLabel": "Obowiązuje",
+      "version": "rok akademicki 2025/2026",
+      "checkedLabel": "Zweryfikowano",
+      "checkedDate": "13.08.2026",
+      "ownerLabel": "Publikuje",
+      "owner": "BIP UEW",
+      "openBip": "Zobacz kartę dokumentu w BIP"
+    },
+    "navigator": {
+      "heading": "Zacznij od problemu, nie od paragrafu",
+      "lead": "Każda odpowiedź jest krótkim objaśnieniem aktualnego źródła. Pokazujemy najważniejsze reguły, ale nie ukrywamy dokumentu, z którego wynikają.",
+      "disclaimer": "To opracowanie informacyjne. W indywidualnej sprawie wiążące rozstrzygnięcie podejmuje właściwy organ UEW.",
+      "ariaLabel": "Wybierz temat z Regulaminu Studiów",
+      "sourcePage": "strona {page}",
+      "verified": "sprawdzone ze źródłem",
+      "keyFacts": "Co wynika z regulaminu",
+      "openSource": "Otwórz {section} na stronie {page}"
+    },
+    "correction": {
+      "title": "Aktualizacja względem Infopacku PDF",
+      "body": "PDF podaje stałe limity trzech przedmiotów i 25 ECTS. Aktualny §40 nie zawiera tych liczb — mówi o ocenie Dziekana, czy deficyt ECTS nie jest nadmierny i czy nie ma innych przeszkód."
+    },
+    "topics": {
+      "absence": {
+        "label": "Nieobecność na zajęciach lub egzaminie",
+        "title": "Nieobecność trzeba wyjaśnić w określonym terminie",
+        "summary": "Krótkotrwałą nieobecność na zajęciach lub zaliczeniu usprawiedliwia prowadzący, a nieobecność na egzaminie — egzaminator. Ocena przyczyny odbywa się na podstawie dokumentów przedstawionych przez studenta.",
+        "facts": [
+          "Prowadzącemu przedstawiasz przyczynę i dokumenty w terminie do 14 dni od ustania przyczyny nieobecności.",
+          "Egzaminatorowi przedstawiasz je w terminie do 3 dni od ustania przyczyny nieobecności.",
+          "Po uznaniu nieobecności egzaminator wyznacza indywidualny termin egzaminu, a prowadzący określa sposób uzupełnienia braków.",
+          "Nieobecność na egzaminie dyplomowym usprawiedliwia Dziekan i wyznacza nowy termin."
+        ]
+      },
+      "grades": {
+        "label": "Oceny i progi procentowe",
+        "title": "Skala ocen jest wspólna dla zaliczeń i egzaminów",
+        "summary": "Regulamin wiąże ocenę liczbową ze stopniem realizacji efektów uczenia się. Jeżeli ocena wynika z punktów, nie wolno odejmować punktów za błędną odpowiedź ani za brak odpowiedzi.",
+        "facts": [
+          "5,0: co najmniej 90%; 4,5: od 80% do mniej niż 90%.",
+          "4,0: od 70% do mniej niż 80%; 3,5: od 60% do mniej niż 70%.",
+          "3,0: od 50% do mniej niż 60%; 2,0: mniej niż 50%.",
+          "Na kierunkach akredytowanych zewnętrznie mogą obowiązywać wymagania instytucji akredytującej."
+        ]
+      },
+      "exams": {
+        "label": "Zaliczenia, egzaminy i wyniki",
+        "title": "Terminy i wyniki nie mogą pojawiać się z zaskoczenia",
+        "summary": "Regulamin określa minimalne wyprzedzenie dla prac kontrolnych i harmonogramu egzaminów oraz terminy przekazania ocen. Student ma też obowiązek sprawdzić oceny w USOS.",
+        "facts": [
+          "Termin pracy kontrolnej innej niż egzamin ogłasza się co najmniej 2 tygodnie wcześniej.",
+          "Terminy egzaminów publikuje się nie później niż 4 tygodnie przed rozpoczęciem sesji.",
+          "Wynik pracy kontrolnej przekazuje się do 2 tygodni, a wynik egzaminu — do 3 dni.",
+          "O ocenie negatywnej trzeba poinformować nie później niż 3 dni przed terminem poprawkowym.",
+          "Oceny łączne w USOS sprawdzasz do 7 dni od zakończenia sesji poprawkowej."
+        ]
+      },
+      "conditional": {
+        "label": "Warunek lub powtarzanie semestru",
+        "title": "Warunek jest decyzją Dziekana, a nie automatycznym limitem",
+        "summary": "Jeżeli semestr nie został zaliczony, możesz wnioskować o warunkową kontynuację albo o powtarzanie semestru. Regulamin pozostawia ocenę dopuszczalnego deficytu ECTS Dziekanowi.",
+        "facts": [
+          "Wniosek składasz do 10 dni od zakończenia sesji poprawkowej, po wpisaniu wszystkich ocen do USOS.",
+          "Wniosek o warunek lub powtarzanie semestru nie wymaga uzasadnienia.",
+          "Warunek może zostać udzielony, jeśli deficyt ECTS nie jest w ocenie Dziekana nadmierny i nie ma przeszkód wynikających z programu lub przepisów.",
+          "Ten sam semestr lub przedmiot co do zasady nie może być powtarzany więcej niż dwa razy."
+        ]
+      },
+      "leave": {
+        "label": "Urlop od zajęć",
+        "title": "Urlop może być krótko- albo długoterminowy",
+        "summary": "Na wniosek studenta Dziekan może udzielić urlopu, gdy przejściowo nie można uczestniczyć w zajęciach. W określonych przypadkach podczas urlopu można realizować wskazane przedmioty.",
+        "facts": [
+          "Urlop krótkoterminowy trwa do miesiąca; długoterminowy zasadniczo dwa semestry, a wyjątkowo jeden.",
+          "Powodem może być zdrowie, nauka, ciąża lub rodzicielstwo, trudna sytuacja materialna albo nagłe zdarzenie losowe.",
+          "O urlop trzeba wystąpić bezpośrednio po pojawieniu się przyczyny; nie udziela się go na zakończony semestr.",
+          "Dziekan może wskazać zajęcia, które student realizuje również podczas urlopu."
+        ]
+      },
+      "registration": {
+        "label": "Zapisy na przedmioty",
+        "title": "Zapisy odbywają się w USOS w terminie Dziekana",
+        "summary": "Regulamin rozróżnia zapis na pojedynczy przedmiot i na grupę przedmiotów. Inne zasady dotyczą zapisów na języki obce, które prowadzi Studium Języków Obcych.",
+        "facts": [
+          "Terminy zapisów podaje się co najmniej 2 tygodnie przed ich rozpoczęciem.",
+          "Jeśli bez swojej winy przegapisz zapis na przedmiot, możesz złożyć do Dziekana wniosek o zapisanie.",
+          "Brak zapisu na grupę przedmiotów oznacza przypisanie przez Dziekana z urzędu.",
+          "Rezygnacja z zapisanego przedmiotu wymaga zgody Dziekana."
+        ]
+      },
+      "applications": {
+        "label": "Podania i indywidualne sprawy",
+        "title": "Dobre podanie zaczyna się od konkretnego wniosku",
+        "summary": "Indywidualne sprawy studenckie co do zasady rozstrzyga Dziekan. Przed wysłaniem podania regulamin zaleca sprawdzenie przepisów i konsultację z Dziekanatem.",
+        "facts": [
+          "Podanie powinno zawierać zwięzły wniosek oraz uzasadnienie merytoryczne i — jeśli to możliwe — formalne.",
+          "Dołączasz dokumenty wymagane dla danej sprawy i potwierdzające fakty opisane w uzasadnieniu.",
+          "Na uzupełnienie braków dostajesz termin nie krótszy niż 7 dni; brak uzupełnienia pozostawia podanie bez rozpoznania.",
+          "Proste rozstrzygnięcie powinno zostać wydane do 14 dni, a sprawa wymagająca wyjaśnień — zasadniczo do miesiąca."
+        ]
+      }
+    },
+    "sources": {
+      "heading": "Skrót prowadzi do źródła, nigdy go nie zastępuje",
+      "lead": "Ta podstrona jest warstwą użytkową. Dokument BIP pozostaje źródłem wiążącym, a poprzedni Infopack zachowujemy dla transparentności procesu migracji.",
+      "bipTitle": "Karta Regulaminu Studiów w BIP UEW",
+      "bipDesc": "Miejsce publikacji, wersje archiwalne i metryczka dokumentu.",
+      "pdfTitle": "Aktualny Regulamin Studiów — pełny PDF",
+      "pdfDesc": "Uchwała nr R.0000.21.2025 wraz z regulaminem, 33 strony.",
+      "infopackTitle": "Poprzedni Infopack „Regulamin w pigułce”",
+      "infopackDesc": "Materiał pomocniczy, który jest właśnie zastępowany żywą wersją."
     }
   },
   "mapa": {
@@ -957,7 +1088,6 @@
   },
   "navMenu": {
     "strefa": "Strefa studenta",
-    "asystent": "Zapytaj Samorząd (AI)",
     "prawa": "Prawa studenta",
     "stypendia": "Stypendia i wsparcie",
     "prawo": "Prawo dla studenta",
@@ -1090,14 +1220,10 @@
     }
   },
   "asystent": {
-    "metaTitle": "Zapytaj Samorząd — asystent AI",
-    "metaDesc": "Zadaj pytanie o stypendia, prawa studenta i sprawy Samorządu. Asystent odpowiada na podstawie treści tego serwisu i podaje źródła.",
-    "ogLabel": "Asystent AI",
-    "heroEyebrow": "Asystent AI",
-    "heroTitle": "Zapytaj Samorząd",
-    "heroLead": "Nie musisz wiedzieć, w której zakładce szukać. Opisz sprawę własnymi słowami, a asystent wskaże, co na ten temat mówi nasz serwis — z linkiem do źródła.",
+    "open": "Zapytaj Samorząd — asystent AI",
+    "close": "Zamknij asystenta",
+    "bubbleLead": "Odpowiadam na podstawie treści tego serwisu i podaję źródła.",
     "heading": "O co chcesz zapytać?",
-    "intro": "Asystent czyta wyłącznie treść tego serwisu i przy każdej odpowiedzi podaje fragment, na którym ją oparł. Nie ma dostępu do Twoich danych w USOS ani do spraw indywidualnych.",
     "inputLabel": "Twoje pytanie do Samorządu",
     "placeholder": "np. Do kiedy składam wniosek o stypendium socjalne?",
     "askButton": "Zapytaj",

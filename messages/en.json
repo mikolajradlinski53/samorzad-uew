@@ -73,7 +73,7 @@
     "cta1": "Get to know us",
     "cta2": "Student zone",
     "scroll": "Scroll to the “About” section",
-    "stats": ["10,000+ students", "6 committees", "9 projects a year"]
+    "stats": ["approx. 9,000 students", "6 committees", "9 projects a year"]
   },
   "trustbar": {
     "official": "Official Student Government site",
@@ -155,7 +155,6 @@
   },
   "pages": {
     "dlaStudenta": "Student zone",
-    "asystent": "Ask the Government (AI)",
     "prawaStudenta": "Student rights",
     "stypendia": "Scholarships",
     "prawoDlaStudenta": "Law for students",
@@ -638,8 +637,15 @@
     "heroLead": "Short, practical guides to the most important student matters — from USOS to the graduation process.",
     "crumbStudent": "Student zone",
     "intro": "Infopacks are short, practical guides that help you understand regulations and applications and move easily around our university’s online spaces.",
+    "libraryHeading": "A guide should answer, not demand a download",
+    "migrationStatus": "{living} / {total} available as living guides",
+    "migrationNote": "The remaining PDFs will be replaced with task-focused pages that cite their sources.",
     "srHeading": "List of infopacks",
     "openPdf": "Open PDF",
+    "openLiving": "Open guide",
+    "livingLabel": "Living guide · verified source",
+    "pdfLabel": "Infopack PDF · awaiting migration",
+    "opensNew": "The document opens in a new tab.",
     "notFoundText": "Didn’t find the answer to your question? ",
     "notFoundLink": "Write to us",
     "packs": {
@@ -651,6 +657,131 @@
       "library": "How do I use the library and the library system?",
       "life": "How do I get involved in student life beyond classes?",
       "diploma": "How does the graduation process work?"
+    }
+  },
+  "studyRegLive": {
+    "metaTitle": "Study Regulations — living guide",
+    "metaDesc": "The key UEW study rules explained by task, with links to the exact sections of the current Study Regulations.",
+    "ogLabel": "Living guide",
+    "breadcrumbs": { "infopacks": "Infopacks" },
+    "heroLabel": "Living document · source under continuous review",
+    "heroTitle": "Regulations that answer",
+    "heroLead": "You do not need to read all 33 pages from the beginning. Choose your situation, learn the key rule and jump directly to the relevant section of the official document.",
+    "heroCta": "Choose your situation",
+    "source": {
+      "label": "Source status",
+      "title": "UEW University Study Regulations",
+      "versionLabel": "Effective for",
+      "version": "academic year 2025/2026",
+      "checkedLabel": "Verified",
+      "checkedDate": "13 Aug 2026",
+      "ownerLabel": "Published by",
+      "owner": "UEW Public Information Bulletin",
+      "openBip": "View the document record in BIP"
+    },
+    "navigator": {
+      "heading": "Start with the problem, not the paragraph",
+      "lead": "Each answer is a short explanation of the current source. We surface the most important rules without hiding the document they come from.",
+      "disclaimer": "This is an informational summary. The competent UEW authority makes the binding decision in an individual case.",
+      "ariaLabel": "Choose a topic from the Study Regulations",
+      "sourcePage": "page {page}",
+      "verified": "checked against source",
+      "keyFacts": "What the regulations say",
+      "openSource": "Open {section} on page {page}"
+    },
+    "correction": {
+      "title": "Updated from the PDF Infopack",
+      "body": "The PDF states fixed limits of three courses and 25 ECTS. The current §40 contains no such figures — it asks the Dean to assess whether the ECTS deficit is excessive and whether other obstacles apply."
+    },
+    "topics": {
+      "absence": {
+        "label": "Absence from class or an exam",
+        "title": "An absence must be explained within a set time",
+        "summary": "The teacher excuses a short absence from class or an assessment; an examiner handles an exam absence. The reason is assessed using documents provided by the student.",
+        "facts": [
+          "You provide the teacher with the reason and documents within 14 days after the reason for absence ends.",
+          "For an examiner, the deadline is 3 days after the reason for absence ends.",
+          "Once accepted, the examiner sets an individual exam date and the teacher defines how missed work is made up.",
+          "The Dean excuses an absence from a diploma exam and sets a new date."
+        ]
+      },
+      "grades": {
+        "label": "Grades and percentage thresholds",
+        "title": "The same grading scale applies to assessments and exams",
+        "summary": "The Regulations connect each numerical grade with the achieved learning outcomes. When points are used, points may not be deducted for a wrong answer or no answer.",
+        "facts": [
+          "5.0: at least 90%; 4.5: 80% to under 90%.",
+          "4.0: 70% to under 80%; 3.5: 60% to under 70%.",
+          "3.0: 50% to under 60%; 2.0: below 50%.",
+          "Programmes with external accreditation may apply the accrediting institution’s requirements."
+        ]
+      },
+      "exams": {
+        "label": "Assessments, exams and results",
+        "title": "Dates and results should not arrive as a surprise",
+        "summary": "The Regulations set minimum notice periods for assessments and exam schedules, as well as deadlines for grades. Students must also check their grades in USOS.",
+        "facts": [
+          "A graded assessment other than an exam must be announced at least 2 weeks in advance.",
+          "Exam dates must be published no later than 4 weeks before the session starts.",
+          "An assessment result is due within 2 weeks; an exam result within 3 days.",
+          "A negative grade must be communicated no later than 3 days before the resit.",
+          "Check final USOS grades within 7 days after the resit session ends."
+        ]
+      },
+      "conditional": {
+        "label": "Conditional progress or repeating a semester",
+        "title": "Conditional progress is a Dean’s decision, not an automatic limit",
+        "summary": "If you have not passed the semester, you may request conditional progress or permission to repeat it. The Regulations leave the assessment of an acceptable ECTS deficit to the Dean.",
+        "facts": [
+          "Submit the request within 10 days after the resit session ends and all grades are in USOS.",
+          "A request for conditional progress or semester repetition does not require justification.",
+          "Conditional progress may be allowed if the Dean considers the ECTS deficit not excessive and no programme or legal obstacle applies.",
+          "As a rule, the same semester or course may not be repeated more than twice."
+        ]
+      },
+      "leave": {
+        "label": "Leave from classes",
+        "title": "Leave may be short- or long-term",
+        "summary": "At a student’s request, the Dean may grant leave when participation in classes is temporarily impossible. In some cases, selected courses may still be taken during leave.",
+        "facts": [
+          "Short-term leave lasts up to one month; long-term leave generally lasts two semesters and exceptionally one.",
+          "Reasons include health, education or research, pregnancy or parenthood, financial hardship or a sudden serious event.",
+          "Apply immediately after the reason arises; leave cannot be granted for a completed semester.",
+          "The Dean may indicate courses to be completed during leave."
+        ]
+      },
+      "registration": {
+        "label": "Course registration",
+        "title": "Registration takes place in USOS on dates set by the Dean",
+        "summary": "The Regulations distinguish registration for an individual course from a course group. Foreign-language classes are registered separately by the Foreign Languages Centre.",
+        "facts": [
+          "Registration dates must be announced at least 2 weeks before registration starts.",
+          "If you miss an individual course registration through no fault of your own, you may ask the Dean to enrol you.",
+          "If you do not select a course group, the Dean assigns one ex officio.",
+          "Leaving a course you registered for requires the Dean’s consent."
+        ]
+      },
+      "applications": {
+        "label": "Applications and individual matters",
+        "title": "A good application starts with a specific request",
+        "summary": "As a rule, the Dean decides individual student matters. Before submitting an application, the Regulations advise checking the relevant rules and consulting the Dean’s Office.",
+        "facts": [
+          "The application should contain a concise request and substantive — and where possible formal — justification.",
+          "Attach the documents required for the matter and supporting the facts in your justification.",
+          "You receive at least 7 days to correct missing elements; failure to do so leaves the application unexamined.",
+          "A simple decision should be issued within 14 days; a matter requiring clarification generally within one month."
+        ]
+      }
+    },
+    "sources": {
+      "heading": "A summary leads to the source; it never replaces it",
+      "lead": "This page is the practical layer. The BIP document remains authoritative, while the previous Infopack is retained to make the migration process transparent.",
+      "bipTitle": "Study Regulations record in UEW BIP",
+      "bipDesc": "Publication record, archived versions and document metadata.",
+      "pdfTitle": "Current Study Regulations — full PDF",
+      "pdfDesc": "Resolution R.0000.21.2025 with the Regulations, 33 pages, in Polish.",
+      "infopackTitle": "Previous “Regulations in brief” Infopack",
+      "infopackDesc": "A supporting document now being replaced by this living version."
     }
   },
   "mapa": {
@@ -957,7 +1088,6 @@
   },
   "navMenu": {
     "strefa": "Student zone",
-    "asystent": "Ask the Government (AI)",
     "prawa": "Student rights",
     "stypendia": "Scholarships & support",
     "prawo": "Law for students",
@@ -1090,14 +1220,10 @@
     }
   },
   "asystent": {
-    "metaTitle": "Ask the Student Government — AI assistant",
-    "metaDesc": "Ask about scholarships, student rights and Student Government matters. The assistant answers from this site's content and cites its sources.",
-    "ogLabel": "AI assistant",
-    "heroEyebrow": "AI assistant",
-    "heroTitle": "Ask the Student Government",
-    "heroLead": "You don't need to know which page to look in. Describe your situation in your own words and the assistant will show what this site says about it — with a link to the source.",
+    "open": "Ask the Student Government — AI assistant",
+    "close": "Close the assistant",
+    "bubbleLead": "I answer from this site content and show my sources.",
     "heading": "What would you like to ask?",
-    "intro": "The assistant reads only this site's content and shows the passage each answer is based on. It has no access to your USOS records or to individual cases.",
     "inputLabel": "Your question to the Student Government",
     "placeholder": "e.g. What is the deadline for the social scholarship?",
     "askButton": "Ask",

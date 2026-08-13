@@ -27,7 +27,6 @@ export function Nav() {
 
   const dlaStudenta: NavChild[] = [
     { label: tm("strefa"), href: "/dla-studenta" },
-    { label: tm("asystent"), href: "/asystent" },
     { label: tm("prawa"), href: "/prawa-studenta" },
     { label: tm("stypendia"), href: "/stypendia" },
     { label: tm("prawo"), href: "/prawo-dla-studenta" },

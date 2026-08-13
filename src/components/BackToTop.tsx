@@ -40,7 +40,9 @@ export function BackToTop() {
           exit={reduce ? { opacity: 0 } : { opacity: 0, scale: 0.8, y: 10 }}
           transition={{ duration: 0.2, ease: [0.16, 1, 0.3, 1] }}
           whileHover={reduce ? undefined : { y: -3 }}
-          className="fixed bottom-6 right-6 z-40 flex h-12 w-12 items-center justify-center rounded-full border border-border-soft bg-bg-surface text-ink-primary shadow-lg shadow-black/10 transition-colors hover:border-accent hover:text-accent"
+          // Nad dymkiem asystenta (bottom-6, wys. 56 px) — inaczej oba przyciski
+          // siedziałyby w tym samym rogu jeden na drugim.
+          className="fixed bottom-[5.5rem] right-6 z-40 flex h-12 w-12 items-center justify-center rounded-full border border-border-soft bg-bg-surface text-ink-primary shadow-lg shadow-black/10 transition-colors hover:border-accent hover:text-accent"
         >
           <ArrowUp size={20} weight="bold" aria-hidden="true" />
         </motion.button>

@@ -13,10 +13,12 @@ type Stat = { label: string; icon: Icon } & (
 );
 
 const stats: Stat[] = [
-  // 10 000+ podane przez Samorząd i NIEPOTWIERDZONE publicznie. Najnowsza
-  // jawna liczba to ok. 8 900 (2023), a trend jest spadkowy (12 271 w 2015/16).
-  // Nie podnosimy tej liczby bez źródła — szczegóły w docs/WRZUC-TUTAJ.md.
-  { to: 10000, suffix: "+", label: "statStudents", icon: GraduationCap },
+  // Ok. 9 000 — najbliżej jawnych danych: 8 941 studentów (grudzień 2023),
+  // przy trendzie spadkowym (12 271 w 2015/16). Świadomie NIE piszemy „10 000+"
+  // ani „+", bo liczba raczej maleje niż rośnie, a uczelnia zna swoją prawdziwą.
+  // Po otrzymaniu oficjalnej liczby z Działu Nauczania wpisujemy ją tutaj razem
+  // ze stanem na dzień — szczegóły w docs/WRZUC-TUTAJ.md.
+  { to: 9000, suffix: "", label: "statStudents", icon: GraduationCap },
   { to: 6, suffix: "", label: "statCommittees", icon: UsersThree },
   { year: "1987", label: "statFounded", icon: CalendarCheck },
 ];
