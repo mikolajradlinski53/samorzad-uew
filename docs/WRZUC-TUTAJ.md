@@ -70,8 +70,32 @@ Rzeczy, które są już na stronie, ale opierają się na niepewnym źródle.
 | Co | Stan obecny | Twoja odpowiedź |
 |---|---|---|
 | Liczba projektów rocznie (chip w hero) | „9 projektów rocznie" — nigdy nie potwierdzone | → |
-| Liczba studentów | 10 000+ (potwierdzone przez Ciebie; prasa pisała o ~9 tys.) | → |
+| Liczba studentów | 10 000+ — **wymaga pilnego rozstrzygnięcia**, patrz niżej | → |
 | Rok założenia Samorządu | 1987 (podane przez Ciebie) | ✅ |
+
+### Liczba studentów — dlaczego to pilne
+
+Na stronie głównej ta liczba stoi w hero i w sekcji „O nas", czyli w miejscu,
+które administracja uczelni zobaczy jako pierwsze. Tymczasem **dowody publiczne
+mówią co innego niż nasza deklaracja**:
+
+| Źródło | Liczba | Rok |
+|---|---|---|
+| Wikipedia (infobox, bez przypisu) | 8 941 | grudzień 2023 |
+| Wikipedia (sekcja „Pracownicy i studenci") | 12 271 | 2015/2016 |
+| Podane przez Samorząd | 10 000+ | — |
+
+Trend jest wyraźnie **spadkowy** (niż demograficzny), więc „10 000+" jest dziś
+najprawdopodobniej zawyżone, a każda liczba wyższa — tym bardziej. Uczelnia zna
+swoją prawdziwą liczbę studentów; rozbieżność w tę stronę kosztuje wiarygodność.
+
+**Co zrobić:** poproś Dział Nauczania albo Biuro Rektora o aktualną liczbę
+studentów na rok 2026/2027 (najlepiej z datą). Wtedy wpiszemy fakt z podaniem
+stanu na dzień — zgodnie z zasadą „każda liczba ma źródło i datę".
+
+| Co | Odpowiedź |
+|---|---|
+| Aktualna liczba studentów + data, na kiedy | → |
 
 ---
 

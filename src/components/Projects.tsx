@@ -53,24 +53,12 @@ export function Projects() {
             return (
               <motion.article
                 key={project.key}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
                 whileHover={
                   reduce
                     ? undefined
                     : {
                         y: -6,
                         transition: { type: "spring", stiffness: 300, damping: 20 },
-                      }
-                }
-                viewport={{ once: true, amount: 0.15 }}
-                transition={
-                  reduce
-                    ? { duration: 0 }
-                    : {
-                        duration: 0.6,
-                        delay: i * 0.05,
-                        ease: [0.16, 1, 0.3, 1],
                       }
                 }
                 className={`group rounded-xl border border-border-subtle bg-bg-surface p-6 transition-all duration-150 hover:border-border-soft hover:bg-bg-elevated ${colClass}`}

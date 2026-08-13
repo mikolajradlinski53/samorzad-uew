@@ -69,28 +69,16 @@ export function Resources() {
         </ScrollReveal>
 
         <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-          {resources.map((item, i) => {
+          {resources.map((item) => {
             const Glyph = item.icon;
             const OutIcon = item.internal ? ArrowUpRight : ArrowSquareOut;
             return (
               <motion.div
                 key={item.key}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
                 whileHover={
                   reduce
                     ? undefined
                     : { y: -6, transition: { type: "spring", stiffness: 300, damping: 20 } }
-                }
-                viewport={{ once: true, amount: 0.15 }}
-                transition={
-                  reduce
-                    ? { duration: 0 }
-                    : {
-                        duration: 0.5,
-                        delay: Math.min(i, 4) * 0.05,
-                        ease: [0.16, 1, 0.3, 1],
-                      }
                 }
                 className="group relative flex flex-col rounded-xl border border-border-subtle bg-bg-surface p-6 transition-colors duration-150 hover:border-border-soft hover:bg-bg-elevated"
               >

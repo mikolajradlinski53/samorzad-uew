@@ -360,6 +360,32 @@ html {
   .hero-grid { animation: none; }
 }
 
+/* Psychological support: one slow, low-contrast rhythm instead of the global
+   energetic aurora. The page stays visibly UEW, but lowers visual tension. */
+@keyframes psychology-calm-breathe {
+  0%, 100% { transform: translate(-50%, -50%) scale(0.96); opacity: 0.55; }
+  50% { transform: translate(-50%, -50%) scale(1.04); opacity: 1; }
+}
+
+.psychology-calm-ring {
+  animation: psychology-calm-breathe 10s cubic-bezier(0.45, 0, 0.55, 1) infinite;
+  transform-origin: center;
+}
+
+.psychology-calm-ring-delayed {
+  animation-delay: -3.3s;
+}
+
+.psychology-calm-ring-late {
+  animation-delay: -6.6s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .psychology-calm-ring {
+    animation: none;
+  }
+}
+
 /* ── View Transitions: subtle crossfade between routes (native API) ── */
 ::view-transition-old(root),
 ::view-transition-new(root) {

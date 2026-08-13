@@ -13,6 +13,9 @@ type Stat = { label: string; icon: Icon } & (
 );
 
 const stats: Stat[] = [
+  // 10 000+ podane przez Samorząd i NIEPOTWIERDZONE publicznie. Najnowsza
+  // jawna liczba to ok. 8 900 (2023), a trend jest spadkowy (12 271 w 2015/16).
+  // Nie podnosimy tej liczby bez źródła — szczegóły w docs/WRZUC-TUTAJ.md.
   { to: 10000, suffix: "+", label: "statStudents", icon: GraduationCap },
   { to: 6, suffix: "", label: "statCommittees", icon: UsersThree },
   { year: "1987", label: "statFounded", icon: CalendarCheck },
@@ -43,7 +46,7 @@ export function About() {
               {stats.map((stat, i) => {
                 const Glyph = stat.icon;
                 return (
-                  <div key={i}>
+                  <div key={stat.label}>
                     <Glyph
                       size={24}
                       weight="regular"
@@ -86,7 +89,7 @@ export function About() {
               </p>
 
               {/* Pull quote */}
-              <blockquote className="mt-8 border-l-2 border-accent py-1 pl-6">
+              <blockquote className="mt-10 border-t border-border-medium pt-6">
                 <p className="font-display text-[clamp(1.75rem,3vw,2.5rem)] font-semibold leading-[1.2] tracking-[-0.02em] text-ink-primary">
                   &ldquo;{t("quote")}&rdquo;
                 </p>

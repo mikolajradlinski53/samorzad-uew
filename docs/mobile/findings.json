@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-13T12:05:15.893Z",
+  "generatedAt": "2026-08-13T12:19:12.583Z",
   "viewport": {
     "width": 375,
     "height": 812
@@ -1180,8 +1180,15 @@
         "culprits": []
       },
       "tapTargets": {
-        "checked": 41,
+        "checked": 46,
         "tooSmall": [
+          {
+            "tag": "a",
+            "classSnippet": "font-medium text-ink-secondary underline decoration-border-medium underline-offs",
+            "accessibleName": "Sprawdź informacje w Ministerstwie Zdrowia",
+            "width": 327,
+            "height": 20.14
+          },
           {
             "tag": "a",
             "classSnippet": "font-medium text-accent transition-colors hover:text-accent-dim",

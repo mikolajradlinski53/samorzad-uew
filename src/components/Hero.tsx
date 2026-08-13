@@ -96,7 +96,7 @@ export function Hero() {
             {t("eyebrow")}
           </motion.p>
 
-          <h1 className="font-display text-[clamp(3rem,6vw,5.25rem)] font-extrabold leading-[1.0] tracking-[-0.045em] text-ink-primary">
+          <h1 className="font-display text-[clamp(3rem,6vw,5.25rem)] font-extrabold leading-[1.0] tracking-[-0.035em] text-ink-primary">
             {headlineLines.map((line, i) => (
               <span key={line} className="block overflow-hidden pb-[0.05em]">
                 <motion.span
@@ -131,18 +131,18 @@ export function Hero() {
             }
             className="mt-9 flex flex-wrap items-center gap-4"
           >
-            <a
-              href="#o-nas"
-              className="inline-flex h-12 items-center rounded-lg bg-accent px-7 text-base font-medium text-bg-base transition-all hover:bg-accent-dim active:scale-[0.98]"
-            >
-              {t("cta1")}
-            </a>
             <Link
               href="/dla-studenta"
+              className="inline-flex h-12 items-center rounded-lg bg-accent px-7 text-base font-medium text-bg-base transition-all hover:bg-accent-dim active:scale-[0.98]"
+            >
+              {t("cta2")}
+            </Link>
+            <a
+              href="#o-nas"
               className="inline-flex h-12 items-center rounded-lg px-3 text-base font-medium text-ink-secondary transition-colors hover:text-ink-primary"
             >
-              {t("cta2")} &rarr;
-            </Link>
+              {t("cta1")} &rarr;
+            </a>
           </motion.div>
 
           {/* Stat chips */}
