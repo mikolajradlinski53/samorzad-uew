@@ -13,7 +13,9 @@ import {
   type Icon,
 } from "@phosphor-icons/react";
 import { ScrollReveal } from "../ScrollReveal";
+import { Impulse } from "../Impulse";
 import { Tilt } from "../Tilt";
+import { DURATION } from "@/lib/motion";
 
 const top = {
   icon: Crown,
@@ -85,15 +87,12 @@ export function StrukturaContent() {
           </motion.div>
 
           {/* Drawing connector */}
-          <motion.div
-            aria-hidden="true"
-            initial={{ scaleY: 0 }}
-            whileInView={{ scaleY: 1 }}
-            viewport={{ once: true, amount: 0.4 }}
-            transition={
-              reduce ? { duration: 0 } : { duration: 0.5, delay: 0.25, ease: [0.16, 1, 0.3, 1] }
-            }
-            className={`my-2 h-10 w-px origin-top transition-colors duration-300 ${
+          <Impulse
+            orientation="vertical"
+            amount={0.4}
+            delay={0.25}
+            duration={DURATION.reveal}
+            className={`my-2 h-10 w-px transition-colors duration-300 ${
               hovered !== null ? "bg-accent" : "bg-border-medium"
             }`}
           />

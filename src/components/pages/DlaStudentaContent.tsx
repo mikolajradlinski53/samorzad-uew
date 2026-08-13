@@ -62,14 +62,12 @@ export function DlaStudentaContent() {
       <section className="section-padding" aria-labelledby="sytuacje-heading">
         <Spotlight />
         <div className="relative z-10 mx-auto max-w-[1200px]">
-          <ScrollReveal>
-            <h2
-              id="sytuacje-heading"
-              className="font-display text-[clamp(1.75rem,3.4vw,2.75rem)] font-semibold leading-[1.15] tracking-[-0.02em] text-ink-primary"
-            >
-              {t("situationsHeading")}
-            </h2>
-          </ScrollReveal>
+          <h2
+            id="sytuacje-heading"
+            className="font-display text-[clamp(1.75rem,3.4vw,2.75rem)] font-semibold leading-[1.15] tracking-[-0.02em] text-ink-primary"
+          >
+            {t("situationsHeading")}
+          </h2>
 
           <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {situations.map((situation, i) => {

@@ -34,14 +34,12 @@ export function RekrutacjaContent() {
       <div className="mx-auto max-w-[1200px]">
         {hasOpen ? (
           <>
-            <ScrollReveal>
-              <h2
-                id="rekrutacja-heading"
-                className="font-display text-[clamp(1.75rem,3.4vw,2.75rem)] font-semibold leading-[1.15] tracking-[-0.02em] text-ink-primary"
-              >
-                {t("openHeading")}
-              </h2>
-            </ScrollReveal>
+            <h2
+              id="rekrutacja-heading"
+              className="font-display text-[clamp(1.75rem,3.4vw,2.75rem)] font-semibold leading-[1.15] tracking-[-0.02em] text-ink-primary"
+            >
+              {t("openHeading")}
+            </h2>
 
             <div className="mt-10 grid gap-5 md:grid-cols-2">
               {recruitments.map((r, i) => (

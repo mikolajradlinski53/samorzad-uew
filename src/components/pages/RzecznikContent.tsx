@@ -13,9 +13,11 @@ import {
   type Icon,
 } from "@phosphor-icons/react";
 import { ScrollReveal } from "../ScrollReveal";
+import { Impulse } from "../Impulse";
 import { Tilt } from "../Tilt";
 import { ContactForm, type ContactFormField } from "../ContactForm";
 import { formspree } from "@/lib/forms";
+import { DURATION, EASE, STAGGER } from "@/lib/motion";
 
 const CONTACT_EMAIL = "rps@samorzad.ue.wroc.pl";
 
@@ -148,14 +150,12 @@ export function RzecznikContent() {
       {/* Duties */}
       <section className="section-padding pt-0" aria-labelledby="rzecznik-duties-heading">
         <div className="mx-auto max-w-[1200px]">
-          <ScrollReveal>
-            <h2
-              id="rzecznik-duties-heading"
-              className="font-display text-[clamp(1.5rem,2.8vw,2.25rem)] font-semibold leading-[1.2] tracking-[-0.02em] text-ink-primary"
-            >
-              {t("dutiesHeading")}
-            </h2>
-          </ScrollReveal>
+          <h2
+            id="rzecznik-duties-heading"
+            className="font-display text-[clamp(1.5rem,2.8vw,2.25rem)] font-semibold leading-[1.2] tracking-[-0.02em] text-ink-primary"
+          >
+            {t("dutiesHeading")}
+          </h2>
           <div className="mt-8 grid gap-5 sm:grid-cols-2">
             {duties.map((duty, i) => {
               const Glyph = duty.icon;
@@ -188,24 +188,20 @@ export function RzecznikContent() {
       {/* Stepper */}
       <section className="section-padding pt-0" aria-labelledby="rzecznik-steps-heading">
         <div className="mx-auto max-w-[760px]">
-          <ScrollReveal>
-            <h2
-              id="rzecznik-steps-heading"
-              className="font-display text-[clamp(1.5rem,2.8vw,2.25rem)] font-semibold leading-[1.2] tracking-[-0.02em] text-ink-primary"
-            >
-              {t("stepsHeading")}
-            </h2>
-          </ScrollReveal>
+          <h2
+            id="rzecznik-steps-heading"
+            className="font-display text-[clamp(1.5rem,2.8vw,2.25rem)] font-semibold leading-[1.2] tracking-[-0.02em] text-ink-primary"
+          >
+            {t("stepsHeading")}
+          </h2>
 
           <div className="relative mt-10">
             {/* Filling progress line */}
-            <motion.span
-              aria-hidden="true"
-              initial={{ scaleY: 0 }}
-              whileInView={{ scaleY: 1 }}
-              viewport={{ once: true, amount: 0.2 }}
-              transition={reduce ? { duration: 0 } : { duration: 1, ease: [0.16, 1, 0.3, 1] }}
-              className="absolute left-[19px] top-3 bottom-3 w-px origin-top bg-accent/40"
+            <Impulse
+              orientation="vertical"
+              amount={0.2}
+              duration={DURATION.trace}
+              className="absolute left-[19px] top-3 bottom-3 w-px bg-accent/40"
             />
             <ol className="flex flex-col gap-8">
               {stepKeys.map((key, i) => (
@@ -217,7 +213,7 @@ export function RzecznikContent() {
                   transition={
                     reduce
                       ? { duration: 0 }
-                      : { duration: 0.45, delay: i * 0.12, ease: [0.16, 1, 0.3, 1] }
+                      : { duration: DURATION.reveal, delay: Math.min(i, 4) * STAGGER, ease: EASE }
                   }
                   className="relative flex gap-5"
                 >

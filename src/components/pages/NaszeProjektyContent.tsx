@@ -3,7 +3,6 @@
 import Image from "next/image";
 import { motion, useReducedMotion } from "motion/react";
 import { useTranslations } from "next-intl";
-import { ScrollReveal } from "../ScrollReveal";
 import { Tilt } from "../Tilt";
 import { projectPhoto } from "@/lib/photos";
 
@@ -32,14 +31,12 @@ export function NaszeProjektyContent() {
   return (
     <section className="section-padding" aria-labelledby="projekty-lista-heading">
       <div className="mx-auto max-w-[1200px]">
-        <ScrollReveal>
-          <h2
-            id="projekty-lista-heading"
-            className="font-display text-[clamp(1.75rem,3.4vw,2.75rem)] font-semibold leading-[1.15] tracking-[-0.02em] text-ink-primary"
-          >
-            {t("heading")}
-          </h2>
-        </ScrollReveal>
+        <h2
+          id="projekty-lista-heading"
+          className="font-display text-[clamp(1.75rem,3.4vw,2.75rem)] font-semibold leading-[1.15] tracking-[-0.02em] text-ink-primary"
+        >
+          {t("heading")}
+        </h2>
 
         <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {projects.map((project, i) => {

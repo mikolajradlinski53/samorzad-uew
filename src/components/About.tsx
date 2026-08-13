@@ -1,10 +1,11 @@
 "use client";
 
-import { motion, useReducedMotion } from "motion/react";
 import { useTranslations } from "next-intl";
 import { GraduationCap, UsersThree, CalendarCheck, type Icon } from "@phosphor-icons/react";
 import { ScrollReveal } from "./ScrollReveal";
+import { Impulse } from "./Impulse";
 import { CountUp } from "./CountUp";
+import { STAGGER } from "@/lib/motion";
 
 type Stat = { label: string; icon: Icon } & (
   | { to: number; suffix: string }
@@ -18,7 +19,6 @@ const stats: Stat[] = [
 ];
 
 export function About() {
-  const reduce = useReducedMotion();
   const t = useTranslations("about");
 
   return (
@@ -62,21 +62,9 @@ export function About() {
                       />
                     )}
                     {/* Signature draw-on underline */}
-                    <motion.span
-                      aria-hidden="true"
-                      initial={{ scaleX: 0 }}
-                      whileInView={{ scaleX: 1 }}
-                      viewport={{ once: true, amount: 0.6 }}
-                      transition={
-                        reduce
-                          ? { duration: 0 }
-                          : {
-                              duration: 0.7,
-                              delay: 0.15 + Math.min(i, 4) * 0.12,
-                              ease: [0.16, 1, 0.3, 1],
-                            }
-                      }
-                      className="mt-3 block h-[3px] w-14 origin-left rounded-full bg-accent"
+                    <Impulse
+                      delay={0.15 + Math.min(i, 4) * STAGGER}
+                      className="mt-3 h-[3px] w-14 rounded-full bg-accent"
                     />
                     <p className="mt-3 text-[0.8125rem] font-medium uppercase tracking-[0.08em] text-ink-secondary">
                       {t(stat.label)}

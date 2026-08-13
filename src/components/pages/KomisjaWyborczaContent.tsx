@@ -55,11 +55,9 @@ export function KomisjaWyborczaContent() {
         </ul>
 
         {/* Skład */}
-        <ScrollReveal>
-          <h3 className="mt-14 font-display text-[clamp(1.5rem,2.6vw,2rem)] font-semibold tracking-[-0.02em] text-ink-primary">
-            {t("skladHeading")}
-          </h3>
-        </ScrollReveal>
+        <h3 className="mt-14 font-display text-[clamp(1.5rem,2.6vw,2rem)] font-semibold tracking-[-0.02em] text-ink-primary">
+          {t("skladHeading")}
+        </h3>
         {czlonkowie.length > 0 ? (
           <div className="mt-6 grid gap-5 sm:grid-cols-2">
             {czlonkowie.map((c, i) => (

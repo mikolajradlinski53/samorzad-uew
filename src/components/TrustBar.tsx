@@ -3,6 +3,8 @@
 import { motion, useReducedMotion } from "motion/react";
 import { useTranslations } from "next-intl";
 import { SealCheck, Clock, GraduationCap, Scales, type Icon } from "@phosphor-icons/react";
+import { Impulse } from "./Impulse";
+import { DURATION, EASE, STAGGER } from "@/lib/motion";
 
 interface Marker {
   icon: Icon;
@@ -33,13 +35,9 @@ export function TrustBar() {
       className="relative border-y border-border-subtle bg-bg-surface/60"
     >
       {/* Draw-on accent hairline — signature, restrained */}
-      <motion.span
-        aria-hidden="true"
-        initial={{ scaleX: 0 }}
-        whileInView={{ scaleX: 1 }}
-        viewport={{ once: true, amount: 0.6 }}
-        transition={reduce ? { duration: 0 } : { duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
-        className="absolute inset-x-0 top-0 h-px origin-left bg-accent/50"
+      <Impulse
+        duration={DURATION.trace}
+        className="absolute inset-x-0 top-0 h-px bg-accent/50"
       />
       <ul className="mx-auto flex max-w-[1200px] flex-wrap items-center justify-center gap-x-10 gap-y-4 px-6 py-5 sm:justify-between">
         {markers.map((m, i) => {
@@ -53,7 +51,7 @@ export function TrustBar() {
               transition={
                 reduce
                   ? { duration: 0 }
-                  : { duration: 0.5, delay: Math.min(i, 4) * 0.08, ease: [0.16, 1, 0.3, 1] }
+                  : { duration: DURATION.reveal, delay: Math.min(i, 4) * STAGGER, ease: EASE }
               }
               className="flex items-center gap-2.5 text-[0.8125rem] font-medium text-ink-secondary"
             >
