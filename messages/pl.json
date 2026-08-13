@@ -155,6 +155,7 @@
   },
   "pages": {
     "dlaStudenta": "Strefa studenta",
+    "asystent": "Zapytaj Samorząd (AI)",
     "prawaStudenta": "Prawa studenta",
     "stypendia": "Stypendia",
     "prawoDlaStudenta": "Prawo dla studenta",
@@ -754,9 +755,43 @@
     "heroEyebrow": "Strefa studenta",
     "heroTitle": "Stypendia i wsparcie",
     "heroLead": "Tu znajdziesz kluczowe informacje o stypendiach i świadczeniach oraz wszystkie niezbędne dokumenty — w jednym miejscu.",
+    "heroSystemLabel": "Centrum decyzji o wsparciu",
+    "heroCta": "Znajdź właściwą ścieżkę",
+    "heroPathLabel": "Jak działa ta strona",
+    "heroPath": {
+      "situation": {
+        "title": "Zacznij od swojej sytuacji",
+        "desc": "Nie musisz znać urzędowej nazwy świadczenia."
+      },
+      "support": {
+        "title": "Rozpoznaj formę wsparcia",
+        "desc": "Połączymy potrzebę z najbardziej pasującą ścieżką."
+      },
+      "application": {
+        "title": "Przejdź do wniosku",
+        "desc": "Sprawdź warunki, dokumenty i dalsze kroki."
+      }
+    },
+    "heroPathNote": "To nawigacja po możliwościach, nie decyzja o przyznaniu świadczenia.",
     "crumbStudent": "Strefa studenta",
     "intro": "Podczas studiów możesz skorzystać z różnych form wsparcia finansowego oferowanych przez uczelnię — zarówno świadczeń dla osób w trudniejszej sytuacji materialnej, jak i stypendiów za bardzo dobre wyniki w nauce oraz osiągnięcia naukowe, sportowe i artystyczne.",
     "typesHeading": "Rodzaje wsparcia",
+    "navigator": {
+      "heading": "Nie musisz znać nazwy świadczenia.",
+      "lead": "Wybierz zdanie najbliższe Twojej sytuacji. Pokażemy, od której części strony najlepiej zacząć.",
+      "disclaimer": "Nawigator porządkuje informacje, ale nie ocenia formalnych uprawnień ani nie zastępuje regulaminu świadczeń.",
+      "ariaLabel": "Wybierz sytuację, w której się znajdujesz",
+      "options": {
+        "socjalne": "Moja sytuacja materialna jest trudna",
+        "rektora": "Mam wysoką średnią lub szczególne osiągnięcia",
+        "niepelnosprawni": "Mam orzeczenie o niepełnosprawności",
+        "zapomoga": "Spotkała mnie nagła sytuacja losowa"
+      },
+      "matchLabel": "Najbardziej pasująca ścieżka",
+      "cta": "Przejdź do szczegółów",
+      "emptyHeading": "Wybierz sytuację po lewej.",
+      "emptyBody": "Zamiast przeglądać wszystkie regulaminy, zacznij od potrzeby, z którą przychodzisz. Wynik pojawi się w tym miejscu."
+    },
     "kinds": {
       "socjalne": { "title": "Socjalne", "desc": "Dla studentów znajdujących się w trudniejszej sytuacji materialnej." },
       "rektora": { "title": "Rektora", "desc": "Za bardzo dobre wyniki w nauce oraz osiągnięcia naukowe, sportowe lub artystyczne." },
@@ -764,6 +799,7 @@
       "zapomoga": { "title": "Zapomoga", "desc": "Jednorazowa pomoc w nagłej, przejściowo trudnej sytuacji życiowej." }
     },
     "documentsHeading": "Dokumenty i załączniki",
+    "documentsCount": "{count} pozycji",
     "documents": [
       "Wykaz dokumentacji przy ubieganiu się o stypendium socjalne",
       "Zasady obliczania dochodu w rodzinie studenta",
@@ -921,6 +957,7 @@
   },
   "navMenu": {
     "strefa": "Strefa studenta",
+    "asystent": "Zapytaj Samorząd (AI)",
     "prawa": "Prawa studenta",
     "stypendia": "Stypendia i wsparcie",
     "prawo": "Prawo dla studenta",
@@ -966,14 +1003,82 @@
   },
   "transparentnosc": {
     "metaTitle": "Transparentność",
-    "metaDesc": "Pełna jawność działań Samorządu Studentów UEW — regulacje, zarządzenia, sprawozdania, finansowanie i dokumenty w jednym miejscu.",
+    "metaDesc": "Jawność działań Samorządu Studentów UEW — dokumenty, decyzje i przygotowany standard śledzenia realnego budżetu od planu do efektu.",
     "ogLabel": "Jawność",
     "heroEyebrow": "Jawność",
     "heroTitle": "Transparentność",
-    "heroLead": "Działamy w pełni jawnie. W jednym miejscu zebraliśmy wszystkie dokumenty organizacyjne Samorządu — regulacje, zarządzenia, sprawozdania i finanse.",
+    "heroLead": "Jawność nie powinna kończyć się na folderze z PDF-ami. Budujemy publiczny ślad, który prowadzi od decyzji i kwoty aż do dokumentu oraz rzeczywistego efektu.",
+    "heroSystemLabel": "Publiczny rejestr / UEW",
+    "heroCta": "Zobacz Żywy Budżet",
+    "heroRegistryCta": "Przejdź do dokumentów",
+    "heroConsole": {
+      "kicker": "Ścieżka dowodowa",
+      "title": "Od decyzji do widocznego efektu",
+      "status": "Dane w przygotowaniu",
+      "trail": {
+        "decision": { "title": "Decyzja", "desc": "Kto, kiedy i na jakiej podstawie" },
+        "record": { "title": "Zapis", "desc": "Kwota, kategoria i aktualny stan" },
+        "proof": { "title": "Dowód", "desc": "Dokument źródłowy do sprawdzenia" },
+        "effect": { "title": "Efekt", "desc": "Co realnie powstało dzięki środkom" }
+      },
+      "note": "Każdy element ma kończyć się źródłem, datą aktualizacji i rezultatem — bez ślepych zaułków."
+    },
     "intro": "Wierzymy, że zaufanie buduje się jawnością. Poniżej znajdziesz komplet dokumentów, które porządkują naszą działalność i pokazują, jak podejmujemy decyzje oraz wydajemy środki.",
     "open": "Otwórz",
     "download": "Pobierz",
+    "livingBudget": {
+      "eyebrow": "Prototyp jawności finansowej",
+      "heading": "Żywy Budżet, bez przesuwania pieniędzy",
+      "lead": "To nie jest symulator ani głosowanie nad fikcyjnymi wariantami. Użytkownik śledzi realny zapis finansowy: od zatwierdzonego planu, przez zobowiązanie i wydatek, aż po rozliczenie, dowód oraz namacalny rezultat.",
+      "dataState": {
+        "title": "Bez testowych kwot udających prawdziwe dane",
+        "body": "W projekcie nie ma jeszcze opublikowanego zestawu danych finansowych. Zamiast go wymyślać, przygotowaliśmy strukturę, która przyjmie wyłącznie zweryfikowane rekordy i dokumenty."
+      },
+      "viewer": {
+        "kicker": "Śledzenie rekordu / wersja 0",
+        "title": "Podążaj za złotówką",
+        "status": "Oczekuje na dane",
+        "instruction": "Wybierz etap, aby zobaczyć wymagany ślad dowodowy",
+        "rule": "Kliknięcie odsłania informację i źródło. Nie zmienia kwoty, kategorii ani stanu budżetu.",
+        "recordLabel": "Etap 0{number} / 04"
+      },
+      "stages": {
+        "planned": {
+          "label": "Zaplanowane",
+          "title": "Decyzja nadaje środkom cel",
+          "desc": "Rekord zaczyna się od zatwierdzonego planu. Widać podstawę decyzji, kategorię i kwotę — zanim pojawi się jakiekolwiek zobowiązanie.",
+          "fields": ["Podstawa decyzji", "Kategoria budżetowa", "Kwota planowana", "Data zatwierdzenia"]
+        },
+        "contracted": {
+          "label": "Zakontraktowane",
+          "title": "Plan staje się zobowiązaniem",
+          "desc": "Ten etap pokazuje, jaka umowa lub zamówienie rezerwuje środki, z kim je zawarto i do kiedy ma zostać wykonane.",
+          "fields": ["Umowa lub zamówienie", "Strona zobowiązania", "Kwota zakontraktowana", "Termin realizacji"]
+        },
+        "spent": {
+          "label": "Wydane",
+          "title": "Pieniądze rzeczywiście opuszczają budżet",
+          "desc": "Widoczna jest konkretna transakcja, jej odbiorca, data oraz dokument księgowy — bez ukrywania wydatku pod ogólną nazwą projektu.",
+          "fields": ["Data transakcji", "Odbiorca środków", "Kwota zapłacona", "Dokument księgowy"]
+        },
+        "settled": {
+          "label": "Rozliczone",
+          "title": "Wydatek kończy się dowodem i efektem",
+          "desc": "Rozliczenie łączy dokument potwierdzający z rezultatem: wydarzeniem, wyposażeniem, usługą lub inną zmianą, którą student może zobaczyć.",
+          "fields": ["Stan rozliczenia", "Dokument potwierdzający", "Rezultat projektu", "Data publikacji"]
+        }
+      },
+      "disclaimer": "To demonstracja sposobu prezentacji, a nie publikacja danych finansowych Samorządu. Kwoty pojawią się dopiero po przekazaniu i weryfikacji oficjalnego zestawu źródłowego."
+    },
+    "registry": {
+      "eyebrow": "Rejestr jawności",
+      "heading": "Wiadomo, co jest dostępne — i czego jeszcze brakuje",
+      "available": "Dostępne sekcje",
+      "awaiting": "Oczekujące pliki",
+      "published": "Dostępne",
+      "external": "Link otwiera się w nowej karcie.",
+      "note": "Status „Wkrótce” jest celowy: nie zastępujemy brakujących dokumentów pustym przyciskiem ani pozornym pobieraniem. Po dodaniu pliku rejestr automatycznie pokaże go jako dostępny."
+    },
     "categories": {
       "regulacje": { "title": "Regulacje wewnętrzne", "desc": "Regulaminy organów Samorządu i zasady jego działania." },
       "zarzadzenia": { "title": "Zarządzenia Przewodniczącej", "desc": "Akty wykonawcze wydawane w trakcie kadencji." },
@@ -983,6 +1088,34 @@
       "finansowanie": { "title": "Regulamin finansowania działalności studenckiej", "desc": "Zasady finansowania inicjatyw i organizacji studenckich." },
       "ksiega": { "title": "Księga identyfikacji wizualnej", "desc": "Logo, kolory i zasady używania marki Samorządu." }
     }
+  },
+  "asystent": {
+    "metaTitle": "Zapytaj Samorząd — asystent AI",
+    "metaDesc": "Zadaj pytanie o stypendia, prawa studenta i sprawy Samorządu. Asystent odpowiada na podstawie treści tego serwisu i podaje źródła.",
+    "ogLabel": "Asystent AI",
+    "heroEyebrow": "Asystent AI",
+    "heroTitle": "Zapytaj Samorząd",
+    "heroLead": "Nie musisz wiedzieć, w której zakładce szukać. Opisz sprawę własnymi słowami, a asystent wskaże, co na ten temat mówi nasz serwis — z linkiem do źródła.",
+    "heading": "O co chcesz zapytać?",
+    "intro": "Asystent czyta wyłącznie treść tego serwisu i przy każdej odpowiedzi podaje fragment, na którym ją oparł. Nie ma dostępu do Twoich danych w USOS ani do spraw indywidualnych.",
+    "inputLabel": "Twoje pytanie do Samorządu",
+    "placeholder": "np. Do kiedy składam wniosek o stypendium socjalne?",
+    "askButton": "Zapytaj",
+    "asking": "Pytam…",
+    "thinking": "Szukam w treści serwisu…",
+    "examplesLabel": "Na przykład",
+    "examples": {
+      "stypendium": "Jakie stypendia mogę dostać?",
+      "odwolanie": "Jak odwołać się od oceny?",
+      "rzecznik": "Czym zajmuje się Rzecznik Praw Studenta?",
+      "kolo": "Jak założyć koło naukowe?"
+    },
+    "sourcesHeading": "Źródła odpowiedzi",
+    "sourceFallback": "Fragment serwisu",
+    "disclaimer": "Asystent odpowiada na podstawie treści serwisu i może się mylić. Wiążące są regulaminy, zarządzenia i decyzje uczelni — w sprawach formalnych potwierdź informację u nas albo w dziekanacie.",
+    "notConfigured": "Asystent nie jest jeszcze uruchomiony — czeka na klucz dostępowy. Do tego czasu napisz do nas przez <link>stronę kontaktową</link>, odpowiemy osobiście.",
+    "refusal": "Na to pytanie asystent nie odpowie. Jeśli sprawa jest pilna albo osobista, napisz do nas bezpośrednio.",
+    "error": "Coś poszło nie tak po naszej stronie. Spróbuj ponownie za chwilę albo poszukaj w serwisie przez wyszukiwarkę."
   },
   "kalendarz": {
     "metaTitle": "Kalendarz wydarzeń uczelnianych",

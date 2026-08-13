@@ -28,6 +28,7 @@ const linkGroups: { titleKey: string; links: { labelKey: string; href: string }[
     titleKey: "student",
     links: [
       { labelKey: "dlaStudenta", href: "/dla-studenta" },
+      { labelKey: "asystent", href: "/asystent" },
       { labelKey: "prawaStudenta", href: "/prawa-studenta" },
       { labelKey: "stypendia", href: "/stypendia" },
       { labelKey: "prawoDlaStudenta", href: "/prawo-dla-studenta" },

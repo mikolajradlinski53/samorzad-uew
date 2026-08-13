@@ -23,6 +23,7 @@ const G = {
 const sources: SearchSource[] = [
   // Strefa studenta
   { href: "/dla-studenta", group: G.student, label: { pl: "Strefa studenta", en: "Student zone" }, keywords: { pl: "dla studenta hub tematy", en: "student zone hub topics" } },
+  { href: "/asystent", group: G.student, label: { pl: "Zapytaj Samorząd (asystent AI)", en: "Ask the Student Government (AI assistant)" }, keywords: { pl: "asystent ai bot pytanie zapytaj czat pomoc sztuczna inteligencja", en: "assistant ai bot question ask chat help artificial intelligence" } },
   { href: "/prawa-studenta", group: G.student, label: { pl: "Prawa studenta", en: "Student rights" }, keywords: { pl: "ustawa 2.0 prawo egzamin ios", en: "act rights exam ios board" } },
   { href: "/stypendia", group: G.student, label: { pl: "Stypendia i wsparcie", en: "Scholarships & support" }, keywords: { pl: "pieniądze wsparcie świadczenia rodzaje rektora socjalne zapomoga niepełnosprawność wyniki dochód świadczenia", en: "money support benefits types merit social hardship disability results income benefits" } },
   { href: "/stypendia#kalkulator", group: G.student, label: { pl: "Kalkulator średniej", en: "Grade average calculator" }, keywords: { pl: "średnia ważona ects oceny punkty stypendium policz", en: "weighted average ects grades points scholarship compute" } },

@@ -413,8 +413,8 @@ html {
 }
 
 @keyframes psychology-row-arrive {
-  from { opacity: 0.64; transform: translateY(12px); }
-  to { opacity: 1; transform: translateY(0); }
+  from { transform: translateY(12px); }
+  to { transform: translateY(0); }
 }
 
 .psychology-enter {
@@ -525,7 +525,235 @@ html {
   }
 }
 
+/* Scholarships: motion behaves like a document route being completed. The
+   visual language is precise and sequential, distinct from psychological
+   support's breathing rhythm while retaining the same UEW blue. */
+@keyframes scholarship-hero-settle {
+  from { opacity: 0.68; transform: translateY(12px); filter: blur(3px); }
+  to { opacity: 1; transform: translateY(0); filter: blur(0); }
+}
+
+@keyframes scholarship-route-settle {
+  from { opacity: 0.72; transform: translateX(16px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes scholarship-route-draw {
+  from { transform: scaleY(0); }
+  to { transform: scaleY(1); }
+}
+
+@keyframes scholarship-node-confirm {
+  from { border-color: var(--border-medium); color: var(--ink-tertiary); transform: scale(0.92); }
+  to { border-color: var(--accent); color: var(--accent); transform: scale(1); }
+}
+
+@keyframes scholarship-row-arrive {
+  from { transform: translateY(10px); }
+  to { transform: translateY(0); }
+}
+
+.scholarship-ledger-grid {
+  background-image:
+    linear-gradient(to right, var(--border-subtle) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--border-subtle) 1px, transparent 1px);
+  background-size: 72px 72px;
+  mask-image: linear-gradient(to right, transparent 0%, black 42%, black 100%);
+  opacity: 0.76;
+}
+
+.scholarship-hero-enter {
+  animation: scholarship-hero-settle 620ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.scholarship-hero-enter-1 { animation-delay: 40ms; }
+.scholarship-hero-enter-2 { animation-delay: 100ms; }
+.scholarship-hero-enter-3 { animation-delay: 170ms; }
+.scholarship-hero-enter-4 { animation-delay: 260ms; }
+.scholarship-hero-enter-5 { animation-delay: 340ms; }
+
+.scholarship-route-enter {
+  animation: scholarship-route-settle 680ms cubic-bezier(0.16, 1, 0.3, 1) 220ms both;
+}
+
+.scholarship-route-line {
+  animation: scholarship-route-draw 900ms cubic-bezier(0.16, 1, 0.3, 1) 420ms both;
+}
+
+.scholarship-route-node {
+  animation: scholarship-node-confirm 320ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.scholarship-route-node-1 { animation-delay: 500ms; }
+.scholarship-route-node-2 { animation-delay: 690ms; }
+.scholarship-route-node-3 { animation-delay: 880ms; }
+
+.scholarship-choice[aria-pressed="true"] {
+  box-shadow: inset 2px 0 0 var(--accent);
+}
+
+@supports (animation-timeline: view()) {
+  .scholarship-document-row {
+    animation: scholarship-row-arrive linear both;
+    animation-timeline: view(block);
+    animation-range: entry 0% entry 38%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .scholarship-hero-enter,
+  .scholarship-route-enter,
+  .scholarship-route-line,
+  .scholarship-route-node,
+  .scholarship-document-row {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+    filter: none !important;
+  }
+
+  .scholarship-motion-control,
+  .scholarship-motion-control *,
+  .scholarship-choice,
+  .scholarship-choice * {
+    transition-duration: 0.01ms !important;
+  }
+
+  .scholarship-motion-control:hover,
+  .scholarship-motion-control:active,
+  .scholarship-motion-control:hover *,
+  .scholarship-choice:hover * {
+    transform: none !important;
+  }
+}
+
 /* ── View Transitions: subtle crossfade between routes (native API) ── */
+/* Transparency: a precise audit-room rhythm. Lines are drawn in one direction,
+   states confirm without bounce, and the scanner makes the evidence trail feel
+   alive without turning financial data into decoration. */
+@keyframes transparency-hero-settle {
+  from { transform: translateY(14px); filter: blur(3px); }
+  to { transform: translateY(0); filter: blur(0); }
+}
+
+@keyframes transparency-console-settle {
+  from { transform: translateX(18px); filter: blur(3px); }
+  to { transform: translateX(0); filter: blur(0); }
+}
+
+@keyframes transparency-line-draw {
+  from { transform: scaleY(0); }
+  to { transform: scaleY(1); }
+}
+
+@keyframes transparency-node-confirm {
+  from { border-color: rgba(255, 255, 255, 0.25); color: rgba(255, 255, 255, 0.55); transform: scale(0.92); }
+  to { border-color: rgba(140, 160, 255, 0.85); color: #cbd3ff; transform: scale(1); }
+}
+
+@keyframes transparency-scan {
+  0%, 100% { top: 72px; opacity: 0; }
+  12%, 76% { opacity: 0.72; }
+  88% { top: calc(100% - 70px); opacity: 0; }
+}
+
+@keyframes transparency-row-arrive {
+  from { transform: translateX(-10px); }
+  to { transform: translateX(0); }
+}
+
+.transparency-grid {
+  background-image:
+    linear-gradient(to right, rgba(255, 255, 255, 0.055) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+  background-size: 64px 64px;
+  mask-image: linear-gradient(to right, transparent 0%, black 34%, black 100%);
+}
+
+.transparency-breadcrumbs ol {
+  color: rgba(255, 255, 255, 0.68);
+}
+
+.transparency-breadcrumbs [aria-current="page"] {
+  color: #fff;
+}
+
+.transparency-breadcrumbs a:hover {
+  color: #fff;
+}
+
+.transparency-enter {
+  animation: transparency-hero-settle 620ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.transparency-enter-1 { animation-delay: 40ms; }
+.transparency-enter-2 { animation-delay: 100ms; }
+.transparency-enter-3 { animation-delay: 170ms; }
+.transparency-enter-4 { animation-delay: 260ms; }
+.transparency-enter-5 { animation-delay: 340ms; }
+
+.transparency-console-enter {
+  animation: transparency-console-settle 720ms cubic-bezier(0.16, 1, 0.3, 1) 220ms both;
+}
+
+.transparency-console-line {
+  animation: transparency-line-draw 900ms cubic-bezier(0.16, 1, 0.3, 1) 480ms both;
+}
+
+.transparency-console-node {
+  animation: transparency-node-confirm 300ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.transparency-console-node-1 { animation-delay: 520ms; }
+.transparency-console-node-2 { animation-delay: 700ms; }
+.transparency-console-node-3 { animation-delay: 880ms; }
+.transparency-console-node-4 { animation-delay: 1060ms; }
+
+.transparency-scan-line {
+  animation: transparency-scan 5.2s cubic-bezier(0.45, 0, 0.55, 1) 1.4s infinite;
+}
+
+.transparency-stage[aria-pressed="true"] {
+  background-color: var(--accent-glow);
+  box-shadow: inset 0 -2px 0 var(--accent);
+}
+
+@supports (animation-timeline: view()) {
+  .transparency-register-row {
+    animation: transparency-row-arrive linear both;
+    animation-timeline: view(block);
+    animation-range: entry 0% entry 38%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .transparency-enter,
+  .transparency-console-enter,
+  .transparency-console-line,
+  .transparency-console-node,
+  .transparency-scan-line,
+  .transparency-register-row {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+    filter: none !important;
+  }
+
+  .transparency-motion-control,
+  .transparency-motion-control *,
+  .transparency-stage,
+  .transparency-stage * {
+    transition-duration: 0.01ms !important;
+  }
+
+  .transparency-motion-control:hover,
+  .transparency-motion-control:active,
+  .transparency-motion-control:hover *,
+  .transparency-stage:hover * {
+    transform: none !important;
+  }
+}
+
 ::view-transition-old(root),
 ::view-transition-new(root) {
   animation-duration: 280ms;

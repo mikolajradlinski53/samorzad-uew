@@ -1,15 +1,15 @@
 {
-  "generatedAt": "2026-08-13T12:36:44.896Z",
+  "generatedAt": "2026-08-13T13:12:15.690Z",
   "viewport": {
     "width": 375,
     "height": 812
   },
   "minTapTargetPx": 24,
   "minFontSizePx": 12,
-  "routesMeasured": 31,
+  "routesMeasured": 32,
   "routesWithOverflow": 0,
-  "routesWithSmallTapTargets": 31,
-  "routesWithSmallText": 31,
+  "routesWithSmallTapTargets": 32,
+  "routesWithSmallText": 32,
   "routesWithErrors": 0,
   "routes": [
     {
@@ -23,7 +23,7 @@
         "culprits": []
       },
       "tapTargets": {
-        "checked": 53,
+        "checked": 54,
         "tooSmall": [
           {
             "tag": "a",
@@ -164,6 +164,73 @@
       }
     },
     {
+      "route": "/asystent",
+      "path": "/pl/asystent",
+      "ok": true,
+      "horizontalOverflow": {
+        "scrollWidth": 375,
+        "innerWidth": 375,
+        "overflows": false,
+        "culprits": []
+      },
+      "tapTargets": {
+        "checked": 42,
+        "tooSmall": [
+          {
+            "tag": "a",
+            "classSnippet": "font-medium text-accent transition-colors hover:text-accent-dim",
+            "accessibleName": "Polityka prywatności",
+            "width": 120.58,
+            "height": 14
+          }
+        ]
+      },
+      "textLegibility": {
+        "tooSmall": [
+          {
+            "tag": "button",
+            "classSnippet": "flex min-h-11 items-center justify-center px-3 transition-colors bg-accent text-",
+            "fontSize": 11,
+            "textSnippet": "pl"
+          },
+          {
+            "tag": "button",
+            "classSnippet": "flex min-h-11 items-center justify-center px-3 transition-colors text-ink-second",
+            "fontSize": 11,
+            "textSnippet": "en"
+          }
+        ]
+      },
+      "contentWidth": {
+        "offenders": [
+          {
+            "tag": "div",
+            "classSnippet": "flex items-center gap-3",
+            "width": 244.41,
+            "rectRight": 428.41
+          },
+          {
+            "tag": "button",
+            "classSnippet": "flex h-11 w-11 items-center justify-center rounded-lg text-ink-secondary md:hidd",
+            "width": 44,
+            "rectRight": 428.41
+          },
+          {
+            "tag": "svg",
+            "classSnippet": "",
+            "width": 24,
+            "rectRight": 418.41
+          },
+          {
+            "tag": "path",
+            "classSnippet": "",
+            "width": 18,
+            "rectRight": 415.41
+          }
+        ]
+      }
+    },
+    {
       "route": "/deklaracja-dostepnosci",
       "path": "/pl/deklaracja-dostepnosci",
       "ok": true,
@@ -174,7 +241,7 @@
         "culprits": []
       },
       "tapTargets": {
-        "checked": 35,
+        "checked": 36,
         "tooSmall": [
           {
             "tag": "a",
@@ -241,7 +308,7 @@
         "culprits": []
       },
       "tapTargets": {
-        "checked": 51,
+        "checked": 52,
         "tooSmall": [
           {
             "tag": "a",
@@ -374,7 +441,7 @@
         "culprits": []
       },
       "tapTargets": {
-        "checked": 36,
+        "checked": 37,
         "tooSmall": [
           {
             "tag": "a",
@@ -441,7 +508,7 @@
         "culprits": []
       },
       "tapTargets": {
-        "checked": 36,
+        "checked": 37,
         "tooSmall": [
           {
             "tag": "a",
@@ -508,7 +575,7 @@
         "culprits": []
       },
       "tapTargets": {
-        "checked": 45,
+        "checked": 46,
         "tooSmall": [
           {
             "tag": "a",
@@ -589,7 +656,7 @@
         "culprits": []
       },
       "tapTargets": {
-        "checked": 36,
+        "checked": 37,
         "tooSmall": [
           {
             "tag": "a",
@@ -662,7 +729,7 @@
         "culprits": []
       },
       "tapTargets": {
-        "checked": 47,
+        "checked": 48,
         "tooSmall": [
           {
             "tag": "a",
@@ -736,7 +803,7 @@
         "culprits": []
       },
       "tapTargets": {
-        "checked": 37,
+        "checked": 38,
         "tooSmall": [
           {
             "tag": "a",
@@ -803,7 +870,7 @@
         "culprits": []
       },
       "tapTargets": {
-        "checked": 36,
+        "checked": 37,
         "tooSmall": [
           {
             "tag": "a",
@@ -870,7 +937,7 @@
         "culprits": []
       },
       "tapTargets": {
-        "checked": 36,
+        "checked": 37,
         "tooSmall": [
           {
             "tag": "a",
@@ -1033,7 +1100,7 @@
         "culprits": []
       },
       "tapTargets": {
-        "checked": 36,
+        "checked": 37,
         "tooSmall": [
           {
             "tag": "a",
@@ -1106,7 +1173,7 @@
         "culprits": []
       },
       "tapTargets": {
-        "checked": 48,
+        "checked": 49,
         "tooSmall": [
           {
             "tag": "a",
@@ -1180,7 +1247,7 @@
         "culprits": []
       },
       "tapTargets": {
-        "checked": 46,
+        "checked": 47,
         "tooSmall": [
           {
             "tag": "a",
@@ -1254,7 +1321,7 @@
         "culprits": []
       },
       "tapTargets": {
-        "checked": 39,
+        "checked": 40,
         "tooSmall": [
           {
             "tag": "a",
@@ -1321,7 +1388,7 @@
         "culprits": []
       },
       "tapTargets": {
-        "checked": 37,
+        "checked": 38,
         "tooSmall": [
           {
             "tag": "a",
@@ -1454,7 +1521,7 @@
         "culprits": []
       },
       "tapTargets": {
-        "checked": 35,
+        "checked": 36,
         "tooSmall": [
           {
             "tag": "a",
@@ -1521,7 +1588,7 @@
         "culprits": []
       },
       "tapTargets": {
-        "checked": 36,
+        "checked": 37,
         "tooSmall": [
           {
             "tag": "a",
@@ -1594,7 +1661,7 @@
         "culprits": []
       },
       "tapTargets": {
-        "checked": 36,
+        "checked": 37,
         "tooSmall": [
           {
             "tag": "a",
@@ -1697,7 +1764,7 @@
         "culprits": []
       },
       "tapTargets": {
-        "checked": 36,
+        "checked": 37,
         "tooSmall": [
           {
             "tag": "a",
@@ -1764,7 +1831,7 @@
         "culprits": []
       },
       "tapTargets": {
-        "checked": 44,
+        "checked": 45,
         "tooSmall": [
           {
             "tag": "a",
@@ -1838,7 +1905,7 @@
         "culprits": []
       },
       "tapTargets": {
-        "checked": 36,
+        "checked": 37,
         "tooSmall": [
           {
             "tag": "a",
@@ -1911,7 +1978,7 @@
         "culprits": []
       },
       "tapTargets": {
-        "checked": 39,
+        "checked": 40,
         "tooSmall": [
           {
             "tag": "a",
@@ -1978,7 +2045,7 @@
         "culprits": []
       },
       "tapTargets": {
-        "checked": 38,
+        "checked": 39,
         "tooSmall": [
           {
             "tag": "a",
@@ -2051,7 +2118,7 @@
         "culprits": []
       },
       "tapTargets": {
-        "checked": 81,
+        "checked": 83,
         "tooSmall": [
           {
             "tag": "a",
@@ -2166,7 +2233,7 @@
         "culprits": []
       },
       "tapTargets": {
-        "checked": 38,
+        "checked": 39,
         "tooSmall": [
           {
             "tag": "a",
@@ -2257,7 +2324,7 @@
         "culprits": []
       },
       "tapTargets": {
-        "checked": 36,
+        "checked": 37,
         "tooSmall": [
           {
             "tag": "a",
@@ -2324,7 +2391,7 @@
         "culprits": []
       },
       "tapTargets": {
-        "checked": 39,
+        "checked": 40,
         "tooSmall": [
           {
             "tag": "a",
@@ -2391,7 +2458,7 @@
         "culprits": []
       },
       "tapTargets": {
-        "checked": 38,
+        "checked": 39,
         "tooSmall": [
           {
             "tag": "a",
@@ -2476,7 +2543,7 @@
         "culprits": []
       },
       "tapTargets": {
-        "checked": 46,
+        "checked": 47,
         "tooSmall": [
           {
             "tag": "a",
@@ -2711,7 +2778,7 @@
         "culprits": []
       },
       "tapTargets": {
-        "checked": 37,
+        "checked": 38,
         "tooSmall": [
           {
             "tag": "a",

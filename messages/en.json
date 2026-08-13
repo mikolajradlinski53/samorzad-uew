@@ -155,6 +155,7 @@
   },
   "pages": {
     "dlaStudenta": "Student zone",
+    "asystent": "Ask the Government (AI)",
     "prawaStudenta": "Student rights",
     "stypendia": "Scholarships",
     "prawoDlaStudenta": "Law for students",
@@ -754,9 +755,43 @@
     "heroEyebrow": "Student zone",
     "heroTitle": "Scholarships & support",
     "heroLead": "Here you’ll find the key information about scholarships and benefits, plus all the documents you need — in one place.",
+    "heroSystemLabel": "Financial support decision centre",
+    "heroCta": "Find the right path",
+    "heroPathLabel": "How this page works",
+    "heroPath": {
+      "situation": {
+        "title": "Start with your situation",
+        "desc": "You do not need to know the official benefit name."
+      },
+      "support": {
+        "title": "Identify the form of support",
+        "desc": "We connect your need with the most relevant path."
+      },
+      "application": {
+        "title": "Continue to the application",
+        "desc": "Check the conditions, documents and next steps."
+      }
+    },
+    "heroPathNote": "This is navigation through the available options, not a decision on awarding a benefit.",
     "crumbStudent": "Student zone",
     "intro": "During your studies you can use various forms of financial support offered by the University — both benefits for those in a more difficult financial situation and scholarships for very good academic results and scientific, sporting and artistic achievements.",
     "typesHeading": "Types of support",
+    "navigator": {
+      "heading": "You do not need to know the benefit name.",
+      "lead": "Choose the sentence closest to your situation. We will show you which part of the page is the best place to begin.",
+      "disclaimer": "The navigator organises information, but it does not assess formal eligibility or replace the benefits regulations.",
+      "ariaLabel": "Choose the situation you are in",
+      "options": {
+        "socjalne": "My financial situation is difficult",
+        "rektora": "I have a high grade average or notable achievements",
+        "niepelnosprawni": "I have a disability certificate",
+        "zapomoga": "I have experienced a sudden difficult life event"
+      },
+      "matchLabel": "Most relevant path",
+      "cta": "See the details",
+      "emptyHeading": "Choose a situation on the left.",
+      "emptyBody": "Instead of reading every regulation, start with the need that brought you here. Your result will appear in this space."
+    },
     "kinds": {
       "socjalne": { "title": "Social", "desc": "For students in a more difficult financial situation." },
       "rektora": { "title": "Rector’s", "desc": "For very good academic results and scientific, sporting or artistic achievements." },
@@ -764,6 +799,7 @@
       "zapomoga": { "title": "Hardship grant", "desc": "One-off help in a sudden, temporarily difficult life situation." }
     },
     "documentsHeading": "Documents and attachments",
+    "documentsCount": "{count} items",
     "documents": [
       "List of documents for applying for a social scholarship",
       "Rules for calculating income in a student’s family",
@@ -921,6 +957,7 @@
   },
   "navMenu": {
     "strefa": "Student zone",
+    "asystent": "Ask the Government (AI)",
     "prawa": "Student rights",
     "stypendia": "Scholarships & support",
     "prawo": "Law for students",
@@ -966,14 +1003,82 @@
   },
   "transparentnosc": {
     "metaTitle": "Transparency",
-    "metaDesc": "Full transparency of the SSUEW Student Government — regulations, orders, reports, funding and documents in one place.",
+    "metaDesc": "Transparency of the UEW Student Government — documents, decisions and a prepared standard for tracing the real budget from plan to outcome.",
     "ogLabel": "Transparency",
     "heroEyebrow": "Transparency",
     "heroTitle": "Transparency",
-    "heroLead": "We operate in full openness. We’ve gathered all the Student Government’s organizational documents in one place — regulations, orders, reports and finances.",
+    "heroLead": "Transparency should not end with a folder of PDFs. We are building a public trail that leads from a decision and an amount to its source document and a visible outcome.",
+    "heroSystemLabel": "Public register / UEW",
+    "heroCta": "See the Living Budget",
+    "heroRegistryCta": "Browse the documents",
+    "heroConsole": {
+      "kicker": "Evidence trail",
+      "title": "From a decision to a visible outcome",
+      "status": "Data in preparation",
+      "trail": {
+        "decision": { "title": "Decision", "desc": "Who, when and on what basis" },
+        "record": { "title": "Record", "desc": "Amount, category and current state" },
+        "proof": { "title": "Evidence", "desc": "A source document you can verify" },
+        "effect": { "title": "Outcome", "desc": "What the funds actually produced" }
+      },
+      "note": "Every item should end with a source, an update date and an outcome — with no dead ends."
+    },
     "intro": "We believe trust is built on openness. Below you’ll find the full set of documents that govern our work and show how we make decisions and spend funds.",
     "open": "Open",
     "download": "Download",
+    "livingBudget": {
+      "eyebrow": "Financial transparency prototype",
+      "heading": "A Living Budget without moving the money",
+      "lead": "This is not a simulator or a vote on fictional alternatives. You follow a real financial record: from an approved plan through a commitment and payment to settlement, evidence and a tangible outcome.",
+      "dataState": {
+        "title": "No sample figures pretending to be real data",
+        "body": "The project does not yet contain a published financial dataset. Instead of inventing one, we prepared a structure that will accept verified records and source documents only."
+      },
+      "viewer": {
+        "kicker": "Record trace / version 0",
+        "title": "Follow the money",
+        "status": "Awaiting data",
+        "instruction": "Choose a stage to inspect its required evidence trail",
+        "rule": "A click reveals information and its source. It never changes the amount, category or budget state.",
+        "recordLabel": "Stage 0{number} / 04"
+      },
+      "stages": {
+        "planned": {
+          "label": "Planned",
+          "title": "A decision gives the funds a purpose",
+          "desc": "The record starts with an approved plan. Its decision basis, category and amount are visible before any commitment is made.",
+          "fields": ["Decision basis", "Budget category", "Planned amount", "Approval date"]
+        },
+        "contracted": {
+          "label": "Committed",
+          "title": "The plan becomes a commitment",
+          "desc": "This stage shows which contract or order reserves the funds, who it was made with and when it should be delivered.",
+          "fields": ["Contract or order", "Commitment party", "Committed amount", "Delivery date"]
+        },
+        "spent": {
+          "label": "Spent",
+          "title": "The money actually leaves the budget",
+          "desc": "A specific transaction, its recipient, date and accounting evidence are visible instead of hiding the expense under a broad project name.",
+          "fields": ["Transaction date", "Funds recipient", "Amount paid", "Accounting document"]
+        },
+        "settled": {
+          "label": "Settled",
+          "title": "The expense ends with evidence and an outcome",
+          "desc": "Settlement connects a source document with the result: an event, equipment, service or another change a student can actually see.",
+          "fields": ["Settlement state", "Supporting document", "Project outcome", "Publication date"]
+        }
+      },
+      "disclaimer": "This demonstrates the presentation method; it is not a publication of the Student Government’s financial data. Figures will appear only after an official source dataset has been supplied and verified."
+    },
+    "registry": {
+      "eyebrow": "Transparency register",
+      "heading": "It is clear what is available — and what is still missing",
+      "available": "Available sections",
+      "awaiting": "Files awaited",
+      "published": "Available",
+      "external": "The link opens in a new tab.",
+      "note": "The “Coming soon” status is intentional: missing documents are not replaced with an empty button or a pretend download. Once a file is added, the register will automatically mark it as available."
+    },
     "categories": {
       "regulacje": { "title": "Internal regulations", "desc": "Rules of the Government’s bodies and how it operates." },
       "zarzadzenia": { "title": "Chair’s orders", "desc": "Executive acts issued during the term." },
@@ -983,6 +1088,34 @@
       "finansowanie": { "title": "Student activity funding regulations", "desc": "Rules for funding student initiatives and organizations." },
       "ksiega": { "title": "Visual identity guidelines", "desc": "Logo, colours and brand usage rules." }
     }
+  },
+  "asystent": {
+    "metaTitle": "Ask the Student Government — AI assistant",
+    "metaDesc": "Ask about scholarships, student rights and Student Government matters. The assistant answers from this site's content and cites its sources.",
+    "ogLabel": "AI assistant",
+    "heroEyebrow": "AI assistant",
+    "heroTitle": "Ask the Student Government",
+    "heroLead": "You don't need to know which page to look in. Describe your situation in your own words and the assistant will show what this site says about it — with a link to the source.",
+    "heading": "What would you like to ask?",
+    "intro": "The assistant reads only this site's content and shows the passage each answer is based on. It has no access to your USOS records or to individual cases.",
+    "inputLabel": "Your question to the Student Government",
+    "placeholder": "e.g. What is the deadline for the social scholarship?",
+    "askButton": "Ask",
+    "asking": "Asking…",
+    "thinking": "Searching the site's content…",
+    "examplesLabel": "For example",
+    "examples": {
+      "stypendium": "Which scholarships can I get?",
+      "odwolanie": "How do I appeal a grade?",
+      "rzecznik": "What does the Student Ombudsman do?",
+      "kolo": "How do I start a research circle?"
+    },
+    "sourcesHeading": "Sources for this answer",
+    "sourceFallback": "Site passage",
+    "disclaimer": "The assistant answers from this site's content and can be wrong. The binding sources are the university's regulations, orders and decisions — for anything formal, confirm with us or with your dean's office.",
+    "notConfigured": "The assistant is not switched on yet — it is waiting for an access key. Until then, write to us through the <link>contact page</link> and we'll answer in person.",
+    "refusal": "The assistant will not answer this one. If the matter is urgent or personal, write to us directly.",
+    "error": "Something went wrong on our side. Try again in a moment, or use the site search instead."
   },
   "kalendarz": {
     "metaTitle": "University events calendar",

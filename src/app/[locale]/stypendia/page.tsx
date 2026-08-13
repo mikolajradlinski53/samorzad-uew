@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
-import { PageHero } from "@/components/PageHero";
 import { HubNav } from "@/components/HubNav";
 import { StypendiaContent } from "@/components/pages/StypendiaContent";
+import { StypendiaHero } from "@/components/pages/StypendiaHero";
 import { StypendiumDetailContent, type DetailNote } from "@/components/pages/StypendiumDetailContent";
 import { WsparcieContent } from "@/components/pages/WsparcieContent";
 import { KalkulatorSredniejContent } from "@/components/pages/KalkulatorSredniejContent";
@@ -29,7 +29,6 @@ export default async function StypendiaPage({ params }: Props) {
   const { locale } = await params;
   setRequestLocale(locale);
   const t = await getTranslations({ locale, namespace: "stypendia" });
-  const tc = await getTranslations({ locale, namespace: "common" });
   const tr = await getTranslations({ locale, namespace: "stypRektora" });
   const ts = await getTranslations({ locale, namespace: "stypSocjalne" });
   const tn = await getTranslations({ locale, namespace: "stypNiepelnosprawni" });
@@ -52,16 +51,7 @@ export default async function StypendiaPage({ params }: Props) {
 
   return (
     <>
-      <PageHero
-        eyebrow={t("heroEyebrow")}
-        title={t("heroTitle")}
-        lead={t("heroLead")}
-        breadcrumbs={[
-          { label: tc("home"), href: "/" },
-          { label: t("crumbStudent"), href: "/dla-studenta" },
-          { label: t("heroTitle") },
-        ]}
-      />
+      <StypendiaHero />
 
       <HubNav items={navItems} label={t("hub.nav")} />
 

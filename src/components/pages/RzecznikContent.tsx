@@ -17,7 +17,7 @@ import { Impulse } from "../Impulse";
 import { Tilt } from "../Tilt";
 import { ContactForm, type ContactFormField } from "../ContactForm";
 import { formspree } from "@/lib/forms";
-import { DURATION, EASE, STAGGER } from "@/lib/motion";
+import { DURATION } from "@/lib/motion";
 
 const CONTACT_EMAIL = "rps@samorzad.ue.wroc.pl";
 
@@ -155,7 +155,7 @@ export function RzecznikContent() {
             className="font-display text-[clamp(1.5rem,2.8vw,2.25rem)] font-semibold leading-[1.2] tracking-[-0.02em] text-ink-primary"
           >
             {t("dutiesHeading")}
-          </h2>
+          </h2>
           <div className="mt-8 grid gap-5 sm:grid-cols-2">
             {duties.map((duty, i) => {
               const Glyph = duty.icon;
@@ -193,7 +193,7 @@ export function RzecznikContent() {
             className="font-display text-[clamp(1.5rem,2.8vw,2.25rem)] font-semibold leading-[1.2] tracking-[-0.02em] text-ink-primary"
           >
             {t("stepsHeading")}
-          </h2>
+          </h2>
 
           <div className="relative mt-10">
             {/* Filling progress line */}
@@ -203,20 +203,13 @@ export function RzecznikContent() {
               duration={DURATION.trace}
               className="absolute left-[19px] top-3 bottom-3 w-px bg-accent/40"
             />
+            {/* Kroki bez wejściowego przesunięcia: `initial={{ x: 12 }}` trzymało
+                je przesunięte o 12 px w prawo, dopóki nie weszły w pole widzenia
+                — a to rozpychało stronę o 4 px w poziomie na telefonie. Ruch tej
+                sekcji niesie pionowy Impuls; kroki mają po prostu być na miejscu. */}
             <ol className="flex flex-col gap-8">
               {stepKeys.map((key, i) => (
-                <motion.li
-                  key={key}
-                  initial={{ opacity: 0, x: 12 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true, amount: 0.5 }}
-                  transition={
-                    reduce
-                      ? { duration: 0 }
-                      : { duration: DURATION.reveal, delay: Math.min(i, 4) * STAGGER, ease: EASE }
-                  }
-                  className="relative flex gap-5"
-                >
+                <li key={key} className="relative flex gap-5">
                   <span className="relative z-10 flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-accent bg-bg-base font-display text-[1.0625rem] text-accent tabular-nums">
                     {i + 1}
                   </span>
@@ -228,7 +221,7 @@ export function RzecznikContent() {
                       {t(`steps.${key}.desc`)}
                     </p>
                   </div>
-                </motion.li>
+                </li>
               ))}
             </ol>
           </div>
