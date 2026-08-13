@@ -434,6 +434,7 @@
     "dziekanRole": "Dziekan ds. Studenckich",
     "prodziekanRole": "Prodziekan ds. Studenckich",
     "kierunki": {
+      "turowska": ["Finanse i rachunkowość", "Rachunkowość i controlling", "Rachunkowość i podatki", "Zarządzanie"],
       "werenska": ["Controlling", "E-biznes", "Informatyka w biznesie", "Konsulting prawny i gospodarczy", "Logistyka", "Zarządzanie i Inżynieria Produkcji", "Zarządzanie projektami", "Informatyka w zarządzaniu produkcją"],
       "bobowski": ["Wszystkie kierunki anglojęzyczne", "Analityka gospodarcza", "Ekobiznes", "Ekonomia", "Komunikacja społeczna", "Międzynarodowe stosunki gospodarcze", "Nieruchomości i gospodarka przestrzenna"]
     }

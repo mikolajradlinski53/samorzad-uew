@@ -434,6 +434,7 @@
     "dziekanRole": "Dean for Student Affairs",
     "prodziekanRole": "Vice-Dean for Student Affairs",
     "kierunki": {
+      "turowska": ["Finance and Accounting", "Accounting and Controlling", "Accounting and Taxes", "Management"],
       "werenska": ["Controlling", "E-business", "Business Informatics", "Legal and Business Consulting", "Logistics", "Management and Production Engineering", "Project Management", "Informatics in Production Management"],
       "bobowski": ["All English-language programmes", "Business Analytics", "Eco-business", "Economics", "Social Communication", "International Economic Relations", "Real Estate and Spatial Economy"]
     }
