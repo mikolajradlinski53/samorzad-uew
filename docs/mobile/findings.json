@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-13T08:34:43.374Z",
+  "generatedAt": "2026-08-13T12:05:15.893Z",
   "viewport": {
     "width": 375,
     "height": 812
@@ -29,8 +29,8 @@
             "tag": "a",
             "classSnippet": "font-medium text-accent transition-colors hover:text-accent-dim",
             "accessibleName": "Polityka prywatności",
-            "width": 129.86,
-            "height": 15
+            "width": 120.58,
+            "height": 14
           }
         ]
       },
@@ -73,62 +73,62 @@
           {
             "tag": "div",
             "classSnippet": "relative z-10 py-12",
-            "width": 363.16,
-            "rectRight": 387.16
+            "width": 369.88,
+            "rectRight": 393.88
           },
           {
             "tag": "p",
             "classSnippet": "mb-6 flex items-center gap-3 text-[0.75rem] font-medium uppercase tracking-[0.16",
-            "width": 363.16,
-            "rectRight": 387.16
+            "width": 369.88,
+            "rectRight": 393.88
           },
           {
             "tag": "h1",
             "classSnippet": "font-display text-[clamp(3rem,6vw,5.25rem)] font-extrabold leading-[1.0] trackin",
-            "width": 363.16,
-            "rectRight": 387.16
+            "width": 369.88,
+            "rectRight": 393.88
           },
           {
             "tag": "span",
             "classSnippet": "block overflow-hidden pb-[0.05em]",
-            "width": 363.16,
-            "rectRight": 387.16
+            "width": 369.88,
+            "rectRight": 393.88
           },
           {
             "tag": "span",
             "classSnippet": "block ",
-            "width": 363.16,
-            "rectRight": 387.16
+            "width": 369.88,
+            "rectRight": 393.88
           },
           {
             "tag": "span",
             "classSnippet": "block overflow-hidden pb-[0.05em]",
-            "width": 363.16,
-            "rectRight": 387.16
+            "width": 369.88,
+            "rectRight": 393.88
           },
           {
             "tag": "span",
             "classSnippet": "block text-accent",
-            "width": 363.16,
-            "rectRight": 387.16
+            "width": 369.88,
+            "rectRight": 393.88
           },
           {
             "tag": "p",
             "classSnippet": "mt-7 max-w-[480px] text-[1.0625rem] leading-[1.75] text-ink-secondary",
-            "width": 363.16,
-            "rectRight": 387.16
+            "width": 369.88,
+            "rectRight": 393.88
           },
           {
             "tag": "div",
             "classSnippet": "mt-9 flex flex-wrap items-center gap-4",
-            "width": 363.16,
-            "rectRight": 387.16
+            "width": 369.88,
+            "rectRight": 393.88
           },
           {
             "tag": "ul",
             "classSnippet": "mt-10 flex flex-wrap gap-2.5",
-            "width": 363.16,
-            "rectRight": 387.16
+            "width": 369.88,
+            "rectRight": 393.88
           },
           {
             "tag": "div",
@@ -180,8 +180,8 @@
             "tag": "a",
             "classSnippet": "font-medium text-accent transition-colors hover:text-accent-dim",
             "accessibleName": "Polityka prywatności",
-            "width": 129.86,
-            "height": 15
+            "width": 120.58,
+            "height": 14
           }
         ]
       },
@@ -247,8 +247,8 @@
             "tag": "a",
             "classSnippet": "font-medium text-accent transition-colors hover:text-accent-dim",
             "accessibleName": "Polityka prywatności",
-            "width": 129.86,
-            "height": 15
+            "width": 120.58,
+            "height": 14
           }
         ]
       },
@@ -380,8 +380,8 @@
             "tag": "a",
             "classSnippet": "font-medium text-accent transition-colors hover:text-accent-dim",
             "accessibleName": "Polityka prywatności",
-            "width": 129.86,
-            "height": 15
+            "width": 120.58,
+            "height": 14
           }
         ]
       },
@@ -447,8 +447,8 @@
             "tag": "a",
             "classSnippet": "font-medium text-accent transition-colors hover:text-accent-dim",
             "accessibleName": "Polityka prywatności",
-            "width": 129.86,
-            "height": 15
+            "width": 120.58,
+            "height": 14
           }
         ]
       },
@@ -528,8 +528,8 @@
             "tag": "a",
             "classSnippet": "font-medium text-accent transition-colors hover:text-accent-dim",
             "accessibleName": "Polityka prywatności",
-            "width": 129.86,
-            "height": 15
+            "width": 120.58,
+            "height": 14
           }
         ]
       },
@@ -595,8 +595,8 @@
             "tag": "a",
             "classSnippet": "font-medium text-accent transition-colors hover:text-accent-dim",
             "accessibleName": "Polityka prywatności",
-            "width": 129.86,
-            "height": 15
+            "width": 120.58,
+            "height": 14
           }
         ]
       },
@@ -675,8 +675,8 @@
             "tag": "a",
             "classSnippet": "font-medium text-accent transition-colors hover:text-accent-dim",
             "accessibleName": "Polityka prywatności",
-            "width": 129.86,
-            "height": 15
+            "width": 120.58,
+            "height": 14
           }
         ]
       },
@@ -742,8 +742,8 @@
             "tag": "a",
             "classSnippet": "font-medium text-accent transition-colors hover:text-accent-dim",
             "accessibleName": "Polityka prywatności",
-            "width": 129.86,
-            "height": 15
+            "width": 120.58,
+            "height": 14
           }
         ]
       },
@@ -809,8 +809,8 @@
             "tag": "a",
             "classSnippet": "font-medium text-accent transition-colors hover:text-accent-dim",
             "accessibleName": "Polityka prywatności",
-            "width": 129.86,
-            "height": 15
+            "width": 120.58,
+            "height": 14
           }
         ]
       },
@@ -876,8 +876,8 @@
             "tag": "a",
             "classSnippet": "font-medium text-accent transition-colors hover:text-accent-dim",
             "accessibleName": "Polityka prywatności",
-            "width": 129.86,
-            "height": 15
+            "width": 120.58,
+            "height": 14
           }
         ]
       },
@@ -1039,8 +1039,8 @@
             "tag": "a",
             "classSnippet": "font-medium text-accent transition-colors hover:text-accent-dim",
             "accessibleName": "Polityka prywatności",
-            "width": 129.86,
-            "height": 15
+            "width": 120.58,
+            "height": 14
           }
         ]
       },
@@ -1119,8 +1119,8 @@
             "tag": "a",
             "classSnippet": "font-medium text-accent transition-colors hover:text-accent-dim",
             "accessibleName": "Polityka prywatności",
-            "width": 129.86,
-            "height": 15
+            "width": 120.58,
+            "height": 14
           }
         ]
       },
@@ -1186,8 +1186,8 @@
             "tag": "a",
             "classSnippet": "font-medium text-accent transition-colors hover:text-accent-dim",
             "accessibleName": "Polityka prywatności",
-            "width": 129.86,
-            "height": 15
+            "width": 120.58,
+            "height": 14
           }
         ]
       },
@@ -1253,8 +1253,8 @@
             "tag": "a",
             "classSnippet": "font-medium text-accent transition-colors hover:text-accent-dim",
             "accessibleName": "Polityka prywatności",
-            "width": 129.86,
-            "height": 15
+            "width": 120.58,
+            "height": 14
           }
         ]
       },
@@ -1320,8 +1320,8 @@
             "tag": "a",
             "classSnippet": "font-medium text-accent transition-colors hover:text-accent-dim",
             "accessibleName": "Polityka prywatności",
-            "width": 129.86,
-            "height": 15
+            "width": 120.58,
+            "height": 14
           }
         ]
       },
@@ -1453,8 +1453,8 @@
             "tag": "a",
             "classSnippet": "font-medium text-accent transition-colors hover:text-accent-dim",
             "accessibleName": "Polityka prywatności",
-            "width": 129.86,
-            "height": 15
+            "width": 120.58,
+            "height": 14
           }
         ]
       },
@@ -1520,8 +1520,8 @@
             "tag": "a",
             "classSnippet": "font-medium text-accent transition-colors hover:text-accent-dim",
             "accessibleName": "Polityka prywatności",
-            "width": 129.86,
-            "height": 15
+            "width": 120.58,
+            "height": 14
           }
         ]
       },
@@ -1593,8 +1593,8 @@
             "tag": "a",
             "classSnippet": "font-medium text-accent transition-colors hover:text-accent-dim",
             "accessibleName": "Polityka prywatności",
-            "width": 129.86,
-            "height": 15
+            "width": 120.58,
+            "height": 14
           }
         ]
       },
@@ -1696,8 +1696,8 @@
             "tag": "a",
             "classSnippet": "font-medium text-accent transition-colors hover:text-accent-dim",
             "accessibleName": "Polityka prywatności",
-            "width": 129.86,
-            "height": 15
+            "width": 120.58,
+            "height": 14
           }
         ]
       },
@@ -1770,8 +1770,8 @@
             "tag": "a",
             "classSnippet": "font-medium text-accent transition-colors hover:text-accent-dim",
             "accessibleName": "Polityka prywatności",
-            "width": 129.86,
-            "height": 15
+            "width": 120.58,
+            "height": 14
           }
         ]
       },
@@ -1837,8 +1837,8 @@
             "tag": "a",
             "classSnippet": "font-medium text-accent transition-colors hover:text-accent-dim",
             "accessibleName": "Polityka prywatności",
-            "width": 129.86,
-            "height": 15
+            "width": 120.58,
+            "height": 14
           }
         ]
       },
@@ -1910,8 +1910,8 @@
             "tag": "a",
             "classSnippet": "font-medium text-accent transition-colors hover:text-accent-dim",
             "accessibleName": "Polityka prywatności",
-            "width": 129.86,
-            "height": 15
+            "width": 120.58,
+            "height": 14
           }
         ]
       },
@@ -1977,8 +1977,8 @@
             "tag": "a",
             "classSnippet": "font-medium text-accent transition-colors hover:text-accent-dim",
             "accessibleName": "Polityka prywatności",
-            "width": 129.86,
-            "height": 15
+            "width": 120.58,
+            "height": 14
           }
         ]
       },
@@ -2050,8 +2050,8 @@
             "tag": "a",
             "classSnippet": "font-medium text-accent transition-colors hover:text-accent-dim",
             "accessibleName": "Polityka prywatności",
-            "width": 129.86,
-            "height": 15
+            "width": 120.58,
+            "height": 14
           }
         ]
       },
@@ -2165,8 +2165,8 @@
             "tag": "a",
             "classSnippet": "font-medium text-accent transition-colors hover:text-accent-dim",
             "accessibleName": "Polityka prywatności",
-            "width": 129.86,
-            "height": 15
+            "width": 120.58,
+            "height": 14
           }
         ]
       },
@@ -2256,8 +2256,8 @@
             "tag": "a",
             "classSnippet": "font-medium text-accent transition-colors hover:text-accent-dim",
             "accessibleName": "Polityka prywatności",
-            "width": 129.86,
-            "height": 15
+            "width": 120.58,
+            "height": 14
           }
         ]
       },
@@ -2323,8 +2323,8 @@
             "tag": "a",
             "classSnippet": "font-medium text-accent transition-colors hover:text-accent-dim",
             "accessibleName": "Polityka prywatności",
-            "width": 129.86,
-            "height": 15
+            "width": 120.58,
+            "height": 14
           }
         ]
       },
@@ -2390,8 +2390,8 @@
             "tag": "a",
             "classSnippet": "font-medium text-accent transition-colors hover:text-accent-dim",
             "accessibleName": "Polityka prywatności",
-            "width": 129.86,
-            "height": 15
+            "width": 120.58,
+            "height": 14
           }
         ]
       },
@@ -2475,8 +2475,8 @@
             "tag": "a",
             "classSnippet": "font-medium text-accent transition-colors hover:text-accent-dim",
             "accessibleName": "Polityka prywatności",
-            "width": 129.86,
-            "height": 15
+            "width": 120.58,
+            "height": 14
           }
         ]
       },
@@ -2710,8 +2710,8 @@
             "tag": "a",
             "classSnippet": "font-medium text-accent transition-colors hover:text-accent-dim",
             "accessibleName": "Polityka prywatności",
-            "width": 129.86,
-            "height": 15
+            "width": 120.58,
+            "height": 14
           }
         ]
       },

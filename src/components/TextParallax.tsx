@@ -1,9 +1,23 @@
 "use client";
 
 import { useRef, type ReactNode } from "react";
+import Image from "next/image";
 import { motion, useScroll, useTransform, useReducedMotion } from "motion/react";
 
 const IMG_PADDING = 12;
+
+/**
+ * Zdjęcia idą przez `next/image`, a nie przez CSS `background-image`.
+ *
+ * Powód nie jest wyłącznie wydajnościowy. Tło CSS pobiera plik w oryginalnym
+ * rozmiarze (te kadry mają 2400–2560 px szerokości — na telefonie 375 px to
+ * było 774 KB zamiast kilkudziesięciu) i robi to **bezpośrednio z serwera
+ * zewnętrznego**, więc adres IP każdego odwiedzającego trafiał do dostawcy
+ * zdjęć. Przez `next/image` plik pobiera nasz serwer, przeglądarka studenta
+ * łączy się tylko z nami, a obraz dostaje rozmiar i format pod konkretny ekran.
+ *
+ * `sizes="100vw"`, bo kadr jest pełnoekranowy.
+ */
 
 interface TextParallaxContentProps {
   imgUrl: string;
@@ -24,10 +38,15 @@ export function TextParallaxContent({
     // Static, accessible fallback — no sticky/parallax.
     return (
       <div style={{ paddingLeft: IMG_PADDING, paddingRight: IMG_PADDING }}>
-        <div
-          className="relative flex min-h-[60vh] items-center justify-center overflow-hidden rounded-3xl bg-cover bg-center text-center text-white"
-          style={{ backgroundImage: `url(${imgUrl})` }}
-        >
+        <div className="relative flex min-h-[60vh] items-center justify-center overflow-hidden rounded-3xl text-center text-white">
+          <Image
+            src={imgUrl}
+            alt=""
+            aria-hidden="true"
+            fill
+            sizes="100vw"
+            className="object-cover"
+          />
           <div className="absolute inset-0 bg-[#05070C]/65" aria-hidden="true" />
           <div className="relative z-10 px-6">
             <p className="mb-2 text-xl md:text-2xl">{subheading}</p>
@@ -65,15 +84,13 @@ function StickyImage({ imgUrl }: { imgUrl: string }) {
     <motion.div
       ref={targetRef}
       style={{
-        backgroundImage: `url(${imgUrl})`,
-        backgroundSize: "cover",
-        backgroundPosition: "center",
         height: `calc(100vh - ${IMG_PADDING * 2}px)`,
         top: IMG_PADDING,
         scale,
       }}
       className="sticky z-0 overflow-hidden rounded-3xl"
     >
+      <Image src={imgUrl} alt="" aria-hidden="true" fill sizes="100vw" className="object-cover" />
       <motion.div className="absolute inset-0 bg-[#05070C]/70" style={{ opacity }} />
     </motion.div>
   );
