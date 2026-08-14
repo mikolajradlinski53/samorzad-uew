@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-14T12:09:11.405Z",
+  "generatedAt": "2026-08-14T12:52:37.963Z",
   "viewport": {
     "width": 375,
     "height": 812
@@ -65,8 +65,8 @@
           {
             "tag": "p",
             "classSnippet": "HomeExperience-module__crXsBa__eyebrow",
-            "fontSize": 9.92,
-            "textSnippet": "Cyfrowy punkt wejścia do UEW"
+            "fontSize": 10.88,
+            "textSnippet": "Samorząd Studentów UEW"
           },
           {
             "tag": "span",
@@ -96,7 +96,7 @@
             "tag": "p",
             "classSnippet": "",
             "fontSize": 10.88,
-            "textSnippet": "Cztery sytuacje. Zero urzędowego języka."
+            "textSnippet": "Najczęstsze sytuacje studenckie"
           },
           {
             "tag": "span",
@@ -150,7 +150,7 @@
             "tag": "p",
             "classSnippet": "HomeExperience-module__crXsBa__manifestEyebrow",
             "fontSize": 10.88,
-            "textSnippet": "Zasada projektowa"
+            "textSnippet": "Pomoc projektowana od strony studenta"
           },
           {
             "tag": "p",
@@ -179,14 +179,14 @@
           {
             "tag": "p",
             "classSnippet": "HomeExperience-module__crXsBa__archiveNote",
-            "fontSize": 9.92,
+            "fontSize": 9.6,
             "textSnippet": "Kadry z archiwum SSUEW. Do czasu przypisania galerii do proj"
           },
           {
             "tag": "p",
             "classSnippet": "",
             "fontSize": 10.88,
-            "textSnippet": "Brak wyniku też jest informacją"
+            "textSnippet": "Nie znalazłeś odpowiedzi?"
           },
           {
             "tag": "label",
@@ -212,33 +212,9 @@
         "offenders": [
           {
             "tag": "div",
-            "classSnippet": "HomeExperience-module__crXsBa__manifestMedia",
-            "width": 322.5,
-            "rectRight": 420
-          },
-          {
-            "tag": "img",
-            "classSnippet": "HomeExperience-module__crXsBa__manifestImage",
-            "width": 322.5,
-            "rectRight": 420
-          },
-          {
-            "tag": "div",
             "classSnippet": "flex items-center gap-3",
             "width": 244.41,
             "rectRight": 428.41
-          },
-          {
-            "tag": "div",
-            "classSnippet": "HomeExperience-module__crXsBa__heroIndex",
-            "width": 226.02,
-            "rectRight": 401.25
-          },
-          {
-            "tag": "div",
-            "classSnippet": "HomeExperience-module__crXsBa__actionIndex",
-            "width": 190.47,
-            "rectRight": 394.19
           },
           {
             "tag": "button",

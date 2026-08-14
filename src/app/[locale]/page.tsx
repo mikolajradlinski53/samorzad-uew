@@ -5,18 +5,26 @@ import { PhotoBand } from "@/components/PhotoBand";
 import { StudentLife } from "@/components/StudentLife";
 
 /**
- * Kolejność strony głównej.
+ * DECYZJA ZAMAWIAJĄCEGO — NIE USUWAĆ SEKCJI BEZ JEGO ZGODY.
  *
- * `HomeExperience` prowadzi narrację od sytuacji studenta i zostaje na
- * początku bez zmian. Trzy elementy z poprzedniej wersji wracają POD nią,
- * bo każdy robi coś, czego nowa narracja nie robi:
+ * Skład tej strony jest wyborem Samorządu, powtórzonym dwukrotnie: z
+ * poprzedniej wersji strony głównej mają tu zostać animacje zdjęć, tablica
+ * odlotów odliczająca czas do projektu oraz kadry sterowane przewijaniem.
+ * Zostały już raz przeniesione na podstrony i zostały przywrócone — jeżeli
+ * ten układ ma się zmienić, decyzja należy do zamawiającego, nie do
+ * porządkowania kompozycji.
  *
- * - `NextEvent` — tablica w stylu lotniskowej odpowiada na „co się dzieje
- *   najbliżej", czyli na pytanie o czas, a nie o sytuację;
- * - `PhotoBand` — pas przewijających się kadrów pokazuje skalę i ludzi tam,
- *   gdzie tekst mówi o zasadach;
- * - `StudentLife` — kadry sterowane przewijaniem, jedyne miejsce, w którym
- *   zdjęcie dostaje pełny ekran i własny rytm.
+ * Kolejność ma uzasadnienie: `HomeExperience` prowadzi od sytuacji studenta
+ * i zostaje na początku. Reszta odpowiada na to, czego narracja nie robi:
+ *
+ * - `NextEvent`  — tablica w stylu lotniskowej odpowiada na pytanie o CZAS
+ *                  („co się dzieje najbliżej"), a nie o sytuację. Renderuje
+ *                  się dopiero po ustawieniu EVENTS_SHEET_CSV_URL; bez niego
+ *                  świadomie nie pokazuje nic, zamiast zmyślać wydarzenie.
+ * - `PhotoBand`  — pas przewijających się kadrów pokazuje skalę i ludzi tam,
+ *                  gdzie tekst mówi o zasadach.
+ * - `StudentLife`— jedyne miejsce, w którym zdjęcie dostaje pełny ekran i
+ *                  własny rytm przewijania.
  */
 export default function Home() {
   return (
