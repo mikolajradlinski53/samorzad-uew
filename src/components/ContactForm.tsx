@@ -4,10 +4,10 @@ import { useRef, useState } from "react";
 import { motion, useReducedMotion } from "motion/react";
 import { CheckCircle } from "@phosphor-icons/react";
 import { Link } from "@/i18n/navigation";
-import { formspreeUrl, isConfigured } from "@/lib/forms";
+import { sendForm, type FormKind } from "@/app/actions/formularze";
 
 export interface ContactFormField {
-  /** Also used as the JSON body key submitted to Formspree. */
+  /** Also used as the form-data key sent to the server action. */
   key: string;
   type: "text" | "email" | "textarea";
   label: string;
@@ -32,8 +32,10 @@ export interface ContactFormLabels {
 }
 
 export interface ContactFormProps {
-  /** Formspree form id, or the FORMSPREE_PLACEHOLDER value from src/lib/forms.ts. */
-  endpoint: string;
+  /** Which form this is — the Apps Script backend files by this value. */
+  kind: FormKind;
+  /** False while APPS_SCRIPT_URL/SECRET are unset; the form then says so. */
+  configured: boolean;
   fields: ContactFormField[];
   labels: ContactFormLabels;
   /** Contact e-mail shown as a mailto fallback while the endpoint is unconfigured. */
@@ -47,13 +49,10 @@ export interface ContactFormProps {
 type Values = Record<string, string>;
 type Errors = Record<string, string | undefined>;
 
-interface FormspreeErrorResponse {
-  errors?: { message?: string }[];
-  error?: string;
-}
 
 export function ContactForm({
-  endpoint,
+  kind,
+  configured,
   fields,
   labels,
   contactEmail,
@@ -62,7 +61,6 @@ export function ContactForm({
 }: ContactFormProps) {
   const reduce = useReducedMotion();
   const formRef = useRef<HTMLFormElement>(null);
-  const configured = isConfigured(endpoint);
 
   const empty: Values = Object.fromEntries(fields.map((f) => [f.key, ""]));
 
@@ -111,30 +109,23 @@ export function ContactForm({
 
     setServerError(null);
     setStatus("sending");
-    try {
-      const res = await fetch(formspreeUrl(endpoint), {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Accept: "application/json",
-        },
-        body: JSON.stringify({ ...values, ...extraHiddenFields }),
-      });
-      if (!res.ok) {
-        const data = (await res.json().catch(() => null)) as FormspreeErrorResponse | null;
-        const message =
-          data?.errors?.map((er) => er.message).filter(Boolean).join(" ") ??
-          data?.error ??
-          labels.errServer;
-        throw new Error(message);
-      }
+
+    // Server action zamiast `fetch` — adres Apps Script i wspólny sekret
+    // zostają na serwerze i nie da się ich odczytać z przeglądarki.
+    const data = new FormData();
+    for (const [k, v] of Object.entries(values)) data.append(k, v);
+    for (const [k, v] of Object.entries(extraHiddenFields ?? {})) data.append(k, v);
+    data.append("firma", ""); // honeypot — człowiek zostawia puste
+
+    const result = await sendForm(kind, data);
+    if (result.status === "ok") {
       setStatus("success");
       setValues(empty);
       setTouched({});
-    } catch (err) {
-      setServerError(err instanceof Error ? err.message : labels.errServer);
-      setStatus("error");
+      return;
     }
+    setServerError(labels.errServer);
+    setStatus("error");
   };
 
   const fieldClass = (key: string) =>

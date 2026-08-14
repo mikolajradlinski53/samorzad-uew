@@ -10,30 +10,54 @@ Legenda: 🔴 blokuje działającą funkcję · 🟡 poprawia jakość · ⚪️
 
 ---
 
-## 🔴 Formspree — identyfikatory formularzy
+## 🔴 Formularze — Google Apps Script (zamiast Formspree)
 
-Trzy formularze są zbudowane i czekają wyłącznie na ID. Dopóki go nie ma, pokazują
-komunikat „formularz nie jest jeszcze skonfigurowany" i podają e-mail jako drogę
-zastępczą — **nie udają, że wysyłają**.
+Trzy formularze (Kontakt, Rzecznik, Partnerzy) wysyłają teraz przez skrypt na
+**Waszym koncie Google**. Zgłoszenie zapisuje się w arkuszu i przychodzi mailem.
+Dane nie wychodzą poza konto Google Uczelni — to główny powód zmiany, obok
+limitu 50 zgłoszeń miesięcznie w darmowym Formspree.
 
-**Skąd wziąć:** wejdź na [formspree.io](https://formspree.io), załóż darmowe konto,
-kliknij **New Form** (trzy razy — po jednym na każdy formularz). Po utworzeniu
-Formspree pokaże adres w postaci `https://formspree.io/f/abcdefgh`.
-**Potrzebuję tylko ostatniego członu** — tego `abcdefgh`.
+Dopóki nie ma zmiennych, formularze mówią wprost, że nie są uruchomione, i
+podają adres e-mail — **nie udają, że wysyłają**.
 
-| Formularz | Gdzie na stronie | Wklej ID |
+### Krok po kroku
+
+1. Na koncie Samorządu utwórz **nowy arkusz Google** (np. „Formularze — strona").
+2. W arkuszu: **Rozszerzenia → Apps Script**.
+3. Skasuj zawartość `Code.gs` i wklej całą treść pliku
+   **`docs/apps-script/Code.gs`** z tego repozytorium.
+4. Na górze skryptu, w `CONFIG`:
+   - w `SEKRET` wpisz długi losowy ciąg (np. z `openssl rand -hex 32`);
+   - sprawdź adresy w `ADRESACI` — zgłoszenia do Rzecznika idą na osobną
+     skrzynkę i tak ma zostać.
+5. **Wdróż → Nowe wdrożenie → typ: Aplikacja internetowa**:
+   - *Wykonaj jako*: **ja** (konto Samorządu);
+   - *Kto ma dostęp*: **Wszyscy** — to konieczne, żeby strona mogła wysłać
+     zgłoszenie; bezpieczeństwa pilnuje sekret, nie ukrycie adresu.
+6. Skopiuj adres wdrożenia — kończy się na **`/exec`**.
+7. Przy pierwszym uruchomieniu Google poprosi o zgodę na wysyłkę maili —
+   zaakceptuj.
+
+### Co wklejasz do Vercela
+
+Vercel → projekt → **Settings → Environment Variables** (Production i Preview):
+
+| Zmienna | Wartość | Wklej |
 |---|---|---|
-| Kontakt | `/kontakt` | → |
-| Rzecznik Praw Studenta | `/rzecznik-praw-studenta` | → |
-| Współpraca z partnerami | `/partnerzy` | → |
+| `APPS_SCRIPT_URL` | adres wdrożenia kończący się na `/exec` | → |
+| `APPS_SCRIPT_SECRET` | **dokładnie ten sam** ciąg co `CONFIG.SEKRET` | → |
 
-**Do zrobienia przy okazji (ważne prawnie):** w panelu Formspree zaakceptuj
-**umowę powierzenia przetwarzania danych (DPA)**. Polityka prywatności już
-deklaruje, że taka umowa obowiązuje — bez jej zawarcia ten zapis byłby nieprawdziwy.
-Formspree udostępnia ją w ustawieniach konta.
+> Uwaga: w projekcie Dni Adaptacyjnych te dwie wartości są w `.env.example`
+> zamienione miejscami (w `APPS_SCRIPT_URL` stoi identyfikator, a w
+> `APPS_SCRIPT_SECRET` adres). Przy przepisywaniu łatwo to powielić — u nas
+> `URL` to adres, `SECRET` to losowy ciąg.
 
-**Uwaga na limit:** darmowy plan to 50 zgłoszeń miesięcznie **łącznie** ze wszystkich
-formularzy. W sesji stypendialnej może to być za mało — warto obserwować licznik.
+Po wpisaniu obu zmiennych formularze ruszają same, bez zmian w kodzie.
+
+### Czego już NIE trzeba
+
+Umowa powierzenia z Formspree jest nieaktualna — nie korzystamy z tej usługi.
+Podstawą pozostaje umowa, którą Uczelnia ma z Google dla Workspace.
 
 ---
 

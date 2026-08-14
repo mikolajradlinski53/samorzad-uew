@@ -12,7 +12,6 @@ import {
 import { ScrollReveal } from "../ScrollReveal";
 import { MapEmbed } from "../MapEmbed";
 import { ContactForm, type ContactFormField } from "../ContactForm";
-import { formspree } from "@/lib/forms";
 
 const CONTACT_EMAIL = "kontakt@samorzad.ue.wroc.pl";
 
@@ -27,7 +26,7 @@ const socials = [
   },
 ];
 
-export function KontaktContent() {
+export function KontaktContent({ formsReady }: { formsReady: boolean }) {
   const t = useTranslations("kontakt");
 
   const fields: ContactFormField[] = [
@@ -130,7 +129,8 @@ export function KontaktContent() {
         {/* Form */}
         <ScrollReveal delay={0.1}>
           <ContactForm
-            endpoint={formspree.kontakt}
+            kind="kontakt"
+              configured={formsReady}
             fields={fields}
             labels={labels}
             contactEmail={CONTACT_EMAIL}

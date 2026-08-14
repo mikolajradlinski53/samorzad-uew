@@ -20,7 +20,6 @@ import { PartnerEffect } from "../partners/PartnerEffect";
 import type { Partner } from "../partners/partnerEffects";
 import { partners, type PartnerEntry } from "@/lib/partners";
 import { ContactForm, type ContactFormField } from "../ContactForm";
-import { formspree } from "@/lib/forms";
 
 const CONTACT_EMAIL = "zuzanna.bak@samorzad.ue.wroc.pl";
 
@@ -153,7 +152,7 @@ function PartnerModal({ partner, onClose }: { partner: PartnerEntry; onClose: ()
   );
 }
 
-export function PartnerzyContent() {
+export function PartnerzyContent({ formsReady }: { formsReady: boolean }) {
   const reduce = useReducedMotion();
   const t = useTranslations("partnerzy");
   const tk = useTranslations("kontakt");
@@ -384,7 +383,8 @@ export function PartnerzyContent() {
 
           <ScrollReveal delay={0.1} className="mt-8 max-w-[720px]">
             <ContactForm
-              endpoint={formspree.partnerzy}
+              kind="partnerzy"
+              configured={formsReady}
               fields={fields}
               labels={labels}
               contactEmail={CONTACT_EMAIL}

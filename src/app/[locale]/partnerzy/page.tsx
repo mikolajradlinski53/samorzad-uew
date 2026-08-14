@@ -4,6 +4,7 @@ import { PageHero } from "@/components/PageHero";
 import { PartnerzyContent } from "@/components/pages/PartnerzyContent";
 import { Faq, type QA } from "@/components/Faq";
 import { ogMeta } from "@/lib/og";
+import { formsConfigured } from "@/app/actions/formularze";
 
 type Props = { params: Promise<{ locale: string }> };
 
@@ -22,6 +23,7 @@ const FAQ_KEYS = ["start", "forms", "reach", "tailored"] as const;
 export default async function PartnerzyPage({ params }: Props) {
   const { locale } = await params;
   setRequestLocale(locale);
+  const formsReady = await formsConfigured();
   const t = await getTranslations({ locale, namespace: "partnerzy" });
   const tc = await getTranslations({ locale, namespace: "common" });
 
@@ -41,7 +43,7 @@ export default async function PartnerzyPage({ params }: Props) {
           { label: t("heroTitle") },
         ]}
       />
-      <PartnerzyContent />
+      <PartnerzyContent formsReady={formsReady} />
       <Faq items={faq} heading={t("faqHeading")} />
     </>
   );

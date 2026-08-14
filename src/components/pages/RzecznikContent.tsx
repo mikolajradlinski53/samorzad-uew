@@ -16,7 +16,6 @@ import { ScrollReveal } from "../ScrollReveal";
 import { Impulse } from "../Impulse";
 import { Tilt } from "../Tilt";
 import { ContactForm, type ContactFormField } from "../ContactForm";
-import { formspree } from "@/lib/forms";
 import { DURATION } from "@/lib/motion";
 
 const CONTACT_EMAIL = "rps@samorzad.ue.wroc.pl";
@@ -35,7 +34,7 @@ const duties: Duty[] = [
 
 const stepKeys = ["check", "describe", "write", "together"];
 
-export function RzecznikContent() {
+export function RzecznikContent({ formsReady }: { formsReady: boolean }) {
   const reduce = useReducedMotion();
   const t = useTranslations("rzecznik");
   const tk = useTranslations("kontakt");
@@ -245,7 +244,8 @@ export function RzecznikContent() {
 
           <ScrollReveal delay={0.1}>
             <ContactForm
-              endpoint={formspree.rzecznik}
+              kind="rzecznik"
+              configured={formsReady}
               fields={fields}
               labels={labels}
               contactEmail={CONTACT_EMAIL}
