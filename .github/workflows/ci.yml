@@ -24,17 +24,26 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 24
-      # Bez `cache: npm`. Instalacja padała na runnerze, mimo że `npm ci` z tego
-      # samego lockfile przechodzi lokalnie — a cache npm jest tu pierwszym
-      # podejrzanym: raz zapisany uszkodzony wpis wraca przy każdym kolejnym
-      # przebiegu i psuje je identycznie. Wrócimy do niego, gdy CI będzie zielone.
       - name: Wersje narzędzi
         run: node -v && npm -v && npm config get registry
-      # `--foreground-scripts` pokazuje wyjście skryptów instalacyjnych, bez
-      # niego przyczyna potrafi zniknąć w zwiniętym logu.
+      # `npm install`, a nie `npm ci` — świadomie i z konkretnego powodu.
+      #
+      # `npm ci` padał na runnerze w sekundę:
+      #   Missing: @emnapi/runtime@1.11.3 from lock file
+      #   Missing: @emnapi/core@1.11.3 from lock file
+      #
+      # To zależności `@img/sharp-wasm32` (wariant WASM `sharp`, którego Next
+      # używa do obrazów). Lockfile powstaje na Windowsie i npm nie zapisuje tej
+      # gałęzi, bo lokalnie jest niepotrzebna — a na Linuksie `npm ci` wymaga
+      # kompletnego grafu i odmawia. Próby naprawy z Windowsa nie pomagają:
+      # `--include=optional` ani `--os=linux --cpu=x64` tych wpisów nie dodają.
+      #
+      # `npm install` korzysta z lockfile, ale douzupełnia brakującą gałąź,
+      # zamiast przerywać. Traci część gwarancji powtarzalności `npm ci`, więc
+      # docelowo lockfile należy wygenerować na Linuksie i wtedy tu wrócić.
       - name: Instalacja zależności
         id: install
-        run: npm ci --no-audit --no-fund --foreground-scripts
+        run: npm install --no-audit --no-fund
       # npm kończy komunikatem „a complete log of this run can be found in…",
       # a ten plik zostaje na runnerze i nikt go nie widzi. Bez niego diagnoza
       # sprowadza się do zgadywania, więc przy porażce wypisujemy go do logu
@@ -69,15 +78,18 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 24
-      - run: npm ci --no-audit --no-fund
+      # Ten sam powód co w zadaniu wyżej — patrz komentarz przy instalacji.
+      - run: npm install --no-audit --no-fund
       - uses: actions/download-artifact@v4
         with:
           name: next-build
           path: .next
       - name: Zainstaluj przeglądarkę
         run: npx playwright install --with-deps chromium
+      # Cały katalog, nie wyliczanka plików — nowy test inaczej cicho zostaje
+      # poza CI (tak było z tests/not-found.spec.ts).
       - name: Testy przeglądarkowe
-        run: npx playwright test tests/a11y.spec.ts tests/reduced-motion.spec.ts tests/mobile.spec.ts
+        run: npx playwright test
       # Raport z diagnostyki mobilnej bywa jedynym śladem, dlaczego coś przeszło
       # albo nie — trzymamy go przy przebiegu.
       - uses: actions/upload-artifact@v4
