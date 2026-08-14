@@ -9,7 +9,6 @@ import {
   Calculator,
   Check,
   CheckCircle,
-  ClockCountdown,
   Exam,
   FileText,
   Gauge,
@@ -19,6 +18,7 @@ import {
   WarningDiamond,
 } from "@phosphor-icons/react";
 import { Breadcrumbs } from "../Breadcrumbs";
+import { InfopackSourceVisual } from "../InfopackCover";
 import { DURATION, EASE } from "@/lib/motion";
 import { diplomaInfopack, diplomaSources } from "@/lib/living-documents";
 
@@ -63,12 +63,6 @@ export function DyplomowanieContent() {
   return (
     <>
       <section className="diploma-hero relative overflow-hidden border-b border-white/10 bg-[#091d2a] text-white" aria-labelledby="diploma-title">
-        <div className="diploma-blueprint pointer-events-none absolute inset-0" aria-hidden="true">
-          <span className="diploma-seal diploma-seal-outer" />
-          <span className="diploma-seal diploma-seal-inner" />
-          <span className="diploma-orbit-dot" />
-          <span className="diploma-scanline" />
-        </div>
         <div className="relative mx-auto max-w-[1200px] px-6 pb-16 pt-[128px] md:pb-20 md:pt-[140px]">
           <div className="diploma-enter diploma-enter-1 diploma-breadcrumbs">
             <Breadcrumbs items={[{ label: tc("home"), href: "/" }, { label: t("breadcrumbs.infopacks"), href: "/infopacki" }, { label: t("heroTitle") }]} />
@@ -80,10 +74,19 @@ export function DyplomowanieContent() {
               <p className="diploma-enter diploma-enter-4 mt-7 max-w-[62ch] text-pretty text-[1.0625rem] leading-[1.75] text-white/75 sm:text-[1.125rem]">{t("heroLead")}</p>
               <a href="#readiness" className="diploma-motion group mt-8 inline-flex min-h-12 items-center gap-3 rounded-lg bg-[#66e5c1] px-6 py-3 font-semibold text-[#09251f] hover:bg-[#a5f2dc]">{t("heroCta")}<ArrowDown size={19} weight="bold" className="transition-transform group-hover:translate-y-1" aria-hidden="true" /></a>
             </div>
-            <aside className="diploma-enter diploma-enter-5 border-y border-white/20 py-6" aria-label={t("status.ariaLabel")}>
-              <div className="flex items-start justify-between gap-5"><div><p className="font-mono text-[0.6875rem] uppercase tracking-[0.12em] text-white/55">{t("status.label")}</p><p className="mt-2 text-[1rem] font-semibold">{t("status.title")}</p></div><ClockCountdown size={30} weight="duotone" className="text-[#66e5c1]" aria-hidden="true" /></div>
-              <dl className="mt-6 border-t border-white/15 text-[0.75rem]"><div className="flex justify-between gap-4 border-b border-white/15 py-3"><dt className="text-white/60">{t("status.primary")}</dt><dd className="text-right font-semibold">{t("status.primaryValue")}</dd></div><div className="flex justify-between gap-4 border-b border-white/15 py-3"><dt className="text-white/60">{t("status.final")}</dt><dd className="font-semibold text-[#8ff0d4]">30.09.2026</dd></div><div className="flex justify-between gap-4 border-b border-white/15 py-3"><dt className="text-white/60">{t("status.checked")}</dt><dd className="font-mono">13.08.2026</dd></div></dl>
-            </aside>
+            <InfopackSourceVisual
+              src="/photos/infopacki/dyplomowanie-cover.jpg"
+              href={diplomaInfopack}
+              openLabel={t("status.title")}
+              sourceLabel={t("status.label")}
+              sourceTitle={t("status.title")}
+              details={[
+                { label: t("status.primary"), value: t("status.primaryValue") },
+                { label: t("status.final"), value: "30.09.2026" },
+                { label: t("status.checked"), value: "13.08.2026" },
+              ]}
+              className="order-first [&>figcaption]:hidden lg:order-none lg:[&>figcaption]:block"
+            />
           </div>
         </div>
       </section>

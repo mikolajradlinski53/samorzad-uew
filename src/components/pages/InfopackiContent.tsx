@@ -1,35 +1,35 @@
 "use client";
 
 import { useTranslations } from "next-intl";
-import { ArrowRight, ArrowSquareOut, BookOpen, FilePdf } from "@phosphor-icons/react";
+import { ArrowRight } from "@phosphor-icons/react";
 import { Link } from "@/i18n/navigation";
+import { InfopackCoverImage } from "../InfopackCover";
 
 interface Pack {
   key: string;
   href: string;
-  living?: boolean;
+  cover: string;
+  layout: string;
 }
 
 const packs: Pack[] = [
-  { key: "studyReg", href: "/infopacki/regulamin-studiow", living: true },
-  { key: "usos", href: "/infopacki/usos", living: true },
-  { key: "semester", href: "/infopacki/zaliczenie-semestru", living: true },
-  { key: "deanInfo", href: "/infopacki/sprawy-studenckie", living: true },
-  { key: "applications", href: "/infopacki/podania", living: true },
-  { key: "library", href: "/infopacki/biblioteka", living: true },
-  { key: "life", href: "/infopacki/zycie-studenckie", living: true },
-  { key: "diploma", href: "/infopacki/dyplomowanie", living: true },
+  { key: "studyReg", href: "/infopacki/regulamin-studiow", cover: "/photos/infopacki/regulamin-cover.jpg", layout: "lg:col-span-7" },
+  { key: "usos", href: "/infopacki/usos", cover: "/photos/infopacki/usos-cover.jpg", layout: "lg:col-span-5 lg:pt-24" },
+  { key: "semester", href: "/infopacki/zaliczenie-semestru", cover: "/photos/infopacki/semestr-cover.jpg", layout: "lg:col-span-5" },
+  { key: "deanInfo", href: "/infopacki/sprawy-studenckie", cover: "/photos/infopacki/sprawy-cover.jpg", layout: "lg:col-span-7 lg:pt-16" },
+  { key: "applications", href: "/infopacki/podania", cover: "/photos/infopacki/podania-cover.jpg", layout: "lg:col-span-8" },
+  { key: "library", href: "/infopacki/biblioteka", cover: "/photos/infopacki/biblioteka-cover.jpg", layout: "lg:col-span-4 lg:pt-28" },
+  { key: "life", href: "/infopacki/zycie-studenckie", cover: "/photos/infopacki/zycie-cover.jpg", layout: "lg:col-span-5 lg:pt-16" },
+  { key: "diploma", href: "/infopacki/dyplomowanie", cover: "/photos/infopacki/dyplomowanie-cover.jpg", layout: "lg:col-span-7" },
 ];
 
 export function InfopackiContent() {
   const t = useTranslations("infopacki");
-  const livingCount = packs.filter((pack) => pack.living).length;
 
   return (
     <section className="section-padding" aria-labelledby="infopacki-heading">
       <div className="mx-auto max-w-[1200px]">
-        <div className="grid gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(260px,0.5fr)] lg:items-end lg:gap-20">
-          <div>
+        <div>
             <h2
               id="infopacki-heading"
               className="max-w-[18ch] text-balance font-display text-[clamp(2.1rem,4.5vw,3.75rem)] font-semibold leading-[1.04] tracking-[-0.035em] text-ink-primary"
@@ -39,76 +39,28 @@ export function InfopackiContent() {
             <p className="mt-5 max-w-[68ch] text-pretty text-[1.0625rem] leading-[1.75] text-ink-secondary">
               {t("intro")}
             </p>
-          </div>
-
-          <div className="border-y border-border-medium py-5">
-            <p className="font-mono text-[0.75rem] font-medium text-ink-primary tabular-nums">
-              {t("migrationStatus", { living: livingCount, total: packs.length })}
-            </p>
-            <p className="mt-2 text-[0.75rem] leading-[1.55] text-ink-tertiary">
-              {t("migrationNote")}
-            </p>
-          </div>
         </div>
 
-        <ol className="mt-12 border-y border-border-medium">
+        <ol className="mt-14 grid gap-x-8 gap-y-14 lg:grid-cols-12 lg:gap-x-12 lg:gap-y-20">
           {packs.map((pack, index) => {
-            const inner = (
-              <>
-                <span className="font-mono text-[0.6875rem] font-medium text-ink-tertiary tabular-nums" aria-hidden="true">
-                  {String(index + 1).padStart(2, "0")}
-                </span>
-                <span
-                  className={`flex h-11 w-11 items-center justify-center rounded-full ${
-                    pack.living ? "bg-accent text-white" : "bg-accent-glow text-accent"
-                  }`}
-                  aria-hidden="true"
-                >
-                  {pack.living ? <BookOpen size={21} weight="fill" /> : <FilePdf size={21} weight="duotone" />}
-                </span>
-                <span className="min-w-0">
-                  <span className="block text-[0.9375rem] font-semibold leading-[1.5] text-ink-primary">
-                    {t(`packs.${pack.key}`)}
-                  </span>
-                  <span className={`mt-1 block text-[0.75rem] font-medium ${pack.living ? "text-accent" : "text-ink-tertiary"}`}>
-                    {pack.living ? t("livingLabel") : t("pdfLabel")}
-                  </span>
-                </span>
-                <span className="hidden text-[0.75rem] font-semibold text-ink-secondary sm:block">
-                  {pack.living ? t("openLiving") : t("openPdf")}
-                </span>
-                {pack.living ? (
-                  <ArrowRight
-                    size={20}
-                    weight="bold"
-                    className="text-accent transition-transform duration-200 group-hover:translate-x-1"
-                    aria-hidden="true"
-                  />
-                ) : (
-                  <ArrowSquareOut
-                    size={19}
-                    weight="bold"
-                    className="text-accent transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
-                    aria-hidden="true"
-                  />
-                )}
-              </>
-            );
-            const rowClass =
-              "infopack-row group grid min-h-[104px] grid-cols-[28px_44px_minmax(0,1fr)_22px] items-center gap-4 border-b border-border-subtle px-1 py-5 text-left transition-colors duration-150 last:border-b-0 hover:bg-bg-elevated sm:grid-cols-[32px_44px_minmax(0,1fr)_auto_24px] sm:px-5";
-
             return (
-              <li key={pack.key}>
-                {pack.living ? (
-                  <Link href={pack.href} className={rowClass}>
-                    {inner}
-                  </Link>
-                ) : (
-                  <a href={pack.href} target="_blank" rel="noopener noreferrer" className={rowClass}>
-                    {inner}
-                    <span className="sr-only">{t("opensNew")}</span>
-                  </a>
-                )}
+              <li key={pack.key} className={pack.layout}>
+                <Link href={pack.href} className="infopack-gallery-link group block">
+                  <InfopackCoverImage
+                    src={pack.cover}
+                    priority={index < 2}
+                    sizes="(max-width: 1024px) 92vw, 58vw"
+                  />
+                  <span className="mt-5 flex items-start justify-between gap-5 border-t border-border-medium pt-4">
+                    <span>
+                      <span className="block text-[1.05rem] font-semibold leading-[1.4] text-ink-primary">
+                        {t(`packs.${pack.key}`)}
+                      </span>
+                      <span className="mt-1 block text-[0.75rem] font-medium text-accent">{t("openLiving")}</span>
+                    </span>
+                    <ArrowRight size={21} weight="bold" className="mt-1 shrink-0 text-accent transition-transform duration-200 group-hover:translate-x-1" aria-hidden="true" />
+                  </span>
+                </Link>
               </li>
             );
           })}

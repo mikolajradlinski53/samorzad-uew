@@ -26,24 +26,13 @@ jobs:
           node-version: 24
       - name: Wersje narzędzi
         run: node -v && npm -v && npm config get registry
-      # `npm install`, a nie `npm ci` — świadomie i z konkretnego powodu.
-      #
-      # `npm ci` padał na runnerze w sekundę:
-      #   Missing: @emnapi/runtime@1.11.3 from lock file
-      #   Missing: @emnapi/core@1.11.3 from lock file
-      #
-      # To zależności `@img/sharp-wasm32` (wariant WASM `sharp`, którego Next
-      # używa do obrazów). Lockfile powstaje na Windowsie i npm nie zapisuje tej
-      # gałęzi, bo lokalnie jest niepotrzebna — a na Linuksie `npm ci` wymaga
-      # kompletnego grafu i odmawia. Próby naprawy z Windowsa nie pomagają:
-      # `--include=optional` ani `--os=linux --cpu=x64` tych wpisów nie dodają.
-      #
-      # `npm install` korzysta z lockfile, ale douzupełnia brakującą gałąź,
-      # zamiast przerywać. Traci część gwarancji powtarzalności `npm ci`, więc
-      # docelowo lockfile należy wygenerować na Linuksie i wtedy tu wrócić.
+      # Peery `@emnapi/core` i `@emnapi/runtime` wariantów WASM są jawnie
+      # zapisane w devDependencies. Dzięki temu lockfile ma kompletny graf
+      # zarówno na Windowsie, jak i na runnerze linuksowym, a CI może zachować
+      # deterministyczną instalację zamiast naprawiać lockfile w locie.
       - name: Instalacja zależności
         id: install
-        run: npm install --no-audit --no-fund
+        run: npm ci --no-audit --no-fund --foreground-scripts
       # npm kończy komunikatem „a complete log of this run can be found in…",
       # a ten plik zostaje na runnerze i nikt go nie widzi. Bez niego diagnoza
       # sprowadza się do zgadywania, więc przy porażce wypisujemy go do logu
@@ -78,8 +67,7 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 24
-      # Ten sam powód co w zadaniu wyżej — patrz komentarz przy instalacji.
-      - run: npm install --no-audit --no-fund
+      - run: npm ci --no-audit --no-fund --foreground-scripts
       - uses: actions/download-artifact@v4
         with:
           name: next-build

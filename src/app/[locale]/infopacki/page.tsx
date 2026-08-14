@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { PageHero } from "@/components/PageHero";
+import { InfopackCoverFan } from "@/components/InfopackCover";
 import { InfopackiContent } from "@/components/pages/InfopackiContent";
 import { ogMeta } from "@/lib/og";
 
@@ -33,6 +34,7 @@ export default async function InfopackiPage({ params }: Props) {
           { label: t("crumbStudent"), href: "/dla-studenta" },
           { label: t("heroTitle") },
         ]}
+        visual={<InfopackCoverFan />}
       />
       <InfopackiContent />
     </>

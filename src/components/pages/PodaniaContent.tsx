@@ -18,6 +18,7 @@ import {
   WarningCircle,
 } from "@phosphor-icons/react";
 import { Breadcrumbs } from "../Breadcrumbs";
+import { InfopackSourceVisual } from "../InfopackCover";
 import { DURATION, EASE } from "@/lib/motion";
 import {
   applicationsCircularReference,
@@ -108,11 +109,6 @@ export function PodaniaContent() {
   return (
     <>
       <section className="applications-hero relative overflow-hidden border-b border-white/10 bg-[#10294f] text-white" aria-labelledby="applications-title">
-        <div className="applications-sheet-stack pointer-events-none absolute inset-0" aria-hidden="true">
-          <span className="applications-sheet applications-sheet-one" />
-          <span className="applications-sheet applications-sheet-two" />
-          <span className="applications-signature" />
-        </div>
         <div className="relative mx-auto max-w-[1200px] px-6 pb-16 pt-[128px] md:pb-20 md:pt-[140px]">
           <div className="applications-enter applications-enter-1 applications-breadcrumbs">
             <Breadcrumbs
@@ -142,29 +138,19 @@ export function PodaniaContent() {
               </a>
             </div>
 
-            <aside className="applications-enter applications-enter-5 border-y border-white/20 py-6" aria-label={t("source.ariaLabel")}>
-              <div className="flex items-start justify-between gap-5">
-                <div>
-                  <p className="font-mono text-[0.6875rem] font-medium uppercase tracking-[0.12em] text-white/55">{t("source.label")}</p>
-                  <p className="mt-2 text-[1rem] font-semibold leading-[1.45]">{t("source.title")}</p>
-                </div>
-                <CheckCircle size={25} weight="fill" className="shrink-0 text-[#ffc23d]" aria-hidden="true" />
-              </div>
-              <dl className="mt-6 border-t border-white/15 text-[0.75rem]">
-                <div className="flex justify-between gap-4 border-b border-white/15 py-3">
-                  <dt className="text-white/60">{t("source.casesLabel")}</dt>
-                  <dd className="font-semibold">16</dd>
-                </div>
-                <div className="flex justify-between gap-4 border-b border-white/15 py-3">
-                  <dt className="text-white/60">{t("source.checkedLabel")}</dt>
-                  <dd className="font-mono">13.08.2026</dd>
-                </div>
-                <div className="flex justify-between gap-4 border-b border-white/15 py-3">
-                  <dt className="text-white/60">{t("source.channelLabel")}</dt>
-                  <dd className="font-semibold">USOS</dd>
-                </div>
-              </dl>
-            </aside>
+            <InfopackSourceVisual
+              src="/photos/infopacki/podania-cover.jpg"
+              href={applicationsInfopack}
+              openLabel={t("source.title")}
+              sourceLabel={t("source.label")}
+              sourceTitle={t("source.title")}
+              details={[
+                { label: t("source.casesLabel"), value: "16" },
+                { label: t("source.checkedLabel"), value: "13.08.2026" },
+                { label: t("source.channelLabel"), value: "USOS" },
+              ]}
+              className="order-first [&>figcaption]:hidden lg:order-none lg:[&>figcaption]:block"
+            />
           </div>
         </div>
       </section>

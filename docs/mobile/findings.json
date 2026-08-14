@@ -1,15 +1,15 @@
 {
-  "generatedAt": "2026-08-13T19:58:46.012Z",
+  "generatedAt": "2026-08-14T08:56:07.247Z",
   "viewport": {
     "width": 375,
     "height": 812
   },
   "minTapTargetPx": 24,
   "minFontSizePx": 12,
-  "routesMeasured": 35,
+  "routesMeasured": 39,
   "routesWithOverflow": 0,
-  "routesWithSmallTapTargets": 35,
-  "routesWithSmallText": 35,
+  "routesWithSmallTapTargets": 39,
+  "routesWithSmallText": 39,
   "routesWithErrors": 0,
   "routes": [
     {
@@ -241,7 +241,7 @@
         "culprits": []
       },
       "tapTargets": {
-        "checked": 51,
+        "checked": 57,
         "tooSmall": [
           {
             "tag": "a",
@@ -288,6 +288,24 @@
             "tag": "p",
             "classSnippet": "mt-4 font-mono text-[0.6875rem] uppercase tracking-[0.08em] text-ink-tertiary",
             "fontSize": 11,
+            "textSnippet": "Kokpit zaliczenia semestru"
+          },
+          {
+            "tag": "p",
+            "classSnippet": "mt-4 font-mono text-[0.6875rem] uppercase tracking-[0.08em] text-ink-tertiary",
+            "fontSize": 11,
+            "textSnippet": "Kompas podań"
+          },
+          {
+            "tag": "p",
+            "classSnippet": "mt-4 font-mono text-[0.6875rem] uppercase tracking-[0.08em] text-ink-tertiary",
+            "fontSize": 11,
+            "textSnippet": "Żywy przewodnik po USOS"
+          },
+          {
+            "tag": "p",
+            "classSnippet": "mt-4 font-mono text-[0.6875rem] uppercase tracking-[0.08em] text-ink-tertiary",
+            "fontSize": 11,
             "textSnippet": "Prawa studenta"
           },
           {
@@ -312,19 +330,31 @@
             "tag": "p",
             "classSnippet": "mt-4 font-mono text-[0.6875rem] uppercase tracking-[0.08em] text-ink-tertiary",
             "fontSize": 11,
+            "textSnippet": "Nawigator Biblioteki"
+          },
+          {
+            "tag": "p",
+            "classSnippet": "mt-4 font-mono text-[0.6875rem] uppercase tracking-[0.08em] text-ink-tertiary",
+            "fontSize": 11,
+            "textSnippet": "Kokpit dyplomowania"
+          },
+          {
+            "tag": "p",
+            "classSnippet": "mt-4 font-mono text-[0.6875rem] uppercase tracking-[0.08em] text-ink-tertiary",
+            "fontSize": 11,
             "textSnippet": "Infopacki"
           },
           {
             "tag": "p",
             "classSnippet": "mt-4 font-mono text-[0.6875rem] uppercase tracking-[0.08em] text-ink-tertiary",
             "fontSize": 11,
-            "textSnippet": "Władze rektorskie"
+            "textSnippet": "Router spraw studenckich"
           },
           {
             "tag": "p",
             "classSnippet": "mt-4 font-mono text-[0.6875rem] uppercase tracking-[0.08em] text-ink-tertiary",
             "fontSize": 11,
-            "textSnippet": "Organizacje studenckie"
+            "textSnippet": "Kompas zaangażowania"
           },
           {
             "tag": "p",
@@ -539,54 +569,500 @@
             "classSnippet": "flex min-h-11 items-center justify-center px-3 transition-colors text-ink-second",
             "fontSize": 11,
             "textSnippet": "en"
+          }
+        ]
+      },
+      "contentWidth": {
+        "offenders": [
+          {
+            "tag": "div",
+            "classSnippet": "flex items-center gap-3",
+            "width": 244.41,
+            "rectRight": 428.41
+          },
+          {
+            "tag": "button",
+            "classSnippet": "flex h-11 w-11 items-center justify-center rounded-lg text-ink-secondary md:hidd",
+            "width": 44,
+            "rectRight": 428.41
+          },
+          {
+            "tag": "svg",
+            "classSnippet": "",
+            "width": 24,
+            "rectRight": 418.41
+          },
+          {
+            "tag": "path",
+            "classSnippet": "",
+            "width": 18,
+            "rectRight": 415.41
+          }
+        ]
+      }
+    },
+    {
+      "route": "/infopacki/biblioteka",
+      "path": "/pl/infopacki/biblioteka",
+      "ok": true,
+      "horizontalOverflow": {
+        "scrollWidth": 375,
+        "innerWidth": 375,
+        "overflows": false,
+        "culprits": []
+      },
+      "tapTargets": {
+        "checked": 56,
+        "tooSmall": [
+          {
+            "tag": "a",
+            "classSnippet": "font-medium text-accent transition-colors hover:text-accent-dim",
+            "accessibleName": "Polityka prywatności",
+            "width": 120.58,
+            "height": 14
+          }
+        ]
+      },
+      "textLegibility": {
+        "tooSmall": [
+          {
+            "tag": "button",
+            "classSnippet": "flex min-h-11 items-center justify-center px-3 transition-colors bg-accent text-",
+            "fontSize": 11,
+            "textSnippet": "pl"
+          },
+          {
+            "tag": "button",
+            "classSnippet": "flex min-h-11 items-center justify-center px-3 transition-colors text-ink-second",
+            "fontSize": 11,
+            "textSnippet": "en"
+          },
+          {
+            "tag": "p",
+            "classSnippet": "font-mono text-[0.6875rem] font-medium uppercase tracking-[0.12em] text-accent",
+            "fontSize": 11,
+            "textSnippet": "Nawigator potrzeb"
           },
           {
             "tag": "span",
-            "classSnippet": "font-mono text-[0.6875rem] font-medium text-ink-tertiary tabular-nums",
+            "classSnippet": "mt-1 block font-mono text-[0.6875rem] text-ink-tertiary",
             "fontSize": 11,
             "textSnippet": "01"
           },
           {
             "tag": "span",
-            "classSnippet": "font-mono text-[0.6875rem] font-medium text-ink-tertiary tabular-nums",
+            "classSnippet": "mt-1 block font-mono text-[0.6875rem] text-ink-secondary",
             "fontSize": 11,
             "textSnippet": "02"
           },
           {
             "tag": "span",
-            "classSnippet": "font-mono text-[0.6875rem] font-medium text-ink-tertiary tabular-nums",
+            "classSnippet": "mt-1 block font-mono text-[0.6875rem] text-ink-tertiary",
             "fontSize": 11,
             "textSnippet": "03"
           },
           {
             "tag": "span",
-            "classSnippet": "font-mono text-[0.6875rem] font-medium text-ink-tertiary tabular-nums",
+            "classSnippet": "mt-1 block font-mono text-[0.6875rem] text-ink-tertiary",
             "fontSize": 11,
             "textSnippet": "04"
           },
           {
             "tag": "span",
-            "classSnippet": "font-mono text-[0.6875rem] font-medium text-ink-tertiary tabular-nums",
+            "classSnippet": "mt-1 block font-mono text-[0.6875rem] text-ink-tertiary",
             "fontSize": 11,
             "textSnippet": "05"
           },
           {
             "tag": "span",
-            "classSnippet": "font-mono text-[0.6875rem] font-medium text-ink-tertiary tabular-nums",
+            "classSnippet": "mt-1 block font-mono text-[0.6875rem] text-ink-tertiary",
             "fontSize": 11,
             "textSnippet": "06"
           },
           {
             "tag": "span",
-            "classSnippet": "font-mono text-[0.6875rem] font-medium text-ink-tertiary tabular-nums",
+            "classSnippet": "mt-1 block font-mono text-[0.6875rem] text-ink-tertiary",
             "fontSize": 11,
             "textSnippet": "07"
           },
           {
             "tag": "span",
-            "classSnippet": "font-mono text-[0.6875rem] font-medium text-ink-tertiary tabular-nums",
+            "classSnippet": "mt-1 block font-mono text-[0.6875rem] text-ink-tertiary",
             "fontSize": 11,
             "textSnippet": "08"
+          },
+          {
+            "tag": "p",
+            "classSnippet": "flex items-center gap-2 font-mono text-[0.6875rem] font-medium uppercase trackin",
+            "fontSize": 11,
+            "textSnippet": "Najkrótsza ścieżka"
+          },
+          {
+            "tag": "span",
+            "classSnippet": "flex h-7 w-7 items-center justify-center rounded-full bg-[#d6f5df] text-[0.6875r",
+            "fontSize": 11,
+            "textSnippet": "1"
+          },
+          {
+            "tag": "span",
+            "classSnippet": "flex h-7 w-7 items-center justify-center rounded-full bg-[#d6f5df] text-[0.6875r",
+            "fontSize": 11,
+            "textSnippet": "2"
+          },
+          {
+            "tag": "span",
+            "classSnippet": "flex h-7 w-7 items-center justify-center rounded-full bg-[#d6f5df] text-[0.6875r",
+            "fontSize": 11,
+            "textSnippet": "3"
+          },
+          {
+            "tag": "p",
+            "classSnippet": "font-mono text-[0.6875rem] font-medium uppercase tracking-[0.12em] text-[#08704f",
+            "fontSize": 11,
+            "textSnippet": "Router egzemplarza"
+          },
+          {
+            "tag": "p",
+            "classSnippet": "font-mono text-[0.6875rem] font-medium uppercase tracking-[0.1em] text-[#08704f]",
+            "fontSize": 11,
+            "textSnippet": "Twoja trasa"
+          },
+          {
+            "tag": "span",
+            "classSnippet": "font-mono text-[0.6875rem] font-semibold text-[#08704f] dark:text-[#8ae9b3]",
+            "fontSize": 11,
+            "textSnippet": "0"
+          },
+          {
+            "tag": "span",
+            "classSnippet": "font-mono text-[0.6875rem] font-semibold text-[#08704f] dark:text-[#8ae9b3]",
+            "fontSize": 11,
+            "textSnippet": "1"
+          },
+          {
+            "tag": "span",
+            "classSnippet": "font-mono text-[0.6875rem] font-semibold text-[#08704f] dark:text-[#8ae9b3]",
+            "fontSize": 11,
+            "textSnippet": "0"
+          },
+          {
+            "tag": "span",
+            "classSnippet": "font-mono text-[0.6875rem] font-semibold text-[#08704f] dark:text-[#8ae9b3]",
+            "fontSize": 11,
+            "textSnippet": "2"
+          },
+          {
+            "tag": "span",
+            "classSnippet": "font-mono text-[0.6875rem] font-semibold text-[#08704f] dark:text-[#8ae9b3]",
+            "fontSize": 11,
+            "textSnippet": "0"
+          },
+          {
+            "tag": "span",
+            "classSnippet": "font-mono text-[0.6875rem] font-semibold text-[#08704f] dark:text-[#8ae9b3]",
+            "fontSize": 11,
+            "textSnippet": "3"
+          },
+          {
+            "tag": "span",
+            "classSnippet": "font-mono text-[0.6875rem] font-semibold text-[#08704f] dark:text-[#8ae9b3]",
+            "fontSize": 11,
+            "textSnippet": "0"
+          },
+          {
+            "tag": "span",
+            "classSnippet": "font-mono text-[0.6875rem] font-semibold text-[#08704f] dark:text-[#8ae9b3]",
+            "fontSize": 11,
+            "textSnippet": "4"
+          },
+          {
+            "tag": "p",
+            "classSnippet": "font-mono text-[0.6875rem] font-medium uppercase tracking-[0.12em] text-accent",
+            "fontSize": 11,
+            "textSnippet": "Kompas pięter"
+          },
+          {
+            "tag": "p",
+            "classSnippet": "font-mono text-[0.6875rem] font-medium uppercase tracking-[0.12em] text-accent",
+            "fontSize": 11,
+            "textSnippet": "Sprawdzone źródła"
+          }
+        ]
+      },
+      "contentWidth": {
+        "offenders": [
+          {
+            "tag": "div",
+            "classSnippet": "flex items-center gap-3",
+            "width": 244.41,
+            "rectRight": 428.41
+          },
+          {
+            "tag": "button",
+            "classSnippet": "flex h-11 w-11 items-center justify-center rounded-lg text-ink-secondary md:hidd",
+            "width": 44,
+            "rectRight": 428.41
+          },
+          {
+            "tag": "svg",
+            "classSnippet": "",
+            "width": 24,
+            "rectRight": 418.41
+          },
+          {
+            "tag": "path",
+            "classSnippet": "",
+            "width": 18,
+            "rectRight": 415.41
+          }
+        ]
+      }
+    },
+    {
+      "route": "/infopacki/dyplomowanie",
+      "path": "/pl/infopacki/dyplomowanie",
+      "ok": true,
+      "horizontalOverflow": {
+        "scrollWidth": 375,
+        "innerWidth": 375,
+        "overflows": false,
+        "culprits": []
+      },
+      "tapTargets": {
+        "checked": 68,
+        "tooSmall": [
+          {
+            "tag": "input",
+            "classSnippet": "peer sr-only",
+            "accessibleName": "",
+            "width": 1,
+            "height": 1
+          },
+          {
+            "tag": "input",
+            "classSnippet": "peer sr-only",
+            "accessibleName": "",
+            "width": 1,
+            "height": 1
+          },
+          {
+            "tag": "input",
+            "classSnippet": "peer sr-only",
+            "accessibleName": "",
+            "width": 1,
+            "height": 1
+          },
+          {
+            "tag": "input",
+            "classSnippet": "peer sr-only",
+            "accessibleName": "",
+            "width": 1,
+            "height": 1
+          },
+          {
+            "tag": "input",
+            "classSnippet": "peer sr-only",
+            "accessibleName": "",
+            "width": 1,
+            "height": 1
+          },
+          {
+            "tag": "input",
+            "classSnippet": "peer sr-only",
+            "accessibleName": "",
+            "width": 1,
+            "height": 1
+          },
+          {
+            "tag": "a",
+            "classSnippet": "font-medium text-accent transition-colors hover:text-accent-dim",
+            "accessibleName": "Polityka prywatności",
+            "width": 120.58,
+            "height": 14
+          }
+        ]
+      },
+      "textLegibility": {
+        "tooSmall": [
+          {
+            "tag": "button",
+            "classSnippet": "flex min-h-11 items-center justify-center px-3 transition-colors bg-accent text-",
+            "fontSize": 11,
+            "textSnippet": "pl"
+          },
+          {
+            "tag": "button",
+            "classSnippet": "flex min-h-11 items-center justify-center px-3 transition-colors text-ink-second",
+            "fontSize": 11,
+            "textSnippet": "en"
+          },
+          {
+            "tag": "p",
+            "classSnippet": "font-mono text-[0.6875rem] font-medium uppercase tracking-[0.12em] text-accent",
+            "fontSize": 11,
+            "textSnippet": "Kokpit gotowości"
+          },
+          {
+            "tag": "span",
+            "classSnippet": "font-mono text-[0.625rem] text-ink-tertiary",
+            "fontSize": 10,
+            "textSnippet": "0"
+          },
+          {
+            "tag": "span",
+            "classSnippet": "font-mono text-[0.625rem] text-ink-tertiary",
+            "fontSize": 10,
+            "textSnippet": "1"
+          },
+          {
+            "tag": "span",
+            "classSnippet": "font-mono text-[0.625rem] text-ink-tertiary",
+            "fontSize": 10,
+            "textSnippet": "0"
+          },
+          {
+            "tag": "span",
+            "classSnippet": "font-mono text-[0.625rem] text-ink-tertiary",
+            "fontSize": 10,
+            "textSnippet": "2"
+          },
+          {
+            "tag": "span",
+            "classSnippet": "font-mono text-[0.625rem] text-ink-tertiary",
+            "fontSize": 10,
+            "textSnippet": "0"
+          },
+          {
+            "tag": "span",
+            "classSnippet": "font-mono text-[0.625rem] text-ink-tertiary",
+            "fontSize": 10,
+            "textSnippet": "3"
+          },
+          {
+            "tag": "span",
+            "classSnippet": "font-mono text-[0.625rem] text-ink-tertiary",
+            "fontSize": 10,
+            "textSnippet": "0"
+          },
+          {
+            "tag": "span",
+            "classSnippet": "font-mono text-[0.625rem] text-ink-tertiary",
+            "fontSize": 10,
+            "textSnippet": "4"
+          },
+          {
+            "tag": "span",
+            "classSnippet": "font-mono text-[0.625rem] text-ink-tertiary",
+            "fontSize": 10,
+            "textSnippet": "0"
+          },
+          {
+            "tag": "span",
+            "classSnippet": "font-mono text-[0.625rem] text-ink-tertiary",
+            "fontSize": 10,
+            "textSnippet": "5"
+          },
+          {
+            "tag": "span",
+            "classSnippet": "font-mono text-[0.625rem] text-ink-tertiary",
+            "fontSize": 10,
+            "textSnippet": "0"
+          },
+          {
+            "tag": "span",
+            "classSnippet": "font-mono text-[0.625rem] text-ink-tertiary",
+            "fontSize": 10,
+            "textSnippet": "6"
+          },
+          {
+            "tag": "p",
+            "classSnippet": "mt-3 font-mono text-[0.6875rem] text-white/55",
+            "fontSize": 11,
+            "textSnippet": "0 z 6 bramek zamkniętych"
+          },
+          {
+            "tag": "p",
+            "classSnippet": "font-mono text-[0.625rem] uppercase tracking-[0.12em] text-white/50",
+            "fontSize": 10,
+            "textSnippet": "Najbliższy bloker"
+          },
+          {
+            "tag": "p",
+            "classSnippet": "font-mono text-[0.6875rem] font-semibold uppercase tracking-[0.12em] text-[#1479",
+            "fontSize": 11,
+            "textSnippet": "Najważniejsza definicja"
+          },
+          {
+            "tag": "p",
+            "classSnippet": "font-mono text-[0.6875rem] font-medium uppercase tracking-[0.12em] text-accent",
+            "fontSize": 11,
+            "textSnippet": "Mapa procesu"
+          },
+          {
+            "tag": "span",
+            "classSnippet": "font-mono text-[0.6875rem] text-ink-tertiary",
+            "fontSize": 11,
+            "textSnippet": "0"
+          },
+          {
+            "tag": "span",
+            "classSnippet": "font-mono text-[0.6875rem] text-ink-tertiary",
+            "fontSize": 11,
+            "textSnippet": "1"
+          },
+          {
+            "tag": "span",
+            "classSnippet": "font-mono text-[0.6875rem] text-ink-tertiary",
+            "fontSize": 11,
+            "textSnippet": "0"
+          },
+          {
+            "tag": "span",
+            "classSnippet": "font-mono text-[0.6875rem] text-ink-tertiary",
+            "fontSize": 11,
+            "textSnippet": "2"
+          },
+          {
+            "tag": "span",
+            "classSnippet": "font-mono text-[0.6875rem] text-ink-tertiary",
+            "fontSize": 11,
+            "textSnippet": "0"
+          },
+          {
+            "tag": "span",
+            "classSnippet": "font-mono text-[0.6875rem] text-ink-tertiary",
+            "fontSize": 11,
+            "textSnippet": "3"
+          },
+          {
+            "tag": "span",
+            "classSnippet": "font-mono text-[0.6875rem] text-ink-tertiary",
+            "fontSize": 11,
+            "textSnippet": "0"
+          },
+          {
+            "tag": "span",
+            "classSnippet": "font-mono text-[0.6875rem] text-ink-tertiary",
+            "fontSize": 11,
+            "textSnippet": "4"
+          },
+          {
+            "tag": "span",
+            "classSnippet": "font-mono text-[0.6875rem] text-ink-tertiary",
+            "fontSize": 11,
+            "textSnippet": "0"
+          },
+          {
+            "tag": "span",
+            "classSnippet": "font-mono text-[0.6875rem] text-ink-tertiary",
+            "fontSize": 11,
+            "textSnippet": "5"
+          },
+          {
+            "tag": "span",
+            "classSnippet": "font-mono text-[0.6875rem] text-ink-tertiary",
+            "fontSize": 11,
+            "textSnippet": "0"
           }
         ]
       },
@@ -630,7 +1106,7 @@
         "culprits": []
       },
       "tapTargets": {
-        "checked": 51,
+        "checked": 52,
         "tooSmall": [
           {
             "tag": "a",
@@ -654,12 +1130,6 @@
             "classSnippet": "flex min-h-11 items-center justify-center px-3 transition-colors text-ink-second",
             "fontSize": 11,
             "textSnippet": "en"
-          },
-          {
-            "tag": "p",
-            "classSnippet": "font-mono text-[0.6875rem] font-medium uppercase tracking-[0.12em] text-white/55",
-            "fontSize": 11,
-            "textSnippet": "Zakres przewodnika"
           },
           {
             "tag": "span",
@@ -725,12 +1195,6 @@
       },
       "contentWidth": {
         "offenders": [
-          {
-            "tag": "span",
-            "classSnippet": "applications-sheet applications-sheet-one",
-            "width": 246.58,
-            "rectRight": 445.79
-          },
           {
             "tag": "div",
             "classSnippet": "flex items-center gap-3",
@@ -811,12 +1275,6 @@
             "classSnippet": "flex min-h-11 items-center justify-center px-3 transition-colors text-ink-second",
             "fontSize": 11,
             "textSnippet": "en"
-          },
-          {
-            "tag": "p",
-            "classSnippet": "font-mono text-[0.6875rem] font-medium uppercase tracking-[0.12em] text-white/55",
-            "fontSize": 11,
-            "textSnippet": "Stan źródła"
           },
           {
             "tag": "span",
@@ -922,8 +1380,8 @@
       }
     },
     {
-      "route": "/infopacki/usos",
-      "path": "/pl/infopacki/usos",
+      "route": "/infopacki/sprawy-studenckie",
+      "path": "/pl/infopacki/sprawy-studenckie",
       "ok": true,
       "horizontalOverflow": {
         "scrollWidth": 375,
@@ -932,7 +1390,7 @@
         "culprits": []
       },
       "tapTargets": {
-        "checked": 56,
+        "checked": 48,
         "tooSmall": [
           {
             "tag": "a",
@@ -958,10 +1416,221 @@
             "textSnippet": "en"
           },
           {
-            "tag": "p",
-            "classSnippet": "font-mono text-[0.6875rem] uppercase tracking-[0.12em] text-white/55",
+            "tag": "span",
+            "classSnippet": "mt-1 block text-[0.6875rem] text-ink-secondary",
             "fontSize": 11,
-            "textSnippet": "Mapa systemu"
+            "textSnippet": "01"
+          },
+          {
+            "tag": "span",
+            "classSnippet": "mt-1 block text-[0.6875rem] text-ink-secondary",
+            "fontSize": 11,
+            "textSnippet": "·"
+          },
+          {
+            "tag": "span",
+            "classSnippet": "mt-1 block text-[0.6875rem] text-ink-secondary",
+            "fontSize": 11,
+            "textSnippet": "Dziekanat"
+          },
+          {
+            "tag": "span",
+            "classSnippet": "mt-1 block text-[0.6875rem] text-ink-tertiary",
+            "fontSize": 11,
+            "textSnippet": "02"
+          },
+          {
+            "tag": "span",
+            "classSnippet": "mt-1 block text-[0.6875rem] text-ink-tertiary",
+            "fontSize": 11,
+            "textSnippet": "·"
+          },
+          {
+            "tag": "span",
+            "classSnippet": "mt-1 block text-[0.6875rem] text-ink-tertiary",
+            "fontSize": 11,
+            "textSnippet": "Dziekanat"
+          },
+          {
+            "tag": "span",
+            "classSnippet": "mt-1 block text-[0.6875rem] text-ink-tertiary",
+            "fontSize": 11,
+            "textSnippet": "03"
+          },
+          {
+            "tag": "span",
+            "classSnippet": "mt-1 block text-[0.6875rem] text-ink-tertiary",
+            "fontSize": 11,
+            "textSnippet": "·"
+          },
+          {
+            "tag": "span",
+            "classSnippet": "mt-1 block text-[0.6875rem] text-ink-tertiary",
+            "fontSize": 11,
+            "textSnippet": "Dziekanat"
+          },
+          {
+            "tag": "span",
+            "classSnippet": "mt-1 block text-[0.6875rem] text-ink-tertiary",
+            "fontSize": 11,
+            "textSnippet": "04"
+          },
+          {
+            "tag": "span",
+            "classSnippet": "mt-1 block text-[0.6875rem] text-ink-tertiary",
+            "fontSize": 11,
+            "textSnippet": "·"
+          },
+          {
+            "tag": "span",
+            "classSnippet": "mt-1 block text-[0.6875rem] text-ink-tertiary",
+            "fontSize": 11,
+            "textSnippet": "Podanie w USOS"
+          },
+          {
+            "tag": "span",
+            "classSnippet": "mt-1 block text-[0.6875rem] text-ink-tertiary",
+            "fontSize": 11,
+            "textSnippet": "05"
+          },
+          {
+            "tag": "span",
+            "classSnippet": "mt-1 block text-[0.6875rem] text-ink-tertiary",
+            "fontSize": 11,
+            "textSnippet": "·"
+          },
+          {
+            "tag": "span",
+            "classSnippet": "mt-1 block text-[0.6875rem] text-ink-tertiary",
+            "fontSize": 11,
+            "textSnippet": "Prodziekan właściwy dla kierunku"
+          },
+          {
+            "tag": "span",
+            "classSnippet": "mt-1 block text-[0.6875rem] text-ink-tertiary",
+            "fontSize": 11,
+            "textSnippet": "06"
+          },
+          {
+            "tag": "span",
+            "classSnippet": "mt-1 block text-[0.6875rem] text-ink-tertiary",
+            "fontSize": 11,
+            "textSnippet": "·"
+          },
+          {
+            "tag": "span",
+            "classSnippet": "mt-1 block text-[0.6875rem] text-ink-tertiary",
+            "fontSize": 11,
+            "textSnippet": "Dziekan ds. Studenckich"
+          },
+          {
+            "tag": "p",
+            "classSnippet": "font-mono text-[0.6875rem] font-medium text-ink-secondary",
+            "fontSize": 11,
+            "textSnippet": "Pierwsze właściwe drzwi"
+          },
+          {
+            "tag": "span",
+            "classSnippet": "inline-flex items-center gap-2 text-[0.6875rem] font-semibold text-[#0f654d] dar",
+            "fontSize": 11,
+            "textSnippet": "Dziekanat"
+          },
+          {
+            "tag": "span",
+            "classSnippet": "flex h-7 w-7 items-center justify-center rounded-full bg-[#62c7ff] text-[0.6875r",
+            "fontSize": 11,
+            "textSnippet": "1"
+          },
+          {
+            "tag": "span",
+            "classSnippet": "flex h-7 w-7 items-center justify-center rounded-full bg-[#62c7ff] text-[0.6875r",
+            "fontSize": 11,
+            "textSnippet": "2"
+          },
+          {
+            "tag": "span",
+            "classSnippet": "flex h-7 w-7 items-center justify-center rounded-full bg-[#62c7ff] text-[0.6875r",
+            "fontSize": 11,
+            "textSnippet": "3"
+          },
+          {
+            "tag": "p",
+            "classSnippet": "font-mono text-[0.6875rem] font-medium uppercase tracking-[0.12em] text-accent",
+            "fontSize": 11,
+            "textSnippet": "Aktualny podział odpowiedzialności"
+          },
+          {
+            "tag": "p",
+            "classSnippet": "font-mono text-[0.6875rem] font-medium uppercase tracking-[0.12em] text-accent",
+            "fontSize": 11,
+            "textSnippet": "Eskalacja bez chaosu"
+          }
+        ]
+      },
+      "contentWidth": {
+        "offenders": [
+          {
+            "tag": "div",
+            "classSnippet": "flex items-center gap-3",
+            "width": 244.41,
+            "rectRight": 428.41
+          },
+          {
+            "tag": "button",
+            "classSnippet": "flex h-11 w-11 items-center justify-center rounded-lg text-ink-secondary md:hidd",
+            "width": 44,
+            "rectRight": 428.41
+          },
+          {
+            "tag": "svg",
+            "classSnippet": "",
+            "width": 24,
+            "rectRight": 418.41
+          },
+          {
+            "tag": "path",
+            "classSnippet": "",
+            "width": 18,
+            "rectRight": 415.41
+          }
+        ]
+      }
+    },
+    {
+      "route": "/infopacki/usos",
+      "path": "/pl/infopacki/usos",
+      "ok": true,
+      "horizontalOverflow": {
+        "scrollWidth": 375,
+        "innerWidth": 375,
+        "overflows": false,
+        "culprits": []
+      },
+      "tapTargets": {
+        "checked": 57,
+        "tooSmall": [
+          {
+            "tag": "a",
+            "classSnippet": "font-medium text-accent transition-colors hover:text-accent-dim",
+            "accessibleName": "Polityka prywatności",
+            "width": 120.58,
+            "height": 14
+          }
+        ]
+      },
+      "textLegibility": {
+        "tooSmall": [
+          {
+            "tag": "button",
+            "classSnippet": "flex min-h-11 items-center justify-center px-3 transition-colors bg-accent text-",
+            "fontSize": 11,
+            "textSnippet": "pl"
+          },
+          {
+            "tag": "button",
+            "classSnippet": "flex min-h-11 items-center justify-center px-3 transition-colors text-ink-second",
+            "fontSize": 11,
+            "textSnippet": "en"
           },
           {
             "tag": "span",
@@ -1124,23 +1793,17 @@
             "classSnippet": "mt-1 block text-[0.6875rem] text-ink-tertiary",
             "fontSize": 11,
             "textSnippet": "Infopack · s. 13"
+          },
+          {
+            "tag": "span",
+            "classSnippet": "mt-1 block text-[0.6875rem] text-ink-tertiary",
+            "fontSize": 11,
+            "textSnippet": "Dla studentów"
           }
         ]
       },
       "contentWidth": {
         "offenders": [
-          {
-            "tag": "span",
-            "classSnippet": "usos-window-bar",
-            "width": 420,
-            "rectRight": 592.5
-          },
-          {
-            "tag": "span",
-            "classSnippet": "usos-window-panel usos-window-panel-a",
-            "width": 307.5,
-            "rectRight": 540
-          },
           {
             "tag": "div",
             "classSnippet": "flex items-center gap-3",
@@ -1179,7 +1842,7 @@
         "culprits": []
       },
       "tapTargets": {
-        "checked": 55,
+        "checked": 56,
         "tooSmall": [
           {
             "tag": "a",
@@ -1203,12 +1866,6 @@
             "classSnippet": "flex min-h-11 items-center justify-center px-3 transition-colors text-ink-second",
             "fontSize": 11,
             "textSnippet": "en"
-          },
-          {
-            "tag": "p",
-            "classSnippet": "font-mono text-[0.6875rem] uppercase tracking-[0.12em] text-white/55",
-            "fontSize": 11,
-            "textSnippet": "Mapa decyzji"
           },
           {
             "tag": "p",
@@ -1371,17 +2028,252 @@
             "classSnippet": "font-mono text-[0.6875rem] uppercase tracking-[0.1em] text-ink-tertiary",
             "fontSize": 11,
             "textSnippet": "średnia ważona"
+          },
+          {
+            "tag": "p",
+            "classSnippet": "font-mono text-[0.6875rem] uppercase tracking-[0.1em] text-ink-tertiary",
+            "fontSize": 11,
+            "textSnippet": ":"
           }
         ]
       },
       "contentWidth": {
         "offenders": [
           {
-            "tag": "span",
-            "classSnippet": "semester-orbit-line",
-            "width": 964.61,
-            "rectRight": 894.81
+            "tag": "div",
+            "classSnippet": "flex items-center gap-3",
+            "width": 244.41,
+            "rectRight": 428.41
           },
+          {
+            "tag": "button",
+            "classSnippet": "flex h-11 w-11 items-center justify-center rounded-lg text-ink-secondary md:hidd",
+            "width": 44,
+            "rectRight": 428.41
+          },
+          {
+            "tag": "svg",
+            "classSnippet": "",
+            "width": 24,
+            "rectRight": 418.41
+          },
+          {
+            "tag": "path",
+            "classSnippet": "",
+            "width": 18,
+            "rectRight": 415.41
+          }
+        ]
+      }
+    },
+    {
+      "route": "/infopacki/zycie-studenckie",
+      "path": "/pl/infopacki/zycie-studenckie",
+      "ok": true,
+      "horizontalOverflow": {
+        "scrollWidth": 375,
+        "innerWidth": 375,
+        "overflows": false,
+        "culprits": []
+      },
+      "tapTargets": {
+        "checked": 63,
+        "tooSmall": [
+          {
+            "tag": "a",
+            "classSnippet": "font-medium text-accent transition-colors hover:text-accent-dim",
+            "accessibleName": "Polityka prywatności",
+            "width": 120.58,
+            "height": 14
+          }
+        ]
+      },
+      "textLegibility": {
+        "tooSmall": [
+          {
+            "tag": "button",
+            "classSnippet": "flex min-h-11 items-center justify-center px-3 transition-colors bg-accent text-",
+            "fontSize": 11,
+            "textSnippet": "pl"
+          },
+          {
+            "tag": "button",
+            "classSnippet": "flex min-h-11 items-center justify-center px-3 transition-colors text-ink-second",
+            "fontSize": 11,
+            "textSnippet": "en"
+          },
+          {
+            "tag": "p",
+            "classSnippet": "font-mono text-[0.6875rem] font-medium uppercase tracking-[0.12em] text-accent",
+            "fontSize": 11,
+            "textSnippet": "Kompas zaangażowania"
+          },
+          {
+            "tag": "span",
+            "classSnippet": "font-mono text-[0.6875rem] text-accent",
+            "fontSize": 11,
+            "textSnippet": "0"
+          },
+          {
+            "tag": "span",
+            "classSnippet": "font-mono text-[0.6875rem] text-accent",
+            "fontSize": 11,
+            "textSnippet": "1"
+          },
+          {
+            "tag": "span",
+            "classSnippet": "font-mono text-[0.6875rem] text-accent",
+            "fontSize": 11,
+            "textSnippet": "0"
+          },
+          {
+            "tag": "span",
+            "classSnippet": "font-mono text-[0.6875rem] text-accent",
+            "fontSize": 11,
+            "textSnippet": "2"
+          },
+          {
+            "tag": "span",
+            "classSnippet": "font-mono text-[0.6875rem] text-accent",
+            "fontSize": 11,
+            "textSnippet": "0"
+          },
+          {
+            "tag": "span",
+            "classSnippet": "font-mono text-[0.6875rem] text-accent",
+            "fontSize": 11,
+            "textSnippet": "3"
+          },
+          {
+            "tag": "span",
+            "classSnippet": "font-mono text-[0.6875rem] text-accent",
+            "fontSize": 11,
+            "textSnippet": "0"
+          },
+          {
+            "tag": "span",
+            "classSnippet": "font-mono text-[0.6875rem] text-accent",
+            "fontSize": 11,
+            "textSnippet": "4"
+          },
+          {
+            "tag": "span",
+            "classSnippet": "font-mono text-[0.6875rem] text-white/55",
+            "fontSize": 11,
+            "textSnippet": "wynik na żywo"
+          },
+          {
+            "tag": "p",
+            "classSnippet": "font-mono text-[0.625rem] uppercase tracking-[0.1em] text-[#5b527e]",
+            "fontSize": 10,
+            "textSnippet": "Najmocniejsze dopasowanie"
+          },
+          {
+            "tag": "span",
+            "classSnippet": "text-[0.6875rem] font-medium text-[#514c68]",
+            "fontSize": 11,
+            "textSnippet": "Zwykle stałe spotkania + okresy projektowe"
+          },
+          {
+            "tag": "p",
+            "classSnippet": "font-mono text-[0.625rem] uppercase tracking-[0.1em] text-white/55",
+            "fontSize": 10,
+            "textSnippet": "Alternatywa 1"
+          },
+          {
+            "tag": "span",
+            "classSnippet": "text-[0.6875rem] font-medium text-white/60",
+            "fontSize": 11,
+            "textSnippet": "Spotkania i projekty zależne od koła"
+          },
+          {
+            "tag": "p",
+            "classSnippet": "font-mono text-[0.625rem] uppercase tracking-[0.1em] text-white/55",
+            "fontSize": 10,
+            "textSnippet": "Alternatywa 2"
+          },
+          {
+            "tag": "span",
+            "classSnippet": "text-[0.6875rem] font-medium text-white/60",
+            "fontSize": 11,
+            "textSnippet": "Warsztaty lub zamknięte cykle projektowe"
+          },
+          {
+            "tag": "p",
+            "classSnippet": "font-mono text-[0.6875rem] font-medium uppercase tracking-[0.12em] text-[#7a5610",
+            "fontSize": 11,
+            "textSnippet": "Koszt powiedzenia „tak”"
+          },
+          {
+            "tag": "p",
+            "classSnippet": "font-mono text-[0.6875rem] font-medium uppercase tracking-[0.12em] text-accent",
+            "fontSize": 11,
+            "textSnippet": "Pierwszy eksperyment"
+          },
+          {
+            "tag": "span",
+            "classSnippet": "font-mono text-[0.6875rem] font-semibold text-accent",
+            "fontSize": 11,
+            "textSnippet": "0"
+          },
+          {
+            "tag": "span",
+            "classSnippet": "font-mono text-[0.6875rem] font-semibold text-accent",
+            "fontSize": 11,
+            "textSnippet": "1"
+          },
+          {
+            "tag": "span",
+            "classSnippet": "font-mono text-[0.6875rem] font-semibold text-accent",
+            "fontSize": 11,
+            "textSnippet": "0"
+          },
+          {
+            "tag": "span",
+            "classSnippet": "font-mono text-[0.6875rem] font-semibold text-accent",
+            "fontSize": 11,
+            "textSnippet": "2"
+          },
+          {
+            "tag": "span",
+            "classSnippet": "font-mono text-[0.6875rem] font-semibold text-accent",
+            "fontSize": 11,
+            "textSnippet": "0"
+          },
+          {
+            "tag": "span",
+            "classSnippet": "font-mono text-[0.6875rem] font-semibold text-accent",
+            "fontSize": 11,
+            "textSnippet": "3"
+          },
+          {
+            "tag": "span",
+            "classSnippet": "font-mono text-[0.6875rem] font-semibold text-accent",
+            "fontSize": 11,
+            "textSnippet": "0"
+          },
+          {
+            "tag": "span",
+            "classSnippet": "font-mono text-[0.6875rem] font-semibold text-accent",
+            "fontSize": 11,
+            "textSnippet": "4"
+          },
+          {
+            "tag": "p",
+            "classSnippet": "flex items-center gap-2 font-mono text-[0.6875rem] font-medium uppercase trackin",
+            "fontSize": 11,
+            "textSnippet": "Aktualizacja względem PDF"
+          },
+          {
+            "tag": "p",
+            "classSnippet": "font-mono text-[0.6875rem] font-medium uppercase tracking-[0.12em] text-accent",
+            "fontSize": 11,
+            "textSnippet": "Sprawdzone źródła"
+          }
+        ]
+      },
+      "contentWidth": {
+        "offenders": [
           {
             "tag": "div",
             "classSnippet": "flex items-center gap-3",
@@ -1701,7 +2593,7 @@
         "culprits": []
       },
       "tapTargets": {
-        "checked": 36,
+        "checked": 38,
         "tooSmall": [
           {
             "tag": "a",
@@ -1727,100 +2619,172 @@
             "textSnippet": "en"
           },
           {
-            "tag": "li",
-            "classSnippet": "rounded-full border border-border-subtle px-3 py-1 text-[0.6875rem] font-medium ",
+            "tag": "p",
+            "classSnippet": "font-mono text-[0.6875rem] font-semibold uppercase tracking-[0.13em] text-accent",
             "fontSize": 11,
-            "textSnippet": "Instagram"
+            "textSnippet": "Portfolio działań"
           },
           {
-            "tag": "li",
-            "classSnippet": "rounded-full border border-border-subtle px-3 py-1 text-[0.6875rem] font-medium ",
-            "fontSize": 11,
-            "textSnippet": "Facebook"
+            "tag": "span",
+            "classSnippet": "",
+            "fontSize": 10,
+            "textSnippet": "Zdjęcie poglądowe"
           },
           {
-            "tag": "li",
-            "classSnippet": "rounded-full border border-border-subtle px-3 py-1 text-[0.6875rem] font-medium ",
-            "fontSize": 11,
-            "textSnippet": "Instagram"
+            "tag": "span",
+            "classSnippet": "",
+            "fontSize": 10,
+            "textSnippet": "fotografia SSUEW"
           },
           {
-            "tag": "li",
-            "classSnippet": "rounded-full border border-border-subtle px-3 py-1 text-[0.6875rem] font-medium ",
+            "tag": "p",
+            "classSnippet": "font-mono text-[0.6875rem] font-semibold uppercase tracking-[0.12em] text-accent",
             "fontSize": 11,
-            "textSnippet": "Facebook"
+            "textSnippet": "Pierwsze relacje"
           },
           {
-            "tag": "li",
-            "classSnippet": "rounded-full border border-border-subtle px-3 py-1 text-[0.6875rem] font-medium ",
+            "tag": "span",
+            "classSnippet": "font-mono text-[0.6875rem] text-ink-tertiary tabular-nums",
             "fontSize": 11,
-            "textSnippet": "TikTok"
+            "textSnippet": "01"
           },
           {
-            "tag": "li",
-            "classSnippet": "rounded-full border border-border-subtle px-3 py-1 text-[0.6875rem] font-medium ",
+            "tag": "span",
+            "classSnippet": "font-mono text-[0.6875rem] text-ink-tertiary tabular-nums",
             "fontSize": 11,
-            "textSnippet": "Instagram"
+            "textSnippet": "/ 09"
           },
           {
-            "tag": "li",
-            "classSnippet": "rounded-full border border-border-subtle px-3 py-1 text-[0.6875rem] font-medium ",
+            "tag": "span",
+            "classSnippet": "font-semibold text-ink-secondary",
             "fontSize": 11,
-            "textSnippet": "Facebook"
+            "textSnippet": "Kanały projektu"
           },
           {
-            "tag": "li",
-            "classSnippet": "rounded-full border border-border-subtle px-3 py-1 text-[0.6875rem] font-medium ",
+            "tag": "span",
+            "classSnippet": "font-semibold text-ink-secondary",
             "fontSize": 11,
-            "textSnippet": "TikTok"
+            "textSnippet": ":"
           },
           {
-            "tag": "li",
-            "classSnippet": "rounded-full border border-border-subtle px-3 py-1 text-[0.6875rem] font-medium ",
+            "tag": "p",
+            "classSnippet": "mt-7 text-[0.6875rem] leading-[1.6] text-ink-tertiary",
             "fontSize": 11,
-            "textSnippet": "Facebook"
+            "textSnippet": "Instagram · Facebook"
           },
           {
-            "tag": "li",
-            "classSnippet": "rounded-full border border-border-subtle px-3 py-1 text-[0.6875rem] font-medium ",
+            "tag": "span",
+            "classSnippet": "project-poster-index font-mono text-[0.6875rem] font-semibold tracking-[0.14em]",
             "fontSize": 11,
-            "textSnippet": "Instagram"
+            "textSnippet": "02"
           },
           {
-            "tag": "li",
-            "classSnippet": "rounded-full border border-border-subtle px-3 py-1 text-[0.6875rem] font-medium ",
+            "tag": "span",
+            "classSnippet": "project-poster-index font-mono text-[0.6875rem] font-semibold tracking-[0.14em]",
             "fontSize": 11,
-            "textSnippet": "Facebook"
+            "textSnippet": "/ 09"
           },
           {
-            "tag": "li",
-            "classSnippet": "rounded-full border border-border-subtle px-3 py-1 text-[0.6875rem] font-medium ",
-            "fontSize": 11,
-            "textSnippet": "LinkedIn"
+            "tag": "span",
+            "classSnippet": "",
+            "fontSize": 10,
+            "textSnippet": "Zdjęcie poglądowe"
           },
           {
-            "tag": "li",
-            "classSnippet": "rounded-full border border-border-subtle px-3 py-1 text-[0.6875rem] font-medium ",
-            "fontSize": 11,
-            "textSnippet": "TikTok"
+            "tag": "span",
+            "classSnippet": "",
+            "fontSize": 10,
+            "textSnippet": "miejsce na pełną galerię"
           },
           {
-            "tag": "li",
-            "classSnippet": "rounded-full border border-border-subtle px-3 py-1 text-[0.6875rem] font-medium ",
+            "tag": "p",
+            "classSnippet": "font-mono text-[0.6875rem] font-semibold uppercase tracking-[0.12em] text-accent",
             "fontSize": 11,
-            "textSnippet": "Instagram"
+            "textSnippet": "Projekt charytatywny"
           },
           {
-            "tag": "li",
-            "classSnippet": "rounded-full border border-border-subtle px-3 py-1 text-[0.6875rem] font-medium ",
+            "tag": "span",
+            "classSnippet": "font-mono text-[0.6875rem] text-ink-tertiary tabular-nums",
             "fontSize": 11,
-            "textSnippet": "Facebook"
+            "textSnippet": "02"
           },
           {
-            "tag": "li",
-            "classSnippet": "rounded-full border border-border-subtle px-3 py-1 text-[0.6875rem] font-medium ",
+            "tag": "span",
+            "classSnippet": "font-mono text-[0.6875rem] text-ink-tertiary tabular-nums",
             "fontSize": 11,
-            "textSnippet": "TikTok"
+            "textSnippet": "/ 09"
+          },
+          {
+            "tag": "span",
+            "classSnippet": "font-semibold text-ink-secondary",
+            "fontSize": 11,
+            "textSnippet": "Kanały projektu"
+          },
+          {
+            "tag": "span",
+            "classSnippet": "font-semibold text-ink-secondary",
+            "fontSize": 11,
+            "textSnippet": ":"
+          },
+          {
+            "tag": "p",
+            "classSnippet": "mt-7 text-[0.6875rem] leading-[1.6] text-ink-tertiary",
+            "fontSize": 11,
+            "textSnippet": "Instagram · Facebook · TikTok"
+          },
+          {
+            "tag": "span",
+            "classSnippet": "",
+            "fontSize": 10,
+            "textSnippet": "Zdjęcie poglądowe"
+          },
+          {
+            "tag": "span",
+            "classSnippet": "",
+            "fontSize": 10,
+            "textSnippet": "fotografia SSUEW"
+          },
+          {
+            "tag": "p",
+            "classSnippet": "font-mono text-[0.6875rem] font-semibold uppercase tracking-[0.12em] text-accent",
+            "fontSize": 11,
+            "textSnippet": "Wspólnota UEW"
+          },
+          {
+            "tag": "span",
+            "classSnippet": "font-mono text-[0.6875rem] text-ink-tertiary tabular-nums",
+            "fontSize": 11,
+            "textSnippet": "03"
+          },
+          {
+            "tag": "span",
+            "classSnippet": "font-mono text-[0.6875rem] text-ink-tertiary tabular-nums",
+            "fontSize": 11,
+            "textSnippet": "/ 09"
+          },
+          {
+            "tag": "span",
+            "classSnippet": "",
+            "fontSize": 10,
+            "textSnippet": "Zdjęcie poglądowe"
+          },
+          {
+            "tag": "span",
+            "classSnippet": "",
+            "fontSize": 10,
+            "textSnippet": "fotografia SSUEW"
+          },
+          {
+            "tag": "p",
+            "classSnippet": "font-mono text-[0.6875rem] font-semibold uppercase tracking-[0.12em] text-accent",
+            "fontSize": 11,
+            "textSnippet": "Wejście w studiowanie"
+          },
+          {
+            "tag": "span",
+            "classSnippet": "font-mono text-[0.6875rem] text-ink-tertiary tabular-nums",
+            "fontSize": 11,
+            "textSnippet": "04"
           }
         ]
       },

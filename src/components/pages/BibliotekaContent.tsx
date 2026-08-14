@@ -20,6 +20,7 @@ import {
   Student,
 } from "@phosphor-icons/react";
 import { Breadcrumbs } from "../Breadcrumbs";
+import { InfopackSourceVisual } from "../InfopackCover";
 import { DURATION, EASE } from "@/lib/motion";
 import { libraryInfopack, librarySources } from "@/lib/living-documents";
 
@@ -57,11 +58,6 @@ export function BibliotekaContent() {
   return (
     <>
       <section className="library-hero relative overflow-hidden border-b border-white/10 bg-[#082c28] text-white" aria-labelledby="library-title">
-        <div className="library-shelf-scene pointer-events-none absolute inset-0" aria-hidden="true">
-          <span className="library-shelf library-shelf-1" /><span className="library-shelf library-shelf-2" /><span className="library-shelf library-shelf-3" />
-          {[1, 2, 3, 4, 5, 6, 7].map((book) => <span key={book} className={`library-book library-book-${book}`} />)}
-          <span className="library-scanner" />
-        </div>
         <div className="relative mx-auto max-w-[1200px] px-6 pb-16 pt-[128px] md:pb-20 md:pt-[140px]">
           <div className="library-enter library-enter-1 library-breadcrumbs"><Breadcrumbs items={[{ label: tc("home"), href: "/" }, { label: t("breadcrumbs.infopacks"), href: "/infopacki" }, { label: t("heroTitle") }]} /></div>
           <div className="mt-10 grid items-end gap-12 lg:grid-cols-[minmax(0,1.08fr)_minmax(320px,0.56fr)] lg:gap-20">
@@ -71,11 +67,19 @@ export function BibliotekaContent() {
               <p className="library-enter library-enter-4 mt-7 max-w-[62ch] text-pretty text-[1.0625rem] leading-[1.75] text-white/76 sm:text-[1.125rem]">{t("heroLead")}</p>
               <a href="#library-task" className="library-motion group mt-8 inline-flex min-h-12 items-center gap-3 rounded-lg bg-[#7be39c] px-6 py-3 font-semibold text-[#06251f] hover:bg-[#b8f2c9]">{t("heroCta")}<ArrowDown size={19} weight="bold" className="transition-transform group-hover:translate-y-1" aria-hidden="true" /></a>
             </div>
-            <aside className="library-enter library-enter-5 border-y border-white/20 py-6" aria-label={t("source.ariaLabel")}>
-              <div className="flex items-start justify-between gap-5"><div><p className="font-mono text-[0.6875rem] uppercase tracking-[0.12em] text-white/55">{t("source.label")}</p><p className="mt-2 text-[1rem] font-semibold">{t("source.title")}</p></div><Books size={28} weight="duotone" className="text-[#7be39c]" aria-hidden="true" /></div>
-              <dl className="mt-6 border-t border-white/15 text-[0.75rem]"><div className="flex justify-between gap-4 border-b border-white/15 py-3"><dt className="text-white/60">{t("source.tasks")}</dt><dd className="font-semibold">8</dd></div><div className="flex justify-between gap-4 border-b border-white/15 py-3"><dt className="text-white/60">{t("source.floors")}</dt><dd className="font-semibold">3</dd></div><div className="flex justify-between gap-4 border-b border-white/15 py-3"><dt className="text-white/60">{t("source.checked")}</dt><dd className="font-mono">13.08.2026</dd></div></dl>
-              <a href={librarySources.home} target="_blank" rel="noopener noreferrer" className="mt-5 inline-flex items-center gap-2 text-[0.75rem] font-semibold text-[#a9e7bc] hover:text-white">{t("source.hours")}<ArrowSquareOut size={15} weight="bold" aria-hidden="true" /></a>
-            </aside>
+            <InfopackSourceVisual
+              src="/photos/infopacki/biblioteka-cover.jpg"
+              href={libraryInfopack}
+              openLabel={t("source.title")}
+              sourceLabel={t("source.label")}
+              sourceTitle={t("source.title")}
+              details={[
+                { label: t("source.tasks"), value: "8" },
+                { label: t("source.floors"), value: "3" },
+                { label: t("source.checked"), value: "13.08.2026" },
+              ]}
+              className="order-first [&>figcaption]:hidden lg:order-none lg:[&>figcaption]:block"
+            />
           </div>
         </div>
       </section>

@@ -20,6 +20,7 @@ import {
   Warning,
 } from "@phosphor-icons/react";
 import { Breadcrumbs } from "../Breadcrumbs";
+import { InfopackSourceVisual } from "../InfopackCover";
 import { Link } from "@/i18n/navigation";
 import { DURATION, EASE } from "@/lib/motion";
 import {
@@ -85,10 +86,6 @@ export function ZaliczenieSemestruContent() {
   return (
     <>
       <section className="semester-hero relative overflow-hidden border-b border-white/10 bg-[#081d3b] text-white" aria-labelledby="semester-title">
-        <div className="semester-orbit pointer-events-none absolute inset-0" aria-hidden="true">
-          <span className="semester-orbit-line" />
-          {[0, 1, 2, 3, 4].map((item) => <span key={item} className={`semester-orbit-node semester-orbit-node-${item + 1}`} />)}
-        </div>
         <div className="relative mx-auto max-w-[1200px] px-6 pb-16 pt-[128px] md:pb-20 md:pt-[140px]">
           <div className="semester-enter semester-enter-1 semester-breadcrumbs">
             <Breadcrumbs items={[{ label: tc("home"), href: "/" }, { label: t("breadcrumbs.infopacks"), href: "/infopacki" }, { label: t("heroTitle") }]} />
@@ -100,10 +97,19 @@ export function ZaliczenieSemestruContent() {
               <p className="semester-enter semester-enter-4 mt-7 max-w-[62ch] text-pretty text-[1.0625rem] leading-[1.75] text-white/76 sm:text-[1.125rem]">{t("heroLead")}</p>
               <a href="#decision" className="semester-motion group mt-8 inline-flex min-h-12 items-center gap-3 rounded-lg bg-[#ffc23d] px-6 py-3 font-semibold text-[#241900] hover:bg-[#ffdc82]">{t("heroCta")}<ArrowDown size={19} weight="bold" className="transition-transform group-hover:translate-y-1" aria-hidden="true" /></a>
             </div>
-            <aside className="semester-enter semester-enter-5 border-y border-white/20 py-6" aria-label={t("source.ariaLabel")}>
-              <div className="flex items-start justify-between gap-5"><div><p className="font-mono text-[0.6875rem] uppercase tracking-[0.12em] text-white/55">{t("source.label")}</p><p className="mt-2 text-[1rem] font-semibold">{t("source.title")}</p></div><Path size={26} weight="duotone" className="text-[#ffc23d]" aria-hidden="true" /></div>
-              <dl className="mt-6 border-t border-white/15 text-[0.75rem]"><div className="flex justify-between gap-4 border-b border-white/15 py-3"><dt className="text-white/60">{t("source.chapters")}</dt><dd className="font-semibold">11</dd></div><div className="flex justify-between gap-4 border-b border-white/15 py-3"><dt className="text-white/60">{t("source.states")}</dt><dd className="font-semibold">5</dd></div><div className="flex justify-between gap-4 border-b border-white/15 py-3"><dt className="text-white/60">{t("source.checked")}</dt><dd className="font-mono">13.08.2026</dd></div></dl>
-            </aside>
+            <InfopackSourceVisual
+              src="/photos/infopacki/semestr-cover.jpg"
+              href={semesterInfopack}
+              openLabel={t("source.title")}
+              sourceLabel={t("source.label")}
+              sourceTitle={t("source.title")}
+              details={[
+                { label: t("source.chapters"), value: "11" },
+                { label: t("source.states"), value: "5" },
+                { label: t("source.checked"), value: "13.08.2026" },
+              ]}
+              className="order-first [&>figcaption]:hidden lg:order-none lg:[&>figcaption]:block"
+            />
           </div>
         </div>
       </section>

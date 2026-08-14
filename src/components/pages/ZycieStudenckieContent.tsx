@@ -9,7 +9,6 @@ import {
   ArrowSquareOut,
   Briefcase,
   Flask,
-  GlobeHemisphereWest,
   Lightbulb,
   MicrophoneStage,
   Path,
@@ -18,6 +17,7 @@ import {
   UsersThree,
 } from "@phosphor-icons/react";
 import { Breadcrumbs } from "../Breadcrumbs";
+import { InfopackSourceVisual } from "../InfopackCover";
 import { DURATION, EASE } from "@/lib/motion";
 import { studentLifeInfopack, studentLifeSources } from "@/lib/living-documents";
 
@@ -66,16 +66,23 @@ export function ZycieStudenckieContent() {
   return (
     <>
       <section className="life-hero relative overflow-hidden border-b border-white/10 bg-[#171443] text-white" aria-labelledby="life-title">
-        <div className="life-constellation pointer-events-none absolute inset-0" aria-hidden="true">
-          <span className="life-orbit life-orbit-1" /><span className="life-orbit life-orbit-2" />
-          {[1, 2, 3, 4, 5, 6, 7, 8].map((node) => <span key={node} className={`life-node life-node-${node}`} />)}
-          <span className="life-comet" />
-        </div>
         <div className="relative mx-auto max-w-[1200px] px-6 pb-16 pt-[128px] md:pb-20 md:pt-[140px]">
           <div className="life-enter life-enter-1 life-breadcrumbs"><Breadcrumbs items={[{ label: tc("home"), href: "/" }, { label: t("breadcrumbs.infopacks"), href: "/infopacki" }, { label: t("heroTitle") }]} /></div>
           <div className="mt-10 grid items-end gap-12 lg:grid-cols-[minmax(0,1.08fr)_minmax(320px,0.56fr)] lg:gap-20">
             <div><p className="life-enter life-enter-2 inline-flex items-center gap-3 text-[0.8125rem] font-semibold text-[#c9c4ff]"><span className="h-2.5 w-2.5 rounded-full bg-[#ffcf58]" aria-hidden="true" />{t("heroLabel")}</p><h1 id="life-title" className="life-enter life-enter-3 mt-6 max-w-[12ch] text-balance font-display text-[clamp(2.8rem,6.2vw,5.8rem)] font-semibold leading-[0.94] tracking-[-0.04em]">{t("heroTitle")}</h1><p className="life-enter life-enter-4 mt-7 max-w-[62ch] text-pretty text-[1.0625rem] leading-[1.75] text-white/76 sm:text-[1.125rem]">{t("heroLead")}</p><a href="#matcher" className="life-motion group mt-8 inline-flex min-h-12 items-center gap-3 rounded-lg bg-[#ffcf58] px-6 py-3 font-semibold text-[#211738] hover:bg-[#ffe39a]">{t("heroCta")}<ArrowDown size={19} weight="bold" className="transition-transform group-hover:translate-y-1" aria-hidden="true" /></a></div>
-            <aside className="life-enter life-enter-5 border-y border-white/20 py-6" aria-label={t("source.ariaLabel")}><div className="flex items-start justify-between gap-5"><div><p className="font-mono text-[0.6875rem] uppercase tracking-[0.12em] text-white/55">{t("source.label")}</p><p className="mt-2 text-[1rem] font-semibold">{t("source.title")}</p></div><GlobeHemisphereWest size={28} weight="duotone" className="text-[#ffcf58]" aria-hidden="true" /></div><dl className="mt-6 border-t border-white/15 text-[0.75rem]"><div className="flex justify-between gap-4 border-b border-white/15 py-3"><dt className="text-white/60">{t("source.paths")}</dt><dd className="font-semibold">8</dd></div><div className="flex justify-between gap-4 border-b border-white/15 py-3"><dt className="text-white/60">{t("source.questions")}</dt><dd className="font-semibold">4</dd></div><div className="flex justify-between gap-4 border-b border-white/15 py-3"><dt className="text-white/60">{t("source.checked")}</dt><dd className="font-mono">13.08.2026</dd></div></dl></aside>
+            <InfopackSourceVisual
+              src="/photos/infopacki/zycie-cover.jpg"
+              href={studentLifeInfopack}
+              openLabel={t("source.title")}
+              sourceLabel={t("source.label")}
+              sourceTitle={t("source.title")}
+              details={[
+                { label: t("source.paths"), value: "8" },
+                { label: t("source.questions"), value: "4" },
+                { label: t("source.checked"), value: "13.08.2026" },
+              ]}
+              className="order-first [&>figcaption]:hidden lg:order-none lg:[&>figcaption]:block"
+            />
           </div>
         </div>
       </section>

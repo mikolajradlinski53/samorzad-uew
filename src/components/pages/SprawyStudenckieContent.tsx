@@ -22,6 +22,7 @@ import {
   UsersThree,
 } from "@phosphor-icons/react";
 import { Breadcrumbs } from "../Breadcrumbs";
+import { InfopackSourceVisual } from "../InfopackCover";
 import { Link } from "@/i18n/navigation";
 import { DURATION, EASE } from "@/lib/motion";
 import { dean, viceDeans } from "@/lib/people";
@@ -89,12 +90,23 @@ export function SprawyStudenckieContent() {
   return (
     <>
       <section className="matters-hero relative overflow-hidden border-b border-white/10 bg-[#10223f] text-white" aria-labelledby="matters-title">
-        <div className="matters-route-scene pointer-events-none absolute inset-0" aria-hidden="true"><span className="matters-route-line" />{[1, 2, 3, 4].map((item) => <span key={item} className={`matters-route-door matters-route-door-${item}`} />)}<span className="matters-route-signal" /></div>
         <div className="relative mx-auto max-w-[1200px] px-6 pb-16 pt-[128px] md:pb-20 md:pt-[140px]">
           <div className="matters-enter matters-enter-1 matters-breadcrumbs"><Breadcrumbs items={[{ label: tc("home"), href: "/" }, { label: t("breadcrumbs.infopacks"), href: "/infopacki" }, { label: t("heroTitle") }]} /></div>
           <div className="mt-10 grid items-end gap-12 lg:grid-cols-[minmax(0,1.05fr)_minmax(320px,0.58fr)] lg:gap-20">
             <div><p className="matters-enter matters-enter-2 inline-flex items-center gap-3 text-[0.8125rem] font-semibold text-[#a8d7ff]"><span className="h-2.5 w-2.5 rounded-full bg-[#62c7ff]" aria-hidden="true" />{t("heroLabel")}</p><h1 id="matters-title" className="matters-enter matters-enter-3 mt-6 max-w-[12ch] text-balance font-display text-[clamp(2.8rem,6.2vw,5.8rem)] font-semibold leading-[0.94] tracking-[-0.04em]">{t("heroTitle")}</h1><p className="matters-enter matters-enter-4 mt-7 max-w-[62ch] text-pretty text-[1.0625rem] leading-[1.75] text-white/76 sm:text-[1.125rem]">{t("heroLead")}</p><a href="#router" className="matters-motion group mt-8 inline-flex min-h-12 items-center gap-3 rounded-lg bg-[#62c7ff] px-6 py-3 font-semibold text-[#08203d] hover:bg-[#a7e2ff]">{t("heroCta")}<ArrowDown size={19} weight="bold" className="transition-transform group-hover:translate-y-1" aria-hidden="true" /></a></div>
-            <aside className="matters-enter matters-enter-5 border-y border-white/20 py-6" aria-label={t("source.ariaLabel")}><div className="flex items-start justify-between gap-5"><div><p className="font-mono text-[0.6875rem] uppercase tracking-[0.12em] text-white/55">{t("source.label")}</p><p className="mt-2 text-[1rem] font-semibold">{t("source.title")}</p></div><Path size={26} weight="duotone" className="text-[#62c7ff]" aria-hidden="true" /></div><dl className="mt-6 border-t border-white/15 text-[0.75rem]"><div className="flex justify-between gap-4 border-b border-white/15 py-3"><dt className="text-white/60">{t("source.matters")}</dt><dd className="font-semibold">6</dd></div><div className="flex justify-between gap-4 border-b border-white/15 py-3"><dt className="text-white/60">{t("source.doors")}</dt><dd className="font-semibold">4</dd></div><div className="flex justify-between gap-4 border-b border-white/15 py-3"><dt className="text-white/60">{t("source.checked")}</dt><dd className="font-mono">13.08.2026</dd></div></dl></aside>
+            <InfopackSourceVisual
+              src="/photos/infopacki/sprawy-cover.jpg"
+              href={deanInfopack}
+              openLabel={t("source.title")}
+              sourceLabel={t("source.label")}
+              sourceTitle={t("source.title")}
+              details={[
+                { label: t("source.matters"), value: "6" },
+                { label: t("source.doors"), value: "4" },
+                { label: t("source.checked"), value: "13.08.2026" },
+              ]}
+              className="order-first [&>figcaption]:hidden lg:order-none lg:[&>figcaption]:block"
+            />
           </div>
         </div>
       </section>

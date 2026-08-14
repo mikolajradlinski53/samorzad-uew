@@ -58,6 +58,43 @@ export const boardPhotos: string[] = USE_LOCAL.zarzad ? localList("zarzad", 7) :
 /** RUSS — zdjęcia (kadr 4:5). public/photos/russ/01.jpg … Bez zdjęć → inicjały (jak wyżej). */
 export const russPhotos: string[] = USE_LOCAL.russ ? localList("russ", 15) : [];
 
-/** Zdjęcie projektu (NaszeProjekty) — kadr poziomy. public/photos/projekty/<klucz>.jpg */
-export const projectPhoto = (key: string): string | undefined =>
-  USE_LOCAL.projekty ? `/photos/projekty/${key}.jpg` : undefined;
+const projectFallbacks: Record<string, string[]> = {
+  adapciak: ["/photos/hero/05.jpg"],
+  bal: ["/photos/hero/02.jpg"],
+  dni: ["/photos/hero/01.jpg", "/photos/hero/03.jpg"],
+  party: ["/photos/hero/04.jpg"],
+};
+
+/**
+ * Projekty — fotograficzny rozdział, nie miniatura karty.
+ *
+ * Docelowo każdy projekt ma cover i dwa detale:
+ * public/photos/projekty/<klucz>/cover.jpg
+ * public/photos/projekty/<klucz>/detail-01.jpg
+ * public/photos/projekty/<klucz>/detail-02.jpg
+ *
+ * Do czasu skompletowania galerii wykorzystujemy wyłącznie prawdziwe zdjęcia
+ * SSUEW obecne już w hero. Brak zdjęcia uruchamia typograficzny plakat projektu,
+ * nigdy stockową fotografię udającą konkretne wydarzenie.
+ */
+export const projectPhotos = (key: string): string[] =>
+  USE_LOCAL.projekty
+    ? [
+        `/photos/projekty/${key}/cover.jpg`,
+        `/photos/projekty/${key}/detail-01.jpg`,
+        `/photos/projekty/${key}/detail-02.jpg`,
+      ]
+    : (projectFallbacks[key] ?? []);
+
+/**
+ * Czy zdjęcia pokazują TEN projekt, czy są tylko zastępnikiem z archiwum hero.
+ *
+ * Rozróżnienie jest potrzebne, bo od niego zależy opis alternatywny. Kadr z
+ * hero jest prawdziwym zdjęciem Samorządu, ale nie przedstawia uczestników
+ * konkretnego wydarzenia — podpisanie go „Uczestnicy projektu Adapciak" byłoby
+ * nieprawdą wobec osoby, która widzi wyłącznie ten opis.
+ */
+export const projectPhotosAreAuthentic = (): boolean => USE_LOCAL.projekty;
+
+/** Wsteczna kompatybilność dla miejsc, które potrzebują tylko coveru. */
+export const projectPhoto = (key: string): string | undefined => projectPhotos(key)[0];

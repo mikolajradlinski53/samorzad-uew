@@ -1,5 +1,6 @@
 "use client";
 
+import type { ReactNode } from "react";
 import { motion, useReducedMotion } from "motion/react";
 import { useTranslations } from "next-intl";
 import { AuroraField } from "./AuroraField";
@@ -11,9 +12,10 @@ interface PageHeroProps {
   title: string;
   lead?: string;
   breadcrumbs: Crumb[];
+  visual?: ReactNode;
 }
 
-export function PageHero({ eyebrow, title, lead, breadcrumbs }: PageHeroProps) {
+export function PageHero({ eyebrow, title, lead, breadcrumbs, visual }: PageHeroProps) {
   const reduce = useReducedMotion();
   const t = useTranslations("ui.aria");
 
@@ -44,8 +46,10 @@ export function PageHero({ eyebrow, title, lead, breadcrumbs }: PageHeroProps) {
           <Breadcrumbs items={breadcrumbs} />
         </motion.div>
 
+        <div className={visual ? "mt-8 grid items-center gap-9 md:grid-cols-[minmax(0,1fr)_minmax(280px,0.72fr)] md:gap-14" : ""}>
+          <div>
         <motion.p
-          className="mt-8 flex items-center gap-3 text-[0.75rem] font-medium uppercase tracking-[0.18em] text-accent"
+          className={`${visual ? "" : "mt-8"} flex items-center gap-3 text-[0.75rem] font-medium uppercase tracking-[0.18em] text-accent`}
           initial={reduce ? false : { opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={
@@ -89,6 +93,12 @@ export function PageHero({ eyebrow, title, lead, breadcrumbs }: PageHeroProps) {
             {lead}
           </motion.p>
         )}
+          </div>
+
+          {visual ? (
+            <div className="order-first min-w-0 md:order-none">{visual}</div>
+          ) : null}
+        </div>
       </div>
     </section>
   );

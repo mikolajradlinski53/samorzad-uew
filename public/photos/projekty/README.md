@@ -1,19 +1,36 @@
 # Zdjęcia projektów
 
-Po jednym zdjęciu na projekt, **kadr poziomy ~16:10** (np. 1200×750 px),
-zoptymalizowane (< ~300 KB). Nazwy plików = klucze projektów:
+Każdy projekt jest teraz dużym rozdziałem fotograficznym, dlatego potrzebuje
+**trzech kadrów**, nie jednej miniatury:
 
-```
-adapciak.jpg
-animalia.jpg
-bal.jpg          ← Bal UEW
-dni.jpg          ← Dni Adaptacyjne
-graduetion.jpg
-mosty.jpg        ← Mosty Ekonomiczne
-test.jpg         ← Test Wiedzy Ekonomicznej
-tedx.jpg         ← TEDxUEW
-party.jpg        ← UE Party
+- `cover.jpg` — główne zdjęcie poziome, najlepiej 3:2 lub 16:10, min. 1600 px szerokości;
+- `detail-01.jpg` — detal / emocja / człowiek, kadr 4:5;
+- `detail-02.jpg` — szeroki kontekst / tłum / przestrzeń, kadr 3:2.
+
+Struktura folderów:
+
+```text
+projekty/
+  adapciak/cover.jpg
+  adapciak/detail-01.jpg
+  adapciak/detail-02.jpg
+  animalia/cover.jpg
+  animalia/detail-01.jpg
+  animalia/detail-02.jpg
+  bal/...
+  dni/...
+  graduetion/...
+  mosty/...
+  test/...
+  tedx/...
+  party/...
 ```
 
-Gdy wrzucisz zdjęcia, w `src/lib/photos.ts` ustaw w `USE_LOCAL` pole
-`projekty: true`. Karty bez pliku po prostu nie pokażą zdjęcia (reszta działa).
+Zdjęcia powinny pokazywać różne skale: jedno ujęcie ustanawiające miejsce,
+jedno bliskie i emocjonalne, jedno dokumentujące rezultat lub pracę zespołu.
+Nie wrzucaj trzech niemal identycznych zdjęć grupowych.
+
+Po skompletowaniu **wszystkich 27 plików** ustaw `projekty: true` w
+`src/lib/photos.ts`. Dopóki przełącznik jest wyłączony, strona wykorzystuje
+kilka prawdziwych zdjęć SSUEW dostępnych już w hero, a przy pozostałych
+projektach pokazuje celowy plakat typograficzny — bez stocków.

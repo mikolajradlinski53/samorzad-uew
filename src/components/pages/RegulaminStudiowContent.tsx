@@ -13,6 +13,7 @@ import {
   WarningCircle,
 } from "@phosphor-icons/react";
 import { Breadcrumbs } from "../Breadcrumbs";
+import { InfopackSourceVisual } from "../InfopackCover";
 import { DURATION, EASE } from "@/lib/motion";
 import {
   studyRegulationInfopack,
@@ -72,14 +73,6 @@ export function RegulaminStudiowContent() {
         className="living-regulation-hero relative overflow-hidden border-b border-white/10 bg-[#0a1639] text-white"
         aria-labelledby="study-regulation-title"
       >
-        <div className="living-regulation-grid pointer-events-none absolute inset-0" aria-hidden="true" />
-        <div className="living-infopack-geometry pointer-events-none absolute inset-y-0 right-0 hidden w-[46%] lg:block" aria-hidden="true">
-          <span className="living-infopack-geometry-bar living-infopack-geometry-bar-1" />
-          <span className="living-infopack-geometry-bar living-infopack-geometry-bar-2" />
-          <span className="living-infopack-geometry-bar living-infopack-geometry-bar-3" />
-          <span className="living-infopack-geometry-dot living-infopack-geometry-dot-1" />
-          <span className="living-infopack-geometry-dot living-infopack-geometry-dot-2" />
-        </div>
         <div className="relative mx-auto max-w-[1200px] px-6 pb-16 pt-[128px] md:pb-20 md:pt-[140px]">
           <div className="living-regulation-enter living-regulation-enter-1 living-regulation-breadcrumbs">
             <Breadcrumbs
@@ -120,49 +113,19 @@ export function RegulaminStudiowContent() {
               </a>
             </div>
 
-            <aside className="living-regulation-source-enter border-y border-white/20 py-6" aria-labelledby="source-title">
-              <div className="flex items-start justify-between gap-5">
-                <div>
-                  <p className="font-mono text-[0.6875rem] font-medium uppercase tracking-[0.12em] text-white/55">
-                    {t("source.label")}
-                  </p>
-                  <h2 id="source-title" className="mt-2 text-[1rem] font-semibold leading-[1.45]">
-                    {t("source.title")}
-                  </h2>
-                </div>
-                <CheckCircle size={25} weight="fill" className="shrink-0 text-[#8fa2ff]" aria-hidden="true" />
-              </div>
-
-              <dl className="mt-6 border-t border-white/15">
-                <div className="flex items-center justify-between gap-4 border-b border-white/15 py-3">
-                  <dt className="text-[0.75rem] text-white/60">{t("source.versionLabel")}</dt>
-                  <dd className="text-right text-[0.75rem] font-semibold text-white">{t("source.version")}</dd>
-                </div>
-                <div className="flex items-center justify-between gap-4 border-b border-white/15 py-3">
-                  <dt className="text-[0.75rem] text-white/60">{t("source.checkedLabel")}</dt>
-                  <dd className="font-mono text-[0.75rem] text-white">{t("source.checkedDate")}</dd>
-                </div>
-                <div className="flex items-center justify-between gap-4 border-b border-white/15 py-3">
-                  <dt className="text-[0.75rem] text-white/60">{t("source.ownerLabel")}</dt>
-                  <dd className="text-right text-[0.75rem] font-semibold text-white">{t("source.owner")}</dd>
-                </div>
-              </dl>
-
-              <a
-                href={studyRegulationSource.landingPage}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="living-regulation-motion group mt-5 inline-flex min-h-11 items-center gap-2 text-[0.8125rem] font-semibold text-[#b8c4ff] hover:text-white"
-              >
-                {t("source.openBip")}
-                <ArrowSquareOut
-                  size={17}
-                  weight="bold"
-                  className="transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
-                  aria-hidden="true"
-                />
-              </a>
-            </aside>
+            <InfopackSourceVisual
+              src="/photos/infopacki/regulamin-cover.jpg"
+              href={studyRegulationInfopack}
+              openLabel={t("source.title")}
+              sourceLabel={t("source.label")}
+              sourceTitle={t("source.title")}
+              details={[
+                { label: t("source.versionLabel"), value: t("source.version") },
+                { label: t("source.checkedLabel"), value: t("source.checkedDate") },
+                { label: t("source.ownerLabel"), value: t("source.owner") },
+              ]}
+              className="order-first [&>figcaption]:hidden lg:order-none lg:[&>figcaption]:block"
+            />
           </div>
         </div>
       </section>
