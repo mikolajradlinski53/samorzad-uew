@@ -1,5 +1,4 @@
 import type { Metadata, Viewport } from "next";
-import { Archivo, JetBrains_Mono } from "next/font/google";
 import { notFound } from "next/navigation";
 import { NextIntlClientProvider, hasLocale } from "next-intl";
 import { getMessages, getTranslations, setRequestLocale } from "next-intl/server";
@@ -61,20 +60,6 @@ const websiteLd = {
     "query-input": "required name=search_term_string",
   },
 };
-
-const archivo = Archivo({
-  variable: "--font-archivo",
-  subsets: ["latin", "latin-ext"],
-  weight: ["400", "500", "600", "800"], // 700 nieużywane (brak font-bold)
-  display: "swap",
-});
-
-const jetbrainsMono = JetBrains_Mono({
-  variable: "--font-jbm",
-  subsets: ["latin", "latin-ext"],
-  weight: ["400", "500"], // 700 nieużywane
-  display: "swap",
-});
 
 export async function generateMetadata({
   params,
@@ -146,11 +131,7 @@ export default async function LocaleLayout({
   const t = await getTranslations({ locale, namespace: "site" });
 
   return (
-    <html
-      lang={locale}
-      className={`${archivo.variable} ${jetbrainsMono.variable}`}
-      suppressHydrationWarning
-    >
+    <html lang={locale} suppressHydrationWarning>
       <body className="min-h-dvh antialiased">
         <script
           type="application/ld+json"

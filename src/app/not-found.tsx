@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { Archivo } from "next/font/google";
 import "./globals.css";
 
 /**
@@ -21,13 +20,6 @@ import "./globals.css";
  * jest obok, żeby nikogo nie zostawić bez wyjścia.
  */
 
-const archivo = Archivo({
-  subsets: ["latin", "latin-ext"],
-  variable: "--font-archivo",
-  weight: ["400", "500", "600"],
-  display: "swap",
-});
-
 export const metadata: Metadata = {
   title: "Nie znaleziono strony — Samorząd Studentów UEW",
   description: "Pod tym adresem nic nie ma. Wróć na stronę główną Samorządu.",
@@ -36,7 +28,7 @@ export const metadata: Metadata = {
 
 export default function GlobalNotFound() {
   return (
-    <html lang="pl" className={archivo.variable} suppressHydrationWarning>
+    <html lang="pl" suppressHydrationWarning>
       <body className="min-h-dvh antialiased">
         <main className="flex min-h-dvh items-center justify-center px-6">
           <div className="mx-auto max-w-[560px] text-center">

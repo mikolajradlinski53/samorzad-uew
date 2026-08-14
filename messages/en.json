@@ -65,6 +65,7 @@
     "pl": "PL",
     "en": "EN"
   },
+  "photoBand": { "label": "Frames from the Student Government archive" },
   "hero": {
     "eyebrow": "Student Government of Wrocław University of Economics and Business",
     "line1": "This is your",

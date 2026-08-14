@@ -1,3 +1,6 @@
+@import "@fontsource-variable/archivo/wght.css";
+@import "@fontsource-variable/jetbrains-mono/wght.css";
+@import "@fontsource-variable/outfit/wght.css";
 @import "tailwindcss";
 
 /* Motyw steruje klasą `.dark` (next-themes, attribute="class"), ale wariant
@@ -11,6 +14,12 @@
 /* ── Design tokens from DESIGN.md ── */
 
 :root {
+  /* Self-hosted font files keep builds independent from Google Fonts and
+     next/font's generated virtual modules. */
+  --font-archivo: "Archivo Variable";
+  --font-jbm: "JetBrains Mono Variable";
+  --font-home: "Outfit Variable";
+
   /* Light mode — blue & white institutional identity */
   --bg-base: #F6F8FC;
   --bg-surface: #FFFFFF;

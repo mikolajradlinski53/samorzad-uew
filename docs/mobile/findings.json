@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-14T11:48:00.532Z",
+  "generatedAt": "2026-08-14T12:09:11.405Z",
   "viewport": {
     "width": 375,
     "height": 812
@@ -23,7 +23,7 @@
         "culprits": []
       },
       "tapTargets": {
-        "checked": 52,
+        "checked": 54,
         "tooSmall": [
           {
             "tag": "a",
@@ -193,6 +193,12 @@
             "classSnippet": "",
             "fontSize": 10.88,
             "textSnippet": "Napisz jedno zdanie"
+          },
+          {
+            "tag": "p",
+            "classSnippet": "mx-auto mb-8 max-w-[1200px] px-6 font-mono text-[0.6875rem] font-medium uppercas",
+            "fontSize": 11,
+            "textSnippet": "Kadry z archiwum Samorządu"
           },
           {
             "tag": "span",
