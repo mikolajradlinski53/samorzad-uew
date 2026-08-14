@@ -78,11 +78,11 @@
   },
   "homeExperience": {
     "hero": {
-      "eyebrow": "Cyfrowy punkt wejścia do UEW",
-      "line1a": "Nie szukaj",
-      "line1b": "zakładki.",
-      "line2": "Zacznij od sytuacji.",
-      "lead": "Powiedz, co dzieje się teraz. Strona przełoży Twój moment na konkretną drogę — bez znajomości organów, pokojów i paragrafów.",
+      "eyebrow": "Samorząd Studentów UEW",
+      "line1a": "Zacznij od swojej",
+      "line1b": "sytuacji.",
+      "line2": "My pokażemy drogę.",
+      "lead": "Wybierz, czego potrzebujesz, lub opisz swoją sprawę. Bez szukania po strukturze uczelni i bez zgadywania, gdzie zacząć.",
       "searchLabel": "Opisz swoją sytuację",
       "searchPlaceholder": "Np. utknęło mi podanie",
       "searchSubmit": "Znajdź drogę",
@@ -116,12 +116,12 @@
       }
     },
     "routes": {
-      "eyebrow": "Cztery sytuacje. Zero urzędowego języka.",
-      "heading": "Uczelnia zaczyna się od tego, co przeżywasz.",
+      "eyebrow": "Najczęstsze sytuacje studenckie",
+      "heading": "Wybierz sprawę, z którą przychodzisz.",
       "lead": "Każde wejście prowadzi do innego rodzaju odpowiedzi. Nie musisz znać struktury UEW, żeby wykonać właściwy następny ruch."
     },
     "manifesto": {
-      "eyebrow": "Zasada projektowa",
+      "eyebrow": "Pomoc projektowana od strony studenta",
       "statement": "Student nie powinien wiedzieć, który organ, paragraf ani pokój odpowiada za jego problem. System powinien wiedzieć to za niego.",
       "note": "Dlatego ta strona nie zaczyna się od Samorządu. Zaczyna się od Ciebie i dopiero potem odsłania ludzi, decyzje oraz narzędzia, które mogą pomóc."
     },
@@ -148,8 +148,8 @@
       }
     },
     "action": {
-      "eyebrow": "Brak wyniku też jest informacją",
-      "heading": "Jeśli nie znajdujesz swojej sprawy, to strona ma problem. Nie Ty.",
+      "eyebrow": "Nie znalazłeś odpowiedzi?",
+      "heading": "Opisz sprawę. Pomożemy znaleźć właściwy następny krok.",
       "lead": "Napisz jedno zdanie. Wyszukiwanie po sytuacji spróbuje znaleźć właściwą podstronę, poradnik albo osobę.",
       "inputLabel": "Napisz jedno zdanie",
       "placeholder": "Co wydarzyło się na studiach?",

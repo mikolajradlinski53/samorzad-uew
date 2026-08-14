@@ -3,7 +3,7 @@
 import { useRef, useState } from "react";
 import Image from "next/image";
 import { useLocale, useTranslations } from "next-intl";
-import { ArrowDown, ArrowRight, ArrowUpRight, MagnifyingGlass } from "@phosphor-icons/react";
+import { ArrowRight, ArrowUpRight, MagnifyingGlass } from "@phosphor-icons/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
@@ -44,8 +44,8 @@ export function HomeExperience() {
 
       media.add("(min-width: 900px) and (prefers-reduced-motion: no-preference)", () => {
         gsap.to("[data-hero-media]", {
-          yPercent: 13,
-          scale: 1.08,
+          yPercent: 4,
+          scale: 1.03,
           ease: "none",
           scrollTrigger: {
             trigger: "[data-hero]",
@@ -56,15 +56,15 @@ export function HomeExperience() {
         });
 
         const words = gsap.utils.toArray<HTMLElement>("[data-manifest-word]");
-        gsap.set(words, { color: "#8291ad" });
+        gsap.set(words, { color: "#9aa8bc" });
         gsap.to(words, {
-          color: "#ffffff",
+          color: "#102743",
           stagger: 0.12,
           ease: "none",
           scrollTrigger: {
             trigger: "[data-manifest]",
             start: "top top+=72",
-            end: "+=170%",
+            end: "+=115%",
             pin: true,
             scrub: 0.7,
             anticipatePin: 1,
@@ -73,13 +73,13 @@ export function HomeExperience() {
         });
 
         gsap.to("[data-manifest-media]", {
-          yPercent: -10,
-          scale: 1.13,
+          yPercent: -4,
+          scale: 1.04,
           ease: "none",
           scrollTrigger: {
             trigger: "[data-manifest]",
             start: "top top+=72",
-            end: "+=170%",
+            end: "+=115%",
             scrub: 0.9,
           },
         });
@@ -115,7 +115,7 @@ export function HomeExperience() {
       if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
       gsap.fromTo(
         "[data-active-frame]",
-        { clipPath: "inset(0 0 100% 0)", scale: 1.08 },
+        { clipPath: "inset(0 0 100% 0)", scale: 1.03 },
         { clipPath: "inset(0 0 0% 0)", scale: 1, duration: 0.75, ease: "power3.out" },
       );
     },
@@ -125,43 +125,12 @@ export function HomeExperience() {
   return (
     <div ref={rootRef} className={styles.experience}>
       <section data-hero aria-labelledby="home-experience-title" className={styles.hero}>
-        <div className={styles.heroNoise} aria-hidden="true" />
-        <div className={styles.heroIndex} aria-hidden="true">
-          {String(activeIndex + 1).padStart(2, "0")}
-        </div>
-
-        <div data-hero-media data-active-frame className={styles.heroFrame} aria-hidden="true">
-          <Image
-            src={heroPhotos[active.photo]}
-            alt=""
-            fill
-            preload={activeIndex === 0}
-            sizes="(max-width: 899px) 88vw, 34vw"
-            className={styles.heroFrameImage}
-            style={{ objectPosition: active.position }}
-          />
-          <span className={styles.heroFrameWash} />
-        </div>
-
         <div className={styles.heroShell}>
           <div className={styles.heroCopy}>
             <p className={styles.eyebrow}>{t("hero.eyebrow")}</p>
             <h1 id="home-experience-title" className={styles.heroTitle}>
               <span className={styles.heroLine}>
-                <span className={styles.heroLeadChunk}>{t("hero.line1a")}</span>{" "}
-                <span className={styles.heroImageWord}>
-                  <span className={styles.inlineImage} aria-hidden="true">
-                    <Image
-                      src={heroPhotos[active.photo]}
-                      alt=""
-                      fill
-                      sizes="(max-width: 899px) 80px, 150px"
-                      className={styles.inlineImageAsset}
-                      style={{ objectPosition: active.position }}
-                    />
-                  </span>
-                  {t("hero.line1b")}
-                </span>
+                {t("hero.line1a")} {t("hero.line1b")}
               </span>
               <span className={`${styles.heroLine} ${styles.heroLineAccent}`}>{t("hero.line2")}</span>
             </h1>
@@ -186,6 +155,19 @@ export function HomeExperience() {
                 </button>
               </form>
             </div>
+          </div>
+
+          <div data-hero-media data-active-frame className={styles.heroFrame} aria-hidden="true">
+            <Image
+              src={heroPhotos[active.photo]}
+              alt=""
+              fill
+              preload={activeIndex === 0}
+              sizes="(max-width: 899px) 100vw, 40vw"
+              className={styles.heroFrameImage}
+              style={{ objectPosition: active.position }}
+            />
+            <span className={styles.heroFrameWash} />
           </div>
 
           <div className={styles.intentRail} aria-label={t("hero.intentLabel")}>
@@ -218,11 +200,6 @@ export function HomeExperience() {
             </Link>
           </div>
         </div>
-
-        <a href="#wybierz-sytuacje" className={styles.scrollCue}>
-          <ArrowDown size={17} weight="bold" aria-hidden="true" />
-          {t("hero.scroll")}
-        </a>
       </section>
 
       <section id="wybierz-sytuacje" aria-labelledby="routes-title" className={styles.routes}>
@@ -263,16 +240,6 @@ export function HomeExperience() {
       </section>
 
       <section data-manifest aria-labelledby="manifest-title" className={styles.manifesto}>
-        <div data-manifest-media className={styles.manifestMedia} aria-hidden="true">
-          <Image
-            src={heroPhotos[2]}
-            alt=""
-            fill
-            sizes="(max-width: 899px) 100vw, 38vw"
-            className={styles.manifestImage}
-          />
-        </div>
-        <div className={styles.manifestWash} aria-hidden="true" />
         <div className={styles.manifestInner}>
           <p className={styles.manifestEyebrow}>{t("manifesto.eyebrow")}</p>
           <h2 id="manifest-title" className={styles.manifestStatement}>
@@ -283,6 +250,15 @@ export function HomeExperience() {
             ))}
           </h2>
           <p className={styles.manifestNote}>{t("manifesto.note")}</p>
+          <div data-manifest-media className={styles.manifestMedia} aria-hidden="true">
+            <Image
+              src={heroPhotos[2]}
+              alt=""
+              fill
+              sizes="(max-width: 899px) 100vw, 36vw"
+              className={styles.manifestImage}
+            />
+          </div>
         </div>
       </section>
 
@@ -335,7 +311,6 @@ export function HomeExperience() {
       </section>
 
       <section aria-labelledby="home-action-title" className={styles.action}>
-        <div className={styles.actionIndex} aria-hidden="true">?</div>
         <div className={styles.actionInner}>
           <p>{t("action.eyebrow")}</p>
           <h2 id="home-action-title">{t("action.heading")}</h2>

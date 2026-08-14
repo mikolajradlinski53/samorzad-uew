@@ -78,11 +78,11 @@
   },
   "homeExperience": {
     "hero": {
-      "eyebrow": "A digital entry point to UEW",
-      "line1a": "Don't look for",
-      "line1b": "a tab.",
-      "line2": "Start with the situation.",
-      "lead": "Tell us what is happening now. The site turns your moment into a concrete route — without expecting you to know committees, offices or paragraphs.",
+      "eyebrow": "UEW Student Government",
+      "line1a": "Start with your",
+      "line1b": "situation.",
+      "line2": "We'll show the route.",
+      "lead": "Choose what you need or describe your issue. No navigating university structures and no guessing where to begin.",
       "searchLabel": "Describe your situation",
       "searchPlaceholder": "For example, my application is stuck",
       "searchSubmit": "Find a route",
@@ -116,12 +116,12 @@
       }
     },
     "routes": {
-      "eyebrow": "Four situations. No institutional language.",
-      "heading": "University starts with what you are experiencing.",
+      "eyebrow": "Common student situations",
+      "heading": "Choose the issue you came with.",
       "lead": "Each entry leads to a different kind of answer. You do not need to know the UEW structure to make the right next move."
     },
     "manifesto": {
-      "eyebrow": "Design principle",
+      "eyebrow": "Support designed from the student's side",
       "statement": "A student should not need to know which committee, paragraph or office owns their problem. The system should know it for them.",
       "note": "That is why this page does not start with the Student Government. It starts with you, then reveals the people, decisions and tools that can help."
     },
@@ -148,8 +148,8 @@
       }
     },
     "action": {
-      "eyebrow": "No result is information too",
-      "heading": "If you cannot find your issue, the site has a problem. Not you.",
+      "eyebrow": "Still no answer?",
+      "heading": "Describe the issue. We'll help find the right next step.",
       "lead": "Write one sentence. Situation-based search will try to find the right page, guide or person.",
       "inputLabel": "Write one sentence",
       "placeholder": "What happened during your studies?",
