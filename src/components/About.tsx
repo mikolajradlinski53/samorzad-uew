@@ -35,7 +35,7 @@ export function About() {
           </p>
           <h2
             id="o-nas-heading"
-            className="mt-3 max-w-[16ch] font-display text-[clamp(1.75rem,3vw,2.5rem)] font-semibold leading-[1.15] tracking-[-0.02em] text-ink-primary"
+            className="mt-3 sm:max-w-[16ch] text-balance font-display text-[clamp(1.75rem,3vw,2.5rem)] font-semibold leading-[1.15] tracking-[-0.02em] text-ink-primary"
           >
             {t("heading")}
           </h2>

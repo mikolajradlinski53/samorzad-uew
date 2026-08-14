@@ -75,7 +75,7 @@ export function PageHero({ eyebrow, title, lead, breadcrumbs, visual }: PageHero
             transition={
               reduce ? instant : { duration: DURATION.draw, delay: 0.1, ease: EASE }
             }
-            className="max-w-[20ch] text-balance font-display text-[clamp(2.5rem,5.5vw,4.5rem)] font-semibold leading-[1.05] tracking-[-0.02em] text-ink-primary"
+            className="sm:max-w-[20ch] text-balance font-display text-[clamp(2.5rem,5.5vw,4.5rem)] font-semibold leading-[1.05] tracking-[-0.02em] text-ink-primary"
           >
             {title}
           </motion.h1>

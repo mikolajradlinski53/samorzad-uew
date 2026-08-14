@@ -120,7 +120,7 @@ function OverlayCopy({
       <p className="mb-3 text-center text-[0.75rem] font-medium uppercase tracking-[0.18em] text-blue-300">
         {subheading}
       </p>
-      <p className="max-w-[20ch] text-center font-display text-[clamp(2.5rem,6vw,5rem)] font-semibold leading-[1.05] tracking-[-0.02em]">
+      <p className="sm:max-w-[20ch] text-center font-display text-[clamp(2.5rem,6vw,5rem)] font-semibold leading-[1.05] tracking-[-0.02em]">
         {heading}
       </p>
     </motion.div>

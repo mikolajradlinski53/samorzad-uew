@@ -33,6 +33,7 @@ const deadlineKeys: DeadlineKey[] = ["firstWinter", "secondWinter", "firstSummer
 const jsaKeys: JsaKey[] = ["green", "orange", "red"];
 const examKeys: ExamKey[] = ["chair", "promoter", "reviewer"];
 const stageKeys = ["final", "metadata", "similarity", "decision", "reviews", "defence"] as const;
+type StageKey = (typeof stageKeys)[number];
 
 const stageIcons = [FileText, UploadSimple, ShieldCheck, CheckCircle, Exam, GraduationCap];
 
@@ -44,11 +45,14 @@ export function DyplomowanieContent() {
   const [deadline, setDeadline] = useState<DeadlineKey>("firstSummer");
   const [jsa, setJsa] = useState<JsaKey>("green");
   const [exam, setExam] = useState<ExamKey>("chair");
+  const [activeStage, setActiveStage] = useState<StageKey>("metadata");
   const [grades, setGrades] = useState<Record<GradeKey, number>>({ studies: 4, promoter: 4, reviewer: 4, examOne: 4, examTwo: 4, examThree: 4 });
 
   const completed = gateKeys.filter((key) => gates[key]).length;
   const progress = Math.round((completed / gateKeys.length) * 100);
   const nextGate = gateKeys.find((key) => !gates[key]);
+  const activeStageIndex = stageKeys.indexOf(activeStage);
+  const ActiveStageIcon = stageIcons[activeStageIndex];
   const score = useMemo(() => {
     const reviewAverage = (grades.promoter + grades.reviewer) / 2;
     const examAverage = (grades.examOne + grades.examTwo + grades.examThree) / 3;
@@ -125,11 +129,103 @@ export function DyplomowanieContent() {
 
       <section className="border-y border-border-medium bg-[#e9f6f2] py-12 dark:bg-[#102d28]" aria-labelledby="definition-heading"><div className="mx-auto max-w-[1200px] px-6"><div className="grid gap-8 lg:grid-cols-[minmax(0,0.55fr)_minmax(0,1.45fr)] lg:items-center lg:gap-20"><div><p className="font-mono text-[0.6875rem] font-semibold uppercase tracking-[0.12em] text-[#14795f] dark:text-[#8ff0d4]">{t("definition.label")}</p><h2 id="definition-heading" className="mt-4 max-w-[12ch] text-balance font-display text-[clamp(2rem,4vw,3.5rem)] font-semibold leading-[1.03] tracking-[-0.035em] text-ink-primary">{t("definition.heading")}</h2></div><div className="grid gap-px bg-[#8db9ad] sm:grid-cols-2"><article className="bg-bg-surface p-6"><span className="flex h-10 w-10 items-center justify-center rounded-full bg-[#d8f6ed] text-[#14795f]"><CheckCircle size={21} weight="duotone" aria-hidden="true" /></span><h3 className="mt-4 text-[0.9375rem] font-semibold text-ink-primary">{t("definition.approval.title")}</h3><p className="mt-3 text-[0.75rem] leading-[1.6] text-ink-secondary">{t("definition.approval.body")}</p></article><article className="bg-bg-surface p-6"><span className="flex h-10 w-10 items-center justify-center rounded-full bg-[#d8f6ed] text-[#14795f]"><CheckCircle size={21} weight="duotone" aria-hidden="true" /></span><h3 className="mt-4 text-[0.9375rem] font-semibold text-ink-primary">{t("definition.grades.title")}</h3><p className="mt-3 text-[0.75rem] leading-[1.6] text-ink-secondary">{t("definition.grades.body")}</p></article></div></div></div></section>
 
-      <section className="section-padding" aria-labelledby="timeline-heading"><div className="mx-auto max-w-[1200px]"><p className="font-mono text-[0.6875rem] font-medium uppercase tracking-[0.12em] text-accent">{t("timeline.label")}</p><h2 id="timeline-heading" className="mt-4 max-w-[16ch] text-balance font-display text-[clamp(2.25rem,4.8vw,4.25rem)] font-semibold leading-[1.02] tracking-[-0.035em] text-ink-primary">{t("timeline.heading")}</h2><p className="mt-5 max-w-[67ch] text-[0.9375rem] leading-[1.75] text-ink-secondary">{t("timeline.lead")}</p><ol className="mt-10 grid gap-px bg-border-medium md:grid-cols-3">{stageKeys.map((stage, index) => { const Icon = stageIcons[index]; return <li key={stage} className="diploma-stage relative bg-bg-surface p-6"><span className="flex items-center justify-between"><span className="flex h-11 w-11 items-center justify-center rounded-full bg-[#dff7f0] text-[#14795f] dark:bg-[#173c34] dark:text-[#8ff0d4]"><Icon size={22} weight="duotone" aria-hidden="true" /></span><span className="font-mono text-[0.6875rem] text-ink-tertiary">0{index + 1}</span></span><h3 className="mt-5 text-[0.9375rem] font-semibold text-ink-primary">{t(`timeline.stages.${stage}.title`)}</h3><p className="mt-3 text-[0.75rem] leading-[1.6] text-ink-secondary">{t(`timeline.stages.${stage}.body`)}</p></li>; })}</ol></div></section>
+      <section className="section-padding" aria-labelledby="timeline-heading">
+        <div className="mx-auto max-w-[1200px]">
+          <div className="grid gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(260px,0.48fr)] lg:items-end lg:gap-20">
+            <div>
+              <h2 id="timeline-heading" className="max-w-[16ch] text-balance font-display text-[clamp(2.25rem,4.8vw,4.25rem)] font-semibold leading-[1.02] tracking-[-0.035em] text-ink-primary">{t("timeline.heading")}</h2>
+              <p className="mt-5 max-w-[67ch] text-[0.9375rem] leading-[1.75] text-ink-secondary">{t("timeline.lead")}</p>
+            </div>
+            <p className="border-t border-border-medium pt-4 text-[0.8125rem] leading-[1.6] text-ink-secondary">{t("timeline.mapNote")}</p>
+          </div>
+
+          <div className="diploma-process-map mt-10 scroll-mt-24 overflow-hidden border border-[#285b4f] bg-[#0e332c] text-white" data-testid="diploma-process-map">
+            <div className="grid lg:grid-cols-[minmax(250px,0.56fr)_minmax(0,1.44fr)]">
+              <nav className="border-b border-white/15 bg-[#0a2924] lg:border-b-0 lg:border-r" aria-label={t("timeline.navigatorLabel")}>
+                <div className="flex items-center justify-between border-b border-white/15 px-5 py-4">
+                  <p className="text-[0.75rem] font-semibold text-[#8ff0d4]">{t("timeline.label")}</p>
+                  <span className="font-mono text-[0.6875rem] text-white/50">{activeStageIndex + 1}/{stageKeys.length}</span>
+                </div>
+                <ol className="diploma-stage-rail flex overflow-x-auto focus-visible:outline-2 focus-visible:outline-offset-[-2px] focus-visible:outline-[#8ff0d4] lg:grid lg:grid-cols-1 lg:overflow-visible" tabIndex={0} aria-label={t("timeline.navigatorLabel")}>
+                  {stageKeys.map((stage, index) => {
+                    const Icon = stageIcons[index];
+                    const isActive = stage === activeStage;
+                    const isPast = index < activeStageIndex;
+                    return (
+                      <li key={stage} className="min-w-[190px] flex-none border-r border-white/10 last:border-r-0 lg:min-w-0 lg:border-b lg:border-r-0 lg:last:border-b-0">
+                        <button
+                          type="button"
+                          aria-current={isActive ? "step" : undefined}
+                          onClick={() => setActiveStage(stage)}
+                          className="diploma-stage-button grid min-h-[76px] w-full grid-cols-[34px_minmax(0,1fr)_24px] items-center gap-3 px-4 py-3 text-left"
+                        >
+                          <span className={`flex h-8 w-8 items-center justify-center rounded-full ${isActive ? "bg-[#66e5c1] text-[#09251f]" : isPast ? "bg-white/15 text-[#8ff0d4]" : "bg-white/7 text-white/55"}`}>
+                            <Icon size={17} weight={isActive ? "fill" : "duotone"} aria-hidden="true" />
+                          </span>
+                          <span className={`text-[0.75rem] font-semibold leading-[1.4] ${isActive ? "text-white" : "text-white/68"}`}>{t(`timeline.stages.${stage}.title`)}</span>
+                          <span className="font-mono text-[0.625rem] text-white/70">0{index + 1}</span>
+                        </button>
+                      </li>
+                    );
+                  })}
+                </ol>
+              </nav>
+
+              <div className="min-w-0 p-5 sm:p-8 lg:p-10">
+                <div className="flex flex-wrap items-center justify-between gap-3 border-b border-white/15 pb-4">
+                  <p className="font-mono text-[0.6875rem] text-white/55">APD / {t("timeline.fileLabel")}</p>
+                  <span className="inline-flex items-center gap-2 text-[0.6875rem] font-semibold text-[#8ff0d4]"><span className="h-2 w-2 rounded-full bg-[#66e5c1]" aria-hidden="true" />{t("timeline.statusLabel")}</span>
+                </div>
+
+                <AnimatePresence mode="wait" initial={false}>
+                  <motion.article
+                    key={activeStage}
+                    initial={false}
+                    animate={{ opacity: 1, x: 0 }}
+                    exit={reduce ? undefined : { opacity: 0, x: -8 }}
+                    transition={reduce ? { duration: 0 } : { duration: 0.24, ease: EASE }}
+                    className="grid gap-8 py-8 md:grid-cols-[minmax(190px,0.72fr)_minmax(0,1.28fr)] md:items-center md:gap-12"
+                    aria-live="polite"
+                    data-testid="diploma-stage-detail"
+                  >
+                    <div className="diploma-file-sheet mx-auto flex aspect-[0.74] w-full max-w-[250px] flex-col bg-white p-6 text-[#0e332c] sm:p-7" aria-hidden="true">
+                      <div className="flex items-start justify-between gap-4">
+                        <span className="font-display text-[1.45rem] font-semibold tracking-[-0.03em]">APD</span>
+                        <span className="font-mono text-[0.625rem]">0{activeStageIndex + 1}</span>
+                      </div>
+                      <span className="mt-8 flex h-14 w-14 items-center justify-center rounded-full bg-[#dff7f0] text-[#14795f]"><ActiveStageIcon size={28} weight="duotone" /></span>
+                      <div className="mt-7 space-y-3">
+                        <span className="block h-1.5 w-full bg-[#c8d9d4]" />
+                        <span className="block h-1.5 w-[82%] bg-[#c8d9d4]" />
+                        <span className="block h-1.5 w-[58%] bg-[#c8d9d4]" />
+                      </div>
+                      <span className="diploma-file-stamp mt-auto border-2 border-[#14795f] px-3 py-2 text-center text-[0.6875rem] font-bold uppercase tracking-[0.08em] text-[#14795f]">{t(`timeline.stages.${activeStage}.stamp`)}</span>
+                    </div>
+
+                    <div>
+                      <p className="text-[0.6875rem] font-semibold text-[#8ff0d4]">{t("timeline.ownerLabel")}: {t(`timeline.stages.${activeStage}.owner`)}</p>
+                      <h3 className="mt-4 max-w-[18ch] text-balance font-display text-[clamp(1.8rem,3.5vw,3.2rem)] font-semibold leading-[1.04] tracking-[-0.03em]">{t(`timeline.stages.${activeStage}.title`)}</h3>
+                      <p className="mt-5 max-w-[58ch] text-pretty text-[0.875rem] leading-[1.75] text-white/72">{t(`timeline.stages.${activeStage}.body`)}</p>
+                      <div className="mt-7 border-y border-white/15 py-5">
+                        <p className="text-[0.6875rem] font-semibold text-white/50">{t("timeline.proofLabel")}</p>
+                        <p className="mt-2 text-[0.8125rem] font-semibold leading-[1.55] text-white/90">{t(`timeline.stages.${activeStage}.proof`)}</p>
+                      </div>
+                    </div>
+                  </motion.article>
+                </AnimatePresence>
+
+                <div className="h-1 overflow-hidden bg-white/10" aria-hidden="true">
+                  <motion.span className="block h-full bg-[#66e5c1]" animate={{ width: `${((activeStageIndex + 1) / stageKeys.length) * 100}%` }} transition={reduce ? { duration: 0 } : { duration: DURATION.reveal, ease: EASE }} />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
       <section className="section-padding border-y border-border-medium bg-bg-elevated" aria-labelledby="deadlines-heading"><div className="mx-auto max-w-[1200px]"><div className="grid gap-12 lg:grid-cols-[minmax(0,0.72fr)_minmax(0,1.28fr)] lg:gap-20"><div><p className="font-mono text-[0.6875rem] font-medium uppercase tracking-[0.12em] text-accent">{t("deadlines.label")}</p><h2 id="deadlines-heading" className="mt-4 max-w-[13ch] text-balance font-display text-[clamp(2.25rem,4.8vw,4.25rem)] font-semibold leading-[1.02] tracking-[-0.035em] text-ink-primary">{t("deadlines.heading")}</h2><p className="mt-5 text-[0.875rem] leading-[1.7] text-ink-secondary">{t("deadlines.lead")}</p></div><div><fieldset><legend className="text-[0.8125rem] font-semibold text-ink-primary">{t("deadlines.legend")}</legend><div className="mt-4 flex flex-wrap gap-2">{deadlineKeys.map((key) => <button key={key} type="button" aria-pressed={deadline === key} onClick={() => setDeadline(key)} className="diploma-choice min-h-11 border border-border-medium bg-bg-surface px-4 py-2 text-left text-[0.75rem] font-semibold text-ink-secondary">{t(`deadlines.profiles.${key}.label`)}</button>)}</div></fieldset><div className="mt-6 grid gap-px bg-border-medium sm:grid-cols-2" aria-live="polite"><div className="bg-bg-surface p-6"><p className="font-mono text-[0.625rem] uppercase tracking-[0.12em] text-ink-tertiary">{t("deadlines.primary")}</p><p className="mt-3 font-display text-[2rem] font-semibold text-ink-primary tabular-nums" data-testid="primary-date">{t(`deadlines.profiles.${deadline}.primary`)}</p><p className="mt-2 text-[0.75rem] text-[#9b4b19] dark:text-[#ffb787]">{t("deadlines.passed")}</p></div><div className="bg-[#0e332c] p-6 text-white"><p className="font-mono text-[0.625rem] uppercase tracking-[0.12em] text-white/55">{t("deadlines.final")}</p><p className="mt-3 font-display text-[2rem] font-semibold tabular-nums">{t(`deadlines.profiles.${deadline}.final`)}</p><p className="mt-2 text-[0.75rem] text-[#8ff0d4]">{t(`deadlines.profiles.${deadline}.state`)}</p></div></div><p className="mt-5 flex gap-3 text-[0.75rem] leading-[1.6] text-ink-secondary"><WarningDiamond size={19} weight="duotone" className="mt-0.5 shrink-0 text-[#a4591d]" aria-hidden="true" />{t("deadlines.warning")}</p></div></div></div></section>
 
-      <section className="section-padding" aria-labelledby="jsa-heading"><div className="mx-auto max-w-[1200px]"><div className="grid gap-12 lg:grid-cols-[minmax(0,0.62fr)_minmax(0,1.38fr)] lg:gap-20"><div><p className="font-mono text-[0.6875rem] font-medium uppercase tracking-[0.12em] text-accent">{t("jsa.label")}</p><h2 id="jsa-heading" className="mt-4 max-w-[13ch] text-balance font-display text-[clamp(2.25rem,4.8vw,4.25rem)] font-semibold leading-[1.02] tracking-[-0.035em] text-ink-primary">{t("jsa.heading")}</h2><p className="mt-5 text-[0.875rem] leading-[1.7] text-ink-secondary">{t("jsa.lead")}</p></div><div><div className="grid grid-cols-3 gap-px bg-border-medium" role="group" aria-label={t("jsa.legend")}>{jsaKeys.map((key) => <button key={key} type="button" aria-pressed={jsa === key} onClick={() => setJsa(key)} className={`diploma-jsa diploma-jsa-${key} min-h-[78px] bg-bg-surface px-3 py-4 text-center`}><span className="block font-display text-[1.2rem] font-semibold text-ink-primary">{t(`jsa.states.${key}.range`)}</span><span className="mt-1 block text-[0.6875rem] font-semibold text-ink-secondary">{t(`jsa.states.${key}.color`)}</span></button>)}</div><motion.article key={jsa} initial={reduce ? false : { opacity: 0, y: 7 }} animate={{ opacity: 1, y: 0 }} transition={reduce ? { duration: 0 } : { duration: 0.22 }} className="mt-5 border-l-4 border-[#14795f] bg-bg-elevated p-6" aria-live="polite" data-testid="jsa-result"><h3 className="text-[1rem] font-semibold text-ink-primary">{t(`jsa.states.${jsa}.title`)}</h3><p className="mt-3 text-[0.8125rem] leading-[1.65] text-ink-secondary">{t(`jsa.states.${jsa}.body`)}</p></motion.article><p className="mt-5 text-[0.75rem] leading-[1.6] text-ink-tertiary">{t("jsa.rule")}</p></div></div></div></section>
+      <section className="section-padding" aria-labelledby="jsa-heading"><div className="mx-auto max-w-[1200px]"><div className="grid gap-12 lg:grid-cols-[minmax(0,0.62fr)_minmax(0,1.38fr)] lg:gap-20"><div><p className="font-mono text-[0.6875rem] font-medium uppercase tracking-[0.12em] text-accent">{t("jsa.label")}</p><h2 id="jsa-heading" className="mt-4 max-w-[13ch] text-balance font-display text-[clamp(2.25rem,4.8vw,4.25rem)] font-semibold leading-[1.02] tracking-[-0.035em] text-ink-primary">{t("jsa.heading")}</h2><p className="mt-5 text-[0.875rem] leading-[1.7] text-ink-secondary">{t("jsa.lead")}</p></div><div><div className="grid grid-cols-3 gap-px bg-border-medium" role="group" aria-label={t("jsa.legend")}>{jsaKeys.map((key) => <button key={key} type="button" aria-pressed={jsa === key} onClick={() => setJsa(key)} className={`diploma-jsa diploma-jsa-${key} min-h-[78px] bg-bg-surface px-3 py-4 text-center`}><span className="block font-display text-[1.2rem] font-semibold text-ink-primary">{t(`jsa.states.${key}.range`)}</span><span className="mt-1 block text-[0.6875rem] font-semibold text-ink-secondary">{t(`jsa.states.${key}.color`)}</span></button>)}</div><motion.article key={jsa} initial={reduce ? false : { opacity: 0, y: 7 }} animate={{ opacity: 1, y: 0 }} transition={reduce ? { duration: 0 } : { duration: 0.22 }} className="mt-5 border border-[#5ea58f] bg-bg-elevated p-6" aria-live="polite" data-testid="jsa-result"><h3 className="text-[1rem] font-semibold text-ink-primary">{t(`jsa.states.${jsa}.title`)}</h3><p className="mt-3 text-[0.8125rem] leading-[1.65] text-ink-secondary">{t(`jsa.states.${jsa}.body`)}</p></motion.article><p className="mt-5 text-[0.75rem] leading-[1.6] text-ink-tertiary">{t("jsa.rule")}</p></div></div></div></section>
 
       <section className="section-padding border-y border-border-medium bg-[#101c32] text-white" aria-labelledby="exam-heading"><div className="mx-auto max-w-[1200px]"><div className="grid gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(260px,0.48fr)] lg:items-end lg:gap-20"><div><p className="font-mono text-[0.6875rem] font-medium uppercase tracking-[0.12em] text-[#9db8ff]">{t("exam.label")}</p><h2 id="exam-heading" className="mt-4 max-w-[14ch] text-balance font-display text-[clamp(2.25rem,4.8vw,4.25rem)] font-semibold leading-[1.02] tracking-[-0.035em]">{t("exam.heading")}</h2><p className="mt-5 max-w-[67ch] text-[0.9375rem] leading-[1.75] text-white/75">{t("exam.lead")}</p></div><p className="border-t border-white/20 pt-4 text-[0.8125rem] leading-[1.6] text-white/75">{t("exam.notice")}</p></div><div className="mt-10 grid gap-8 lg:grid-cols-[minmax(0,0.78fr)_minmax(0,1.22fr)] lg:gap-14"><div className="border-y border-white/20">{examKeys.map((key, index) => <button key={key} type="button" aria-pressed={exam === key} onClick={() => setExam(key)} className="diploma-exam-button grid min-h-[88px] w-full grid-cols-[36px_minmax(0,1fr)] items-center gap-4 border-b border-white/15 px-2 text-left last:border-b-0"><span className="font-mono text-[0.6875rem] text-[#9db8ff]">0{index + 1}</span><span><span className="block text-[0.875rem] font-semibold">{t(`exam.questions.${key}.source`)}</span><span className="mt-1 block text-[0.6875rem] text-white/75">{t(`exam.questions.${key}.role`)}</span></span></button>)}</div><motion.article key={exam} initial={reduce ? false : { opacity: 0, x: 10 }} animate={{ opacity: 1, x: 0 }} transition={reduce ? { duration: 0 } : { duration: 0.24 }} className="bg-white p-7 text-[#101c32] sm:p-9" aria-live="polite" data-testid="exam-card"><p className="font-mono text-[0.625rem] uppercase tracking-[0.12em] text-[#34415f]">{t("exam.cardLabel")}</p><h3 className="mt-4 max-w-[20ch] font-display text-[clamp(1.7rem,3vw,2.6rem)] font-semibold leading-[1.05] tracking-[-0.025em]">{t(`exam.questions.${exam}.title`)}</h3><p className="mt-5 text-[0.8125rem] leading-[1.7] text-[#30394d]">{t(`exam.questions.${exam}.body`)}</p><div className="mt-6 border-t border-[#ccd3e3] pt-5"><p className="text-[0.75rem] font-semibold text-[#26314b]">{t("exam.prepare")}</p><p className="mt-2 text-[0.75rem] leading-[1.6] text-[#384258]">{t(`exam.questions.${exam}.prepare`)}</p></div></motion.article></div></div></section>
 

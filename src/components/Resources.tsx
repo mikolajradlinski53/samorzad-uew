@@ -55,7 +55,7 @@ export function Resources() {
           <div className="mt-3 flex flex-wrap items-end justify-between gap-4">
             <h2
               id="dla-studenta-heading"
-              className="max-w-[18ch] font-display text-[clamp(2.5rem,5vw,4rem)] font-semibold leading-[1.1] tracking-[-0.02em] text-ink-primary"
+              className="sm:max-w-[18ch] text-balance font-display text-[clamp(2rem,5vw,4rem)] font-semibold leading-[1.1] tracking-[-0.02em] text-ink-primary"
             >
               {t("heading")}
             </h2>

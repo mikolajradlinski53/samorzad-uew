@@ -1032,6 +1032,11 @@ html {
   88%, 100% { transform: translate(-34px, 124px) rotate(-11deg); }
 }
 
+@keyframes usos-route-pulse {
+  0%, 62%, 100% { box-shadow: 0 0 0 0 rgba(55, 194, 255, 0); }
+  72% { box-shadow: 0 0 0 7px rgba(55, 194, 255, 0.2); }
+}
+
 .usos-window-scene {
   opacity: 0.15;
 }
@@ -1122,7 +1127,21 @@ html {
 
 .usos-task-button[aria-pressed="true"] {
   background-color: var(--accent-glow);
-  box-shadow: inset 3px 0 0 #168cc0;
+  box-shadow: inset 0 0 0 1px #168cc0;
+}
+
+.usos-map-area {
+  transition: background-color 180ms cubic-bezier(0.16, 1, 0.3, 1),
+    color 180ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.diploma-stage-rail {
+  scrollbar-color: rgba(132, 217, 255, 0.55) rgba(255, 255, 255, 0.08);
+  scrollbar-width: thin;
+}
+
+.usos-route-node {
+  animation: usos-route-pulse 3.4s cubic-bezier(0.45, 0, 0.55, 1) infinite;
 }
 
 @media (max-width: 767px) {
@@ -1146,7 +1165,8 @@ html {
   .usos-enter,
   .usos-window-bar,
   .usos-window-panel,
-  .usos-window-cursor {
+  .usos-window-cursor,
+  .usos-route-node {
     animation: none !important;
     opacity: 1 !important;
     transform: none !important;
@@ -1156,7 +1176,8 @@ html {
   .usos-motion,
   .usos-motion *,
   .usos-task-button,
-  .usos-task-button * {
+  .usos-task-button *,
+  .usos-map-area {
     transition-duration: 0.01ms !important;
   }
 
@@ -1805,7 +1826,25 @@ html {
 .dark .diploma-jsa-orange[aria-pressed="true"] { background: #432c17; }
 .dark .diploma-jsa-red[aria-pressed="true"] { background: #402321; }
 .diploma-exam-button:hover { background: rgba(255, 255, 255, 0.06); }
-.diploma-exam-button[aria-pressed="true"] { background: #27385f; box-shadow: inset 3px 0 0 #9db8ff; }
+.diploma-exam-button[aria-pressed="true"] { background: #27385f; box-shadow: inset 0 0 0 1px #9db8ff; }
+
+.diploma-stage-button {
+  transition: background-color 180ms cubic-bezier(0.16, 1, 0.3, 1),
+    color 180ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.diploma-stage-button:hover { background: rgba(255, 255, 255, 0.06); }
+.diploma-stage-button[aria-current="step"] { background: rgba(102, 229, 193, 0.12); }
+
+.diploma-file-sheet {
+  transform: rotate(-1.5deg);
+  box-shadow: 7px 8px 0 rgba(102, 229, 193, 0.2);
+}
+
+.diploma-file-stamp {
+  transform: rotate(-2deg);
+  transform-origin: center;
+}
 
 @media (max-width: 767px) {
   .diploma-blueprint { mask-image: linear-gradient(90deg, transparent, rgba(0, 0, 0, 0.82)); }
@@ -1813,6 +1852,8 @@ html {
   .diploma-seal-inner { right: -190px; height: 260px; width: 260px; }
   .diploma-orbit-dot { display: none; }
   .diploma-scanline { width: 72%; }
+  .diploma-file-sheet,
+  .diploma-file-stamp { transform: none; }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -1832,7 +1873,11 @@ html {
   .diploma-check,
   .diploma-choice,
   .diploma-jsa,
-  .diploma-exam-button { transition-duration: 0.01ms !important; }
+  .diploma-exam-button,
+  .diploma-stage-button { transition-duration: 0.01ms !important; }
+
+  .diploma-file-sheet,
+  .diploma-file-stamp { transform: none !important; }
 
   .diploma-motion:hover,
   .diploma-motion:active,

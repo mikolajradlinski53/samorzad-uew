@@ -40,7 +40,7 @@ export function AudienceStrip() {
           </p>
           <h2
             id="audience-heading"
-            className="mt-3 max-w-[20ch] font-display text-[clamp(1.75rem,3.4vw,2.75rem)] font-semibold leading-[1.15] tracking-[-0.02em] text-ink-primary"
+            className="mt-3 sm:max-w-[20ch] text-balance font-display text-[clamp(1.75rem,3.4vw,2.75rem)] font-semibold leading-[1.15] tracking-[-0.02em] text-ink-primary"
           >
             {t("heading")}
           </h2>

@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-14T08:56:07.247Z",
+  "generatedAt": "2026-08-14T10:02:08.654Z",
   "viewport": {
     "width": 375,
     "height": 812
@@ -829,7 +829,7 @@
         "culprits": []
       },
       "tapTargets": {
-        "checked": 68,
+        "checked": 74,
         "tooSmall": [
           {
             "tag": "input",
@@ -993,75 +993,75 @@
             "textSnippet": "Najważniejsza definicja"
           },
           {
-            "tag": "p",
-            "classSnippet": "font-mono text-[0.6875rem] font-medium uppercase tracking-[0.12em] text-accent",
-            "fontSize": 11,
-            "textSnippet": "Mapa procesu"
-          },
-          {
             "tag": "span",
-            "classSnippet": "font-mono text-[0.6875rem] text-ink-tertiary",
-            "fontSize": 11,
-            "textSnippet": "0"
-          },
-          {
-            "tag": "span",
-            "classSnippet": "font-mono text-[0.6875rem] text-ink-tertiary",
-            "fontSize": 11,
-            "textSnippet": "1"
-          },
-          {
-            "tag": "span",
-            "classSnippet": "font-mono text-[0.6875rem] text-ink-tertiary",
-            "fontSize": 11,
-            "textSnippet": "0"
-          },
-          {
-            "tag": "span",
-            "classSnippet": "font-mono text-[0.6875rem] text-ink-tertiary",
+            "classSnippet": "font-mono text-[0.6875rem] text-white/50",
             "fontSize": 11,
             "textSnippet": "2"
           },
           {
             "tag": "span",
-            "classSnippet": "font-mono text-[0.6875rem] text-ink-tertiary",
+            "classSnippet": "font-mono text-[0.6875rem] text-white/50",
             "fontSize": 11,
+            "textSnippet": "/"
+          },
+          {
+            "tag": "span",
+            "classSnippet": "font-mono text-[0.6875rem] text-white/50",
+            "fontSize": 11,
+            "textSnippet": "6"
+          },
+          {
+            "tag": "span",
+            "classSnippet": "font-mono text-[0.625rem] text-white/70",
+            "fontSize": 10,
             "textSnippet": "0"
           },
           {
             "tag": "span",
-            "classSnippet": "font-mono text-[0.6875rem] text-ink-tertiary",
-            "fontSize": 11,
+            "classSnippet": "font-mono text-[0.625rem] text-white/70",
+            "fontSize": 10,
+            "textSnippet": "1"
+          },
+          {
+            "tag": "span",
+            "classSnippet": "font-mono text-[0.625rem] text-white/70",
+            "fontSize": 10,
+            "textSnippet": "0"
+          },
+          {
+            "tag": "span",
+            "classSnippet": "font-mono text-[0.625rem] text-white/70",
+            "fontSize": 10,
+            "textSnippet": "2"
+          },
+          {
+            "tag": "span",
+            "classSnippet": "font-mono text-[0.625rem] text-white/70",
+            "fontSize": 10,
+            "textSnippet": "0"
+          },
+          {
+            "tag": "span",
+            "classSnippet": "font-mono text-[0.625rem] text-white/70",
+            "fontSize": 10,
             "textSnippet": "3"
           },
           {
             "tag": "span",
-            "classSnippet": "font-mono text-[0.6875rem] text-ink-tertiary",
-            "fontSize": 11,
+            "classSnippet": "font-mono text-[0.625rem] text-white/70",
+            "fontSize": 10,
             "textSnippet": "0"
           },
           {
             "tag": "span",
-            "classSnippet": "font-mono text-[0.6875rem] text-ink-tertiary",
-            "fontSize": 11,
+            "classSnippet": "font-mono text-[0.625rem] text-white/70",
+            "fontSize": 10,
             "textSnippet": "4"
           },
           {
             "tag": "span",
-            "classSnippet": "font-mono text-[0.6875rem] text-ink-tertiary",
-            "fontSize": 11,
-            "textSnippet": "0"
-          },
-          {
-            "tag": "span",
-            "classSnippet": "font-mono text-[0.6875rem] text-ink-tertiary",
-            "fontSize": 11,
-            "textSnippet": "5"
-          },
-          {
-            "tag": "span",
-            "classSnippet": "font-mono text-[0.6875rem] text-ink-tertiary",
-            "fontSize": 11,
+            "classSnippet": "font-mono text-[0.625rem] text-white/70",
+            "fontSize": 10,
             "textSnippet": "0"
           }
         ]
@@ -1069,28 +1069,94 @@
       "contentWidth": {
         "offenders": [
           {
+            "tag": "nav",
+            "classSnippet": "border-b border-white/15 bg-[#0a2924] lg:border-b-0 lg:border-r",
+            "width": 1140,
+            "rectRight": 1165
+          },
+          {
+            "tag": "div",
+            "classSnippet": "flex items-center justify-between border-b border-white/15 px-5 py-4",
+            "width": 1140,
+            "rectRight": 1165
+          },
+          {
+            "tag": "div",
+            "classSnippet": "min-w-0 p-5 sm:p-8 lg:p-10",
+            "width": 1140,
+            "rectRight": 1165
+          },
+          {
+            "tag": "div",
+            "classSnippet": "flex flex-wrap items-center justify-between gap-3 border-b border-white/15 pb-4",
+            "width": 1100,
+            "rectRight": 1145
+          },
+          {
+            "tag": "article",
+            "classSnippet": "grid gap-8 py-8 md:grid-cols-[minmax(190px,0.72fr)_minmax(0,1.28fr)] md:items-ce",
+            "width": 1100,
+            "rectRight": 1145
+          },
+          {
+            "tag": "div",
+            "classSnippet": "",
+            "width": 1100,
+            "rectRight": 1145
+          },
+          {
+            "tag": "p",
+            "classSnippet": "text-[0.6875rem] font-semibold text-[#8ff0d4]",
+            "width": 1100,
+            "rectRight": 1145
+          },
+          {
+            "tag": "div",
+            "classSnippet": "mt-7 border-y border-white/15 py-5",
+            "width": 1100,
+            "rectRight": 1145
+          },
+          {
+            "tag": "p",
+            "classSnippet": "text-[0.6875rem] font-semibold text-white/50",
+            "width": 1100,
+            "rectRight": 1145
+          },
+          {
+            "tag": "p",
+            "classSnippet": "mt-2 text-[0.8125rem] font-semibold leading-[1.55] text-white/90",
+            "width": 1100,
+            "rectRight": 1145
+          },
+          {
+            "tag": "div",
+            "classSnippet": "h-1 overflow-hidden bg-white/10",
+            "width": 1100,
+            "rectRight": 1145
+          },
+          {
+            "tag": "p",
+            "classSnippet": "mt-5 max-w-[58ch] text-pretty text-[0.875rem] leading-[1.75] text-white/72",
+            "width": 465.27,
+            "rectRight": 510.27
+          },
+          {
+            "tag": "span",
+            "classSnippet": "block h-full bg-[#66e5c1]",
+            "width": 366.66,
+            "rectRight": 411.66
+          },
+          {
+            "tag": "div",
+            "classSnippet": "diploma-file-sheet mx-auto flex aspect-[0.74] w-full max-w-[250px] flex-col bg-w",
+            "width": 250,
+            "rectRight": 720
+          },
+          {
             "tag": "div",
             "classSnippet": "flex items-center gap-3",
             "width": 244.41,
             "rectRight": 428.41
-          },
-          {
-            "tag": "button",
-            "classSnippet": "flex h-11 w-11 items-center justify-center rounded-lg text-ink-secondary md:hidd",
-            "width": 44,
-            "rectRight": 428.41
-          },
-          {
-            "tag": "svg",
-            "classSnippet": "",
-            "width": 24,
-            "rectRight": 418.41
-          },
-          {
-            "tag": "path",
-            "classSnippet": "",
-            "width": 18,
-            "rectRight": 415.41
           }
         ]
       }
@@ -1607,7 +1673,7 @@
         "culprits": []
       },
       "tapTargets": {
-        "checked": 57,
+        "checked": 61,
         "tooSmall": [
           {
             "tag": "a",

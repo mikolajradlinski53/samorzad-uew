@@ -69,7 +69,7 @@
     "eyebrow": "Samorząd Studentów Uniwersytetu Ekonomicznego we Wrocławiu",
     "line1": "Reprezentujemy",
     "line2": "studentów UEW",
-    "lead": "Jesteśmy głosem ponad 11 000 studentów. Tworzymy wydarzenia, walczymy o Wasze prawa i robimy to, żeby studia miały sens — i smak.",
+    "lead": "Jesteśmy głosem blisko 9 000 studentów. Tworzymy wydarzenia, walczymy o Wasze prawa i robimy to, żeby studia miały sens — i smak.",
     "cta1": "Poznaj nas",
     "cta2": "Strefa studenta",
     "scroll": "Przewiń do sekcji „O nas”",
@@ -105,7 +105,7 @@
     "partner": {
       "eyebrow": "Reprezentujesz firmę?",
       "title": "Współpraca i partnerstwo",
-      "desc": "Dotrzyj do ponad 11 000 studentów. Zobacz, jak możemy działać razem.",
+      "desc": "Dotrzyj do blisko 9 000 studentów. Zobacz, jak możemy działać razem.",
       "scent": "Partnerzy · Współpracuj z nami · Kontakt B2B"
     },
     "discover": {
@@ -228,7 +228,7 @@
   },
   "partnerzy": {
     "metaTitle": "Partnerzy i współpraca",
-    "metaDesc": "Dołącz do grona partnerów Samorządu Studentów UEW. Dotrzyj do 11 000 studentów, bądź obecny na największych wydarzeniach i wspieraj młode talenty.",
+    "metaDesc": "Dołącz do grona partnerów Samorządu Studentów UEW. Dotrzyj do blisko 9 000 studentów, bądź obecny na największych wydarzeniach i wspieraj młode talenty.",
     "ogLabel": "Współpraca",
     "heroEyebrow": "Współpraca",
     "heroTitle": "Partnerzy",
@@ -236,7 +236,7 @@
     "benefitsEyebrow": "Współpraca",
     "benefitsHeading": "Dlaczego warto współpracować z Samorządem",
     "benefits": {
-      "reach": { "title": "Dotarcie do 11 000 studentów", "desc": "Bezpośredni kanał do najliczniejszej społeczności studenckiej UEW." },
+      "reach": { "title": "Dotarcie do blisko 9 000 studentów", "desc": "Bezpośredni kanał do najliczniejszej społeczności studenckiej UEW." },
       "events": { "title": "Obecność na wydarzeniach", "desc": "Adapciak, Bal UEW, TEDxUEW, UE Party — Twoja marka tam, gdzie studenci." },
       "image": { "title": "Wizerunek marki przyjaznej studentom", "desc": "Współpraca z samorządem to realne wsparcie środowiska akademickiego." },
       "talent": { "title": "Dostęp do młodych talentów", "desc": "Rekrutacja, staże i programy ambasadorskie wśród przyszłych ekonomistów." }
@@ -244,7 +244,7 @@
     "wallHeading": "Grono partnerów rośnie",
     "wallSub": "Kliknij wolne miejsce, by zobaczyć, jak może wyglądać Twoja obecność.",
     "slots": { "brand": "Twoja marka", "partner": "Partner", "sponsor": "Sponsor", "coop": "Współpraca", "patron": "Patron", "mecenas": "Mecenas" },
-    "modalDesc": "Tu mogłoby znaleźć się Twoje logo. Dołącz do grona partnerów wspierających ponad 11 000 studentów UEW.",
+    "modalDesc": "Tu mogłoby znaleźć się Twoje logo. Dołącz do grona partnerów wspierających blisko 9 000 studentów UEW.",
     "modalCta": "Zostań partnerem",
     "modalRealDesc": "Partner Samorządu Studentów UEW. Dziękujemy, że jesteście z nami.",
     "modalVisit": "Odwiedź stronę",
@@ -263,13 +263,13 @@
     "faq": {
       "start": { "q": "Jak rozpocząć współpracę z Samorządem?", "a": "Napisz do osoby odpowiedzialnej za relacje zewnętrzne — przygotujemy ofertę skrojoną pod Twoje cele. Kontakt: Karol Vogel, karol.vogel@samorzad.ue.wroc.pl, tel. 511 599 376." },
       "forms": { "q": "Jakie formy współpracy oferujecie?", "a": "Organizację eventów i strefy partnerskie, promocję w social media (TikTok, Instagram, Facebook) oraz kampanie marketingowe skrojone pod studenta UEW." },
-      "reach": { "q": "Do ilu studentów docieracie?", "a": "Reprezentujemy ponad 11 000 studentów Uniwersytetu Ekonomicznego we Wrocławiu." },
+      "reach": { "q": "Do ilu studentów docieracie?", "a": "Reprezentujemy blisko 9 000 studentów Uniwersytetu Ekonomicznego we Wrocławiu." },
       "tailored": { "q": "Czy przygotujecie ofertę pod konkretny cel?", "a": "Tak — ofertę dopasowujemy do Twojego produktu lub usługi oraz do celów kampanii." }
     }
   },
   "wspolpracuj": {
     "metaTitle": "Współpracuj z nami",
-    "metaDesc": "Dotrzyj ze swoją marką do 11 000 studentów UEW — eventy, promocja w social media i kampanie marketingowe. Skontaktuj się z Zarządem ds. relacji zewnętrznych.",
+    "metaDesc": "Dotrzyj ze swoją marką do blisko 9 000 studentów UEW — eventy, promocja w social media i kampanie marketingowe. Skontaktuj się z Zarządem ds. relacji zewnętrznych.",
     "ogLabel": "Współpraca",
     "heroEyebrow": "Współpraca",
     "heroTitle": "Współpracuj z nami",
@@ -865,13 +865,15 @@
     "definition": { "label": "Najważniejsza definicja", "heading": "Kiedy praca jest złożona?", "approval": { "title": "Zielone światło 1 · APD", "body": "Promotor zaakceptował pracę i przekazał ją w APD do recenzji." }, "grades": { "title": "Zielone światło 2 · USOS", "body": "W USOS znajdują się wszystkie oceny wymagane programem studiów. Potrzebujesz obu świateł jednocześnie." } },
     "timeline": {
       "label": "Mapa procesu", "heading": "Sześć stanów zamiast jednego uploadu", "lead": "Każdy stan ma innego właściciela i inne ryzyko. Nie planuj obrony tak, jakby wszystko działo się natychmiast po wgraniu pliku.",
+      "mapNote": "To mapa odpowiedzialności, nie kopia ekranu APD. Kliknij etap, aby zobaczyć właściciela i dowód, że proces naprawdę poszedł dalej.",
+      "navigatorLabel": "Wybierz etap procesu dyplomowania", "fileLabel": "teka pracy", "statusLabel": "proces aktywny", "ownerLabel": "Po czyjej stronie", "proofLabel": "Po czym poznasz, że etap jest zakończony",
       "stages": {
-        "final": { "title": "Wersja ostateczna", "body": "Promotor potwierdza, że konkretny plik może rozpocząć formalny proces." },
-        "metadata": { "title": "APD i metadane", "body": "Uzupełniasz dane PL/EN, oświadczenie i przekazujesz pracę promotorowi." },
-        "similarity": { "title": "Badanie JSA", "body": "APD wysyła pracę do Jednolitego Systemu Antyplagiatowego i generuje raport." },
-        "decision": { "title": "Decyzja promotora", "body": "Promotor analizuje raport, akceptuje pracę albo kieruje ją do poprawy." },
-        "reviews": { "title": "Recenzje i rozliczenie", "body": "Promotor i recenzent wystawiają recenzje, a Uczelnia potwierdza rozliczenie." },
-        "defence": { "title": "Egzamin dyplomowy", "body": "Termin i trzyosobowy skład pojawiają się w APD co najmniej 7 dni wcześniej." }
+        "final": { "title": "Wersja ostateczna", "body": "Promotor potwierdza, że konkretny plik może rozpocząć formalny proces.", "owner": "Ty i promotor", "proof": "Promotor jednoznacznie zaakceptował tę wersję do złożenia, a nie tylko przesłał kolejne uwagi.", "stamp": "gotowa do APD" },
+        "metadata": { "title": "APD i metadane", "body": "Uzupełniasz dane PL/EN, oświadczenie i przekazujesz pracę promotorowi.", "owner": "Ty", "proof": "W APD widzisz kompletny rekord pracy, właściwy plik i status przekazania promotorowi.", "stamp": "przekazana" },
+        "similarity": { "title": "Badanie JSA", "body": "APD wysyła pracę do Jednolitego Systemu Antyplagiatowego i generuje raport.", "owner": "APD i JSA", "proof": "Przy pracy pojawił się raport podobieństwa; sam procent nie oznacza jeszcze akceptacji.", "stamp": "raport gotowy" },
+        "decision": { "title": "Decyzja promotora", "body": "Promotor analizuje raport, akceptuje pracę albo kieruje ją do poprawy.", "owner": "Promotor", "proof": "Status pracy potwierdza akceptację po analizie JSA albo jasno wskazuje konieczność poprawy.", "stamp": "decyzja" },
+        "reviews": { "title": "Recenzje i rozliczenie", "body": "Promotor i recenzent wystawiają recenzje, a Uczelnia potwierdza rozliczenie.", "owner": "Recenzenci i Uczelnia", "proof": "W APD są dwie recenzje, a rozliczenie z Uczelnią nie blokuje dopuszczenia do egzaminu.", "stamp": "dopuszczona" },
+        "defence": { "title": "Egzamin dyplomowy", "body": "Termin i trzyosobowy skład pojawiają się w APD co najmniej 7 dni wcześniej.", "owner": "Dziekanat i komisja", "proof": "W APD widzisz datę, miejsce oraz trzyosobowy skład komisji egzaminacyjnej.", "stamp": "termin obrony" }
       }
     },
     "deadlines": {
@@ -1263,6 +1265,7 @@
       "page": "Infopack · s. {page}",
       "mapped": "ścieżka zmapowana",
       "path": "Ścieżka kliknięć",
+      "systemMap": "Mapa zadania", "systemMapAria": "Schemat nawigacji po systemie USOS", "currentArea": "Obszar systemu", "targetScreen": "Ekran docelowy", "routeUpdated": "trasa dopasowana",
       "result": "Po czym poznasz właściwy ekran",
       "openInfopack": "Zobacz stronę {page} Infopacku"
     },
@@ -1797,8 +1800,8 @@
   "site": {
     "titleDefault": "Samorząd Studentów Uniwersytetu Ekonomicznego we Wrocławiu",
     "titleTemplate": "%s · Samorząd Studentów Uniwersytetu Ekonomicznego we Wrocławiu",
-    "description": "Reprezentujemy ponad 11 000 studentów Uniwersytetu Ekonomicznego we Wrocławiu. Działamy, żeby Wasze studia miały sens.",
-    "ogDescription": "Reprezentujemy ponad 11 000 studentów Uniwersytetu Ekonomicznego we Wrocławiu.",
+    "description": "Reprezentujemy blisko 9 000 studentów Uniwersytetu Ekonomicznego we Wrocławiu. Działamy, żeby Wasze studia miały sens.",
+    "ogDescription": "Reprezentujemy blisko 9 000 studentów Uniwersytetu Ekonomicznego we Wrocławiu.",
     "skipLink": "Przejdź do treści"
   },
   "ui": {

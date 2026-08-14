@@ -69,7 +69,7 @@
     "eyebrow": "Student Government of Wrocław University of Economics and Business",
     "line1": "We represent",
     "line2": "UEW students",
-    "lead": "We are the voice of over 11,000 students. We create events, fight for your rights, and make sure your studies have meaning — and flavour.",
+    "lead": "We are the voice of nearly 9,000 students. We create events, fight for your rights, and make sure your studies have meaning — and flavour.",
     "cta1": "Get to know us",
     "cta2": "Student zone",
     "scroll": "Scroll to the “About” section",
@@ -105,7 +105,7 @@
     "partner": {
       "eyebrow": "Representing a company?",
       "title": "Partnership & cooperation",
-      "desc": "Reach over 11,000 students. See how we can work together.",
+      "desc": "Reach nearly 9,000 students. See how we can work together.",
       "scent": "Partners · Work with us · B2B contact"
     },
     "discover": {
@@ -228,7 +228,7 @@
   },
   "partnerzy": {
     "metaTitle": "Partners & cooperation",
-    "metaDesc": "Join the partners of the UEW Student Government. Reach 11,000 students, be present at the biggest events and support young talent.",
+    "metaDesc": "Join the partners of the UEW Student Government. Reach nearly 9,000 students, be present at the biggest events and support young talent.",
     "ogLabel": "Partnership",
     "heroEyebrow": "Partnership",
     "heroTitle": "Partners",
@@ -236,7 +236,7 @@
     "benefitsEyebrow": "Partnership",
     "benefitsHeading": "Why partner with the Student Government",
     "benefits": {
-      "reach": { "title": "Reach 11,000 students", "desc": "A direct channel to UEW’s largest student community." },
+      "reach": { "title": "Reach nearly 9,000 students", "desc": "A direct channel to UEW’s largest student community." },
       "events": { "title": "Presence at events", "desc": "Adapciak, the UEW Ball, TEDxUEW, UE Party — your brand where the students are." },
       "image": { "title": "A student-friendly brand image", "desc": "Working with the Student Government is real support for the academic community." },
       "talent": { "title": "Access to young talent", "desc": "Recruitment, internships and ambassador programmes among future economists." }
@@ -244,7 +244,7 @@
     "wallHeading": "Our partner circle is growing",
     "wallSub": "Click an open slot to see what your presence could look like.",
     "slots": { "brand": "Your brand", "partner": "Partner", "sponsor": "Sponsor", "coop": "Cooperation", "patron": "Patron", "mecenas": "Benefactor" },
-    "modalDesc": "Your logo could be here. Join the partners supporting over 11,000 UEW students.",
+    "modalDesc": "Your logo could be here. Join the partners supporting nearly 9,000 UEW students.",
     "modalCta": "Become a partner",
     "modalRealDesc": "A partner of the SSUEW Student Government. Thank you for being with us.",
     "modalVisit": "Visit site",
@@ -263,13 +263,13 @@
     "faq": {
       "start": { "q": "How do we start working with the Student Government?", "a": "Write to the person responsible for external relations — we’ll prepare an offer tailored to your goals. Contact: Karol Vogel, karol.vogel@samorzad.ue.wroc.pl, tel. +48 511 599 376." },
       "forms": { "q": "What forms of cooperation do you offer?", "a": "Event organisation and partner zones, social media promotion (TikTok, Instagram, Facebook) and marketing campaigns tailored to the UEW student." },
-      "reach": { "q": "How many students do you reach?", "a": "We represent over 11,000 students of Wrocław University of Economics and Business." },
+      "reach": { "q": "How many students do you reach?", "a": "We represent nearly 9,000 students of Wrocław University of Economics and Business." },
       "tailored": { "q": "Will you prepare an offer for a specific goal?", "a": "Yes — we tailor the offer to your product or service and to your campaign goals." }
     }
   },
   "wspolpracuj": {
     "metaTitle": "Work with us",
-    "metaDesc": "Reach 11,000 UEW students with your brand — events, social media promotion and marketing campaigns. Get in touch with our external relations board member.",
+    "metaDesc": "Reach nearly 9,000 UEW students with your brand — events, social media promotion and marketing campaigns. Get in touch with our external relations board member.",
     "ogLabel": "Partnership",
     "heroEyebrow": "Partnership",
     "heroTitle": "Work with us",
@@ -865,13 +865,15 @@
     "definition": { "label": "The crucial definition", "heading": "When is a thesis submitted?", "approval": { "title": "Green light 1 · APD", "body": "Your supervisor accepted the thesis and sent it for review in APD." }, "grades": { "title": "Green light 2 · USOS", "body": "USOS contains every grade required by your curriculum. You need both green lights at once." } },
     "timeline": {
       "label": "Process map", "heading": "Six states, not one upload", "lead": "Every state has a different owner and risk. Do not plan the defence as if everything happened instantly after upload.",
+      "mapNote": "This is a responsibility map, not a copy of the APD interface. Select a stage to see its owner and the evidence that the process has actually moved on.",
+      "navigatorLabel": "Choose a graduation process stage", "fileLabel": "thesis file", "statusLabel": "process active", "ownerLabel": "Whose side", "proofLabel": "How to know this stage is complete",
       "stages": {
-        "final": { "title": "Final version", "body": "The supervisor confirms that a specific file may enter the formal process." },
-        "metadata": { "title": "APD and metadata", "body": "You complete PL/EN data, accept the declaration and send the thesis to the supervisor." },
-        "similarity": { "title": "JSA screening", "body": "APD sends the thesis to the national anti-plagiarism system and generates a report." },
-        "decision": { "title": "Supervisor decision", "body": "The supervisor analyses the report, accepts the thesis or requests changes." },
-        "reviews": { "title": "Reviews and clearance", "body": "Supervisor and reviewer submit reviews and the University confirms clearance." },
-        "defence": { "title": "Diploma exam", "body": "The date and three-person committee appear in APD at least 7 days in advance." }
+        "final": { "title": "Final version", "body": "The supervisor confirms that a specific file may enter the formal process.", "owner": "You and your supervisor", "proof": "The supervisor has clearly approved this version for submission, rather than merely sending another round of comments.", "stamp": "ready for APD" },
+        "metadata": { "title": "APD and metadata", "body": "You complete PL/EN data, accept the declaration and send the thesis to the supervisor.", "owner": "You", "proof": "APD shows a complete thesis record, the correct file and a status confirming transfer to the supervisor.", "stamp": "transferred" },
+        "similarity": { "title": "JSA screening", "body": "APD sends the thesis to the national anti-plagiarism system and generates a report.", "owner": "APD and JSA", "proof": "A similarity report is attached to the thesis; the percentage alone does not yet mean approval.", "stamp": "report ready" },
+        "decision": { "title": "Supervisor decision", "body": "The supervisor analyses the report, accepts the thesis or requests changes.", "owner": "Supervisor", "proof": "The thesis status confirms acceptance after JSA analysis or clearly requests a revision.", "stamp": "decision" },
+        "reviews": { "title": "Reviews and clearance", "body": "Supervisor and reviewer submit reviews and the University confirms clearance.", "owner": "Reviewers and University", "proof": "APD contains two reviews and University clearance no longer blocks admission to the exam.", "stamp": "admitted" },
+        "defence": { "title": "Diploma exam", "body": "The date and three-person committee appear in APD at least 7 days in advance.", "owner": "Dean's Office and committee", "proof": "APD shows the date, place and three-person diploma examination committee.", "stamp": "defence date" }
       }
     },
     "deadlines": {
@@ -1137,6 +1139,7 @@
       "page": "Infopack · p. {page}",
       "mapped": "path mapped",
       "path": "Click path",
+      "systemMap": "Task map", "systemMapAria": "USOS navigation diagram", "currentArea": "System area", "targetScreen": "Target screen", "routeUpdated": "route matched",
       "result": "How to recognise the right screen",
       "openInfopack": "See Infopack page {page}"
     },
@@ -1671,8 +1674,8 @@
   "site": {
     "titleDefault": "Student Government of Wrocław University of Economics and Business",
     "titleTemplate": "%s · Student Government of Wrocław University of Economics and Business",
-    "description": "We represent over 11,000 students of Wrocław University of Economics and Business. We work to make your studies meaningful.",
-    "ogDescription": "We represent over 11,000 students of Wrocław University of Economics and Business.",
+    "description": "We represent nearly 9,000 students of Wrocław University of Economics and Business. We work to make your studies meaningful.",
+    "ogDescription": "We represent nearly 9,000 students of Wrocław University of Economics and Business.",
     "skipLink": "Skip to content"
   },
   "ui": {

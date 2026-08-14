@@ -90,7 +90,7 @@ export function Footer() {
             <div>
               <h2
                 id="kontakt-heading"
-                className="max-w-[22ch] font-display text-[clamp(1.5rem,2.4vw,2rem)] font-semibold leading-[1.25] tracking-[-0.02em] text-ink-primary"
+                className="sm:max-w-[22ch] font-display text-[clamp(1.5rem,2.4vw,2rem)] font-semibold leading-[1.25] tracking-[-0.02em] text-ink-primary"
               >
                 {t("footer.brand")}
               </h2>
