@@ -1,17 +1,21 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import dynamic from "next/dynamic";
 import Image from "next/image";
 import { useLocale, useTranslations } from "next-intl";
 import { ArrowRight, ArrowUpRight, MagnifyingGlass } from "@phosphor-icons/react";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { useGSAP } from "@gsap/react";
 import { Link } from "@/i18n/navigation";
 import { heroPhotos } from "@/lib/photos";
 import styles from "./HomeExperience.module.css";
 
-gsap.registerPlugin(ScrollTrigger, useGSAP);
+
+/**
+ * Ciężka choreografia przewijania (gsap + ScrollTrigger, ok. 128 KB) ładuje się
+ * dopiero wtedy, gdy ekran spełnia jej własny warunek. Wcześniej pobierał ją
+ * każdy telefon, choć efekty startują od 900 px.
+ */
+const HomeMotion = dynamic(() => import("./HomeMotion"), { ssr: false });
 
 const intents = [
   { key: "solve", href: "/dla-studenta", photo: 0, position: "50% 48%" },
@@ -38,92 +42,19 @@ export function HomeExperience() {
   const active = intents[activeIndex];
   const manifestoWords = t("manifesto.statement").split(/\s+/);
 
-  useGSAP(
-    () => {
-      const media = gsap.matchMedia();
-
-      media.add("(min-width: 900px) and (prefers-reduced-motion: no-preference)", () => {
-        gsap.to("[data-hero-media]", {
-          yPercent: 4,
-          scale: 1.03,
-          ease: "none",
-          scrollTrigger: {
-            trigger: "[data-hero]",
-            start: "top top",
-            end: "bottom top",
-            scrub: 0.8,
-          },
-        });
-
-        const words = gsap.utils.toArray<HTMLElement>("[data-manifest-word]");
-        gsap.set(words, { color: "#9aa8bc" });
-        gsap.to(words, {
-          color: "#102743",
-          stagger: 0.12,
-          ease: "none",
-          scrollTrigger: {
-            trigger: "[data-manifest]",
-            start: "top top+=72",
-            end: "+=115%",
-            pin: true,
-            scrub: 0.7,
-            anticipatePin: 1,
-            invalidateOnRefresh: true,
-          },
-        });
-
-        gsap.to("[data-manifest-media]", {
-          yPercent: -4,
-          scale: 1.04,
-          ease: "none",
-          scrollTrigger: {
-            trigger: "[data-manifest]",
-            start: "top top+=72",
-            end: "+=115%",
-            scrub: 0.9,
-          },
-        });
-
-        gsap.utils.toArray<HTMLElement>("[data-archive-panel]").forEach((panel) => {
-          const image = panel.querySelector<HTMLElement>("[data-archive-media]");
-          if (!image) return;
-          gsap.fromTo(
-            image,
-            { yPercent: -7, scale: 1.08 },
-            {
-              yPercent: 7,
-              scale: 1.08,
-              ease: "none",
-              scrollTrigger: {
-                trigger: panel,
-                start: "top bottom",
-                end: "bottom top",
-                scrub: 0.8,
-              },
-            },
-          );
-        });
-      });
-
-      return () => media.revert();
-    },
-    { scope: rootRef },
-  );
-
-  useGSAP(
-    () => {
-      if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-      gsap.fromTo(
-        "[data-active-frame]",
-        { clipPath: "inset(0 0 100% 0)", scale: 1.03 },
-        { clipPath: "inset(0 0 0% 0)", scale: 1, duration: 0.75, ease: "power3.out" },
-      );
-    },
-    { dependencies: [activeIntent], revertOnUpdate: true, scope: rootRef },
-  );
+  // Duże ekrany dostają choreografię przewijania; telefon nie pobiera jej wcale.
+  const [motionReady, setMotionReady] = useState(false);
+  useEffect(() => {
+    const mq = window.matchMedia("(min-width: 900px) and (prefers-reduced-motion: no-preference)");
+    const sync = () => setMotionReady(mq.matches);
+    sync();
+    mq.addEventListener("change", sync);
+    return () => mq.removeEventListener("change", sync);
+  }, []);
 
   return (
     <div ref={rootRef} className={styles.experience}>
+      {motionReady && <HomeMotion scope={rootRef} />}
       <section data-hero aria-labelledby="home-experience-title" className={styles.hero}>
         <div className={styles.heroShell}>
           <div className={styles.heroCopy}>
@@ -157,17 +88,39 @@ export function HomeExperience() {
             </div>
           </div>
 
-          <div data-hero-media data-active-frame className={styles.heroFrame} aria-hidden="true">
-            <Image
-              src={heroPhotos[active.photo]}
-              alt=""
-              fill
-              preload={activeIndex === 0}
-              sizes="(max-width: 899px) 100vw, 40vw"
-              className={styles.heroFrameImage}
-              style={{ objectPosition: active.position }}
-            />
+          <div data-hero-media data-hero-frame className={styles.heroFrame} aria-hidden="true">
+            <div className={styles.heroReel}>
+              {intents.map((intent, index) => (
+                <div
+                  key={intent.key}
+                  data-active={index === activeIndex ? "true" : undefined}
+                  className={styles.heroReelSlide}
+                  style={{ transform: `translate3d(0, ${(index - activeIndex) * 100}%, 0)` }}
+                >
+                  <Image
+                    data-intent-image={intent.key}
+                    src={heroPhotos[intent.photo]}
+                    alt=""
+                    fill
+                    preload={index === 0}
+                    sizes="(max-width: 899px) 100vw, 40vw"
+                    className={styles.heroFrameImage}
+                    style={{ objectPosition: intent.position }}
+                  />
+                </div>
+              ))}
+            </div>
             <span className={styles.heroFrameWash} />
+            <span key={`impulse-${active.key}`} className={styles.heroImpulse}>
+              <svg viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+                <path pathLength="1" d="M 0.6 100 L 0.6 0.6 L 100 0.6" />
+              </svg>
+            </span>
+            <span className={styles.heroFrameIndex}>
+              <span key={active.key}>{String(activeIndex + 1).padStart(2, "0")}</span>
+              <span aria-hidden="true">/</span>
+              <span>{String(intents.length).padStart(2, "0")}</span>
+            </span>
           </div>
 
           <div className={styles.intentRail} aria-label={t("hero.intentLabel")}>
@@ -190,11 +143,11 @@ export function HomeExperience() {
           </div>
 
           <div id="home-intent-preview" aria-live="polite" className={styles.intentPreview}>
-            <div>
+            <div key={`copy-${active.key}`} data-intent-preview-copy>
               <p>{t(`intents.${active.key}.title`)}</p>
               <span>{t(`intents.${active.key}.description`)}</span>
             </div>
-            <Link href={active.href} className={styles.intentPreviewLink}>
+            <Link key={`link-${active.key}`} data-intent-preview-copy href={active.href} className={styles.intentPreviewLink}>
               {t(`intents.${active.key}.cta`)}
               <ArrowUpRight size={19} weight="bold" aria-hidden="true" />
             </Link>

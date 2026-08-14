@@ -1,7 +1,6 @@
 "use client";
 
 import { type ReactNode } from "react";
-import { useReducedMotion } from "motion/react";
 
 interface MarqueeProps {
   children: ReactNode;
@@ -14,23 +13,17 @@ interface MarqueeProps {
  * back to a static wrapped row (no animation).
  */
 export function Marquee({ children, speed = 32 }: MarqueeProps) {
-  const reduce = useReducedMotion();
-
-  if (reduce) {
-    return (
-      <div className="flex flex-wrap justify-center gap-4">{children}</div>
-    );
-  }
-
   return (
-    <div className="group relative overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_8%,black_92%,transparent)]">
+    <div className="group relative overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_8%,black_92%,transparent)] motion-reduce:overflow-visible motion-reduce:[mask-image:none]">
       <div
-        className="animate-marquee flex w-max gap-6 group-hover:[animation-play-state:paused]"
+        className="animate-marquee flex w-max gap-6 group-hover:[animation-play-state:paused] motion-reduce:w-full motion-reduce:flex-wrap motion-reduce:justify-center motion-reduce:[animation-play-state:paused]"
         style={{ animationDuration: `${speed}s` }}
         aria-hidden="true"
       >
         {children}
-        {children}
+        <div className="contents motion-reduce:hidden" aria-hidden="true">
+          {children}
+        </div>
       </div>
     </div>
   );

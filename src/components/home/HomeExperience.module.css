@@ -158,12 +158,26 @@
 
 .heroFrame {
   position: relative;
+  isolation: isolate;
   min-width: 0;
   width: 100%;
   height: clamp(430px, 53vh, 620px);
   overflow: hidden;
   border: 1px solid #bcc7d6;
   background: #dce3ee;
+}
+
+.heroReel {
+  position: absolute;
+  z-index: 0;
+  inset: 0;
+  contain: paint;
+}
+
+.heroReelSlide {
+  position: absolute;
+  inset: 0;
+  transition: transform 820ms cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .heroFrameImage,
@@ -179,9 +193,79 @@
 
 .heroFrameWash {
   position: absolute;
+  z-index: 1;
   inset: 0;
   background: linear-gradient(180deg, transparent 55%, rgb(16 39 67 / 14%));
   pointer-events: none;
+}
+
+.heroImpulse {
+  position: absolute;
+  z-index: 3;
+  inset: 0;
+  pointer-events: none;
+}
+
+.heroImpulse svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+.heroImpulse path {
+  fill: none;
+  stroke: var(--home-blue);
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  stroke-linecap: square;
+  stroke-width: 2px;
+  vector-effect: non-scaling-stroke;
+  animation: hero-impulse-draw 780ms cubic-bezier(0.16, 1, 0.3, 1) forwards,
+    hero-impulse-fade 240ms ease 720ms forwards;
+}
+
+.heroFrameIndex {
+  position: absolute;
+  z-index: 2;
+  right: 0;
+  top: 0;
+  display: inline-flex;
+  min-width: 5.4rem;
+  min-height: 2.35rem;
+  background: var(--home-blue);
+  padding: 0.55rem 0.7rem;
+  align-items: center;
+  justify-content: center;
+  gap: 0.42rem;
+  color: #fff;
+  font-family: var(--font-jbm), monospace;
+  font-size: 0.63rem;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.08em;
+}
+
+.heroFrameIndex > span:first-child {
+  animation: hero-index-enter 420ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+@keyframes hero-impulse-draw {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes hero-impulse-fade {
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes hero-index-enter {
+  from {
+    opacity: 0;
+    transform: translateY(0.45rem);
+  }
 }
 
 .intentRail {
@@ -1008,9 +1092,22 @@
   }
 
   .heroFrame,
+  .heroReelSlide,
   .manifestMedia,
   .archiveImage {
     transform: none !important;
+  }
+
+  .heroReelSlide {
+    display: none;
+  }
+
+  .heroReelSlide[data-active="true"] {
+    display: block;
+  }
+
+  .heroImpulse {
+    display: none;
   }
 
   .manifestStatement span {
@@ -1056,5 +1153,68 @@
   .action h2,
   .manifestStatement {
     max-width: none;
+  }
+}
+
+/* ──────────────────────────────────────────────────────────────────────────
+   ANIMACJE JEDNORAZOWE — W CSS, NIE W GSAP.
+
+   Odsłonięcie kadru w hero i przejście między sytuacjami działają na KAŻDYM
+   ekranie, więc nie mogą zależeć od biblioteki ładowanej tylko na desktopie.
+   Wcześniej robił je GSAP, przez co telefon pobierał ok. 128 KB kodu na dwa
+   proste przejścia. To samo w CSS kosztuje zero bajtów JavaScriptu.
+
+   Choreografia przewijania (pinowanie manifestu, paralaksa) została w GSAP i
+   ładuje się dynamicznie — patrz HomeMotion.tsx.
+   ────────────────────────────────────────────────────────────────────────── */
+
+@keyframes homeFrameReveal {
+  from {
+    clip-path: inset(0 0 100% 0);
+    transform: scale(1.03);
+  }
+  to {
+    clip-path: inset(0 0 0% 0);
+    transform: scale(1);
+  }
+}
+
+@keyframes homeIntentCopy {
+  from { transform: translateY(9px); opacity: 0.35; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+.experience [data-hero-frame] {
+  animation: homeFrameReveal 750ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+/* Przejście, nie animacja: slajd ma już atrybut `data-active`, więc obraz
+   wraca do skali 1 przy każdej zmianie sytuacji — bez przemontowywania
+   elementu, które kosztowałoby ponowne pobranie zdjęcia. */
+.experience [data-intent-image] {
+  transform: scale(1.045);
+  transition: transform 820ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.experience [data-active="true"] [data-intent-image] {
+  transform: scale(1);
+}
+
+.experience [data-intent-preview-copy] {
+  animation: homeIntentCopy 420ms cubic-bezier(0.22, 1, 0.36, 1) 120ms both;
+}
+
+/* Bez ruchu: elementy po prostu SĄ. `both` zostawiłoby je w stanie
+   początkowym, czyli kadr byłby przycięty do zera — dlatego zerujemy
+   animację, a nie tylko czas jej trwania. */
+@media (prefers-reduced-motion: reduce) {
+  .experience [data-hero-frame],
+  .experience [data-intent-preview-copy] {
+    animation: none;
+  }
+
+  .experience [data-intent-image] {
+    transform: none;
+    transition: none;
   }
 }
