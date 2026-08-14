@@ -14,11 +14,11 @@ const packs: Pack[] = [
   { key: "studyReg", href: "/infopacki/regulamin-studiow", living: true },
   { key: "usos", href: "/infopacki/usos", living: true },
   { key: "semester", href: "/infopacki/zaliczenie-semestru", living: true },
-  { key: "deanInfo", href: "https://drive.google.com/file/d/1NLQRVebkTqXDCxcsmY7tSwc7JHApDyw9/view?usp=sharing" },
+  { key: "deanInfo", href: "/infopacki/sprawy-studenckie", living: true },
   { key: "applications", href: "/infopacki/podania", living: true },
-  { key: "library", href: "https://drive.google.com/file/d/1R_yZHW5UIIzWerNAlpYp5FOw8p6DHC9N/view?usp=sharing" },
-  { key: "life", href: "https://drive.google.com/file/d/1GoMBj_CEFF6ri83ZbED4OocGOKzv8Uot/view?usp=sharing" },
-  { key: "diploma", href: "https://drive.google.com/file/d/1QPCho3YZIPYvn3Nv9rmZBKd0GkC5Byhs/view?usp=sharing" },
+  { key: "library", href: "/infopacki/biblioteka", living: true },
+  { key: "life", href: "/infopacki/zycie-studenckie", living: true },
+  { key: "diploma", href: "/infopacki/dyplomowanie", living: true },
 ];
 
 export function InfopackiContent() {

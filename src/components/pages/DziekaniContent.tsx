@@ -47,6 +47,11 @@ export function DziekaniContent() {
             <p className="mt-2 text-[0.9375rem] font-medium uppercase tracking-[0.06em] text-accent">
               {t("dziekanRole")}
             </p>
+            <ul className="mt-4 flex max-w-[760px] flex-wrap gap-x-4 gap-y-2">
+              {(t.raw("kierunki.turowska") as string[]).map((kierunek) => (
+                <li key={kierunek} className="text-[0.75rem] text-ink-secondary">{kierunek}</li>
+              ))}
+            </ul>
           </div>
         </motion.div>
 

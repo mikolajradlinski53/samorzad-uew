@@ -52,12 +52,14 @@ export const viceRectors: Member[] = [
 ];
 
 // — Dziekani i prodziekani (DziekaniContent). `key` → kierunki: dziekani.kierunki.*
-export const dean: Member = { name: "dr hab. Wawrzyniec Michalczyk, prof. UEW" };
+export const dean: Member = {
+  name: "dr Wioletta Turowska, prof. UEW",
+  email: "wioletta.turowska@ue.wroc.pl",
+};
 
-export const viceDeans: { name: string; key: string }[] = [
-  { name: "dr Wioletta Turowska", key: "turowska" },
-  { name: "dr inż. Monika Wereńska", key: "werenska" },
-  { name: "dr hab. Sebastian Bobowski, prof. UEW", key: "bobowski" },
+export const viceDeans: { name: string; key: string; email?: string }[] = [
+  { name: "dr inż. Monika Wereńska", key: "werenska", email: "monika.werenska@ue.wroc.pl" },
+  { name: "dr hab. Sebastian Bobowski, prof. UEW", key: "bobowski", email: "sebastian.bobowski@ue.wroc.pl" },
 ];
 
 // — RUSS, skład Rady (RUSSContent). Kolejność = zdjęcia public/photos/russ/01.jpg …

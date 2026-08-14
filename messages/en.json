@@ -198,18 +198,25 @@
     "eyebrow": "Student zone",
     "title": "Everything you need to know",
     "lead": "Don't search blindly. Pick the situation you're in and we'll take you straight to where you'll find help.",
-    "situationsHeading": "What do you need?",
+    "situationsHeading": "What are you trying to get done?",
+    "situationsLead": "You do not need to know the name of a regulation, office or form. Start with your situation — we will show the shortest route and its source.",
+    "livingGuides": "8 living guides",
     "situations": {
       "zapomoga": { "title": "I can't cover this month's costs", "desc": "A one-off zapomoga grant for a sudden, difficult situation — who can get it and how to apply.", "dest": "Scholarships → Zapomoga" },
       "stypendium": { "title": "I want to apply for a scholarship", "desc": "Social, rector's, disability support — check what you're eligible for and how to apply.", "dest": "Scholarships" },
       "srednia": { "title": "I don't know my grade average", "desc": "Calculate your ECTS-weighted average for your programme and year in seconds.", "dest": "Scholarships → Grade calculator" },
+      "semestr": { "title": "I cannot close the semester", "desc": "Missing grade, resit, conditional progression or repetition — identify your state and next move.", "dest": "Semester decision cockpit" },
+      "podanie": { "title": "I need to submit an application", "desc": "Choose from 16 situations and see the recipient, deadline, wording and attachments.", "dest": "Application Compass" },
+      "usos": { "title": "I cannot find where to do it in USOS", "desc": "Find a specific task without clicking through the whole system and avoid its common traps.", "dest": "Living USOS guide" },
       "ocena": { "title": "I disagree with a grade or decision", "desc": "Your rights at the university and the concrete steps to appeal.", "dest": "Student rights" },
       "spor": { "title": "I'm in a dispute with the university", "desc": "The Student Ombudsman is on your side and will help you find a way through a difficult situation.", "dest": "Student Ombudsman" },
       "psychika": { "title": "I'm struggling mentally", "desc": "Free, confidential psychological support for UEW students — you don't have to handle it alone.", "dest": "Psychological support" },
       "zajecia": { "title": "I can't find my classroom", "desc": "Buildings, rooms and key points across campus, all on one map.", "dest": "Campus map" },
+      "biblioteka": { "title": "I need a book, sources or a place to work", "desc": "From a call number and floor to proxy, study cabins, the Book Locker and a bibliography.", "dest": "Library navigator" },
+      "dyplom": { "title": "I am approaching thesis submission or defence", "desc": "Check APD gates, JSA, reviews, deadlines and preparation for all three questions.", "dest": "Graduation cockpit" },
       "start": { "title": "I'm starting out and nothing makes sense", "desc": "Practical information packs that explain step by step how the university works.", "dest": "Infopacks" },
-      "kontakt": { "title": "I don't know who to ask", "desc": "The Rector, Vice-Rectors and other university authorities — who's responsible for what.", "dest": "University authorities" },
-      "zaangazowanie": { "title": "I want to get involved", "desc": "Student clubs, organisations and self-government — find where you fit in.", "dest": "Student organisations" },
+      "kontakt": { "title": "I don't know who to ask", "desc": "Dean's Office, an application, vice-dean or Dean? The router identifies the right first door.", "dest": "Student matters router" },
+      "zaangazowanie": { "title": "I want to get involved", "desc": "Match an organisation, circle, sport, choir, mobility or development programme to your goal and rhythm.", "dest": "Engagement compass" },
       "publikacja": { "title": "I wrote something and want it published", "desc": "Debiuty Studenckie accepts articles by first- and second-year students — open access, a real ISBN.", "dest": "UEW Publishing House" }
     },
     "quickEyebrow": "Quick links",
@@ -436,7 +443,7 @@
     "kierunki": {
       "turowska": ["Finance and Accounting", "Accounting and Controlling", "Accounting and Taxes", "Management"],
       "werenska": ["Controlling", "E-business", "Business Informatics", "Legal and Business Consulting", "Logistics", "Management and Production Engineering", "Project Management", "Informatics in Production Management"],
-      "bobowski": ["All English-language programmes", "Business Analytics", "Eco-business", "Economics", "Social Communication", "International Economic Relations", "Real Estate and Spatial Economy"]
+      "bobowski": ["All English-language programmes", "Business Informatics", "Business Management", "Finance", "International Business", "Management Accounting", "Business Analytics", "Eco-business", "Economics", "Spatial Economy", "Social Communication", "International Economic Relations", "Real Estate and Spatial Economy", "Business Law"]
     }
   },
   "przewodniczacy": {
@@ -807,6 +814,163 @@
       "infopackTitle": "Original “Regulations in brief” Infopack",
       "infopackDesc": "The starting point for this living page’s language, chapter order and visual emphasis."
     }
+  },
+  "diplomaLive": {
+    "metaTitle": "Graduation — readiness cockpit",
+    "metaDesc": "Check your APD and defence readiness, understand JSA, deadlines and reviews, and estimate the weighted graduation result at UEW.",
+    "ogLabel": "Graduation cockpit",
+    "breadcrumbs": { "infopacks": "Infopacks" },
+    "heroLabel": "A living Infopack · keep the process visible",
+    "heroTitle": "You are not uploading a file. You are closing a process.",
+    "heroLead": "A thesis in APD is only one of several gates. This cockpit shows what submission really means, where the process can stop and what your next move is until the defence.",
+    "heroCta": "Check readiness",
+    "status": { "ariaLabel": "Current graduation deadline status", "label": "Academic year 2025/2026", "title": "Summer graduation path", "primary": "Primary deadlines", "primaryValue": "passed", "final": "Final deadline", "checked": "Checked" },
+    "readiness": {
+      "label": "Readiness cockpit", "heading": "Find the first real blocker", "lead": "Select only conditions that are actually complete. The result does not assess your thesis — it orders dependencies and identifies the next step.", "privacy": "The state stays only in this browser tab. Nothing is stored or transmitted.", "resultLabel": "Process readiness", "count": "{completed} of {total} gates closed", "next": "Closest blocker", "completeLabel": "All gates closed", "completeTitle": "The formal conditions appear complete", "completeBody": "Confirm the date and committee in APD. This result does not replace a supervisor's or UEW administration's decision.", "reset": "Clear answers",
+      "gates": {
+        "grades": { "title": "All courses and grades are in USOS", "body": "Your curriculum is complete and no missing grade blocks admission.", "action": "Check USOS and resolve every missing grade. Uploading the thesis alone does not count as submission." },
+        "promoter": { "title": "Your supervisor accepted the final version", "body": "This is the APD-ready version, not an earlier working file sent for comments.", "action": "Confirm with your supervisor that this exact version is approved for upload to APD." },
+        "finance": { "title": "Your obligations to the University are settled", "body": "There are no outstanding fees or unresolved obligations blocking the process.", "action": "Check payments and electronic clearance in USOS; ask the Dean's Office about any uncertainty." },
+        "apd": { "title": "Metadata, declaration and file are in APD", "body": "Title, abstract and keywords are complete in Polish and English, and the thesis was sent to the supervisor.", "action": "Complete PL/EN metadata, accept the declaration, upload the correct file and send it for approval." },
+        "jsa": { "title": "The JSA report was assessed by your supervisor", "body": "The PRP colour does not make a decision. Your supervisor reads the report and accepts the thesis or requests revision.", "action": "Wait for the report and supervisor decision. A thesis may undergo no more than two JSA checks." },
+        "reviews": { "title": "Two positive reviews and clearance are complete", "body": "Reviews by the supervisor and reviewer plus University clearance open the path to the exam.", "action": "Check reviews and clearance in APD/USOS. Reviews should be available at least 2 working days before the exam." }
+      }
+    },
+    "definition": { "label": "The crucial definition", "heading": "When is a thesis submitted?", "approval": { "title": "Green light 1 · APD", "body": "Your supervisor accepted the thesis and sent it for review in APD." }, "grades": { "title": "Green light 2 · USOS", "body": "USOS contains every grade required by your curriculum. You need both green lights at once." } },
+    "timeline": {
+      "label": "Process map", "heading": "Six states, not one upload", "lead": "Every state has a different owner and risk. Do not plan the defence as if everything happened instantly after upload.",
+      "stages": {
+        "final": { "title": "Final version", "body": "The supervisor confirms that a specific file may enter the formal process." },
+        "metadata": { "title": "APD and metadata", "body": "You complete PL/EN data, accept the declaration and send the thesis to the supervisor." },
+        "similarity": { "title": "JSA screening", "body": "APD sends the thesis to the national anti-plagiarism system and generates a report." },
+        "decision": { "title": "Supervisor decision", "body": "The supervisor analyses the report, accepts the thesis or requests changes." },
+        "reviews": { "title": "Reviews and clearance", "body": "Supervisor and reviewer submit reviews and the University confirms clearance." },
+        "defence": { "title": "Diploma exam", "body": "The date and three-person committee appear in APD at least 7 days in advance." }
+      }
+    },
+    "deadlines": {
+      "label": "Deadline navigator", "heading": "Choose your route", "lead": "Primary dates come from the 2025/2026 Infopack. Final deadlines were checked against the current process rules.", "legend": "Which route applies to you?", "primary": "Primary deadline", "final": "Final deadline", "passed": "The primary deadline has passed", "warning": "Missing the final deadline may result in removal from the student list. If you are near the boundary, do not rely on this page alone — contact your supervisor and the Dean's Office.",
+      "profiles": {
+        "firstWinter": { "label": "First cycle · winter semester", "primary": "12 Jan 2026", "final": "28 Feb 2026", "state": "The final deadline has passed" },
+        "secondWinter": { "label": "Second cycle · winter semester", "primary": "9 Feb 2026", "final": "28 Feb 2026", "state": "The final deadline has passed" },
+        "firstSummer": { "label": "First cycle · summer semester", "primary": "8 Jun 2026", "final": "30 Sep 2026", "state": "Current boundary for 2025/2026" },
+        "secondSummer": { "label": "Second cycle · summer semester", "primary": "3 Jul 2026", "final": "30 Sep 2026", "state": "Current boundary for 2025/2026" },
+        "taxSummer": { "label": "Accounting and Tax · second cycle", "primary": "17 Jul 2026", "final": "30 Sep 2026", "state": "Current boundary for 2025/2026" }
+      }
+    },
+    "jsa": {
+      "label": "JSA lab", "heading": "Colour is a signal, not a verdict", "lead": "PRP helps the supervisor read the similarity report. It does not automatically assess authorship and cannot replace source analysis.", "legend": "Choose a PRP range", "rule": "The current rules allow no more than two JSA checks. The supervisor decides within 3 working days after receiving the report.",
+      "states": {
+        "green": { "range": "below 40%", "color": "green", "title": "The report still needs to be read", "body": "A low PRP does not end the analysis. The supervisor checks where similarities come from and whether quotations and borrowed material are marked correctly." },
+        "orange": { "range": "40–60%", "color": "orange", "title": "Similarities require careful analysis", "body": "The result signals a larger share of similarity. The supervisor assesses its nature and decides whether the thesis proceeds or needs revision." },
+        "red": { "range": "above 60%", "color": "red", "title": "A high PRP requires a supervisor decision", "body": "This is a serious signal, but still not an automatic verdict. Do not try to ‘lower the percentage’; work with sources and supervisor feedback." }
+      }
+    },
+    "exam": {
+      "label": "Defence table simulator", "heading": "Three people. Three angles.", "lead": "The oral exam includes three questions. Instead of studying everything in the same way, prepare a separate strategy for each question type.", "notice": "The date and committee should appear in APD at least 7 days before the exam.", "cardLabel": "How this person thinks", "prepare": "How to prepare",
+      "questions": {
+        "chair": { "source": "Chair's question", "role": "programme knowledge", "title": "Can you place your thesis in the wider context of your programme?", "body": "The question comes from the published topic list for your programme. It checks orientation in the discipline, not just recall of one definition.", "prepare": "Work through the 40 or 50 topics and prepare a definition, relationships and one example for each." },
+        "promoter": { "source": "Supervisor's question", "role": "thesis theory", "title": "Do you understand the concepts your thesis is built on?", "body": "The supervisor asks about the theoretical part, conceptual choices and literature. It tests understanding of your argument, not recitation of a chapter.", "prepare": "Explain the main concepts without quoting the text and justify why the chosen theory fits the problem." },
+        "reviewer": { "source": "Reviewer's question", "role": "research and conclusions", "title": "Can you defend the method, result and limitations?", "body": "The reviewer focuses on the research problem, method, results and conclusions — including what the study does not prove.", "prepare": "Practise a 90-second answer: objective → method → key finding → meaning → one limitation." }
+      }
+    },
+    "calculator": { "label": "60/20/20 calculator", "heading": "See what really weighs on the result", "lead": "Enter your study average, two thesis grades and three oral-exam grades. The calculator applies the proportions described in the Infopack.", "fields": { "studies": "Study grade average", "promoter": "Thesis grade · supervisor", "reviewer": "Thesis grade · reviewer", "examOne": "Question 1 · chair", "examTwo": "Question 2 · supervisor", "examThree": "Question 3 · reviewer" }, "resultLabel": "Weighted result base", "resultNote": "study average 60% · reviews 20% · exam 20%", "disclaimer": "This simulates components and weights, not the official diploma grade. UEW determines the final result and its classification under the applicable rules." },
+    "sources": { "label": "Verified sources", "heading": "The process changes at the source, not in memory", "lead": "This page preserves the logic of the “Graduation” Infopack while separating information across current UEW documents. Checked on 13 August 2026.", "links": { "studyRegulations": { "title": "UEW Study Regulations", "meta": "Completion conditions and diploma exam" }, "process": { "title": "Graduation process organisation", "meta": "APD, reviews, committee and exam" }, "jsa": { "title": "Current JSA rules", "meta": "PRP, decision deadlines and checks" }, "apdGuide": { "title": "APD student guide", "meta": "System operation step by step" } }, "infopack": "View the original Infopack", "deanOffice": "Check Dean's Office notices" }
+  },
+  "studentLifeLive": {
+    "metaTitle": "Student life — engagement compass", "metaDesc": "Match a UEW organisation, study circle, sport, choir, mobility or development programme to your goal, pace and working style.", "ogLabel": "Engagement compass", "breadcrumbs": { "infopacks": "Infopacks" },
+    "heroLabel": "A living Infopack · find your place", "heroTitle": "Do not join just anything.", "heroLead": "At UEW you can produce events, research, sing, train, design innovation, go abroad or enter the labour market. Instead of a catalogue of names, get a match for what you really want from university life.", "heroCta": "Start the compass",
+    "source": { "ariaLabel": "Engagement compass status", "label": "Opportunity map", "title": "“Beyond classes” Infopack + current UEW services", "paths": "Paths", "questions": "Matching dimensions", "checked": "Checked" },
+    "matcher": {
+      "label": "Engagement compass", "heading": "What should this time give you?", "lead": "Choose one answer in each row. The compass compares your goal, pace, preferred role and entry threshold with eight paths.", "note": "This is not a personality test or a verdict. It shortens the path to a first conversation; people and current recruitment still decide the fit.", "resultLabel": "Closest matches", "live": "live result", "best": "Strongest match", "alternative": "Alternative {number}", "open": "Check the source", "disclaimer": "The result reflects the nature of each activity and does not guarantee open recruitment. Check current terms and talk to the team first.",
+      "questions": { "goal": { "label": "What do you want to gain?" }, "pace": { "label": "Which rhythm suits you?" }, "mode": { "label": "How do you like to work?" }, "start": { "label": "Where are you starting from?" } },
+      "options": { "relationships": "People and belonging", "expertise": "Knowledge and a field", "career": "Portfolio and career", "world": "Abroad and languages", "expression": "Expression and energy", "impact": "Impact and change", "weekly": "A steady weekly rhythm", "project": "Intense around a project", "flexible": "Flexible when I have time", "lead": "Lead people", "build": "Build solutions", "perform": "Perform", "compete": "Train and compete", "support": "Support others", "zero": "Start without experience", "ready": "Use an existing foundation" }
+    },
+    "paths": {
+      "organisations": { "title": "Student organisations", "summary": "Large teams, real projects and roles from communications to event production — the most people, responsibility and room for impact.", "rhythm": "Usually regular meetings + project peaks" },
+      "circles": { "title": "Study circles", "summary": "Research, conferences, workshops and industry projects with academic mentors — a route from interest to a specialist portfolio.", "rhythm": "Meetings and projects vary by circle" },
+      "sport": { "title": "KU AZS sports sections", "summary": "Regular training, a team and the chance to represent UEW. Registration is at the start of each semester, usually directly with a coach.", "rhythm": "Regular training; entry at semester start" },
+      "choir": { "title": "Ars Cantandi Choir", "summary": "Regular rehearsals, voice training, concerts and trips. Reading music and prior experience are not entry requirements.", "rhythm": "Regular rehearsals + concerts and trips" },
+      "mobility": { "title": "Erasmus+ and mobility", "summary": "Study, traineeship or shorter mobility abroad. Offers and applications are handled in the USOS student exchange module.", "rhythm": "Recruitment and preparation, then an intensive stay" },
+      "dthub": { "title": "DT HUB", "summary": "Workshops and project teams across university, business and institutions — for people who want to research needs, prototype and facilitate change.", "rhythm": "Workshops or closed project cycles" },
+      "career": { "title": "Careers Office and JobTeaser", "summary": "Career planning, mentoring, training and job, internship and traineeship offers. Start with a consultation or a JobTeaser profile.", "rhythm": "Flexible + deadlines for specific programmes" },
+      "kafe": { "title": "K(A)FE and micro-credentials", "summary": "A free 2–3 month competence programme with workshops, learning materials, DT Innovathon, digital badges and UEW micro-credentials.", "rhythm": "Intensive 2–3 month cycle" }
+    },
+    "commitment": { "label": "The cost of saying yes", "heading": "Ask before you join", "lead": "Recruitment usually tells you what you gain. A good decision also requires knowing what you may have to give up.", "questions": { "hours": { "question": "How many hours is a normal week, and a week before an event?", "why": "An average without peak periods hides the real load." }, "firstTask": { "question": "What is a new member's first task?", "why": "A concrete example reveals onboarding culture better than ‘dynamic team’." }, "peak": { "question": "Which months are most intense?", "why": "Compare them with exams, work, internships and your energy." }, "exit": { "question": "Can I try one meeting or leave after one project?", "why": "A low exit cost lets you test fit without guilt." } } },
+    "start": { "label": "First experiment", "heading": "Do not commit blind", "lead": "Design thinking instead of deciding by logo: a small experiment, real contact, then commitment.", "steps": { "observe": { "title": "Observe the current channel", "body": "Check recent work and whether the group is alive, not merely listed." }, "contact": { "title": "Ask one specific question", "body": "Ask about the next meeting, first task and real work rhythm." }, "trial": { "title": "Run a small trial", "body": "Choose an open meeting, training, choir rehearsal, workshop or one project." }, "decide": { "title": "Assess your energy afterwards", "body": "Do not only ask whether it was fun. Ask whether you want to return to these people and this work." } } },
+    "current": { "label": "Update beyond the PDF", "heading": "A new path worth noticing", "title": "K(A)FE plans its next recruitment in August 2026", "body": "The current DT HUB page describes a free 2–3 month programme with workshops, DT Innovathon, digital badges and micro-credentials. It shows why a living guide cannot stop at PDF content.", "cta": "Check K(A)FE recruitment" },
+    "sources": { "label": "Verified sources", "heading": "Opportunities change faster than PDFs", "lead": "The “Beyond classes” Infopack is the starting point. Always confirm current recruitment, teams and dates with the service running the activity.", "links": { "organisations": { "title": "UEW organisations and circles", "meta": "Current profiles, mentors and contacts" }, "sport": { "title": "Sports sections", "meta": "Disciplines, coaches and registration" }, "career": { "title": "CWB student offer", "meta": "Career, mentoring, training and internships" }, "dtHub": { "title": "DT HUB", "meta": "Workshops, projects and news" } }, "infopack": "View the original Infopack" }
+  },
+  "libraryLive": {
+    "metaTitle": "Library without getting lost — living guide",
+    "metaDesc": "Find a book, choose the right pickup route, access digital resources remotely and handle UEW Library tasks step by step.",
+    "ogLabel": "Living Library guide",
+    "breadcrumbs": { "infopacks": "Infopacks" },
+    "heroLabel": "A living Infopack · from need to resource",
+    "heroTitle": "Library without getting lost.",
+    "heroLead": "The catalogue tells you a book exists. This guide tells you what happens next — where to find it, how to collect it, when to use the Book Locker and how to reach databases off campus.",
+    "heroCta": "Choose your task",
+    "source": { "ariaLabel": "Library guide status", "label": "Access map", "title": "Library Infopack + current UEW Library pages", "tasks": "Student needs", "floors": "Collection floors", "checked": "Checked", "hours": "Check today's hours" },
+    "task": { "label": "Need navigator", "heading": "What do you need to do?", "lead": "You do not need to know the Library structure or service names. Choose an outcome to get the shortest path and the right source.", "rule": "Hours, availability and charges can change. For those details, we always open the current Library page.", "ariaLabel": "Choose a Library task", "path": "Shortest path" },
+    "tasks": {
+      "register": { "label": "Create an account", "title": "Register online, then activate your account", "summary": "Registration starts in the catalogue form. Then visit the Circulation Desk to confirm your details, activate the account and encode your student ID.", "steps": ["Complete the online registration form.", "Visit the Circulation Desk within 14 working days.", "Activate the account and encode your student ID."], "note": "After activation, your barcode and QR code are also available in the Library account.", "cta": "Open registration" },
+      "find": { "label": "Find a book", "title": "First the record, then call number and location", "summary": "Search by title, author or subject. In item details, note two things: call number and location. Together they trigger the correct route.", "steps": ["Search for a title, author or subject in the catalogue.", "Open details and save the call number and location.", "Use the item router below to choose your pickup method."], "note": "Books are ordered by call number on shelves. If you get stuck, ask a librarian on any floor.", "cta": "Search the catalogue" },
+      "borrow": { "label": "Borrow or renew", "title": "The borrowing route depends on location", "summary": "An item from closed stacks must be ordered first. A floor item is usually found by yourself. A standard student account allows 10 books for 3 months.", "steps": ["Check the item's location and status.", "Order it or find it on the correct floor.", "Collect at the desk, Book Locker or use Selfcheck."], "note": "Limits may differ for double-degree students and student organisations. Renewal depends on your account conditions.", "cta": "Check an item" },
+      "return": { "label": "Return a book", "title": "A return does not need to wait for opening hours", "summary": "During opening hours, return the book on a floor. Otherwise, use the 24/7 return box at the main entrance from Wielka Street.", "steps": ["Check whether the Library is open.", "Return on a floor or use the 24/7 return box.", "Check your account once the return is processed."], "note": "No student ID is needed for the return box. The Book Locker is for pickup, not returns.", "cta": "Check return rules" },
+      "digital": { "label": "Access e-resources", "title": "Direct on campus, through proxy off campus", "summary": "Find databases, journals and e-books in Library e-resources. Outside the UEW network, configure the current proxy file and sign in with your university account.", "steps": ["Find a database or publication in e-resources.", "Off campus, configure proxy using the current instructions.", "Sign in with your university account and follow the licence."], "note": "Licences prohibit systematic mass downloading. Download only what you need for your own study or research.", "cta": "Open e-resources" },
+      "study": { "label": "Reserve a workspace", "title": "Choose a zone or reserve a study cabin", "summary": "The first floor suits group work; the third is the quietest. Floors 2 and 3 have 14 cabins: 8 individual and 6 group rooms.", "steps": ["Match the zone to the kind of work.", "Reserve a cabin no earlier than one week ahead.", "Arrive on time and confirm use."], "note": "A booking may be cancelled after 30 minutes of absence. Students can book no more than one week ahead.", "cta": "Reserve a cabin" },
+      "clearance": { "label": "Complete Library clearance", "title": "Settle all Library obligations first", "summary": "Before clearance, return all loans, pay accrued charges and return any issued obligation card.", "steps": ["Check the account and return all materials.", "Settle charges and any remaining obligations.", "Confirm your clearance with the Library."], "note": "After graduation, the account may remain active for one year as an on-site-only graduate account.", "cta": "Open Library FAQ" },
+      "research": { "label": "Build a reading list", "title": "Do not begin a literature review with an empty search box", "summary": "The Library can prepare a thematic bibliography for a thesis or research project. Describe the topic, scope and expected source types.", "steps": ["Define the topic, keywords and date range.", "Send a request through the bibliography service.", "Review the list and retrieve sources from the catalogue or databases."], "note": "The list is a starting point for your own source assessment, not a substitute for critical literature review.", "cta": "Request a bibliography" }
+    },
+    "copyRouter": {
+      "label": "Item router", "heading": "The catalogue found it. What next?", "lead": "A search result should not end with a call number. Choose the location from the record to see the real route into your hands.",
+      "locationLegend": "Which location is shown in the catalogue?", "locations": { "magazine": "Closed stacks", "floor": "Floor 1, 2 or 3", "onsite": "On-site only" }, "timeLegend": "Is the Library open now?", "times": { "open": "Yes, it is open", "closed": "No, it is closed" }, "routeLabel": "Your route",
+      "routes": {
+        "magazine": { "title": "Order online and wait for confirmation", "steps": ["Order the closed-stack item in the catalogue.", "Choose the Circulation Desk or Book Locker.", "Wait for an email confirming preparation.", "Collect the order within 4 days."], "result": "The Book Locker works 24/7 and is pickup-only. Do not travel before the message arrives." },
+        "floor": {
+          "open": { "title": "Go to the floor and find the call number", "steps": ["Save the floor number and call number.", "Find the section, then the call-number position on the shelf.", "Borrow through Selfcheck or ask a librarian."], "result": "You do not need to order an open-shelf book while the Library is open." },
+          "closed": { "title": "Order from the floor for later pickup", "steps": ["Choose the item on the correct floor in the catalogue.", "Order it to the Circulation Desk or Book Locker.", "Wait for email and collect within 4 days."], "result": "Ordering floor items becomes available outside Library opening hours." }
+        },
+        "onsite": { "title": "Use the item inside the Library", "steps": ["Save the location and call number.", "Find the item or ask a librarian.", "Use it in the designated space."], "result": "A red marking means on-site use only — the item cannot leave the Library." }
+      }
+    },
+    "floors": {
+      "label": "Floor compass", "heading": "Your subject points to a floor", "lead": "Colours from the Infopack become a spatial map. Always confirm the final location in the particular item's record.",
+      "items": {
+        "one": { "title": "Floor 1 · green", "mood": "Conversation, group work and general collections", "topics": ["general collection", "education and psychology", "society", "arts and physical culture", "journals"] },
+        "two": { "title": "Floor 2 · orange", "mood": "Finance and management + study cabins", "topics": ["finance and accounting", "marketing", "management", "human resources"] },
+        "three": { "title": "Floor 3 · yellow", "mood": "The quietest zone + study cabins", "topics": ["economics", "IT and mathematics", "law and politics", "statistics", "natural sciences", "agriculture and food"] }
+      }
+    },
+    "facts": { "heading": "Key time thresholds", "activation": { "value": "14 days", "label": "working days to activate an account after online registration" }, "pickup": { "value": "4 days", "label": "to collect a prepared order" }, "always": { "value": "24/7", "label": "Book Locker for pickup and return box for returns" }, "noshow": { "value": "30 min", "label": "absence after which a cabin booking may be cancelled" } },
+    "sources": {
+      "label": "Verified sources", "heading": "A living instruction leads to a living source", "lead": "The page builds on the original Infopack and was checked against official UEW Library pages on 13 August 2026.",
+      "links": { "home": { "title": "UEW Main Library", "meta": "Current news, hours and notices" }, "enrollment": { "title": "Library enrollment", "meta": "Current account terms and limits" }, "faq": { "title": "Library FAQ", "meta": "Loans, returns and obligations" }, "proxy": { "title": "Remote access — proxy", "meta": "Current off-campus setup" } },
+      "infopack": "View the original Infopack", "catalogue": "Open the catalogue"
+    }
+  },
+  "studentMattersLive": {
+    "metaTitle": "Student matters — living contact router",
+    "metaDesc": "See whether to start with the Dean’s Office, a USOS application, a vice-dean or the Dean, and find the right person for your programme.",
+    "ogLabel": "Student matters router",
+    "breadcrumbs": { "infopacks": "Infopacks" },
+    "heroLabel": "Infopack brought to life · the right door first time",
+    "heroTitle": "Your matter. The right person.",
+    "heroLead": "Most matters begin at the Dean’s Office, not with a message to the most senior person. Choose what you need and we will show the right sequence, person and information to prepare.",
+    "heroCta": "Find the first door",
+    "source": { "ariaLabel": "Student matters router status", "label": "Service path", "title": "Infopack “Information from the Dean and Vice-Deans”", "matters": "Matter types", "doors": "Contact levels", "checked": "Checked" },
+    "doors": { "office": "Dean’s Office", "application": "USOS application", "viceDean": "Vice-Dean for your programme", "dean": "Dean for Student Affairs" },
+    "router": { "heading": "What brings you here?", "lead": "The router follows the Infopack rule: information and service at the Dean’s Office first, then the appropriate procedure, and contact with a vice-dean only when the earlier level did not resolve the matter.", "rule": "Do not send the same matter to several people in parallel. Keep the contact sequence and describe what has already been agreed.", "ariaLabel": "Choose the type of student matter", "firstDoor": "First right door", "path": "Order of action", "prepare": "What to prepare", "openOffice": "Check the current Dean’s Office", "openInfopack": "See the original Infopack" },
+    "matters": {
+      "information": { "label": "I need information or advice", "title": "Start with the adviser for your programme at the Dean’s Office", "summary": "Dean’s Office staff are assigned by programme, cycle, year and study mode. This is the right first place to verify a procedure, deadline, whether an application is appropriate, and required attachments.", "steps": ["Find the current adviser for your programme.", "Ask one specific question and state your study details.", "Record the answer or arrangements before taking the next step."], "prepare": ["Programme, cycle, year and study mode", "Student number if needed for identification", "A one-sentence description of the result you need"] },
+      "certificate": { "label": "I need a certificate", "title": "Certificates and confirmations are handled by the Dean’s Office", "summary": "You do not need a vice-dean appointment for this. Confirm the document type, request method, preparation time and collection method with your programme adviser.", "steps": ["State the exact name and purpose of the certificate.", "Contact the adviser for your programme.", "Confirm when and how the document can be collected."], "prepare": ["Purpose of the document", "Required language and any data scope", "External deadline, if one has been set"] },
+      "documents": { "label": "I want to submit or collect documents", "title": "Transfer documents according to the Dean’s Office instructions", "summary": "Your programme adviser will confirm the place, opening hours and acceptable delivery form. For application attachments, provide legible, complete and credible scans.", "steps": ["Check current opening hours and the correct room.", "Confirm whether an electronic version is sufficient.", "Keep proof of submission or collection."], "prepare": ["A complete document set without alterations", "Legible scans with signature and stamp where required", "Case number or message to which the document relates"] },
+      "application": { "label": "I know I need an application", "title": "Use the Applications Compass, not a random email", "summary": "When you have USOS access, applications are submitted through the system. The Compass helps choose the type, deadline, reasons, attachments and legal basis.", "steps": ["Choose your situation in the Applications Compass.", "Check the deadline and all required attachments.", "Submit the right USOS application and monitor its status."], "prepare": ["A precise request — exactly what you want to obtain", "Factual reasons if that application requires them", "Documents supporting every material fact"], "cta": "Open the Applications Compass" },
+      "unresolved": { "label": "The Dean’s Office did not solve my problem", "title": "Only now take the matter to the appropriate Vice-Dean", "summary": "Contact a vice-dean when the Dean’s Office could not provide information or a solution, confirmed that an application is not the right route, or the vice-dean asked you to make contact.", "steps": ["Find the vice-dean assigned to your programme.", "Begin by stating exactly what result you need.", "Describe the problem, earlier Dean’s Office contact and attach evidence."], "prepare": ["Date and channel of Dean’s Office contact", "The answer received or information that there was no solution", "Documents and an unambiguously named expected result"] },
+      "summons": { "label": "I was summoned or the matter was escalated", "title": "Reply through the channel and by the deadline in the summons", "summary": "The Dean handles specified formal matters and those referred to that level. Do not ignore the summons or independently change the contact route.", "steps": ["Read the full summons and record the deadline.", "Collect every requested explanation and document.", "Reply via the requested channel; if unsure, confirm the method with the Dean’s Office."], "prepare": ["Case number and subject", "A complete answer to every point", "Documents in the form and by the deadline specified by the University"] }
+    },
+    "programme": { "label": "Current responsibility map", "heading": "Who is responsible for your programme?", "lead": "The search uses the current UEW structure checked on 13 August 2026. Enter part of the Polish or English programme name.", "searchLabel": "Programme name", "placeholder": "e.g. logistics, finance, business…", "hint": "Enter at least two characters. The Dean handles, among others, finance/accounting programmes and management; the others cover their assigned programme groups.", "dean": "Dean for Student Affairs", "viceDean": "Vice-Dean for Student Affairs", "noResult": "We did not find the programme in the current map.", "checkSource": "Check the full UEW list." },
+    "message": { "label": "Escalation without chaos", "heading": "A message that can be acted on", "lead": "The Infopack identifies four elements of good contact with a vice-dean: a concrete objective, the problem, earlier Dean’s Office arrangements and documents.", "subject": "Message framework to complete", "copy": "Copy", "copied": "Copied", "template": "Subject: [programme, year] — [short case name]\n\nDear Dean / Vice-Dean,\n\nI am writing to request [one sentence: exactly what I need].\n\nSituation:\n[specific facts, dates and people — no unnecessary history]\n\nPrevious contact with the Dean’s Office:\n[date, person or channel, answer received / no solution]\n\nAttachments:\n[list of documents supporting the facts]\n\nKind regards,\n[name, student number, programme, year, study mode]" }
   },
   "semesterLive": {
     "metaTitle": "Passing the semester — living decision cockpit",

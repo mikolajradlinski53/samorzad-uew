@@ -198,18 +198,25 @@
     "eyebrow": "Strefa studenta",
     "title": "Wszystko, co musisz wiedzieć",
     "lead": "Nie szukaj po omacku. Wybierz sytuację, w której jesteś, a zaprowadzimy Cię prosto tam, gdzie znajdziesz pomoc.",
-    "situationsHeading": "Czego potrzebujesz?",
+    "situationsHeading": "Co właśnie próbujesz załatwić?",
+    "situationsLead": "Nie musisz znać nazwy regulaminu, jednostki ani formularza. Zacznij od sytuacji — pokażemy Ci najkrótszą drogę i źródło.",
+    "livingGuides": "8 żywych poradników",
     "situations": {
       "zapomoga": { "title": "Nie mam z czego żyć w tym miesiącu", "desc": "Jednorazowa zapomoga na nagłą, trudną sytuację — kto może dostać i jak złożyć wniosek.", "dest": "Stypendia → Zapomoga" },
       "stypendium": { "title": "Chcę się starać o stypendium", "desc": "Socjalne, rektora, dla osób z niepełnosprawnością — sprawdź, co Ci przysługuje i jak złożyć wniosek.", "dest": "Stypendia" },
       "srednia": { "title": "Nie wiem, jaką mam średnią", "desc": "Policz średnią ważoną ECTS dla swojego kierunku i roku w kilka sekund.", "dest": "Stypendia → Kalkulator średniej" },
+      "semestr": { "title": "Nie domykam zaliczenia semestru", "desc": "Brak oceny, poprawka, warunek albo powtarzanie — sprawdź stan i następny ruch.", "dest": "Kokpit zaliczenia semestru" },
+      "podanie": { "title": "Muszę złożyć podanie", "desc": "Wybierz swoją sytuację spośród 16 typów i zobacz adresata, termin, treść oraz załączniki.", "dest": "Kompas podań" },
+      "usos": { "title": "Nie wiem, gdzie to zrobić w USOS", "desc": "Znajdź konkretną czynność bez przeklikiwania całego systemu i poznaj najczęstsze pułapki.", "dest": "Żywy przewodnik po USOS" },
       "ocena": { "title": "Nie zgadzam się z oceną albo decyzją", "desc": "Twoje prawa na uczelni i konkretne kroki, jak się odwołać.", "dest": "Prawa studenta" },
       "spor": { "title": "Mam spór z uczelnią", "desc": "Rzecznik Praw Studenta stoi po Twojej stronie i pomoże znaleźć wyjście z trudnej sytuacji.", "dest": "Rzecznik Praw Studenta" },
       "psychika": { "title": "Źle się czuję psychicznie", "desc": "Bezpłatne, poufne wsparcie psychologiczne dla studentów UEW — nie musisz radzić sobie sam.", "dest": "Pomoc psychologiczna" },
       "zajecia": { "title": "Nie wiem, gdzie mam zajęcia", "desc": "Budynki, sale i najważniejsze punkty kampusu na jednej mapie.", "dest": "Mapa kampusu" },
+      "biblioteka": { "title": "Szukam książki, źródeł albo miejsca do pracy", "desc": "Od sygnatury i piętra po proxy, kabinę, książkomat i zestawienie bibliograficzne.", "dest": "Nawigator Biblioteki" },
+      "dyplom": { "title": "Zbliżam się do oddania pracy lub obrony", "desc": "Sprawdź bramki APD, JSA, recenzje, terminy i przygotowanie do trzech pytań.", "dest": "Kokpit dyplomowania" },
       "start": { "title": "Zaczynam studia i nic nie rozumiem", "desc": "Praktyczne pakiety informacji, które tłumaczą krok po kroku, jak działa uczelnia.", "dest": "Infopacki" },
-      "kontakt": { "title": "Nie wiem, do kogo się zwrócić", "desc": "Rektor, prorektorzy i pozostałe władze uczelni — kto za co odpowiada.", "dest": "Władze rektorskie" },
-      "zaangazowanie": { "title": "Chcę się zaangażować", "desc": "Koła naukowe, organizacje i samorząd — sprawdź, gdzie się odnajdziesz.", "dest": "Organizacje studenckie" },
+      "kontakt": { "title": "Nie wiem, do kogo się zwrócić", "desc": "Dziekanat, podanie, prodziekan czy Dziekan? Router wskaże pierwsze właściwe drzwi.", "dest": "Router spraw studenckich" },
+      "zaangazowanie": { "title": "Chcę się zaangażować", "desc": "Dopasuj organizację, koło, sport, chór, mobilność lub program rozwojowy do swojego celu i rytmu.", "dest": "Kompas zaangażowania" },
       "publikacja": { "title": "Napisałem tekst i chcę go wydać", "desc": "Debiuty Studenckie przyjmują artykuły studentów I i II roku — otwarty dostęp, prawdziwy ISBN.", "dest": "Wydawnictwo UEW" }
     },
     "quickEyebrow": "Szybkie linki",
@@ -436,7 +443,7 @@
     "kierunki": {
       "turowska": ["Finanse i rachunkowość", "Rachunkowość i controlling", "Rachunkowość i podatki", "Zarządzanie"],
       "werenska": ["Controlling", "E-biznes", "Informatyka w biznesie", "Konsulting prawny i gospodarczy", "Logistyka", "Zarządzanie i Inżynieria Produkcji", "Zarządzanie projektami", "Informatyka w zarządzaniu produkcją"],
-      "bobowski": ["Wszystkie kierunki anglojęzyczne", "Analityka gospodarcza", "Ekobiznes", "Ekonomia", "Komunikacja społeczna", "Międzynarodowe stosunki gospodarcze", "Nieruchomości i gospodarka przestrzenna"]
+      "bobowski": ["Wszystkie kierunki anglojęzyczne", "Business Informatics", "Business Management", "Finance", "International Business", "Management Accounting", "Analityka gospodarcza", "Ekobiznes", "Ekonomia", "Gospodarka przestrzenna", "Komunikacja społeczna", "Międzynarodowe stosunki gospodarcze", "Nieruchomości i gospodarka przestrzenna", "Prawo gospodarcze"]
     }
   },
   "przewodniczacy": {
@@ -807,6 +814,289 @@
       "infopackTitle": "Oryginalny Infopack „Regulamin w pigułce”",
       "infopackDesc": "Punkt wyjścia dla języka, kolejności tematów i wyróżnień tej żywej strony."
     }
+  },
+  "diplomaLive": {
+    "metaTitle": "Dyplomowanie — kokpit gotowości",
+    "metaDesc": "Sprawdź gotowość do APD i obrony, przejdź przez JSA, terminy, recenzje oraz policz orientacyjny wynik studiów na UEW.",
+    "ogLabel": "Kokpit dyplomowania",
+    "breadcrumbs": { "infopacks": "Infopacki" },
+    "heroLabel": "Infopack w żywej formie · proces pod kontrolą",
+    "heroTitle": "Nie oddajesz pliku. Domykasz proces.",
+    "heroLead": "Praca w APD to tylko jedna z kilku bramek. Ten kokpit pokazuje, co naprawdę oznacza złożenie pracy, gdzie może zatrzymać się proces i jaki jest Twój następny ruch aż do obrony.",
+    "heroCta": "Sprawdź gotowość",
+    "status": { "ariaLabel": "Aktualny stan terminów dyplomowania", "label": "Rok akademicki 2025/2026", "title": "Letnia ścieżka dyplomowania", "primary": "Terminy podstawowe", "primaryValue": "minęły", "final": "Termin ostateczny", "checked": "Zweryfikowano" },
+    "readiness": {
+      "label": "Kokpit gotowości", "heading": "Znajdź pierwszy prawdziwy bloker", "lead": "Zaznacz tylko te warunki, które faktycznie są spełnione. Wynik nie ocenia jakości pracy — porządkuje zależności i wskazuje najbliższy krok.", "privacy": "Stan pozostaje wyłącznie w tej karcie przeglądarki. Niczego nie zapisujemy ani nie wysyłamy.", "resultLabel": "Gotowość procesu", "count": "{completed} z {total} bramek zamkniętych", "next": "Najbliższy bloker", "completeLabel": "Wszystkie bramki zamknięte", "completeTitle": "Warunki formalne wyglądają na domknięte", "completeBody": "Potwierdź termin i skład komisji w APD. Ten wynik nie zastępuje decyzji promotora ani administracji UEW.", "reset": "Wyczyść odpowiedzi",
+      "gates": {
+        "grades": { "title": "Wszystkie przedmioty i oceny są w USOS", "body": "Program studiów jest zrealizowany, a brakujące oceny nie blokują dopuszczenia.", "action": "Sprawdź USOS i wyjaśnij każdą brakującą ocenę. Samo wgranie pracy nie wystarczy do uznania jej za złożoną." },
+        "promoter": { "title": "Promotor zaakceptował wersję ostateczną", "body": "To wersja przeznaczona do APD, a nie roboczy plik wysłany wcześniej do komentarzy.", "action": "Ustal z promotorem, czy masz zgodę na wgranie dokładnie tej wersji do APD." },
+        "finance": { "title": "Zobowiązania wobec Uczelni są uregulowane", "body": "Nie ma zaległych opłat ani innych nierozliczonych zobowiązań blokujących proces.", "action": "Sprawdź płatności i elektroniczną obiegówkę w USOS; wątpliwości wyjaśnij z Dziekanatem." },
+        "apd": { "title": "Metadane, oświadczenie i plik są w APD", "body": "Tytuł, streszczenie i słowa kluczowe są po polsku i angielsku, a praca została przekazana promotorowi.", "action": "Uzupełnij metadane PL/EN, zaakceptuj oświadczenie, wgraj właściwy plik i wybierz przekazanie do zatwierdzenia." },
+        "jsa": { "title": "Raport JSA został oceniony przez promotora", "body": "Sam kolor PRP nie podejmuje decyzji. Promotor analizuje raport i zatwierdza albo kieruje pracę do poprawy.", "action": "Poczekaj na raport i decyzję promotora. Weryfikacja JSA może odbyć się najwyżej dwa razy." },
+        "reviews": { "title": "Są dwie pozytywne recenzje i rozliczenie", "body": "Recenzje promotora i recenzenta oraz rozliczenie z Uczelnią otwierają drogę do egzaminu.", "action": "Sprawdź recenzje i obiegówkę w APD/USOS. Recenzje powinny być dostępne najpóźniej 2 dni robocze przed egzaminem." }
+      }
+    },
+    "definition": { "label": "Najważniejsza definicja", "heading": "Kiedy praca jest złożona?", "approval": { "title": "Zielone światło 1 · APD", "body": "Promotor zaakceptował pracę i przekazał ją w APD do recenzji." }, "grades": { "title": "Zielone światło 2 · USOS", "body": "W USOS znajdują się wszystkie oceny wymagane programem studiów. Potrzebujesz obu świateł jednocześnie." } },
+    "timeline": {
+      "label": "Mapa procesu", "heading": "Sześć stanów zamiast jednego uploadu", "lead": "Każdy stan ma innego właściciela i inne ryzyko. Nie planuj obrony tak, jakby wszystko działo się natychmiast po wgraniu pliku.",
+      "stages": {
+        "final": { "title": "Wersja ostateczna", "body": "Promotor potwierdza, że konkretny plik może rozpocząć formalny proces." },
+        "metadata": { "title": "APD i metadane", "body": "Uzupełniasz dane PL/EN, oświadczenie i przekazujesz pracę promotorowi." },
+        "similarity": { "title": "Badanie JSA", "body": "APD wysyła pracę do Jednolitego Systemu Antyplagiatowego i generuje raport." },
+        "decision": { "title": "Decyzja promotora", "body": "Promotor analizuje raport, akceptuje pracę albo kieruje ją do poprawy." },
+        "reviews": { "title": "Recenzje i rozliczenie", "body": "Promotor i recenzent wystawiają recenzje, a Uczelnia potwierdza rozliczenie." },
+        "defence": { "title": "Egzamin dyplomowy", "body": "Termin i trzyosobowy skład pojawiają się w APD co najmniej 7 dni wcześniej." }
+      }
+    },
+    "deadlines": {
+      "label": "Nawigator terminów", "heading": "Wybierz swój wariant", "lead": "Daty podstawowe pochodzą z Infopacku 2025/2026. Terminy ostateczne potwierdziliśmy w aktualnych zasadach organizacji procesu.", "legend": "Który wariant Cię dotyczy?", "primary": "Termin podstawowy", "final": "Termin ostateczny", "passed": "Termin podstawowy już minął", "warning": "Przekroczenie terminu ostatecznego może oznaczać skreślenie z listy studentów. Jeżeli jesteś blisko granicy, nie polegaj wyłącznie na tej stronie — skontaktuj się z promotorem i Dziekanatem.",
+      "profiles": {
+        "firstWinter": { "label": "I stopień · semestr zimowy", "primary": "12.01.2026", "final": "28.02.2026", "state": "Termin ostateczny minął" },
+        "secondWinter": { "label": "II stopień · semestr zimowy", "primary": "09.02.2026", "final": "28.02.2026", "state": "Termin ostateczny minął" },
+        "firstSummer": { "label": "I stopień · semestr letni", "primary": "08.06.2026", "final": "30.09.2026", "state": "Aktualna granica dla roku 2025/2026" },
+        "secondSummer": { "label": "II stopień · semestr letni", "primary": "03.07.2026", "final": "30.09.2026", "state": "Aktualna granica dla roku 2025/2026" },
+        "taxSummer": { "label": "Rachunkowość i podatki · II stopień", "primary": "17.07.2026", "final": "30.09.2026", "state": "Aktualna granica dla roku 2025/2026" }
+      }
+    },
+    "jsa": {
+      "label": "Laboratorium JSA", "heading": "Kolor to sygnał, nie wyrok", "lead": "PRP pomaga promotorowi czytać raport podobieństwa. Nie jest automatyczną oceną samodzielności pracy i nie zastępuje analizy źródeł.", "legend": "Wybierz zakres PRP", "rule": "Aktualny regulamin przewiduje najwyżej dwa badania JSA. Promotor podejmuje decyzję w ciągu 3 dni roboczych od otrzymania raportu.",
+      "states": {
+        "green": { "range": "poniżej 40%", "color": "zielony", "title": "Raport nadal wymaga przeczytania", "body": "Niski PRP nie kończy analizy. Promotor sprawdza, skąd pochodzą podobieństwa i czy cytowania oraz oznaczenia zapożyczeń są prawidłowe." },
+        "orange": { "range": "40–60%", "color": "pomarańczowy", "title": "Potrzebna jest uważna analiza podobieństw", "body": "Wynik sygnalizuje większy udział podobieństw. Promotor ocenia ich charakter i decyduje, czy praca może przejść dalej, czy wymaga korekty." },
+        "red": { "range": "powyżej 60%", "color": "czerwony", "title": "Wysoki PRP wymaga decyzji promotora", "body": "To poważny sygnał, ale nadal nie automatyczny werdykt. Nie próbuj „zbijać procentu”; pracuj ze źródłami i uwagami promotora." }
+      }
+    },
+    "exam": {
+      "label": "Symulator stołu obrony", "heading": "Trzy osoby. Trzy kąty patrzenia.", "lead": "Egzamin jest ustny i obejmuje trzy pytania. Zamiast uczyć się wszystkiego tak samo, przygotuj osobną strategię dla każdego typu pytania.", "notice": "Informacja o terminie i składzie komisji powinna pojawić się w APD co najmniej 7 dni przed egzaminem.", "cardLabel": "Jak myśli ta osoba", "prepare": "Jak się przygotować",
+      "questions": {
+        "chair": { "source": "Pytanie przewodniczącego", "role": "wiedza kierunkowa", "title": "Czy widzisz swoją pracę w szerszym kontekście kierunku?", "body": "Pytanie pochodzi z opublikowanej listy zagadnień dla kierunku. Sprawdza podstawową orientację w dyscyplinie, nie tylko pamięć pojedynczej definicji.", "prepare": "Przerób listę 40 lub 50 zagadnień i do każdego przygotuj definicję, zależności oraz jeden przykład." },
+        "promoter": { "source": "Pytanie promotora", "role": "teoria pracy", "title": "Czy rozumiesz aparat pojęciowy, na którym zbudowano pracę?", "body": "Promotor pyta o część teoretyczną, wybory koncepcyjne i literaturę. To sprawdzian rozumienia własnego wywodu, nie odtwarzania rozdziału.", "prepare": "Umiej wyjaśnić główne pojęcia bez cytowania tekstu oraz uzasadnić, dlaczego wybrana teoria pasuje do problemu." },
+        "reviewer": { "source": "Pytanie recenzenta", "role": "badanie i wnioski", "title": "Czy potrafisz obronić metodę, wynik i ograniczenia?", "body": "Recenzent koncentruje się na problemie badawczym, metodzie, wynikach i wnioskach — także na tym, czego badanie nie dowodzi.", "prepare": "Przećwicz 90-sekundową odpowiedź: cel → metoda → najważniejszy wynik → znaczenie → jedno ograniczenie." }
+      }
+    },
+    "calculator": { "label": "Kalkulator 60/20/20", "heading": "Zobacz, co naprawdę waży wynik", "lead": "Podaj średnią ze studiów, dwie oceny pracy i trzy oceny z pytań egzaminacyjnych. Kalkulator stosuje proporcje opisane w Infopacku.", "fields": { "studies": "Średnia ocen ze studiów", "promoter": "Ocena pracy · promotor", "reviewer": "Ocena pracy · recenzent", "examOne": "Pytanie 1 · przewodniczący", "examTwo": "Pytanie 2 · promotor", "examThree": "Pytanie 3 · recenzent" }, "resultLabel": "Ważona podstawa wyniku", "resultNote": "średnia studiów 60% · recenzje 20% · egzamin 20%", "disclaimer": "To symulacja składników i wag, nie oficjalna ocena na dyplomie. Ostateczny wynik i sposób jego klasyfikacji ustala Uczelnia zgodnie z obowiązującymi przepisami." },
+    "sources": { "label": "Zweryfikowane źródła", "heading": "Proces zmienia się w źródle, nie w pamięci", "lead": "Treść zachowuje logikę Infopacku „Dyplomowanie”, ale rozdziela informacje na aktualne dokumenty UEW. Stan sprawdzony 13 sierpnia 2026 r.", "links": { "studyRegulations": { "title": "Regulamin Studiów UEW", "meta": "Warunki ukończenia studiów i egzamin" }, "process": { "title": "Organizacja procesu dyplomowania", "meta": "APD, recenzje, komisja i przebieg" }, "jsa": { "title": "Aktualny regulamin JSA", "meta": "PRP, terminy decyzji i liczba badań" }, "apdGuide": { "title": "Instrukcja APD dla studenta", "meta": "Obsługa systemu krok po kroku" } }, "infopack": "Zobacz oryginalny Infopack", "deanOffice": "Sprawdź komunikaty Dziekanatu" }
+  },
+  "studentLifeLive": {
+    "metaTitle": "Życie studenckie — kompas zaangażowania",
+    "metaDesc": "Dopasuj organizację, koło naukowe, sport, chór, wymianę lub program rozwojowy UEW do swojego celu, rytmu i stylu działania.",
+    "ogLabel": "Kompas zaangażowania",
+    "breadcrumbs": { "infopacks": "Infopacki" },
+    "heroLabel": "Infopack w żywej formie · znajdź swoje miejsce",
+    "heroTitle": "Nie dołączaj gdziekolwiek.",
+    "heroLead": "Na UEW możesz organizować wydarzenia, badać, śpiewać, trenować, projektować innowacje, wyjechać albo wejść na rynek pracy. Zamiast katalogu nazw dostajesz dopasowanie do tego, co naprawdę chcesz wynieść ze studiów.",
+    "heroCta": "Uruchom kompas",
+    "source": { "ariaLabel": "Stan kompasu zaangażowania", "label": "Mapa możliwości", "title": "Infopack „Poza studiami” + aktualne serwisy UEW", "paths": "Ścieżek", "questions": "Wymiary dopasowania", "checked": "Sprawdzono" },
+    "matcher": {
+      "label": "Kompas zaangażowania", "heading": "Co ma Ci dać ten czas?", "lead": "Wybierz po jednej odpowiedzi. Kompas porówna Twój cel, rytm, preferowaną rolę i próg wejścia z ośmioma różnymi ścieżkami.", "note": "To nie test osobowości i nie wyrok. Wynik ma skrócić drogę do pierwszej rozmowy — ostatecznie liczą się ludzie i aktualny nabór.", "resultLabel": "Najbliższe dopasowania", "live": "wynik na żywo", "best": "Najmocniejsze dopasowanie", "alternative": "Alternatywa {number}", "open": "Sprawdź u źródła", "disclaimer": "Wynik opiera się na charakterze aktywności, nie gwarantuje otwartego naboru. Sprawdź aktualne zasady i porozmawiaj z zespołem przed deklaracją.",
+      "questions": { "goal": { "label": "Co chcesz zyskać?" }, "pace": { "label": "Jaki rytm Ci odpowiada?" }, "mode": { "label": "Jak lubisz działać?" }, "start": { "label": "Z jakiego poziomu startujesz?" } },
+      "options": { "relationships": "Ludzie i przynależność", "expertise": "Wiedza i konkretna dziedzina", "career": "Portfolio i kariera", "world": "Zagranica i języki", "expression": "Ekspresja i energia", "impact": "Wpływ i zmiana", "weekly": "Stały rytm co tydzień", "project": "Intensywnie wokół projektu", "flexible": "Elastycznie, gdy mam czas", "lead": "Prowadzić ludzi", "build": "Tworzyć rozwiązania", "perform": "Występować", "compete": "Trenować i rywalizować", "support": "Wspierać innych", "zero": "Chcę wejść bez doświadczenia", "ready": "Mam już bazę i chcę ją wykorzystać" }
+    },
+    "paths": {
+      "organisations": { "title": "Organizacje studenckie", "summary": "Duże zespoły, realne projekty i role od komunikacji po produkcję wydarzeń. Najwięcej ludzi, odpowiedzialności i okazji do wpływu.", "rhythm": "Zwykle stałe spotkania + okresy projektowe" },
+      "circles": { "title": "Koła naukowe", "summary": "Badania, konferencje, warsztaty i projekty branżowe pod opieką wykładowców — dobra droga od zainteresowania do pierwszego specjalistycznego portfolio.", "rhythm": "Spotkania i projekty zależne od koła" },
+      "sport": { "title": "Sekcje sportowe KU AZS", "summary": "Regularny trening, drużyna i możliwość reprezentowania UEW. Zapisy odbywają się na początku semestru, zwykle bezpośrednio u trenera.", "rhythm": "Regularne treningi; start na początku semestru" },
+      "choir": { "title": "Chór Ars Cantandi", "summary": "Regularne próby, emisja głosu, koncerty i wyjazdy. Znajomość nut ani wcześniejsze doświadczenie nie są warunkiem wejścia.", "rhythm": "Stałe próby + koncerty i wyjazdy" },
+      "mobility": { "title": "Erasmus+ i mobilność", "summary": "Studia, praktyka albo krótsza mobilność za granicą. Oferty i wnioski są obsługiwane w module wymiany studenckiej USOS.", "rhythm": "Rekrutacja i przygotowania, potem intensywny wyjazd" },
+      "dthub": { "title": "DT HUB", "summary": "Warsztaty i zespoły projektowe na styku uczelni, biznesu i instytucji. Dla osób, które chcą badać potrzeby, prototypować i facylitować zmianę.", "rhythm": "Warsztaty lub zamknięte cykle projektowe" },
+      "career": { "title": "Biuro Karier i JobTeaser", "summary": "Plan kariery, mentoring, szkolenia oraz oferty praktyk, staży i pracy. Możesz zacząć od konsultacji albo od uzupełnienia profilu w JobTeaser.", "rhythm": "Elastycznie + terminy konkretnych programów" },
+      "kafe": { "title": "K(A)FE i mikropoświadczenia", "summary": "Bezpłatny 2–3-miesięczny program kompetencyjny: warsztaty, materiały, DT Innovathon oraz cyfrowe odznaki i mikropoświadczenia UEW.", "rhythm": "Intensywny cykl 2–3 miesięcy" }
+    },
+    "commitment": {
+      "label": "Koszt powiedzenia „tak”", "heading": "Zapytaj przed dołączeniem", "lead": "Rekrutacje mówią zwykle, co zyskasz. Dobra decyzja wymaga też wiedzy, z czego będziesz musieć zrezygnować.",
+      "questions": {
+        "hours": { "question": "Ile godzin zajmuje zwykły tydzień, a ile tydzień przed wydarzeniem?", "why": "Średnia bez informacji o szczytach ukrywa prawdziwe obciążenie." },
+        "firstTask": { "question": "Jak wygląda pierwsze zadanie nowej osoby?", "why": "Konkretny przykład pokazuje kulturę wdrożenia lepiej niż hasło „dynamiczny zespół”." },
+        "peak": { "question": "Które miesiące są najbardziej intensywne?", "why": "Porównaj je z sesją, pracą, praktykami i własnym rytmem energii." },
+        "exit": { "question": "Czy mogę przyjść na próbę albo zrezygnować po jednym projekcie?", "why": "Niski koszt wyjścia pozwala przetestować dopasowanie bez poczucia winy." }
+      }
+    },
+    "start": {
+      "label": "Pierwszy eksperyment", "heading": "Nie deklaruj się w ciemno", "lead": "Design thinking zamiast decyzji na podstawie logotypu: mały eksperyment, kontakt z ludźmi i dopiero potem zobowiązanie.",
+      "steps": { "observe": { "title": "Obserwuj aktualny kanał", "body": "Sprawdź ostatnie działania i to, czy grupa faktycznie żyje — nie tylko czy istnieje na liście." }, "contact": { "title": "Zadaj jedno konkretne pytanie", "body": "Zapytaj o najbliższe spotkanie, pierwsze zadanie i realny rytm pracy." }, "trial": { "title": "Wejdź w małą próbę", "body": "Wybierz otwarte spotkanie, trening, próbę chóru, warsztat albo jeden projekt." }, "decide": { "title": "Oceń energię po działaniu", "body": "Nie pytaj tylko „czy było fajnie?”. Sprawdź, czy chcesz wrócić do tych ludzi i tego rodzaju pracy." } }
+    },
+    "current": { "label": "Aktualizacja względem PDF", "heading": "Nowa ścieżka, której nie warto przegapić", "title": "K(A)FE planuje kolejną rekrutację w sierpniu 2026", "body": "Aktualna strona DT HUB opisuje bezpłatny program 2–3-miesięczny z warsztatami, DT Innovathonem, cyfrowymi odznakami i mikropoświadczeniami. To przykład, dlaczego żywy poradnik nie może zatrzymać się na treści PDF-u.", "cta": "Sprawdź rekrutację K(A)FE" },
+    "sources": { "label": "Sprawdzone źródła", "heading": "Możliwości zmieniają się szybciej niż PDF", "lead": "Punktem wyjścia jest Infopack „Poza studiami”. Aktualne nabory, składy i terminy zawsze potwierdzaj w serwisie prowadzącym daną aktywność.", "links": { "organisations": { "title": "Organizacje i koła UEW", "meta": "Aktualne profile, opiekunowie i kontakty" }, "sport": { "title": "Sekcje sportowe", "meta": "Dyscypliny, trenerzy i zasady zapisów" }, "career": { "title": "Oferta dla studentów CWB", "meta": "Kariera, mentoring, szkolenia i praktyki" }, "dtHub": { "title": "DT HUB", "meta": "Warsztaty, projekty i aktualności" } }, "infopack": "Zobacz oryginalny Infopack" }
+  },
+  "libraryLive": {
+    "metaTitle": "Biblioteka bez błądzenia — żywy przewodnik",
+    "metaDesc": "Znajdź książkę, wybierz właściwą ścieżkę odbioru, uruchom dostęp zdalny i załatw sprawy Biblioteki UEW krok po kroku.",
+    "ogLabel": "Żywy przewodnik po Bibliotece",
+    "breadcrumbs": { "infopacks": "Infopacki" },
+    "heroLabel": "Infopack w żywej formie · od potrzeby do zasobu",
+    "heroTitle": "Biblioteka bez błądzenia.",
+    "heroLead": "Katalog mówi, że książka istnieje. Ten przewodnik mówi, co zrobić dalej — gdzie jej szukać, jak ją odebrać, kiedy użyć Książkomatu i jak dostać się do baz spoza kampusu.",
+    "heroCta": "Wybierz swoją sprawę",
+    "source": {
+      "ariaLabel": "Stan przewodnika bibliotecznego",
+      "label": "Mapa dostępu",
+      "title": "Infopack „Biblioteka” + aktualne strony BG UEW",
+      "tasks": "Potrzeb studenta",
+      "floors": "Piętra zbiorów",
+      "checked": "Sprawdzono",
+      "hours": "Sprawdź dzisiejsze godziny"
+    },
+    "task": {
+      "label": "Nawigator potrzeb",
+      "heading": "Co chcesz dziś zrobić?",
+      "lead": "Nie musisz znać struktury Biblioteki ani nazwy usługi. Wybierz rezultat, a dostaniesz najkrótszą ścieżkę i właściwe źródło.",
+      "rule": "Godziny, dostępność i opłaty mogą się zmieniać. Przy takich informacjach zawsze otwieramy aktualną stronę Biblioteki.",
+      "ariaLabel": "Wybierz sprawę biblioteczną",
+      "path": "Najkrótsza ścieżka"
+    },
+    "tasks": {
+      "register": {
+        "label": "Założyć konto",
+        "title": "Zapisz się online, a potem aktywuj konto",
+        "summary": "Rejestracja zaczyna się w formularzu katalogu. Później odwiedź Wypożyczalnię, aby potwierdzić dane, aktywować konto i zakodować legitymację.",
+        "steps": ["Wypełnij formularz rejestracyjny online.", "W ciągu 14 dni roboczych zgłoś się do Wypożyczalni.", "Aktywuj konto i zakoduj legitymację studencką."],
+        "note": "Po aktywacji kod kreskowy i QR znajdziesz także na koncie bibliotecznym.",
+        "cta": "Otwórz rejestrację"
+      },
+      "find": {
+        "label": "Znaleźć książkę",
+        "title": "Najpierw rekord, potem sygnatura i lokalizacja",
+        "summary": "Szukaj w katalogu po tytule, autorze albo temacie. W szczegółach egzemplarza odczytaj dwie informacje: sygnaturę oraz lokalizację. To one uruchamiają właściwą trasę.",
+        "steps": ["Wyszukaj tytuł, autora lub temat w katalogu.", "Otwórz szczegóły i zapisz sygnaturę oraz lokalizację.", "Użyj poniższego routera, aby wybrać sposób odbioru."],
+        "note": "Na półkach książki stoją według sygnatur. Jeśli utkniesz, na każdym piętrze pomoże bibliotekarz.",
+        "cta": "Przeszukaj katalog"
+      },
+      "borrow": {
+        "label": "Wypożyczyć lub przedłużyć",
+        "title": "Sposób wypożyczenia zależy od lokalizacji",
+        "summary": "Egzemplarz z Magazynu najpierw zamawiasz. Ten z piętra zwykle odnajdujesz samodzielnie. Konto studenta standardowo pozwala wypożyczyć 10 książek na 3 miesiące.",
+        "steps": ["Sprawdź lokalizację i status egzemplarza.", "Zamów go albo odszukaj na właściwym piętrze.", "Odbierz w Wypożyczalni, Książkomacie lub użyj Selfchecka."],
+        "note": "Limity mogą różnić się dla studentów dwóch kierunków i organizacji studenckich. Przedłużenie jest możliwe na warunkach konta.",
+        "cta": "Sprawdź egzemplarz"
+      },
+      "return": {
+        "label": "Oddać książkę",
+        "title": "Zwrot nie wymaga czekania na otwarcie",
+        "summary": "W godzinach pracy możesz zwrócić książkę na piętrze. Poza nimi skorzystaj z całodobowej wrzutni przy wejściu głównym od ul. Wielkiej.",
+        "steps": ["Sprawdź, czy Biblioteka jest otwarta.", "Oddaj na piętrze albo włóż książkę do wrzutni 24/7.", "Po zaksięgowaniu sprawdź stan swojego konta."],
+        "note": "Do skorzystania z wrzutni nie potrzebujesz legitymacji. Książkomat służy do odbioru, nie do zwrotu.",
+        "cta": "Sprawdź zasady zwrotu"
+      },
+      "digital": {
+        "label": "Wejść do e-zasobów",
+        "title": "Na kampusie od razu, poza nim przez proxy",
+        "summary": "Bazy, czasopisma i e-książki znajdziesz w e-zasobach Biblioteki. Poza siecią UEW skonfiguruj aktualny plik proxy i loguj się kontem uczelnianym.",
+        "steps": ["Znajdź bazę lub publikację w e-zasobach.", "Poza kampusem skonfiguruj proxy według aktualnej instrukcji.", "Zaloguj się kontem uczelnianym i korzystaj zgodnie z licencją."],
+        "note": "Licencje zabraniają systematycznego, masowego pobierania. Pobieraj wyłącznie materiały potrzebne do własnej nauki lub badań.",
+        "cta": "Otwórz e-zasoby"
+      },
+      "study": {
+        "label": "Zarezerwować miejsce",
+        "title": "Wybierz strefę albo zarezerwuj kabinę",
+        "summary": "Pierwsze piętro sprzyja pracy zespołowej, trzecie jest najcichsze. Na piętrach 2 i 3 działa 14 kabin: 8 indywidualnych i 6 grupowych.",
+        "steps": ["Dobierz strefę do rodzaju pracy.", "Kabinę zarezerwuj najwcześniej tydzień wcześniej.", "Przyjdź punktualnie i potwierdź korzystanie."],
+        "note": "Po 30 minutach nieobecności rezerwacja może zostać anulowana. Student może rezerwować maksymalnie tydzień naprzód.",
+        "cta": "Zarezerwuj kabinę"
+      },
+      "clearance": {
+        "label": "Rozliczyć obiegówkę",
+        "title": "Najpierw wyzeruj zobowiązania wobec Biblioteki",
+        "summary": "Przed rozliczeniem oddaj wszystkie wypożyczenia, ureguluj naliczone opłaty i zwróć kartę zobowiązań, jeśli została wydana.",
+        "steps": ["Sprawdź konto i oddaj wszystkie materiały.", "Ureguluj opłaty oraz pozostałe zobowiązania.", "Potwierdź rozliczenie z Biblioteką."],
+        "note": "Po ukończeniu studiów konto może działać przez rok jako konto absolwenta, ale tylko do korzystania ze zbiorów na miejscu.",
+        "cta": "Sprawdź FAQ Biblioteki"
+      },
+      "research": {
+        "label": "Zebrać literaturę do pracy",
+        "title": "Nie zaczynaj przeglądu literatury od pustej wyszukiwarki",
+        "summary": "Biblioteka może przygotować tematyczne zestawienie bibliograficzne do pracy dyplomowej lub projektu badawczego. Opisz temat, zakres i oczekiwane typy źródeł.",
+        "steps": ["Sprecyzuj temat, słowa kluczowe i zakres lat.", "Wyślij zapytanie przez usługę zestawień bibliograficznych.", "Zweryfikuj otrzymaną listę i pobierz źródła z katalogu lub baz."],
+        "note": "Zestawienie jest punktem startowym do własnej oceny źródeł — nie zastępuje krytycznego przeglądu literatury.",
+        "cta": "Zapytaj o zestawienie"
+      }
+    },
+    "copyRouter": {
+      "label": "Router egzemplarza",
+      "heading": "Katalog znalazł. Co dalej?",
+      "lead": "Wynik wyszukiwania nie powinien kończyć się na sygnaturze. Wybierz lokalizację z rekordu, a pokażemy realną drogę książki do Twojej ręki.",
+      "locationLegend": "Jaka lokalizacja widnieje w katalogu?",
+      "locations": { "magazine": "Magazyn", "floor": "Piętro 1, 2 lub 3", "onsite": "Tylko na miejscu" },
+      "timeLegend": "Czy Biblioteka jest teraz otwarta?",
+      "times": { "open": "Tak, jest otwarta", "closed": "Nie, jest zamknięta" },
+      "routeLabel": "Twoja trasa",
+      "routes": {
+        "magazine": {
+          "title": "Zamów online i poczekaj na wiadomość",
+          "steps": ["W katalogu zamów egzemplarz z Magazynu.", "Wybierz Wypożyczalnię albo Książkomat jako miejsce odbioru.", "Poczekaj na e-mail potwierdzający przygotowanie.", "Odbierz zamówienie w ciągu 4 dni."],
+          "result": "Książkomat działa 24/7 i służy wyłącznie do odbioru. Nie jedź po książkę przed wiadomością."
+        },
+        "floor": {
+          "open": {
+            "title": "Idź na piętro i znajdź sygnaturę",
+            "steps": ["Zapisz numer piętra i sygnaturę.", "Odszukaj dział, a potem miejsce sygnatury na półce.", "Wypożycz w Selfchecku albo poproś bibliotekarza."],
+            "result": "Nie musisz wcześniej zamawiać książki z wolnego dostępu, gdy Biblioteka jest otwarta."
+          },
+          "closed": {
+            "title": "Zamów z piętra do późniejszego odbioru",
+            "steps": ["W katalogu wybierz egzemplarz z właściwego piętra.", "Zamów go do Wypożyczalni albo Książkomatu.", "Poczekaj na e-mail i odbierz w ciągu 4 dni."],
+            "result": "Opcja zamówienia książki z piętra pojawia się poza godzinami otwarcia Biblioteki."
+          }
+        },
+        "onsite": {
+          "title": "Skorzystaj z egzemplarza wewnątrz Biblioteki",
+          "steps": ["Zapisz lokalizację i sygnaturę z katalogu.", "Odszukaj egzemplarz lub poproś o niego bibliotekarza.", "Pracuj z materiałem w wyznaczonej przestrzeni."],
+          "result": "Czerwone oznaczenie oznacza dostęp wyłącznie na miejscu — tego egzemplarza nie wyniesiesz z Biblioteki."
+        }
+      }
+    },
+    "floors": {
+      "label": "Kompas pięter",
+      "heading": "Temat prowadzi na piętro",
+      "lead": "Kolory z Infopacku stają się przestrzenną mapą. Ostateczną lokalizację zawsze potwierdź w rekordzie konkretnego egzemplarza.",
+      "items": {
+        "one": { "title": "Piętro 1 · zielone", "mood": "Rozmowa, praca zespołowa i zbiory ogólne", "topics": ["zbiory ogólne", "pedagogika i psychologia", "społeczeństwo", "sztuka i kultura fizyczna", "czasopisma"] },
+        "two": { "title": "Piętro 2 · pomarańczowe", "mood": "Finanse i zarządzanie + kabiny do pracy", "topics": ["finanse i rachunkowość", "marketing", "zarządzanie", "zasoby ludzkie"] },
+        "three": { "title": "Piętro 3 · żółte", "mood": "Najcichsza strefa + kabiny do pracy", "topics": ["ekonomia", "informatyka i matematyka", "prawo i polityka", "statystyka", "nauki przyrodnicze", "rolnictwo i żywność"] }
+      }
+    },
+    "facts": {
+      "heading": "Najważniejsze progi czasowe",
+      "activation": { "value": "14 dni", "label": "roboczych na aktywację konta po rejestracji online" },
+      "pickup": { "value": "4 dni", "label": "na odbiór przygotowanego zamówienia" },
+      "always": { "value": "24/7", "label": "Książkomat do odbioru i wrzutnia do zwrotów" },
+      "noshow": { "value": "30 min", "label": "nieobecności, po której rezerwacja kabiny może przepaść" }
+    },
+    "sources": {
+      "label": "Sprawdzone źródła",
+      "heading": "Żywa instrukcja prowadzi do żywego źródła",
+      "lead": "Treść powstała na bazie oryginalnego Infopacku i została sprawdzona w oficjalnych serwisach Biblioteki UEW 13 sierpnia 2026.",
+      "links": {
+        "home": { "title": "Biblioteka Główna UEW", "meta": "Aktualności, godziny i komunikaty" },
+        "enrollment": { "title": "Zapisy do Biblioteki", "meta": "Aktualne warunki i limity kont" },
+        "faq": { "title": "FAQ Biblioteki", "meta": "Wypożyczenia, zwroty i zobowiązania" },
+        "proxy": { "title": "Zdalny dostęp — proxy", "meta": "Aktualna konfiguracja dostępu spoza kampusu" }
+      },
+      "infopack": "Zobacz oryginalny Infopack",
+      "catalogue": "Otwórz katalog"
+    }
+  },
+  "studentMattersLive": {
+    "metaTitle": "Sprawy studenckie — żywy router kontaktu",
+    "metaDesc": "Sprawdź, czy zacząć od Dziekanatu, podania, prodziekana czy Dziekana oraz znajdź osobę właściwą dla kierunku.",
+    "ogLabel": "Router spraw studenckich",
+    "breadcrumbs": { "infopacks": "Infopacki" },
+    "heroLabel": "Infopack w żywej formie · właściwe drzwi za pierwszym razem",
+    "heroTitle": "Twoja sprawa. Właściwa osoba.",
+    "heroLead": "Większość spraw zaczyna się w Dziekanacie, nie od wiadomości do najwyższej osoby w strukturze. Wybierz, czego potrzebujesz, a pokażemy Ci właściwą kolejność, osobę i zestaw informacji do przygotowania.",
+    "heroCta": "Znajdź pierwsze drzwi",
+    "source": { "ariaLabel": "Stan routera spraw", "label": "Ścieżka obsługi", "title": "Infopack „Informacje od Dziekana i Prodziekanów”", "matters": "Typy spraw", "doors": "Poziomy kontaktu", "checked": "Sprawdzono" },
+    "doors": { "office": "Dziekanat", "application": "Podanie w USOS", "viceDean": "Prodziekan właściwy dla kierunku", "dean": "Dziekan ds. Studenckich" },
+    "router": { "heading": "Z czym przychodzisz?", "lead": "Router odtwarza zasadę z Infopacku: najpierw informacja i obsługa w Dziekanacie, następnie właściwa procedura, a kontakt z prodziekanem dopiero wtedy, gdy wcześniejszy poziom nie rozwiązał sprawy.", "rule": "Nie wysyłaj tej samej sprawy równolegle do kilku osób. Zachowaj kolejność kontaktu i opisz dotychczasowe ustalenia.", "ariaLabel": "Wybierz typ sprawy studenckiej", "firstDoor": "Pierwsze właściwe drzwi", "path": "Kolejność działania", "prepare": "Co przygotować", "openOffice": "Sprawdź aktualny Dziekanat", "openInfopack": "Zobacz oryginalny Infopack" },
+    "matters": {
+      "information": { "label": "Potrzebuję informacji lub konsultacji", "title": "Zacznij od opiekuna kierunku w Dziekanacie", "summary": "Pracownicy Dziekanatu są przypisani do kierunków, stopni, lat i form studiów. To właściwe pierwsze miejsce do sprawdzenia procedury, terminu, celowości podania i wymaganych załączników.", "steps": ["Znajdź aktualnego opiekuna swojego kierunku.", "Zadaj jedno konkretne pytanie i podaj dane studiów.", "Zapisz odpowiedź lub ustalenia przed kolejnym krokiem."], "prepare": ["Kierunek, stopień, rok i forma studiów", "Numer albumu, jeśli jest potrzebny do identyfikacji", "Jednozdaniowy opis oczekiwanego rezultatu"] },
+      "certificate": { "label": "Potrzebuję zaświadczenia", "title": "Zaświadczenia i potwierdzenia obsługuje Dziekanat", "summary": "Nie potrzebujesz w tej sprawie dyżuru prodziekana. Ustal z opiekunem kierunku rodzaj dokumentu, sposób złożenia prośby, termin przygotowania i formę odbioru.", "steps": ["Określ dokładnie nazwę i cel zaświadczenia.", "Skontaktuj się z opiekunem kierunku w Dziekanacie.", "Potwierdź termin oraz sposób odbioru dokumentu."], "prepare": ["Cel, do którego potrzebujesz dokumentu", "Wymagany język i ewentualny zakres danych", "Termin, jeśli instytucja zewnętrzna go wyznaczyła"] },
+      "documents": { "label": "Chcę złożyć lub odebrać dokumenty", "title": "Dokumenty przekazuj zgodnie z instrukcją Dziekanatu", "summary": "Opiekun kierunku potwierdzi miejsce, godziny i dopuszczalną formę przekazania. W przypadku załączników do podania zadbaj o czytelne, kompletne i wiarygodne skany.", "steps": ["Sprawdź aktualne godziny i właściwy pokój.", "Potwierdź, czy wystarczy wersja elektroniczna.", "Zachowaj potwierdzenie złożenia lub odbioru."], "prepare": ["Kompletny zestaw dokumentów bez skreśleń", "Czytelne skany z podpisem i pieczęcią, jeśli są wymagane", "Numer sprawy albo wiadomość, której dotyczy dokument"] },
+      "application": { "label": "Wiem, że potrzebuję podania", "title": "Przejdź do Kompasu Podań, a nie do przypadkowego maila", "summary": "Gdy masz dostęp do USOS, podania składa się przez system. Kompas pomoże wybrać właściwy typ, sprawdzić termin, uzasadnienie, załączniki i podstawę prawną.", "steps": ["Wybierz sytuację w Kompasie Podań.", "Sprawdź termin i komplet wymaganych załączników.", "Wyślij właściwy rodzaj podania przez USOS i obserwuj status."], "prepare": ["Precyzyjne żądanie — co dokładnie chcesz uzyskać", "Faktyczne uzasadnienie, jeśli dany wniosek go wymaga", "Dokumenty potwierdzające każdy istotny fakt"], "cta": "Otwórz Kompas Podań" },
+      "unresolved": { "label": "Dziekanat nie rozwiązał mojego problemu", "title": "Dopiero teraz skieruj sprawę do właściwego prodziekana", "summary": "Kontakt z prodziekanem ma sens, gdy nie udało się uzyskać informacji lub rozwiązania w Dziekanacie, ustalono, że podanie nie jest właściwą drogą albo prodziekan wezwał Cię do kontaktu.", "steps": ["Znajdź prodziekana przypisanego do kierunku.", "Na początku napisz, co konkretnie chcesz uzyskać.", "Opisz problem, wcześniejszy kontakt z Dziekanatem i dołącz dokumenty."], "prepare": ["Data i forma kontaktu z Dziekanatem", "Treść uzyskanej odpowiedzi lub informacja o jej braku", "Dokumenty oraz jednoznacznie nazwany oczekiwany rezultat"] },
+      "summons": { "label": "Zostałem/am wezwany/a albo sprawę przekazano wyżej", "title": "Odpowiedz w kanale i terminie wskazanym w wezwaniu", "summary": "Dziekan rozpatruje określone sprawy formalne i interweniuje w sprawach skierowanych na ten poziom. Nie pomijaj wezwania ani nie zmieniaj samodzielnie trybu kontaktu.", "steps": ["Przeczytaj wezwanie w całości i zapisz termin.", "Zbierz wszystkie wskazane wyjaśnienia i dokumenty.", "Odpowiedz w żądanym kanale; przy wątpliwości potwierdź sposób w Dziekanacie."], "prepare": ["Numer i przedmiot sprawy", "Pełna odpowiedź na każdy punkt wezwania", "Dokumenty w formie i terminie wskazanym przez Uczelnię"] }
+    },
+    "programme": { "label": "Aktualny podział odpowiedzialności", "heading": "Kto odpowiada za Twój kierunek?", "lead": "Wyszukiwarka korzysta z aktualnej struktury UEW sprawdzonej 13 sierpnia 2026. Wpisz fragment polskiej lub angielskiej nazwy kierunku.", "searchLabel": "Nazwa kierunku", "placeholder": "np. logistyka, finanse, business…", "hint": "Wpisz co najmniej dwa znaki. Dziekan odpowiada m.in. za kierunki finansowo-rachunkowe i zarządzanie; pozostali za przypisane grupy kierunków.", "dean": "Dziekan ds. Studenckich", "viceDean": "Prodziekan ds. Studenckich", "noResult": "Nie znaleźliśmy kierunku w aktualnej mapie.", "checkSource": "Sprawdź pełny wykaz UEW." },
+    "message": { "label": "Eskalacja bez chaosu", "heading": "Wiadomość, która daje się rozpatrzyć", "lead": "Infopack wskazuje cztery elementy dobrego kontaktu z prodziekanem: konkretny cel, opis problemu, wcześniejsze ustalenia z Dziekanatem i dokumenty.", "subject": "Szkielet wiadomości do uzupełnienia", "copy": "Kopiuj", "copied": "Skopiowano", "template": "Temat: [kierunek, rok] — [krótka nazwa sprawy]\n\nSzanowna Pani Dziekan / Szanowny Panie Dziekanie,\n\nZwracam się z prośbą o [jedno zdanie: co dokładnie chcę uzyskać].\n\nOpis sytuacji:\n[konkretne fakty, daty i osoby — bez zbędnej historii]\n\nDotychczasowy kontakt z Dziekanatem:\n[data, osoba lub kanał, uzyskana odpowiedź / brak rozwiązania]\n\nZałączniki:\n[lista dokumentów potwierdzających opisane fakty]\n\nZ poważaniem,\n[imię i nazwisko, numer albumu, kierunek, rok, forma studiów]" }
   },
   "semesterLive": {
     "metaTitle": "Zaliczenie semestru — żywy kokpit decyzji",

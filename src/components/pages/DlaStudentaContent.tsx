@@ -15,6 +15,10 @@ import {
   Question,
   UsersFour,
   BookOpenText,
+  Books,
+  Desktop,
+  Exam,
+  FileText,
   ArrowSquareOut,
   EnvelopeSimple,
   type Icon,
@@ -33,13 +37,18 @@ const situations: Situation[] = [
   { key: "zapomoga", href: "/stypendia#zapomoga", icon: HandCoins },
   { key: "stypendium", href: "/stypendia", icon: GraduationCap },
   { key: "srednia", href: "/stypendia#kalkulator", icon: Calculator },
+  { key: "semestr", href: "/infopacki/zaliczenie-semestru", icon: Exam },
+  { key: "podanie", href: "/infopacki/podania", icon: FileText },
+  { key: "usos", href: "/infopacki/usos", icon: Desktop },
   { key: "ocena", href: "/prawa-studenta", icon: Scales },
   { key: "spor", href: "/rzecznik-praw-studenta", icon: Gavel },
   { key: "psychika", href: "/pomoc-psychologiczna", icon: Heart },
   { key: "zajecia", href: "/mapa-kampusu", icon: MapTrifold },
+  { key: "biblioteka", href: "/infopacki/biblioteka", icon: Books },
+  { key: "dyplom", href: "/infopacki/dyplomowanie", icon: GraduationCap },
   { key: "start", href: "/infopacki", icon: Compass },
-  { key: "kontakt", href: "/wladze-rektorskie", icon: Question },
-  { key: "zaangazowanie", href: "/organizacje-studenckie", icon: UsersFour },
+  { key: "kontakt", href: "/infopacki/sprawy-studenckie", icon: Question },
+  { key: "zaangazowanie", href: "/infopacki/zycie-studenckie", icon: UsersFour },
   { key: "publikacja", href: "/wydawnictwo", icon: BookOpenText },
 ];
 
@@ -68,7 +77,22 @@ export function DlaStudentaContent() {
             className="font-display text-[clamp(1.75rem,3.4vw,2.75rem)] font-semibold leading-[1.15] tracking-[-0.02em] text-ink-primary"
           >
             {t("situationsHeading")}
-          </h2>
+          </h2>
+          <div className="mt-5 flex flex-col justify-between gap-5 border-t border-border-medium pt-5 sm:flex-row sm:items-center">
+            <p className="max-w-[64ch] text-[0.9375rem] leading-[1.7] text-ink-secondary">
+              {t("situationsLead")}
+            </p>
+            <Link
+              href="/infopacki"
+              className="group inline-flex min-h-11 shrink-0 items-center gap-3 text-[0.8125rem] font-semibold text-accent"
+            >
+              <span className="flex h-9 w-9 items-center justify-center rounded-full bg-accent-glow">
+                <BookOpenText size={19} weight="duotone" aria-hidden="true" />
+              </span>
+              {t("livingGuides")}
+              <span className="transition-transform duration-150 group-hover:translate-x-1" aria-hidden="true">→</span>
+            </Link>
+          </div>
 
           <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {situations.map((situation, i) => {

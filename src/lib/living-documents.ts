@@ -34,6 +34,62 @@ export const semesterSources = {
   usos: "https://usosweb.ue.wroc.pl/kontroler.php?_action=news/default",
 } as const;
 
+export const deanInfopack =
+  "https://drive.google.com/file/d/1NLQRVebkTqXDCxcsmY7tSwc7JHApDyw9/view?usp=sharing";
+
+export const deanOfficeSources = {
+  current:
+    "https://uew.pl/studenci/dziekanat/",
+  staff:
+    "https://uew.pl/studenci/dziekanat/pracownicy-dziekanatu/",
+} as const;
+
+export const libraryInfopack =
+  "https://drive.google.com/file/d/1R_yZHW5UIIzWerNAlpYp5FOw8p6DHC9N/view?usp=sharing";
+
+export const librarySources = {
+  home: "https://bg.uew.pl/",
+  catalogue: "https://katalog.ue.wroc.pl/catalog",
+  registration: "https://katalog.ue.wroc.pl/registration",
+  enrollment: "https://bg.uew.pl/uslugi/zapisy-do-biblioteki/",
+  proxy: "https://bg.uew.pl/zbiory/zasoby/zdalny-dostep-proxy/",
+  eResources: "https://bg.uew.pl/e-zasoby/",
+  cabins: "https://bg.uew.pl/uslugi/rezerwacja-kabin/",
+  bibliography: "https://bg.uew.pl/uslugi/zapytaj-o-zestawienie-bibliograficzne/",
+  faq: "https://bg.uew.pl/zbiory/faq/",
+} as const;
+
+export const studentLifeInfopack =
+  "https://drive.google.com/file/d/1GoMBj_CEFF6ri83ZbED4OocGOKzv8Uot/view?usp=sharing";
+
+export const studentLifeSources = {
+  organisations: "https://uew.pl/studenci/organizacje-studenckie-i-kola-naukowe/",
+  sport: "https://sport.uew.pl/sekcje-sportowe/",
+  choir: "https://www.arscantandi.wroclaw.pl/",
+  mobility: "https://international.uew.pl/pl/",
+  usosExchange: "https://usosweb.ue.wroc.pl/kontroler.php?_action=news/default",
+  dtHub: "https://dthub.uew.pl/",
+  kafe: "https://dthub.uew.pl/rekrutacja-do-programu-kafe/",
+  career: "https://cwb.uew.pl/strona-glowna/oferta-dla-studentow-uew/",
+  jobTeaser: "https://uewroc.jobteaser.com/",
+} as const;
+
+export const diplomaInfopack =
+  "https://drive.google.com/file/d/1QPCho3YZIPYvn3Nv9rmZBKd0GkC5Byhs/view?usp=sharing";
+
+export const diplomaSources = {
+  studyRegulations:
+    "https://bip.ue.wroc.pl/233/268/uczelniany-regulamin-studiow-uniwersytetu-ekonomicznego-we-wroclawiu.html",
+  qualitySystem:
+    "https://uew.pl/wp-content/uploads/2026/02/Zalacznik-do-ZR-4-2026-WSZJK-UEW.pdf",
+  process:
+    "https://uew.pl/wp-content/uploads/2025/01/Zalacznik-nr-7_Organizacja-procesu-dyplomowania-2024.pdf",
+  jsa:
+    "https://bip.ue.wroc.pl/download/attachment/3487/zalacznik-nr-1-do-zr-146-2025_regulamin-weryfikacji.pdf",
+  apdGuide: "https://apd.ue.wroc.pl/static/apd_instrukcja_dla_studenta.pdf",
+  deanOffice: "https://uew.pl/studenci/dziekanat/",
+} as const;
+
 export const usosSources = {
   system: "https://usosweb.ue.wroc.pl/kontroler.php?_action=news/default",
   officialGuide:
