@@ -13,14 +13,6 @@ interface RawEvent {
 }
 type EventItem = RawEvent & { ts: number };
 
-// Fallback, gdy arkusz nie jest jeszcze podpięty (EVENTS_SHEET_CSV_URL).
-const fallbackEvents: RawEvent[] = [
-  { name: "Adapciak 2026", date: "2026-10-03", tag: "Integracja" },
-  { name: "Bal UEW", date: "2026-11-21", tag: "Gala" },
-  { name: "TEDxUEW", date: "2026-12-05", tag: "Konferencja" },
-  { name: "UE Party", date: "2027-03-14", tag: "Impreza" },
-];
-
 function nextEvent(list: RawEvent[], now: number): EventItem | null {
   const future = list
     .map((e) => ({ ...e, ts: new Date(`${e.date}T00:00:00`).getTime() }))
@@ -47,9 +39,11 @@ export function NextEvent() {
     fetch("/api/events", { signal: ctrl.signal })
       .then((r) => (r.ok ? r.json() : Promise.reject(new Error("events"))))
       .then((data: { events?: RawEvent[] }) => {
-        finish(data.events && data.events.length > 0 ? data.events : fallbackEvents);
+        finish(data.events ?? []);
       })
-      .catch(() => finish(fallbackEvents));
+      // Bez prawdziwego źródła sekcja znika. Lepszy brak wydarzenia niż
+      // efektowny licznik z wymyśloną datą.
+      .catch(() => finish([]));
     return () => ctrl.abort();
   }, []);
 

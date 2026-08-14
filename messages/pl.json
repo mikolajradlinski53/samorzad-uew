@@ -67,19 +67,100 @@
   },
   "hero": {
     "eyebrow": "Samorząd Studentów Uniwersytetu Ekonomicznego we Wrocławiu",
-    "line1": "Reprezentujemy",
-    "line2": "studentów UEW",
-    "lead": "Jesteśmy głosem blisko 9 000 studentów. Tworzymy wydarzenia, walczymy o Wasze prawa i robimy to, żeby studia miały sens — i smak.",
-    "cta1": "Poznaj nas",
-    "cta2": "Strefa studenta",
-    "scroll": "Przewiń do sekcji „O nas”",
-    "stats": ["ok. 9 000 studentów", "6 komisji", "9 projektów rocznie"]
+    "line1": "To jest Twój",
+    "line2": "Samorząd.",
+    "lead": "Reprezentujemy wszystkich studentów UEW. Pilnujemy Waszych praw, prowadzimy dziewięć stałych projektów i pomagamy przejść od „mam sprawę” do „wiem, co dalej”.",
+    "cta1": "Chcę działać",
+    "cta2": "Mam sprawę",
+    "scroll": "Przejdź do szybkiego startu",
+    "stats": ["Reprezentujemy wszystkich studentów", "09 stałych projektów", "Oficjalny serwis SSUEW"]
+  },
+  "homeExperience": {
+    "hero": {
+      "eyebrow": "Cyfrowy punkt wejścia do UEW",
+      "line1a": "Nie szukaj",
+      "line1b": "zakładki.",
+      "line2": "Zacznij od sytuacji.",
+      "lead": "Powiedz, co dzieje się teraz. Strona przełoży Twój moment na konkretną drogę — bez znajomości organów, pokojów i paragrafów.",
+      "searchLabel": "Opisz swoją sytuację",
+      "searchPlaceholder": "Np. utknęło mi podanie",
+      "searchSubmit": "Znajdź drogę",
+      "intentLabel": "Wybierz sytuację, od której chcesz zacząć",
+      "scroll": "Zobacz cztery drogi"
+    },
+    "intents": {
+      "solve": {
+        "short": "Sprawa",
+        "title": "Coś utknęło.",
+        "description": "Podanie, zaliczenie, regulamin albo zwykłe „nie wiem, co dalej” — zacznij od problemu, nie od nazwy biura.",
+        "cta": "Rozwiąż sprawę"
+      },
+      "support": {
+        "short": "Wsparcie",
+        "title": "Potrzebuję rozmowy.",
+        "description": "Spokojna, dyskretna droga do pomocy psychologicznej i miejsc, w których możesz bezpiecznie poprosić o wsparcie.",
+        "cta": "Przejdź bezpiecznie"
+      },
+      "make": {
+        "short": "Pomysł",
+        "title": "Chcę coś uruchomić.",
+        "description": "Projekt, wydarzenie albo drobna zmiana na kampusie — znajdź ludzi i pierwszy realny krok.",
+        "cta": "Zacznij działać"
+      },
+      "verify": {
+        "short": "Jawność",
+        "title": "Chcę zobaczyć, jak to działa.",
+        "description": "Budżet, decyzje, reprezentacja i odpowiedzialność powinny być zrozumiałe bez czytania martwych dokumentów.",
+        "cta": "Sprawdź"
+      }
+    },
+    "routes": {
+      "eyebrow": "Cztery sytuacje. Zero urzędowego języka.",
+      "heading": "Uczelnia zaczyna się od tego, co przeżywasz.",
+      "lead": "Każde wejście prowadzi do innego rodzaju odpowiedzi. Nie musisz znać struktury UEW, żeby wykonać właściwy następny ruch."
+    },
+    "manifesto": {
+      "eyebrow": "Zasada projektowa",
+      "statement": "Student nie powinien wiedzieć, który organ, paragraf ani pokój odpowiada za jego problem. System powinien wiedzieć to za niego.",
+      "note": "Dlatego ta strona nie zaczyna się od Samorządu. Zaczyna się od Ciebie i dopiero potem odsłania ludzi, decyzje oraz narzędzia, które mogą pomóc."
+    },
+    "archive": {
+      "eyebrow": "Żywe archiwum",
+      "heading": "Nie katalog projektów. Trzy rodzaje energii.",
+      "lead": "Start, wspólnota i orientacja. Projekty są ważne nie jako nazwy w menu, lecz jako momenty, które zmieniają doświadczenie studiowania.",
+      "all": "Otwórz wszystkie projekty",
+      "open": "Poznaj projekt {project}",
+      "note": "Kadry z archiwum SSUEW. Do czasu przypisania galerii do projektów nie opisujemy ich jako dokumentacji konkretnego wydarzenia.",
+      "stories": {
+        "adapciak": {
+          "name": "Adapciak",
+          "signature": "Pierwsza wspólna historia zaczyna się, zanim ruszą zajęcia."
+        },
+        "bal": {
+          "name": "Bal UEW",
+          "signature": "Jedna noc, w której UEW spotyka się poza rolami."
+        },
+        "dni": {
+          "name": "Dni Adaptacyjne",
+          "signature": "Pierwszy dzień bez błądzenia po uczelni i po ludziach."
+        }
+      }
+    },
+    "action": {
+      "eyebrow": "Brak wyniku też jest informacją",
+      "heading": "Jeśli nie znajdujesz swojej sprawy, to strona ma problem. Nie Ty.",
+      "lead": "Napisz jedno zdanie. Wyszukiwanie po sytuacji spróbuje znaleźć właściwą podstronę, poradnik albo osobę.",
+      "inputLabel": "Napisz jedno zdanie",
+      "placeholder": "Co wydarzyło się na studiach?",
+      "submit": "Znajdź odpowiedź",
+      "contact": "Albo napisz bezpośrednio do Samorządu"
+    }
   },
   "trustbar": {
     "official": "Oficjalny serwis Samorządu",
-    "since": "Działamy od 1987 roku",
     "statutory": "Ustawowa reprezentacja studentów",
-    "unit": "Jednostka Uniwersytetu Ekonomicznego we Wrocławiu"
+    "council": "15 osób w Radzie Uczelnianej",
+    "projects": "9 stałych projektów"
   },
   "econ": {
     "label": "Rynek · NBP",
@@ -87,47 +168,41 @@
     "rateLabel": "Kurs {code}: {value} zł"
   },
   "audience": {
-    "label": "Szybkie wejście",
-    "heading": "Kim jesteś? Wskażemy Ci drogę",
-    "go": "Przejdź",
-    "student": {
-      "eyebrow": "Jesteś studentem?",
-      "title": "Strefa studenta",
-      "desc": "Załatw sprawę szybko — wszystko, czego potrzebujesz w trakcie studiów.",
-      "scent": "Stypendia · Prawa studenta · Rzecznik · Mapa kampusu"
+    "label": "Zacznij od swojej sytuacji",
+    "heading": "Nie musisz znać struktury. Wystarczy, że wiesz, czego potrzebujesz.",
+    "intro": "Strona prowadzi od sprawy do właściwego narzędzia, osoby albo źródła. Wybierz punkt, który jest najbliżej Twojej sytuacji.",
+    "matter": {
+      "title": "Mam sprawę na studiach",
+      "desc": "Prawa studenta, stypendia, podania, USOS, dyplomowanie i wszystkie najczęstsze ścieżki w jednym miejscu."
     },
-    "staff": {
-      "eyebrow": "Pracujesz na Uczelni?",
-      "title": "Samorząd i struktura",
-      "desc": "Poznaj organy Samorządu, regulacje i osoby reprezentujące studentów.",
-      "scent": "Struktura · RUSS · Regulacje · Władze"
+    "support": {
+      "title": "Potrzebuję wsparcia",
+      "desc": "Pomoc psychologiczna, materialna i prawna — spokojnie, konkretnie i bez odsyłania od drzwi do drzwi."
     },
-    "partner": {
-      "eyebrow": "Reprezentujesz firmę?",
-      "title": "Współpraca i partnerstwo",
-      "desc": "Dotrzyj do blisko 9 000 studentów. Zobacz, jak możemy działać razem.",
-      "scent": "Partnerzy · Współpracuj z nami · Kontakt B2B"
+    "join": {
+      "title": "Chcę coś współtworzyć",
+      "desc": "Dołącz do zespołu, znajdź projekt albo sprawdź, jak przeprowadzić własną inicjatywę na UEW."
     },
-    "discover": {
-      "eyebrow": "Chcesz nas poznać?",
-      "title": "Kim jesteśmy",
-      "desc": "Misja, ludzie i projekty, które realnie zmieniają studenckie życie.",
-      "scent": "Nasze projekty · O nas · Działalność"
+    "proof": {
+      "title": "Chcę sprawdzić, co robicie",
+      "desc": "Zobacz ludzi, projekty, decyzje i publiczny ślad działań Samorządu — razem ze źródłami."
     }
   },
   "about": {
     "eyebrow": "O nas",
-    "heading": "Organizacja, która działa od blisko 40 lat",
-    "statStudents": "studentów",
-    "statCommittees": "komisji",
-    "statFounded": "rok założenia",
-    "p1": "Samorząd Studentów Uniwersytetu Ekonomicznego we Wrocławiu to organizacja, która od blisko 40 lat reprezentuje interesy studentów wobec władz uczelni, miasta i ogólnopolskich instytucji. Prowadzimy projekty, organizujemy wydarzenia i dbamy o to, żeby głos studentów był słyszany.",
-    "p2": "Łączymy ludzi, którym zależy. Każdy z Was może dołączyć do naszego zespołu i współtworzyć społeczność akademicką UEW.",
-    "quote": "Nie czekamy na zmiany. Tworzymy je."
+    "heading": "Samorząd zaczyna się od wszystkich studentów.",
+    "statStudents": "studentów UEW · stan na 20.10.2024",
+    "statCouncil": "osób w Radzie Uczelnianej",
+    "statProjects": "stałych projektów",
+    "source": "Źródło liczby studentów: oficjalny dokument UEW",
+    "p1": "Samorząd Studentów reprezentuje całą społeczność studencką UEW. Dbamy o interesy studentów, współtworzymy życie Uczelni i inicjujemy projekty edukacyjne, społeczne oraz integracyjne.",
+    "p2": "Jesteśmy łącznikiem między studentami a władzami Uczelni. To znaczy, że codzienna sprawa, pomysł albo problem nie powinny kończyć się na wiadomości bez odpowiedzi — mają trafić do właściwej osoby i dostać dalszy ciąg.",
+    "quote": "Działamy. Wspieramy. Inspirujemy."
   },
   "resources": {
     "eyebrow": "Strefa studenta",
-    "heading": "Wszystko, czego potrzebujesz",
+    "heading": "Sprawa najpierw. Struktura później.",
+    "intro": "Nie musisz wiedzieć, kto odpowiada za daną procedurę. Zacznij od tematu, a kolejne ekrany pokażą Ci następny krok i oficjalne źródło.",
     "seeAll": "Zobacz całą strefę",
     "items": {
       "prawa": { "title": "Prawa studenta", "desc": "Twoje prawa na uczelni i jak ich dochodzić." },
@@ -173,13 +248,14 @@
     "kontakt": "Kontakt"
   },
   "projects": {
-    "heading": "Wyróżnione projekty",
-    "all": "Wszystkie projekty",
-    "items": {
-      "adaptacja": { "name": "Adaptacja", "commission": "Komisja ds. Dydaktyki", "description": "Program powitalny dla pierwszoroczniaków. Pomagamy odnaleźć się na uczelni od pierwszego dnia.", "status": "Aktywny" },
-      "juwenalia": { "name": "Juwenalia Ekonomiczne", "commission": "Komisja ds. Kultury", "description": "Największe święto studentów UEW. Trzy dni muzyki, sportu i zabawy.", "status": "W przygotowaniu" },
-      "tarcza": { "name": "Tarcza Studenta", "commission": "Komisja Prawna", "description": "Bezpłatna pomoc prawna dla studentów. Doradzamy w sprawach regulaminowych i nie tylko.", "status": "Aktywny" }
-    }
+    "eyebrow": "09 stałych projektów",
+    "heading": "Bo studia to coś więcej niż wykłady.",
+    "intro": "Integracja, rozwój, kultura, nauka i realna praca zespołowa. Każdy projekt ma inny charakter, ale wszystkie współtworzą studenci UEW.",
+    "all": "Poznaj wszystkie projekty",
+    "archive": "Prawdziwe kadry z archiwum SSUEW · zdjęcia nie są podpisane jako dokumentacja konkretnego projektu",
+    "archiveAlt": "Kadr z działalności Samorządu Studentów UEW",
+    "explore": "Poznaj projekt: {project}",
+    "indexLabel": "Indeks dziewięciu projektów Samorządu"
   },
   "studentlife": {
     "p1": { "subheading": "Integracja", "heading": "Tworzymy studencką społeczność", "lead": "Studia to ludzie, których spotykasz.", "body": "Od Adapciaka i Dni Adaptacyjnych po Bal UEW, TEDxUEW i UE Party — przez cały rok tworzymy wydarzenia, które łączą studentów, rozwijają i zostają w pamięci na lata.", "cta": "Poznaj nasze projekty" },

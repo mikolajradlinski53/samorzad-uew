@@ -1,27 +1,28 @@
 "use client";
 
 import { useTranslations } from "next-intl";
-import { GraduationCap, UsersThree, CalendarCheck, type Icon } from "@phosphor-icons/react";
+import { ArrowSquareOut, Compass, GraduationCap, UsersThree, type Icon } from "@phosphor-icons/react";
 import { ScrollReveal } from "./ScrollReveal";
 import { Impulse } from "./Impulse";
-import { CountUp } from "./CountUp";
 import { STAGGER } from "@/lib/motion";
 
-type Stat = { label: string; icon: Icon } & (
-  | { to: number; suffix: string }
-  | { year: string }
-);
+interface Stat {
+  value: string;
+  label: string;
+  icon: Icon;
+}
 
 const stats: Stat[] = [
-  // Ok. 9 000 — najbliżej jawnych danych: 8 941 studentów (grudzień 2023),
-  // przy trendzie spadkowym (12 271 w 2015/16). Świadomie NIE piszemy „10 000+"
-  // ani „+", bo liczba raczej maleje niż rośnie, a uczelnia zna swoją prawdziwą.
-  // Po otrzymaniu oficjalnej liczby z Działu Nauczania wpisujemy ją tutaj razem
-  // ze stanem na dzień — szczegóły w docs/WRZUC-TUTAJ.md.
-  { to: 9000, suffix: "", label: "statStudents", icon: GraduationCap },
-  { to: 6, suffix: "", label: "statCommittees", icon: UsersThree },
-  { year: "1987", label: "statFounded", icon: CalendarCheck },
+  // Oficjalny Plan Równości Płci UEW 2025–2028, stan na 20.10.2024.
+  { value: "9 674", label: "statStudents", icon: GraduationCap },
+  // RUSS składa się z 15 osób wybieranych w wyborach powszechnych.
+  { value: "15", label: "statCouncil", icon: UsersThree },
+  // Aktualny katalog „Nasze projekty” opisuje dziewięć stałych inicjatyw.
+  { value: "09", label: "statProjects", icon: Compass },
 ];
+
+const studentCountSource =
+  "https://uew.pl/wp-content/uploads/2025/11/UEW-Plan-Rownosci-Plci-UEW-na-lata-2025-2028-PL.pdf";
 
 export function About() {
   const t = useTranslations("about");
@@ -55,17 +56,9 @@ export function About() {
                       aria-hidden="true"
                       className="mb-3 text-accent"
                     />
-                    {"year" in stat ? (
-                      <span className="block font-display text-[clamp(2.5rem,5vw,4rem)] font-semibold leading-none tracking-[-0.02em] text-ink-primary">
-                        {stat.year}
-                      </span>
-                    ) : (
-                      <CountUp
-                        to={stat.to}
-                        suffix={stat.suffix}
-                        className="block font-display text-[clamp(2.5rem,5vw,4rem)] font-semibold leading-none tracking-[-0.02em] text-ink-primary tabular-nums"
-                      />
-                    )}
+                    <span className="block font-display text-[clamp(2.5rem,5vw,4rem)] font-semibold leading-none tracking-[-0.04em] text-ink-primary tabular-nums">
+                      {stat.value}
+                    </span>
                     {/* Signature draw-on underline */}
                     <Impulse
                       delay={0.15 + Math.min(i, 4) * STAGGER}
@@ -77,6 +70,15 @@ export function About() {
                   </div>
                 );
               })}
+              <a
+                href={studentCountSource}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex max-w-max items-center gap-2 text-[0.6875rem] font-medium leading-[1.5] text-ink-tertiary underline decoration-border-medium underline-offset-4 transition-colors hover:text-accent"
+              >
+                {t("source")}
+                <ArrowSquareOut size={14} weight="bold" aria-hidden="true" />
+              </a>
             </div>
           </ScrollReveal>
 

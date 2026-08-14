@@ -1,101 +1,85 @@
 "use client";
 
-import { motion, useReducedMotion } from "motion/react";
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import {
-  Student,
-  ChalkboardTeacher,
-  Handshake,
-  Compass,
   ArrowRight,
+  Eye,
+  FirstAidKit,
+  Megaphone,
+  UsersThree,
   type Icon,
 } from "@phosphor-icons/react";
-import { ScrollReveal } from "./ScrollReveal";
-import { EASE } from "@/lib/motion";
 
-interface Audience {
-  key: string;
+interface PathItem {
+  key: "matter" | "support" | "join" | "proof";
   href: string;
   icon: Icon;
 }
 
-const audiences: Audience[] = [
-  { key: "student", href: "/dla-studenta", icon: Student },
-  { key: "staff", href: "/nasza-dzialalnosc", icon: ChalkboardTeacher },
-  { key: "partner", href: "/partnerzy", icon: Handshake },
-  { key: "discover", href: "/nasze-projekty", icon: Compass },
+const paths: PathItem[] = [
+  { key: "matter", href: "/dla-studenta", icon: Megaphone },
+  { key: "support", href: "/pomoc-psychologiczna", icon: FirstAidKit },
+  { key: "join", href: "/rekrutacja", icon: UsersThree },
+  { key: "proof", href: "/transparentnosc", icon: Eye },
 ];
 
 export function AudienceStrip() {
-  const reduce = useReducedMotion();
   const t = useTranslations("audience");
 
   return (
-    <section className="section-padding pt-0" aria-labelledby="audience-heading">
+    <section
+      id="szybki-start"
+      className="section-padding scroll-mt-20"
+      aria-labelledby="audience-heading"
+    >
       <div className="mx-auto max-w-[1200px]">
-        <ScrollReveal>
-          <p className="text-[0.75rem] font-medium uppercase tracking-[0.08em] text-accent">
-            {t("label")}
+        <div className="grid gap-5 border-b border-border-medium pb-10 md:grid-cols-[minmax(0,1fr)_minmax(280px,0.55fr)] md:items-end md:gap-16">
+          <div>
+            <p className="font-mono text-[0.6875rem] font-semibold uppercase tracking-[0.13em] text-accent">
+              {t("label")}
+            </p>
+            <h2
+              id="audience-heading"
+              className="mt-4 max-w-[18ch] text-balance font-display text-[clamp(2.25rem,5vw,4.75rem)] font-semibold leading-[0.96] tracking-[-0.04em] text-ink-primary"
+            >
+              {t("heading")}
+            </h2>
+          </div>
+          <p className="max-w-[46ch] text-pretty text-[0.9375rem] leading-[1.7] text-ink-secondary">
+            {t("intro")}
           </p>
-          <h2
-            id="audience-heading"
-            className="mt-3 sm:max-w-[20ch] text-balance font-display text-[clamp(1.75rem,3.4vw,2.75rem)] font-semibold leading-[1.15] tracking-[-0.02em] text-ink-primary"
-          >
-            {t("heading")}
-          </h2>
-        </ScrollReveal>
+        </div>
 
-        <ul className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-          {audiences.map((a) => {
-            const Glyph = a.icon;
+        <ol className="border-b border-border-medium">
+          {paths.map((item, index) => {
+            const Glyph = item.icon;
             return (
-              <motion.li
-                key={a.href}
-                whileHover={
-                  reduce
-                    ? undefined
-                    : { y: -5, transition: { duration: 0.24, ease: EASE } }
-                }
-                className="group relative flex flex-col overflow-hidden rounded-xl border border-border-subtle bg-bg-surface p-6 transition-colors duration-150 hover:border-border-soft hover:bg-bg-elevated"
-              >
-                <span
-                  aria-hidden="true"
-                  className="absolute inset-x-0 top-0 h-[2px] origin-left scale-x-0 bg-accent transition-transform duration-300 group-hover:scale-x-100"
-                />
-                <span className="flex h-12 w-12 items-center justify-center rounded-lg bg-accent-glow text-accent">
-                  <Glyph size={26} weight="regular" aria-hidden="true" />
-                </span>
-                <p className="mt-5 text-[0.75rem] font-medium uppercase tracking-[0.08em] text-accent">
-                  {t(`${a.key}.eyebrow`)}
-                </p>
-                <h3 className="mt-2 text-[1.125rem] font-semibold tracking-[-0.01em] text-ink-primary">
-                  {t(`${a.key}.title`)}
-                </h3>
-                <p className="mt-2 text-[0.875rem] leading-[1.6] text-ink-secondary">
-                  {t(`${a.key}.desc`)}
-                </p>
-                <p className="mt-4 text-[0.75rem] leading-[1.5] text-ink-tertiary">
-                  {t(`${a.key}.scent`)}
-                </p>
-                <span className="mt-5 inline-flex items-center gap-1.5 text-[0.875rem] font-medium text-accent">
-                  {t("go")}
-                  <ArrowRight
-                    size={16}
-                    weight="bold"
-                    aria-hidden="true"
-                    className="transition-transform duration-150 group-hover:translate-x-1"
-                  />
-                </span>
+              <li key={item.key} className="border-t border-border-medium first:border-t-0">
                 <Link
-                  href={a.href}
-                  aria-label={`${t(`${a.key}.title`)} — ${t(`${a.key}.eyebrow`)}`}
-                  className="absolute inset-0 rounded-xl"
-                />
-              </motion.li>
+                  href={item.href}
+                  className="home-path group grid min-h-[148px] grid-cols-[44px_minmax(0,1fr)_auto] items-center gap-x-3 gap-y-3 py-6 sm:grid-cols-[64px_minmax(180px,0.75fr)_minmax(0,1fr)_auto] sm:gap-x-6 sm:py-7"
+                >
+                  <span className="font-mono text-[0.6875rem] text-accent tabular-nums">
+                    {String(index + 1).padStart(2, "0")}
+                  </span>
+                  <span className="flex items-center gap-4">
+                    <Glyph size={25} weight="regular" aria-hidden="true" className="hidden shrink-0 text-accent md:block" />
+                    <span className="text-balance font-display text-[1.3rem] font-semibold leading-[1.1] tracking-[-0.025em] text-ink-primary sm:text-[1.55rem]">
+                      {t(`${item.key}.title`)}
+                    </span>
+                  </span>
+                  <span className="col-start-2 max-w-[58ch] text-[0.875rem] leading-[1.65] text-ink-secondary sm:col-start-auto sm:text-[0.9375rem]">
+                    {t(`${item.key}.desc`)}
+                  </span>
+                  <span className="row-span-2 flex h-11 w-11 items-center justify-center border border-border-medium text-accent transition-colors group-hover:border-accent group-hover:bg-accent group-hover:text-white sm:row-span-1">
+                    <ArrowRight size={19} weight="bold" aria-hidden="true" className="transition-transform group-hover:translate-x-0.5" />
+                  </span>
+                </Link>
+              </li>
             );
           })}
-        </ul>
+        </ol>
       </div>
     </section>
   );

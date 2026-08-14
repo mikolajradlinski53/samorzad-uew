@@ -230,6 +230,193 @@ body {
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
 }
 
+/* ── Homepage / „Brama UEW” ── */
+
+.home-hero-shade {
+  background:
+    linear-gradient(180deg, rgba(3, 11, 29, 0.7) 0%, rgba(3, 11, 29, 0.18) 30%, rgba(3, 11, 29, 0.5) 72%, rgba(3, 11, 29, 0.9) 100%),
+    linear-gradient(90deg, rgba(4, 14, 36, 0.34), rgba(4, 14, 36, 0.1), rgba(4, 14, 36, 0.34));
+}
+
+.home-hero-photo {
+  transform: scale(1.015);
+  animation: home-hero-breathe 18s ease-out both;
+}
+
+.home-hero-gate {
+  z-index: 1;
+  transform: scaleX(0);
+  opacity: 0.82;
+  will-change: transform;
+}
+
+.home-hero-gate-left {
+  transform-origin: left center;
+  animation: home-gate-open-left 1.1s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.home-hero-gate-right {
+  transform-origin: right center;
+  animation: home-gate-open-right 1.1s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.home-hero-kicker {
+  animation: home-copy-settle 0.8s 0.28s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.home-hero h1 {
+  animation: home-copy-settle 0.9s 0.36s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.home-hero h1 + p,
+.home-hero h1 + p + div {
+  animation: home-copy-settle 0.85s 0.5s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.home-hero h1 + p + div {
+  animation-delay: 0.62s;
+}
+
+.home-hero-rail {
+  animation: home-rail-rise 0.75s 0.7s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.home-hero-cta {
+  transition:
+    color 180ms cubic-bezier(0.16, 1, 0.3, 1),
+    background-color 180ms cubic-bezier(0.16, 1, 0.3, 1),
+    border-color 180ms cubic-bezier(0.16, 1, 0.3, 1),
+    transform 180ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.home-hero-cta:active {
+  transform: scale(0.98);
+}
+
+.home-hero-arrow {
+  animation: home-arrow 1.8s ease-in-out infinite;
+}
+
+.home-path {
+  position: relative;
+  isolation: isolate;
+  transition:
+    background-color 220ms cubic-bezier(0.16, 1, 0.3, 1),
+    padding-left 280ms cubic-bezier(0.16, 1, 0.3, 1),
+    padding-right 280ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.home-path::before {
+  position: absolute;
+  z-index: -1;
+  inset: 0 auto 0 0;
+  width: 3px;
+  background: var(--accent);
+  transform: scaleY(0);
+  transform-origin: center;
+  transition: transform 320ms cubic-bezier(0.16, 1, 0.3, 1);
+  content: "";
+}
+
+.home-path:hover {
+  background-color: var(--bg-surface);
+}
+
+.home-path:hover::before {
+  transform: scaleY(1);
+}
+
+.home-project-image {
+  transition:
+    transform 900ms cubic-bezier(0.16, 1, 0.3, 1),
+    filter 500ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.home-project:hover .home-project-image {
+  transform: scale(1.035);
+  filter: saturate(1.04) contrast(1.03);
+}
+
+.home-project-shade {
+  background: linear-gradient(180deg, rgba(4, 12, 31, 0.26) 0%, rgba(4, 12, 31, 0.14) 38%, rgba(4, 12, 31, 0.9) 100%);
+}
+
+@keyframes home-gate-open-left {
+  0% { transform: scaleX(1); }
+  100% { transform: scaleX(0); }
+}
+
+@keyframes home-gate-open-right {
+  0% { transform: scaleX(1); }
+  100% { transform: scaleX(0); }
+}
+
+@keyframes home-hero-breathe {
+  0% { transform: scale(1.08); }
+  100% { transform: scale(1.015); }
+}
+
+@keyframes home-copy-settle {
+  0% { transform: translateY(18px); }
+  100% { transform: translateY(0); }
+}
+
+@keyframes home-rail-rise {
+  0% { transform: translateY(100%); }
+  100% { transform: translateY(0); }
+}
+
+@keyframes home-arrow {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(5px); }
+}
+
+@media (max-width: 640px) {
+  .home-hero-shade {
+    background: linear-gradient(180deg, rgba(3, 11, 29, 0.76) 0%, rgba(3, 11, 29, 0.34) 34%, rgba(3, 11, 29, 0.64) 68%, rgba(3, 11, 29, 0.94) 100%);
+  }
+
+  .home-path:hover {
+    padding-left: 8px;
+    padding-right: 8px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .home-hero-photo,
+  .home-hero-gate-left,
+  .home-hero-gate-right,
+  .home-hero-kicker,
+  .home-hero h1,
+  .home-hero h1 + p,
+  .home-hero h1 + p + div,
+  .home-hero-rail,
+  .home-hero-arrow {
+    animation: none !important;
+  }
+
+  .home-hero-gate {
+    transform: scaleX(0);
+  }
+
+  .home-hero-photo {
+    transform: none;
+  }
+
+  .home-hero-cta,
+  .home-hero-cta *,
+  .home-path,
+  .home-path::before,
+  .home-path *,
+  .home-project-image {
+    transition-duration: 0.01ms !important;
+  }
+
+  .home-project:hover .home-project-image {
+    transform: none;
+  }
+}
+
 /* ── Marquee (partners) ── */
 
 @keyframes marquee {

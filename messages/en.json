@@ -67,19 +67,100 @@
   },
   "hero": {
     "eyebrow": "Student Government of Wrocław University of Economics and Business",
-    "line1": "We represent",
-    "line2": "UEW students",
-    "lead": "We are the voice of nearly 9,000 students. We create events, fight for your rights, and make sure your studies have meaning — and flavour.",
-    "cta1": "Get to know us",
-    "cta2": "Student zone",
-    "scroll": "Scroll to the “About” section",
-    "stats": ["approx. 9,000 students", "6 committees", "9 projects a year"]
+    "line1": "This is your",
+    "line2": "Student Government.",
+    "lead": "We represent every UEW student. We defend your rights, run nine long-term projects and help you move from ‘I have a problem’ to ‘I know what to do next’.",
+    "cta1": "I want to get involved",
+    "cta2": "I need help",
+    "scroll": "Go to quick start",
+    "stats": ["Representing every UEW student", "09 long-term projects", "Official SSUEW website"]
+  },
+  "homeExperience": {
+    "hero": {
+      "eyebrow": "A digital entry point to UEW",
+      "line1a": "Don't look for",
+      "line1b": "a tab.",
+      "line2": "Start with the situation.",
+      "lead": "Tell us what is happening now. The site turns your moment into a concrete route — without expecting you to know committees, offices or paragraphs.",
+      "searchLabel": "Describe your situation",
+      "searchPlaceholder": "For example, my application is stuck",
+      "searchSubmit": "Find a route",
+      "intentLabel": "Choose the situation you want to start with",
+      "scroll": "See four routes"
+    },
+    "intents": {
+      "solve": {
+        "short": "Issue",
+        "title": "Something is stuck.",
+        "description": "An application, an assessment, a regulation or simply ‘I don't know what to do next’ — begin with the problem, not an office name.",
+        "cta": "Resolve the issue"
+      },
+      "support": {
+        "short": "Support",
+        "title": "I need to talk.",
+        "description": "A calm, discreet route to psychological help and places where you can safely ask for support.",
+        "cta": "Continue safely"
+      },
+      "make": {
+        "short": "Idea",
+        "title": "I want to start something.",
+        "description": "A project, an event or a small campus change — find people and the first real step.",
+        "cta": "Start making"
+      },
+      "verify": {
+        "short": "Openness",
+        "title": "I want to see how it works.",
+        "description": "Budgets, decisions, representation and responsibility should be understandable without reading lifeless documents.",
+        "cta": "Take a look"
+      }
+    },
+    "routes": {
+      "eyebrow": "Four situations. No institutional language.",
+      "heading": "University starts with what you are experiencing.",
+      "lead": "Each entry leads to a different kind of answer. You do not need to know the UEW structure to make the right next move."
+    },
+    "manifesto": {
+      "eyebrow": "Design principle",
+      "statement": "A student should not need to know which committee, paragraph or office owns their problem. The system should know it for them.",
+      "note": "That is why this page does not start with the Student Government. It starts with you, then reveals the people, decisions and tools that can help."
+    },
+    "archive": {
+      "eyebrow": "Living archive",
+      "heading": "Not a project catalogue. Three kinds of energy.",
+      "lead": "Beginning, belonging and orientation. Projects matter not as menu labels, but as moments that change the experience of studying.",
+      "all": "Open all projects",
+      "open": "Explore {project}",
+      "note": "Images from the SSUEW archive. Until galleries are assigned to individual projects, we do not describe them as documentation of a specific event.",
+      "stories": {
+        "adapciak": {
+          "name": "Adapciak",
+          "signature": "The first shared story begins before classes do."
+        },
+        "bal": {
+          "name": "UEW Ball",
+          "signature": "One night when UEW meets beyond everyday roles."
+        },
+        "dni": {
+          "name": "Orientation Days",
+          "signature": "A first day without getting lost between buildings or people."
+        }
+      }
+    },
+    "action": {
+      "eyebrow": "No result is information too",
+      "heading": "If you cannot find your issue, the site has a problem. Not you.",
+      "lead": "Write one sentence. Situation-based search will try to find the right page, guide or person.",
+      "inputLabel": "Write one sentence",
+      "placeholder": "What happened during your studies?",
+      "submit": "Find an answer",
+      "contact": "Or write directly to the Student Government"
+    }
   },
   "trustbar": {
     "official": "Official Student Government site",
-    "since": "Active since 1987",
     "statutory": "Statutory student representation",
-    "unit": "A unit of Wrocław University of Economics and Business"
+    "council": "15 members of the University Council",
+    "projects": "9 long-term projects"
   },
   "econ": {
     "label": "Market · NBP",
@@ -87,47 +168,41 @@
     "rateLabel": "{code} rate: {value} PLN"
   },
   "audience": {
-    "label": "Quick entry",
-    "heading": "Who are you? We’ll point the way",
-    "go": "Go",
-    "student": {
-      "eyebrow": "Are you a student?",
-      "title": "Student zone",
-      "desc": "Get things done fast — everything you need throughout your studies.",
-      "scent": "Scholarships · Student rights · Ombudsman · Campus map"
+    "label": "Start with your situation",
+    "heading": "You do not need to know the structure. You only need to know what you need.",
+    "intro": "The website leads from your situation to the right tool, person or source. Choose the starting point closest to where you are now.",
+    "matter": {
+      "title": "I have a study-related issue",
+      "desc": "Student rights, scholarships, applications, USOS, graduation and the most common routes in one place."
     },
-    "staff": {
-      "eyebrow": "Do you work at the University?",
-      "title": "Government & structure",
-      "desc": "Explore the Student Government’s bodies, regulations and the people representing students.",
-      "scent": "Structure · Council · Regulations · Authorities"
+    "support": {
+      "title": "I need support",
+      "desc": "Psychological, financial and legal help — calm, specific and without being sent from door to door."
     },
-    "partner": {
-      "eyebrow": "Representing a company?",
-      "title": "Partnership & cooperation",
-      "desc": "Reach nearly 9,000 students. See how we can work together.",
-      "scent": "Partners · Work with us · B2B contact"
+    "join": {
+      "title": "I want to build something",
+      "desc": "Join the team, find a project or learn how to launch your own initiative at UEW."
     },
-    "discover": {
-      "eyebrow": "Want to get to know us?",
-      "title": "Who we are",
-      "desc": "The mission, people and projects that genuinely change student life.",
-      "scent": "Our projects · About us · Activities"
+    "proof": {
+      "title": "I want to see what you do",
+      "desc": "Explore the people, projects, decisions and public record of Student Government work — with sources."
     }
   },
   "about": {
     "eyebrow": "About us",
-    "heading": "An organisation that has been working for nearly 40 years",
-    "statStudents": "students",
-    "statCommittees": "committees",
-    "statFounded": "founded",
-    "p1": "The Student Government of Wrocław University of Economics and Business is an organisation that for nearly 40 years has represented students’ interests before the university authorities, the city and national institutions. We run projects, organise events and make sure the student voice is heard.",
-    "p2": "We bring together people who care. Anyone of you can join our team and help shape the UEW academic community.",
-    "quote": "We don’t wait for change. We create it."
+    "heading": "Student Government begins with every student.",
+    "statStudents": "UEW students · as of 20 October 2024",
+    "statCouncil": "members of the University Council",
+    "statProjects": "long-term projects",
+    "source": "Student count source: official UEW document",
+    "p1": "The Student Government represents the entire UEW student community. We protect student interests, help shape university life and initiate educational, social and community projects.",
+    "p2": "We connect students with the University authorities. A day-to-day issue, an idea or a problem should not end with an unanswered message — it should reach the right person and have a clear next step.",
+    "quote": "We act. We support. We inspire."
   },
   "resources": {
     "eyebrow": "Student zone",
-    "heading": "Everything you need",
+    "heading": "The issue first. The structure later.",
+    "intro": "You do not need to know who owns a procedure. Start with the subject and the next screens will show you the next step and the official source.",
     "seeAll": "See the whole zone",
     "items": {
       "prawa": { "title": "Student rights", "desc": "Your rights at the university and how to enforce them." },
@@ -173,13 +248,14 @@
     "kontakt": "Contact"
   },
   "projects": {
-    "heading": "Featured projects",
-    "all": "All projects",
-    "items": {
-      "adaptacja": { "name": "Adaptation", "commission": "Teaching Committee", "description": "A welcome programme for first-years. We help you find your feet at the university from day one.", "status": "Active" },
-      "juwenalia": { "name": "Economic Juwenalia", "commission": "Culture Committee", "description": "The biggest UEW student festival. Three days of music, sport and fun.", "status": "In preparation" },
-      "tarcza": { "name": "Student Shield", "commission": "Legal Committee", "description": "Free legal help for students. We advise on regulatory matters and beyond.", "status": "Active" }
-    }
+    "eyebrow": "09 long-term projects",
+    "heading": "University is more than lectures.",
+    "intro": "Community, growth, culture, learning and genuine teamwork. Every project is different, but every one of them is co-created by UEW students.",
+    "all": "Explore all projects",
+    "archive": "Real images from the SSUEW archive · photographs are not labelled as documentation of a specific project",
+    "archiveAlt": "A scene from the work of the UEW Student Government",
+    "explore": "Explore the project: {project}",
+    "indexLabel": "Index of the Student Government's nine projects"
   },
   "studentlife": {
     "p1": { "subheading": "Community", "heading": "We build a student community", "lead": "University is the people you meet.", "body": "From Adapciak and Adaptation Days to the UEW Ball, TEDxUEW and UE Party — all year round we create events that bring students together, help them grow and stay in memory for years.", "cta": "See our projects" },

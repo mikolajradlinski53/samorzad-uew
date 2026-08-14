@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-14T10:02:08.654Z",
+  "generatedAt": "2026-08-14T11:48:00.532Z",
   "viewport": {
     "width": 375,
     "height": 812
@@ -23,8 +23,22 @@
         "culprits": []
       },
       "tapTargets": {
-        "checked": 53,
+        "checked": 52,
         "tooSmall": [
+          {
+            "tag": "a",
+            "classSnippet": "",
+            "accessibleName": "Otwórz wszystkie projekty",
+            "width": 191.53,
+            "height": 20.39
+          },
+          {
+            "tag": "a",
+            "classSnippet": "HomeExperience-module__crXsBa__actionLink",
+            "accessibleName": "Albo napisz bezpośrednio do Samorządu",
+            "width": 278.7,
+            "height": 20.39
+          },
           {
             "tag": "a",
             "classSnippet": "font-medium text-accent transition-colors hover:text-accent-dim",
@@ -49,16 +63,136 @@
             "textSnippet": "en"
           },
           {
-            "tag": "span",
-            "classSnippet": "",
-            "fontSize": 10,
-            "textSnippet": "Najbliższe wydarzenie"
+            "tag": "p",
+            "classSnippet": "HomeExperience-module__crXsBa__eyebrow",
+            "fontSize": 9.92,
+            "textSnippet": "Cyfrowy punkt wejścia do UEW"
           },
           {
             "tag": "span",
             "classSnippet": "",
-            "fontSize": 10,
-            "textSnippet": "Integracja"
+            "fontSize": 10.24,
+            "textSnippet": "01"
+          },
+          {
+            "tag": "span",
+            "classSnippet": "",
+            "fontSize": 10.24,
+            "textSnippet": "02"
+          },
+          {
+            "tag": "span",
+            "classSnippet": "",
+            "fontSize": 10.24,
+            "textSnippet": "03"
+          },
+          {
+            "tag": "span",
+            "classSnippet": "",
+            "fontSize": 10.24,
+            "textSnippet": "04"
+          },
+          {
+            "tag": "p",
+            "classSnippet": "",
+            "fontSize": 10.88,
+            "textSnippet": "Cztery sytuacje. Zero urzędowego języka."
+          },
+          {
+            "tag": "span",
+            "classSnippet": "HomeExperience-module__crXsBa__routeNumber",
+            "fontSize": 10.88,
+            "textSnippet": "01"
+          },
+          {
+            "tag": "span",
+            "classSnippet": "HomeExperience-module__crXsBa__routeShort",
+            "fontSize": 10.4,
+            "textSnippet": "Sprawa"
+          },
+          {
+            "tag": "span",
+            "classSnippet": "HomeExperience-module__crXsBa__routeNumber",
+            "fontSize": 10.88,
+            "textSnippet": "02"
+          },
+          {
+            "tag": "span",
+            "classSnippet": "HomeExperience-module__crXsBa__routeShort",
+            "fontSize": 10.4,
+            "textSnippet": "Wsparcie"
+          },
+          {
+            "tag": "span",
+            "classSnippet": "HomeExperience-module__crXsBa__routeNumber",
+            "fontSize": 10.88,
+            "textSnippet": "03"
+          },
+          {
+            "tag": "span",
+            "classSnippet": "HomeExperience-module__crXsBa__routeShort",
+            "fontSize": 10.4,
+            "textSnippet": "Pomysł"
+          },
+          {
+            "tag": "span",
+            "classSnippet": "HomeExperience-module__crXsBa__routeNumber",
+            "fontSize": 10.88,
+            "textSnippet": "04"
+          },
+          {
+            "tag": "span",
+            "classSnippet": "HomeExperience-module__crXsBa__routeShort",
+            "fontSize": 10.4,
+            "textSnippet": "Jawność"
+          },
+          {
+            "tag": "p",
+            "classSnippet": "HomeExperience-module__crXsBa__manifestEyebrow",
+            "fontSize": 10.88,
+            "textSnippet": "Zasada projektowa"
+          },
+          {
+            "tag": "p",
+            "classSnippet": "",
+            "fontSize": 10.88,
+            "textSnippet": "Żywe archiwum"
+          },
+          {
+            "tag": "span",
+            "classSnippet": "",
+            "fontSize": 10.72,
+            "textSnippet": "01"
+          },
+          {
+            "tag": "span",
+            "classSnippet": "",
+            "fontSize": 10.72,
+            "textSnippet": "02"
+          },
+          {
+            "tag": "span",
+            "classSnippet": "",
+            "fontSize": 10.72,
+            "textSnippet": "03"
+          },
+          {
+            "tag": "p",
+            "classSnippet": "HomeExperience-module__crXsBa__archiveNote",
+            "fontSize": 9.92,
+            "textSnippet": "Kadry z archiwum SSUEW. Do czasu przypisania galerii do proj"
+          },
+          {
+            "tag": "p",
+            "classSnippet": "",
+            "fontSize": 10.88,
+            "textSnippet": "Brak wyniku też jest informacją"
+          },
+          {
+            "tag": "label",
+            "classSnippet": "",
+            "fontSize": 10.88,
+            "textSnippet": "Napisz jedno zdanie"
           },
           {
             "tag": "span",
@@ -72,63 +206,15 @@
         "offenders": [
           {
             "tag": "div",
-            "classSnippet": "relative z-10 py-12",
-            "width": 369.88,
-            "rectRight": 393.88
+            "classSnippet": "HomeExperience-module__crXsBa__manifestMedia",
+            "width": 322.5,
+            "rectRight": 420
           },
           {
-            "tag": "p",
-            "classSnippet": "mb-6 flex items-center gap-3 text-[0.75rem] font-medium uppercase tracking-[0.16",
-            "width": 369.88,
-            "rectRight": 393.88
-          },
-          {
-            "tag": "h1",
-            "classSnippet": "font-display text-[clamp(3rem,6vw,5.25rem)] font-extrabold leading-[1.0] trackin",
-            "width": 369.88,
-            "rectRight": 393.88
-          },
-          {
-            "tag": "span",
-            "classSnippet": "block overflow-hidden pb-[0.05em]",
-            "width": 369.88,
-            "rectRight": 393.88
-          },
-          {
-            "tag": "span",
-            "classSnippet": "block ",
-            "width": 369.88,
-            "rectRight": 393.88
-          },
-          {
-            "tag": "span",
-            "classSnippet": "block overflow-hidden pb-[0.05em]",
-            "width": 369.88,
-            "rectRight": 393.88
-          },
-          {
-            "tag": "span",
-            "classSnippet": "block text-accent",
-            "width": 369.88,
-            "rectRight": 393.88
-          },
-          {
-            "tag": "p",
-            "classSnippet": "mt-7 max-w-[480px] text-[1.0625rem] leading-[1.75] text-ink-secondary",
-            "width": 369.88,
-            "rectRight": 393.88
-          },
-          {
-            "tag": "div",
-            "classSnippet": "mt-9 flex flex-wrap items-center gap-4",
-            "width": 369.88,
-            "rectRight": 393.88
-          },
-          {
-            "tag": "ul",
-            "classSnippet": "mt-10 flex flex-wrap gap-2.5",
-            "width": 369.88,
-            "rectRight": 393.88
+            "tag": "img",
+            "classSnippet": "HomeExperience-module__crXsBa__manifestImage",
+            "width": 322.5,
+            "rectRight": 420
           },
           {
             "tag": "div",
@@ -138,9 +224,15 @@
           },
           {
             "tag": "div",
-            "classSnippet": "absolute -right-[8%] top-[4%] h-[58%] w-[46%] rounded-full opacity-60",
-            "width": 172.5,
-            "rectRight": 405
+            "classSnippet": "HomeExperience-module__crXsBa__heroIndex",
+            "width": 226.02,
+            "rectRight": 401.25
+          },
+          {
+            "tag": "div",
+            "classSnippet": "HomeExperience-module__crXsBa__actionIndex",
+            "width": 190.47,
+            "rectRight": 394.19
           },
           {
             "tag": "button",

@@ -1,7 +1,7 @@
 "use client";
 
 import { useTranslations } from "next-intl";
-import { SealCheck, Clock, GraduationCap, Scales, type Icon } from "@phosphor-icons/react";
+import { SealCheck, UsersThree, Compass, Scales, type Icon } from "@phosphor-icons/react";
 import { Impulse } from "./Impulse";
 import { DURATION } from "@/lib/motion";
 
@@ -18,9 +18,9 @@ interface Marker {
  */
 const markers: Marker[] = [
   { icon: SealCheck, key: "official" },
-  { icon: Clock, key: "since" },
   { icon: Scales, key: "statutory" },
-  { icon: GraduationCap, key: "unit" },
+  { icon: UsersThree, key: "council" },
+  { icon: Compass, key: "projects" },
 ];
 
 export function TrustBar() {
@@ -37,13 +37,13 @@ export function TrustBar() {
         duration={DURATION.trace}
         className="absolute inset-x-0 top-0 h-px bg-accent/50"
       />
-      <ul className="mx-auto flex max-w-[1200px] flex-wrap items-center justify-center gap-x-10 gap-y-4 px-6 py-5 sm:justify-between">
+      <ul className="mx-auto grid max-w-[1200px] grid-cols-1 gap-x-10 gap-y-4 px-6 py-5 min-[440px]:grid-cols-2 lg:grid-cols-4">
         {markers.map((m) => {
           const Glyph = m.icon;
           return (
             <li
               key={m.key}
-              className="flex items-center gap-2.5 text-[0.8125rem] font-medium text-ink-secondary"
+              className="flex items-center gap-2.5 text-left text-[0.8125rem] font-medium leading-[1.45] text-ink-secondary"
             >
               <Glyph size={18} weight="regular" aria-hidden="true" className="shrink-0 text-accent" />
               {t(m.key)}

@@ -1,208 +1,98 @@
 "use client";
 
-import { motion, useReducedMotion, type Variants } from "motion/react";
 import Image from "next/image";
 import { useTranslations } from "next-intl";
-import { CaretDown } from "@phosphor-icons/react";
+import { ArrowDown, ArrowRight } from "@phosphor-icons/react";
 import { Link } from "@/i18n/navigation";
-import { Marquee } from "./Marquee";
-import { heroPhotos as photos } from "@/lib/photos";
+import { heroPhotos } from "@/lib/photos";
 
-function getLineVariants(reduce: boolean): Variants {
-  return {
-    hidden: { y: "110%" },
-    visible: (i: number) => ({
-      y: "0%",
-      transition: reduce
-        ? { duration: 0 }
-        : { duration: 0.9, delay: 0.15 + i * 0.12, ease: [0.16, 1, 0.3, 1] },
-    }),
-  };
-}
-
-
-function PhotoTile({ src, sizes }: { src: string; sizes: string }) {
-  return (
-    <div className="relative aspect-[4/5] w-full overflow-hidden rounded-2xl border border-border-subtle bg-bg-elevated">
-      <Image src={src} alt="" fill sizes={sizes} className="object-cover" aria-hidden />
-    </div>
-  );
-}
-
-function GalleryColumn({
-  items,
-  duration,
-  reverse,
-}: {
-  items: string[];
-  duration: number;
-  reverse?: boolean;
-}) {
-  return (
-    <div className="flex-1">
-      <div
-        className="flex flex-col gap-4 animate-marquee-y"
-        style={{
-          animationDuration: `${duration}s`,
-          animationDirection: reverse ? "reverse" : "normal",
-        }}
-      >
-        {[...items, ...items].map((src, i) => (
-          <PhotoTile key={`${src}-${i}`} src={src} sizes="22vw" />
-        ))}
-      </div>
-    </div>
-  );
-}
-
+/**
+ * Strona główna zaczyna się od jednego prawdziwego kadru, nie od karuzeli.
+ * Dzięki temu telefon dostaje własną, pionową kompozycję, a przeglądarka ma
+ * tylko jeden kandydat LCP. Warstwa „bramy” jest czysto progresywna: bez CSS,
+ * JavaScriptu lub przy reduced motion treść i zdjęcie od razu są widoczne.
+ */
 export function Hero() {
-  const reduce = useReducedMotion();
-  const lineVariants = getLineVariants(!!reduce);
   const t = useTranslations("hero");
-  const headlineLines = [t("line1"), t("line2")];
-  const stats = t.raw("stats") as string[];
+  const facts = t.raw("stats") as string[];
 
   return (
     <section
-      aria-label="Wprowadzenie"
-      className="relative flex min-h-[100dvh] flex-col justify-center overflow-hidden pt-[72px]"
+      aria-labelledby="home-hero-heading"
+      className="home-hero relative isolate min-h-[100svh] overflow-hidden bg-[#071630] pt-[72px] text-white"
     >
-      {/* Ambient — techniczna siatka (engineered) + akcent + ziarno */}
-      <div className="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden="true">
-        <div className="hero-grid absolute inset-0 [mask-image:radial-gradient(ellipse_at_28%_34%,black_0%,transparent_72%)]" />
-        <div
-          className="absolute -right-[8%] top-[4%] h-[58%] w-[46%] rounded-full opacity-60"
-          style={{
-            background:
-              "radial-gradient(circle, var(--accent-glow) 0%, transparent 65%)",
-          }}
+      <div className="absolute inset-0" aria-hidden="true">
+        <Image
+          src={heroPhotos[0]}
+          alt=""
+          fill
+          preload
+          sizes="100vw"
+          className="home-hero-photo object-cover object-[50%_48%]"
         />
+        <div className="home-hero-shade absolute inset-0" />
+        <div className="home-hero-gate home-hero-gate-left absolute inset-y-0 left-0 w-1/2 bg-[#2448f5]" />
+        <div className="home-hero-gate home-hero-gate-right absolute inset-y-0 right-0 w-1/2 bg-[#2448f5]" />
         <div className="grain" />
-        <span className="absolute bottom-6 right-6 hidden font-mono text-[10px] uppercase tracking-[0.2em] text-ink-tertiary lg:block">
-          51.10°N · 17.04°E · Wrocław
-        </span>
       </div>
 
-      <div className="mx-auto grid w-full max-w-[1200px] items-center gap-10 px-6 lg:grid-cols-[1.05fr_0.95fr]">
-        {/* Content */}
-        <div className="relative z-10 py-12">
-          <motion.p
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={reduce ? { duration: 0 } : { duration: 0.6, delay: 0.1 }}
-            className="mb-6 flex items-center gap-3 text-[0.75rem] font-medium uppercase tracking-[0.16em] text-accent"
-          >
-            <span className="h-px w-8 shrink-0 bg-accent" aria-hidden="true" />
-            {t("eyebrow")}
-          </motion.p>
+      <div className="relative z-10 mx-auto flex min-h-[calc(100svh-72px)] w-full max-w-[1280px] flex-col items-center justify-center px-5 pb-40 pt-14 text-center sm:px-8 sm:pb-36 lg:pt-10">
+        <p className="home-hero-kicker max-w-[56ch] text-balance text-[0.6875rem] font-semibold uppercase tracking-[0.14em] text-white/82 sm:text-[0.75rem]">
+          {t("eyebrow")}
+        </p>
 
-          <h1 className="font-display text-[clamp(3rem,6vw,5.25rem)] font-extrabold leading-[1.0] tracking-[-0.035em] text-ink-primary">
-            {headlineLines.map((line, i) => (
-              <span key={line} className="block overflow-hidden pb-[0.05em]">
-                <motion.span
-                  className={`block ${i === 1 ? "text-accent" : ""}`}
-                  custom={i}
-                  variants={lineVariants}
-                  initial="hidden"
-                  animate="visible"
-                >
-                  {line}
-                </motion.span>
-              </span>
-            ))}
-          </h1>
-
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={
-              reduce ? { duration: 0 } : { duration: 0.7, delay: 0.55, ease: [0.16, 1, 0.3, 1] }
-            }
-            className="mt-7 max-w-[480px] text-[1.0625rem] leading-[1.75] text-ink-secondary"
-          >
-            {t("lead")}
-          </motion.p>
-
-          <motion.div
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={
-              reduce ? { duration: 0 } : { duration: 0.6, delay: 0.7, ease: [0.16, 1, 0.3, 1] }
-            }
-            className="mt-9 flex flex-wrap items-center gap-4"
-          >
-            <Link
-              href="/dla-studenta"
-              className="inline-flex h-12 items-center rounded-lg bg-accent px-7 text-base font-medium text-bg-base transition-all hover:bg-accent-dim active:scale-[0.98]"
-            >
-              {t("cta2")}
-            </Link>
-            <a
-              href="#o-nas"
-              className="inline-flex h-12 items-center rounded-lg px-3 text-base font-medium text-ink-secondary transition-colors hover:text-ink-primary"
-            >
-              {t("cta1")} &rarr;
-            </a>
-          </motion.div>
-
-          {/* Stat chips */}
-          <motion.ul
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={reduce ? { duration: 0 } : { duration: 0.6, delay: 0.85 }}
-            className="mt-10 flex flex-wrap gap-2.5"
-          >
-            {stats.map((s) => (
-              <li
-                key={s}
-                className="rounded-full border border-border-subtle bg-bg-surface px-4 py-1.5 text-[0.8125rem] font-medium text-ink-secondary"
-              >
-                {s}
-              </li>
-            ))}
-          </motion.ul>
-        </div>
-
-        {/* Desktop gallery */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0.96 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={
-            reduce ? { duration: 0 } : { duration: 0.9, delay: 0.2, ease: [0.16, 1, 0.3, 1] }
-          }
-          className="relative hidden h-[100dvh] lg:block"
-          aria-hidden="true"
+        <h1
+          id="home-hero-heading"
+          className="mt-6 max-w-[12ch] text-balance font-display text-[clamp(3.15rem,8.2vw,6rem)] font-extrabold leading-[0.9] tracking-[-0.04em] text-white [text-shadow:0_8px_35px_rgba(0,0,0,0.32)]"
         >
-          <div className="absolute inset-0 -rotate-6 scale-[1.18] [mask-image:radial-gradient(ellipse_at_center,black_55%,transparent_85%)]">
-            <div className="flex h-full gap-4">
-              <GalleryColumn items={photos.slice(0, Math.ceil(photos.length / 2))} duration={42} />
-              <GalleryColumn items={photos.slice(Math.ceil(photos.length / 2))} duration={52} reverse />
-            </div>
-          </div>
-        </motion.div>
+          <span className="block">{t("line1")}</span>
+          <span className="block text-[#9fb1ff]">{t("line2")}</span>
+        </h1>
+
+        <p className="mt-7 max-w-[62ch] text-pretty text-[1rem] leading-[1.65] text-white/88 sm:text-[1.125rem] sm:leading-[1.7]">
+          {t("lead")}
+        </p>
+
+        <div className="mt-9 flex w-full max-w-[520px] flex-col items-stretch justify-center gap-3 sm:w-auto sm:max-w-none sm:flex-row sm:items-center">
+          <Link
+            href="/dla-studenta"
+            className="home-hero-cta group inline-flex min-h-12 items-center justify-center gap-3 bg-white px-6 py-3 text-[0.9375rem] font-semibold text-[#0b1735]"
+          >
+            {t("cta2")}
+            <ArrowRight size={19} weight="bold" aria-hidden="true" className="transition-transform group-hover:translate-x-1" />
+          </Link>
+          <Link
+            href="/rekrutacja"
+            className="home-hero-cta group inline-flex min-h-12 items-center justify-center gap-3 border border-white/55 px-6 py-3 text-[0.9375rem] font-semibold text-white hover:bg-white hover:text-[#0b1735]"
+          >
+            {t("cta1")}
+            <ArrowRight size={19} weight="bold" aria-hidden="true" className="transition-transform group-hover:translate-x-1" />
+          </Link>
+        </div>
       </div>
 
-      {/* Mobile gallery strip */}
-      <div className="mt-4 pb-10 lg:hidden" aria-hidden="true">
-        <Marquee speed={40}>
-          {photos.map((src, i) => (
-            <div
-              key={`${src}-${i}`}
-              className="relative h-32 w-48 shrink-0 overflow-hidden rounded-xl border border-border-subtle bg-bg-elevated"
+      <div className="home-hero-rail absolute inset-x-0 bottom-0 z-10 border-t border-white/20 bg-[#06112a]/92">
+        <div className="mx-auto grid max-w-[1280px] grid-cols-3 divide-x divide-white/14 px-2 sm:px-6">
+          {facts.map((fact, index) => (
+            <p
+              key={fact}
+              className="flex min-h-[76px] items-center justify-center px-2 text-center text-[0.625rem] font-medium leading-[1.45] text-white/78 sm:min-h-[84px] sm:px-6 sm:text-[0.75rem]"
             >
-              <Image src={src} alt="" fill sizes="192px" className="object-cover" />
-            </div>
+              <span className="mr-2 hidden font-mono text-[0.625rem] text-[#9fb1ff] sm:inline">
+                0{index + 1}
+              </span>
+              {fact}
+            </p>
           ))}
-        </Marquee>
+        </div>
       </div>
 
-      {/* Scroll indicator */}
       <a
-        href="#o-nas"
+        href="#szybki-start"
         aria-label={t("scroll")}
-        className="absolute bottom-6 left-1/2 hidden h-11 w-11 -translate-x-1/2 items-center justify-center rounded-full text-ink-tertiary transition-colors hover:text-ink-primary lg:flex"
+        className="absolute bottom-[98px] left-1/2 z-10 hidden -translate-x-1/2 items-center gap-2 text-[0.6875rem] font-medium uppercase tracking-[0.12em] text-white/72 transition-colors hover:text-white lg:flex"
       >
-        <CaretDown size={22} weight="regular" className="chevron-bob" aria-hidden="true" />
+        <ArrowDown size={16} weight="bold" aria-hidden="true" className="home-hero-arrow" />
       </a>
     </section>
   );

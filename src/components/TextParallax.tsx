@@ -38,7 +38,7 @@ export function TextParallaxContent({
     // Static, accessible fallback — no sticky/parallax.
     return (
       <div style={{ paddingLeft: IMG_PADDING, paddingRight: IMG_PADDING }}>
-        <div className="relative flex min-h-[60vh] items-center justify-center overflow-hidden rounded-3xl text-center text-white">
+        <div className="relative flex min-h-[60vh] items-center justify-center overflow-hidden rounded-none text-center text-white sm:rounded-xl">
           <Image
             src={imgUrl}
             alt=""
@@ -88,7 +88,7 @@ function StickyImage({ imgUrl }: { imgUrl: string }) {
         top: IMG_PADDING,
         scale,
       }}
-      className="sticky z-0 overflow-hidden rounded-3xl"
+      className="sticky z-0 overflow-hidden rounded-none sm:rounded-xl"
     >
       <Image src={imgUrl} alt="" aria-hidden="true" fill sizes="100vw" className="object-cover" />
       <motion.div className="absolute inset-0 bg-[#05070C]/70" style={{ opacity }} />

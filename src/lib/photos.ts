@@ -32,17 +32,21 @@ export const heroPhotos: string[] = USE_LOCAL.hero
   ? localList("hero", HERO_COUNT)
   : ["a", "b", "c", "d", "e", "f", "g", "h"].map((s) => pic(`ssuew-${s}`, 500, 640));
 
-/** Sekcja „Życie studenckie" — 2 zdjęcia poziome (kadr 3:2). */
+/**
+ * Sekcja „Życie studenckie" — 2 zdjęcia poziome (kadr 3:2).
+ *
+ * Dopóki nie ma dedykowanych szerokich kadrów, używamy prawdziwych zdjęć
+ * SSUEW z lokalnego archiwum hero. Nie pobieramy stocków, które udawałyby
+ * życie UEW i znikały przy braku połączenia z zewnętrznym serwerem.
+ */
 export const studentLifePhotos = USE_LOCAL.zycie
   ? {
       integracja: "/photos/zycie/integracja.jpg",
       wsparcie: "/photos/zycie/wsparcie.jpg",
     }
   : {
-      integracja:
-        "https://images.unsplash.com/photo-1530893609608-32a9af3aa95c?q=80&w=2564&auto=format&fit=crop",
-      wsparcie:
-        "https://images.unsplash.com/photo-1504610926078-a1611febcad3?q=80&w=2416&auto=format&fit=crop",
+      integracja: "/photos/hero/02.jpg",
+      wsparcie: "/photos/hero/04.jpg",
     };
 
 /**
