@@ -32,7 +32,22 @@ jobs:
         run: node -v && npm -v && npm config get registry
       # `--foreground-scripts` pokazuje wyjście skryptów instalacyjnych, bez
       # niego przyczyna potrafi zniknąć w zwiniętym logu.
-      - run: npm ci --no-audit --no-fund --foreground-scripts
+      - name: Instalacja zależności
+        id: install
+        run: npm ci --no-audit --no-fund --foreground-scripts
+      # npm kończy komunikatem „a complete log of this run can be found in…",
+      # a ten plik zostaje na runnerze i nikt go nie widzi. Bez niego diagnoza
+      # sprowadza się do zgadywania, więc przy porażce wypisujemy go do logu
+      # zadania — razem ze stanem, który mógł ją spowodować.
+      - name: Log npm po nieudanej instalacji
+        if: failure() && steps.install.outcome == 'failure'
+        run: |
+          echo "::group::npm debug log"
+          for f in /home/runner/.npm/_logs/*.log; do echo "--- $f"; tail -n 200 "$f"; done
+          echo "::endgroup::"
+          echo "::group::środowisko"
+          uname -a; node -v; npm -v; npm config list
+          echo "::endgroup::"
       - run: npx tsc --noEmit
       - run: npm run lint
       - run: npm test
