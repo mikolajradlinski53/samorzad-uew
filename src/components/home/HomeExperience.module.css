@@ -1525,3 +1525,166 @@
     display: none;
   }
 }
+
+/* ──────────────────────────────────────────────────────────────────────────
+   HERO PEŁNOEKRANOWE — SCENA, NIE KADR OBOK TEKSTU
+
+   Wspólny mianownik wszystkich referencji przysłanych przez Samorząd (Spline,
+   scroll-expand, split-reveal, sekwencja klatek) to jedno: obraz zajmuje cały
+   ekran i jest sceną, a tekst na nim leży. Poprzednia wersja miała zdjęcie w
+   ramce w prawej kolumnie — stąd wrażenie „za mało".
+
+   Zdjęcie idzie więc pod spód, na całą wysokość okna, a treść ląduje na nim.
+
+   Warunek konieczny: przesłona. Biały tekst na fotografii bez przyciemnienia
+   potrafi mieć kontrast 2:1 i zmienia się z kadru na kadr. Gradient poniżej
+   daje stałe, ciemne podłoże pod tekstem niezależnie od tego, co jest na
+   zdjęciu — dopiero to pozwala trzymać wymagane 4,5:1.
+   ────────────────────────────────────────────────────────────────────────── */
+
+.experience .hero {
+  --hero-ink: #ffffff;
+  --hero-ink-dim: rgba(255, 255, 255, 0.74);
+  position: relative;
+  border-bottom: 0;
+  background: #0a1020;
+}
+
+/* Kadr wychodzi z siatki i staje się tłem całej sekcji. */
+.experience .hero .heroFrame {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  border-radius: 0;
+}
+
+.experience .hero .heroReel,
+.experience .hero .heroReelSlide {
+  border-radius: 0;
+}
+
+/* Przesłona: mocniejsza od dołu i od lewej, czyli tam, gdzie leży tekst. */
+.experience .hero .heroFrame::after {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  content: "";
+  pointer-events: none;
+  background:
+    linear-gradient(to top, rgba(6, 12, 26, 0.94) 0%, rgba(6, 12, 26, 0.55) 42%, rgba(6, 12, 26, 0.3) 100%),
+    linear-gradient(to right, rgba(6, 12, 26, 0.82) 0%, rgba(6, 12, 26, 0.25) 58%, transparent 100%);
+}
+
+.experience .heroShell {
+  position: relative;
+  z-index: 3;
+  grid-template-columns: minmax(0, 1fr);
+  align-content: end;
+  min-height: 100svh;
+}
+
+.experience .heroCopy,
+.experience .heroLower {
+  max-width: 46rem;
+}
+
+.experience .hero .eyebrow {
+  color: var(--hero-ink-dim);
+}
+
+.experience .hero .heroTitle {
+  color: var(--hero-ink);
+}
+
+.experience .hero .heroLineAccent {
+  color: #9db4ff;
+}
+
+.experience .hero .heroLead {
+  color: var(--hero-ink-dim);
+}
+
+/* Pole wyszukiwania i pasek przyrządowy na ciemnym tle. */
+.experience .hero .heroSearch {
+  border-color: rgba(255, 255, 255, 0.28);
+  background: rgba(10, 16, 32, 0.55);
+  color: var(--hero-ink);
+  backdrop-filter: blur(10px);
+}
+
+.experience .hero .heroSearch input {
+  color: var(--hero-ink);
+}
+
+.experience .hero .heroSearch input::placeholder {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.experience .hero .instrument {
+  border-top-color: rgba(255, 255, 255, 0.22);
+}
+
+.experience .hero .instrument dt {
+  color: rgba(255, 255, 255, 0.62);
+}
+
+.experience .hero .instrument dd {
+  color: var(--hero-ink);
+}
+
+.experience .hero .heroRule {
+  background: #9db4ff;
+}
+
+/* Listwa sytuacji: szkło na fotografii zamiast białych kafelków. */
+.experience .hero .intentRail {
+  border-color: rgba(255, 255, 255, 0.2);
+  border-radius: var(--home-radius);
+  background: rgba(10, 16, 32, 0.42);
+  backdrop-filter: blur(12px);
+}
+
+.experience .hero .intentButton {
+  border-color: rgba(255, 255, 255, 0.16);
+  background: transparent;
+  color: var(--hero-ink-dim);
+}
+
+.experience .hero .intentButton > span {
+  color: rgba(255, 255, 255, 0.55);
+}
+
+.experience .hero .intentButton:hover,
+.experience .hero .intentButton:focus-visible,
+.experience .hero .intentButton[aria-pressed="true"] {
+  background: rgba(255, 255, 255, 0.13);
+  color: var(--hero-ink);
+}
+
+.experience .hero .intentButton[aria-pressed="true"] > span {
+  color: #9db4ff;
+}
+
+.experience .hero .intentButton::after {
+  background: #9db4ff;
+}
+
+/* Powolny najazd kamery na tło — sterowany przewijaniem tam, gdzie przeglądarka
+   to potrafi, więc bez ani jednej linii JavaScriptu. */
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .experience .hero .heroReel {
+      animation: heroPush linear both;
+      animation-timeline: view();
+      animation-range: entry 0% exit 100%;
+    }
+  }
+}
+
+@keyframes heroPush {
+  from { transform: scale(1.06) translateY(0); }
+  to   { transform: scale(1.14) translateY(-2%); }
+}
