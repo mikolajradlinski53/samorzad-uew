@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-15T13:37:01.801Z",
+  "generatedAt": "2026-08-15T14:06:22.312Z",
   "viewport": {
     "width": 375,
     "height": 812
@@ -23,7 +23,7 @@
         "culprits": []
       },
       "tapTargets": {
-        "checked": 53,
+        "checked": 72,
         "tooSmall": [
           {
             "tag": "a",
@@ -235,28 +235,94 @@
       "contentWidth": {
         "offenders": [
           {
+            "tag": "span",
+            "classSnippet": "ProjectCoverflow-module__NsUuva__deckShadow",
+            "width": 487.5,
+            "rectRight": 431.25
+          },
+          {
             "tag": "div",
             "classSnippet": "flex items-center gap-3",
             "width": 244.41,
             "rectRight": 428.41
           },
           {
+            "tag": "span",
+            "classSnippet": "ProjectCoverflow-module__NsUuva__cardShadow",
+            "width": 214.93,
+            "rectRight": 484.33
+          },
+          {
+            "tag": "span",
+            "classSnippet": "ProjectCoverflow-module__NsUuva__cardShadow",
+            "width": 188.37,
+            "rectRight": 660.4
+          },
+          {
+            "tag": "span",
+            "classSnippet": "ProjectCoverflow-module__NsUuva__cardShadow",
+            "width": 161.8,
+            "rectRight": 836.48
+          },
+          {
+            "tag": "div",
+            "classSnippet": "ProjectCoverflow-module__NsUuva__slot",
+            "width": 148.34,
+            "rectRight": 845.65
+          },
+          {
             "tag": "button",
-            "classSnippet": "flex h-11 w-11 items-center justify-center rounded-lg text-ink-secondary md:hidd",
-            "width": 44,
-            "rectRight": 428.41
+            "classSnippet": "ProjectCoverflow-module__NsUuva__card",
+            "width": 148.34,
+            "rectRight": 845.65
           },
           {
-            "tag": "svg",
-            "classSnippet": "",
-            "width": 24,
-            "rectRight": 418.41
+            "tag": "span",
+            "classSnippet": "ProjectCoverflow-module__NsUuva__cardPoster",
+            "width": 148.34,
+            "rectRight": 845.65
           },
           {
-            "tag": "path",
-            "classSnippet": "",
-            "width": 18,
-            "rectRight": 415.41
+            "tag": "span",
+            "classSnippet": "ProjectCoverflow-module__NsUuva__cardWash",
+            "width": 148.34,
+            "rectRight": 845.65
+          },
+          {
+            "tag": "div",
+            "classSnippet": "ProjectCoverflow-module__NsUuva__slot",
+            "width": 145.29,
+            "rectRight": 727.69
+          },
+          {
+            "tag": "button",
+            "classSnippet": "ProjectCoverflow-module__NsUuva__card",
+            "width": 145.29,
+            "rectRight": 727.69
+          },
+          {
+            "tag": "img",
+            "classSnippet": "ProjectCoverflow-module__NsUuva__cardImage",
+            "width": 145.29,
+            "rectRight": 727.69
+          },
+          {
+            "tag": "span",
+            "classSnippet": "ProjectCoverflow-module__NsUuva__cardWash",
+            "width": 145.29,
+            "rectRight": 727.69
+          },
+          {
+            "tag": "div",
+            "classSnippet": "ProjectCoverflow-module__NsUuva__slot",
+            "width": 135.57,
+            "rectRight": 590.34
+          },
+          {
+            "tag": "button",
+            "classSnippet": "ProjectCoverflow-module__NsUuva__card",
+            "width": 135.57,
+            "rectRight": 590.34
           }
         ]
       }

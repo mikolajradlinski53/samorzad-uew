@@ -1,5 +1,6 @@
 import { EconTicker } from "@/components/EconTicker";
 import { HomeExperience } from "@/components/home/HomeExperience";
+import { ProjectCoverflow } from "@/components/home/ProjectCoverflow";
 import { NextEvent } from "@/components/NextEvent";
 import { PhotoBand } from "@/components/PhotoBand";
 import { StudentLife } from "@/components/StudentLife";
@@ -25,11 +26,17 @@ import { StudentLife } from "@/components/StudentLife";
  *                  gdzie tekst mówi o zasadach.
  * - `StudentLife`— jedyne miejsce, w którym zdjęcie dostaje pełny ekran i
  *                  własny rytm przewijania.
+ *
+ * `ProjectCoverflow` mówi co innego niż „Żywe archiwum" w `HomeExperience`:
+ * archiwum jest KURATORSKIE (trzy rodzaje energii), talia jest PEŁNA
+ * (dziewięć formatów). Jeżeli jedno z dwóch ma zniknąć — to decyzja
+ * zamawiającego, tak jak wyżej.
  */
 export default function Home() {
   return (
     <main id="main-content" tabIndex={-1}>
       <HomeExperience />
+      <ProjectCoverflow />
       <NextEvent />
       <PhotoBand />
       <StudentLife />

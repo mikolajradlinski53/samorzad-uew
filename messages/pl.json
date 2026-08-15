@@ -159,6 +159,20 @@
       "contact": "Albo napisz bezpośrednio do Samorządu"
     }
   },
+  "coverflow": {
+    "eyebrow": "Dziewięć formatów",
+    "heading": "Cały dorobek Samorządu na jednym ekranie.",
+    "regionLabel": "Projekty Samorządu Studentów UEW",
+    "roleCarousel": "karuzela",
+    "roleSlide": "slajd",
+    "slideLabel": "{index} z {total}",
+    "metaType": "Rodzaj",
+    "metaFrame": "Kadr",
+    "open": "Poznaj projekt {project}",
+    "goTo": "Pokaż projekt {project}",
+    "hint": "Przeciągnij lub użyj strzałek",
+    "photoNote": "Kadry z archiwum SSUEW. Projekty bez własnej galerii mają plakat typograficzny — nie podstawiamy zdjęć, które udawałyby dokumentację tego wydarzenia."
+  },
   "trustbar": {
     "official": "Oficjalny serwis Samorządu",
     "statutory": "Ustawowa reprezentacja studentów",

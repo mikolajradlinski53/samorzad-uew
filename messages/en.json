@@ -159,6 +159,20 @@
       "contact": "Or write directly to the Student Government"
     }
   },
+  "coverflow": {
+    "eyebrow": "Nine formats",
+    "heading": "Everything the Student Government runs, on one screen.",
+    "regionLabel": "Projects of the WUEB Student Government",
+    "roleCarousel": "carousel",
+    "roleSlide": "slide",
+    "slideLabel": "{index} of {total}",
+    "metaType": "Type",
+    "metaFrame": "Frame",
+    "open": "Explore {project}",
+    "goTo": "Show {project}",
+    "hint": "Drag or use the arrow keys",
+    "photoNote": "Frames from the SSUEW archive. Projects without their own gallery get a typographic poster — we do not substitute photographs that would pose as documentation of that event."
+  },
   "trustbar": {
     "official": "Official Student Government site",
     "statutory": "Statutory student representation",
