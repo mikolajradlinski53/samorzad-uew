@@ -86,6 +86,8 @@
       "searchLabel": "Describe your situation",
       "searchPlaceholder": "For example, my application is stuck",
       "searchSubmit": "Find a route",
+      "week": "Academic week",
+      "frame": "Frame",
       "intentLabel": "Choose the situation you want to start with",
       "scroll": "See four routes"
     },

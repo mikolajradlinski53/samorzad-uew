@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-15T10:13:55.479Z",
+  "generatedAt": "2026-08-15T10:36:47.763Z",
   "viewport": {
     "width": 375,
     "height": 812
@@ -67,6 +67,30 @@
             "classSnippet": "HomeExperience-module__crXsBa__eyebrow",
             "fontSize": 10.88,
             "textSnippet": "Samorząd Studentów UEW"
+          },
+          {
+            "tag": "dt",
+            "classSnippet": "",
+            "fontSize": 9.6,
+            "textSnippet": "51.10°N · 17.04°E"
+          },
+          {
+            "tag": "dt",
+            "classSnippet": "",
+            "fontSize": 9.6,
+            "textSnippet": "Tydzień roku akad."
+          },
+          {
+            "tag": "dt",
+            "classSnippet": "",
+            "fontSize": 9.6,
+            "textSnippet": "Kadr"
+          },
+          {
+            "tag": "dt",
+            "classSnippet": "",
+            "fontSize": 9.6,
+            "textSnippet": "UTC+1"
           },
           {
             "tag": "span",
@@ -205,18 +229,6 @@
             "classSnippet": "",
             "fontSize": 10.88,
             "textSnippet": "Nie znalazłeś odpowiedzi?"
-          },
-          {
-            "tag": "p",
-            "classSnippet": "mx-auto mb-8 max-w-[1200px] px-6 font-mono text-[0.6875rem] font-medium uppercas",
-            "fontSize": 11,
-            "textSnippet": "Kadry z archiwum Samorządu"
-          },
-          {
-            "tag": "span",
-            "classSnippet": "flex shrink-0 items-center border-r border-border-subtle bg-accent px-4 font-mon",
-            "fontSize": 10,
-            "textSnippet": "Rynek · NBP"
           }
         ]
       },

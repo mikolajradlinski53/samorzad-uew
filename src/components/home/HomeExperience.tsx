@@ -7,6 +7,7 @@ import { useLocale, useTranslations } from "next-intl";
 import { ArrowRight, ArrowUpRight, MagnifyingGlass } from "@phosphor-icons/react";
 import { Link } from "@/i18n/navigation";
 import { heroPhotos } from "@/lib/photos";
+import { HeroInstrument } from "./HeroInstrument";
 import styles from "./HomeExperience.module.css";
 
 
@@ -84,10 +85,15 @@ export function HomeExperience() {
             <p className={styles.eyebrow}>{t("hero.eyebrow")}</p>
             <h1 id="home-experience-title" className={styles.heroTitle}>
               <span className={styles.heroLine}>
-                {t("hero.line1a")} {t("hero.line1b")}
+                <span>
+                  {t("hero.line1a")} {t("hero.line1b")}
+                </span>
               </span>
-              <span className={`${styles.heroLine} ${styles.heroLineAccent}`}>{t("hero.line2")}</span>
+              <span className={`${styles.heroLine} ${styles.heroLineAccent}`}>
+                <span>{t("hero.line2")}</span>
+              </span>
             </h1>
+            <span className={styles.heroRule} aria-hidden="true" />
 
             <div className={styles.heroLower}>
               <p className={styles.heroLead}>{t("hero.lead")}</p>
@@ -108,6 +114,12 @@ export function HomeExperience() {
                   <ArrowRight size={18} weight="bold" aria-hidden="true" />
                 </button>
               </form>
+
+              <HeroInstrument
+                frame={activeIndex + 1}
+                frames={intents.length}
+                labels={{ week: t("hero.week"), frame: t("hero.frame") }}
+              />
             </div>
           </div>
 

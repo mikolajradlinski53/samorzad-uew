@@ -1289,3 +1289,118 @@
   border-radius: var(--home-radius);
   overflow: hidden;
 }
+
+/* ──────────────────────────────────────────────────────────────────────────
+   HERO — SCENA OTWIERAJĄCA
+
+   Tu idzie cały budżet efektów. Reszta strony ma po jednym spokojnym
+   akcencie, ta scena ma być tym, co zapamiętuje się po wyjściu.
+
+   Zasada, której się trzymam: ruch ma nieść informację. Nagłówek wjeżdża
+   linia po linii, bo tak się go czyta. Impuls rysuje się pod spodem, bo to
+   znak rozpoznawczy serwisu. Pasek przyrządowy tyka, bo naprawdę pokazuje
+   bieżący czas i numer kadru. Nic tu nie rusza się „żeby się ruszało".
+   ────────────────────────────────────────────────────────────────────────── */
+
+@keyframes heroLineRise {
+  from { transform: translateY(108%); }
+  to   { transform: translateY(0); }
+}
+
+@keyframes heroRuleDraw {
+  from { transform: scaleX(0); }
+  to   { transform: scaleX(1); }
+}
+
+@keyframes heroFade {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Każda linia ma własny „właz", z którego wyjeżdża — bez tego tekst
+   przesuwałby się po tle zamiast się spod niego wynurzać. */
+.experience .heroTitle .heroLine {
+  display: block;
+  overflow: hidden;
+}
+
+.experience .heroTitle .heroLine > span {
+  display: block;
+  animation: heroLineRise 900ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.experience .heroTitle .heroLine:nth-child(2) > span {
+  animation-delay: 110ms;
+}
+
+/* Impuls pod nagłówkiem — ten sam materiał, co w reszcie serwisu. */
+.experience .heroRule {
+  display: block;
+  height: 3px;
+  width: clamp(64px, 12vw, 132px);
+  margin-top: clamp(1rem, 2vw, 1.6rem);
+  border-radius: 999px;
+  background: var(--home-blue);
+  transform-origin: left center;
+  animation: heroRuleDraw 720ms cubic-bezier(0.16, 1, 0.3, 1) 620ms both;
+}
+
+.experience .heroLower {
+  animation: heroFade 620ms cubic-bezier(0.16, 1, 0.3, 1) 420ms both;
+}
+
+/* Pasek przyrządowy */
+.experience .instrument {
+  display: grid;
+  margin: clamp(1.6rem, 3vw, 2.4rem) 0 0;
+  border-top: 1px solid var(--home-line);
+  padding-top: 0.9rem;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.85rem 1.4rem;
+  animation: heroFade 620ms cubic-bezier(0.16, 1, 0.3, 1) 700ms both;
+}
+
+.experience .instrument > div {
+  min-width: 0;
+}
+
+.experience .instrument dt {
+  margin: 0;
+  color: var(--ink-tertiary);
+  font-family: var(--font-jbm), monospace;
+  font-size: 0.6rem;
+  font-weight: 560;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+}
+
+.experience .instrument dd {
+  margin: 0.25rem 0 0;
+  color: var(--home-ink);
+  font-family: var(--font-jbm), monospace;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+/* Bez tego cyfry mają różne szerokości i zegar drga przy każdej sekundzie. */
+.experience .instrumentNum {
+  font-variant-numeric: tabular-nums;
+}
+
+@media (min-width: 700px) {
+  .experience .instrument {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+/* Ograniczony ruch: wszystko jest na miejscu od razu. `both` zostawiłoby
+   nagłówek zsunięty poza właz, czyli niewidoczny — dlatego animacje
+   ZERUJEMY, a nie skracamy. */
+@media (prefers-reduced-motion: reduce) {
+  .experience .heroTitle .heroLine > span,
+  .experience .heroRule,
+  .experience .heroLower,
+  .experience .instrument {
+    animation: none;
+  }
+}
