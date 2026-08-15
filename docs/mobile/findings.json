@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-15T14:06:22.312Z",
+  "generatedAt": "2026-08-15T17:27:12.214Z",
   "viewport": {
     "width": 375,
     "height": 812
@@ -69,6 +69,24 @@
             "textSnippet": "Samorząd Studentów UEW"
           },
           {
+            "tag": "span",
+            "classSnippet": "",
+            "fontSize": 10,
+            "textSnippet": "01"
+          },
+          {
+            "tag": "span",
+            "classSnippet": "",
+            "fontSize": 10,
+            "textSnippet": "02"
+          },
+          {
+            "tag": "span",
+            "classSnippet": "",
+            "fontSize": 10,
+            "textSnippet": "03"
+          },
+          {
             "tag": "dt",
             "classSnippet": "",
             "fontSize": 9.6,
@@ -91,24 +109,6 @@
             "classSnippet": "",
             "fontSize": 9.6,
             "textSnippet": "UTC+1"
-          },
-          {
-            "tag": "span",
-            "classSnippet": "",
-            "fontSize": 10.08,
-            "textSnippet": "01"
-          },
-          {
-            "tag": "span",
-            "classSnippet": "",
-            "fontSize": 10.08,
-            "textSnippet": "/"
-          },
-          {
-            "tag": "span",
-            "classSnippet": "",
-            "fontSize": 10.08,
-            "textSnippet": "04"
           },
           {
             "tag": "span",

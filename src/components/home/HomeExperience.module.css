@@ -1526,165 +1526,161 @@
   }
 }
 
+
 /* ──────────────────────────────────────────────────────────────────────────
-   HERO PEŁNOEKRANOWE — SCENA, NIE KADR OBOK TEKSTU
+   HERO — ZNAK, NIE FOTOGRAFIA
 
-   Wspólny mianownik wszystkich referencji przysłanych przez Samorząd (Spline,
-   scroll-expand, split-reveal, sekwencja klatek) to jedno: obraz zajmuje cały
-   ekran i jest sceną, a tekst na nim leży. Poprzednia wersja miała zdjęcie w
-   ramce w prawej kolumnie — stąd wrażenie „za mało".
+   Poprzednia wersja kładła fotografię na cały ekran i pisała po niej białym
+   tekstem. Samorząd zgłosił do niej cztery zarzuty naraz: za ciemno, zły
+   układ, za mało ruchu i „fotografia to nie to". Cztery zarzuty do jednego
+   rozwiązania znaczą, że zmieniamy rozwiązanie, a nie że poprawiamy detale.
 
-   Zdjęcie idzie więc pod spód, na całą wysokość okna, a treść ląduje na nim.
+   Wizytówką jest teraz SYGNET. Składa się z trzech warstw, po jednej na każde
+   słowo hasła — Działamy, Wspieramy, Inspirujemy — i pochyla się za kursorem.
+   Fotografia nie znika ze strony: żyje w talii projektów, w pasie kadrów i w
+   „Życiu studenckim". Znika tylko stamtąd, gdzie zasłaniała to, co ważniejsze.
 
-   Warunek konieczny: przesłona. Biały tekst na fotografii bez przyciemnienia
-   potrafi mieć kontrast 2:1 i zmienia się z kadru na kadr. Gradient poniżej
-   daje stałe, ciemne podłoże pod tekstem niezależnie od tego, co jest na
-   zdjęciu — dopiero to pozwala trzymać wymagane 4,5:1.
+   Jasne tło rozwiązuje zarzut „za ciemno" u źródła: nie ma przesłony, więc nie
+   ma czego przyciemniać. Kontrast nie zależy już od tego, jaki kadr akurat
+   wypadł w karuzeli — a to była najkruchsza rzecz w poprzedniej wersji.
    ────────────────────────────────────────────────────────────────────────── */
 
 .experience .hero {
-  --hero-ink: #ffffff;
-  --hero-ink-dim: rgba(255, 255, 255, 0.74);
   position: relative;
-  border-bottom: 0;
-  background: #0a1020;
+  border-bottom: 1px solid var(--border-subtle);
+  background: var(--bg-base);
+  overflow: hidden;
 }
 
-/* Kadr wychodzi z siatki i staje się tłem całej sekcji. */
-.experience .hero .heroFrame {
-  position: absolute;
-  inset: 0;
-  z-index: 0;
-  width: 100%;
-  height: 100%;
-  border: 0;
-  border-radius: 0;
-}
-
-.experience .hero .heroReel,
-.experience .hero .heroReelSlide {
-  border-radius: 0;
-}
-
-/* Przesłona: mocniejsza od dołu i od lewej, czyli tam, gdzie leży tekst. */
-.experience .hero .heroFrame::after {
-  position: absolute;
-  inset: 0;
-  z-index: 2;
+/* Delikatna poświata pod znakiem — jedyny element dekoracyjny w hero.
+   Nie jest tłem, tylko światłem: znak ma na czym stać. */
+.experience .hero::before {
   content: "";
+  position: absolute;
+  left: 50%;
+  top: clamp(120px, 22vh, 260px);
+  width: min(760px, 92vw);
+  aspect-ratio: 1;
+  translate: -50% -50%;
+  background: radial-gradient(
+    circle at 50% 50%,
+    var(--accent-glow) 0%,
+    transparent 62%
+  );
   pointer-events: none;
-  background:
-    linear-gradient(to top, rgba(6, 12, 26, 0.94) 0%, rgba(6, 12, 26, 0.55) 42%, rgba(6, 12, 26, 0.3) 100%),
-    linear-gradient(to right, rgba(6, 12, 26, 0.82) 0%, rgba(6, 12, 26, 0.25) 58%, transparent 100%);
+  z-index: 0;
 }
 
 .experience .heroShell {
   position: relative;
-  z-index: 3;
-  grid-template-columns: minmax(0, 1fr);
-  align-content: end;
-  min-height: 100svh;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: clamp(20px, 3vh, 34px);
+  max-width: 1200px;
+  margin-inline: auto;
+  padding: clamp(30px, 5vh, 68px) clamp(20px, 5vw, 64px) clamp(24px, 4vh, 44px);
+  text-align: center;
 }
 
-.experience .heroCopy,
-.experience .heroLower {
-  max-width: 46rem;
+/* Akapit wprowadzający siada blisko tytułu — razem tworzą jedną myśl, a nie
+   dwa osobne bloki oddzielone pustką. */
+.experience .hero .heroLead {
+  margin-top: 0;
 }
 
 .experience .hero .eyebrow {
-  color: var(--hero-ink-dim);
+  margin: 0;
+  color: var(--accent);
 }
 
+.experience .heroCopy {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: clamp(18px, 2.6vh, 30px);
+  width: 100%;
+}
+
+/*
+ * Nagłówek schodzi z 6,6rem na 3,4rem. To nie jest kosmetyka: w poprzednim
+ * układzie tytuł był wizytówką, więc miał prawo krzyczeć. Teraz wizytówką jest
+ * znak, a tytuł ma go TŁUMACZYĆ. Zostawiony w starym rozmiarze przykrywał
+ * sygnet i wracaliśmy do punktu wyjścia — dwóch rzeczy walczących o pierwsze
+ * spojrzenie.
+ */
 .experience .hero .heroTitle {
-  color: var(--hero-ink);
+  max-width: 22ch;
+  margin: 0;
+  text-align: center;
+  font-size: clamp(1.9rem, 3.5vw, 3.4rem);
+  line-height: 1.04;
+  letter-spacing: -0.04em;
+  color: var(--ink-primary);
 }
 
 .experience .hero .heroLineAccent {
-  color: #9db4ff;
+  color: var(--accent);
+}
+
+.experience .heroLower {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: clamp(18px, 2.6vh, 28px);
+  width: 100%;
 }
 
 .experience .hero .heroLead {
-  color: var(--hero-ink-dim);
+  max-width: 58ch;
+  margin: 0;
+  text-align: center;
+  color: var(--ink-secondary);
 }
 
-/* Pole wyszukiwania i pasek przyrządowy na ciemnym tle. */
 .experience .hero .heroSearch {
-  border-color: rgba(255, 255, 255, 0.28);
-  background: rgba(10, 16, 32, 0.55);
-  color: var(--hero-ink);
-  backdrop-filter: blur(10px);
-}
-
-.experience .hero .heroSearch input {
-  color: var(--hero-ink);
-}
-
-.experience .hero .heroSearch input::placeholder {
-  color: rgba(255, 255, 255, 0.6);
+  width: min(560px, 100%);
+  background: var(--bg-surface);
+  border: 1px solid var(--border-medium);
 }
 
 .experience .hero .instrument {
-  border-top-color: rgba(255, 255, 255, 0.22);
+  justify-content: center;
 }
 
-.experience .hero .instrument dt {
-  color: rgba(255, 255, 255, 0.62);
-}
-
-.experience .hero .instrument dd {
-  color: var(--hero-ink);
-}
-
-.experience .hero .heroRule {
-  background: #9db4ff;
-}
-
-/* Listwa sytuacji: szkło na fotografii zamiast białych kafelków. */
+/* Listwa sytuacji siada pod wizytówką: najpierw kim jesteśmy, potem po co
+   student tu przyszedł. */
 .experience .hero .intentRail {
-  border-color: rgba(255, 255, 255, 0.2);
-  border-radius: var(--home-radius);
-  background: rgba(10, 16, 32, 0.42);
-  backdrop-filter: blur(12px);
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  max-width: 1200px;
+  margin-inline: auto;
+  padding-inline: clamp(20px, 5vw, 64px);
 }
 
 .experience .hero .intentButton {
-  border-color: rgba(255, 255, 255, 0.16);
-  background: transparent;
-  color: var(--hero-ink-dim);
-}
-
-.experience .hero .intentButton > span {
-  color: rgba(255, 255, 255, 0.55);
+  border: 1px solid var(--border-soft);
+  background: var(--bg-surface);
+  color: var(--ink-secondary);
 }
 
 .experience .hero .intentButton:hover,
 .experience .hero .intentButton:focus-visible,
 .experience .hero .intentButton[aria-pressed="true"] {
-  background: rgba(255, 255, 255, 0.13);
-  color: var(--hero-ink);
+  border-color: var(--accent);
+  color: var(--ink-primary);
 }
 
-.experience .hero .intentButton[aria-pressed="true"] > span {
-  color: #9db4ff;
-}
-
-.experience .hero .intentButton::after {
-  background: #9db4ff;
-}
-
-/* Powolny najazd kamery na tło — sterowany przewijaniem tam, gdzie przeglądarka
-   to potrafi, więc bez ani jednej linii JavaScriptu. */
-@supports (animation-timeline: view()) {
-  @media (prefers-reduced-motion: no-preference) {
-    .experience .hero .heroReel {
-      animation: heroPush linear both;
-      animation-timeline: view();
-      animation-range: entry 0% exit 100%;
-    }
-  }
-}
-
-@keyframes heroPush {
-  from { transform: scale(1.06) translateY(0); }
-  to   { transform: scale(1.14) translateY(-2%); }
+.experience .hero .intentPreview {
+  position: relative;
+  z-index: 1;
+  max-width: 1200px;
+  margin-inline: auto;
+  padding: clamp(20px, 3vh, 32px) clamp(20px, 5vw, 64px) clamp(48px, 7vh, 80px);
+  text-align: center;
 }

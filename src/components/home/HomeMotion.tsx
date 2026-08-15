@@ -29,17 +29,9 @@ export default function HomeMotion({ scope }: { scope: RefObject<HTMLDivElement 
       const media = gsap.matchMedia();
 
       media.add("(min-width: 900px) and (prefers-reduced-motion: no-preference)", () => {
-        gsap.to("[data-hero-media]", {
-          yPercent: 4,
-          scale: 1.03,
-          ease: "none",
-          scrollTrigger: {
-            trigger: "[data-hero]",
-            start: "top top",
-            end: "bottom top",
-            scrub: 0.8,
-          },
-        });
+        // Paralaksy kadru w hero już tu nie ma: hero nie ma fotografii. Jego
+        // ruch niesie teraz sam sygnet — składa się z warstw i pochyla za
+        // kursorem, w `HeroMark`, bez udziału ScrollTriggera.
 
         // Kolory czytamy z tokenów motywu, a nie wpisujemy na sztywno. Przy
         // wpisanych wartościach ciemny motyw dostawał ciemny tekst na ciemnym

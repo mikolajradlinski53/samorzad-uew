@@ -8,6 +8,7 @@ import { ArrowRight, ArrowUpRight, MagnifyingGlass } from "@phosphor-icons/react
 import { Link } from "@/i18n/navigation";
 import { heroPhotos } from "@/lib/photos";
 import { HeroInstrument } from "./HeroInstrument";
+import { HeroMark } from "./HeroMark";
 import { HeroCurtain } from "./HeroCurtain";
 import styles from "./HomeExperience.module.css";
 
@@ -83,8 +84,16 @@ export function HomeExperience() {
       <HeroCurtain wordmark="SSUEW" />
       <section data-hero aria-labelledby="home-experience-title" className={styles.hero}>
         <div className={styles.heroShell}>
+          {/* Znak wchodzi PRZED tekstem, bo to on jest wizytówką. Hasło składa
+              się razem z nim — trzy słowa, trzy warstwy sygnetu. */}
+          <p className={styles.eyebrow}>{t("hero.eyebrow")}</p>
+
+          <HeroMark
+            words={[t("hero.motto1"), t("hero.motto2"), t("hero.motto3")]}
+            label={t("hero.markLabel")}
+          />
+
           <div className={styles.heroCopy}>
-            <p className={styles.eyebrow}>{t("hero.eyebrow")}</p>
             <h1 id="home-experience-title" className={styles.heroTitle}>
               <span className={styles.heroLine}>
                 <span>
@@ -95,7 +104,6 @@ export function HomeExperience() {
                 <span>{t("hero.line2")}</span>
               </span>
             </h1>
-            <span className={styles.heroRule} aria-hidden="true" />
 
             <div className={styles.heroLower}>
               <p className={styles.heroLead}>{t("hero.lead")}</p>
@@ -123,41 +131,6 @@ export function HomeExperience() {
                 labels={{ week: t("hero.week"), frame: t("hero.frame") }}
               />
             </div>
-          </div>
-
-          <div data-hero-media data-hero-frame className={styles.heroFrame} aria-hidden="true">
-            <div className={styles.heroReel}>
-              {intents.map((intent, index) => (
-                <div
-                  key={intent.key}
-                  data-active={index === activeIndex ? "true" : undefined}
-                  className={styles.heroReelSlide}
-                  style={{ transform: `translate3d(0, ${(index - activeIndex) * 100}%, 0)` }}
-                >
-                  <Image
-                    data-intent-image={intent.key}
-                    src={heroPhotos[intent.photo]}
-                    alt=""
-                    fill
-                    preload={index === 0}
-                    sizes="(max-width: 899px) 100vw, 40vw"
-                    className={styles.heroFrameImage}
-                    style={{ objectPosition: intent.position }}
-                  />
-                </div>
-              ))}
-            </div>
-            <span className={styles.heroFrameWash} />
-            <span key={`impulse-${active.key}`} className={styles.heroImpulse}>
-              <svg viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
-                <path pathLength="1" d="M 0.6 100 L 0.6 0.6 L 100 0.6" />
-              </svg>
-            </span>
-            <span className={styles.heroFrameIndex}>
-              <span key={active.key}>{String(activeIndex + 1).padStart(2, "0")}</span>
-              <span aria-hidden="true">/</span>
-              <span>{String(intents.length).padStart(2, "0")}</span>
-            </span>
           </div>
 
           <div className={styles.intentRail} aria-label={t("hero.intentLabel")}>
