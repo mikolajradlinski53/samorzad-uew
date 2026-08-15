@@ -8,6 +8,7 @@ import { ArrowRight, ArrowUpRight, MagnifyingGlass } from "@phosphor-icons/react
 import { Link } from "@/i18n/navigation";
 import { heroPhotos } from "@/lib/photos";
 import { HeroInstrument } from "./HeroInstrument";
+import { HeroCurtain } from "./HeroCurtain";
 import styles from "./HomeExperience.module.css";
 
 
@@ -79,6 +80,7 @@ export function HomeExperience() {
   return (
     <div ref={rootRef} className={styles.experience}>
       {motionReady && <HomeMotion scope={rootRef} />}
+      <HeroCurtain wordmark="SSUEW" />
       <section data-hero aria-labelledby="home-experience-title" className={styles.hero}>
         <div className={styles.heroShell}>
           <div className={styles.heroCopy}>

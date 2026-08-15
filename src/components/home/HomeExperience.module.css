@@ -1404,3 +1404,124 @@
     animation: none;
   }
 }
+
+/* ──────────────────────────────────────────────────────────────────────────
+   KURTYNA OTWIERAJĄCA
+
+   Dwie połowy w kolorze tła rozsuwają się w pionie i odsłaniają hero. W
+   szczelinie zostaje na moment linia w kolorze akcentu — ten sam Impuls, co
+   w reszcie serwisu.
+
+   Litery sygnetu wyjeżdżają spod krawędzi szczeliny: górna połowa pokazuje
+   je od dołu, dolna od góry, więc w chwili rozsunięcia napis rozpada się
+   dokładnie w miejscu cięcia.
+
+   Całość 1,4 s. Krócej niż wzorzec, bo to strona użytkowa, nie portfolio.
+   ────────────────────────────────────────────────────────────────────────── */
+
+.experience .curtain {
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.experience .curtainHalf {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 50%;
+  overflow: hidden;
+  background: var(--bg-base);
+  will-change: transform;
+}
+
+.experience .curtainHalf[data-half="top"] {
+  top: 0;
+  align-items: flex-end;
+  animation: curtainUp 620ms cubic-bezier(0.76, 0, 0.24, 1) 700ms both;
+}
+
+.experience .curtainHalf[data-half="bottom"] {
+  bottom: 0;
+  animation: curtainDown 620ms cubic-bezier(0.76, 0, 0.24, 1) 700ms both;
+}
+
+/* Sygnet: w obu połowach ten sam napis, wyrównany do linii cięcia — razem
+   tworzą jedno słowo przeciętne w pół. */
+.experience .curtainWord {
+  position: absolute;
+  left: 50%;
+  display: flex;
+  overflow: hidden;
+  transform: translateX(-50%);
+  color: var(--home-ink);
+  font-family: var(--font-display), sans-serif;
+  font-size: clamp(2.4rem, 9vw, 5.5rem);
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  line-height: 1;
+}
+
+.experience .curtainHalf[data-half="top"] .curtainWord {
+  bottom: 0;
+  transform: translate(-50%, 50%);
+}
+
+.experience .curtainHalf[data-half="bottom"] .curtainWord {
+  top: 0;
+  transform: translate(-50%, -50%);
+}
+
+.experience .curtainWord > span {
+  display: inline-block;
+  animation: curtainChar 520ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+/* Linia akcentu w szczelinie — znika razem z rozsunięciem. */
+.experience .curtainLine {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--accent);
+  transform: scaleX(0);
+  transform-origin: center;
+  animation:
+    curtainLineDraw 520ms cubic-bezier(0.16, 1, 0.3, 1) 180ms both,
+    curtainLineOut 260ms ease-out 700ms both;
+}
+
+@keyframes curtainChar {
+  from { opacity: 0; transform: translateY(28%); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes curtainLineDraw {
+  from { transform: scaleX(0); }
+  to   { transform: scaleX(1); }
+}
+
+@keyframes curtainLineOut {
+  to { opacity: 0; }
+}
+
+@keyframes curtainUp {
+  from { transform: translateY(0); }
+  to   { transform: translateY(-100%); }
+}
+
+@keyframes curtainDown {
+  from { transform: translateY(0); }
+  to   { transform: translateY(100%); }
+}
+
+/* Komponent i tak nie renderuje się przy ograniczonym ruchu — to zabezpieczenie
+   na wypadek, gdyby ktoś kiedyś zmienił tamten warunek. */
+@media (prefers-reduced-motion: reduce) {
+  .experience .curtain {
+    display: none;
+  }
+}
