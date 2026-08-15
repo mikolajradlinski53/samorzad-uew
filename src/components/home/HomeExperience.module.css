@@ -1,13 +1,20 @@
+/* Zmienne strony głównej wskazują na tokeny projektu, a nie na własne kody
+   kolorów. Wcześniej było tu 44 twardych wartości i ani jednego odwołania do
+   motywu, więc przełącznik na ciemny nie miał tu żadnego skutku — strona
+   zostawała biała. Tokeny mają wariant `.dark`, więc wystarczy się do nich
+   podpiąć raz. */
 .experience {
-  --home-blue: #2d4dd7;
-  --home-blue-soft: #e9eeff;
-  --home-ink: #102743;
-  --home-muted: #5b6c83;
-  --home-line: #d8e0eb;
-  --home-paper: #f8faff;
-  --home-night: #102743;
+  --home-blue: var(--accent);
+  --home-blue-soft: var(--accent-glow);
+  --home-ink: var(--ink-primary);
+  --home-muted: var(--ink-secondary);
+  --home-line: var(--border-medium);
+  --home-paper: var(--bg-base);
+  --home-night: var(--ink-primary);
+  --home-surface: var(--bg-surface);
+  --home-line-strong: var(--border-strong);
   overflow-x: clip;
-  background: #fff;
+  background: var(--bg-base);
   color: var(--home-ink);
   font-family: var(--font-home), sans-serif;
 }
@@ -91,8 +98,8 @@
   display: grid;
   min-height: 4.25rem;
   margin-top: 2rem;
-  border: 1px solid #bec9d8;
-  background: #fff;
+  border: 1px solid var(--home-line-strong);
+  background: var(--home-surface);
   padding-left: 1.1rem;
   grid-template-columns: auto 1fr auto;
   align-items: center;
@@ -119,7 +126,7 @@
 }
 
 .heroSearch input::placeholder {
-  color: #718097;
+  color: var(--ink-tertiary);
   opacity: 1;
 }
 
@@ -138,7 +145,7 @@
   align-items: center;
   justify-content: center;
   gap: 0.6rem;
-  color: #fff;
+  color: var(--home-surface);
   font-weight: 700;
   cursor: pointer;
   transition: background-color 180ms ease, color 180ms ease;
@@ -163,8 +170,8 @@
   width: 100%;
   height: clamp(430px, 53vh, 620px);
   overflow: hidden;
-  border: 1px solid #bcc7d6;
-  background: #dce3ee;
+  border: 1px solid var(--home-line-strong);
+  background: var(--bg-subtle);
 }
 
 .heroReel {
@@ -238,7 +245,7 @@
   align-items: center;
   justify-content: center;
   gap: 0.42rem;
-  color: #fff;
+  color: var(--home-surface);
   font-family: var(--font-jbm), monospace;
   font-size: 0.63rem;
   font-variant-numeric: tabular-nums;
@@ -283,7 +290,7 @@
   border: 0;
   border-right: 1px solid var(--home-line);
   border-bottom: 1px solid var(--home-line);
-  background: #fff;
+  background: var(--home-surface);
   padding: 1rem 1.15rem;
   align-items: center;
   gap: 0.85rem;
@@ -306,7 +313,7 @@
 }
 
 .intentButton > span {
-  color: #5f7087;
+  color: var(--ink-tertiary);
   font-family: var(--font-jbm), monospace;
   font-size: 0.64rem;
 }
@@ -385,7 +392,7 @@
 
 .routes {
   scroll-margin-top: 72px;
-  background: #f3f6fa;
+  background: var(--bg-elevated);
   padding: clamp(6rem, 11vw, 10rem) clamp(1.25rem, 5vw, 4.75rem);
   color: var(--home-ink);
 }
@@ -425,8 +432,8 @@
   width: min(100%, 1320px);
   min-height: 660px;
   margin-inline: auto;
-  border-top: 1px solid #bfc9d7;
-  border-left: 1px solid #bfc9d7;
+  border-top: 1px solid var(--home-line);
+  border-left: 1px solid var(--home-line);
   grid-template-columns: repeat(12, minmax(0, 1fr));
   grid-template-rows: repeat(3, minmax(190px, 1fr));
   grid-auto-flow: dense;
@@ -437,8 +444,8 @@
   isolation: isolate;
   display: flex;
   overflow: hidden;
-  border-right: 1px solid #bfc9d7;
-  border-bottom: 1px solid #bfc9d7;
+  border-right: 1px solid var(--home-line);
+  border-bottom: 1px solid var(--home-line);
   padding: clamp(1.4rem, 3vw, 2.5rem);
   flex-direction: column;
   justify-content: space-between;
@@ -451,7 +458,7 @@
   background: var(--home-ink);
   grid-column: span 7;
   grid-row: span 3;
-  color: #fff;
+  color: var(--home-surface);
 }
 
 .route2,
@@ -460,9 +467,9 @@
   grid-column: span 5;
 }
 
-.route2 { background: #fff; }
-.route3 { background: #e8edfb; }
-.route4 { background: #f8fafc; }
+.route2 { background: var(--home-surface); }
+.route3 { background: var(--bg-elevated); }
+.route4 { background: var(--bg-elevated); }
 
 .route2:hover,
 .route2:focus-visible,
@@ -470,7 +477,7 @@
 .route3:focus-visible,
 .route4:hover,
 .route4:focus-visible {
-  background: #dce5ff;
+  background: var(--accent-glow);
   color: var(--home-ink);
 }
 
@@ -548,7 +555,7 @@
 }
 
 .route1 .routeArrow {
-  color: #fff;
+  color: var(--home-surface);
 }
 
 .route:hover .routeArrow,
@@ -563,7 +570,7 @@
   min-height: calc(100svh - 72px);
   overflow: hidden;
   border-bottom: 1px solid var(--home-line);
-  background: #fff;
+  background: var(--home-surface);
 }
 
 .manifestInner {
@@ -593,7 +600,7 @@
 
 .manifestStatement span {
   display: inline;
-  color: #9aa8bc;
+  color: var(--ink-tertiary);
 }
 
 .manifestNote {
@@ -610,8 +617,8 @@
   width: 100%;
   min-height: 570px;
   overflow: hidden;
-  border: 1px solid #bfc9d7;
-  background: #dce3ee;
+  border: 1px solid var(--home-line);
+  background: var(--bg-subtle);
   grid-column: 3;
   grid-row: 1 / 4;
 }
@@ -621,7 +628,7 @@
 }
 
 .archive {
-  background: #fff;
+  background: var(--home-surface);
   padding: clamp(6rem, 11vw, 10rem) clamp(1.25rem, 5vw, 4.75rem);
   color: var(--home-ink);
 }
@@ -659,8 +666,8 @@
   min-height: 540px;
   margin-inline: auto;
   overflow: hidden;
-  border: 1px solid #c7d0dd;
-  background: #fff;
+  border: 1px solid var(--home-line);
+  background: var(--home-surface);
 }
 
 .archivePanel {
@@ -674,7 +681,7 @@
   flex: 1 1 0;
   flex-direction: column;
   justify-content: space-between;
-  color: #fff;
+  color: var(--home-surface);
   text-decoration: none;
   transition: flex 700ms cubic-bezier(0.16, 1, 0.3, 1);
 }
@@ -746,7 +753,7 @@
 .archiveNote {
   width: min(100%, 1320px);
   margin: 1rem auto 0;
-  color: #5d6d82;
+  color: var(--ink-secondary);
   font-family: var(--font-jbm), monospace;
   font-size: 0.6rem;
   line-height: 1.55;
@@ -756,7 +763,7 @@
 
 .action {
   border-top: 1px solid var(--home-line);
-  background: #f3f6fa;
+  background: var(--bg-elevated);
   padding: clamp(6rem, 10vw, 9rem) clamp(1.25rem, 5vw, 4.75rem);
   color: var(--home-ink);
 }
@@ -802,8 +809,8 @@
 .actionForm > div {
   display: grid;
   min-height: 5.25rem;
-  border: 1px solid #bfc9d7;
-  background: #fff;
+  border: 1px solid var(--home-line);
+  background: var(--home-surface);
   padding: 0.55rem;
   grid-template-columns: 1fr auto;
   align-items: center;
@@ -817,7 +824,7 @@
 }
 
 .actionForm input::placeholder {
-  color: #718097;
+  color: var(--ink-tertiary);
   opacity: 1;
 }
 
@@ -927,7 +934,7 @@
 
   .routeGrid {
     min-height: 0;
-    border-left: 1px solid #bfc9d7;
+    border-left: 1px solid var(--home-line);
     grid-template-columns: 1fr;
     grid-template-rows: none;
     grid-auto-rows: minmax(250px, auto);
@@ -1046,8 +1053,8 @@
 
   .actionForm input {
     min-height: 4.5rem;
-    border: 1px solid #bfc9d7;
-    background: #fff;
+    border: 1px solid var(--home-line);
+    background: var(--home-surface);
   }
 
   .actionForm button {
@@ -1217,4 +1224,68 @@
     transform: none;
     transition: none;
   }
+}
+
+/* Przycisk domykający sekcję końcową — wszedł w miejsce drugiej wyszukiwarki. */
+.experience .actionPrimary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-top: 1.6rem;
+  border-radius: 999px;
+  background: var(--home-blue);
+  padding: 0.95rem 1.7rem;
+  color: var(--bg-base);
+  font-size: 0.95rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: transform 200ms cubic-bezier(0.22, 1, 0.36, 1), background-color 200ms ease;
+}
+
+.experience .actionPrimary:hover {
+  background: var(--accent-dim);
+  transform: translateY(-2px);
+}
+
+/* ──────────────────────────────────────────────────────────────────────────
+   ZAOKRĄGLENIA I DOMKNIĘCIE WIZUALNE
+
+   Arkusz miał dwa `border-radius` na tysiąc kilkaset linii — wszystko inne
+   było ostre. Kanciaste kadry i pola czytały się jako „jeszcze nieskończone",
+   a nie jako świadomy surowy styl, bo reszta serwisu jest zaokrąglona
+   (karty, przyciski, pola formularzy).
+
+   Jeden promień na powierzchnie duże, mniejszy na elementy sterujące —
+   tak jak w pozostałych częściach strony.
+   ────────────────────────────────────────────────────────────────────────── */
+.experience {
+  --home-radius: clamp(14px, 1.5vw, 22px);
+  --home-radius-sm: 12px;
+}
+
+.experience .heroFrame,
+.experience .heroReelSlide,
+.experience .route,
+.experience .archivePanel,
+.experience .manifestMedia {
+  border-radius: var(--home-radius);
+  overflow: hidden;
+}
+
+.experience .heroSearch,
+.experience .intentButton {
+  border-radius: var(--home-radius-sm);
+}
+
+/* Pole wyszukiwania: przycisk w środku dostaje własne zaokrąglenie, żeby nie
+   wystawał rogami poza obrys pola. */
+.experience .heroSearch button {
+  border-radius: calc(var(--home-radius-sm) - 4px);
+}
+
+/* Listwa sytuacji ma obramowania między kafelkami — po zaokrągleniu rogi
+   podwajałyby linie, więc zewnętrzną ramkę przenosimy na kontener. */
+.experience .intentRail {
+  border-radius: var(--home-radius);
+  overflow: hidden;
 }

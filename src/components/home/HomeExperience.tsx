@@ -42,6 +42,29 @@ export function HomeExperience() {
   const active = intents[activeIndex];
   const manifestoWords = t("manifesto.statement").split(/\s+/);
 
+  /**
+   * Hero samo przechodzi między sytuacjami, więc zdjęcia żyją, zanim ktokolwiek
+   * czegoś dotknie.
+   *
+   * Dwa warunki, bez których byłoby to wrogie użytkownikowi:
+   * - przy `prefers-reduced-motion` nie rusza w ogóle;
+   * - PIERWSZA interakcja zatrzymuje je na stałe. Ruchoma lista wyboru, którą
+   *   ktoś właśnie czyta albo próbuje kliknąć, jest gorsza niż statyczna.
+   */
+  const [userTookOver, setUserTookOver] = useState(false);
+  useEffect(() => {
+    if (userTookOver) return;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+    const id = window.setInterval(() => {
+      setActiveIntent((current) => {
+        const i = intents.findIndex((intent) => intent.key === current);
+        return intents[(i + 1) % intents.length].key;
+      });
+    }, 5200);
+    return () => window.clearInterval(id);
+  }, [userTookOver]);
+
   // Duże ekrany dostają choreografię przewijania; telefon nie pobiera jej wcale.
   const [motionReady, setMotionReady] = useState(false);
   useEffect(() => {
@@ -132,7 +155,10 @@ export function HomeExperience() {
                   type="button"
                   aria-pressed={isActive}
                   aria-controls="home-intent-preview"
-                  onClick={() => setActiveIntent(intent.key)}
+                  onClick={() => {
+                    setUserTookOver(true);
+                    setActiveIntent(intent.key);
+                  }}
                   className={styles.intentButton}
                 >
                   <span>{String(index + 1).padStart(2, "0")}</span>
@@ -268,22 +294,13 @@ export function HomeExperience() {
           <p>{t("action.eyebrow")}</p>
           <h2 id="home-action-title">{t("action.heading")}</h2>
           <p className={styles.actionLead}>{t("action.lead")}</p>
-          <form action={`/${locale}/szukaj`} method="get" role="search" className={styles.actionForm}>
-            <label htmlFor="home-final-search">{t("action.inputLabel")}</label>
-            <div>
-              <input
-                id="home-final-search"
-                name="q"
-                type="search"
-                autoComplete="off"
-                placeholder={t("action.placeholder")}
-              />
-              <button type="submit">
-                {t("action.submit")}
-                <ArrowRight size={20} weight="bold" aria-hidden="true" />
-              </button>
-            </div>
-          </form>
+          {/* Druga wyszukiwarka usunięta. Jedno pole w hero wystarcza — dwa
+              identyczne na jednej stronie każą wybierać między tym samym, a
+              tutaj sens ma raczej domknięcie: kontakt albo strefa studenta. */}
+          <Link href="/dla-studenta" className={styles.actionPrimary}>
+            {t("action.submit")}
+            <ArrowRight size={20} weight="bold" aria-hidden="true" />
+          </Link>
           <Link href="/kontakt" className={styles.actionLink}>
             {t("action.contact")}
             <ArrowUpRight size={18} weight="bold" aria-hidden="true" />

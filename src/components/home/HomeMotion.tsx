@@ -41,10 +41,17 @@ export default function HomeMotion({ scope }: { scope: RefObject<HTMLDivElement 
           },
         });
 
+        // Kolory czytamy z tokenów motywu, a nie wpisujemy na sztywno. Przy
+        // wpisanych wartościach ciemny motyw dostawał ciemny tekst na ciemnym
+        // tle — słowa manifestu znikały.
+        const root = getComputedStyle(document.documentElement);
+        const dim = root.getPropertyValue("--ink-tertiary").trim() || "#9aa8bc";
+        const full = root.getPropertyValue("--ink-primary").trim() || "#102743";
+
         const words = gsap.utils.toArray<HTMLElement>("[data-manifest-word]");
-        gsap.set(words, { color: "#9aa8bc" });
+        gsap.set(words, { color: dim });
         gsap.to(words, {
-          color: "#102743",
+          color: full,
           stagger: 0.12,
           ease: "none",
           scrollTrigger: {

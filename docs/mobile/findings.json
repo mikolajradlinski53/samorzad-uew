@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-14T14:03:20.037Z",
+  "generatedAt": "2026-08-15T10:13:55.479Z",
   "viewport": {
     "width": 375,
     "height": 812
@@ -23,7 +23,7 @@
         "culprits": []
       },
       "tapTargets": {
-        "checked": 54,
+        "checked": 53,
         "tooSmall": [
           {
             "tag": "a",
@@ -205,12 +205,6 @@
             "classSnippet": "",
             "fontSize": 10.88,
             "textSnippet": "Nie znalazłeś odpowiedzi?"
-          },
-          {
-            "tag": "label",
-            "classSnippet": "",
-            "fontSize": 10.88,
-            "textSnippet": "Napisz jedno zdanie"
           },
           {
             "tag": "p",
