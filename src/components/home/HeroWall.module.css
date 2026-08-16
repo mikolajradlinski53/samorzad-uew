@@ -67,19 +67,25 @@
   -webkit-mask-image: radial-gradient(ellipse 70% 70% at 50% 50%, black 30%, transparent 100%);
 }
 
+/* `stretch`, nie `center`: ściana ma sięgać od górnej do dolnej krawędzi sekcji.
+   Tekst zostaje wyśrodkowany w pionie własnym `justify-content`. */
 .inner {
   position: relative;
   z-index: 1;
   display: flex;
-  align-items: center;
+  align-items: stretch;
   justify-content: center;
   width: 100%;
   max-width: 1320px;
+  min-height: min(720px, 78vh);
 }
 
 /* ------------------------------------------------------------------ lewa */
 
 .copy {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   width: min(460px, 42%);
   margin-right: 20px;
   flex-shrink: 0;
@@ -178,42 +184,41 @@
 
 /* ------------------------------------------------------------- ściana */
 
+/*
+ * KADRY LECĄ Z GÓRY NA DÓŁ, NIE SIEDZĄ W SOCZEWCE.
+ *
+ * Poprzednia wersja miała maskę eliptyczną, czyli okrągłe okno: kolumny
+ * gasły dookoła, przez co ściana wyglądała jak podglądana przez lupę, a nie
+ * jak strumień zdjęć. Teraz:
+ *
+ * - pionowo gaśnie tylko GÓRA i DÓŁ, więc ruch ma skąd wypływać i dokąd znikać;
+ * - po lewej wąskie zejście do zera, żeby ściana nie wjeżdżała w tekst;
+ * - po PRAWEJ nie ma żadnego wygaszenia. Pole wychodzi poza krawędź okna, więc
+ *   nie ma tam czego wygaszać — kadry po prostu wybiegają za ekran.
+ *
+ * Dwie warstwy maski łączymy przez `intersect`. Bez tego domyślnie się DODAJĄ,
+ * czyli sumują widoczność i nie zasłaniają niczego.
+ */
 .field {
   position: relative;
-  width: min(790px, 59%);
-  height: min(700px, 80vh);
+  align-self: stretch;
+  flex: 1;
+  min-width: 0;
+  min-height: 460px;
+  /* Wyjście poza prawy margines sekcji: kadry docierają do samej krawędzi okna. */
+  margin-right: -24px;
   /* Żadnego tła, ramki, cienia ani zaokrąglenia — kadry mają unosić się nad
      tłem sekcji, a nie leżeć w pudełku. */
   overflow: hidden;
   perspective: 850px;
-  /*
-   * Brzegi gasi MASKA NA TREŚCI, nie nałożony prostokąt z gradientem — ten
-   * zdradzałby krawędź w miejscu, w którym gradient się kończy.
-   *
-   * PROMIEŃ MUSI BYĆ <= 50%, i to jest cała pułapka tej maski. W zapisie
-   * `ellipse 76% 82%` procent to PROMIEŃ liczony od szerokości pola, a nie od
-   * jego połowy. Promień 76% szerokości jest więc grubo większy niż połowa
-   * pola: na samej krawędzi maska miała jeszcze ok. 85% krycia, a `overflow`
-   * ucinał ją tam na twardo. Efekt był widoczny gołym okiem — pionowa krecha
-   * po prawej stronie ściany.
-   *
-   * Przy 52% gradient dochodzi do zera praktycznie dokładnie na krawędzi pola,
-   * więc nie ma czego ucinać.
-   */
-  mask-image: radial-gradient(
-    ellipse 52% 52% at 50% 50%,
-    black 56%,
-    rgba(0, 0, 0, 0.92) 72%,
-    rgba(0, 0, 0, 0.5) 87%,
-    transparent 100%
-  );
-  -webkit-mask-image: radial-gradient(
-    ellipse 52% 52% at 50% 50%,
-    black 56%,
-    rgba(0, 0, 0, 0.92) 72%,
-    rgba(0, 0, 0, 0.5) 87%,
-    transparent 100%
-  );
+  mask-image:
+    linear-gradient(to bottom, transparent 0%, black 13%, black 87%, transparent 100%),
+    linear-gradient(to right, transparent 0%, black 16%);
+  mask-composite: intersect;
+  -webkit-mask-image:
+    linear-gradient(to bottom, transparent 0%, black 13%, black 87%, transparent 100%),
+    linear-gradient(to right, transparent 0%, black 16%);
+  -webkit-mask-composite: source-in;
 }
 
 .stage {
@@ -365,9 +370,18 @@
     margin-inline: auto;
   }
 
+  .inner {
+    min-height: 0;
+  }
+
+  /* Po złożeniu w pion ściana nie ma już „prawej krawędzi okna", do której
+     miałaby wybiegać — wraca do stałej wysokości i normalnego marginesu. */
   .field {
+    align-self: auto;
+    flex: none;
     width: min(780px, 100%);
     height: 620px;
+    margin-right: 0;
   }
 }
 
@@ -391,6 +405,7 @@
 
   .field {
     height: 570px;
+    min-height: 0;
   }
 
   .stage {
@@ -405,6 +420,7 @@
 @media (max-width: 470px) {
   .field {
     height: 540px;
+    min-height: 0;
   }
 
   .stage {
@@ -430,6 +446,72 @@
   }
 
   .card {
+    transition: none;
+  }
+}
+
+/* ----------------------------------------------------------------- CTA */
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px 18px;
+  margin-top: 20px;
+}
+
+.ctaPrimary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 48px;
+  padding: 0 24px;
+  border-radius: 999px;
+  background: var(--accent);
+  color: var(--bg-base);
+  font-size: 0.9375rem;
+  font-weight: 600;
+  transition: background 200ms ease, transform 200ms ease;
+}
+
+.ctaPrimary:hover {
+  background: var(--accent-dim);
+}
+
+.ctaPrimary:active {
+  transform: scale(0.98);
+}
+
+.ctaSecondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  /* 48 px, tyle co przycisk obok — odnośnik tekstowy obok pełnowymiarowego
+     przycisku i tak musi być wygodnym celem (WCAG 2.5.8). */
+  min-height: 48px;
+  padding: 0 4px;
+  color: var(--ink-primary);
+  font-size: 0.9375rem;
+  font-weight: 500;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  text-decoration-thickness: 1px;
+  text-decoration-color: var(--border-strong);
+}
+
+.ctaSecondary:hover {
+  color: var(--accent);
+  text-decoration-color: var(--accent);
+}
+
+@media (max-width: 1000px) {
+  .actions {
+    justify-content: center;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ctaPrimary {
     transition: none;
   }
 }

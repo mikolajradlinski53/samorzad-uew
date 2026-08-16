@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-16T12:21:27.057Z",
+  "generatedAt": "2026-08-16T12:39:08.897Z",
   "viewport": {
     "width": 375,
     "height": 812
@@ -23,7 +23,7 @@
         "culprits": []
       },
       "tapTargets": {
-        "checked": 67,
+        "checked": 69,
         "tooSmall": [
           {
             "tag": "a",
@@ -236,21 +236,39 @@
         "offenders": [
           {
             "tag": "div",
+            "classSnippet": "HeroWall-module__5ZInkG__track",
+            "width": 887.05,
+            "rectRight": 257.96
+          },
+          {
+            "tag": "div",
+            "classSnippet": "HeroWall-module__5ZInkG__track",
+            "width": 824.17,
+            "rectRight": 540.52
+          },
+          {
+            "tag": "div",
             "classSnippet": "HeroWall-module__5ZInkG__stage",
             "width": 645.42,
             "rectRight": 540.52
+          },
+          {
+            "tag": "div",
+            "classSnippet": "HeroWall-module__5ZInkG__card",
+            "width": 491.29,
+            "rectRight": 207.64
+          },
+          {
+            "tag": "img",
+            "classSnippet": "HeroWall-module__5ZInkG__cardImage",
+            "width": 487.95,
+            "rectRight": 205.91
           },
           {
             "tag": "span",
             "classSnippet": "ProjectCoverflow-module__NsUuva__deckShadow",
             "width": 487.5,
             "rectRight": 431.25
-          },
-          {
-            "tag": "div",
-            "classSnippet": "HeroWall-module__5ZInkG__track",
-            "width": 485.82,
-            "rectRight": 257.96
           },
           {
             "tag": "span",
@@ -266,63 +284,45 @@
           },
           {
             "tag": "div",
-            "classSnippet": "HeroWall-module__5ZInkG__track",
-            "width": 477.25,
-            "rectRight": 540.52
-          },
-          {
-            "tag": "div",
-            "classSnippet": "HeroWall-module__5ZInkG__column",
-            "width": 374.37,
-            "rectRight": 540.52
-          },
-          {
-            "tag": "div",
             "classSnippet": "HeroWall-module__5ZInkG__card",
-            "width": 371.28,
-            "rectRight": 434.55
+            "width": 454.57,
+            "rectRight": 277.92
           },
           {
             "tag": "img",
             "classSnippet": "HeroWall-module__5ZInkG__cardImage",
-            "width": 368.73,
-            "rectRight": 433.24
+            "width": 451.48,
+            "rectRight": 276.33
           },
           {
             "tag": "div",
             "classSnippet": "HeroWall-module__5ZInkG__card",
-            "width": 349.89,
-            "rectRight": 474.14
+            "width": 433.95,
+            "rectRight": -195.14
           },
           {
             "tag": "img",
             "classSnippet": "HeroWall-module__5ZInkG__cardImage",
-            "width": 347.49,
-            "rectRight": 472.91
+            "width": 431.05,
+            "rectRight": -196.64
           },
           {
             "tag": "div",
             "classSnippet": "HeroWall-module__5ZInkG__card",
-            "width": 330.84,
-            "rectRight": 509.22
+            "width": 422.95,
+            "rectRight": 337.83
           },
           {
             "tag": "img",
             "classSnippet": "HeroWall-module__5ZInkG__cardImage",
-            "width": 328.56,
-            "rectRight": 508.05
+            "width": 420.07,
+            "rectRight": 336.35
           },
           {
             "tag": "div",
             "classSnippet": "HeroWall-module__5ZInkG__card",
-            "width": 313.75,
-            "rectRight": 540.52
-          },
-          {
-            "tag": "img",
-            "classSnippet": "HeroWall-module__5ZInkG__cardImage",
-            "width": 311.59,
-            "rectRight": 539.41
+            "width": 405.12,
+            "rectRight": -102.38
           }
         ]
       }

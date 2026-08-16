@@ -2,7 +2,8 @@
 
 import Image from "next/image";
 import { useLocale, useTranslations } from "next-intl";
-import { ArrowRight, MagnifyingGlass } from "@phosphor-icons/react";
+import { ArrowRight, ArrowUpRight, MagnifyingGlass } from "@phosphor-icons/react";
+import { Link } from "@/i18n/navigation";
 import { wallPhotos } from "@/lib/photos";
 import { HeroTicker } from "./HeroTicker";
 import styles from "./HeroWall.module.css";
@@ -90,6 +91,20 @@ export function HeroWall() {
               <ArrowRight size={18} weight="bold" aria-hidden="true" />
             </button>
           </form>
+
+          {/* Wyszukiwarka obsługuje tych, którzy WIEDZĄ, czego szukają. Te dwa
+              odnośniki są dla reszty: jedna droga dla studenta ze sprawą, druga
+              dla kogoś, kto chce dołączyć. */}
+          <div className={styles.actions}>
+            <Link href="/dla-studenta" className={styles.ctaPrimary}>
+              {t("ctaPrimary")}
+              <ArrowRight size={18} weight="bold" aria-hidden="true" />
+            </Link>
+            <Link href="/rekrutacja" className={styles.ctaSecondary}>
+              {t("ctaSecondary")}
+              <ArrowUpRight size={17} weight="bold" aria-hidden="true" />
+            </Link>
+          </div>
         </div>
 
         {/*

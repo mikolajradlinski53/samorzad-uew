@@ -53,9 +53,34 @@ export const heroPhotos: string[] = USE_LOCAL.hero
  * Jest ich pięć, więc powtórzenia są widoczne — to stan przejściowy, żeby dało
  * się ocenić układ przed zebraniem materiału, a nie wersja docelowa.
  */
+/**
+ * Wszystko, co realnie leży w public/photos/hero/.
+ *
+ * Lista jest JAWNA, a nie generowana przez `localList`, z dwóch powodów:
+ * - część plików ma nazwy opisowe zamiast numerów, więc generator ich nie widział
+ *   i ściana jechała na pięciu kadrach zamiast dwunastu;
+ * - rozszerzenia są różne i pisane RÓŻNĄ WIELKOŚCIĄ LITER (.jpg, .JPG, .JPEG).
+ *   Windows tego nie rozróżnia, Linux na produkcji owszem — pomyłka w wielkości
+ *   liter działa lokalnie i wywala zdjęcie dopiero po wdrożeniu.
+ */
+const heroArchive: string[] = [
+  "/photos/hero/01.jpg",
+  "/photos/hero/bal_1.JPG",
+  "/photos/hero/02.jpg",
+  "/photos/hero/tedx_1.JPG",
+  "/photos/hero/03.jpg",
+  "/photos/hero/grad_1.JPEG",
+  "/photos/hero/04.jpg",
+  "/photos/hero/da_1.JPG",
+  "/photos/hero/05.jpg",
+  "/photos/hero/tedx_2.JPG",
+  "/photos/hero/inne_1.JPG",
+  "/photos/hero/grad_2.jpg",
+];
+
 export const wallPhotos: string[] = USE_LOCAL.sciana
   ? localList("sciana", WALL_COUNT)
-  : localList("hero", HERO_COUNT);
+  : heroArchive;
 
 /** Czy ściana ma własny komplet, czy leci na zastępnikach z archiwum hero. */
 export const wallPhotosAreFinal = (): boolean => USE_LOCAL.sciana;
