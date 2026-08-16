@@ -77,7 +77,14 @@
     "stats": ["Representing every UEW student", "09 long-term projects", "Official SSUEW website"]
   },
   "heroWall": {
-    "pill": "Official website",
+    "tickerWeek": "Academic week",
+    "tickerToStart": "To the academic year",
+    "tickerNow": "Wroclaw, now",
+    "tickerDays": "{days, plural, one {# day} other {# days}}",
+    "tickerSession": {
+      "winter": "To the winter session",
+      "summer": "To the summer session"
+    },
     "titleStrong": "Student Government",
     "titleMuted": "of the Wroclaw University of Economics and Business",
     "motto": "We act · We support · We inspire",

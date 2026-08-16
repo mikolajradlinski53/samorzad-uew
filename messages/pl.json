@@ -77,7 +77,14 @@
     "stats": ["Reprezentujemy wszystkich studentów", "09 stałych projektów", "Oficjalny serwis SSUEW"]
   },
   "heroWall": {
-    "pill": "Oficjalny serwis",
+    "tickerWeek": "Tydzień roku akad.",
+    "tickerToStart": "Do startu roku akad.",
+    "tickerNow": "Wrocław, teraz",
+    "tickerDays": "{days, plural, one {# dzień} few {# dni} many {# dni} other {# dnia}}",
+    "tickerSession": {
+      "winter": "Do sesji zimowej",
+      "summer": "Do sesji letniej"
+    },
     "titleStrong": "Samorząd Studentów",
     "titleMuted": "Uniwersytetu Ekonomicznego we Wrocławiu",
     "motto": "Działamy · Wspieramy · Inspirujemy",

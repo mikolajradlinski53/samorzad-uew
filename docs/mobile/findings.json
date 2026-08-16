@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-16T11:49:17.134Z",
+  "generatedAt": "2026-08-16T12:21:27.057Z",
   "viewport": {
     "width": 375,
     "height": 812
@@ -63,10 +63,16 @@
             "textSnippet": "en"
           },
           {
-            "tag": "p",
-            "classSnippet": "HeroWall-module__5ZInkG__pill",
-            "fontSize": 11,
-            "textSnippet": "Oficjalny serwis"
+            "tag": "dt",
+            "classSnippet": "",
+            "fontSize": 10,
+            "textSnippet": "Do startu roku akad."
+          },
+          {
+            "tag": "dt",
+            "classSnippet": "",
+            "fontSize": 10,
+            "textSnippet": "Wrocław, teraz"
           },
           {
             "tag": "p",
@@ -223,12 +229,6 @@
             "classSnippet": "ProjectCoverflow-module__NsUuva__cardIndex",
             "fontSize": 11,
             "textSnippet": "09"
-          },
-          {
-            "tag": "dt",
-            "classSnippet": "",
-            "fontSize": 10,
-            "textSnippet": "Rodzaj"
           }
         ]
       },
@@ -266,15 +266,39 @@
           },
           {
             "tag": "div",
+            "classSnippet": "HeroWall-module__5ZInkG__track",
+            "width": 477.25,
+            "rectRight": 540.52
+          },
+          {
+            "tag": "div",
             "classSnippet": "HeroWall-module__5ZInkG__column",
             "width": 374.37,
             "rectRight": 540.52
           },
           {
             "tag": "div",
-            "classSnippet": "HeroWall-module__5ZInkG__track",
-            "width": 362.14,
-            "rectRight": 540.52
+            "classSnippet": "HeroWall-module__5ZInkG__card",
+            "width": 371.28,
+            "rectRight": 434.55
+          },
+          {
+            "tag": "img",
+            "classSnippet": "HeroWall-module__5ZInkG__cardImage",
+            "width": 368.73,
+            "rectRight": 433.24
+          },
+          {
+            "tag": "div",
+            "classSnippet": "HeroWall-module__5ZInkG__card",
+            "width": 349.89,
+            "rectRight": 474.14
+          },
+          {
+            "tag": "img",
+            "classSnippet": "HeroWall-module__5ZInkG__cardImage",
+            "width": 347.49,
+            "rectRight": 472.91
           },
           {
             "tag": "div",
@@ -299,30 +323,6 @@
             "classSnippet": "HeroWall-module__5ZInkG__cardImage",
             "width": 311.59,
             "rectRight": 539.41
-          },
-          {
-            "tag": "div",
-            "classSnippet": "flex items-center gap-3",
-            "width": 244.41,
-            "rectRight": 428.41
-          },
-          {
-            "tag": "span",
-            "classSnippet": "ProjectCoverflow-module__NsUuva__cardShadow",
-            "width": 214.93,
-            "rectRight": 484.33
-          },
-          {
-            "tag": "span",
-            "classSnippet": "HeroWall-module__5ZInkG__cardGlow",
-            "width": 206.09,
-            "rectRight": 481.77
-          },
-          {
-            "tag": "span",
-            "classSnippet": "HeroWall-module__5ZInkG__cardGlow",
-            "width": 196.62,
-            "rectRight": 514.14
           }
         ]
       }

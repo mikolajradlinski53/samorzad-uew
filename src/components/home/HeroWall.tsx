@@ -4,6 +4,7 @@ import Image from "next/image";
 import { useLocale, useTranslations } from "next-intl";
 import { ArrowRight, MagnifyingGlass } from "@phosphor-icons/react";
 import { wallPhotos } from "@/lib/photos";
+import { HeroTicker } from "./HeroTicker";
 import styles from "./HeroWall.module.css";
 
 /**
@@ -15,21 +16,27 @@ import styles from "./HeroWall.module.css";
  *
  * CZTERY RZECZY, KTÓRE ROBIMY INACZEJ NIŻ WZORZEC — i dlaczego:
  *
- * 1. Kolor. Wzorzec jest fioletowo-indygowy; my mamy niebieski #2C4BFF w
- *    identyfikacji. Poświaty i akcenty idą w naszym niebieskim, bo hero z cudzą
- *    paletą jest ładne i nie nasze.
- * 2. Hero zostaje CIEMNE w obu motywach. To nie jest przeoczenie: ciemna scena
- *    jest tu treścią, tak jak ciemna sala w kinie. Reszta strony słucha motywu.
- * 3. Ściana jest DEKORACJĄ dla czytnika ekranu (`aria-hidden`). Trzydzieści dwa
- *    opisy „zdjęcie z życia Samorządu" to nie dostępność, tylko hałas —
+ * 1. Kolor i motyw. Wzorzec jest fioletowo-indygowy na czerni; my bierzemy
+ *    wszystko z tokenów, więc hero zmienia się razem z przełącznikiem motywu
+ *    tak samo jak reszta serwisu.
+ * 2. TRZY kolumny, nie cztery. Przy czterech każda była tak wąska, że kadr
+ *    przestawał cokolwiek pokazywać — zostawał pasek koloru.
+ * 3. Ściana NIE ZATRZYMUJE SIĘ pod kursorem. Wzorzec ją zatrzymuje, ale wtedy
+ *    jedno przypadkowe przejechanie myszą po drodze do menu zamraża pierwszy
+ *    ekran i wygląda jak zawieszenie strony.
+ * 4. Ściana jest DEKORACJĄ dla czytnika ekranu (`aria-hidden`). Kilkadziesiąt
+ *    opisów „zdjęcie z życia Samorządu" to nie dostępność, tylko hałas —
  *    znaczenie niesie tekst obok, a zdjęcia niosą je dla oka.
- * 4. Zostaje WYSZUKIWARKA. Wzorzec ma po lewej tylko napis i akapit, ale to
+ * 5. Zostaje WYSZUKIWARKA. Wzorzec ma po lewej tylko napis i akapit, ale to
  *    jest strona, na którą student wchodzi ze sprawą. Hero bez pola wyszukiwania
  *    byłoby ładniejsze i gorsze.
+ * 6. Etykieta „Oficjalny serwis" ustąpiła paskowi z danymi, które SAME SIĘ
+ *    ZMIENIAJĄ — pod ścianą, nie nad nią. Napis, który wygląda tak samo przy
+ *    każdym wejściu, nic nie wnosi po drugim razie.
  */
 
-/** Cztery kolumny na desktopie; na wąskich ekranach CSS chowa ostatnie. */
-const COLUMNS = 4;
+/** Trzy kolumny; na najwęższych ekranach CSS chowa trzecią. */
+const COLUMNS = 3;
 
 /** Rozkład kadrów po kolumnach — na zmianę, żeby sąsiednie się nie powtarzały. */
 function toColumns(photos: string[]): string[][] {
@@ -51,11 +58,6 @@ export function HeroWall() {
 
       <div className={styles.inner}>
         <div className={styles.copy}>
-          <p className={styles.pill}>
-            <span className={styles.dot} aria-hidden="true" />
-            {t("pill")}
-          </p>
-
           <h1 id="home-hero-title" className={styles.title}>
             <span>{t("titleStrong")}</span>{" "}
             <span className={styles.titleMuted}>{t("titleMuted")}</span>
@@ -104,13 +106,12 @@ export function HeroWall() {
                       pętli: przesuwamy o połowę wysokości i wracamy. */}
                   {[...column, ...column].map((photo, i) => (
                     <div key={i} className={styles.card}>
-                      <span className={styles.cardGlow} />
                       <Image
                         src={photo}
                         alt=""
                         fill
                         preload={index < 2 && i === 0}
-                        sizes="(max-width: 700px) 45vw, (max-width: 1000px) 30vw, 260px"
+                        sizes="(max-width: 700px) 50vw, (max-width: 1000px) 34vw, 320px"
                         className={styles.cardImage}
                       />
                     </div>
@@ -121,6 +122,8 @@ export function HeroWall() {
           </div>
         </div>
       </div>
+
+      <HeroTicker />
     </section>
   );
 }
