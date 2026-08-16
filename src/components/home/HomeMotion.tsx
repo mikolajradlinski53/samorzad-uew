@@ -19,9 +19,9 @@ gsap.registerPlugin(ScrollTrigger, useGSAP);
  * ekran naprawdę spełnia warunek. Na telefonie ten kod nie jest pobierany
  * w ogóle, a efekty na desktopie zostają bez zmian.
  *
- * Animacje jednorazowe (odsłonięcie kadru w hero, przejście między
- * sytuacjami) NIE są tutaj — działają na każdym ekranie, więc zrobiliśmy je
- * w CSS, żeby nie ciągnąć biblioteki dla dwóch tweenów.
+ * Po uporządkowaniu strony głównej zostaje tu jeden efekt: rozjaśnianie słów
+ * manifestu wraz z przewijaniem. Paralaksy kadru w hero i paneli archiwum
+ * odeszły razem z sekcjami, których dotyczyły.
  */
 export default function HomeMotion({ scope }: { scope: RefObject<HTMLDivElement | null> }) {
   useGSAP(
@@ -69,25 +69,6 @@ export default function HomeMotion({ scope }: { scope: RefObject<HTMLDivElement 
           },
         });
 
-        gsap.utils.toArray<HTMLElement>("[data-archive-panel]").forEach((panel) => {
-          const image = panel.querySelector<HTMLElement>("[data-archive-media]");
-          if (!image) return;
-          gsap.fromTo(
-            image,
-            { yPercent: -7, scale: 1.08 },
-            {
-              yPercent: 7,
-              scale: 1.08,
-              ease: "none",
-              scrollTrigger: {
-                trigger: panel,
-                start: "top bottom",
-                end: "bottom top",
-                scrub: 0.8,
-              },
-            },
-          );
-        });
       });
 
       return () => media.revert();

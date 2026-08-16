@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-16T12:39:08.897Z",
+  "generatedAt": "2026-08-16T14:18:37.369Z",
   "viewport": {
     "width": 375,
     "height": 812
@@ -23,22 +23,8 @@
         "culprits": []
       },
       "tapTargets": {
-        "checked": 69,
+        "checked": 44,
         "tooSmall": [
-          {
-            "tag": "a",
-            "classSnippet": "",
-            "accessibleName": "Otwórz wszystkie projekty",
-            "width": 191.53,
-            "height": 20.39
-          },
-          {
-            "tag": "a",
-            "classSnippet": "HomeExperience-module__crXsBa__actionLink",
-            "accessibleName": "Albo napisz bezpośrednio do Samorządu",
-            "width": 278.7,
-            "height": 20.39
-          },
           {
             "tag": "a",
             "classSnippet": "font-medium text-accent transition-colors hover:text-accent-dim",
@@ -136,99 +122,15 @@
           },
           {
             "tag": "p",
-            "classSnippet": "",
-            "fontSize": 10.88,
-            "textSnippet": "Żywe archiwum"
-          },
-          {
-            "tag": "span",
-            "classSnippet": "",
-            "fontSize": 10.72,
-            "textSnippet": "01"
-          },
-          {
-            "tag": "span",
-            "classSnippet": "",
-            "fontSize": 10.72,
-            "textSnippet": "02"
-          },
-          {
-            "tag": "span",
-            "classSnippet": "",
-            "fontSize": 10.72,
-            "textSnippet": "03"
-          },
-          {
-            "tag": "p",
-            "classSnippet": "HomeExperience-module__crXsBa__archiveNote",
-            "fontSize": 9.6,
-            "textSnippet": "Kadry z archiwum SSUEW. Do czasu przypisania galerii do proj"
-          },
-          {
-            "tag": "p",
-            "classSnippet": "",
-            "fontSize": 10.88,
-            "textSnippet": "Nie znalazłeś odpowiedzi?"
-          },
-          {
-            "tag": "p",
-            "classSnippet": "ProjectCoverflow-module__NsUuva__eyebrow",
+            "classSnippet": "mx-auto mb-8 max-w-[1200px] px-6 font-mono text-[0.6875rem] font-medium uppercas",
             "fontSize": 11,
-            "textSnippet": "Dziewięć formatów"
+            "textSnippet": "Kadry z archiwum Samorządu"
           },
           {
             "tag": "span",
-            "classSnippet": "ProjectCoverflow-module__NsUuva__cardIndex",
-            "fontSize": 11,
-            "textSnippet": "01"
-          },
-          {
-            "tag": "span",
-            "classSnippet": "ProjectCoverflow-module__NsUuva__cardIndex",
-            "fontSize": 11,
-            "textSnippet": "02"
-          },
-          {
-            "tag": "span",
-            "classSnippet": "ProjectCoverflow-module__NsUuva__cardIndex",
-            "fontSize": 11,
-            "textSnippet": "03"
-          },
-          {
-            "tag": "span",
-            "classSnippet": "ProjectCoverflow-module__NsUuva__cardIndex",
-            "fontSize": 11,
-            "textSnippet": "04"
-          },
-          {
-            "tag": "span",
-            "classSnippet": "ProjectCoverflow-module__NsUuva__cardIndex",
-            "fontSize": 11,
-            "textSnippet": "05"
-          },
-          {
-            "tag": "span",
-            "classSnippet": "ProjectCoverflow-module__NsUuva__cardIndex",
-            "fontSize": 11,
-            "textSnippet": "06"
-          },
-          {
-            "tag": "span",
-            "classSnippet": "ProjectCoverflow-module__NsUuva__cardIndex",
-            "fontSize": 11,
-            "textSnippet": "07"
-          },
-          {
-            "tag": "span",
-            "classSnippet": "ProjectCoverflow-module__NsUuva__cardIndex",
-            "fontSize": 11,
-            "textSnippet": "08"
-          },
-          {
-            "tag": "span",
-            "classSnippet": "ProjectCoverflow-module__NsUuva__cardIndex",
-            "fontSize": 11,
-            "textSnippet": "09"
+            "classSnippet": "flex shrink-0 items-center border-r border-border-subtle bg-accent px-4 font-mon",
+            "fontSize": 10,
+            "textSnippet": "econ.label"
           }
         ]
       },
@@ -263,12 +165,6 @@
             "classSnippet": "HeroWall-module__5ZInkG__cardImage",
             "width": 487.95,
             "rectRight": 205.91
-          },
-          {
-            "tag": "span",
-            "classSnippet": "ProjectCoverflow-module__NsUuva__deckShadow",
-            "width": 487.5,
-            "rectRight": 431.25
           },
           {
             "tag": "span",
@@ -323,6 +219,12 @@
             "classSnippet": "HeroWall-module__5ZInkG__card",
             "width": 405.12,
             "rectRight": -102.38
+          },
+          {
+            "tag": "img",
+            "classSnippet": "HeroWall-module__5ZInkG__cardImage",
+            "width": 402.4,
+            "rectRight": -103.78
           }
         ]
       }

@@ -12,7 +12,7 @@
     "title": "Kalkulator średniej",
     "lead": "Reprezentujemy studentów, prowadzimy projekty i pracujemy nad jakością kształcenia na Uczelni. Jesteśmy po to, żeby nikt nie został sam ze swoją sprawą.",
     "ctaPrimary": "Mam sprawę",
-    "ctaSecondary": "Chcę działać z nami",
+    "ctaSecondary": "Poznaj nas",
     "crumbStudent": "Dla studenta",
     "pickerHeading": "Twój program",
     "program": "Kierunek",
@@ -74,7 +74,7 @@
     "line2": "Samorząd.",
     "lead": "Reprezentujemy studentów, prowadzimy projekty i pracujemy nad jakością kształcenia na Uczelni. Jesteśmy po to, żeby nikt nie został sam ze swoją sprawą.",
     "ctaPrimary": "Mam sprawę",
-    "ctaSecondary": "Chcę działać z nami",
+    "ctaSecondary": "Poznaj nas",
     "cta1": "Chcę działać",
     "cta2": "Mam sprawę",
     "scroll": "Przejdź do szybkiego startu",
@@ -94,7 +94,7 @@
     "motto": "Działamy · Wspieramy · Inspirujemy",
     "lead": "Reprezentujemy studentów, prowadzimy projekty i pracujemy nad jakością kształcenia na Uczelni. Jesteśmy po to, żeby nikt nie został sam ze swoją sprawą.",
     "ctaPrimary": "Mam sprawę",
-    "ctaSecondary": "Chcę działać z nami",
+    "ctaSecondary": "Poznaj nas",
     "searchLabel": "Szukaj w serwisie Samorządu",
     "searchPlaceholder": "Np. utknęło mi podanie",
     "searchSubmit": "Szukaj"
@@ -154,71 +154,6 @@
       "statement": "Student nie powinien wiedzieć, który organ, paragraf ani pokój odpowiada za jego problem. System powinien wiedzieć to za niego.",
       "note": "Dlatego ta strona nie zaczyna się od Samorządu. Zaczyna się od Ciebie i dopiero potem odsłania ludzi, decyzje oraz narzędzia, które mogą pomóc."
     },
-    "archive": {
-      "eyebrow": "Żywe archiwum",
-      "heading": "Nie katalog projektów. Trzy rodzaje energii.",
-      "lead": "Start, wspólnota i orientacja. Projekty są ważne nie jako nazwy w menu, lecz jako momenty, które zmieniają doświadczenie studiowania.",
-      "all": "Otwórz wszystkie projekty",
-      "open": "Poznaj projekt {project}",
-      "note": "Kadry z archiwum SSUEW. Do czasu przypisania galerii do projektów nie opisujemy ich jako dokumentacji konkretnego wydarzenia.",
-      "stories": {
-        "adapciak": {
-          "name": "Adapciak",
-          "signature": "Pierwsza wspólna historia zaczyna się, zanim ruszą zajęcia."
-        },
-        "bal": {
-          "name": "Bal UEW",
-          "signature": "Jedna noc, w której UEW spotyka się poza rolami."
-        },
-        "dni": {
-          "name": "Dni Adaptacyjne",
-          "signature": "Pierwszy dzień bez błądzenia po uczelni i po ludziach."
-        }
-      }
-    },
-    "action": {
-      "eyebrow": "Nie znalazłeś odpowiedzi?",
-      "heading": "Opisz sprawę. Pomożemy znaleźć właściwy następny krok.",
-      "lead": "Napisz jedno zdanie. Wyszukiwanie po sytuacji spróbuje znaleźć właściwą podstronę, poradnik albo osobę.",
-      "inputLabel": "Napisz jedno zdanie",
-      "placeholder": "Co wydarzyło się na studiach?",
-      "submit": "Znajdź odpowiedź",
-      "contact": "Albo napisz bezpośrednio do Samorządu"
-    }
-  },
-  "coverflow": {
-    "eyebrow": "Dziewięć formatów",
-    "heading": "Cały dorobek Samorządu na jednym ekranie.",
-    "regionLabel": "Projekty Samorządu Studentów UEW",
-    "roleCarousel": "karuzela",
-    "roleSlide": "slajd",
-    "slideLabel": "{index} z {total}",
-    "metaType": "Rodzaj",
-    "metaFrame": "Kadr",
-    "open": "Poznaj projekt {project}",
-    "goTo": "Pokaż projekt {project}",
-    "hint": "Przeciągnij lub użyj strzałek",
-    "photoNote": "Kadry z archiwum SSUEW. Projekty bez własnej galerii mają plakat typograficzny — nie podstawiamy zdjęć, które udawałyby dokumentację tego wydarzenia."
-  },
-  "trustbar": {
-    "official": "Oficjalny serwis Samorządu",
-    "statutory": "Ustawowa reprezentacja studentów",
-    "council": "15 osób w Radzie Uczelnianej",
-    "projects": "9 stałych projektów"
-  },
-  "econ": {
-    "label": "Rynek · NBP",
-    "srHeading": "Aktualne kursy walut (NBP)",
-    "rateLabel": "Kurs {code}: {value} zł"
-  },
-  "audience": {
-    "label": "Zacznij od swojej sytuacji",
-    "heading": "Nie musisz znać struktury. Wystarczy, że wiesz, czego potrzebujesz.",
-    "intro": "Strona prowadzi od sprawy do właściwego narzędzia, osoby albo źródła. Wybierz punkt, który jest najbliżej Twojej sytuacji.",
-    "matter": {
-      "title": "Mam sprawę na studiach",
-      "desc": "Prawa studenta, stypendia, podania, USOS, dyplomowanie i wszystkie najczęstsze ścieżki w jednym miejscu."
-    },
     "support": {
       "title": "Potrzebuję wsparcia",
       "desc": "Pomoc psychologiczna, materialna i prawna — spokojnie, konkretnie i bez odsyłania od drzwi do drzwi."
@@ -230,33 +165,6 @@
     "proof": {
       "title": "Chcę sprawdzić, co robicie",
       "desc": "Zobacz ludzi, projekty, decyzje i publiczny ślad działań Samorządu — razem ze źródłami."
-    }
-  },
-  "about": {
-    "eyebrow": "O nas",
-    "heading": "Samorząd zaczyna się od wszystkich studentów.",
-    "statStudents": "studentów UEW · stan na 20.10.2024",
-    "statCouncil": "osób w Radzie Uczelnianej",
-    "statProjects": "stałych projektów",
-    "source": "Źródło liczby studentów: oficjalny dokument UEW",
-    "p1": "Samorząd Studentów reprezentuje całą społeczność studencką UEW. Dbamy o interesy studentów, współtworzymy życie Uczelni i inicjujemy projekty edukacyjne, społeczne oraz integracyjne.",
-    "p2": "Jesteśmy łącznikiem między studentami a władzami Uczelni. To znaczy, że codzienna sprawa, pomysł albo problem nie powinny kończyć się na wiadomości bez odpowiedzi — mają trafić do właściwej osoby i dostać dalszy ciąg.",
-    "quote": "Działamy. Wspieramy. Inspirujemy."
-  },
-  "resources": {
-    "eyebrow": "Strefa studenta",
-    "heading": "Sprawa najpierw. Struktura później.",
-    "intro": "Nie musisz wiedzieć, kto odpowiada za daną procedurę. Zacznij od tematu, a kolejne ekrany pokażą Ci następny krok i oficjalne źródło.",
-    "seeAll": "Zobacz całą strefę",
-    "items": {
-      "prawa": { "title": "Prawa studenta", "desc": "Twoje prawa na uczelni i jak ich dochodzić." },
-      "stypendia": { "title": "Stypendia", "desc": "Rektorskie, socjalne i dla osób z niepełnosprawnością." },
-      "wsparcie": { "title": "Wsparcie i zapomogi", "desc": "Świadczenia materialne i pomoc w trudnej sytuacji." },
-      "mapa": { "title": "Mapa kampusu", "desc": "Budynki, sale i najważniejsze punkty na uczelni." },
-      "infopacki": { "title": "Infopacki", "desc": "Praktyczne pakiety informacji dla studentów." },
-      "pomoc": { "title": "Pomoc psychologiczna", "desc": "Gdzie i jak uzyskać wsparcie, gdy go potrzebujesz." },
-      "rzecznik": { "title": "Rzecznik Praw Studenta", "desc": "Stoi po Twojej stronie w sporach z uczelnią." },
-      "prawo": { "title": "Prawo dla studenta", "desc": "Regulaminy i przepisy w przystępnej formie." }
     }
   },
   "events": {
@@ -319,7 +227,7 @@
     "title": "Wszystko, co musisz wiedzieć",
     "lead": "Reprezentujemy studentów, prowadzimy projekty i pracujemy nad jakością kształcenia na Uczelni. Jesteśmy po to, żeby nikt nie został sam ze swoją sprawą.",
     "ctaPrimary": "Mam sprawę",
-    "ctaSecondary": "Chcę działać z nami",
+    "ctaSecondary": "Poznaj nas",
     "situationsHeading": "Co właśnie próbujesz załatwić?",
     "situationsLead": "Nie musisz znać nazwy regulaminu, jednostki ani formularza. Zacznij od sytuacji — pokażemy Ci najkrótszą drogę i źródło.",
     "livingGuides": "8 żywych poradników",

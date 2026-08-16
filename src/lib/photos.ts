@@ -43,39 +43,36 @@ export const heroPhotos: string[] = USE_LOCAL.hero
   : ["a", "b", "c", "d", "e", "f", "g", "h"].map((s) => pic(`ssuew-${s}`, 500, 640));
 
 /**
- * Ściana kadrów w hero — zdjęcia PIONOWE, kadr 4:5.
+ * Kadry archiwalne używane w ścianie w hero — zdjęcia PIONOWE, kadr 4:5.
  *
- * Kolumny są wąskie i pionowe, więc kadr poziomy robi się w nich znaczkiem.
- * Ściana jest dodatkowo obrócona w przestrzeni i wygaszona maską po brzegach —
- * dlatego twarze nie mogą siedzieć przy krawędzi zdjęcia, bo te obszary znikają.
+ * Kolumny są wąskie i pionowe, więc kadr poziomy robi się w nich paskiem.
  *
- * Dopóki nie ma dedykowanego kompletu, używamy prawdziwych kadrów SSUEW z hero.
- * Jest ich pięć, więc powtórzenia są widoczne — to stan przejściowy, żeby dało
- * się ocenić układ przed zebraniem materiału, a nie wersja docelowa.
- */
-/**
- * Wszystko, co realnie leży w public/photos/hero/.
+ * WSZYSTKIE PLIKI Z TEJ LISTY MUSZĄ BYĆ W REPOZYTORIUM. Poprzednia wersja
+ * wskazywała zdjęcia, które leżały wyłącznie na dysku autora i nigdy nie
+ * zostały dodane do gita — lokalnie działały, na produkcji dawały 404.
  *
- * Lista jest JAWNA, a nie generowana przez `localList`, z dwóch powodów:
- * - część plików ma nazwy opisowe zamiast numerów, więc generator ich nie widział
- *   i ściana jechała na pięciu kadrach zamiast dwunastu;
- * - rozszerzenia są różne i pisane RÓŻNĄ WIELKOŚCIĄ LITER (.jpg, .JPG, .JPEG).
- *   Windows tego nie rozróżnia, Linux na produkcji owszem — pomyłka w wielkości
- *   liter działa lokalnie i wywala zdjęcie dopiero po wdrożeniu.
+ * Nazwy są znormalizowane: małe litery, jedno rozszerzenie. Oryginały miały
+ * .jpg, .JPG i .JPEG — Windows nie rozróżnia wielkości liter, Linux na
+ * produkcji owszem, więc literówka w rozszerzeniu psuje stronę dopiero
+ * po wdrożeniu.
+ *
+ * Wszystkie są przycięte do pionu 4:5 (1200x1500, ok. 100-400 KB). Oryginały
+ * miały 6000x4000 px i do 8 MB — poziome, czyli w pionowej karcie przycinane
+ * do paska, i za ciężkie, żeby przeglądarka zdążyła je pokazać.
  */
 const heroArchive: string[] = [
   "/photos/hero/01.jpg",
-  "/photos/hero/bal_1.JPG",
+  "/photos/hero/bal.jpg",
   "/photos/hero/02.jpg",
-  "/photos/hero/tedx_1.JPG",
+  "/photos/hero/tedx-1.jpg",
   "/photos/hero/03.jpg",
-  "/photos/hero/grad_1.JPEG",
+  "/photos/hero/graduetion-1.jpg",
   "/photos/hero/04.jpg",
-  "/photos/hero/da_1.JPG",
+  "/photos/hero/dni-adaptacyjne.jpg",
   "/photos/hero/05.jpg",
-  "/photos/hero/tedx_2.JPG",
-  "/photos/hero/inne_1.JPG",
-  "/photos/hero/grad_2.jpg",
+  "/photos/hero/tedx-2.jpg",
+  "/photos/hero/kampus.jpg",
+  "/photos/hero/graduetion-2.jpg",
 ];
 
 export const wallPhotos: string[] = USE_LOCAL.sciana

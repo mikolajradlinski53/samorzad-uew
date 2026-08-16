@@ -41,7 +41,10 @@ export function Nav() {
 
   const samorzad: NavChild[] = [
     { label: tm("groupAbout"), heading: true },
-    { label: tm("onas"), href: "/#o-nas" },
+    // Kotwica /#o-nas wskazywała na sekcję `About`, której strona główna nie
+    // renderowała od dawna — link prowadził donikąd. Kieruje teraz na stronę,
+    // która faktycznie opowiada o Samorządzie.
+    { label: tm("onas"), href: "/nasza-dzialalnosc" },
     { label: tm("dzialalnosc"), href: "/nasza-dzialalnosc" },
     { label: tm("struktura"), href: "/struktura-samorzadu" },
     { label: tm("groupOrgans"), heading: true },

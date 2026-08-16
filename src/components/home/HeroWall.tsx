@@ -94,13 +94,13 @@ export function HeroWall() {
 
           {/* Wyszukiwarka obsługuje tych, którzy WIEDZĄ, czego szukają. Te dwa
               odnośniki są dla reszty: jedna droga dla studenta ze sprawą, druga
-              dla kogoś, kto chce dołączyć. */}
+              dla kogoś, kto dopiero chce się dowiedzieć, czym jest Samorząd. */}
           <div className={styles.actions}>
             <Link href="/dla-studenta" className={styles.ctaPrimary}>
               {t("ctaPrimary")}
               <ArrowRight size={18} weight="bold" aria-hidden="true" />
             </Link>
-            <Link href="/rekrutacja" className={styles.ctaSecondary}>
+            <Link href="/nasza-dzialalnosc" className={styles.ctaSecondary}>
               {t("ctaSecondary")}
               <ArrowUpRight size={17} weight="bold" aria-hidden="true" />
             </Link>

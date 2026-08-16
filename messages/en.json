@@ -12,7 +12,7 @@
     "title": "Grade average calculator",
     "lead": "We represent students, run projects and work on the quality of teaching at the University. We exist so that nobody is left alone with their problem.",
     "ctaPrimary": "I need help",
-    "ctaSecondary": "I want to join in",
+    "ctaSecondary": "Get to know us",
     "crumbStudent": "For students",
     "pickerHeading": "Your programme",
     "program": "Programme",
@@ -74,7 +74,7 @@
     "line2": "Student Government.",
     "lead": "We represent students, run projects and work on the quality of teaching at the University. We exist so that nobody is left alone with their problem.",
     "ctaPrimary": "I need help",
-    "ctaSecondary": "I want to join in",
+    "ctaSecondary": "Get to know us",
     "cta1": "I want to get involved",
     "cta2": "I need help",
     "scroll": "Go to quick start",
@@ -94,7 +94,7 @@
     "motto": "We act · We support · We inspire",
     "lead": "We represent students, run projects and work on the quality of teaching at the University. We exist so that nobody is left alone with their problem.",
     "ctaPrimary": "I need help",
-    "ctaSecondary": "I want to join in",
+    "ctaSecondary": "Get to know us",
     "searchLabel": "Search the Student Government website",
     "searchPlaceholder": "E.g. my application is stuck",
     "searchSubmit": "Search"
@@ -154,71 +154,6 @@
       "statement": "A student should not need to know which committee, paragraph or office owns their problem. The system should know it for them.",
       "note": "That is why this page does not start with the Student Government. It starts with you, then reveals the people, decisions and tools that can help."
     },
-    "archive": {
-      "eyebrow": "Living archive",
-      "heading": "Not a project catalogue. Three kinds of energy.",
-      "lead": "Beginning, belonging and orientation. Projects matter not as menu labels, but as moments that change the experience of studying.",
-      "all": "Open all projects",
-      "open": "Explore {project}",
-      "note": "Images from the SSUEW archive. Until galleries are assigned to individual projects, we do not describe them as documentation of a specific event.",
-      "stories": {
-        "adapciak": {
-          "name": "Adapciak",
-          "signature": "The first shared story begins before classes do."
-        },
-        "bal": {
-          "name": "UEW Ball",
-          "signature": "One night when UEW meets beyond everyday roles."
-        },
-        "dni": {
-          "name": "Orientation Days",
-          "signature": "A first day without getting lost between buildings or people."
-        }
-      }
-    },
-    "action": {
-      "eyebrow": "Still no answer?",
-      "heading": "Describe the issue. We'll help find the right next step.",
-      "lead": "Write one sentence. Situation-based search will try to find the right page, guide or person.",
-      "inputLabel": "Write one sentence",
-      "placeholder": "What happened during your studies?",
-      "submit": "Find an answer",
-      "contact": "Or write directly to the Student Government"
-    }
-  },
-  "coverflow": {
-    "eyebrow": "Nine formats",
-    "heading": "Everything the Student Government runs, on one screen.",
-    "regionLabel": "Projects of the WUEB Student Government",
-    "roleCarousel": "carousel",
-    "roleSlide": "slide",
-    "slideLabel": "{index} of {total}",
-    "metaType": "Type",
-    "metaFrame": "Frame",
-    "open": "Explore {project}",
-    "goTo": "Show {project}",
-    "hint": "Drag or use the arrow keys",
-    "photoNote": "Frames from the SSUEW archive. Projects without their own gallery get a typographic poster — we do not substitute photographs that would pose as documentation of that event."
-  },
-  "trustbar": {
-    "official": "Official Student Government site",
-    "statutory": "Statutory student representation",
-    "council": "15 members of the University Council",
-    "projects": "9 long-term projects"
-  },
-  "econ": {
-    "label": "Market · NBP",
-    "srHeading": "Current exchange rates (NBP)",
-    "rateLabel": "{code} rate: {value} PLN"
-  },
-  "audience": {
-    "label": "Start with your situation",
-    "heading": "You do not need to know the structure. You only need to know what you need.",
-    "intro": "The website leads from your situation to the right tool, person or source. Choose the starting point closest to where you are now.",
-    "matter": {
-      "title": "I have a study-related issue",
-      "desc": "Student rights, scholarships, applications, USOS, graduation and the most common routes in one place."
-    },
     "support": {
       "title": "I need support",
       "desc": "Psychological, financial and legal help — calm, specific and without being sent from door to door."
@@ -230,33 +165,6 @@
     "proof": {
       "title": "I want to see what you do",
       "desc": "Explore the people, projects, decisions and public record of Student Government work — with sources."
-    }
-  },
-  "about": {
-    "eyebrow": "About us",
-    "heading": "Student Government begins with every student.",
-    "statStudents": "UEW students · as of 20 October 2024",
-    "statCouncil": "members of the University Council",
-    "statProjects": "long-term projects",
-    "source": "Student count source: official UEW document",
-    "p1": "The Student Government represents the entire UEW student community. We protect student interests, help shape university life and initiate educational, social and community projects.",
-    "p2": "We connect students with the University authorities. A day-to-day issue, an idea or a problem should not end with an unanswered message — it should reach the right person and have a clear next step.",
-    "quote": "We act. We support. We inspire."
-  },
-  "resources": {
-    "eyebrow": "Student zone",
-    "heading": "The issue first. The structure later.",
-    "intro": "You do not need to know who owns a procedure. Start with the subject and the next screens will show you the next step and the official source.",
-    "seeAll": "See the whole zone",
-    "items": {
-      "prawa": { "title": "Student rights", "desc": "Your rights at the university and how to enforce them." },
-      "stypendia": { "title": "Scholarships", "desc": "Merit, social and disability support." },
-      "wsparcie": { "title": "Support & grants", "desc": "Financial benefits and help in difficult situations." },
-      "mapa": { "title": "Campus map", "desc": "Buildings, rooms and key points across campus." },
-      "infopacki": { "title": "Infopacks", "desc": "Practical information packs for students." },
-      "pomoc": { "title": "Psychological support", "desc": "Where and how to get help when you need it." },
-      "rzecznik": { "title": "Student Ombudsman", "desc": "On your side in disputes with the university." },
-      "prawo": { "title": "Law for students", "desc": "Regulations and rules in plain language." }
     }
   },
   "events": {
@@ -319,7 +227,7 @@
     "title": "Everything you need to know",
     "lead": "We represent students, run projects and work on the quality of teaching at the University. We exist so that nobody is left alone with their problem.",
     "ctaPrimary": "I need help",
-    "ctaSecondary": "I want to join in",
+    "ctaSecondary": "Get to know us",
     "situationsHeading": "What are you trying to get done?",
     "situationsLead": "You do not need to know the name of a regulation, office or form. Start with your situation — we will show the shortest route and its source.",
     "livingGuides": "8 living guides",
