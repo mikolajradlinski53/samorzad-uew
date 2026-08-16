@@ -3,12 +3,11 @@
 import { useEffect, useRef, useState } from "react";
 import dynamic from "next/dynamic";
 import Image from "next/image";
-import { useLocale, useTranslations } from "next-intl";
-import { ArrowRight, ArrowUpRight, MagnifyingGlass } from "@phosphor-icons/react";
+import { useTranslations } from "next-intl";
+import { ArrowRight, ArrowUpRight } from "@phosphor-icons/react";
 import { Link } from "@/i18n/navigation";
 import { heroPhotos } from "@/lib/photos";
-import { HeroInstrument } from "./HeroInstrument";
-import { HeroMark } from "./HeroMark";
+import { HeroWall } from "./HeroWall";
 import { HeroCurtain } from "./HeroCurtain";
 import styles from "./HomeExperience.module.css";
 
@@ -33,40 +32,10 @@ const archiveStories = [
   { key: "dni", href: "/nasze-projekty#projekt-dni", photo: 0, position: "50% 44%" },
 ] as const;
 
-type IntentKey = (typeof intents)[number]["key"];
-
 export function HomeExperience() {
   const t = useTranslations("homeExperience");
-  const locale = useLocale();
   const rootRef = useRef<HTMLDivElement>(null);
-  const [activeIntent, setActiveIntent] = useState<IntentKey>("solve");
-
-  const activeIndex = intents.findIndex((intent) => intent.key === activeIntent);
-  const active = intents[activeIndex];
   const manifestoWords = t("manifesto.statement").split(/\s+/);
-
-  /**
-   * Hero samo przechodzi między sytuacjami, więc zdjęcia żyją, zanim ktokolwiek
-   * czegoś dotknie.
-   *
-   * Dwa warunki, bez których byłoby to wrogie użytkownikowi:
-   * - przy `prefers-reduced-motion` nie rusza w ogóle;
-   * - PIERWSZA interakcja zatrzymuje je na stałe. Ruchoma lista wyboru, którą
-   *   ktoś właśnie czyta albo próbuje kliknąć, jest gorsza niż statyczna.
-   */
-  const [userTookOver, setUserTookOver] = useState(false);
-  useEffect(() => {
-    if (userTookOver) return;
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-
-    const id = window.setInterval(() => {
-      setActiveIntent((current) => {
-        const i = intents.findIndex((intent) => intent.key === current);
-        return intents[(i + 1) % intents.length].key;
-      });
-    }, 5200);
-    return () => window.clearInterval(id);
-  }, [userTookOver]);
 
   // Duże ekrany dostają choreografię przewijania; telefon nie pobiera jej wcale.
   const [motionReady, setMotionReady] = useState(false);
@@ -82,91 +51,14 @@ export function HomeExperience() {
     <div ref={rootRef} className={styles.experience}>
       {motionReady && <HomeMotion scope={rootRef} />}
       <HeroCurtain wordmark="SSUEW" />
-      <section data-hero aria-labelledby="home-experience-title" className={styles.hero}>
-        <div className={styles.heroShell}>
-          {/* Znak wchodzi PRZED tekstem, bo to on jest wizytówką. Hasło składa
-              się razem z nim — trzy słowa, trzy warstwy sygnetu. */}
-          <p className={styles.eyebrow}>{t("hero.eyebrow")}</p>
+      {/*
+        HERO — DECYZJA ZAMAWIAJĄCEGO, podjęta świadomie po kilku podejściach.
+        Ściana kadrów zastępuje cały dotychczasowy blok hero razem z listwą
+        sytuacji: te same cztery sytuacje leżą w sekcji „Wybierz sytuację"
+        bezpośrednio niżej, więc listwa w hero była ich powtórzeniem.
+      */}
+      <HeroWall />
 
-          <HeroMark
-            words={[t("hero.motto1"), t("hero.motto2"), t("hero.motto3")]}
-            label={t("hero.markLabel")}
-          />
-
-          <div className={styles.heroCopy}>
-            <h1 id="home-experience-title" className={styles.heroTitle}>
-              <span className={styles.heroLine}>
-                <span>
-                  {t("hero.line1a")} {t("hero.line1b")}
-                </span>
-              </span>
-              <span className={`${styles.heroLine} ${styles.heroLineAccent}`}>
-                <span>{t("hero.line2")}</span>
-              </span>
-            </h1>
-
-            <div className={styles.heroLower}>
-              <p className={styles.heroLead}>{t("hero.lead")}</p>
-              <form action={`/${locale}/szukaj`} method="get" role="search" className={styles.heroSearch}>
-                <label htmlFor="home-intent-search" className="sr-only">
-                  {t("hero.searchLabel")}
-                </label>
-                <MagnifyingGlass size={20} weight="regular" aria-hidden="true" />
-                <input
-                  id="home-intent-search"
-                  name="q"
-                  type="search"
-                  autoComplete="off"
-                  placeholder={t("hero.searchPlaceholder")}
-                />
-                <button type="submit">
-                  <span>{t("hero.searchSubmit")}</span>
-                  <ArrowRight size={18} weight="bold" aria-hidden="true" />
-                </button>
-              </form>
-
-              <HeroInstrument
-                frame={activeIndex + 1}
-                frames={intents.length}
-                labels={{ week: t("hero.week"), frame: t("hero.frame") }}
-              />
-            </div>
-          </div>
-
-          <div className={styles.intentRail} aria-label={t("hero.intentLabel")}>
-            {intents.map((intent, index) => {
-              const isActive = intent.key === activeIntent;
-              return (
-                <button
-                  key={intent.key}
-                  type="button"
-                  aria-pressed={isActive}
-                  aria-controls="home-intent-preview"
-                  onClick={() => {
-                    setUserTookOver(true);
-                    setActiveIntent(intent.key);
-                  }}
-                  className={styles.intentButton}
-                >
-                  <span>{String(index + 1).padStart(2, "0")}</span>
-                  <strong>{t(`intents.${intent.key}.short`)}</strong>
-                </button>
-              );
-            })}
-          </div>
-
-          <div id="home-intent-preview" aria-live="polite" className={styles.intentPreview}>
-            <div key={`copy-${active.key}`} data-intent-preview-copy>
-              <p>{t(`intents.${active.key}.title`)}</p>
-              <span>{t(`intents.${active.key}.description`)}</span>
-            </div>
-            <Link key={`link-${active.key}`} data-intent-preview-copy href={active.href} className={styles.intentPreviewLink}>
-              {t(`intents.${active.key}.cta`)}
-              <ArrowUpRight size={19} weight="bold" aria-hidden="true" />
-            </Link>
-          </div>
-        </div>
-      </section>
 
       <section id="wybierz-sytuacje" aria-labelledby="routes-title" className={styles.routes}>
         <div className={styles.sectionIntro}>

@@ -12,11 +12,21 @@
 
 export const USE_LOCAL = {
   hero: true, // public/photos/hero/01.jpg … (HERO_COUNT)
+  sciana: false, // public/photos/sciana/01.jpg … (WALL_COUNT) — ściana w hero
   zycie: false, // public/photos/zycie/integracja.jpg, wsparcie.jpg
   zarzad: false, // public/photos/zarzad/01.jpg …
   russ: false, // public/photos/russ/01.jpg …
   projekty: false, // public/photos/projekty/<klucz-projektu>.jpg
 };
+
+/**
+ * Ile zdjęć leży w public/photos/sciana/. Ustaw razem z USE_LOCAL.sciana.
+ *
+ * 16 to liczba docelowa: cztery kolumny po cztery różne kadry. Poniżej 12
+ * powtórzenia zaczynają rzucać się w oczy, bo każda kolumna dubluje swoją
+ * listę, żeby pętla nie miała szwu.
+ */
+const WALL_COUNT = 16;
 
 // Liczba zdjęć hero w folderze (dopasuj do liczby plików 0N.jpg).
 const HERO_COUNT = 5;
@@ -31,6 +41,24 @@ const localList = (folder: string, count: number) =>
 export const heroPhotos: string[] = USE_LOCAL.hero
   ? localList("hero", HERO_COUNT)
   : ["a", "b", "c", "d", "e", "f", "g", "h"].map((s) => pic(`ssuew-${s}`, 500, 640));
+
+/**
+ * Ściana kadrów w hero — zdjęcia PIONOWE, kadr 4:5.
+ *
+ * Kolumny są wąskie i pionowe, więc kadr poziomy robi się w nich znaczkiem.
+ * Ściana jest dodatkowo obrócona w przestrzeni i wygaszona maską po brzegach —
+ * dlatego twarze nie mogą siedzieć przy krawędzi zdjęcia, bo te obszary znikają.
+ *
+ * Dopóki nie ma dedykowanego kompletu, używamy prawdziwych kadrów SSUEW z hero.
+ * Jest ich pięć, więc powtórzenia są widoczne — to stan przejściowy, żeby dało
+ * się ocenić układ przed zebraniem materiału, a nie wersja docelowa.
+ */
+export const wallPhotos: string[] = USE_LOCAL.sciana
+  ? localList("sciana", WALL_COUNT)
+  : localList("hero", HERO_COUNT);
+
+/** Czy ściana ma własny komplet, czy leci na zastępnikach z archiwum hero. */
+export const wallPhotosAreFinal = (): boolean => USE_LOCAL.sciana;
 
 /**
  * Sekcja „Życie studenckie" — 2 zdjęcia poziome (kadr 3:2).

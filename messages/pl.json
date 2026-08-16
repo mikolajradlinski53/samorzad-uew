@@ -76,6 +76,16 @@
     "scroll": "Przejdź do szybkiego startu",
     "stats": ["Reprezentujemy wszystkich studentów", "09 stałych projektów", "Oficjalny serwis SSUEW"]
   },
+  "heroWall": {
+    "pill": "Oficjalny serwis",
+    "titleStrong": "Samorząd Studentów",
+    "titleMuted": "Uniwersytetu Ekonomicznego we Wrocławiu",
+    "motto": "Działamy · Wspieramy · Inspirujemy",
+    "lead": "Reprezentujemy studentów, prowadzimy projekty i pomagamy załatwić sprawy na uczelni. Zacznij od tego, czego szukasz.",
+    "searchLabel": "Szukaj w serwisie Samorządu",
+    "searchPlaceholder": "Np. utknęło mi podanie",
+    "searchSubmit": "Szukaj"
+  },
   "homeExperience": {
     "hero": {
       "eyebrow": "Samorząd Studentów UEW",

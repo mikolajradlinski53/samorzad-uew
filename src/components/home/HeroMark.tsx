@@ -6,7 +6,13 @@ import { MARK_GROUPS, MARK_ORDER, MARK_VIEWBOX, type MarkGroup } from "@/lib/mar
 import styles from "./HeroMark.module.css";
 
 /**
- * Sygnet SSUEW jako obiekt w przestrzeni — centralny element strony głównej.
+ * Sygnet SSUEW jako obiekt w przestrzeni.
+ *
+ * ⚠ OBECNIE NIEUŻYWANY. Hero strony głównej to od decyzji zamawiającego ściana
+ * kadrów (`HeroWall`). Komponent zostaje w repozytorium świadomie: jest
+ * samodzielny, nie ma zależności poza `src/lib/mark.ts` i wraca jedną linią
+ * `<HeroMark words={[...]} label={...} />` w dowolnym miejscu strony.
+ * Naturalne miejsca powrotu to sekcja „O nas" albo stopka.
  *
  * SKĄD SIĘ WZIĄŁ POMYSŁ I DLACZEGO TAK, A NIE PRZEZ SILNIK 3D
  *

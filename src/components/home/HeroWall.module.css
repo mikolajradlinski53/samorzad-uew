@@ -1,0 +1,439 @@
+/**
+ * Hero — ściana kadrów w przestrzeni.
+ *
+ * Paleta jest tu WPISANA NA SZTYWNO, wbrew regule reszty serwisu, i to jest
+ * decyzja, nie niedopatrzenie: hero zostaje ciemne w obu motywach. Ciemna
+ * scena jest w tym układzie treścią — zdjęcia świecą tylko na czarnym tle.
+ * Reszta strony słucha motywu normalnie.
+ *
+ * Fiolet wzorca zamieniamy na nasz niebieski #2C4BFF. Hero z cudzą paletą
+ * byłoby ładne i nie nasze.
+ */
+
+.hero {
+  position: relative;
+  isolation: isolate;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100svh;
+  padding: 70px 24px;
+  /* Kadry wyjeżdżają poza obrys sceny — bez tego rozpychałyby stronę w poziomie. */
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 14% 12%, rgba(44, 75, 255, 0.18), transparent 31%),
+    radial-gradient(circle at 93% 93%, rgba(76, 40, 200, 0.14), transparent 31%),
+    radial-gradient(circle at 54% 46%, rgba(108, 132, 255, 0.06), transparent 43%),
+    #050505;
+}
+
+.grid {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.13;
+  background-image:
+    linear-gradient(to right, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+  background-size: 54px 54px;
+  /* Siatka gaśnie ku brzegom, żeby nigdy nie przekrzyczała treści. */
+  mask-image: radial-gradient(ellipse 70% 70% at 50% 50%, black 30%, transparent 100%);
+  -webkit-mask-image: radial-gradient(ellipse 70% 70% at 50% 50%, black 30%, transparent 100%);
+}
+
+.glowOne,
+.glowTwo {
+  position: absolute;
+  z-index: 0;
+  width: 480px;
+  height: 480px;
+  border-radius: 50%;
+  pointer-events: none;
+  filter: blur(130px);
+}
+
+.glowOne {
+  top: -300px;
+  left: -120px;
+  background: rgba(44, 75, 255, 0.22);
+}
+
+.glowTwo {
+  right: -200px;
+  bottom: -310px;
+  background: rgba(108, 132, 255, 0.18);
+}
+
+.inner {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 1320px;
+}
+
+/* ------------------------------------------------------------------ lewa */
+
+.copy {
+  width: min(460px, 42%);
+  margin-right: 20px;
+  flex-shrink: 0;
+}
+
+.pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  margin-bottom: 22px;
+  padding: 8px 13px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.045);
+  color: rgba(255, 255, 255, 0.72);
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  backdrop-filter: blur(14px);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.08),
+    0 6px 18px rgba(0, 0, 0, 0.3);
+}
+
+.dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #6c84ff;
+  box-shadow: 0 0 15px rgba(108, 132, 255, 0.95);
+  animation: pulse 2.2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { scale: 0.8; opacity: 0.55; }
+  50%      { scale: 1.15; opacity: 1; }
+}
+
+.title {
+  max-width: 560px;
+  margin: 0;
+  font-family: var(--font-display), system-ui, sans-serif;
+  font-size: clamp(2rem, 3.4vw, 3.5rem);
+  font-weight: 680;
+  line-height: 0.98;
+  letter-spacing: -0.045em;
+  color: #ffffff;
+  text-wrap: balance;
+}
+
+.titleMuted {
+  color: rgba(255, 255, 255, 0.42);
+}
+
+/* Hasło Samorządu. Wersaliki i rozstrzelenie, bo to podpis pod nazwą, a nie
+   kolejne zdanie do przeczytania. */
+.motto {
+  margin: 22px 0 0;
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #8ea3ff;
+}
+
+.lead {
+  max-width: 420px;
+  margin: 14px 0 0;
+  font-size: 1rem;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.48);
+}
+
+.search {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: min(440px, 100%);
+  margin-top: 26px;
+  padding: 6px 6px 6px 16px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.05);
+  color: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(14px);
+}
+
+.search:focus-within {
+  border-color: #6c84ff;
+}
+
+.search input {
+  flex: 1;
+  min-width: 0;
+  /* Samo pole tekstowe miało 23 px wysokości — o piksel za mało wobec progu
+     celu dotykowego (WCAG 2.5.8). Wyrównujemy je do wysokości przycisku obok,
+     przy okazji dając wygodniejszy cel niż wymagane minimum. */
+  min-height: 40px;
+  border: 0;
+  background: none;
+  color: #ffffff;
+  font-size: 0.9375rem;
+  outline: none;
+}
+
+/*
+ * 0,52 zamiast 0,42 z wzorca. Policzone, nie oszacowane: biel o alfie 0,42 na
+ * tle #050505 daje 4,00:1, a tekst zastępczy jest zwykłym tekstem i potrzebuje
+ * 4,5:1 (WCAG 1.4.3). Axe tego nie zgłasza, bo nie czyta placeholderów — więc
+ * błąd przeszedłby przez cały zestaw testów niezauważony.
+ */
+.search input::placeholder {
+  color: rgba(255, 255, 255, 0.52);
+}
+
+.search button {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  min-height: 40px;
+  padding: 0 17px;
+  border: 0;
+  border-radius: 999px;
+  background: #2c4bff;
+  color: #ffffff;
+  font-size: 0.875rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 200ms ease;
+}
+
+.search button:hover {
+  background: #1f3ae0;
+}
+
+/* ------------------------------------------------------------- ściana */
+
+.field {
+  position: relative;
+  width: min(790px, 59%);
+  height: min(700px, 80vh);
+  /* Żadnego tła, ramki, cienia ani zaokrąglenia — kadry mają unosić się nad
+     tłem sekcji, a nie leżeć w pudełku. */
+  overflow: hidden;
+  perspective: 850px;
+  /* Brzegi gasi MASKA NA TREŚCI. Nałożony prostokąt z gradientem zdradzałby
+     krawędź w miejscu, w którym gradient się kończy. */
+  mask-image: radial-gradient(
+    ellipse 86% 82% at 52% 50%,
+    black 48%,
+    rgba(0, 0, 0, 0.94) 62%,
+    rgba(0, 0, 0, 0.56) 77%,
+    transparent 100%
+  );
+  -webkit-mask-image: radial-gradient(
+    ellipse 86% 82% at 52% 50%,
+    black 48%,
+    rgba(0, 0, 0, 0.94) 62%,
+    rgba(0, 0, 0, 0.56) 77%,
+    transparent 100%
+  );
+}
+
+.stage {
+  position: absolute;
+  top: -23%;
+  left: -12%;
+  display: flex;
+  gap: 16px;
+  width: 130%;
+  height: 150%;
+  transform-style: preserve-3d;
+  transform: rotateX(11deg) rotateY(-13deg) rotateZ(10deg) translate3d(4%, 2%, -65px);
+}
+
+.column {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+}
+
+.track {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  will-change: transform;
+}
+
+/* Przesuwamy o połowę listy plus połowę przerwy — lista leci dwa razy, więc
+   po tym przesunięciu kadr wraca dokładnie na miejsce swojego bliźniaka. */
+@keyframes runUp {
+  from { transform: translateY(0); }
+  to   { transform: translateY(calc(-50% - 7px)); }
+}
+
+@keyframes runDown {
+  from { transform: translateY(calc(-50% - 7px)); }
+  to   { transform: translateY(0); }
+}
+
+.column[data-column="1"] .track { animation: runUp 35s linear infinite; }
+.column[data-column="2"] .track { animation: runDown 30s linear infinite -6s; }
+.column[data-column="3"] .track { animation: runUp 38s linear infinite -12s; }
+.column[data-column="4"] .track { animation: runDown 33s linear infinite -18s; }
+
+/* Najechanie zatrzymuje CAŁĄ ścianę, nie pojedynczą kolumnę — zatrzymanie
+   jednej wygląda jak zacięcie, a nie jak reakcja. */
+.field:hover .track {
+  animation-play-state: paused;
+}
+
+.card {
+  position: relative;
+  flex-shrink: 0;
+  aspect-ratio: 4 / 5;
+  padding: 0;
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  border-radius: 17px;
+  overflow: hidden;
+  backface-visibility: hidden;
+  background: rgba(16, 16, 20, 0.88);
+  box-shadow:
+    0 18px 45px rgba(0, 0, 0, 0.32),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  transition:
+    transform 300ms cubic-bezier(0.16, 1, 0.3, 1),
+    border-color 300ms ease;
+}
+
+.cardGlow {
+  position: absolute;
+  top: -40px;
+  left: 20%;
+  z-index: 2;
+  width: 70%;
+  height: 70px;
+  border-radius: 999px;
+  background: rgba(108, 132, 255, 0.15);
+  filter: blur(35px);
+  pointer-events: none;
+}
+
+.cardImage {
+  object-fit: cover;
+}
+
+.card:hover {
+  transform: translateZ(30px) scale(1.025);
+  border-color: rgba(108, 132, 255, 0.4);
+  z-index: 3;
+}
+
+/* ------------------------------------------------------- responsywność */
+
+@media (max-width: 1000px) {
+  .hero {
+    padding: 70px 18px 30px;
+  }
+
+  .inner {
+    flex-direction: column;
+  }
+
+  .copy {
+    width: 100%;
+    margin-right: 0;
+    margin-bottom: 40px;
+    text-align: center;
+  }
+
+  .title {
+    margin-inline: auto;
+    font-size: clamp(2rem, 6vw, 3rem);
+  }
+
+  .lead,
+  .search {
+    margin-inline: auto;
+  }
+
+  .field {
+    width: min(780px, 100%);
+    height: 620px;
+  }
+}
+
+@media (max-width: 700px) {
+  .hero {
+    padding-inline: 12px;
+  }
+
+  .copy {
+    margin-bottom: 30px;
+  }
+
+  .title {
+    font-size: clamp(1.75rem, 7.5vw, 2.5rem);
+  }
+
+  .lead {
+    padding-inline: 15px;
+    font-size: 0.875rem;
+  }
+
+  .field {
+    height: 570px;
+  }
+
+  /* Czwarta kolumna znika: przy tej szerokości kadry byłyby węższe niż
+     kciuk i przestałyby cokolwiek pokazywać. */
+  .column[data-column="4"] {
+    display: none;
+  }
+
+  .stage {
+    top: -20%;
+    left: -22%;
+    width: 145%;
+    gap: 12px;
+    transform: rotateX(9deg) rotateY(-11deg) rotateZ(8deg) translate3d(3%, 2%, -45px);
+  }
+}
+
+@media (max-width: 470px) {
+  .field {
+    height: 540px;
+  }
+
+  .stage {
+    left: -31%;
+    width: 165%;
+  }
+
+  .column[data-column="3"] {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  /*
+   * Ruch zatrzymujemy przez `paused`, nie przez `animation: none`. Przy `none`
+   * ścieżka wracałaby do stanu początkowego, a kolumny jadące w dół startują
+   * z przesunięcia — zniknęłaby połowa kadrów.
+   */
+  .track {
+    animation-play-state: paused;
+  }
+
+  .dot {
+    animation: none;
+  }
+
+  .card {
+    transition: none;
+  }
+}

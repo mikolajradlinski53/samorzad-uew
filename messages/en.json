@@ -76,6 +76,16 @@
     "scroll": "Go to quick start",
     "stats": ["Representing every UEW student", "09 long-term projects", "Official SSUEW website"]
   },
+  "heroWall": {
+    "pill": "Official website",
+    "titleStrong": "Student Government",
+    "titleMuted": "of the Wroclaw University of Economics and Business",
+    "motto": "We act · We support · We inspire",
+    "lead": "We represent students, run projects and help you get things done at the university. Start with what you are looking for.",
+    "searchLabel": "Search the Student Government website",
+    "searchPlaceholder": "E.g. my application is stuck",
+    "searchSubmit": "Search"
+  },
   "homeExperience": {
     "hero": {
       "eyebrow": "UEW Student Government",
