@@ -67,7 +67,6 @@
     "pl": "PL",
     "en": "EN"
   },
-  "photoBand": { "label": "Frames from the Student Government archive" },
   "hero": {
     "eyebrow": "Student Government of Wrocław University of Economics and Business",
     "line1": "This is your",
@@ -99,6 +98,55 @@
     "searchPlaceholder": "E.g. my application is stuck",
     "searchSubmit": "Search"
   },
+    "register": {
+      "eyebrow": "Areas of responsibility",
+      "heading": "Six areas where the Student Government is the competent body.",
+      "lead": "The Student Government is a body of the University, not a suggestion box. Below is what it is responsible for, and who runs each area.",
+      "scopes": {
+        "studies": {
+          "name": "Course of study and student matters",
+          "organ": "Student Government Board",
+          "metric": "guides to procedures",
+          "body": "Applications, credits, graduation, USOS and the library explained in the language the regulations use — with the right dean's office and deadline.",
+          "cta": "Open the student zone"
+        },
+        "rights": {
+          "name": "Student rights and regulations",
+          "organ": "Student Rights Ombudsman",
+          "metric": "",
+          "body": "The study regulations, the statute and the Rector's orders read for what they give you. From a dispute with a lecturer to appealing a decision.",
+          "cta": "Check your rights"
+        },
+        "aid": {
+          "name": "Financial aid",
+          "organ": "Scholarship committee",
+          "metric": "forms of financial support",
+          "body": "Need-based and Rector's scholarships, support for students with disabilities, and hardship grants — conditions, thresholds and deadlines in one place.",
+          "cta": "See the forms of support"
+        },
+        "health": {
+          "name": "Psychological support",
+          "organ": "University student support",
+          "metric": "",
+          "body": "Access to psychological help at WUEB and beyond it. No application form, no justifying yourself to anyone.",
+          "cta": "Go to support"
+        },
+        "initiatives": {
+          "name": "Student initiatives and projects",
+          "organ": "Student Government Board",
+          "metric": "recurring formats a year",
+          "body": "From Adapciak and the Adaptation Days to TEDxUEW and the WUEB Ball. Every project is run by students, and recruitment is open.",
+          "cta": "Explore the projects"
+        },
+        "representation": {
+          "name": "Representation and transparency",
+          "organ": "University Council and Board",
+          "metric": "people serving in its bodies",
+          "body": "Who sits in which body, how resolutions are passed and where the money goes. Student representation in the senate and faculty councils.",
+          "cta": "See how it works"
+        }
+      }
+    },
   "homeExperience": {
     "hero": {
       "eyebrow": "UEW Student Government",

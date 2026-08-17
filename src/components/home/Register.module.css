@@ -1,0 +1,299 @@
+/**
+ * Rejestr zakresów działania.
+ *
+ * Format wzięty z raportu rocznego, nie z galerii kafli: hairline'owe linie,
+ * dane techniczne krojem mono, i jedna wielka liczba jako główny element
+ * graficzny. Efekt niesie skala typografii, nie ruch — sekcja ma być czytelna
+ * przy pierwszym spojrzeniu i wciąż ciekawa przy piątym.
+ *
+ * Wszystkie kolory z tokenów, więc ciemny motyw działa bez osobnych reguł.
+ */
+
+.register {
+  background: var(--bg-elevated);
+  padding: clamp(5rem, 9vw, 8.5rem) clamp(1.25rem, 5vw, 4.75rem);
+  color: var(--ink-primary);
+  scroll-margin-top: 72px;
+}
+
+/* ------------------------------------------------------------------ główka */
+
+.head {
+  display: grid;
+  width: min(100%, 1320px);
+  margin: 0 auto clamp(3rem, 5vw, 4.5rem);
+  grid-template-columns: minmax(9rem, 0.34fr) minmax(20rem, 1.1fr) minmax(15rem, 0.66fr);
+  align-items: end;
+  gap: clamp(1.5rem, 4vw, 4rem);
+}
+
+.eyebrow {
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.heading {
+  max-width: 20ch;
+  margin: 0;
+  font-family: var(--font-display), system-ui, sans-serif;
+  font-size: clamp(2.1rem, 4vw, 3.9rem);
+  font-weight: 650;
+  line-height: 1;
+  letter-spacing: -0.045em;
+  text-wrap: balance;
+}
+
+.lead {
+  max-width: 30rem;
+  margin: 0;
+  color: var(--ink-secondary);
+  font-size: 1rem;
+  line-height: 1.65;
+}
+
+/* -------------------------------------------------------------------- korpus */
+
+.body {
+  display: grid;
+  width: min(100%, 1320px);
+  margin-inline: auto;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr);
+  gap: clamp(2rem, 5vw, 5rem);
+  align-items: start;
+}
+
+/* --------------------------------------------------------------------- spis */
+
+.index {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  border-top: 1px solid var(--border-medium);
+}
+
+.row {
+  display: grid;
+  width: 100%;
+  border: 0;
+  border-bottom: 1px solid var(--border-soft);
+  background: none;
+  padding: clamp(1rem, 1.8vw, 1.35rem) 0;
+  grid-template-columns: 3.2rem minmax(0, 1fr) auto;
+  align-items: baseline;
+  gap: 0.75rem 1rem;
+  text-align: left;
+  color: inherit;
+  cursor: pointer;
+  font-family: inherit;
+  transition: padding-left 260ms cubic-bezier(0.16, 1, 0.3, 1), color 200ms ease;
+}
+
+.row:hover,
+.row:focus-visible {
+  color: var(--accent);
+}
+
+/* Aktywny wiersz wsuwa się w prawo i dostaje pionową linię — ten sam gest, co
+   zakładka w rejestrze. Bez cienia i bez tła, żeby spis został spisem. */
+.row[data-active="true"] {
+  padding-left: 1rem;
+  color: var(--ink-primary);
+  box-shadow: inset 2px 0 0 var(--accent);
+}
+
+.rowNumber {
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  color: var(--ink-tertiary);
+  font-variant-numeric: tabular-nums;
+}
+
+.row[data-active="true"] .rowNumber {
+  color: var(--accent);
+}
+
+.rowName {
+  font-family: var(--font-display), system-ui, sans-serif;
+  font-size: clamp(1.05rem, 1.7vw, 1.5rem);
+  font-weight: 600;
+  line-height: 1.15;
+  letter-spacing: -0.025em;
+  text-wrap: balance;
+}
+
+.rowOrgan {
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-size: 0.625rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-tertiary);
+  text-align: right;
+}
+
+/* --------------------------------------------------------------- rozwinięcie */
+
+.detail {
+  position: sticky;
+  top: 96px;
+  border: 1px solid var(--border-soft);
+  border-radius: clamp(14px, 1.5vw, 22px);
+  background: var(--bg-surface);
+  padding: clamp(1.75rem, 3.2vw, 3rem);
+}
+
+.detailInner {
+  animation: detailIn 320ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+@keyframes detailIn {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 8px, 0);
+  }
+}
+
+.detailOrgan {
+  margin: 0;
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-size: 0.625rem;
+  font-weight: 600;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.detailName {
+  max-width: 18ch;
+  margin: 0.75rem 0 0;
+  font-family: var(--font-display), system-ui, sans-serif;
+  font-size: clamp(1.5rem, 2.6vw, 2.35rem);
+  font-weight: 650;
+  line-height: 1.05;
+  letter-spacing: -0.035em;
+}
+
+/*
+ * Wielka liczba. To jest główny element graficzny sekcji — dlatego ma stopień
+ * większy niż nagłówek obok i cyfry o równej szerokości, żeby przy zmianie
+ * pozycji nie skakała w poziomie.
+ */
+.metric {
+  display: flex;
+  align-items: baseline;
+  gap: 0.9rem;
+  margin: clamp(1.5rem, 3vw, 2.25rem) 0 0;
+}
+
+.metric > span {
+  font-family: var(--font-display), system-ui, sans-serif;
+  font-size: clamp(3.6rem, 8vw, 6.5rem);
+  font-weight: 680;
+  line-height: 0.85;
+  letter-spacing: -0.05em;
+  color: var(--accent);
+  font-variant-numeric: tabular-nums;
+}
+
+.metric > em {
+  /* 18ch, nie 12: wersaliki krojem mono są znacznie szersze niż `ch` sugeruje
+     i etykieta łamała się na trzy linie obok jednocyfrowej liczby. */
+  max-width: 18ch;
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-size: 0.6875rem;
+  font-style: normal;
+  font-weight: 600;
+  letter-spacing: 0.11em;
+  text-transform: uppercase;
+  line-height: 1.5;
+  color: var(--ink-tertiary);
+}
+
+.detailBody {
+  max-width: 42ch;
+  margin: clamp(1.25rem, 2.4vw, 1.75rem) 0 0;
+  color: var(--ink-secondary);
+  font-size: 1rem;
+  line-height: 1.7;
+}
+
+.detailLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  min-height: 48px;
+  margin-top: clamp(1.25rem, 2.4vw, 1.75rem);
+  padding: 0 1.4rem;
+  border-radius: 999px;
+  background: var(--accent);
+  color: var(--bg-base);
+  font-size: 0.9375rem;
+  font-weight: 600;
+  transition: background 200ms ease;
+}
+
+.detailLink:hover {
+  background: var(--accent-dim);
+}
+
+/* ------------------------------------------------------------ responsywność */
+
+@media (max-width: 1023px) {
+  .head {
+    display: block;
+  }
+
+  .heading {
+    max-width: 16ch;
+    margin-top: 1rem;
+    font-size: clamp(2.1rem, 8vw, 3.2rem);
+  }
+
+  .lead {
+    max-width: 34rem;
+    margin-top: 1.25rem;
+  }
+
+  .body {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  /* Po złożeniu w jedną kolumnę rozwinięcie nie ma się do czego „przyklejać" —
+     leci normalnie w potoku, nad spisem, żeby po kliknięciu w wiersz nie trzeba
+     było przewijać w poszukiwaniu treści. */
+  .detail {
+    position: static;
+    order: -1;
+  }
+}
+
+@media (max-width: 599px) {
+  .row {
+    grid-template-columns: 2.6rem minmax(0, 1fr);
+  }
+
+  .rowOrgan {
+    grid-column: 2;
+    text-align: left;
+  }
+
+  .metric > span {
+    font-size: clamp(3rem, 17vw, 4.5rem);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  /* Czas trwania, nie `animation: none` — stan docelowy musi zostać widoczny. */
+  .detailInner {
+    animation-duration: 0.001ms;
+  }
+
+  .row {
+    transition: none;
+  }
+}

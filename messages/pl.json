@@ -67,7 +67,6 @@
     "pl": "PL",
     "en": "EN"
   },
-  "photoBand": { "label": "Kadry z archiwum Samorządu" },
   "hero": {
     "eyebrow": "Samorząd Studentów Uniwersytetu Ekonomicznego we Wrocławiu",
     "line1": "To jest Twój",
@@ -99,6 +98,55 @@
     "searchPlaceholder": "Np. utknęło mi podanie",
     "searchSubmit": "Szukaj"
   },
+    "register": {
+      "eyebrow": "Zakresy działania",
+      "heading": "Sześć zakresów, w których Samorząd jest organem właściwym.",
+      "lead": "Samorząd Studentów jest organem uczelni, a nie skrzynką na wnioski. Poniżej to, za co odpowiada, i kto konkretnie prowadzi każdy z zakresów.",
+      "scopes": {
+        "studies": {
+          "name": "Tok studiów i sprawy studenckie",
+          "organ": "Zarząd Samorządu",
+          "metric": "przewodników po procedurach",
+          "body": "Podania, zaliczenia, dyplomowanie, USOS i biblioteka opisane językiem, którym mówi regulamin — z odesłaniem do właściwego dziekanatu i terminu.",
+          "cta": "Otwórz strefę studenta"
+        },
+        "rights": {
+          "name": "Prawa studenta i regulacje",
+          "organ": "Rzecznik Praw Studenta",
+          "metric": "",
+          "body": "Regulamin studiów, statut i zarządzenia Rektora czytane pod kątem uprawnień studenta. Od sporu z prowadzącym do odwołania od decyzji.",
+          "cta": "Sprawdź swoje prawa"
+        },
+        "aid": {
+          "name": "Pomoc materialna",
+          "organ": "Komisja stypendialna",
+          "metric": "formy wsparcia finansowego",
+          "body": "Stypendium socjalne, Rektora, dla osób z niepełnosprawnościami i zapomoga — warunki, progi i terminy w jednym miejscu.",
+          "cta": "Zobacz formy wsparcia"
+        },
+        "health": {
+          "name": "Wsparcie psychologiczne",
+          "organ": "Uczelniane wsparcie studenta",
+          "metric": "",
+          "body": "Dostęp do pomocy psychologicznej na UEW oraz do miejsc poza uczelnią. Bez wniosku, bez uzasadniania się przed nikim.",
+          "cta": "Przejdź do wsparcia"
+        },
+        "initiatives": {
+          "name": "Inicjatywy i projekty studenckie",
+          "organ": "Zarząd Samorządu",
+          "metric": "stałych formatów w roku",
+          "body": "Od Adapciaka i Dni Adaptacyjnych po TEDxUEW i Bal UEW. Każdy projekt prowadzą studenci, a rekrutacja do zespołów jest otwarta.",
+          "cta": "Poznaj projekty"
+        },
+        "representation": {
+          "name": "Reprezentacja i transparentność",
+          "organ": "Rada Uczelniana i Zarząd",
+          "metric": "osób w organach Samorządu",
+          "body": "Kto zasiada w organach, jak podejmowane są uchwały i na co idą środki. Reprezentacja studentów w senacie i radach wydziałów.",
+          "cta": "Zobacz, jak to działa"
+        }
+      }
+    },
   "homeExperience": {
     "hero": {
       "eyebrow": "Samorząd Studentów UEW",

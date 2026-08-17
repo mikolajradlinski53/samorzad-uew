@@ -4,10 +4,9 @@ import { useEffect, useRef, useState } from "react";
 import dynamic from "next/dynamic";
 import Image from "next/image";
 import { useTranslations } from "next-intl";
-import { ArrowUpRight } from "@phosphor-icons/react";
-import { Link } from "@/i18n/navigation";
 import { heroPhotos } from "@/lib/photos";
 import { HeroWall } from "./HeroWall";
+import { Register } from "./Register";
 import { HeroCurtain } from "./HeroCurtain";
 import styles from "./HomeExperience.module.css";
 
@@ -18,13 +17,6 @@ import styles from "./HomeExperience.module.css";
  * każdy telefon, choć efekty startują od 900 px.
  */
 const HomeMotion = dynamic(() => import("./HomeMotion"), { ssr: false });
-
-const intents = [
-  { key: "solve", href: "/dla-studenta", photo: 0, position: "50% 48%" },
-  { key: "support", href: "/pomoc-psychologiczna", photo: 3, position: "50% 44%" },
-  { key: "make", href: "/rekrutacja", photo: 4, position: "50% 52%" },
-  { key: "verify", href: "/transparentnosc", photo: 1, position: "50% 48%" },
-] as const;
 
 export function HomeExperience() {
   const t = useTranslations("homeExperience");
@@ -54,42 +46,12 @@ export function HomeExperience() {
       <HeroWall />
 
 
-      <section id="wybierz-sytuacje" aria-labelledby="routes-title" className={styles.routes}>
-        <div className={styles.sectionIntro}>
-          <p>{t("routes.eyebrow")}</p>
-          <h2 id="routes-title">{t("routes.heading")}</h2>
-          <span>{t("routes.lead")}</span>
-        </div>
-
-        <div className={styles.routeGrid}>
-          {intents.map((intent, index) => (
-            <Link
-              key={intent.key}
-              href={intent.href}
-              className={`${styles.route} ${styles[`route${index + 1}`]}`}
-            >
-              {index === 0 ? (
-                <Image
-                  src={heroPhotos[intent.photo]}
-                  alt=""
-                  fill
-                  sizes="(max-width: 899px) 100vw, 58vw"
-                  className={styles.routePhoto}
-                  style={{ objectPosition: intent.position }}
-                />
-              ) : null}
-              <span className={styles.routeWash} aria-hidden="true" />
-              <span className={styles.routeNumber}>{String(index + 1).padStart(2, "0")}</span>
-              <span className={styles.routeBody}>
-                <span className={styles.routeShort}>{t(`intents.${intent.key}.short`)}</span>
-                <strong>{t(`intents.${intent.key}.title`)}</strong>
-                <span>{t(`intents.${intent.key}.description`)}</span>
-              </span>
-              <ArrowUpRight className={styles.routeArrow} size={25} weight="bold" aria-hidden="true" />
-            </Link>
-          ))}
-        </div>
-      </section>
+      {/*
+        Zamiast czterech kafli mówiących głosem studenta („Coś utknęło") —
+        rejestr zakresów działania. Decyzja zamawiającego: Samorząd jest organem
+        uczelni i tak ma się przedstawiać. Uzasadnienie formatu w `Register`.
+      */}
+      <Register />
 
       <section data-manifest aria-labelledby="manifest-title" className={styles.manifesto}>
         <div className={styles.manifestInner}>

@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-16T14:18:37.369Z",
+  "generatedAt": "2026-08-17T08:41:08.285Z",
   "viewport": {
     "width": 375,
     "height": 812
@@ -23,7 +23,7 @@
         "culprits": []
       },
       "tapTargets": {
-        "checked": 44,
+        "checked": 47,
         "tooSmall": [
           {
             "tag": "a",
@@ -62,69 +62,99 @@
           },
           {
             "tag": "p",
-            "classSnippet": "",
-            "fontSize": 10.88,
-            "textSnippet": "Najczęstsze sytuacje studenckie"
+            "classSnippet": "Register-module__gLAjiq__eyebrow",
+            "fontSize": 11,
+            "textSnippet": "Zakresy działania"
           },
           {
             "tag": "span",
-            "classSnippet": "HomeExperience-module__crXsBa__routeNumber",
-            "fontSize": 10.88,
+            "classSnippet": "Register-module__gLAjiq__rowNumber",
+            "fontSize": 11,
             "textSnippet": "01"
           },
           {
             "tag": "span",
-            "classSnippet": "HomeExperience-module__crXsBa__routeShort",
-            "fontSize": 10.4,
-            "textSnippet": "Sprawa"
+            "classSnippet": "Register-module__gLAjiq__rowOrgan",
+            "fontSize": 10,
+            "textSnippet": "Zarząd Samorządu"
           },
           {
             "tag": "span",
-            "classSnippet": "HomeExperience-module__crXsBa__routeNumber",
-            "fontSize": 10.88,
+            "classSnippet": "Register-module__gLAjiq__rowNumber",
+            "fontSize": 11,
             "textSnippet": "02"
           },
           {
             "tag": "span",
-            "classSnippet": "HomeExperience-module__crXsBa__routeShort",
-            "fontSize": 10.4,
-            "textSnippet": "Wsparcie"
+            "classSnippet": "Register-module__gLAjiq__rowOrgan",
+            "fontSize": 10,
+            "textSnippet": "Rzecznik Praw Studenta"
           },
           {
             "tag": "span",
-            "classSnippet": "HomeExperience-module__crXsBa__routeNumber",
-            "fontSize": 10.88,
+            "classSnippet": "Register-module__gLAjiq__rowNumber",
+            "fontSize": 11,
             "textSnippet": "03"
           },
           {
             "tag": "span",
-            "classSnippet": "HomeExperience-module__crXsBa__routeShort",
-            "fontSize": 10.4,
-            "textSnippet": "Pomysł"
+            "classSnippet": "Register-module__gLAjiq__rowOrgan",
+            "fontSize": 10,
+            "textSnippet": "Komisja stypendialna"
           },
           {
             "tag": "span",
-            "classSnippet": "HomeExperience-module__crXsBa__routeNumber",
-            "fontSize": 10.88,
+            "classSnippet": "Register-module__gLAjiq__rowNumber",
+            "fontSize": 11,
             "textSnippet": "04"
           },
           {
             "tag": "span",
-            "classSnippet": "HomeExperience-module__crXsBa__routeShort",
-            "fontSize": 10.4,
-            "textSnippet": "Jawność"
+            "classSnippet": "Register-module__gLAjiq__rowOrgan",
+            "fontSize": 10,
+            "textSnippet": "Uczelniane wsparcie studenta"
+          },
+          {
+            "tag": "span",
+            "classSnippet": "Register-module__gLAjiq__rowNumber",
+            "fontSize": 11,
+            "textSnippet": "05"
+          },
+          {
+            "tag": "span",
+            "classSnippet": "Register-module__gLAjiq__rowOrgan",
+            "fontSize": 10,
+            "textSnippet": "Zarząd Samorządu"
+          },
+          {
+            "tag": "span",
+            "classSnippet": "Register-module__gLAjiq__rowNumber",
+            "fontSize": 11,
+            "textSnippet": "06"
+          },
+          {
+            "tag": "span",
+            "classSnippet": "Register-module__gLAjiq__rowOrgan",
+            "fontSize": 10,
+            "textSnippet": "Rada Uczelniana i Zarząd"
+          },
+          {
+            "tag": "p",
+            "classSnippet": "Register-module__gLAjiq__detailOrgan",
+            "fontSize": 10,
+            "textSnippet": "Zarząd Samorządu"
+          },
+          {
+            "tag": "em",
+            "classSnippet": "",
+            "fontSize": 11,
+            "textSnippet": "przewodników po procedurach"
           },
           {
             "tag": "p",
             "classSnippet": "HomeExperience-module__crXsBa__manifestEyebrow",
             "fontSize": 10.88,
             "textSnippet": "Pomoc projektowana od strony studenta"
-          },
-          {
-            "tag": "p",
-            "classSnippet": "mx-auto mb-8 max-w-[1200px] px-6 font-mono text-[0.6875rem] font-medium uppercas",
-            "fontSize": 11,
-            "textSnippet": "Kadry z archiwum Samorządu"
           },
           {
             "tag": "span",

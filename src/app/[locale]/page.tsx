@@ -1,7 +1,6 @@
 import { EconTicker } from "@/components/EconTicker";
 import { HomeExperience } from "@/components/home/HomeExperience";
 import { NextEvent } from "@/components/NextEvent";
-import { PhotoBand } from "@/components/PhotoBand";
 import { StudentLife } from "@/components/StudentLife";
 
 /**
@@ -19,7 +18,6 @@ import { StudentLife } from "@/components/StudentLife";
  * - `NextEvent`      — pytanie o CZAS: co dzieje się najbliżej. Renderuje się
  *                      dopiero po ustawieniu EVENTS_SHEET_CSV_URL; bez niego
  *                      świadomie nie pokazuje nic, zamiast zmyślać wydarzenie.
- * - `PhotoBand`      — skala i ludzie tam, gdzie tekst mówi o zasadach.
  * - `StudentLife`    — jedyne miejsce, gdzie zdjęcie dostaje pełny ekran.
  * - `EconTicker`     — pasek zamykający.
  *
@@ -31,7 +29,6 @@ export default function Home() {
     <main id="main-content" tabIndex={-1}>
       <HomeExperience />
       <NextEvent />
-      <PhotoBand />
       <StudentLife />
       <EconTicker />
     </main>

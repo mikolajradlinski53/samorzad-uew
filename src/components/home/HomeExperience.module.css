@@ -19,7 +19,6 @@ podpiąć raz. */
   font-family: var(--font-home), sans-serif;
 }
 
-.sectionIntro > p,
 .manifestEyebrow {
   margin: 0;
   font-family: var(--font-jbm), monospace;
@@ -30,201 +29,8 @@ podpiąć raz. */
   text-transform: uppercase;
 }
 
-.routePhoto,
 .manifestImage {
   object-fit: cover;
-}
-
-@keyframes hero-impulse-draw {
-  to {
-    stroke-dashoffset: 0;
-  }
-}
-
-@keyframes hero-impulse-fade {
-  to {
-    opacity: 0;
-  }
-}
-
-@keyframes hero-index-enter {
-  from {
-    opacity: 0;
-    transform: translateY(0.45rem);
-  }
-}
-
-.routes {
-  scroll-margin-top: 72px;
-  background: var(--bg-elevated);
-  padding: clamp(6rem, 11vw, 10rem) clamp(1.25rem, 5vw, 4.75rem);
-  color: var(--home-ink);
-}
-
-.sectionIntro {
-  display: grid;
-  width: min(100%, 1320px);
-  margin: 0 auto clamp(3rem, 6vw, 5rem);
-  grid-template-columns: minmax(9rem, 0.38fr) minmax(20rem, 1.2fr) minmax(16rem, 0.72fr);
-  align-items: end;
-  gap: clamp(2rem, 5vw, 5rem);
-}
-
-.sectionIntro > p {
-  color: var(--home-blue);
-}
-
-.sectionIntro h2 {
-  margin: 0;
-  font-size: clamp(2.5rem, 4.8vw, 5.4rem);
-  font-weight: 670;
-  line-height: 0.95;
-  letter-spacing: -0.052em;
-}
-
-.sectionIntro > span {
-  max-width: 29rem;
-  color: var(--home-muted);
-  font-size: 1rem;
-  line-height: 1.65;
-}
-
-.routeGrid {
-  display: grid;
-  width: min(100%, 1320px);
-  min-height: 660px;
-  margin-inline: auto;
-  border-top: 1px solid var(--home-line);
-  border-left: 1px solid var(--home-line);
-  grid-template-columns: repeat(12, minmax(0, 1fr));
-  grid-template-rows: repeat(3, minmax(190px, 1fr));
-  grid-auto-flow: dense;
-}
-
-.route {
-  position: relative;
-  isolation: isolate;
-  display: flex;
-  overflow: hidden;
-  border-right: 1px solid var(--home-line);
-  border-bottom: 1px solid var(--home-line);
-  padding: clamp(1.4rem, 3vw, 2.5rem);
-  flex-direction: column;
-  justify-content: space-between;
-  color: var(--home-ink);
-  text-decoration: none;
-  transition: background-color 220ms ease, color 220ms ease;
-}
-
-.route1 {
-  background: var(--home-ink);
-  grid-column: span 7;
-  grid-row: span 3;
-  color: var(--home-surface);
-}
-
-.route2,
-.route3,
-.route4 {
-  grid-column: span 5;
-}
-
-.route2 { background: var(--home-surface); }
-
-.route3 { background: var(--bg-elevated); }
-
-.route4 { background: var(--bg-elevated); }
-
-.route2:hover,
-.route2:focus-visible,
-.route3:hover,
-.route3:focus-visible,
-.route4:hover,
-.route4:focus-visible {
-  background: var(--accent-glow);
-  color: var(--home-ink);
-}
-
-.routePhoto {
-  z-index: -2;
-  filter: saturate(0.78) contrast(1.04);
-  transition: transform 700ms cubic-bezier(0.16, 1, 0.3, 1), filter 400ms ease;
-}
-
-.route1:hover .routePhoto,
-.route1:focus-visible .routePhoto {
-  filter: saturate(0.98) contrast(1.03);
-  transform: scale(1.035);
-}
-
-.routeWash {
-  position: absolute;
-  z-index: -1;
-  inset: 0;
-  background: linear-gradient(180deg, rgb(16 39 67 / 12%), rgb(16 39 67 / 88%));
-}
-
-.route:not(.route1) .routeWash {
-  display: none;
-}
-
-.routeNumber {
-  font-family: var(--font-jbm), monospace;
-  font-size: 0.68rem;
-  letter-spacing: 0.1em;
-}
-
-.routeBody {
-  display: flex;
-  max-width: 36rem;
-  flex-direction: column;
-  gap: 0.8rem;
-}
-
-.routeShort {
-  color: currentColor;
-  font-family: var(--font-jbm), monospace;
-  font-size: 0.65rem;
-  font-weight: 520;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-}
-
-.routeBody strong {
-  max-width: 13ch;
-  font-size: clamp(2rem, 3.5vw, 4.2rem);
-  font-weight: 670;
-  line-height: 0.95;
-  letter-spacing: -0.045em;
-}
-
-.route:not(.route1) .routeBody strong {
-  font-size: clamp(1.55rem, 2.25vw, 2.55rem);
-}
-
-.routeBody > span:last-child {
-  max-width: 35rem;
-  color: currentColor;
-  font-size: 0.9rem;
-  line-height: 1.55;
-  opacity: 0.82;
-}
-
-.routeArrow {
-  position: absolute;
-  right: clamp(1.4rem, 3vw, 2.5rem);
-  top: clamp(1.4rem, 3vw, 2.5rem);
-  color: var(--home-blue);
-  transition: transform 240ms ease;
-}
-
-.route1 .routeArrow {
-  color: var(--home-surface);
-}
-
-.route:hover .routeArrow,
-.route:focus-visible .routeArrow {
-  transform: translate(3px, -3px);
 }
 
 .manifesto {
@@ -289,62 +95,10 @@ podpiąć raz. */
   filter: saturate(0.78) contrast(1.04);
 }
 
-.route:focus-visible {
-  outline: 3px solid var(--home-blue);
-  outline-offset: 3px;
-}
-
-@media (max-width: 899px) {.routes {
-    padding: 6rem 1.25rem;
+@media (max-width: 899px) {.manifesto,
+  .manifestInner {
+    min-height: auto;
   }
-
-.sectionIntro {
-  display: block;
-}
-
-.sectionIntro h2 {
-  max-width: 14ch;
-  margin-top: 1rem;
-  font-size: clamp(2.65rem, 10.5vw, 4.4rem);
-}
-
-.sectionIntro > span {
-  display: block;
-  max-width: 35rem;
-  margin-top: 1.5rem;
-}
-
-.routeGrid {
-  min-height: 0;
-  border-left: 1px solid var(--home-line);
-  grid-template-columns: 1fr;
-  grid-template-rows: none;
-  grid-auto-rows: minmax(250px, auto);
-}
-
-.route,
-.route1,
-.route2,
-.route3,
-.route4 {
-  min-height: 270px;
-  grid-column: auto;
-  grid-row: auto;
-}
-
-.route1 {
-  min-height: min(68svh, 560px);
-}
-
-.routeBody strong,
-.route:not(.route1) .routeBody strong {
-  font-size: clamp(2.2rem, 9vw, 3.5rem);
-}
-
-.manifesto,
-.manifestInner {
-  min-height: auto;
-}
 
 .manifestInner {
   display: block;
@@ -408,19 +162,14 @@ tylko wygląda na zepsuty. Wartości niżej dają 2–3 pełne linie.
 Jeżeli chcesz większy krój na telefonie, zmień te liczby i ZMIERZ ponownie,
 zamiast usuwać blok.
 ────────────────────────────────────────────────────────────────────────── */
-@media (max-width: 599px) {.sectionIntro h2 {
-    font-size: clamp(1.85rem, 8vw, 2.6rem);
-    line-height: 1.02;
-    letter-spacing: -0.035em;
-  }
+@media (max-width: 599px) {
 
-/* Ograniczenia szerokości liczone w `ch` kurczą się razem z krojem, więc samo
-zmniejszenie stopnia pisma nie rozwiązywało łamania — nagłówek dalej miał
-tyle samo linii, tylko mniejszych. Na telefonie zdejmujemy limit. */
-.sectionIntro h2,
-.manifestStatement {
-  max-width: none;
-}
+  /* Ograniczenia szerokości liczone w `ch` kurczą się razem z krojem, więc samo
+  zmniejszenie stopnia pisma nie rozwiązywało łamania — nagłówek dalej miał
+  tyle samo linii, tylko mniejszych. Na telefonie zdejmujemy limit. */
+  .manifestStatement {
+    max-width: none;
+  }
 }
 
 /* ──────────────────────────────────────────────────────────────────────────
@@ -501,59 +250,7 @@ tak jak w pozostałych częściach strony.
   --home-radius-sm: 12px;
 }
 
-.experience .route,
 .experience .manifestMedia {
   border-radius: var(--home-radius);
   overflow: hidden;
-}
-
-/* ──────────────────────────────────────────────────────────────────────────
-HERO — SCENA OTWIERAJĄCA
-
-Tu idzie cały budżet efektów. Reszta strony ma po jednym spokojnym
-akcencie, ta scena ma być tym, co zapamiętuje się po wyjściu.
-
-Zasada, której się trzymam: ruch ma nieść informację. Nagłówek wjeżdża
-linia po linii, bo tak się go czyta. Impuls rysuje się pod spodem, bo to
-znak rozpoznawczy serwisu. Pasek przyrządowy tyka, bo naprawdę pokazuje
-bieżący czas i numer kadru. Nic tu nie rusza się „żeby się ruszało".
-────────────────────────────────────────────────────────────────────────── */
-
-@keyframes heroLineRise {
-  from { transform: translateY(108%); }
-  to   { transform: translateY(0); }
-}
-
-@keyframes heroRuleDraw {
-  from { transform: scaleX(0); }
-  to   { transform: scaleX(1); }
-}
-
-@keyframes heroFade {
-  from { opacity: 0; transform: translateY(10px); }
-  to   { opacity: 1; transform: translateY(0); }
-}
-
-@keyframes curtainChar {
-  from { opacity: 0; transform: translateY(28%); }
-  to   { opacity: 1; transform: translateY(0); }
-}
-
-@keyframes curtainLineDraw {
-  from { transform: scaleX(0); }
-  to   { transform: scaleX(1); }
-}
-
-@keyframes curtainLineOut {
-  to { opacity: 0; }
-}
-
-@keyframes curtainUp {
-  from { transform: translateY(0); }
-  to   { transform: translateY(-100%); }
-}
-
-@keyframes curtainDown {
-  from { transform: translateY(0); }
-  to   { transform: translateY(100%); }
 }
