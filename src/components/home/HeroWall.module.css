@@ -270,10 +270,15 @@
 .column[data-column="2"] .track { animation: runDown 30s linear infinite -6s; }
 .column[data-column="3"] .track { animation: runUp 38s linear infinite -12s; }
 
+/*
+ * Karta NIE narzuca proporcji. Wcześniej miała `aspect-ratio: 4 / 5`, więc
+ * każde zdjęcie trzeba było do tego przyciąć — a kadry są komponowane i
+ * przycinanie ich pod siatkę je psuje. Wysokość wynika teraz ze zdjęcia,
+ * dlatego kolumny są nierówne. To jest zamierzone.
+ */
 .card {
   position: relative;
   flex-shrink: 0;
-  aspect-ratio: 4 / 5;
   border: 1px solid var(--border-soft);
   border-radius: 17px;
   overflow: hidden;
@@ -288,7 +293,9 @@
 }
 
 .cardImage {
-  object-fit: cover;
+  display: block;
+  width: 100%;
+  height: auto;
 }
 
 .card:hover {

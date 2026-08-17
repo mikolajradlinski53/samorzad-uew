@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-17T08:41:08.285Z",
+  "generatedAt": "2026-08-17T13:59:25.152Z",
   "viewport": {
     "width": 375,
     "height": 812
@@ -140,13 +140,13 @@
           },
           {
             "tag": "p",
-            "classSnippet": "Register-module__gLAjiq__detailOrgan",
+            "classSnippet": "Register-module__gLAjiq__panelOrgan",
             "fontSize": 10,
             "textSnippet": "Zarząd Samorządu"
           },
           {
             "tag": "em",
-            "classSnippet": "",
+            "classSnippet": "Register-module__gLAjiq__metricLabel",
             "fontSize": 11,
             "textSnippet": "przewodników po procedurach"
           },
@@ -169,14 +169,8 @@
           {
             "tag": "div",
             "classSnippet": "HeroWall-module__5ZInkG__track",
-            "width": 887.05,
+            "width": 680.45,
             "rectRight": 257.96
-          },
-          {
-            "tag": "div",
-            "classSnippet": "HeroWall-module__5ZInkG__track",
-            "width": 824.17,
-            "rectRight": 540.52
           },
           {
             "tag": "div",
@@ -186,15 +180,9 @@
           },
           {
             "tag": "div",
-            "classSnippet": "HeroWall-module__5ZInkG__card",
-            "width": 491.29,
-            "rectRight": 207.64
-          },
-          {
-            "tag": "img",
-            "classSnippet": "HeroWall-module__5ZInkG__cardImage",
-            "width": 487.95,
-            "rectRight": 205.91
+            "classSnippet": "HeroWall-module__5ZInkG__track",
+            "width": 643.52,
+            "rectRight": 540.52
           },
           {
             "tag": "span",
@@ -211,50 +199,62 @@
           {
             "tag": "div",
             "classSnippet": "HeroWall-module__5ZInkG__card",
-            "width": 454.57,
-            "rectRight": 277.92
+            "width": 402.66,
+            "rectRight": 299.65
           },
           {
             "tag": "img",
             "classSnippet": "HeroWall-module__5ZInkG__cardImage",
-            "width": 451.48,
-            "rectRight": 276.33
+            "width": 399.68,
+            "rectRight": 298.1
           },
           {
             "tag": "div",
             "classSnippet": "HeroWall-module__5ZInkG__card",
-            "width": 433.95,
-            "rectRight": -195.14
+            "width": 397.99,
+            "rectRight": 384.55
           },
           {
             "tag": "img",
             "classSnippet": "HeroWall-module__5ZInkG__cardImage",
-            "width": 431.05,
-            "rectRight": -196.64
+            "width": 395.26,
+            "rectRight": 383.15
           },
           {
             "tag": "div",
             "classSnippet": "HeroWall-module__5ZInkG__card",
-            "width": 422.95,
-            "rectRight": 337.83
+            "width": 388.7,
+            "rectRight": 332.19
           },
           {
             "tag": "img",
             "classSnippet": "HeroWall-module__5ZInkG__cardImage",
-            "width": 420.07,
-            "rectRight": 336.35
+            "width": 385.84,
+            "rectRight": 330.69
+          },
+          {
+            "tag": "div",
+            "classSnippet": "HeroWall-module__5ZInkG__column",
+            "width": 374.37,
+            "rectRight": 540.52
           },
           {
             "tag": "div",
             "classSnippet": "HeroWall-module__5ZInkG__card",
-            "width": 405.12,
-            "rectRight": -102.38
+            "width": 373.56,
+            "rectRight": 430.15
           },
           {
             "tag": "img",
             "classSnippet": "HeroWall-module__5ZInkG__cardImage",
-            "width": 402.4,
-            "rectRight": -103.78
+            "width": 370.99,
+            "rectRight": 428.83
+          },
+          {
+            "tag": "div",
+            "classSnippet": "HeroWall-module__5ZInkG__card",
+            "width": 334.68,
+            "rectRight": 452.93
           }
         ]
       }

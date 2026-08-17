@@ -7,80 +7,45 @@
  * Hero, „Życie studenckie", Zarząd i RUSS mają osobne przełączniki, więc nie
  * trzeba czekać z jedną sekcją na komplet pozostałych.
  *
- * Tip: duże zdjęcia warto najpierw zoptymalizować (sharp: 4:5 ~800×1000, jpeg q80).
+ * Kadry hero są w WebP i NIE są przycinane do wspólnych proporcji — konwersję
+ * i manifest wymiarów robi `scripts/build-hero-manifest.mjs`.
  */
 
+import { heroFrames, type HeroFrame } from "./hero-frames";
+
 export const USE_LOCAL = {
-  hero: true, // public/photos/hero/01.jpg … (HERO_COUNT)
-  sciana: false, // public/photos/sciana/01.jpg … (WALL_COUNT) — ściana w hero
+  hero: true, // public/photos/hero/01.webp … (HERO_COUNT)
   zycie: false, // public/photos/zycie/integracja.jpg, wsparcie.jpg
   zarzad: false, // public/photos/zarzad/01.jpg …
   russ: false, // public/photos/russ/01.jpg …
   projekty: false, // public/photos/projekty/<klucz-projektu>.jpg
 };
 
-/**
- * Ile zdjęć leży w public/photos/sciana/. Ustaw razem z USE_LOCAL.sciana.
- *
- * 16 to liczba docelowa: cztery kolumny po cztery różne kadry. Poniżej 12
- * powtórzenia zaczynają rzucać się w oczy, bo każda kolumna dubluje swoją
- * listę, żeby pętla nie miała szwu.
- */
-const WALL_COUNT = 16;
-
-// Liczba zdjęć hero w folderze (dopasuj do liczby plików 0N.jpg).
+// Liczba numerowanych kadrów 0N.webp (używanych poza ścianą: manifest, projekty).
 const HERO_COUNT = 5;
 
 const pic = (seed: string, w: number, h: number) =>
   `https://picsum.photos/seed/${seed}/${w}/${h}`;
 
-const localList = (folder: string, count: number) =>
-  Array.from({ length: count }, (_, i) => `/photos/${folder}/${String(i + 1).padStart(2, "0")}.jpg`);
+const localList = (folder: string, count: number, ext = "jpg") =>
+  Array.from({ length: count }, (_, i) => `/photos/${folder}/${String(i + 1).padStart(2, "0")}.${ext}`);
 
-/** Hero — zdjęcia pionowe (kadr 4:5). public/photos/hero/01.jpg … */
+/** Numerowane kadry pionowe używane poza ścianą. public/photos/hero/01.webp … */
 export const heroPhotos: string[] = USE_LOCAL.hero
-  ? localList("hero", HERO_COUNT)
+  ? localList("hero", HERO_COUNT, "webp")
   : ["a", "b", "c", "d", "e", "f", "g", "h"].map((s) => pic(`ssuew-${s}`, 500, 640));
 
 /**
- * Kadry archiwalne używane w ścianie w hero — zdjęcia PIONOWE, kadr 4:5.
+ * Ściana kadrów w hero.
  *
- * Kolumny są wąskie i pionowe, więc kadr poziomy robi się w nich paskiem.
+ * Bierze manifest `heroFrames`, a nie samą listę ścieżek, bo każdy kadr ma
+ * WŁASNE proporcje — zdjęcia nie są przycinane do wspólnego formatu. Wymiary
+ * muszą dojść do przeglądarki przed plikiem, inaczej ściana skacze przy
+ * każdym doładowanym zdjęciu.
  *
- * WSZYSTKIE PLIKI Z TEJ LISTY MUSZĄ BYĆ W REPOZYTORIUM. Poprzednia wersja
- * wskazywała zdjęcia, które leżały wyłącznie na dysku autora i nigdy nie
- * zostały dodane do gita — lokalnie działały, na produkcji dawały 404.
- *
- * Nazwy są znormalizowane: małe litery, jedno rozszerzenie. Oryginały miały
- * .jpg, .JPG i .JPEG — Windows nie rozróżnia wielkości liter, Linux na
- * produkcji owszem, więc literówka w rozszerzeniu psuje stronę dopiero
- * po wdrożeniu.
- *
- * Wszystkie są przycięte do pionu 4:5 (1200x1500, ok. 100-400 KB). Oryginały
- * miały 6000x4000 px i do 8 MB — poziome, czyli w pionowej karcie przycinane
- * do paska, i za ciężkie, żeby przeglądarka zdążyła je pokazać.
+ * Manifest generuje `scripts/build-hero-manifest.mjs`.
  */
-const heroArchive: string[] = [
-  "/photos/hero/01.jpg",
-  "/photos/hero/bal.jpg",
-  "/photos/hero/02.jpg",
-  "/photos/hero/tedx-1.jpg",
-  "/photos/hero/03.jpg",
-  "/photos/hero/graduetion-1.jpg",
-  "/photos/hero/04.jpg",
-  "/photos/hero/dni-adaptacyjne.jpg",
-  "/photos/hero/05.jpg",
-  "/photos/hero/tedx-2.jpg",
-  "/photos/hero/kampus.jpg",
-  "/photos/hero/graduetion-2.jpg",
-];
-
-export const wallPhotos: string[] = USE_LOCAL.sciana
-  ? localList("sciana", WALL_COUNT)
-  : heroArchive;
-
-/** Czy ściana ma własny komplet, czy leci na zastępnikach z archiwum hero. */
-export const wallPhotosAreFinal = (): boolean => USE_LOCAL.sciana;
+export const wallFrames: HeroFrame[] = heroFrames;
 
 /**
  * Sekcja „Życie studenckie" — 2 zdjęcia poziome (kadr 3:2).
@@ -95,8 +60,8 @@ export const studentLifePhotos = USE_LOCAL.zycie
       wsparcie: "/photos/zycie/wsparcie.jpg",
     }
   : {
-      integracja: "/photos/hero/02.jpg",
-      wsparcie: "/photos/hero/04.jpg",
+      integracja: "/photos/hero/02.webp",
+      wsparcie: "/photos/hero/04.webp",
     };
 
 /**
@@ -113,10 +78,10 @@ export const boardPhotos: string[] = USE_LOCAL.zarzad ? localList("zarzad", 7) :
 export const russPhotos: string[] = USE_LOCAL.russ ? localList("russ", 15) : [];
 
 const projectFallbacks: Record<string, string[]> = {
-  adapciak: ["/photos/hero/05.jpg"],
-  bal: ["/photos/hero/02.jpg"],
-  dni: ["/photos/hero/01.jpg", "/photos/hero/03.jpg"],
-  party: ["/photos/hero/04.jpg"],
+  adapciak: ["/photos/hero/05.webp"],
+  bal: ["/photos/hero/02.webp"],
+  dni: ["/photos/hero/01.webp", "/photos/hero/03.webp"],
+  party: ["/photos/hero/04.webp"],
 };
 
 /**

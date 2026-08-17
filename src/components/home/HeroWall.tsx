@@ -4,7 +4,8 @@ import Image from "next/image";
 import { useLocale, useTranslations } from "next-intl";
 import { ArrowRight, ArrowUpRight, MagnifyingGlass } from "@phosphor-icons/react";
 import { Link } from "@/i18n/navigation";
-import { wallPhotos } from "@/lib/photos";
+import { wallFrames } from "@/lib/photos";
+import type { HeroFrame } from "@/lib/hero-frames";
 import { HeroTicker } from "./HeroTicker";
 import styles from "./HeroWall.module.css";
 
@@ -22,6 +23,9 @@ import styles from "./HeroWall.module.css";
  *    tak samo jak reszta serwisu.
  * 2. TRZY kolumny, nie cztery. Przy czterech każda była tak wąska, że kadr
  *    przestawał cokolwiek pokazywać — zostawał pasek koloru.
+ * 2b. KADRY NIE SĄ RÓWNE i tak ma być. Wcześniej każde zdjęcie było przycięte
+ *    do pionu 4:5, żeby kafle się zgadzały — a to psuło kompozycję kadru.
+ *    Teraz każde zachowuje swoje proporcje, a kolumny są nierówne.
  * 3. Ściana NIE ZATRZYMUJE SIĘ pod kursorem. Wzorzec ją zatrzymuje, ale wtedy
  *    jedno przypadkowe przejechanie myszą po drodze do menu zamraża pierwszy
  *    ekran i wygląda jak zawieszenie strony.
@@ -40,16 +44,16 @@ import styles from "./HeroWall.module.css";
 const COLUMNS = 3;
 
 /** Rozkład kadrów po kolumnach — na zmianę, żeby sąsiednie się nie powtarzały. */
-function toColumns(photos: string[]): string[][] {
-  const columns: string[][] = Array.from({ length: COLUMNS }, () => []);
-  photos.forEach((photo, i) => columns[i % COLUMNS].push(photo));
+function toColumns(frames: HeroFrame[]): HeroFrame[][] {
+  const columns: HeroFrame[][] = Array.from({ length: COLUMNS }, () => []);
+  frames.forEach((frame, i) => columns[i % COLUMNS].push(frame));
   return columns;
 }
 
 export function HeroWall() {
   const t = useTranslations("heroWall");
   const locale = useLocale();
-  const columns = toColumns(wallPhotos);
+  const columns = toColumns(wallFrames);
 
   return (
     <section className={styles.hero} aria-labelledby="home-hero-title">
@@ -119,14 +123,22 @@ export function HeroWall() {
                 <div className={styles.track}>
                   {/* Lista leci dwa razy — to jest cały mechanizm bezszwowej
                       pętli: przesuwamy o połowę wysokości i wracamy. */}
-                  {[...column, ...column].map((photo, i) => (
+                  {[...column, ...column].map((frame, i) => (
                     <div key={i} className={styles.card}>
+                      {/*
+                        `width`/`height` z manifestu, nie `fill`. Każdy kadr ma
+                        własne proporcje — przy `fill` kontener musiałby je
+                        narzucić, czyli znów przycinaliśmy zdjęcie pod siatkę.
+                        Podane wymiary pozwalają przeglądarce zarezerwować
+                        miejsce, więc ściana nie skacze przy doładowaniu.
+                      */}
                       <Image
-                        src={photo}
+                        src={frame.src}
                         alt=""
-                        fill
+                        width={frame.width}
+                        height={frame.height}
                         preload={index < 2 && i === 0}
-                        sizes="(max-width: 700px) 50vw, (max-width: 1000px) 34vw, 320px"
+                        sizes="(max-width: 700px) 50vw, (max-width: 1000px) 34vw, 340px"
                         className={styles.cardImage}
                       />
                     </div>
