@@ -14,11 +14,10 @@ export default function NotFound() {
   const tp = useTranslations("pages");
 
   return (
-    <main
-      id="main-content"
-      tabIndex={-1}
-      className="relative flex min-h-[100dvh] items-center justify-center overflow-hidden px-6 outline-none"
-    >
+    // Bez własnego <main> i bez `id="main-content"`: landmark tworzy już
+    // `template.tsx`, więc tutaj powstawał <main> w <main> i drugi element
+    // z tym samym `id`.
+    <div className="relative flex min-h-[100dvh] items-center justify-center overflow-hidden px-6">
       <div className="pointer-events-none absolute inset-0" aria-hidden="true">
         <div className="absolute -inset-x-0 -top-[10%] h-[120%]">
           <AuroraField />
@@ -61,6 +60,6 @@ export default function NotFound() {
           ))}
         </ul>
       </div>
-    </main>
+    </div>
   );
 }

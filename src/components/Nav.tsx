@@ -246,7 +246,17 @@ export function Nav() {
             <MagnifyingGlass size={20} weight="regular" aria-hidden="true" />
           </button>
 
-          {mounted && (
+          {/*
+            Przełącznik pojawia się dopiero po zamontowaniu, bo przed nim nie
+            wiadomo, który motyw jest wybrany — inaczej byłby błąd hydracji albo
+            mignięcie złej ikony.
+
+            Miejsce na niego jest jednak REZERWOWANE od pierwszej klatki.
+            Wcześniej `{mounted && <button/>}` nie zajmowało nic, a po
+            zamontowaniu 44 px plus odstęp — zmierzone: cała prawa grupa paska
+            przeskakiwała o 56 px w poziomie w trakcie ładowania.
+          */}
+          {mounted ? (
             <button
               onClick={toggleTheme}
               className="flex h-11 w-11 items-center justify-center rounded-lg text-ink-secondary transition-colors hover:bg-bg-elevated hover:text-ink-primary"
@@ -260,6 +270,8 @@ export function Nav() {
                 <Moon size={20} weight="regular" aria-hidden="true" />
               )}
             </button>
+          ) : (
+            <span className="h-11 w-11 shrink-0" aria-hidden="true" />
           )}
 
           <LanguageSwitcher />

@@ -25,12 +25,15 @@ import { StudentLife } from "@/components/StudentLife";
  * które któraś już odpowiada. Tak powstał bałagan, który tu sprzątaliśmy.
  */
 export default function Home() {
+  // Bez własnego <main>: landmark z `id="main-content"` (cel odnośnika
+  // „przejdź do treści") tworzy `[locale]/template.tsx` dla każdej trasy.
+  // Powielenie go tutaj dawało <main> w <main> i dwa elementy z tym samym `id`.
   return (
-    <main id="main-content" tabIndex={-1}>
+    <>
       <HomeExperience />
       <NextEvent />
       <StudentLife />
       <EconTicker />
-    </main>
+    </>
   );
 }

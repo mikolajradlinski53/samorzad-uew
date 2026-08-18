@@ -7,7 +7,6 @@ import { useTranslations } from "next-intl";
 import { heroPhotos } from "@/lib/photos";
 import { HeroWall } from "./HeroWall";
 import { Register } from "./Register";
-import { HeroCurtain } from "./HeroCurtain";
 import styles from "./HomeExperience.module.css";
 
 
@@ -36,7 +35,6 @@ export function HomeExperience() {
   return (
     <div ref={rootRef} className={styles.experience}>
       {motionReady && <HomeMotion scope={rootRef} />}
-      <HeroCurtain wordmark="SSUEW" />
       {/*
         HERO — DECYZJA ZAMAWIAJĄCEGO, podjęta świadomie po kilku podejściach.
         Ściana kadrów zastępuje cały dotychczasowy blok hero razem z listwą
