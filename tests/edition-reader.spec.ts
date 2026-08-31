@@ -4,7 +4,9 @@ import AxeBuilder from "@axe-core/playwright";
 const open = async (page: import("@playwright/test").Page) => {
   await page.goto("/pl/wydawnictwo", { waitUntil: "networkidle" });
   await page.getByRole("button", { name: /Akceptuj/ }).click().catch(() => {});
-  await page.getByRole("button", { name: /Przejrzyj wydanie/ }).click();
+  // .first(): na wąskim ekranie przycisk niesie każda karta rozdziału (wszystkie
+  // otwierają ten sam tom), więc bez zawężenia strict mode odrzuca kliknięcie.
+  await page.getByRole("button", { name: /Przejrzyj wydanie/ }).first().click();
   await expect(page.getByRole("dialog")).toBeVisible();
 };
 
@@ -40,21 +42,21 @@ test("brak naruszeń axe przy otwartym czytniku", async ({ page }) => {
   expect(results.violations).toEqual([]);
 });
 
-test("brak poziomego rozpychania na 375 px", async ({ page }) => {
-  // Odstępstwo od planu: przycisk „Przejrzyj wydanie" leży w panelu
-  // szczegółów SpineWall, który ma klasę `hidden md:block` — jest niewidoczny
-  // (i nieobecny w drzewie ról) poniżej breakpointu md (768 px). To osobna,
-  // istniejąca cecha SpineWall (karty mobilne pokazują dane inaczej),
-  // niezwiązana z czytnikiem, i naprawianie jej wykracza poza to zadanie.
-  // Otwieramy więc czytnik przy domyślnym (desktopowym) viewporcie, a dopiero
-  // POTEM zwężamy okno do 375 px — test nadal w pełni sprawdza to, co ma
-  // sprawdzać: czy sam otwarty czytnik nie rozpycha strony w poziomie na
-  // wąskim ekranie (uruchamia się media query @700px w
-  // EditionReader.module.css).
-  await open(page);
+test("da się otworzyć i zamknąć na 375 px, bez poziomego rozpychania", async ({ page }) => {
+  // Poniżej breakpointu md (768 px) panel szczegółów SpineWall jest ukryty, a
+  // treść niosą karty mobilne — czytnik musi więc mieć własny przycisk na
+  // karcie. Test otwiera go NAPRAWDĘ na 375 px (nie zwężając okna po
+  // otwarciu), bo inaczej nie sprawdzałby, czy da się tu w ogóle dostać.
   await page.setViewportSize({ width: 375, height: 800 });
+  await open(page);
+
   const overflow = await page.evaluate(
     () => document.documentElement.scrollWidth - document.documentElement.clientWidth,
   );
   expect(overflow).toBe(0);
+
+  // Fokus musi wrócić na przycisk karty, nie na ukryty przycisk panelu.
+  await page.keyboard.press("Escape");
+  await expect(page.getByRole("dialog")).toHaveCount(0);
+  await expect(page.getByRole("button", { name: /Przejrzyj wydanie/ }).first()).toBeFocused();
 });
