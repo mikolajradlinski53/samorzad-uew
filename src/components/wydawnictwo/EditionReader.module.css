@@ -142,3 +142,23 @@
     display: none;
   }
 }
+
+/* Płótno sceny 3D.
+   `align-self: stretch` jest tu istotne: .stage ma `align-items: center`, więc
+   bez tego płótno dostałoby własną wysokość (domyślne 150 px canvasa) zamiast
+   pełnej wysokości sceny, a renderer zmierzyłby ją przez clientHeight i
+   narysował książkę w pasku na środku ekranu. */
+.canvas {
+  flex: 1;
+  align-self: stretch;
+  width: 100%;
+  min-height: 0;
+  display: block;
+}
+
+/* Style autorskie biją arkusz przeglądarki niezależnie od specyficzności, więc
+   `display: block` powyżej unieważniłoby `[hidden] { display: none }` i płótno
+   byłoby widoczne także w trybie zastępczym, zabierając miejsce stronom. */
+.canvas[hidden] {
+  display: none;
+}

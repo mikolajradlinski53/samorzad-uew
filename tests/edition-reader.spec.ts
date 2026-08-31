@@ -60,3 +60,39 @@ test("da się otworzyć i zamknąć na 375 px, bez poziomego rozpychania", async
   await expect(page.getByRole("dialog")).toHaveCount(0);
   await expect(page.getByRole("button", { name: /Przejrzyj wydanie/ }).first()).toBeFocused();
 });
+
+test("silnik 3D nie pobiera się, dopóki czytnik nie zostanie otwarty", async ({ page }) => {
+  // Cała oszczędność dynamicznego importu polega na tym, że odwiedzający
+  // podstronę Wydawnictwa nie płaci za `three`, jeśli nie otworzy czytnika.
+  // Test pilnuje właśnie tego, a nie samego istnienia osobnej porcji —
+  // porcja może istnieć i mimo to być pobierana z góry.
+  const pobrane: string[] = [];
+  page.on("response", (r) => pobrane.push(r.url()));
+
+  await page.goto("/pl/wydawnictwo", { waitUntil: "networkidle" });
+  await page.getByRole("button", { name: /Akceptuj/ }).click().catch(() => {});
+  await page.waitForLoadState("networkidle");
+
+  const licznik = () =>
+    page.evaluate(async (adresy) => {
+      const wyniki = await Promise.all(
+        adresy.map(async (u) => {
+          try {
+            return (await (await fetch(u)).text()).includes("WebGLRenderer");
+          } catch {
+            return false;
+          }
+        }),
+      );
+      return wyniki.filter(Boolean).length;
+    }, pobrane.filter((u) => u.endsWith(".js")));
+
+  expect(await licznik(), "three pobrane przed otwarciem czytnika").toBe(0);
+
+  pobrane.length = 0;
+  await page.getByRole("button", { name: /Przejrzyj wydanie/ }).first().click();
+  await expect(page.getByRole("dialog")).toBeVisible();
+  await page.waitForLoadState("networkidle");
+
+  expect(await licznik(), "three NIE pobrane po otwarciu czytnika").toBeGreaterThan(0);
+});
