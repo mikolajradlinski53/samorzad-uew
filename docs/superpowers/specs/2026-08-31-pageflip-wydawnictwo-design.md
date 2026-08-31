@@ -1,7 +1,7 @@
 # Pageflip — przewracana publikacja na podstronie Wydawnictwo
 
 Data: 2026-08-31
-Status: do akceptacji zamawiającego
+Status: ustalenia domknięte — §11 rozstrzygnięty
 
 ## 1. Problem
 
@@ -95,7 +95,7 @@ a nie dodatkiem, i stoi w nim na równi z samą książką.
 
 | Moduł | Odpowiedzialność | Zależy od |
 |---|---|---|
-| `scripts/build-edition.mjs` | PDF/obrazy → strony WebP + manifest wymiarów | sharp (dev) |
+| `scripts/build-edition.mjs` | PDF → strony WebP + manifest + kopia PDF-a do `public/` | sharp (dev) |
 | `src/lib/editions.ts` | **generowany** manifest: wydanie → lista stron | — |
 | `src/lib/publications.ts` | metadane rozdziałów (prawdziwe) | — |
 | `src/components/wydawnictwo/EditionReader.tsx` | nakładka: Escape, pułapka fokusu, odwrót statyczny | React, editions |
@@ -162,9 +162,23 @@ i Page Up/Down** (dodane wobec wzorca — bez klawiatury czytnik jest niedostęp
 
 Twardy wymóg projektu. Trzy rzeczy, bez których to nie wchodzi na produkcję:
 
-1. **Skan jest obrazkiem tekstu.** Dla czytnika ekranu płótno WebGL jest puste.
-   Czytnik MUSI więc zawierać widoczny odnośnik do pełnego PDF-a w otwartym
-   dostępie — to jest droga do treści, a książka 3D jest ilustracją.
+1. **Płótno WebGL jest dla czytnika ekranu puste**, więc musi istnieć inna
+   droga do treści. Ta droga to PDF — i tu jest dobra wiadomość, sprawdzona
+   w pliku, a nie założona:
+
+   | Cecha źródłowego PDF-a | Wynik |
+   |---|---|
+   | Warstwa tekstowa | **JEST** — 387 operatorów `Tj/TJ` w pierwszych 40 strumieniach. To nie jest skan. |
+   | Otagowany (`/StructTreeRoot`, `/MarkInfo`) | **TAK** |
+   | Zadeklarowany język | `pl` — **BŁĄD ŹRÓDŁA**, tom jest po angielsku (§7.4) |
+
+   PDF jest więc pełnoprawnym, dostępnym dokumentem: czytnik ekranu odczyta go
+   ze strukturą nagłówków. **Serwis Samorządu staje się jego hostem** —
+   `public/wydawnictwo/<slug>.pdf`, odnośnik z czytnika. Licencja CC BY-SA 4.0
+   wprost na to pozwala, a poza Google Scholarem tomu nie ma dziś nigdzie.
+
+   To zamienia dawną blokadę w usługę: **rosnąca półka otwartego dostępu**
+   prowadzona przez Samorząd, zasilana kolejnymi tomami od Wydawnictwa.
 2. **Klawiatura i fokus.** Nakładka to `role="dialog" aria-modal="true"` z
    pułapką fokusu, Escape zamyka i przywraca fokus na grzbiet, z którego
    otwarto. Strzałki przewracają strony. Płótno dostaje `role="img"` z etykietą
@@ -172,6 +186,12 @@ Twardy wymóg projektu. Trzy rzeczy, bez których to nie wchodzi na produkcję:
 3. **Ograniczony ruch.** Przy `prefers-reduced-motion` — jedna nieruchoma
    otwarta rozkładówka, przewracanie natychmiastowe, bez animacji i bez
    samoczynnego kartkowania.
+
+4. **Do zgłoszenia Wydawnictwu (defekt źródła, nie nasz).** PDF deklaruje
+   `/Lang (pl)`, a tom jest po angielsku. Czytnik ekranu przeczyta angielski
+   tekst polską wymową — to naruszenie WCAG 3.1.1 po ich stronie. Nie
+   poprawiamy cudzego pliku samodzielnie; podajemy im to jako drobną poprawkę
+   przy eksporcie, która pomoże każdemu czytelnikowi, nie tylko naszemu.
 
 Atrybucja CC BY-SA (autorzy, redaktorki, wydawca, licencja) jest w czytniku
 tekstem, nie tylko na skanie.
@@ -212,12 +232,11 @@ tekstem, nie tylko na skanie.
 
 ## 11. Czego potrzeba od zamawiającego
 
-1. **Adres pełnego tekstu w otwartym dostępie** — bez niego czytnik nie przejdzie
-   własnych testów dostępności (§7.1). Prawdopodobnie DBC (`dbc.wroc.pl`) albo
-   strona wydawnictwa; potrzebny konkretny URL, nie domysł.
-2. **Weto na wagę repozytorium, jeśli 10 MB to za dużo.** Domyślnie robimy
-   pełne 130 stron (§5.2) — jeśli waga repozytorium ma znaczenie, wersją
-   zapasową jest wybór: okładka, spis treści, przedmowa i pierwsza strona
-   każdego rozdziału (≈ 15 stron, ok. 1,5 MB). Nie pytam „czy tak", tylko
-   „czy zawetować" — brak odpowiedzi znaczy pełny tom.
-3. Docelowo: kolejne tomy serii w tym samym formacie.
+1. ~~Adres pełnego tekstu~~ — **ROZSTRZYGNIĘTE.** Taka strona nie istnieje;
+   poza Google Scholarem tomu nie ma nigdzie. Hostem zostaje serwis Samorządu
+   (§7.1). PDF wchodzi do `public/wydawnictwo/` obok stron.
+2. ~~Weto na wagę~~ — **ROZSTRZYGNIĘTE: pełny tom, 130 stron.**
+3. **Zgłoszenie do Wydawnictwa:** `/Lang (pl)` w angielskim tomie (§7.4).
+4. Kolejne tomy serii w tym samym formacie — Wydawnictwo przysyła je odtąd na
+   bieżąco, więc `scripts/build-edition.mjs` musi być powtarzalny i przyjmować
+   sam PDF jako jedyne wejście.
