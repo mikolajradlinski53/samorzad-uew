@@ -90,8 +90,57 @@ export function createScene(
   // 24° z 4 jednostek dają obraz bliższy rzutowi prostokątnemu: strona czyta
   // się jak strona, a nie jak klin.
   const camera = new THREE.PerspectiveCamera(24, 1, 0.1, 100);
-  camera.position.set(0, 3.35, 2.05);
-  camera.lookAt(0, 0, 0);
+  /** Kierunek patrzenia jest stały; dobieramy tylko odległość. */
+  const VIEW_DIR = new THREE.Vector3(0, 3.35, 2.05).normalize();
+  /** Ile kadru zostaje na margines — 1.0 znaczyłoby „książka po same krawędzie". */
+  const FIT = 0.84;
+  let camDist = 4;
+  const sonda = new THREE.Vector3();
+
+  const applyCam = () => {
+    camera.position.copy(VIEW_DIR).multiplyScalar(camDist);
+    camera.lookAt(0, 0, 0);
+  };
+
+  /**
+   * Odległość kamery, przy której treść o danej połówkowej szerokości mieści
+   * się w kadrze.
+   *
+   * Wcześniej kamera stała w ustalonym punkcie dobranym pod szeroki ekran.
+   * Na wąskim, pionowym płótnie telefonu ten sam punkt przycinał książkę przy
+   * bocznych krawędziach, a użytkownik nie ma jak się oddalić. Odległość liczy
+   * się teraz z RZUTU punktów skrajnych, więc kadr dopasowuje się sam: im
+   * węższe płótno, tym dalej stoi kamera.
+   *
+   * Szerokość jest parametrem, a nie stałą, bo na okładce widać JEDNĄ stronę,
+   * a nie rozkładówkę. Dopasowanie do pełnych dwóch stron zostawiałoby wtedy
+   * pół kadru pustki i okładka byłaby niepotrzebnie mała.
+   */
+  const fitDistance = (halfW: number): number => {
+    const punkty = [
+      new THREE.Vector3(-halfW, 0, -PH / 2),
+      new THREE.Vector3(halfW, 0, -PH / 2),
+      new THREE.Vector3(-halfW, 0, PH / 2),
+      new THREE.Vector3(halfW, 0, PH / 2),
+      new THREE.Vector3(0, PW * 0.62, 0), // szczyt uniesionej kartki
+    ];
+    let d = 4;
+    for (let i = 0; i < 8; i++) {
+      camera.position.copy(VIEW_DIR).multiplyScalar(d);
+      camera.lookAt(0, 0, 0);
+      camera.updateMatrixWorld();
+      let worst = 0;
+      for (const p of punkty) {
+        sonda.copy(p).project(camera);
+        worst = Math.max(worst, Math.abs(sonda.x), Math.abs(sonda.y));
+      }
+      if (worst < 1e-6) break;
+      const skala = worst / FIT;
+      d *= skala;
+      if (Math.abs(skala - 1) < 0.002) break;
+    }
+    return d;
+  };
 
   // Światło kluczowe zeszło z 2.4: przy papierze o albedo bliskim 1 tamta moc
   // wypłukiwała druk razem z kolorem okładki.
@@ -311,6 +360,8 @@ export function createScene(
   let flipStart = 0; // znacznik czasu startu
   let offsetFrom = 0; // przesunięcie książki na starcie animacji
   let offsetTo = 0; // i po jej zakończeniu
+  let distFrom = 0; // odległość kamery na starcie animacji
+  let distTo = 0; // i po jej zakończeniu
   let dragging = false;
 
   /**
@@ -325,6 +376,8 @@ export function createScene(
     flipStart = performance.now();
     offsetFrom = book.position.x;
     offsetTo = offsetFor(flipDest);
+    distFrom = camDist;
+    distTo = fitDistance(halfWidthFor(flipDest));
   };
 
   /**
@@ -340,11 +393,22 @@ export function createScene(
     return 0;
   };
 
+  /**
+   * Połówkowa szerokość WIDOCZNEJ treści: pełna strona przy rozkładówce,
+   * pół strony, gdy widać tylko okładkę albo ostatnią stronę.
+   */
+  const halfWidthFor = (state: number): number => {
+    const { verso, recto } = spreadAt(state, pages.length);
+    return verso !== null && recto !== null ? PW : PW / 2;
+  };
+
   const paintStatics = (state: number) => {
     const { verso, recto } = spreadAt(state, pages.length);
     setFace(leftPage, leftMat, verso);
     setFace(rightPage, rightMat, recto);
     book.position.x = offsetFor(state);
+    camDist = fitDistance(halfWidthFor(state));
+    applyCam();
   };
 
   /**
@@ -463,6 +527,9 @@ export function createScene(
       tv = flipFrom + (flipGoal - flipFrom) * e;
       // Kadr równoważy się tą samą krzywą, więc otwarcie tomu to jeden ruch.
       book.position.x = offsetFrom + (offsetTo - offsetFrom) * e;
+      // Kamera odjeżdża razem z otwieraniem tomu: z jednej strony na dwie.
+      camDist = distFrom + (distTo - distFrom) * e;
+      applyCam();
       deform(tv);
       dirty = true;
       if (p >= 1) {
@@ -484,6 +551,10 @@ export function createScene(
     renderer.setSize(w, h, false);
     camera.aspect = w / h;
     camera.updateProjectionMatrix();
+    // Dopasowanie MUSI być po ustawieniu proporcji: to od nich zależy, jak
+    // daleko trzeba się cofnąć, żeby książka zmieściła się na szerokość.
+    camDist = fitDistance(halfWidthFor(o));
+    applyCam();
     requestRender();
   };
   const ro = new ResizeObserver(resize);
@@ -546,6 +617,8 @@ export function createScene(
     // przez całe przeciągnięcie i doskoczyła dopiero po puszczeniu.
     const prog = dragDir === 1 ? tv : 1 - tv;
     book.position.x = offsetFrom + (offsetTo - offsetFrom) * prog;
+    camDist = distFrom + (distTo - distFrom) * prog;
+    applyCam();
     deform(tv);
     dirty = true;
   };
