@@ -92,7 +92,69 @@ test("silnik 3D nie pobiera się, dopóki czytnik nie zostanie otwarty", async (
   pobrane.length = 0;
   await page.getByRole("button", { name: /Przejrzyj wydanie/ }).first().click();
   await expect(page.getByRole("dialog")).toBeVisible();
-  await page.waitForLoadState("networkidle");
+  // Czekamy na SKUTEK, a nie na ciszę w sieci: `networkidle` potrafi wrócić
+  // natychmiast, zanim dynamiczny import w efekcie w ogóle wystartuje. Widoczne
+  // płótno oznacza, że scena wstała, czyli że silnik naprawdę się pobrał.
+  await expect(page.locator('[role="dialog"] canvas')).toBeVisible();
 
   expect(await licznik(), "three NIE pobrane po otwarciu czytnika").toBeGreaterThan(0);
+});
+
+test("jeden gest kółkiem przewraca dokładnie jedną kartkę", async ({ page }) => {
+  await open(page);
+
+  // Kółko obsługuje płótno sceny, więc bez niej nie ma czego testować.
+  const canvas = page.locator('[role="dialog"] canvas');
+  await expect(canvas).toBeVisible();
+
+  // Zawężenie do dialogu jest konieczne: na stronie są TRZY regiony
+  // aria-live="polite" i bez tego selektor łapie panel SpineWall pod spodem.
+  const counter = page.locator('[role="dialog"] [aria-live="polite"]');
+  await expect(counter).toContainText("1");
+
+  const box = (await canvas.boundingBox())!;
+  await page.mouse.move(box.x + box.width / 2, box.y + box.height / 2);
+  // Seria zdarzeń jak z trackpada — bez blokady przeskoczyłoby wiele kartek.
+  for (let i = 0; i < 12; i++) await page.mouse.wheel(0, 30);
+
+  // Druga rozkładówka, nie dwudziesta. Sama zmiana licznika by nie wystarczyła:
+  // przeskok o dwanaście kartek też zmienia tekst, a to właśnie ten błąd
+  // blokada kółka ma wykluczać.
+  //
+  // Hojny limit czasu, bo licznik zmienia się dopiero po WYLĄDOWANIU kartki,
+  // a przy kilku scenach WebGL naraz (pełny zestaw idzie na czterech
+  // procesach) animacja potrafi zwolnić wielokrotnie. Asercja jest ta sama —
+  // czekamy dłużej, nie sprawdzamy mniej.
+  await expect(counter).toContainText("2–3", { timeout: 25_000 });
+});
+
+test("przeciągnięcie kartki za połowę przewraca ją, przed połową — cofa", async ({ page }) => {
+  await open(page);
+  const canvas = page.locator('[role="dialog"] canvas');
+  await expect(canvas).toBeVisible();
+  const counter = page.locator('[role="dialog"] [aria-live="polite"]');
+  const box = (await canvas.boundingBox())!;
+  const y = box.y + box.height / 2;
+
+  const drag = async (doX: number) => {
+    await page.mouse.move(box.x + box.width * 0.78, y);
+    await page.mouse.down();
+    // Kilka kroków, bo pojedynczy skok nie odwzorowuje ciągnięcia palcem.
+    for (let i = 1; i <= 8; i++) {
+      const t = i / 8;
+      await page.mouse.move(box.x + box.width * (0.78 + (doX - 0.78) * t), y);
+    }
+    await page.mouse.up();
+  };
+
+  // Puszczone przed połową — kartka wraca, rozkładówka bez zmian. Tu czekamy
+  // NA CZAS, a nie na warunek: asercja „nadal 1" spełniłaby się natychmiast
+  // także wtedy, gdyby kartka miała się przewrócić chwilę później.
+  await drag(0.68);
+  await page.waitForTimeout(3000);
+  await expect(counter).toContainText("Strony 1 z");
+
+  // Przeciągnięte przez grzbiet na drugą stronę — kartka dochodzi do końca.
+  await drag(0.16);
+  await expect(counter).toContainText("2–3", { timeout: 25_000 });
 });

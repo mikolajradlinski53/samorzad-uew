@@ -207,9 +207,14 @@ export function createScene(
   scene.add(leaf);
 
   let o = 0;
-  let target = 0;
   let tv = 0;
-  let base = 0;
+  // Stan obrotu trzymamy JAWNIE, zamiast wyprowadzać kierunek z porównania
+  // `target > o`. Przy przeciąganiu cel potrafi się zrównać ze stanem bieżącym
+  // (kartka puszczona przed połową wraca tam, skąd wyszła) i takie porównanie
+  // nie odróżniłoby powrotu z obrotu w przód od powrotu z obrotu w tył.
+  let flipGoal = 0; // dokąd zmierza `tv`
+  let flipDest = 0; // jakie `o` obowiązuje po wylądowaniu
+  let dragging = false;
 
   const paintStatics = (state: number) => {
     const { verso, recto } = spreadAt(state, pages.length);
@@ -251,7 +256,7 @@ export function createScene(
   };
 
   const startFlip = (from: number, to: number) => {
-    base = Math.min(from, to);
+    const base = Math.min(from, to);
     const f = framesFor(base, pages.length);
     setFace(leftPage, leftMat, f.staticVerso);
     setFace(rightPage, rightMat, f.staticRecto);
@@ -263,18 +268,24 @@ export function createScene(
     // Bez `leafMat.needsUpdate`: podmieniamy jedną teksturę na drugą, defines się
     // nie zmieniają, a wymuszona rekompilacja shadera zacinałaby każdy obrót.
     leaf.visible = true;
+    // `tv` to POŁOŻENIE kartki, nie postęp względem kierunku: 0 = leży na
+    // prawej stronie, 1 = leży na lewej. Obrót w tył startuje więc z jedynki.
     tv = to > from ? 0 : 1;
+    flipGoal = to > from ? 1 : 0;
+    flipDest = to;
   };
 
   const tick = () => {
     raf = requestAnimationFrame(tick);
-    if (leaf.visible) {
-      const goal = target > o ? 1 : 0;
-      tv += (goal - tv) * 0.12;
-      if (Math.abs(goal - tv) < 0.004) {
-        tv = goal;
+    // Podczas przeciągania kartką steruje wskaźnik. Bez tego wyjścia pętla
+    // dociągałaby `tv` do celu w tej samej klatce, w której ustawia je palec,
+    // i kartka wyrywałaby się spod niego.
+    if (leaf.visible && !dragging) {
+      tv += (flipGoal - tv) * 0.12;
+      if (Math.abs(flipGoal - tv) < 0.004) {
+        tv = flipGoal;
         leaf.visible = false;
-        o = target;
+        o = flipDest;
         paintStatics(o);
         opts.onSettled(o);
       } else {
@@ -302,23 +313,114 @@ export function createScene(
   if (!opts.reduced) raf = requestAnimationFrame(tick);
   else renderer.render(scene, camera);
 
-  return {
+  /**
+   * Przeciąganie: czubek kartki idzie za palcem.
+   *
+   * Rzutujemy wskaźnik na płaszczyznę książki i mapujemy jego X na położenie
+   * kartki przez `acos(x/PW)/pi`. To NIE jest odwzorowanie liniowe i tak ma
+   * być: kartka porusza się po łuku, więc równomierny ruch palca daje
+   * równomierny ruch kartki, a nie przyspieszenie na środku.
+   */
+  const raycaster = new THREE.Raycaster();
+  const surface = new THREE.Plane(new THREE.Vector3(0, 1, 0), 0);
+  const hit = new THREE.Vector3();
+  const ndc = new THREE.Vector2();
+  /** Kierunek rozpoczętego przeciągnięcia: +1 w przód, -1 w tył. */
+  let dragDir = 0;
+  /** Stan `o`, na którym wylądujemy, jeśli przeciągnięcie zostanie dokończone. */
+  let dragDest = 0;
+
+  const pointerProgress = (e: PointerEvent): number | null => {
+    const r = canvas.getBoundingClientRect();
+    ndc.set(((e.clientX - r.left) / r.width) * 2 - 1, -((e.clientY - r.top) / r.height) * 2 + 1);
+    raycaster.setFromCamera(ndc, camera);
+    if (!raycaster.ray.intersectPlane(surface, hit)) return null;
+    const x = Math.max(-PW, Math.min(PW, hit.x));
+    return Math.acos(x / PW) / Math.PI;
+  };
+
+  const onDown = (e: PointerEvent) => {
+    if (opts.reduced || dragging) return;
+    if (pointerProgress(e) === null) return;
+    // Kierunek zależy od tego, po której stronie grzbietu zaczęto ciągnąć.
+    const dir = hit.x > 0 ? 1 : -1;
+    const dest = Math.max(0, Math.min(sheetCount(pages.length), o + dir));
+    // Na pierwszej i ostatniej rozkładówce nie ma czego przewracać. Bez tego
+    // `framesFor` dostałoby ujemny arkusz i kartka byłaby pusta.
+    if (dest === o) return;
+    dragging = true;
+    dragDir = dir;
+    dragDest = dest;
+    canvas.setPointerCapture(e.pointerId);
+    startFlip(o, dest);
+  };
+
+  const onMove = (e: PointerEvent) => {
+    if (!dragging) return;
+    const p = pointerProgress(e);
+    if (p === null) return;
+    tv = Math.max(0, Math.min(1, p));
+    deform(tv);
+  };
+
+  const onUp = (e: PointerEvent) => {
+    if (!dragging) return;
+    dragging = false;
+    canvas.releasePointerCapture(e.pointerId);
+    // Kartka przeciągnięta za połowę dochodzi do końca, puszczona przed —
+    // wraca. „Za połowę" zależy od kierunku, bo `tv` to położenie kartki:
+    // przy obrocie w tył ruch idzie od jedynki w dół.
+    const commit = dragDir === 1 ? tv > 0.5 : tv < 0.5;
+    if (dragDir === 1) flipGoal = commit ? 1 : 0;
+    else flipGoal = commit ? 0 : 1;
+    flipDest = commit ? dragDest : o;
+  };
+
+  canvas.addEventListener("pointerdown", onDown);
+  canvas.addEventListener("pointermove", onMove);
+  canvas.addEventListener("pointerup", onUp);
+  canvas.addEventListener("pointercancel", onUp);
+
+  /**
+   * Kółko myszy. Blokada na czas obrotu jest konieczna: jeden ruch trackpada
+   * generuje kilkadziesiąt zdarzeń i bez niej książka przeskakiwałaby
+   * o kilkanaście stron naraz.
+   */
+  let wheelLock = false;
+  let wheelTimer = 0;
+  const onWheel = (e: WheelEvent) => {
+    e.preventDefault();
+    if (opts.reduced || wheelLock || dragging) return;
+    const d = Math.abs(e.deltaY) > Math.abs(e.deltaX) ? e.deltaY : e.deltaX;
+    if (Math.abs(d) < 8) return;
+    wheelLock = true;
+    wheelTimer = window.setTimeout(() => (wheelLock = false), 240);
+    handle.goTo(o + (d > 0 ? 1 : -1));
+  };
+  canvas.addEventListener("wheel", onWheel, { passive: false });
+
+  const handle: SceneHandle = {
     goTo(next: number) {
       const clamped = Math.max(0, Math.min(sheetCount(pages.length), next));
       if (clamped === o) return;
       if (opts.reduced) {
         o = clamped;
-        target = clamped;
+        flipDest = clamped;
         paintStatics(o);
         renderer.render(scene, camera);
         opts.onSettled(o);
         return;
       }
-      target = clamped;
       startFlip(o, clamped);
     },
     dispose() {
       disposed = true;
+      canvas.removeEventListener("pointerdown", onDown);
+      canvas.removeEventListener("pointermove", onMove);
+      canvas.removeEventListener("pointerup", onUp);
+      canvas.removeEventListener("pointercancel", onUp);
+      canvas.removeEventListener("wheel", onWheel);
+      window.clearTimeout(wheelTimer);
       cancelAnimationFrame(raf);
       ro.disconnect();
       cache.forEach((t) => t.dispose());
@@ -334,4 +436,5 @@ export function createScene(
       renderer.dispose();
     },
   };
+  return handle;
 }
