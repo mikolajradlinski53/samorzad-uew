@@ -95,7 +95,11 @@ test("silnik 3D nie pobiera się, dopóki czytnik nie zostanie otwarty", async (
   // Czekamy na SKUTEK, a nie na ciszę w sieci: `networkidle` potrafi wrócić
   // natychmiast, zanim dynamiczny import w efekcie w ogóle wystartuje. Widoczne
   // płótno oznacza, że scena wstała, czyli że silnik naprawdę się pobrał.
-  await expect(page.locator('[role="dialog"] canvas')).toBeVisible();
+  //
+  // Hojny limit, bo tu pobiera się pół megabajta silnika i buduje scena WebGL,
+  // a pełny zestaw idzie na czterech procesach naraz — przy domyślnych 5 s
+  // test padał na obciążeniu, nie na błędzie.
+  await expect(page.locator('[role="dialog"] canvas')).toBeVisible({ timeout: 25_000 });
 
   expect(await licznik(), "three NIE pobrane po otwarciu czytnika").toBeGreaterThan(0);
 });

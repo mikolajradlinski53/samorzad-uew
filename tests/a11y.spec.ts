@@ -2,6 +2,12 @@ import { test, expect } from "@playwright/test";
 import AxeBuilder from "@axe-core/playwright";
 import { searchIndex } from "../src/lib/searchIndex";
 
+// axe analizuje CAŁE drzewo strony w przeglądarce, a najcięższe trasy (strona
+// główna z murem kilkunastu kadrów) przy równoległych procesach przekraczały
+// domyślne 60 s — i to nie było naruszenie, tylko timeout samej analizy.
+// Podnosimy limit, zamiast osłabiać skan albo wyłączać trasy z zestawu.
+test.describe.configure({ timeout: 120_000 });
+
 const TAGS = ["wcag2a", "wcag2aa", "wcag21a", "wcag21aa"];
 
 // Same route source sitemap.ts consumes. Fragment-only entries (e.g.
