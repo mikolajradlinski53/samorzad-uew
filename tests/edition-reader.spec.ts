@@ -32,7 +32,9 @@ test("strzałki przewracają strony i licznik się zgadza", async ({ page }) => 
 
 test("odnośnik do pełnego tekstu istnieje i wskazuje PDF", async ({ page }) => {
   await open(page);
-  const pdf = page.getByRole("link", { name: /Czytaj pełny tekst/ });
+  // Zawężone do dialogu: PDF oferuje teraz także panel tomu na stronie, więc
+  // bez tego selektor łapie dwa odnośniki i strict mode odrzuca sprawdzenie.
+  const pdf = page.getByRole("dialog").getByRole("link", { name: /Czytaj pełny tekst/ });
   await expect(pdf).toHaveAttribute("href", /\.pdf$/);
 });
 

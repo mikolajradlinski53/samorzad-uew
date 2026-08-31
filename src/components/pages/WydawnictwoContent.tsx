@@ -5,8 +5,9 @@ import { motion, useReducedMotion } from "motion/react";
 import { useTranslations } from "next-intl";
 import { GraduationCap, SealCheck, UsersThree, Copy, CheckCircle, WarningCircle, type Icon } from "@phosphor-icons/react";
 import { ScrollReveal } from "../ScrollReveal";
-import { SpineWall } from "../SpineWall";
+import { EditionShelf } from "../wydawnictwo/EditionShelf";
 import { publications, formatCitation } from "@/lib/publications";
+import { editions } from "@/lib/editions";
 
 const factKeys = ["years", "license", "circles"] as const;
 const factIcons: Record<(typeof factKeys)[number], Icon> = {
@@ -166,14 +167,19 @@ export function WydawnictwoContent() {
           </ScrollReveal>
 
           <div className="mt-10">
-            <SpineWall
+            <EditionShelf
+              editions={editions}
               publications={publications}
               labels={{
                 emptyTitle: t("spineLabels.emptyTitle"),
                 emptyDesc: t("spineLabels.emptyDesc"),
                 circleLabel: t("spineLabels.circleLabel"),
-                linkLabel: t("spineLabels.linkLabel"),
                 hint: t("spineLabels.hint"),
+                editorsLabel: t("shelf.editorsLabel"),
+                tocHeading: t("shelf.tocHeading"),
+                pagesLabel: t("shelf.pagesLabel"),
+                chapterCount: (count: number) => t("shelf.chapterCount", { count }),
+                doiLabel: t("shelf.doiLabel"),
                 readerOpen: t("readerOpen"),
                 readerClose: t("readerClose"),
                 readerPrev: t("readerPrev"),
