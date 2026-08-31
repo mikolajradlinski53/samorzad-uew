@@ -89,8 +89,15 @@ export function SpineWall({ publications, labels }: SpineWallProps) {
         {labels.hint}
       </p>
 
-      {/* Desktop / tablet — book spines */}
-      <ul className="hidden md:flex md:flex-wrap md:items-end md:gap-4">
+      {/* Desktop / tablet — book spines.
+          `inert` gdy czytnik jest otwarty: to on jest wtedy jedyną treścią
+          strony — grzbiety pod spodem muszą zniknąć z drzewa dostępności i z
+          kolejności Tab, inaczej czytnik ekranu w trybie przeglądania (nie
+          Tab) nadal je znajdzie mimo nakładki na wierzchu. Skutek uboczny:
+          axe też przestaje skanować to, co i tak jest wizualnie zasłonięte —
+          bez tego test axe czytnika łapał (prawdziwe, niezależne od czytnika)
+          niedostateczne kontrasty w etykietach grzbietów. */}
+      <ul className="hidden md:flex md:flex-wrap md:items-end md:gap-4" inert={readerOpen || undefined}>
         {publications.map((p, i) => {
           const t = toneFor(p.title);
           const isActive = i === selected;
@@ -138,7 +145,7 @@ export function SpineWall({ publications, labels }: SpineWallProps) {
 
       {/* Mobile — vertical cards, same data (no hidden toggle: everything is
           already on the card, so no <button> disclosure is needed here). */}
-      <ul className="flex flex-col gap-4 md:hidden">
+      <ul className="flex flex-col gap-4 md:hidden" inert={readerOpen || undefined}>
         {publications.map((p, i) => {
           const t = toneFor(p.title);
           return (
@@ -187,6 +194,7 @@ export function SpineWall({ publications, labels }: SpineWallProps) {
         aria-live="polite"
         style={{ borderColor: "var(--accent)" }}
         className="mt-8 hidden rounded-2xl border-l-4 bg-bg-surface p-6 md:block"
+        inert={readerOpen || undefined}
       >
         <p
           aria-hidden="true"
