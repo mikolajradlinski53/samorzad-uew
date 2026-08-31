@@ -78,9 +78,18 @@ export function WydawnictwoContent() {
                       ? { duration: 0 }
                       : { duration: 0.5, delay: i * 0.06, ease: [0.16, 1, 0.3, 1] }
                   }
-                  className="flex flex-col rounded-xl border border-border-subtle bg-bg-surface p-6"
+                  /* Ruch tylko na `transform` i `box-shadow` — obie właściwości
+                     przeglądarka animuje bez przeliczania układu strony, więc
+                     kafli może być dowolnie wiele bez kosztu przy przewijaniu. */
+                  className="group relative flex flex-col overflow-hidden rounded-xl border border-border-subtle bg-bg-surface p-6 transition-[transform,box-shadow,border-color] duration-200 hover:border-accent/40 hover:shadow-[0_16px_34px_-20px_rgba(15,23,42,0.5)] motion-safe:hover:-translate-y-1"
                 >
-                  <span className="flex h-11 w-11 items-center justify-center rounded-lg bg-accent-glow text-accent">
+                  {/* Kreska akcentu wysuwa się od lewej przy najechaniu.
+                      Przy zredukowanym ruchu pojawia się bez animacji. */}
+                  <span
+                    aria-hidden="true"
+                    className="absolute inset-x-0 top-0 h-[3px] origin-left scale-x-0 bg-accent transition-transform duration-300 ease-out group-hover:scale-x-100 motion-reduce:transition-none"
+                  />
+                  <span className="flex h-11 w-11 items-center justify-center rounded-lg bg-accent-glow text-accent transition-transform duration-200 motion-safe:group-hover:scale-110">
                     <Glyph size={24} weight="regular" aria-hidden="true" />
                   </span>
                   <h3 className="mt-5 text-[1.0625rem] font-semibold tracking-[-0.01em] text-ink-primary">
@@ -126,11 +135,13 @@ export function WydawnictwoContent() {
                     ? { duration: 0 }
                     : { duration: 0.5, delay: Math.min(i, 4) * 0.05, ease: [0.16, 1, 0.3, 1] }
                 }
-                className="flex gap-4 rounded-xl border border-border-subtle bg-bg-surface p-6"
+                className="group relative flex gap-4 overflow-hidden rounded-xl border border-border-subtle bg-bg-surface p-6 transition-[transform,box-shadow,border-color] duration-200 hover:border-accent/40 hover:shadow-[0_16px_34px_-20px_rgba(15,23,42,0.5)] motion-safe:hover:-translate-y-1"
               >
+                {/* Numer kroku podbity kolorem tła — czytelna kolejność bez
+                    dodatkowego elementu w drzewie dostępności. */}
                 <span
                   aria-hidden="true"
-                  className="font-mono text-[1.5rem] font-medium leading-none text-accent tabular-nums"
+                  className="font-mono flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-accent-glow text-[1rem] font-medium leading-none text-accent tabular-nums transition-transform duration-200 motion-safe:group-hover:scale-110"
                 >
                   {String(i + 1).padStart(2, "0")}
                 </span>
