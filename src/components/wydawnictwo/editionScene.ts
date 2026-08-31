@@ -18,9 +18,14 @@ import { framesFor, sheetCount, spreadAt } from "@/lib/spread";
 const BEND_MAX = 1.95;
 /** Skręt wierszowy — róg prowadzi obrót po przekątnej, jak w prawdziwej książce. */
 const LEAD = 0.32;
+/** Ile zwinięcie unosi kartkę nad blat. */
+const LIFT = 0.5;
 /** Podział siatki. Mniej niż 32 kolumny i zwinięcie widać jako łamaną. */
-const SEG_X = 48;
-const SEG_Y = 18;
+const SEG_X = 40;
+// Skręt zmienia się LINIOWO po wysokości strony, więc gęsty podział w pionie
+// nic nie wnosił poza kosztem: 18 rzędów to było 931 wierzchołków na klatkę,
+// 10 rzędów daje 451 przy nieodróżnialnym wyglądzie.
+const SEG_Y = 10;
 
 /** Odcień papieru tam, gdzie nie ma tekstury — biel byłaby zimna i płaska. */
 const PAPER_TINT = 0xf5f2ea;
@@ -74,6 +79,9 @@ export function createScene(
   // twarde — obracana kartka rzucała na stronę czarną plamę z ostrą krawędzią.
   // VSM naprawdę rozmywa, sterowany przez radius i blurSamples niżej.
   renderer.shadowMap.type = THREE.VSMShadowMap;
+  // Odświeżaniem mapy cienia sterujemy sami, z `draw()`. Domyślnie three
+  // przeliczałby ją przy każdym renderze, razem z rozmyciem VSM.
+  renderer.shadowMap.autoUpdate = false;
 
   const scene = new THREE.Scene();
   // Wąski kąt widzenia z większej odległości zamiast szerokiego z bliska.
@@ -130,6 +138,10 @@ export function createScene(
 
   let disposed = false;
   let raf = 0;
+  // Czy od ostatniego rysowania cokolwiek się zmieniło. Bez tego pętla rAF
+  // rysowała scenę 60 razy na sekundę także wtedy, gdy książka nieruchomo
+  // leżała otwarta — razem z pełnym rozmyciem mapy cienia.
+  let dirty = true;
 
   /**
    * Jedno miejsce, które decyduje o narysowaniu klatki poza pętlą.
@@ -141,8 +153,19 @@ export function createScene(
    * następna klatka i tak narysuje scenę, więc drugi render byłby marnotrawstwem.
    */
   const requestRender = () => {
-    if (disposed || raf !== 0) return;
+    if (disposed) return;
+    dirty = true;
+    if (raf !== 0) return; // pętla i tak narysuje najbliższą klatkę
+    draw();
+  };
+
+  const draw = () => {
+    // Mapa cienia przelicza się TYLKO razem z klatką, która czegoś nowego
+    // dotyczy. Domyślnie three odświeżałby ją co klatkę — łącznie z rozmyciem
+    // VSM — także wtedy, gdy książka nieruchomo leży otwarta.
+    if (wantShadows) renderer.shadowMap.needsUpdate = true;
     renderer.render(scene, camera);
+    dirty = false;
   };
 
   /**
@@ -325,6 +348,27 @@ export function createScene(
   };
 
   /**
+   * Wczytuje z wyprzedzeniem strony, które wejdą do gry przy NAJBLIŻSZYM
+   * obrocie — w przód i w tył.
+   *
+   * Bez tego pierwsza klatka obrotu musiała poczekać na pobranie i zdekodowanie
+   * WebP oraz wysłanie tekstury na kartę graficzną. Zacięcie wypadało dokładnie
+   * w chwili ruszania kartki, czyli w najgorszym możliwym miejscu.
+   */
+  const prewarm = (state: number) => {
+    const naprzod = framesFor(state, pages.length);
+    texture(naprzod.leafFront);
+    texture(naprzod.leafBack);
+    texture(naprzod.staticRecto);
+    if (state > 0) {
+      const wstecz = framesFor(state - 1, pages.length);
+      texture(wstecz.leafFront);
+      texture(wstecz.leafBack);
+      texture(wstecz.staticVerso);
+    }
+  };
+
+  /**
    * Deformacja kartki dla postępu `t ∈ [0,1]`.
    *
    * Wierzchołek w odległości `s` od grzbietu owija walec o promieniu
@@ -334,9 +378,18 @@ export function createScene(
    */
   const deform = (t: number) => {
     const pos = leafGeo.attributes.position;
+    const nor = leafGeo.attributes.normal;
     const theta = t * Math.PI;
-    const bend = Math.max(0.0001, Math.sin(theta) * BEND_MAX);
+    const sinTheta = Math.sin(theta);
+    const bend = Math.max(0.0001, sinTheta * BEND_MAX);
     const rho = PW / bend;
+    // Skręt wierszowy WYGASA na obu końcach obrotu (mnożnik sin(theta)).
+    // Wcześniej działał także przy theta = 0 i przy theta = pi, więc kartka
+    // w tych skrajnych położeniach nie pokrywała się z płaską stroną statyczną,
+    // tylko była lekko wachlarzowo skręcona. Skutek: widoczne szarpnięcie
+    // w chwili pojawienia się kartki i drugie przy jej zniknięciu — dokładnie
+    // tam, gdzie ruch ma być niewidoczny.
+    const k = (LEAD * sinTheta) / PH; // pochodna skrętu po wysokości strony
 
     for (let i = 0; i < pos.count; i++) {
       const x0 = rest[i * 3];
@@ -344,17 +397,34 @@ export function createScene(
       const s = x0 + PW / 2; // odległość od grzbietu, 0..PW
 
       const a = (s / PW) * bend;
-      const cx = rho * Math.sin(a);
-      const cy = rho * (1 - Math.cos(a));
+      const sinA = Math.sin(a);
+      const cosA = Math.cos(a);
+      const cx = rho * sinA;
+      const cy = rho * (1 - cosA);
 
-      const twist = theta + LEAD * (y0 / PH);
+      const twist = theta + LEAD * (y0 / PH) * sinTheta;
       const c = Math.cos(twist);
       const sn = Math.sin(twist);
 
-      pos.setXYZ(i, -PW / 2 + cx * c, y0, cx * sn + cy * 0.5);
+      pos.setXYZ(i, -PW / 2 + cx * c, y0, cx * sn + cy * LIFT);
+
+      // Normalne liczone WPROST z pochodnych powierzchni, zamiast przez
+      // computeVertexNormals(). Tamto przechodziło co klatkę po wszystkich
+      // ścianach, sumowało normalne sąsiadów i normalizowało — najdroższa
+      // pojedyncza operacja w pętli. Tu mamy postać parametryczną, więc
+      // normalna jest iloczynem wektorowym stycznych i wychodzi dokładniejsza.
+      const asx = cosA * c;
+      const asz = cosA * sn + sinA * LIFT;
+      const bxx = -cx * sn * k;
+      const bzz = cx * c * k;
+      const nx = -asz;
+      const ny = asz * bxx - asx * bzz;
+      const nz = asx;
+      const len = Math.hypot(nx, ny, nz) || 1;
+      nor.setXYZ(i, nx / len, ny / len, nz / len);
     }
     pos.needsUpdate = true;
-    leafGeo.computeVertexNormals(); // bez tego zwinięcie oświetla się płasko
+    nor.needsUpdate = true;
   };
 
   const startFlip = (from: number, to: number) => {
@@ -394,14 +464,16 @@ export function createScene(
       // Kadr równoważy się tą samą krzywą, więc otwarcie tomu to jeden ruch.
       book.position.x = offsetFrom + (offsetTo - offsetFrom) * e;
       deform(tv);
+      dirty = true;
       if (p >= 1) {
         leaf.visible = false;
         o = flipDest;
         paintStatics(o);
+        prewarm(o);
         opts.onSettled(o);
       }
     }
-    renderer.render(scene, camera);
+    if (dirty) draw();
   };
 
   const resize = () => {
@@ -419,8 +491,9 @@ export function createScene(
   resize();
 
   paintStatics(0);
+  prewarm(0);
   if (!opts.reduced) raf = requestAnimationFrame(tick);
-  else renderer.render(scene, camera);
+  else draw();
 
   /**
    * Przeciąganie: czubek kartki idzie za palcem.
@@ -474,6 +547,7 @@ export function createScene(
     const prog = dragDir === 1 ? tv : 1 - tv;
     book.position.x = offsetFrom + (offsetTo - offsetFrom) * prog;
     deform(tv);
+    dirty = true;
   };
 
   const onUp = (e: PointerEvent) => {
@@ -522,7 +596,8 @@ export function createScene(
         o = clamped;
         flipDest = clamped;
         paintStatics(o);
-        renderer.render(scene, camera);
+        prewarm(o);
+        draw();
         opts.onSettled(o);
         return;
       }

@@ -46,12 +46,6 @@ export function EditionReader({ edition, onClose, labels }: EditionReaderProps) 
   const sceneRef = useRef<import("./editionScene").SceneHandle | null>(null);
   const [scene3d, setScene3d] = useState(false);
 
-  // Bieżące `o` w refie. Efekt tworzący scenę NIE MOŻE mieć `o` w zależnościach
-  // (przebudowywałby całą scenę przy każdym przewróceniu kartki), a mimo to musi
-  // znać stan Reacta w chwili, gdy dynamiczny import się rozwiąże.
-  const oRef = useRef(o);
-  oRef.current = o;
-
   const go = useCallback(
     (delta: number) => setO((v) => Math.max(0, Math.min(sheets, v + delta))),
     [sheets],
@@ -136,13 +130,8 @@ export function EditionReader({ edition, onClose, labels }: EditionReaderProps) 
     // ani kilobajta silnika.
     import("./editionScene").then(({ createScene }) => {
       if (disposed || !canvasRef.current) return;
-      const scene = createScene(canvasRef.current, pages, { reduced, onSettled: setO });
-      sceneRef.current = scene;
+      sceneRef.current = createScene(canvasRef.current, pages, { reduced, onSettled: setO });
       setScene3d(true);
-      // Scena rodzi się w stanie 0, ale użytkownik mógł przewrócić stronę,
-      // zanim import się rozwiązał — efekt [o] trafił wtedy na pusty ref i
-      // przepadł. Bez tej synchronizacji licznik mówiłby co innego niż obraz.
-      if (oRef.current !== 0) scene.goTo(oRef.current);
     });
 
     return () => {
@@ -155,9 +144,15 @@ export function EditionReader({ edition, onClose, labels }: EditionReaderProps) 
   // Strzałki i przyciski sterują sceną, gdy ta działa. `goTo` sam wychodzi
   // wcześniej przy niezmienionym stanie, więc odesłanie z `onSettled` nie
   // zapętla się tutaj z powrotem.
+  //
+  // `scene3d` jest w zależnościach nie dla ozdoby: scena powstaje
+  // asynchronicznie, więc gdy ktoś naciśnie strzałkę przed rozwiązaniem
+  // importu, ten efekt trafia na pusty `sceneRef` i przepada. Przełączenie
+  // `scene3d` na prawdę uruchamia go ponownie i dociąga scenę do stanu, jaki
+  // ma już React — bez tego licznik mówiłby co innego niż obraz.
   useEffect(() => {
     sceneRef.current?.goTo(o);
-  }, [o]);
+  }, [o, scene3d]);
 
   const { verso, recto } = spreadAt(o, pages.length);
   const shown = [verso, recto].filter((n): n is number => n !== null).map((n) => n + 1);
