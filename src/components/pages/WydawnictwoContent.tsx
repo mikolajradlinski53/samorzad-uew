@@ -174,6 +174,13 @@ export function WydawnictwoContent() {
                 circleLabel: t("spineLabels.circleLabel"),
                 linkLabel: t("spineLabels.linkLabel"),
                 hint: t("spineLabels.hint"),
+                readerOpen: t("readerOpen"),
+                readerClose: t("readerClose"),
+                readerPrev: t("readerPrev"),
+                readerNext: t("readerNext"),
+                readerFull: t("readerFull"),
+                readerPageOf: t("readerPageOf"),
+                readerLicense: t("readerLicense"),
               }}
             />
           </div>

@@ -1,10 +1,12 @@
 "use client";
 
-import { useId, useState } from "react";
+import { useId, useRef, useState } from "react";
 import { motion, useReducedMotion } from "motion/react";
 import { ArrowSquareOut } from "@phosphor-icons/react";
 import type { Publication } from "@/lib/publications";
 import { formatCitation } from "@/lib/publications";
+import { editionBySlug, pagesOf } from "@/lib/editions";
+import { EditionReader } from "./wydawnictwo/EditionReader";
 
 export interface SpineWallLabels {
   emptyTitle: string;
@@ -12,6 +14,13 @@ export interface SpineWallLabels {
   circleLabel: string;
   linkLabel: string;
   hint: string;
+  readerOpen: string;
+  readerClose: string;
+  readerPrev: string;
+  readerNext: string;
+  readerFull: string;
+  readerPageOf: string;
+  readerLicense: string;
 }
 
 interface SpineWallProps {
@@ -55,6 +64,11 @@ export function SpineWall({ publications, labels }: SpineWallProps) {
   const reduce = useReducedMotion();
   const panelId = useId();
   const [selected, setSelected] = useState(0);
+  const [readerOpen, setReaderOpen] = useState(false);
+  // Czytnik da się otworzyć dwoma przyciskami — z panelu (desktop) i z karty
+  // (telefon). Ref nie może więc wisieć na jednym z nich: zapisujemy ten,
+  // którym faktycznie otwarto, żeby fokus miał dokąd wrócić na obu szerokościach.
+  const openerRef = useRef<HTMLElement | null>(null);
 
   if (publications.length === 0) {
     return (
@@ -69,6 +83,8 @@ export function SpineWall({ publications, labels }: SpineWallProps) {
 
   const active = publications[selected];
   const tone = toneFor(active.title);
+  const edition = active.edition ? editionBySlug(active.edition) : undefined;
+  const hasPages = edition ? pagesOf(edition.slug).length > 0 : false;
 
   return (
     <div>
@@ -76,8 +92,12 @@ export function SpineWall({ publications, labels }: SpineWallProps) {
         {labels.hint}
       </p>
 
-      {/* Desktop / tablet — book spines */}
-      <ul className="hidden md:flex md:flex-wrap md:items-end md:gap-4">
+      {/* Desktop / tablet — book spines.
+          `inert` gdy czytnik jest otwarty: to on jest wtedy jedyną treścią
+          strony — grzbiety pod spodem muszą zniknąć z drzewa dostępności i z
+          kolejności Tab, inaczej czytnik ekranu w trybie przeglądania (nie
+          Tab) nadal je znajdzie mimo nakładki na wierzchu. */}
+      <ul className="hidden md:flex md:flex-wrap md:items-end md:gap-4" inert={readerOpen || undefined}>
         {publications.map((p, i) => {
           const t = toneFor(p.title);
           const isActive = i === selected;
@@ -113,7 +133,10 @@ export function SpineWall({ publications, labels }: SpineWallProps) {
               <span
                 aria-hidden="true"
                 style={{ writingMode: "vertical-rl", textOrientation: "mixed", whiteSpace: "nowrap" }}
-                className="font-mono mt-2 block max-h-[88px] shrink-0 overflow-hidden text-[0.6875rem] uppercase tracking-[0.06em] opacity-80"
+                /* opacity-90, nie -80: na tonie 0 (biały na --accent) etykieta
+                   przy 0,8 daje 4,09:1, a 11 px to tekst zwykły — próg 4,5:1.
+                   0,9 daje 4,80:1. */
+                className="font-mono mt-2 block max-h-[88px] shrink-0 overflow-hidden text-[0.6875rem] uppercase tracking-[0.06em] opacity-90"
               >
                 {authorSurnames(p.authors)} · {p.year}
               </span>
@@ -125,9 +148,11 @@ export function SpineWall({ publications, labels }: SpineWallProps) {
 
       {/* Mobile — vertical cards, same data (no hidden toggle: everything is
           already on the card, so no <button> disclosure is needed here). */}
-      <ul className="flex flex-col gap-4 md:hidden">
+      <ul className="flex flex-col gap-4 md:hidden" inert={readerOpen || undefined}>
         {publications.map((p, i) => {
           const t = toneFor(p.title);
+          const cardEdition = p.edition ? editionBySlug(p.edition) : undefined;
+          const cardHasPages = cardEdition ? pagesOf(cardEdition.slug).length > 0 : false;
           return (
             <li key={`${p.title}-m-${i}`} className="rounded-xl border border-border-subtle bg-bg-surface p-5">
               <span
@@ -150,17 +175,35 @@ export function SpineWall({ publications, labels }: SpineWallProps) {
                 <p className="mt-3 text-[0.875rem] leading-[1.6] text-ink-secondary">{p.abstract}</p>
               )}
               <p className="mt-3 font-mono text-[0.75rem] leading-[1.6] text-ink-tertiary">{formatCitation(p)}</p>
-              {p.url && (
-                <a
-                  href={p.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="mt-3 inline-flex items-center gap-1.5 py-1 text-[0.875rem] font-medium text-accent transition-colors hover:text-accent-dim"
-                >
-                  {labels.linkLabel}
-                  <ArrowSquareOut size={16} weight="regular" aria-hidden="true" />
-                </a>
-              )}
+              <div className="mt-4 flex flex-wrap items-center gap-4">
+                {cardHasPages ? (
+                  <button
+                    type="button"
+                    onClick={(e) => {
+                      openerRef.current = e.currentTarget;
+                      // Czytnik bierze wydanie z `active`, więc karta musi
+                      // najpierw stać się aktywna — inaczej otworzyłby tom
+                      // wybrany wcześniej na grzbietach.
+                      setSelected(i);
+                      setReaderOpen(true);
+                    }}
+                    className="inline-flex min-h-12 items-center gap-2 rounded-lg bg-accent px-6 text-base font-medium text-bg-base transition-colors hover:bg-accent-dim"
+                  >
+                    {labels.readerOpen}
+                  </button>
+                ) : null}
+                {p.url && (
+                  <a
+                    href={p.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1.5 py-1 text-[0.875rem] font-medium text-accent transition-colors hover:text-accent-dim"
+                  >
+                    {labels.linkLabel}
+                    <ArrowSquareOut size={16} weight="regular" aria-hidden="true" />
+                  </a>
+                )}
+              </div>
             </li>
           );
         })}
@@ -174,6 +217,7 @@ export function SpineWall({ publications, labels }: SpineWallProps) {
         aria-live="polite"
         style={{ borderColor: "var(--accent)" }}
         className="mt-8 hidden rounded-2xl border-l-4 bg-bg-surface p-6 md:block"
+        inert={readerOpen || undefined}
       >
         <p
           aria-hidden="true"
@@ -197,18 +241,52 @@ export function SpineWall({ publications, labels }: SpineWallProps) {
           </p>
         )}
         <p className="mt-4 font-mono text-[0.75rem] leading-[1.6] text-ink-tertiary">{formatCitation(active)}</p>
-        {active.url && (
-          <a
-            href={active.url}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="mt-4 inline-flex items-center gap-1.5 text-[0.875rem] font-medium text-accent transition-colors hover:text-accent-dim"
-          >
-            {labels.linkLabel}
-            <ArrowSquareOut size={16} weight="regular" aria-hidden="true" />
-          </a>
-        )}
+        <div className="mt-4 flex flex-wrap items-center gap-4">
+          {hasPages && edition ? (
+            <button
+              type="button"
+              onClick={(e) => {
+                openerRef.current = e.currentTarget;
+                setReaderOpen(true);
+              }}
+              className="inline-flex min-h-12 items-center gap-2 rounded-lg bg-accent px-6 text-base font-medium text-bg-base transition-colors hover:bg-accent-dim"
+            >
+              {labels.readerOpen}
+            </button>
+          ) : null}
+          {active.url && (
+            <a
+              href={active.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1.5 text-[0.875rem] font-medium text-accent transition-colors hover:text-accent-dim"
+            >
+              {labels.linkLabel}
+              <ArrowSquareOut size={16} weight="regular" aria-hidden="true" />
+            </a>
+          )}
+        </div>
       </div>
+
+      {readerOpen && edition ? (
+        <EditionReader
+          edition={edition}
+          onClose={() => {
+            setReaderOpen(false);
+            // Fokus wraca tam, skąd otwarto — inaczej użytkownik klawiatury
+            // ląduje na początku strony i musi przejść ją całą od nowa.
+            requestAnimationFrame(() => openerRef.current?.focus());
+          }}
+          labels={{
+            close: labels.readerClose,
+            prev: labels.readerPrev,
+            next: labels.readerNext,
+            readFull: labels.readerFull,
+            pageOf: labels.readerPageOf,
+            licenseNote: labels.readerLicense,
+          }}
+        />
+      ) : null}
     </div>
   );
 }

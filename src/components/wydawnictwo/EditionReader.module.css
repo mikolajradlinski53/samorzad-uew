@@ -1,0 +1,164 @@
+/* src/components/wydawnictwo/EditionReader.module.css */
+/**
+ * Ciemna pracownia. Kolory są tu WPISANE NA SZTYWNO, wbrew regule reszty
+ * serwisu, i jest to decyzja: czytnik zostaje ciemny w obu motywach, bo
+ * papier świeci tylko na ciemnym tle. W odróżnieniu od hero ta ciemność trwa
+ * tyle, co czytanie, i zamyka się Escape'em.
+ */
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  gap: clamp(12px, 2vh, 24px);
+  padding: clamp(12px, 2.5vh, 28px) clamp(12px, 3vw, 40px);
+  background:
+    radial-gradient(ellipse 70% 60% at 50% 45%, rgba(255, 246, 232, 0.09), transparent 70%),
+    #14161c;
+  color: #f2f4f8;
+}
+
+.bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.title {
+  margin: 0;
+  font-family: var(--font-display), system-ui, sans-serif;
+  font-size: clamp(1rem, 2vw, 1.375rem);
+  font-weight: 650;
+  letter-spacing: -0.02em;
+}
+
+.meta {
+  margin: 4px 0 0;
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-size: 0.6875rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(242, 244, 248, 0.62);
+}
+
+.close,
+.arrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 44px;
+  padding: 0 16px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.06);
+  color: inherit;
+  font-family: inherit;
+  font-size: 0.875rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.close:hover,
+.arrow:hover:not(:disabled) {
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.arrow:disabled {
+  opacity: 0.35;
+  cursor: default;
+}
+
+.stage {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  min-height: 0;
+}
+
+.page {
+  width: auto;
+  height: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.55);
+}
+
+/* Pusta połowa rozkładówki przy zamkniętej książce — trzyma symetrię, żeby
+   widoczna strona nie skakała na środek. */
+.blank {
+  width: 0;
+  height: 100%;
+  aspect-ratio: 0.706;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.counter {
+  margin: 0;
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-size: 0.75rem;
+  font-variant-numeric: tabular-nums;
+  color: rgba(242, 244, 248, 0.7);
+}
+
+.pdf {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 48px;
+  padding: 0 22px;
+  border-radius: 999px;
+  background: var(--accent);
+  color: #ffffff;
+  font-size: 0.9375rem;
+  font-weight: 600;
+}
+
+.license {
+  margin: 0;
+  font-size: 0.6875rem;
+  text-align: center;
+  color: rgba(242, 244, 248, 0.5);
+}
+
+.license a {
+  color: inherit;
+  text-decoration: underline;
+}
+
+@media (max-width: 700px) {
+  /* Na telefonie rozkładówka nie mieści się w dwóch stronach — pokazujemy
+     jedną, tę po prawej, bo to ona niesie treść przy kartkowaniu w przód. */
+  .stage > :first-child {
+    display: none;
+  }
+}
+
+/* Płótno sceny 3D.
+   `align-self: stretch` jest tu istotne: .stage ma `align-items: center`, więc
+   bez tego płótno dostałoby własną wysokość (domyślne 150 px canvasa) zamiast
+   pełnej wysokości sceny, a renderer zmierzyłby ją przez clientHeight i
+   narysował książkę w pasku na środku ekranu. */
+.canvas {
+  flex: 1;
+  align-self: stretch;
+  width: 100%;
+  min-height: 0;
+  display: block;
+}
+
+/* Style autorskie biją arkusz przeglądarki niezależnie od specyficzności, więc
+   `display: block` powyżej unieważniłoby `[hidden] { display: none }` i płótno
+   byłoby widoczne także w trybie zastępczym, zabierając miejsce stronom. */
+.canvas[hidden] {
+  display: none;
+}
