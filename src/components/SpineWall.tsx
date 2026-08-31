@@ -119,17 +119,37 @@ export function SpineWall({ publications, labels }: SpineWallProps) {
                 aria-controls={panelId}
                 aria-label={`${p.title} — ${p.authors.join(", ")}, ${p.year}`}
                 onClick={() => setSelected(i)}
-                whileHover={reduce ? undefined : { y: -8 }}
-                whileFocus={reduce ? undefined : { y: -8 }}
+                /* Wybrany tom zostaje WYSUNIĘTY, nie tylko obrysowany. Sam
+                   cienki obrys ginął wśród dziesięciu kart i nie było widać,
+                   która pozycja jest otwarta w panelu poniżej. */
+                animate={reduce ? undefined : { y: isActive ? -12 : 0 }}
+                whileHover={reduce ? undefined : { y: isActive ? -12 : -6 }}
+                whileFocus={reduce ? undefined : { y: isActive ? -12 : -6 }}
                 transition={{ type: "spring", stiffness: 320, damping: 22 }}
-                style={{ outlineColor: isActive ? "var(--accent)" : "transparent" }}
+                style={{
+                  outlineColor: isActive ? "var(--accent)" : "transparent",
+                  outlineWidth: isActive ? 3 : 0,
+                }}
                 /* Proporcja 0.706 to format prawdziwego tomu (798×1130 px skanu),
                    więc karta ma kształt okładki, a nie dowolnego kafla.
                    Zaznaczenie idzie przez `outline`, nie `border`: obramowanie
                    zjadałoby szerokość pola i pas serii przeskakiwałby o 2 px
                    przy każdym wyborze. */
-                className="group relative flex aspect-[0.706] w-full flex-col overflow-hidden rounded-[3px] text-left shadow-[0_1px_2px_rgba(15,23,42,0.14),0_8px_18px_-10px_rgba(15,23,42,0.45)] outline-2 outline-offset-2 transition-shadow duration-150 hover:shadow-[0_2px_4px_rgba(15,23,42,0.16),0_16px_28px_-12px_rgba(15,23,42,0.5)] focus-visible:outline-accent"
+                className={`group relative flex aspect-[0.706] w-full flex-col overflow-hidden rounded-[3px] text-left outline-offset-[3px] transition-shadow duration-150 focus-visible:outline-2 focus-visible:outline-accent ${
+                  isActive
+                    ? "shadow-[0_4px_8px_rgba(15,23,42,0.2),0_26px_44px_-16px_rgba(44,75,255,0.55)]"
+                    : "shadow-[0_1px_2px_rgba(15,23,42,0.14),0_8px_18px_-10px_rgba(15,23,42,0.45)] hover:shadow-[0_2px_4px_rgba(15,23,42,0.16),0_16px_28px_-12px_rgba(15,23,42,0.5)]"
+                }`}
               >
+                {/* Pasek u dołu wybranej karty — drugi, niezależny od koloru
+                    sygnał wyboru. Sam obrys w kolorze akcentu na granatowej
+                    okładce byłby ledwie widoczny. */}
+                {isActive && (
+                  <span
+                    aria-hidden="true"
+                    className="absolute inset-x-0 bottom-0 z-10 h-1.5 bg-accent"
+                  />
+                )}
                 {/* Pas serii — jak na prawdziwej okładce: rozstrzelona nazwa
                     serii, rok wyrównany do prawej, pod spodem kreska. */}
                 <span

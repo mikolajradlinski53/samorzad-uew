@@ -53,7 +53,8 @@ let totalBytes = 0;
 
 for (let i = 0; i < pageCount; i++) {
   const page = doc.loadPage(i);
-  const [x0, y0, x1, y1] = page.getBounds();
+  // Skala liczy się z wysokości, więc granice w poziomie pomijamy.
+  const [, y0, , y1] = page.getBounds();
   const height = y1 - y0;
   const scale = LONG_EDGE / height;
 
