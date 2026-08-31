@@ -2257,6 +2257,13 @@
       "linkLabel": "Pełny tekst",
       "hint": "Wybierz grzbiet publikacji, aby zobaczyć szczegóły poniżej."
     },
+    "readerOpen": "Przejrzyj wydanie",
+    "readerClose": "Zamknij",
+    "readerPrev": "Poprzednia",
+    "readerNext": "Następna",
+    "readerFull": "Czytaj pełny tekst (PDF)",
+    "readerPageOf": "Strony {position} z {total}",
+    "readerLicense": "Tom udostępniony na licencji",
     "citeHeading": "Jak cytować",
     "citeIntro": "Przykładowe cytowanie w stylu przyjętym dla serii — autorzy, rok, tytuł, seria, wydawnictwo i (jeśli dostępny) numer ISBN.",
     "citeEmpty": "Cytowanie pojawi się tutaj, gdy w serii ukaże się pierwsza publikacja.",

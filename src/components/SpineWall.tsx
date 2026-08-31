@@ -1,10 +1,12 @@
 "use client";
 
-import { useId, useState } from "react";
+import { useId, useRef, useState } from "react";
 import { motion, useReducedMotion } from "motion/react";
 import { ArrowSquareOut } from "@phosphor-icons/react";
 import type { Publication } from "@/lib/publications";
 import { formatCitation } from "@/lib/publications";
+import { editionBySlug, pagesOf } from "@/lib/editions";
+import { EditionReader } from "./wydawnictwo/EditionReader";
 
 export interface SpineWallLabels {
   emptyTitle: string;
@@ -12,6 +14,13 @@ export interface SpineWallLabels {
   circleLabel: string;
   linkLabel: string;
   hint: string;
+  readerOpen: string;
+  readerClose: string;
+  readerPrev: string;
+  readerNext: string;
+  readerFull: string;
+  readerPageOf: string;
+  readerLicense: string;
 }
 
 interface SpineWallProps {
@@ -55,6 +64,8 @@ export function SpineWall({ publications, labels }: SpineWallProps) {
   const reduce = useReducedMotion();
   const panelId = useId();
   const [selected, setSelected] = useState(0);
+  const [readerOpen, setReaderOpen] = useState(false);
+  const openerRef = useRef<HTMLButtonElement>(null);
 
   if (publications.length === 0) {
     return (
@@ -69,6 +80,8 @@ export function SpineWall({ publications, labels }: SpineWallProps) {
 
   const active = publications[selected];
   const tone = toneFor(active.title);
+  const edition = active.edition ? editionBySlug(active.edition) : undefined;
+  const hasPages = edition ? pagesOf(edition.slug).length > 0 : false;
 
   return (
     <div>
@@ -197,18 +210,50 @@ export function SpineWall({ publications, labels }: SpineWallProps) {
           </p>
         )}
         <p className="mt-4 font-mono text-[0.75rem] leading-[1.6] text-ink-tertiary">{formatCitation(active)}</p>
-        {active.url && (
-          <a
-            href={active.url}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="mt-4 inline-flex items-center gap-1.5 text-[0.875rem] font-medium text-accent transition-colors hover:text-accent-dim"
-          >
-            {labels.linkLabel}
-            <ArrowSquareOut size={16} weight="regular" aria-hidden="true" />
-          </a>
-        )}
+        <div className="mt-4 flex flex-wrap items-center gap-4">
+          {hasPages && edition ? (
+            <button
+              ref={openerRef}
+              type="button"
+              onClick={() => setReaderOpen(true)}
+              className="inline-flex min-h-12 items-center gap-2 rounded-lg bg-accent px-6 text-base font-medium text-bg-base transition-colors hover:bg-accent-dim"
+            >
+              {labels.readerOpen}
+            </button>
+          ) : null}
+          {active.url && (
+            <a
+              href={active.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1.5 text-[0.875rem] font-medium text-accent transition-colors hover:text-accent-dim"
+            >
+              {labels.linkLabel}
+              <ArrowSquareOut size={16} weight="regular" aria-hidden="true" />
+            </a>
+          )}
+        </div>
       </div>
+
+      {readerOpen && edition ? (
+        <EditionReader
+          edition={edition}
+          onClose={() => {
+            setReaderOpen(false);
+            // Fokus wraca tam, skąd otwarto — inaczej użytkownik klawiatury
+            // ląduje na początku strony i musi przejść ją całą od nowa.
+            requestAnimationFrame(() => openerRef.current?.focus());
+          }}
+          labels={{
+            close: labels.readerClose,
+            prev: labels.readerPrev,
+            next: labels.readerNext,
+            readFull: labels.readerFull,
+            pageOf: labels.readerPageOf,
+            licenseNote: labels.readerLicense,
+          }}
+        />
+      ) : null}
     </div>
   );
 }

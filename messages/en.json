@@ -2131,6 +2131,13 @@
       "linkLabel": "Full text",
       "hint": "Select a publication spine to see its details below."
     },
+    "readerOpen": "Browse the volume",
+    "readerClose": "Close",
+    "readerPrev": "Previous",
+    "readerNext": "Next",
+    "readerFull": "Read the full text (PDF)",
+    "readerPageOf": "Pages {position} of {total}",
+    "readerLicense": "This volume is licensed under",
     "citeHeading": "How to cite",
     "citeIntro": "A sample citation in the style used for the series — authors, year, title, series, publisher, and (if available) ISBN.",
     "citeEmpty": "A citation will appear here once the first publication in the series is out.",
