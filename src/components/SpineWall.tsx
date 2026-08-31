@@ -29,18 +29,25 @@ interface SpineWallProps {
 }
 
 /**
- * Small, on-brand set of "spine tones" — graduated tints/shades of
- * --accent plus the ink/elevated neutrals already in the palette. No new
- * hues: DESIGN.md reserves --accent for identity moments, so most tones
- * here are *derived* from it (color-mix) rather than used at full strength.
+ * Barwy pola okładki, wzorowane na prawdziwych Debiutach Studenckich.
+ *
+ * Realny tom ma jasny pas z nazwą serii u góry i ciemne, stonowane pole pod
+ * spodem — nie płaską plamę koloru firmowego. Stąd głębokie, przygaszone
+ * odcienie zamiast poprzednich rozjaśnień akcentu; akcent zostaje w zestawie
+ * jako jeden z nich, żeby okładki nie odkleiły się od reszty serwisu.
+ *
+ * Akcent w pełnej mocy (#2C4BFF) tu NIE występuje, choć przeszedłby kontrast:
+ * pośród przygaszonych tonów wyskakiwał jak element innego zestawu i rozbijał
+ * wrażenie serii. Zastępuje go przygaszony granat z tej samej rodziny.
+ *
+ * Każdy odcień sprawdzony z bielą tekstu (#F6F8FC), próg 4.5:1 dla tekstu
+ * zwykłego — najsłabszy daje 8.41:1, najmocniejszy 12.88:1.
  */
-const SPINE_TONES = [
-  { bg: "var(--accent)", fg: "var(--bg-base)", border: "transparent" },
-  { bg: "var(--ink-primary)", fg: "var(--bg-base)", border: "transparent" },
-  { bg: "color-mix(in srgb, var(--accent) 32%, var(--bg-elevated))", fg: "var(--ink-primary)", border: "transparent" },
-  { bg: "var(--accent-dim)", fg: "var(--bg-base)", border: "transparent" },
-  { bg: "var(--bg-elevated)", fg: "var(--ink-primary)", border: "var(--border-medium)" },
-];
+const COVER_TONES = ["#4A3350", "#1E2A5A", "#14484C", "#2B3440", "#5A2733", "#2E3D9E"];
+
+/** Kość słoniowa pasa serii i szarość napisu na nim — 5.31:1. */
+const BAND_BG = "#EDEAE3";
+const BAND_FG = "#5F5F5F";
 
 /** Deterministic djb2 hash → stable tone per title (no Math.random). */
 function hashString(s: string): number {
@@ -52,7 +59,7 @@ function hashString(s: string): number {
 }
 
 function toneFor(title: string) {
-  return SPINE_TONES[hashString(title) % SPINE_TONES.length];
+  return COVER_TONES[hashString(title) % COVER_TONES.length];
 }
 
 function authorSurnames(authors: string[]): string {
@@ -97,50 +104,65 @@ export function SpineWall({ publications, labels }: SpineWallProps) {
           strony — grzbiety pod spodem muszą zniknąć z drzewa dostępności i z
           kolejności Tab, inaczej czytnik ekranu w trybie przeglądania (nie
           Tab) nadal je znajdzie mimo nakładki na wierzchu. */}
-      <ul className="hidden md:flex md:flex-wrap md:items-end md:gap-4" inert={readerOpen || undefined}>
+      <ul
+        className="hidden md:grid md:grid-cols-[repeat(auto-fill,minmax(168px,1fr))] md:gap-5"
+        inert={readerOpen || undefined}
+      >
         {publications.map((p, i) => {
-          const t = toneFor(p.title);
+          const tone = toneFor(p.title);
           const isActive = i === selected;
           return (
             <li key={`${p.title}-${i}`} className="flex">
               <motion.button
-              type="button"
-              aria-expanded={isActive}
-              aria-controls={panelId}
-              aria-label={`${p.title} — ${p.authors.join(", ")}, ${p.year}`}
-              onClick={() => setSelected(i)}
-              whileHover={reduce ? undefined : { y: -10 }}
-              whileFocus={reduce ? undefined : { y: -10 }}
-              transition={{ type: "spring", stiffness: 320, damping: 22 }}
-              style={{
-                backgroundColor: t.bg,
-                color: t.fg,
-                borderColor: isActive ? "var(--accent)" : t.border,
-              }}
-              className="group relative flex h-[360px] w-[64px] shrink-0 flex-col justify-between overflow-hidden rounded-md border-2 p-3 text-left shadow-none outline-none transition-colors duration-150 focus-visible:border-accent"
-            >
-              <span
-                aria-hidden="true"
-                style={{
-                  writingMode: "vertical-rl",
-                  textOrientation: "mixed",
-                  whiteSpace: "nowrap",
-                }}
-                className="font-display block flex-1 overflow-hidden text-[0.9375rem] font-semibold leading-tight tracking-[-0.01em] text-ellipsis"
+                type="button"
+                aria-expanded={isActive}
+                aria-controls={panelId}
+                aria-label={`${p.title} — ${p.authors.join(", ")}, ${p.year}`}
+                onClick={() => setSelected(i)}
+                whileHover={reduce ? undefined : { y: -8 }}
+                whileFocus={reduce ? undefined : { y: -8 }}
+                transition={{ type: "spring", stiffness: 320, damping: 22 }}
+                style={{ outlineColor: isActive ? "var(--accent)" : "transparent" }}
+                /* Proporcja 0.706 to format prawdziwego tomu (798×1130 px skanu),
+                   więc karta ma kształt okładki, a nie dowolnego kafla.
+                   Zaznaczenie idzie przez `outline`, nie `border`: obramowanie
+                   zjadałoby szerokość pola i pas serii przeskakiwałby o 2 px
+                   przy każdym wyborze. */
+                className="group relative flex aspect-[0.706] w-full flex-col overflow-hidden rounded-[3px] text-left shadow-[0_1px_2px_rgba(15,23,42,0.14),0_8px_18px_-10px_rgba(15,23,42,0.45)] outline-2 outline-offset-2 transition-shadow duration-150 hover:shadow-[0_2px_4px_rgba(15,23,42,0.16),0_16px_28px_-12px_rgba(15,23,42,0.5)] focus-visible:outline-accent"
               >
-                {p.title}
-              </span>
-              <span
-                aria-hidden="true"
-                style={{ writingMode: "vertical-rl", textOrientation: "mixed", whiteSpace: "nowrap" }}
-                /* opacity-90, nie -80: na tonie 0 (biały na --accent) etykieta
-                   przy 0,8 daje 4,09:1, a 11 px to tekst zwykły — próg 4,5:1.
-                   0,9 daje 4,80:1. */
-                className="font-mono mt-2 block max-h-[88px] shrink-0 overflow-hidden text-[0.6875rem] uppercase tracking-[0.06em] opacity-90"
-              >
-                {authorSurnames(p.authors)} · {p.year}
-              </span>
-            </motion.button>
+                {/* Pas serii — jak na prawdziwej okładce: rozstrzelona nazwa
+                    serii, rok wyrównany do prawej, pod spodem kreska. */}
+                <span
+                  aria-hidden="true"
+                  style={{ backgroundColor: BAND_BG, color: BAND_FG }}
+                  className="block shrink-0 px-3 pt-3 pb-2"
+                >
+                  <span className="font-mono block text-[0.5rem] leading-[1.1] tracking-[0.24em] uppercase">
+                    Debiuty
+                  </span>
+                  <span className="font-mono mt-0.5 block text-[0.5rem] leading-[1.1] tracking-[0.24em] uppercase">
+                    Studenckie
+                  </span>
+                  <span className="font-mono mt-1.5 block text-right text-[0.6875rem] leading-none tracking-[0.18em]">
+                    {p.year}
+                  </span>
+                </span>
+                <span aria-hidden="true" className="block h-[3px] shrink-0 bg-black/25" />
+
+                {/* Pole tytułowe. */}
+                <span
+                  aria-hidden="true"
+                  style={{ backgroundColor: tone, color: "#F6F8FC" }}
+                  className="flex min-h-0 flex-1 flex-col justify-between p-3"
+                >
+                  <span className="font-display line-clamp-5 text-[0.8125rem] leading-[1.25] font-bold tracking-[-0.01em] uppercase">
+                    {p.title}
+                  </span>
+                  <span className="font-mono mt-2 line-clamp-2 text-[0.5625rem] leading-[1.35] tracking-[0.04em] uppercase">
+                    {authorSurnames(p.authors)}
+                  </span>
+                </span>
+              </motion.button>
             </li>
           );
         })}
@@ -157,7 +179,7 @@ export function SpineWall({ publications, labels }: SpineWallProps) {
             <li key={`${p.title}-m-${i}`} className="rounded-xl border border-border-subtle bg-bg-surface p-5">
               <span
                 aria-hidden="true"
-                style={{ backgroundColor: t.bg, color: t.fg }}
+                style={{ backgroundColor: t, color: "#F6F8FC" }}
                 className="inline-block rounded px-2 py-0.5 font-mono text-[0.6875rem] uppercase tracking-[0.06em]"
               >
                 {p.year}
@@ -221,7 +243,7 @@ export function SpineWall({ publications, labels }: SpineWallProps) {
       >
         <p
           aria-hidden="true"
-          style={{ backgroundColor: tone.bg, color: tone.fg }}
+          style={{ backgroundColor: tone, color: "#F6F8FC" }}
           className="inline-block rounded px-2 py-0.5 font-mono text-[0.6875rem] uppercase tracking-[0.06em]"
         >
           {active.year}
