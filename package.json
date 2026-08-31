@@ -10,7 +10,8 @@
     "test": "vitest run",
     "test:watch": "vitest",
     "test:a11y": "playwright test tests/a11y.spec.ts",
-    "import:sylabus": "node scripts/import-esylabus.mjs"
+    "import:sylabus": "node scripts/import-esylabus.mjs",
+    "build:edition": "node scripts/build-edition.mjs"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.115.0",
