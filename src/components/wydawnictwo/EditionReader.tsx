@@ -189,17 +189,20 @@ export function EditionReader({ edition, onClose, labels }: EditionReaderProps) 
         <canvas ref={canvasRef} className={styles.canvas} aria-hidden="true" hidden={!scene3d} />
         {!scene3d && (
           <>
+            {/* Klasa `verso` oznacza LEWĄ stronę rozkładówki: na telefonie to
+                ona się chowa. Oznaczenie jest jawne, bo reguła oparta na
+                kolejności zaczęła kiedyś ukrywać płótno sceny. */}
             {verso !== null ? (
               <Image
                 src={pages[verso].src}
                 alt=""
                 width={pages[verso].width}
                 height={pages[verso].height}
-                className={styles.page}
+                className={`${styles.page} ${styles.verso}`}
                 preload={o === 0}
               />
             ) : (
-              <span className={styles.blank} aria-hidden="true" />
+              <span className={`${styles.blank} ${styles.verso}`} aria-hidden="true" />
             )}
             {recto !== null ? (
               <Image

@@ -168,3 +168,29 @@ test("przeciągnięcie kartki za połowę przewraca ją, przed połową — cofa
   await drag(0.16);
   await expect(counter).toContainText("2–3", { timeout: 25_000 });
 });
+
+test.describe("na telefonie", () => {
+  test.use({ viewport: { width: 390, height: 844 }, hasTouch: true, isMobile: true });
+
+  test("scena ma niezerowy rozmiar i przyjmuje gest palcem", async ({ page }) => {
+    // Ten test istnieje przez konkretną awarię: reguła mobilna ukrywała
+    // `.stage > :first-child`, czyli — odkąd przed rozkładówką stanęło płótno —
+    // ukrywała scenę. Statyczne strony były już wtedy zdjęte, więc czytnik na
+    // telefonie pokazywał PUSTE pole. Nic tego nie łapało: testy sprawdzały
+    // otwieranie, fokus i rozpychanie, ale nie to, czy cokolwiek widać.
+    await open(page);
+    const canvas = page.locator('[role="dialog"] canvas');
+    await expect(canvas).toBeVisible({ timeout: 25_000 });
+
+    const stan = await canvas.evaluate((el: HTMLCanvasElement) => ({
+      w: el.clientWidth,
+      h: el.clientHeight,
+      touch: getComputedStyle(el).touchAction,
+    }));
+    expect(stan.w, "szerokość płótna na telefonie").toBeGreaterThan(100);
+    expect(stan.h, "wysokość płótna na telefonie").toBeGreaterThan(100);
+    // Bez `touch-action: none` przeglądarka uznaje ruch palcem po płótnie za
+    // przewijanie strony i przerywa przeciąganie kartki.
+    expect(stan.touch, "touch-action płótna").toBe("none");
+  });
+});

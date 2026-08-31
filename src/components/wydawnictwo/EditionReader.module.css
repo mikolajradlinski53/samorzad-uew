@@ -137,8 +137,13 @@
 
 @media (max-width: 700px) {
   /* Na telefonie rozkładówka nie mieści się w dwóch stronach — pokazujemy
-     jedną, tę po prawej, bo to ona niesie treść przy kartkowaniu w przód. */
-  .stage > :first-child {
+     jedną, tę po prawej, bo to ona niesie treść przy kartkowaniu w przód.
+
+     Celujemy w KONKRETNĄ stronę, nie w `:first-child`. Wcześniejsza wersja
+     opierała się na kolejności i przestała działać w chwili, gdy przed
+     rozkładówką stanęło płótno sceny: reguła zaczęła ukrywać płótno, więc
+     na telefonie czytnik pokazywał pustkę zamiast książki. */
+  .verso {
     display: none;
   }
 }
@@ -154,6 +159,11 @@
   width: 100%;
   min-height: 0;
   display: block;
+  /* Bez tego przeglądarka na telefonie uznaje ruch palcem po płótnie za
+     przewijanie strony, przejmuje gest i przerywa nam wskaźnik (pointercancel).
+     Przeciąganie kartki byłoby wtedy niemożliwe akurat tam, gdzie jest
+     najbardziej naturalne. */
+  touch-action: none;
 }
 
 /* Style autorskie biją arkusz przeglądarki niezależnie od specyficzności, więc
