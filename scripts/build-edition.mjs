@@ -101,7 +101,11 @@ if (existsSync(manifestPath)) {
     /editionPages:\s*Record<string,\s*EditionPage\[\]>\s*=\s*(\{[\s\S]*\});\s*$/,
   );
   if (match) {
-    editionsBySlug = new Function(`return (${match[1]});`)();
+    // JSON.parse, NIE new Function/eval: treść pochodzi z JSON.stringify,
+    // więc jest poprawnym JSON-em. Gdyby ktoś kiedyś ręcznie zepsuł ten
+    // wygenerowany plik mimo ostrzeżenia w nagłówku, JSON.parse po prostu
+    // rzuci wyjątkiem — new Function wykonałoby dowolny kod przy buildzie.
+    editionsBySlug = JSON.parse(match[1]);
   }
 }
 editionsBySlug[slug] = pages;
