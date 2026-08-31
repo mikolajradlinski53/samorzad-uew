@@ -1,14 +1,12 @@
 /**
- * Slot na publikacje serii „Debiuty Studenckie" (drop-in jak people.ts /
- * videos.ts). Wpisy poniżej to PLACEHOLDERY DO WERYFIKACJI — tytuły, autorów,
- * ISBN i linki trzeba potwierdzić w Wydawnictwie UEW, zanim strona pójdzie
- * na produkcję z prawdziwą treścią. Do usunięcia/zastąpienia realnymi
- * danymi — patrz docs/WRZUC-TUTAJ.md.
+ * Rozdziały serii „Debiuty Studenckie".
  *
- * Każdy wpis to jeden artykuł/rozdział wydany w serii. `circle` to koło
- * naukowe autora/autorów (opcjonalne — nie każdy tekst powstaje w kole).
- * `url` powinien wskazywać na pełny tekst lub stronę wydawnictwa, jeśli
- * jest dostępny w otwartym dostępie (seria jest CC BY-SA 4.0).
+ * Do 2026-08-31 były tu TRZY PLACEHOLDERY z wymyślonymi nazwiskami („Kowalski,
+ * J.", „Nowak, A.") i fikcyjnymi numerami ISBN. Na oficjalnym serwisie uczelni
+ * był to zmyślony dorobek — dane poniżej pochodzą z prawdziwego tomu
+ * dostarczonego przez Wydawnictwo UEW.
+ *
+ * Metadane samego wydania (redaktorki, ISBN tomu, licencja) są w `editions.ts`.
  */
 export interface Publication {
   title: string;
@@ -17,42 +15,99 @@ export interface Publication {
   /** Koło naukowe, w którym powstał tekst (jeśli dotyczy). */
   circle?: string;
   isbn?: string;
-  /** Pełny tekst / strona wydawnictwa. */
   url?: string;
   abstract?: string;
+  /** DOI rozdziału — każdy rozdział tomu ma własny. */
+  doi?: string;
+  /** Zakres stron w tomie. */
+  pages?: { from: number; to: number };
+  /** Slug wydania z `editions.ts`. */
+  edition?: string;
 }
 
+const E = "new-trends-2026";
+
 export const publications: Publication[] = [
-  // PLACEHOLDER — DO WERYFIKACJI. Zastąp prawdziwym tytułem/autorami/ISBN
-  // z Wydawnictwa UEW.
   {
-    title: "Zrównoważony rozwój w strategiach polskich przedsiębiorstw — analiza wybranych przypadków",
-    authors: ["Kowalski, J."],
-    year: 2024,
-    circle: "Koło Naukowe Zarządzania Strategicznego",
-    isbn: "978-83-XXXX-XXX-X",
-    abstract:
-      "Artykuł analizuje, jak polskie przedsiębiorstwa wdrażają cele zrównoważonego rozwoju w swoich strategiach, na podstawie wybranych studiów przypadku.",
+    title: "The Role of Branding in the Success of Startups – Case of Airbnb",
+    authors: ["Dorosh, D."],
+    year: 2026,
+    doi: "10.15611/2026.35.7.01",
+    pages: { from: 5, to: 16 },
+    edition: E,
   },
-  // PLACEHOLDER — DO WERYFIKACJI.
   {
-    title: "Wpływ inflacji na decyzje konsumenckie studentów — badanie empiryczne",
-    authors: ["Nowak, A.", "Wiśniewska, K."],
-    year: 2023,
-    circle: "Koło Naukowe Ekonomii Behawioralnej",
-    isbn: "978-83-XXXX-XXX-Y",
-    url: "https://www.wydawnictwo.ue.wroc.pl/",
-    abstract:
-      "Praca prezentuje wyniki badania ankietowego dotyczącego wpływu wysokiej inflacji na wzorce konsumpcji wśród studentów wrocławskich uczelni.",
+    title: "Strategy Implementation Challenges: The Strategy-as-Practice Perspective",
+    authors: ["Kulig, K."],
+    year: 2026,
+    doi: "10.15611/2026.35.7.02",
+    pages: { from: 17, to: 28 },
+    edition: E,
   },
-  // PLACEHOLDER — DO WERYFIKACJI.
   {
-    title: "Startupy technologiczne w regionie dolnośląskim — bariery i czynniki sukcesu",
-    authors: ["Zielińska, M.", "Dąbrowski, P.", "Lewandowski, T."],
-    year: 2024,
-    circle: "Koło Naukowe Przedsiębiorczości",
-    abstract:
-      "Tekst identyfikuje najważniejsze bariery rozwoju startupów technologicznych na Dolnym Śląsku oraz czynniki, które sprzyjają ich sukcesowi rynkowemu.",
+    title: "Gamification as an Element of Building Employee Engagement in the Onboarding Process",
+    authors: ["Lasota, W."],
+    year: 2026,
+    doi: "10.15611/2026.35.7.03",
+    pages: { from: 29, to: 40 },
+    edition: E,
+  },
+  {
+    title: "The Impact of Organisational Culture on Job Satisfaction",
+    authors: ["Narajewska, M."],
+    year: 2026,
+    doi: "10.15611/2026.35.7.04",
+    pages: { from: 41, to: 51 },
+    edition: E,
+  },
+  {
+    title: "Intergenerational Drivers of Consumption Behaviour: A Socio-Economic Analysis in Emerging Markets",
+    authors: ["Nyatanga, L. T."],
+    year: 2026,
+    doi: "10.15611/2026.35.7.05",
+    pages: { from: 52, to: 64 },
+    edition: E,
+  },
+  {
+    title:
+      "Motivation and Engagement in a Student Non-Profit Organisation Based on Independent Students' Association (Niezależne Zrzeszenie Studentów)",
+    authors: ["Sikora, K."],
+    year: 2026,
+    doi: "10.15611/2026.35.7.06",
+    pages: { from: 65, to: 74 },
+    edition: E,
+  },
+  {
+    title: "Crafting a Successful Marketing Strategy in the Video Game Industry",
+    authors: ["Sioła, W."],
+    year: 2026,
+    doi: "10.15611/2026.35.7.07",
+    pages: { from: 75, to: 86 },
+    edition: E,
+  },
+  {
+    title: "Managing Cultural Differences in International Organisations",
+    authors: ["Skalska, W."],
+    year: 2026,
+    doi: "10.15611/2026.35.7.08",
+    pages: { from: 87, to: 102 },
+    edition: E,
+  },
+  {
+    title: "The Role of Agile Project Management in a Pandemic Business Environment",
+    authors: ["Wilk, W."],
+    year: 2026,
+    doi: "10.15611/2026.35.7.09",
+    pages: { from: 103, to: 115 },
+    edition: E,
+  },
+  {
+    title: "Modern ISO Audit in a Medium-Sized Automotive Enterprise",
+    authors: ["Zapotoczny, M."],
+    year: 2026,
+    doi: "10.15611/2026.35.7.10",
+    pages: { from: 116, to: 128 },
+    edition: E,
   },
 ];
 
@@ -65,4 +120,21 @@ export function formatCitation(p: Publication): string {
   const authors = p.authors.join(", ");
   const base = `${authors} (${p.year}). ${p.title}. Debiuty Studenckie. Wydawnictwo Uniwersytetu Ekonomicznego we Wrocławiu.`;
   return p.isbn ? `${base} ISBN ${p.isbn}.` : base;
+}
+
+/**
+ * Cytowanie ROZDZIAŁU w tomie zbiorowym — inna forma niż cytowanie całości,
+ * bo trzeba podać redaktorki i zakres stron. Tak cytuje się te teksty
+ * w bibliografii i tego oczekują sami autorzy.
+ */
+export function formatChapterCitation(p: Publication): string {
+  const authors = p.authors.join(", ");
+  const pages = p.pages ? ` (s. ${p.pages.from}-${p.pages.to})` : "";
+  const doi = p.doi ? ` DOI: ${p.doi}` : "";
+  return (
+    `${authors} (${p.year}). ${p.title}. ` +
+    `W: J. Radomska, A. Witek-Crabb (red.), New Trends in Business Management. ` +
+    `Culture, Strategy, Engagement${pages}. ` +
+    `Wydawnictwo Uniwersytetu Ekonomicznego we Wrocławiu.${doi}`
+  );
 }

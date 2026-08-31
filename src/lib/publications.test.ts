@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { formatCitation, type Publication } from "./publications";
+import { formatChapterCitation, formatCitation, publications, type Publication } from "./publications";
 
 describe("formatCitation", () => {
   it("formats a single-author publication without ISBN", () => {
@@ -46,5 +46,42 @@ describe("formatCitation", () => {
     expect(formatCitation(p)).toBe(
       "Zielińska, M., Dąbrowski, P., Lewandowski, T. (2023). Inny tytuł. Debiuty Studenckie. Wydawnictwo Uniwersytetu Ekonomicznego we Wrocławiu. ISBN 978-83-0000-000-0.",
     );
+  });
+});
+
+describe("formatChapterCitation", () => {
+  it("cytuje rozdział w tomie zbiorowym z zakresem stron", () => {
+    const p: Publication = {
+      title: "The Role of Branding in the Success of Startups – Case of Airbnb",
+      authors: ["Dorosh, D."],
+      year: 2026,
+      pages: { from: 5, to: 16 },
+      doi: "10.15611/2026.35.7.01",
+      edition: "new-trends-2026",
+    };
+    expect(formatChapterCitation(p)).toBe(
+      "Dorosh, D. (2026). The Role of Branding in the Success of Startups – Case of Airbnb. " +
+        "W: J. Radomska, A. Witek-Crabb (red.), New Trends in Business Management. " +
+        "Culture, Strategy, Engagement (s. 5-16). Wydawnictwo Uniwersytetu Ekonomicznego " +
+        "we Wrocławiu. DOI: 10.15611/2026.35.7.01",
+    );
+  });
+});
+
+describe("dane publikacji", () => {
+  it("nie zawiera placeholderów", () => {
+    const joined = JSON.stringify(publications);
+    expect(joined).not.toContain("XXXX");
+    expect(joined).not.toContain("PLACEHOLDER");
+  });
+
+  it("każdy rozdział ma autorów, rok i zakres stron", () => {
+    expect(publications.length).toBeGreaterThan(0);
+    for (const p of publications) {
+      expect(p.authors.length).toBeGreaterThan(0);
+      expect(p.year).toBeGreaterThan(2000);
+      expect(p.pages?.from).toBeGreaterThan(0);
+      expect(p.pages!.to).toBeGreaterThanOrEqual(p.pages!.from);
+    }
   });
 });
