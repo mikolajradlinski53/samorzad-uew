@@ -12,8 +12,10 @@ import { framesFor, sheetCount, spreadAt } from "@/lib/spread";
  * dostępności.
  */
 
-/** Ile stopni zwinięcia osiąga kartka w połowie obrotu. */
-const BEND_MAX = 1.35;
+/** Ile stopni zwinięcia osiąga kartka w połowie obrotu. Przy 1.35 kartka
+ * czytała się jak sztywna deska — prawdziwy papier zwija się przy wolnej
+ * krawędzi znacznie mocniej. */
+const BEND_MAX = 1.95;
 /** Skręt wierszowy — róg prowadzi obrót po przekątnej, jak w prawdziwej książce. */
 const LEAD = 0.32;
 /** Podział siatki. Mniej niż 32 kolumny i zwinięcie widać jako łamaną. */
@@ -22,6 +24,22 @@ const SEG_Y = 18;
 
 /** Odcień papieru tam, gdzie nie ma tekstury — biel byłaby zimna i płaska. */
 const PAPER_TINT = 0xf5f2ea;
+
+/** Czas pełnego obrotu kartki (ms) i dolna granica dla obrotów częściowych. */
+const FLIP_MS = 820;
+const MIN_FLIP_MS = 180;
+
+/**
+ * Krzywa obrotu kartki.
+ *
+ * Poprzednio kartka jechała wykładniczym dociągiem `tv += (cel - tv) * 0.12`.
+ * Miał dwie wady: ruszał z maksymalną prędkością (papier tak się nie zachowuje —
+ * kartkę trzeba najpierw podważyć) i zależał od liczby klatek, więc na ekranie
+ * 120 Hz obrót leciał dwa razy szybciej niż na 60 Hz. Tu postęp liczy się
+ * z CZASU, a krzywa rozpędza i wyhamowuje symetrycznie.
+ */
+const easeInOut = (t: number): number =>
+  t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
 
 export interface SceneHandle {
   /** Przejdź do stanu `o` (liczba arkuszy po lewej), animując obrót. */
@@ -41,28 +59,69 @@ export function createScene(
   const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true });
   renderer.setPixelRatio(Math.min(devicePixelRatio, 2));
   renderer.toneMapping = THREE.ACESFilmicToneMapping;
+  // Strony to niemal biały papier, czyli materiał o albedo bliskim 1. Przy
+  // domyślnej ekspozycji i mocnym świetle kluczowym ACES ścinał je do bieli
+  // i śliwkowa okładka Debiutów wychodziła szara. Ekspozycja poniżej jedynki
+  // zostawia zapas na jasnych polach, więc kolor okładki wraca.
+  renderer.toneMappingExposure = 0.92;
 
   // Cienie to najdroższy element sceny. Na wąskich ekranach wyłączamy je
   // zamiast pozwolić, żeby całość się zacinała.
   const wantShadows = window.innerWidth >= 900 && !opts.reduced;
   renderer.shadowMap.enabled = wantShadows;
-  renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+  // VSM, nie PCFSoftShadowMap: ten drugi jest w tej wersji three przestarzały
+  // i po cichu podmieniany na zwykły PCF, więc „miękkie" cienie wychodziły
+  // twarde — obracana kartka rzucała na stronę czarną plamę z ostrą krawędzią.
+  // VSM naprawdę rozmywa, sterowany przez radius i blurSamples niżej.
+  renderer.shadowMap.type = THREE.VSMShadowMap;
 
   const scene = new THREE.Scene();
-  const camera = new THREE.PerspectiveCamera(32, 1, 0.1, 100);
-  camera.position.set(0.35, 2.05, 2.15);
+  // Wąski kąt widzenia z większej odległości zamiast szerokiego z bliska.
+  // Poprzedni obiektyw (32° z 3 jednostek) ścinał strony w mocny trapez i druk
+  // robił się nieczytelny przy dalszej krawędzi. Te same proporcje kadru przy
+  // 24° z 4 jednostek dają obraz bliższy rzutowi prostokątnemu: strona czyta
+  // się jak strona, a nie jak klin.
+  const camera = new THREE.PerspectiveCamera(24, 1, 0.1, 100);
+  camera.position.set(0, 3.35, 2.05);
   camera.lookAt(0, 0, 0);
 
-  const key = new THREE.DirectionalLight(0xfff1dd, 2.4);
+  // Światło kluczowe zeszło z 2.4: przy papierze o albedo bliskim 1 tamta moc
+  // wypłukiwała druk razem z kolorem okładki.
+  const key = new THREE.DirectionalLight(0xfff1dd, 1.25);
   key.position.set(1.6, 3.0, 1.4);
   key.castShadow = wantShadows;
+  // VSM rozmywa mapę cienia OSOBNYM przebiegiem w każdej klatce, a koszt rośnie
+  // z rozmiarem mapy i liczbą próbek. Przy 2048 i 24 próbkach scena dławiła się
+  // tak, że pojedyncza klatka nie wyrabiała się w sekundach. 1024 i 8 próbek
+  // daje to samo miękkie wrażenie przy koszcie, który urządzenie udźwignie.
   key.shadow.mapSize.set(1024, 1024);
+  key.shadow.radius = 4;
+  key.shadow.blurSamples = 8;
+  // Ciasny stożek cienia wokół samej książki. Domyślny obejmuje o wiele większy
+  // obszar, więc mapa cienia marnowała rozdzielczość na pustą podłogę i
+  // krawędzie schodkowały się nawet po rozmyciu.
+  key.shadow.camera.left = -2.2;
+  key.shadow.camera.right = 2.2;
+  key.shadow.camera.top = 2.2;
+  key.shadow.camera.bottom = -2.2;
   scene.add(key);
-  scene.add(new THREE.HemisphereLight(0xdfe8ff, 0x14161c, 0.6));
-  scene.add(new THREE.AmbientLight(0xffffff, 0.25));
+  // Światło wypełniające podniesione względem klucza: cień ma być obecny, ale
+  // nie czarny. To ono decyduje, jak głęboka jest plama pod obracaną kartką.
+  // Delikatne światło z przeciwnej strony, BEZ cienia. Rewers obracanej kartki
+  // odwraca się od klucza i przy samym wypełnieniu wychodził martwo szary,
+  // choć to ta sama biała kartka co reszta. To światło przywraca mu papier.
+  const fill = new THREE.DirectionalLight(0xe8efff, 0.55);
+  fill.position.set(-1.9, 1.6, -1.1);
+  scene.add(fill);
+  scene.add(new THREE.HemisphereLight(0xdfe8ff, 0x14161c, 0.62));
+  scene.add(new THREE.AmbientLight(0xffffff, 0.34));
 
   const groundGeo = new THREE.PlaneGeometry(14, 14);
-  const groundMat = new THREE.MeshStandardMaterial({ color: 0x1b1e26, roughness: 0.95 });
+  // ShadowMaterial rysuje TYLKO cień, sam pozostając przezroczysty. Wcześniej
+  // pod książką leżała widoczna szara płyta i cień kładł się na niej twardą
+  // krawędzią — wyglądało to jak scena testowa, a nie jak książka. Teraz przez
+  // podłogę widać tło nakładki, a zostaje sam miękki cień pod tomem.
+  const groundMat = new THREE.ShadowMaterial({ opacity: 0.34 });
   const ground = new THREE.Mesh(groundGeo, groundMat);
   ground.rotation.x = -Math.PI / 2;
   ground.position.y = -0.02;
@@ -125,12 +184,23 @@ export function createScene(
   const leftMat = paper(null);
   const rightMat = paper(null);
 
+  /**
+   * Wszystko, co jest książką, siedzi we wspólnej grupie.
+   *
+   * Grupa przesuwa się w poziomie, żeby WIDOCZNA treść zawsze była na środku
+   * kadru. Na okładce istnieje tylko prawa strona, więc bez tego tom wisiałby
+   * w prawej połowie ekranu z pustką obok. Przesunięcie jedzie tą samą krzywą
+   * co obrót, więc otwarcie książki wygląda jak jeden ruch, a nie jak skok.
+   */
+  const book = new THREE.Group();
+  scene.add(book);
+
   const flat = (x: number, material: THREE.MeshStandardMaterial) => {
     const m = new THREE.Mesh(new THREE.PlaneGeometry(PW, PH), material);
     m.rotation.x = -Math.PI / 2;
     m.position.set(x, 0, 0);
     m.receiveShadow = wantShadows;
-    scene.add(m);
+    book.add(m);
     return m;
   };
   const leftPage = flat(-PW / 2, leftMat);
@@ -204,7 +274,7 @@ export function createScene(
   leaf.rotation.x = -Math.PI / 2;
   leaf.position.x = PW / 2;
   leaf.visible = false;
-  scene.add(leaf);
+  book.add(leaf);
 
   let o = 0;
   let tv = 0;
@@ -214,12 +284,44 @@ export function createScene(
   // nie odróżniłoby powrotu z obrotu w przód od powrotu z obrotu w tył.
   let flipGoal = 0; // dokąd zmierza `tv`
   let flipDest = 0; // jakie `o` obowiązuje po wylądowaniu
+  let flipFrom = 0; // `tv` w chwili startu animacji
+  let flipStart = 0; // znacznik czasu startu
+  let offsetFrom = 0; // przesunięcie książki na starcie animacji
+  let offsetTo = 0; // i po jej zakończeniu
   let dragging = false;
+
+  /**
+   * Rozpoczyna odliczanie animacji od bieżącego położenia kartki.
+   *
+   * Wołane i przy sterowaniu (klawiatura, przyciski, kółko), i przy puszczeniu
+   * przeciąganej kartki — w tym drugim przypadku start nie jest ani w zerze,
+   * ani w jedynce, tylko tam, gdzie palec zostawił kartkę.
+   */
+  const beginFlip = () => {
+    flipFrom = tv;
+    flipStart = performance.now();
+    offsetFrom = book.position.x;
+    offsetTo = offsetFor(flipDest);
+  };
+
+  /**
+   * O ile przesunąć książkę, żeby widoczna treść wypadła na środku kadru.
+   *
+   * Okładka i ostatnia strona stoją same — wtedy środek treści leży o pół
+   * strony od grzbietu i trzeba go ściągnąć na oś kamery.
+   */
+  const offsetFor = (state: number): number => {
+    const { verso, recto } = spreadAt(state, pages.length);
+    if (verso === null && recto !== null) return -PW / 2;
+    if (verso !== null && recto === null) return PW / 2;
+    return 0;
+  };
 
   const paintStatics = (state: number) => {
     const { verso, recto } = spreadAt(state, pages.length);
     setFace(leftPage, leftMat, verso);
     setFace(rightPage, rightMat, recto);
+    book.position.x = offsetFor(state);
   };
 
   /**
@@ -249,7 +351,7 @@ export function createScene(
       const c = Math.cos(twist);
       const sn = Math.sin(twist);
 
-      pos.setXYZ(i, -PW / 2 + cx * c, y0, cx * sn + cy * 0.35);
+      pos.setXYZ(i, -PW / 2 + cx * c, y0, cx * sn + cy * 0.5);
     }
     pos.needsUpdate = true;
     leafGeo.computeVertexNormals(); // bez tego zwinięcie oświetla się płasko
@@ -273,23 +375,30 @@ export function createScene(
     tv = to > from ? 0 : 1;
     flipGoal = to > from ? 1 : 0;
     flipDest = to;
+    beginFlip();
   };
 
-  const tick = () => {
+  const tick = (now: number) => {
     raf = requestAnimationFrame(tick);
     // Podczas przeciągania kartką steruje wskaźnik. Bez tego wyjścia pętla
     // dociągałaby `tv` do celu w tej samej klatce, w której ustawia je palec,
     // i kartka wyrywałaby się spod niego.
     if (leaf.visible && !dragging) {
-      tv += (flipGoal - tv) * 0.12;
-      if (Math.abs(flipGoal - tv) < 0.004) {
-        tv = flipGoal;
+      const span = Math.abs(flipGoal - flipFrom);
+      // Krótsza droga trwa krócej. Kartka puszczona tuż przed celem nie ma
+      // powodu lecieć tyle samo, co przewracana od samego początku.
+      const dur = Math.max(MIN_FLIP_MS, FLIP_MS * span);
+      const p = span === 0 ? 1 : Math.min(1, (now - flipStart) / dur);
+      const e = easeInOut(p);
+      tv = flipFrom + (flipGoal - flipFrom) * e;
+      // Kadr równoważy się tą samą krzywą, więc otwarcie tomu to jeden ruch.
+      book.position.x = offsetFrom + (offsetTo - offsetFrom) * e;
+      deform(tv);
+      if (p >= 1) {
         leaf.visible = false;
         o = flipDest;
         paintStatics(o);
         opts.onSettled(o);
-      } else {
-        deform(tv);
       }
     }
     renderer.render(scene, camera);
@@ -360,6 +469,10 @@ export function createScene(
     const p = pointerProgress(e);
     if (p === null) return;
     tv = Math.max(0, Math.min(1, p));
+    // Kadr jedzie za palcem razem z kartką — inaczej książka stałaby w miejscu
+    // przez całe przeciągnięcie i doskoczyła dopiero po puszczeniu.
+    const prog = dragDir === 1 ? tv : 1 - tv;
+    book.position.x = offsetFrom + (offsetTo - offsetFrom) * prog;
     deform(tv);
   };
 
@@ -374,6 +487,8 @@ export function createScene(
     if (dragDir === 1) flipGoal = commit ? 1 : 0;
     else flipGoal = commit ? 0 : 1;
     flipDest = commit ? dragDest : o;
+    // Animacja startuje TAM, gdzie palec zostawił kartkę, a nie od zera.
+    beginFlip();
   };
 
   canvas.addEventListener("pointerdown", onDown);
