@@ -575,15 +575,26 @@ export function createScene(
    * generuje kilkadziesiąt zdarzeń i bez niej książka przeskakiwałaby
    * o kilkanaście stron naraz.
    */
-  let wheelLock = false;
-  let wheelTimer = 0;
+  let wheelReadyAt = 0;
   const onWheel = (e: WheelEvent) => {
     e.preventDefault();
-    if (opts.reduced || wheelLock || dragging) return;
+    if (opts.reduced || dragging) return;
     const d = Math.abs(e.deltaY) > Math.abs(e.deltaX) ? e.deltaY : e.deltaX;
     if (Math.abs(d) < 8) return;
-    wheelLock = true;
-    wheelTimer = window.setTimeout(() => (wheelLock = false), 240);
+
+    // Blokada trwa TYLE, CO OBRÓT, a nie ustalone 240 ms.
+    //
+    // Wersja z krótkim `setTimeout` działała wyłącznie przez przypadek: dopóki
+    // scena dławiła główny wątek, callback zwalniający blokadę spóźniał się
+    // wielokrotnie i gest mieścił się w jednym oknie. Gdy scena przyspieszyła,
+    // blokada zaczęła zwalniać się punktualnie i jeden ruch trackpada
+    // przewracał trzy kartki. Jeden gest ma dawać jedną kartkę niezależnie od
+    // tego, jak szybka jest maszyna — więc odmierzamy to obrotem, nie zegarem
+    // dobranym pod obciążenie.
+    const teraz = performance.now();
+    if (leaf.visible || teraz < wheelReadyAt) return;
+    wheelReadyAt = teraz + FLIP_MS + 160;
+
     handle.goTo(o + (d > 0 ? 1 : -1));
   };
   canvas.addEventListener("wheel", onWheel, { passive: false });
@@ -610,7 +621,6 @@ export function createScene(
       canvas.removeEventListener("pointerup", onUp);
       canvas.removeEventListener("pointercancel", onUp);
       canvas.removeEventListener("wheel", onWheel);
-      window.clearTimeout(wheelTimer);
       cancelAnimationFrame(raf);
       ro.disconnect();
       cache.forEach((t) => t.dispose());

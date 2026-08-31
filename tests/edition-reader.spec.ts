@@ -116,10 +116,16 @@ test("jeden gest kółkiem przewraca dokładnie jedną kartkę", async ({ page }
   const counter = page.locator('[role="dialog"] [aria-live="polite"]');
   await expect(counter).toContainText("1");
 
-  const box = (await canvas.boundingBox())!;
-  await page.mouse.move(box.x + box.width / 2, box.y + box.height / 2);
-  // Seria zdarzeń jak z trackpada — bez blokady przeskoczyłoby wiele kartek.
-  for (let i = 0; i < 12; i++) await page.mouse.wheel(0, 30);
+  // Seria wysyłana JEDNYM ciągiem w przeglądarce, a nie przez page.mouse.wheel.
+  // Trackpad wypluwa kilkadziesiąt zdarzeń w ułamku sekundy i właśnie przed tym
+  // broni blokada. `page.mouse.wheel` czeka na odpowiedź strony po każdym
+  // zdarzeniu, więc w wolnym środowisku testowym rozkładał je na sekundy —
+  // czyli sprawdzał dwanaście osobnych przewinięć, a nie jeden gest.
+  await canvas.evaluate((el) => {
+    for (let i = 0; i < 12; i++) {
+      el.dispatchEvent(new WheelEvent("wheel", { deltaY: 30, bubbles: true, cancelable: true }));
+    }
+  });
 
   // Druga rozkładówka, nie dwudziesta. Sama zmiana licznika by nie wystarczyła:
   // przeskok o dwanaście kartek też zmienia tekst, a to właśnie ten błąd
