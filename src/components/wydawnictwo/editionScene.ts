@@ -195,6 +195,14 @@ export function createScene(
 
   const leaf = new THREE.Mesh(leafGeo, leafMat);
   leaf.castShadow = wantShadows;
+  // Kartka musi leżeć tak samo jak strony statyczne. Obrót -PI/2 wokół X
+  // odwzorowuje lokalne (x, y, z) na światowe (x, z, -y): wysokość strony
+  // idzie w -Z (zgodnie ze stronami statycznymi), a zwinięcie z `deform`
+  // unosi się w +Y, czyli nad blat. Przesunięcie stawia grzbiet geometrii
+  // (lokalne x = -PW/2) dokładnie w x = 0, więc w spoczynku kartka
+  // pokrywa prawą stronę, a po obrocie — lewą.
+  leaf.rotation.x = -Math.PI / 2;
+  leaf.position.x = PW / 2;
   leaf.visible = false;
   scene.add(leaf);
 
