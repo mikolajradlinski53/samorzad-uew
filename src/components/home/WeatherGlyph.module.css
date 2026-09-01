@@ -1,0 +1,108 @@
+/*
+ * Znak pogody w pasku strony głównej.
+ *
+ * Ruch jest DOBRANY DO ZJAWISKA, a nie jeden dla wszystkiego: słońce obraca
+ * się powoli, chmura dryfuje w bok, deszcz i śnieg opadają, mgła pulsuje
+ * kryciem, burza mruga. Wspólna animacja dla każdej pogody byłaby ozdobą;
+ * ta niesie tę samą informację, co podpis obok.
+ *
+ * Wszystko na `transform` i `opacity`, więc przeglądarka animuje to bez
+ * przeliczania układu strony.
+ */
+
+.glyph {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--accent);
+  /* Ikona nie może rozpychać komórki paska przy zmianie pogody. */
+  width: 1.125rem;
+  height: 1.125rem;
+  flex: none;
+}
+
+.clear {
+  animation: obrot 18s linear infinite;
+}
+
+.cloudy,
+.overcast {
+  animation: dryf 7s ease-in-out infinite;
+}
+
+.rain,
+.snow {
+  animation: opad 2.4s ease-in-out infinite;
+}
+
+.fog {
+  animation: mgla 4.5s ease-in-out infinite;
+}
+
+.storm {
+  animation: mrugniecie 3.6s steps(1, end) infinite;
+}
+
+@keyframes obrot {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes dryf {
+  0%,
+  100% {
+    transform: translateX(-1.5px);
+  }
+  50% {
+    transform: translateX(1.5px);
+  }
+}
+
+@keyframes opad {
+  0%,
+  100% {
+    transform: translateY(-1px);
+  }
+  50% {
+    transform: translateY(1.5px);
+  }
+}
+
+@keyframes mgla {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.55;
+  }
+}
+
+@keyframes mrugniecie {
+  0%,
+  92%,
+  100% {
+    opacity: 1;
+  }
+  94% {
+    opacity: 0.35;
+  }
+  96% {
+    opacity: 1;
+  }
+  98% {
+    opacity: 0.4;
+  }
+}
+
+/*
+ * Przy zredukowanym ruchu zostaje sama ikona. Stan spoczynkowy jest tu stanem
+ * naturalnym, więc wyłączenie animacji niczego nie psuje — znak nadal mówi,
+ * jaka jest pogoda.
+ */
+@media (prefers-reduced-motion: reduce) {
+  .glyph {
+    animation: none;
+  }
+}

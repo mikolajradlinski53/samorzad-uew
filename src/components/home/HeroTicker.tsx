@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { useTranslations } from "next-intl";
 import { SESSION_START, SESSION_LABEL_KEY, daysUntil, yearPosition } from "@/lib/academic";
 import { formatTemp, type WeatherKind } from "@/lib/weather";
+import { WeatherGlyph } from "./WeatherGlyph";
 import styles from "./HeroWall.module.css";
 
 /**
@@ -124,7 +125,10 @@ export function HeroTicker() {
       {weather ? (
         <div>
           <dt>{weather.kind ? t(`tickerWeather.${weather.kind}`) : t("tickerWeatherPlain")}</dt>
-          <dd className={styles.tickerNum}>{formatTemp(weather.temp)}</dd>
+          <dd className={`${styles.tickerNum} ${styles.tickerWeather}`}>
+            <WeatherGlyph kind={weather.kind} />
+            {formatTemp(weather.temp)}
+          </dd>
         </div>
       ) : null}
 

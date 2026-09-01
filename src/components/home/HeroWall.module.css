@@ -522,3 +522,10 @@
     transition: none;
   }
 }
+
+/* Komórka pogody: znak i temperatura w jednej linii, wyrównane do środka. */
+.tickerWeather {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
