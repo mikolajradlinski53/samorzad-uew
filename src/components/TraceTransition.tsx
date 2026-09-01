@@ -25,8 +25,8 @@ import styles from "./TraceTransition.module.css";
  */
 
 /** Ile trwa zamalowanie i ile odsłonięcie. */
-const COVER_MS = 900;
-const REVEAL_MS = 980;
+const COVER_MS = 580;
+const REVEAL_MS = 620;
 /**
  * Najkrótszy czas, przez jaki pełne zakrycie ZOSTAJE na ekranie.
  *
@@ -34,7 +34,7 @@ const REVEAL_MS = 980;
  * w której zamalowanie się domykało — ruch nie miał chwili oddechu i całość
  * czytała się jak przelot, a nie jak zalanie ekranu.
  */
-const MIN_HOLD_MS = 220;
+const MIN_HOLD_MS = 130;
 /**
  * Po tylu ms PRZETRZYMANIA pokazujemy podpis.
  *

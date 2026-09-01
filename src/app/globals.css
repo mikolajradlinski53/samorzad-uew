@@ -2313,7 +2313,7 @@ html {
      napisy naskakujące na efekt. Opóźnienie odsuwa rozjaśnienie na drugą
      połowę odsłony, więc litery pojawiają się na czystym tle, a nie na
      resztkach koloru. */
-  animation: trace-wejscie 520ms 320ms ease-out both;
+  animation: trace-wejscie 400ms 200ms ease-out both;
 }
 
 @keyframes trace-wejscie {
