@@ -1,0 +1,114 @@
+/*
+ * Przejście między stronami — dwa pociągnięcia pędzla zamiatające ekran.
+ *
+ * To NIE jest ozdoba. Zmierzone na spowolnionym telefonie: po kliknięciu
+ * w menu adres zmieniał się dopiero po 1700 ms, a nagłówek nowej strony po
+ * 2077 ms, i przez ten czas nic się nie działo — stara strona stała bez
+ * reakcji. Ten komponent jest treścią `loading.tsx`, więc pojawia się
+ * natychmiast po kliknięciu i wypełnia tę lukę.
+ */
+
+.overlay {
+  /* Kolor neutralnej kreski. NIE bierzemy go z tokenów obramowań: te mają
+     krycie rzędu 6% i przy grubości 63 px nadal były praktycznie niewidoczne.
+     Pociągnięcie pędzla musi być widać. */
+  --sweep-neutral: #e4e4e7;
+  position: fixed;
+  inset: 0;
+  z-index: 90;
+  display: grid;
+  place-items: center;
+  background: var(--bg-base);
+  overflow: hidden;
+}
+
+/*
+ * Skala 1.5 wypuszcza końce pociągnięć poza wszystkie krawędzie, więc nie
+ * widać, gdzie zaczyna się i kończy kreska.
+ */
+.strokes {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: 100%;
+  transform: translate(-50%, -50%) scale(1.5);
+}
+
+.stroke {
+  fill: none;
+  stroke-linecap: round;
+  /* `pathLength="1"` w znaczniku normalizuje długość ścieżki do jedynki,
+     więc kreskowanie da się animować bez mierzenia ścieżki w JavaScripcie. */
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  stroke-width: 7;
+  animation: sweep 900ms cubic-bezier(0.65, 0, 0.35, 1) forwards;
+}
+
+/* Dolne pociągnięcie rusza chwilę później — razem zamiatają cały ekran,
+   ale wchodzą jak dwa ruchy ręki, a nie jedna płyta. */
+.lower {
+  animation-delay: 110ms;
+}
+
+:global(.dark) .overlay {
+  --sweep-neutral: #262b36;
+}
+
+@keyframes sweep {
+  from {
+    stroke-dashoffset: 1;
+    stroke-width: 7;
+  }
+  to {
+    stroke-dashoffset: 0;
+    stroke-width: 63;
+  }
+}
+
+/*
+ * Podpis niesie WŁASNE tło.
+ *
+ * Kreski przy pełnej grubości zakrywają cały ekran, więc tekst kładłby się raz
+ * na jasnej szarości, a raz na nasyconym granacie akcentu — na tym drugim
+ * ciemny napis przestawał być czytelny. Plakietka w kolorze tła strony daje
+ * stały, sprawdzony kontrast niezależnie od tego, co akurat jest pod spodem.
+ */
+.label {
+  position: relative;
+  z-index: 1;
+  padding: 0.5rem 0.875rem;
+  border-radius: 999px;
+  background: var(--bg-base);
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-size: 0.6875rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink-secondary);
+  opacity: 0;
+  animation: pojaw 400ms 260ms ease-out forwards;
+}
+
+@keyframes pojaw {
+  to {
+    opacity: 1;
+  }
+}
+
+/*
+ * Przy zredukowanym ruchu zostaje samo tło i podpis — bez zamiatania.
+ * Stan docelowy jest tu stanem naturalnym, więc wyłączenie animacji niczego
+ * nie psuje: kreski po prostu się nie pojawiają.
+ */
+@media (prefers-reduced-motion: reduce) {
+  .stroke {
+    animation: none;
+    display: none;
+  }
+
+  .label {
+    animation: none;
+    opacity: 1;
+  }
+}
