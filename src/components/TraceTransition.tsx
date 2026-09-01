@@ -258,7 +258,7 @@ export function TraceTransition() {
             className={styles.stroke}
             pathLength={1}
             d={d}
-            stroke={i === 0 ? "var(--sweep-neutral, #e4e4e7)" : "var(--accent)"}
+            stroke={i === 0 ? "var(--accent-dim)" : "var(--accent)"}
             style={{ strokeDashoffset: 1, strokeWidth: SW_MIN }}
           />
         ))}
