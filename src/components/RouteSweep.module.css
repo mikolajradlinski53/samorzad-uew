@@ -20,6 +20,23 @@
   place-items: center;
   background: var(--bg-base);
   overflow: hidden;
+  /*
+   * Zasłona jest NIEWIDOCZNA przez pierwsze 260 ms.
+   *
+   * Bez tego przy prefetchowanej stronie pojawiała się i znikała po
+   * kilkudziesięciu milisekundach — użytkownik widział błysk, gorszy niż brak
+   * jakiejkolwiek reakcji. Skoro strona doczyta się szybciej niż w ćwierć
+   * sekundy, nie ma czego zakrywać. Zasłona zostaje wyłącznie dla przejść,
+   * które naprawdę trwają.
+   */
+  opacity: 0;
+  animation: wejscie 160ms 260ms ease-out forwards;
+}
+
+@keyframes wejscie {
+  to {
+    opacity: 1;
+  }
 }
 
 /*
@@ -43,13 +60,13 @@
   stroke-dasharray: 1;
   stroke-dashoffset: 1;
   stroke-width: 7;
-  animation: sweep 900ms cubic-bezier(0.65, 0, 0.35, 1) forwards;
+  animation: sweep 900ms 260ms cubic-bezier(0.65, 0, 0.35, 1) forwards;
 }
 
 /* Dolne pociągnięcie rusza chwilę później — razem zamiatają cały ekran,
    ale wchodzą jak dwa ruchy ręki, a nie jedna płyta. */
 .lower {
-  animation-delay: 110ms;
+  animation-delay: 370ms;
 }
 
 :global(.dark) .overlay {
@@ -87,7 +104,7 @@
   text-transform: uppercase;
   color: var(--ink-secondary);
   opacity: 0;
-  animation: pojaw 400ms 260ms ease-out forwards;
+  animation: pojaw 400ms 520ms ease-out forwards;
 }
 
 @keyframes pojaw {
@@ -102,6 +119,11 @@
  * nie psuje: kreski po prostu się nie pojawiają.
  */
 @media (prefers-reduced-motion: reduce) {
+  .overlay {
+    animation: none;
+    opacity: 1;
+  }
+
   .stroke {
     animation: none;
     display: none;
