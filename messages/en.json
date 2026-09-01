@@ -3748,7 +3748,8 @@
       "emptyDesc": "The list of publications from the Debiuty Studenckie series will appear here once we confirm the data with the UEW Press.",
       "circleLabel": "Research circle",
       "linkLabel": "Full text",
-      "hint": "Select a publication spine to see its details below."
+      "hint": "Select a publication spine to see its details below.",
+      "scholarLabel": "Search Google Scholar for: {title}"
     },
     "readerOpen": "Browse the volume",
     "readerClose": "Close",
@@ -3769,6 +3770,17 @@
       "pagesLabel": "pp. {from}–{to}",
       "chapterCount": "{count, plural, one {# chapter} other {# chapters}}",
       "doiLabel": "DOI"
-    }
+    },
+    "forge": {
+      "authorLabel": "Surname and initial",
+      "titleLabel": "Title of your text",
+      "resultLabel": "Your entry in a bibliography",
+      "note": "This is how anyone citing your text will list you. Change the fields above to see your own name in the series."
+    },
+    "publisherEyebrow": "Series publisher",
+    "publisherBody": "Debiuty Studenckie is published by the Publishing House of Wroclaw University of Economics and Business. Confirm submission rules, deadlines and editorial requirements directly with the publisher. The Students' Union receives each volume and hosts it here in open access.",
+    "publisherCta": "Publisher's website",
+    "publisherSince": "Publishing since {year}",
+    "publisherSinceLabel": "Publishing since"
   }
 }

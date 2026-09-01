@@ -5,7 +5,7 @@ import Image from "next/image";
 import { motion, useReducedMotion } from "motion/react";
 import { ArrowSquareOut } from "@phosphor-icons/react";
 import type { Publication } from "@/lib/publications";
-import { pagesOf, type Edition } from "@/lib/editions";
+import { pagesOf, scholarSearchUrl, type Edition } from "@/lib/editions";
 import { EditionReader } from "./EditionReader";
 
 export interface EditionShelfLabels {
@@ -24,6 +24,8 @@ export interface EditionShelfLabels {
   chapterCount: (count: number) => string;
   circleLabel: string;
   doiLabel: string;
+  /** Etykieta odnośnika do Google Scholar, z „{title}" na tytuł rozdziału. */
+  scholarLabel: string;
   readerOpen: string;
   readerClose: string;
   readerPrev: string;
@@ -287,6 +289,20 @@ export function EditionShelf({ editions, publications, labels }: EditionShelfPro
                         {c.pages && c.doi ? " · " : null}
                         {c.doi ? `${labels.doiLabel} ${c.doi}` : null}
                       </p>
+                      {/* Poza naszym PDF-em te teksty są indeksowane w Google
+                          Scholar — stąd wyszukanie po tytule. Etykieta niesie
+                          tytuł rozdziału, żeby dziesięć odnośników w spisie nie
+                          nazywało się dla czytnika ekranu tak samo. */}
+                      <a
+                        href={scholarSearchUrl(c.title)}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label={labels.scholarLabel.replace("{title}", c.title)}
+                        className="mt-2 inline-flex min-h-8 items-center gap-1.5 text-[0.8125rem] font-medium text-accent transition-colors hover:text-accent-dim"
+                      >
+                        Google Scholar
+                        <ArrowSquareOut size={14} weight="regular" aria-hidden="true" />
+                      </a>
                     </div>
                   </div>
                 </li>

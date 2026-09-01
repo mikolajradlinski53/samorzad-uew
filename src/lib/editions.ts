@@ -21,6 +21,26 @@ export interface Edition {
   licenseUrl: string;
 }
 
+/**
+ * Wydawca serii.
+ *
+ * `url` jest CELOWO puste. Adres `wydawnictwo.ue.wroc.pl`, który podają
+ * wyszukiwarki, nie ma już wpisu DNS, a serwisu uczelni nie dało się
+ * zweryfikować (odrzuca zapytania błędem 403). Wolę brak odnośnika niż
+ * odnośnik prowadzący donikąd — dopóki tu jest pusto, przycisk „Strona
+ * wydawcy" po prostu się nie renderuje.
+ */
+export const publisher = {
+  name: "Wydawnictwo Uniwersytetu Ekonomicznego we Wrocławiu",
+  shortName: "Wydawnictwo UEW",
+  since: 1955,
+  url: "",
+};
+
+/** Wyszukanie tytułu w Google Scholar — tam te teksty są indeksowane. */
+export const scholarSearchUrl = (title: string): string =>
+  `https://scholar.google.com/scholar?q=${encodeURIComponent(title)}`;
+
 export const editions: Edition[] = [
   {
     slug: "new-trends-2026",

@@ -3748,7 +3748,8 @@
       "emptyDesc": "Lista publikacji z serii Debiuty Studenckie pojawi się tutaj, gdy tylko potwierdzimy dane z Wydawnictwem UEW.",
       "circleLabel": "Koło naukowe",
       "linkLabel": "Pełny tekst",
-      "hint": "Wybierz grzbiet publikacji, aby zobaczyć szczegóły poniżej."
+      "hint": "Wybierz grzbiet publikacji, aby zobaczyć szczegóły poniżej.",
+      "scholarLabel": "Szukaj w Google Scholar: {title}"
     },
     "readerOpen": "Przejrzyj wydanie",
     "readerClose": "Zamknij",
@@ -3758,7 +3759,7 @@
     "readerPageOf": "Strony {position} z {total}",
     "readerLicense": "Tom udostępniony na licencji",
     "citeHeading": "Jak cytować",
-    "citeIntro": "Przykładowe cytowanie w stylu przyjętym dla serii: autorzy, rok, tytuł, seria, wydawnictwo i (jeśli dostępny) numer ISBN.",
+    "citeIntro": "Cytowanie w serii ma stały kształt: autorzy, rok, tytuł, seria i wydawnictwo. Poniżej prawdziwy wpis z tomu, który możesz podmienić na własny.",
     "citeEmpty": "Cytowanie pojawi się tutaj, gdy w serii ukaże się pierwsza publikacja.",
     "copyButton": "Kopiuj cytowanie",
     "copiedConfirm": "Skopiowano",
@@ -3769,6 +3770,17 @@
       "pagesLabel": "s. {from}–{to}",
       "chapterCount": "{count, plural, one {# rozdział} few {# rozdziały} many {# rozdziałów} other {# rozdziału}}",
       "doiLabel": "DOI"
-    }
+    },
+    "forge": {
+      "authorLabel": "Nazwisko i inicjał imienia",
+      "titleLabel": "Tytuł Twojego tekstu",
+      "resultLabel": "Twój wpis w bibliografii",
+      "note": "Tak zapisze Cię każdy, kto powoła się na Twój tekst. Podmień pola powyżej i zobacz swoje nazwisko w serii."
+    },
+    "publisherEyebrow": "Wydawca serii",
+    "publisherBody": "Debiuty Studenckie wydaje Wydawnictwo Uniwersytetu Ekonomicznego we Wrocławiu. Zasady zgłoszeń, terminy i wymagania redakcyjne potwierdzisz bezpośrednio u wydawcy. Samorząd otrzymuje kolejne tomy serii i udostępnia je tutaj w otwartym dostępie.",
+    "publisherCta": "Strona wydawcy",
+    "publisherSince": "Wydaje od {year}",
+    "publisherSinceLabel": "Wydaje od"
   }
 }

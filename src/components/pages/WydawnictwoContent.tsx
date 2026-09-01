@@ -1,13 +1,13 @@
 "use client";
 
-import { useEffect, useState } from "react";
 import { motion, useReducedMotion } from "motion/react";
 import { useTranslations } from "next-intl";
-import { GraduationCap, SealCheck, UsersThree, Copy, CheckCircle, WarningCircle, type Icon } from "@phosphor-icons/react";
+import { GraduationCap, SealCheck, UsersThree, ArrowSquareOut, type Icon } from "@phosphor-icons/react";
 import { ScrollReveal } from "../ScrollReveal";
 import { EditionShelf } from "../wydawnictwo/EditionShelf";
-import { publications, formatCitation } from "@/lib/publications";
-import { editions } from "@/lib/editions";
+import { CitationForge } from "../wydawnictwo/CitationForge";
+import { publications } from "@/lib/publications";
+import { editions, publisher } from "@/lib/editions";
 
 const factKeys = ["years", "license", "circles"] as const;
 const factIcons: Record<(typeof factKeys)[number], Icon> = {
@@ -18,31 +18,13 @@ const factIcons: Record<(typeof factKeys)[number], Icon> = {
 
 const pathKeys = ["draft", "mentor", "submit", "review", "layout", "publish"] as const;
 
-type CopyState = "idle" | "copied" | "error";
-
 export function WydawnictwoContent() {
   const reduce = useReducedMotion();
   const t = useTranslations("wydawnictwo");
 
-  const [copyState, setCopyState] = useState<CopyState>("idle");
-
-  useEffect(() => {
-    if (copyState === "idle") return;
-    const id = setTimeout(() => setCopyState("idle"), 4000);
-    return () => clearTimeout(id);
-  }, [copyState]);
-
-  const citation = publications.length > 0 ? formatCitation(publications[0]) : null;
-
-  const handleCopy = async () => {
-    if (!citation) return;
-    try {
-      await navigator.clipboard.writeText(citation);
-      setCopyState("copied");
-    } catch {
-      setCopyState("error");
-    }
-  };
+  // Punkt wyjścia dla żywego cytowania: PRAWDZIWY pierwszy wpis z tomu, żeby
+  // sekcja pokazywała autentyczny wzór, zanim ktokolwiek zacznie pisać.
+  const seed = publications[0];
 
   return (
     <>
@@ -191,6 +173,7 @@ export function WydawnictwoContent() {
                 pagesLabel: t("shelf.pagesLabel"),
                 chapterCount: (count: number) => t("shelf.chapterCount", { count }),
                 doiLabel: t("shelf.doiLabel"),
+                scholarLabel: t("spineLabels.scholarLabel"),
                 readerOpen: t("readerOpen"),
                 readerClose: t("readerClose"),
                 readerPrev: t("readerPrev"),
@@ -201,6 +184,60 @@ export function WydawnictwoContent() {
               }}
             />
           </div>
+        </div>
+      </section>
+
+      {/* d) Wydawca serii */}
+      <section className="section-padding pt-0" aria-labelledby="wydawnictwo-wydawca-heading">
+        <div className="mx-auto max-w-[1200px]">
+          <ScrollReveal>
+            <div className="overflow-hidden rounded-2xl border border-border-subtle bg-bg-surface">
+              <div className="flex flex-col gap-8 p-8 sm:p-10 md:flex-row md:items-center md:justify-between">
+                <div className="max-w-[58ch]">
+                  <p className="font-mono text-[0.6875rem] uppercase tracking-[0.14em] text-accent">
+                    {t("publisherEyebrow")}
+                  </p>
+                  <h2
+                    id="wydawnictwo-wydawca-heading"
+                    className="mt-3 font-display text-[clamp(1.375rem,2.6vw,1.875rem)] font-semibold leading-[1.2] tracking-[-0.02em] text-ink-primary"
+                  >
+                    {publisher.name}
+                  </h2>
+                  <p className="mt-4 text-[1rem] leading-[1.7] text-ink-secondary">
+                    {t("publisherBody")}
+                  </p>
+                  {/* Odnośnik pojawia się DOPIERO, gdy adres wydawcy jest
+                      ustawiony w editions.ts. Lepiej brak przycisku niż
+                      przycisk prowadzący donikąd. */}
+                  {publisher.url ? (
+                    <a
+                      href={publisher.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="mt-6 inline-flex min-h-12 items-center gap-2 rounded-lg bg-accent px-6 text-base font-medium text-bg-base transition-colors hover:bg-accent-dim"
+                    >
+                      {t("publisherCta")}
+                      <ArrowSquareOut size={16} weight="regular" aria-hidden="true" />
+                    </a>
+                  ) : null}
+                </div>
+                {/* Miejsce na znak wydawcy. Dopóki go nie mamy, stoi tu rok
+                    założenia złożony jak sygnatura — pole jest wypełnione
+                    celowo, a nie zostawione puste do czasu dostarczenia pliku. */}
+                <div
+                  aria-hidden="true"
+                  className="flex shrink-0 flex-col items-center justify-center rounded-xl border border-border-subtle bg-bg-elevated px-8 py-6 md:px-10"
+                >
+                  <span className="font-mono text-[0.625rem] uppercase tracking-[0.2em] text-ink-tertiary">
+                    {t("publisherSinceLabel")}
+                  </span>
+                  <span className="font-display mt-2 text-[2rem] font-semibold leading-none tracking-[-0.02em] text-ink-primary tabular-nums">
+                    {publisher.since}
+                  </span>
+                </div>
+              </div>
+            </div>
+          </ScrollReveal>
         </div>
       </section>
 
@@ -218,32 +255,19 @@ export function WydawnictwoContent() {
               {t("citeIntro")}
             </p>
 
-            {citation ? (
-              <div className="mt-8 max-w-[720px] rounded-xl border border-border-subtle bg-bg-surface p-6">
-                <p className="font-mono text-[0.875rem] leading-[1.7] text-ink-secondary">{citation}</p>
-                <div className="mt-5 flex flex-wrap items-center gap-4">
-                  <button
-                    type="button"
-                    onClick={handleCopy}
-                    className="inline-flex h-11 items-center gap-2 rounded-lg border border-border-strong px-6 text-[0.9375rem] font-medium text-ink-primary transition-colors hover:border-border-soft hover:bg-bg-elevated"
-                  >
-                    {copyState === "copied" ? (
-                      <CheckCircle size={18} weight="regular" aria-hidden="true" className="text-accent" />
-                    ) : copyState === "error" ? (
-                      <WarningCircle size={18} weight="regular" aria-hidden="true" className="text-red-500" />
-                    ) : (
-                      <Copy size={18} weight="regular" aria-hidden="true" />
-                    )}
-                    {t("copyButton")}
-                  </button>
-                  <p aria-live="polite" className="text-[0.8125rem] text-ink-tertiary">
-                    {copyState === "copied" && t("copiedConfirm")}
-                    {copyState === "error" && (
-                      <span className="text-red-600 dark:text-red-400">{t("copyError")}</span>
-                    )}
-                  </p>
-                </div>
-              </div>
+            {seed ? (
+              <CitationForge
+                seed={{ author: seed.authors[0], title: seed.title, year: seed.year }}
+                labels={{
+                  authorLabel: t("forge.authorLabel"),
+                  titleLabel: t("forge.titleLabel"),
+                  resultLabel: t("forge.resultLabel"),
+                  note: t("forge.note"),
+                  copyButton: t("copyButton"),
+                  copiedConfirm: t("copiedConfirm"),
+                  copyError: t("copyError"),
+                }}
+              />
             ) : (
               <p className="mt-8 text-[0.9375rem] text-ink-tertiary">{t("citeEmpty")}</p>
             )}
