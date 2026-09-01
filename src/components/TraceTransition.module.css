@@ -9,6 +9,9 @@
  */
 
 .overlay {
+  /* Jasne pociągnięcie. Tokeny obramowań mają krycie rzędu 6% i przy pełnej
+     grubości były niewidoczne — biel musi być bielą. */
+  --sweep-neutral: #e4e4e7;
   position: fixed;
   inset: 0;
   z-index: 120;
@@ -25,6 +28,10 @@
  * Skala 1.5 wypuszcza końce kresek poza wszystkie krawędzie, więc nie widać,
  * gdzie pociągnięcie się zaczyna i kończy.
  */
+:global(.dark) .overlay {
+  --sweep-neutral: #262b36;
+}
+
 .strokes {
   position: absolute;
   top: 50%;

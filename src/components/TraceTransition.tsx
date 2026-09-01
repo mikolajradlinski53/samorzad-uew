@@ -35,8 +35,16 @@ const REVEAL_MS = 980;
  * czytała się jak przelot, a nie jak zalanie ekranu.
  */
 const MIN_HOLD_MS = 220;
-/** Po tylu ms zakrycia pokazujemy podpis — tyle znaczy „to trwa dłużej". */
-const LABEL_AFTER_MS = 550;
+/**
+ * Po tylu ms PRZETRZYMANIA pokazujemy podpis.
+ *
+ * Liczone od domknięcia zamalowania, NIE od kliknięcia. Wcześniej próg był
+ * liczony od kliknięcia i odejmowany od czasu zamalowania — a gdy zamalowanie
+ * wydłużyło się do 900 ms, różnica zeszła poniżej zera i podpis pojawiał się
+ * natychmiast po zakryciu, przy każdym przejściu. Stąd mignięcie „wczytywania"
+ * nawet wtedy, gdy nie było na co czekać.
+ */
+const LABEL_AFTER_HOLD_MS = 700;
 /** Bezpiecznik: gdyby nawigacja nigdy nie doszła do skutku, odsłaniamy mimo to. */
 const STUCK_MS = 8000;
 
@@ -189,7 +197,7 @@ export function TraceTransition() {
   // Podpis i bezpiecznik na czas oczekiwania pod zasłoną.
   useEffect(() => {
     if (phase !== "held") return;
-    const podpis = window.setTimeout(() => setLabelReady(true), Math.max(0, LABEL_AFTER_MS - COVER_MS));
+    const podpis = window.setTimeout(() => setLabelReady(true), LABEL_AFTER_HOLD_MS);
     const bezpiecznik = window.setTimeout(() => setPhase("reveal"), STUCK_MS);
     return () => {
       window.clearTimeout(podpis);
@@ -258,7 +266,7 @@ export function TraceTransition() {
             className={styles.stroke}
             pathLength={1}
             d={d}
-            stroke={i === 0 ? "var(--accent-dim)" : "var(--accent)"}
+            stroke={i === 0 ? "var(--sweep-neutral)" : "var(--accent)"}
             style={{ strokeDashoffset: 1, strokeWidth: SW_MIN }}
           />
         ))}
