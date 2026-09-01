@@ -25,8 +25,16 @@ import styles from "./TraceTransition.module.css";
  */
 
 /** Ile trwa zamalowanie i ile odsłonięcie. */
-const COVER_MS = 700;
-const REVEAL_MS = 700;
+const COVER_MS = 900;
+const REVEAL_MS = 980;
+/**
+ * Najkrótszy czas, przez jaki pełne zakrycie ZOSTAJE na ekranie.
+ *
+ * Bez tego przy prefetchowanej stronie odsłona startowała w tej samej klatce,
+ * w której zamalowanie się domykało — ruch nie miał chwili oddechu i całość
+ * czytała się jak przelot, a nie jak zalanie ekranu.
+ */
+const MIN_HOLD_MS = 220;
 /** Po tylu ms zakrycia pokazujemy podpis — tyle znaczy „to trwa dłużej". */
 const LABEL_AFTER_MS = 550;
 /** Bezpiecznik: gdyby nawigacja nigdy nie doszła do skutku, odsłaniamy mimo to. */
@@ -34,7 +42,21 @@ const STUCK_MS = 8000;
 
 /** Grubość kreski: cienki ślad na starcie, pełne zakrycie na końcu. */
 const SW_MIN = 7;
-const SW_MAX = 72;
+/**
+ * 96 przy stu jednostkach kadru to grubo więcej niż połowa wysokości, więc
+ * pociągnięcia nachodzą na siebie z zapasem. Przy 72 zakrycie domykało się
+ * dopiero w ostatniej chwili i widać było, jak krawędzie się „doganiają";
+ * z nadmiarem kolor po prostu zalewa ekran.
+ */
+const SW_MAX = 96;
+
+/**
+ * Przesunięcie startu każdego pociągnięcia, w ułamku czasu taktu.
+ *
+ * Obie kreski kończą razem, ale druga rusza później — dzięki temu widać dwie
+ * fale wchodzące jedna po drugiej, a nie jedną płytę przesuwaną przez ekran.
+ */
+const OPOZNIENIA = [0, 0.16];
 
 /**
  * Dwie krzywe leżą na wysokości y≈28 i y≈74. Przy pełnej grubości każda
@@ -58,9 +80,13 @@ const ease = (t: number): number =>
 type Sciezki = (SVGPathElement | null)[];
 
 function rysuj(sciezki: Sciezki, postep: number, kierunek: "in" | "out"): void {
-  const e = ease(Math.min(1, Math.max(0, postep)));
-  for (const p of sciezki) {
+  for (let i = 0; i < sciezki.length; i++) {
+    const p = sciezki[i];
     if (!p) continue;
+    // Każde pociągnięcie ma własny start, ale wspólną metę.
+    const opoznienie = OPOZNIENIA[i] ?? 0;
+    const lokalny = (postep - opoznienie) / (1 - opoznienie);
+    const e = ease(Math.min(1, Math.max(0, lokalny)));
     if (kierunek === "in") {
       // Kreska wjeżdża od lewej i grubieje aż do pełnego zakrycia.
       p.style.strokeDashoffset = String(1 - e);
@@ -95,6 +121,7 @@ export function TraceTransition() {
   const pathRefs = useRef<(SVGPathElement | null)[]>([]);
   const raf = useRef(0);
   const cel = useRef<string | null>(null);
+  const zakryteOd = useRef(0);
 
   // Przechwycenie kliknięcia w wewnętrzny odnośnik.
   useEffect(() => {
@@ -148,6 +175,7 @@ export function TraceTransition() {
       if (p < 1) {
         raf.current = requestAnimationFrame(krok);
       } else {
+        zakryteOd.current = performance.now();
         setPhase("held");
         // Nawigacja rusza DOPIERO po pełnym zakryciu — inaczej nowa treść
         // mignęłaby pod niedomkniętą zasłoną.
@@ -169,16 +197,20 @@ export function TraceTransition() {
     };
   }, [phase]);
 
-  // Nowa strona doszła — odsłaniamy.
+  // Nowa strona doszła — odsłaniamy, ale nie wcześniej niż po MIN_HOLD_MS.
   useEffect(() => {
     if (phase !== "held") return;
     if (cel.current && !cel.current.startsWith(pathname)) return;
-    setPhase("reveal");
+    const pozostalo = MIN_HOLD_MS - (performance.now() - zakryteOd.current);
+    const id = window.setTimeout(() => setPhase("reveal"), Math.max(0, pozostalo));
+    return () => window.clearTimeout(id);
   }, [pathname, phase]);
 
-  // Takt drugi: odsłonięcie.
+  // Takt drugi: odsłonięcie. Znacznik na <html> uruchamia łagodne wejście
+  // treści (reguła w globals.css), zgrane w czasie z cofaniem się kresek.
   useEffect(() => {
     if (phase !== "reveal") return;
+    document.documentElement.dataset.trace = "reveal";
     const t0 = performance.now();
     const krok = (now: number) => {
       const p = (now - t0) / REVEAL_MS;
@@ -188,11 +220,15 @@ export function TraceTransition() {
       } else {
         schowaj(pathRefs.current);
         cel.current = null;
+        delete document.documentElement.dataset.trace;
         setPhase("idle");
       }
     };
     raf.current = requestAnimationFrame(krok);
-    return () => cancelAnimationFrame(raf.current);
+    return () => {
+      cancelAnimationFrame(raf.current);
+      delete document.documentElement.dataset.trace;
+    };
   }, [phase]);
 
   const widoczne = phase !== "idle";
@@ -228,7 +264,7 @@ export function TraceTransition() {
         ))}
       </svg>
       <p className={`${styles.label} ${labelOn ? styles.labelVisible : ""}`} role="status">
-        {labelOn ? t("loadingPage") : ""}
+        {t("loadingPage")}
       </p>
     </div>
   );

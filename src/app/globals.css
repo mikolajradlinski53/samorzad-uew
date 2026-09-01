@@ -2297,9 +2297,36 @@ html {
  * dodatkowo działało tu przenikanie, nowa treść przebijałaby przez zasłonę
  * w trakcie ruchu — dokładnie ta wada, którą naprawiamy.
  */
-::view-transition-old(strona),
-::view-transition-new(strona) {
-  animation: none;
+/*
+ * Łagodne wejście treści przy odsłanianiu.
+ *
+ * Sama cofająca się kreska odsłaniała stronę, która już stała na miejscu —
+ * treść „była", zamiast się wyłaniać. Delikatne uniesienie i rozjaśnienie,
+ * zgrane w czasie z drugim taktem przejścia, sprawia, że strona wchodzi
+ * razem ze schodzącą farbą, a nie pojawia się spod niej gotowa.
+ *
+ * Znacznik ustawia i zdejmuje komponent TraceTransition.
+ */
+[data-trace="reveal"] main#main-content {
+  animation: trace-wejscie 720ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+@keyframes trace-wejscie {
+  from {
+    opacity: 0.4;
+    transform: translate3d(0, 14px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* Przy zredukowanym ruchu treść po prostu jest — bez unoszenia i wygaszania. */
+@media (prefers-reduced-motion: reduce) {
+  [data-trace="reveal"] main#main-content {
+    animation: none;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {

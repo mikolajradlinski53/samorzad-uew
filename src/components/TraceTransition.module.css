@@ -55,6 +55,10 @@
   letter-spacing: 0.18em;
   text-transform: uppercase;
   color: var(--ink-secondary);
+  /* `visibility`, nie samo `opacity`: przy zerowym kryciu pusta plakietka i tak
+     prześwitywała przez zasłonę jako jasny prostokąt, a czytnik ekranu widział
+     pusty komunikat. */
+  visibility: hidden;
   opacity: 0;
   transition: opacity 200ms ease-out;
 }
@@ -63,5 +67,6 @@
    zamalowanie — czyli wtedy, gdy strona naprawdę się doczytuje. Przy szybkim
    przejściu nikt go nie zobaczy i o to chodzi. */
 .labelVisible {
+  visibility: visible;
   opacity: 1;
 }
