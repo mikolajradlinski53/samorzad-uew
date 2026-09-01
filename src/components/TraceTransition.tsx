@@ -48,15 +48,16 @@ const LABEL_AFTER_HOLD_MS = 700;
 /** Bezpiecznik: gdyby nawigacja nigdy nie doszła do skutku, odsłaniamy mimo to. */
 const STUCK_MS = 8000;
 
-/** Grubość kreski: cienki ślad na starcie, pełne zakrycie na końcu. */
-const SW_MIN = 7;
 /**
- * 96 przy stu jednostkach kadru to grubo więcej niż połowa wysokości, więc
- * pociągnięcia nachodzą na siebie z zapasem. Przy 72 zakrycie domykało się
- * dopiero w ostatniej chwili i widać było, jak krawędzie się „doganiają";
- * z nadmiarem kolor po prostu zalewa ekran.
+ * Grubość kreski: cienki ślad na starcie, szeroki mazak na końcu.
+ *
+ * 96 przy stu jednostkach kadru dawało pas wyższy niż pół ekranu — dwa takie
+ * pasy nie zamalowywały, tylko ZALEWAŁY kadr od dołu. Zamalowywanie bierze
+ * się z czegoś innego: z węższej kreski, która wielokrotnie przebiega ekran
+ * w tę i z powrotem. Stąd 38 zamiast 96 i zygzakowate ścieżki niżej.
  */
-const SW_MAX = 96;
+const SW_MIN = 6;
+const SW_MAX = 38;
 
 /**
  * Przesunięcie startu każdego pociągnięcia, w ułamku czasu taktu.
@@ -67,13 +68,17 @@ const SW_MAX = 96;
 const OPOZNIENIA = [0, 0.16];
 
 /**
- * Dwie krzywe leżą na wysokości y≈28 i y≈74. Przy pełnej grubości każda
- * przykrywa pas wyższy niż połowa kadru, więc razem zakrywają wszystko —
- * a że wchodzą z przesunięciem, czyta się to jak dwa ruchy ręki.
+ * Dwa zygzaki przebiegające CAŁĄ wysokość kadru po kilka razy.
+ *
+ * Poprzednio były to dwie łagodne fale na wysokości y≈28 i y≈74 — poziome
+ * pasy, które przy dużej grubości wypełniały ekran od dołu do góry i czytały
+ * się jak wlewanie. Tu każda ścieżka wielokrotnie wychodzi poza górną i dolną
+ * krawędź, a obie krzyżują się nawzajem, więc kreska zamalowuje kadr
+ * przejściami tam i z powrotem, jak mazakiem.
  */
 const PATHS = [
-  "M -15 28 C 22 5, 46 52, 70 26 S 104 8, 132 33",
-  "M -15 74 C 20 97, 48 49, 72 76 S 106 93, 132 65",
+  "M -14 88 C 6 16, 20 98, 34 24 C 46 -14, 58 106, 72 32 C 84 -12, 98 98, 114 28 C 122 -4, 130 62, 138 42",
+  "M -14 20 C 4 94, 18 6, 32 80 C 44 118, 58 -10, 72 64 C 84 114, 98 4, 114 74 C 124 106, 130 38, 138 58",
 ];
 
 /** Łagodne rozpędzenie i wyhamowanie. */
