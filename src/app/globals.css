@@ -2290,47 +2290,16 @@ html {
 }
 
 /*
- * Przejście między stronami — organiczne zamiatanie zamiast przenikania.
+ * Przejście widoku celowo NIE animuje treści.
  *
- * Dlaczego TUTAJ, a nie w nakładce `loading`: nakładka żyje tylko tak długo,
- * jak trwa doczytywanie strony. Gdy strona jest prefetchowana, znika po
- * kilkudziesięciu milisekundach i animacja nie ma kiedy się rozegrać —
- * widać sam błysk. Przejście widoku ma za to gwarantowany czas trwania,
- * bo przeglądarka trzyma zrzut starej strony do końca animacji.
- *
- * Nowa strona wjeżdża spod maski o miękkiej, esowatej krawędzi. Maska jest
- * dwa razy szersza od ekranu: lewa połowa przezroczysta, prawa biała, a
- * granica między nimi to krzywa. Przesunięcie maski o szerokość ekranu
- * przeciąga tę krzywą przez cały kadr, więc treść odsłania się jak spod
- * pociągnięcia pędzla, a nie jak spod prostej linii.
+ * Zamalowywanie i odsłanianie robi komponent TraceTransition, który rozdziela
+ * takty: najpierw pełne zakrycie, potem nawigacja, na końcu odsłona. Gdyby
+ * dodatkowo działało tu przenikanie, nowa treść przebijałaby przez zasłonę
+ * w trakcie ruchu — dokładnie ta wada, którą naprawiamy.
  */
+::view-transition-old(strona),
 ::view-transition-new(strona) {
-  animation: odslona 620ms cubic-bezier(0.65, 0, 0.35, 1);
-  mask-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 100' preserveAspectRatio='none'%3E%3Cpath fill='%23fff' d='M200,0 L200,100 L70,100 C95,78 55,62 82,42 C100,28 84,14 110,0 Z'/%3E%3C/svg%3E");
-  mask-size: 200% 100%;
-  mask-repeat: no-repeat;
-}
-
-/* Stara strona zostaje nieruchomo pod spodem przez cały czas trwania
-   odsłony — dzięki temu pod maską nigdy nie widać pustki. */
-::view-transition-old(strona) {
-  animation: trwaj 620ms linear;
-}
-
-@keyframes odslona {
-  from {
-    mask-position: 0% 0;
-  }
-  to {
-    mask-position: 100% 0;
-  }
-}
-
-@keyframes trwaj {
-  from,
-  to {
-    opacity: 1;
-  }
+  animation: none;
 }
 
 @media (prefers-reduced-motion: reduce) {
