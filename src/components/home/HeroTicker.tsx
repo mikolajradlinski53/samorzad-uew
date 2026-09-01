@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { useTranslations } from "next-intl";
 import { SESSION_START, SESSION_LABEL_KEY, daysUntil, yearPosition } from "@/lib/academic";
+import { formatTemp, type WeatherKind } from "@/lib/weather";
 import styles from "./HeroWall.module.css";
 
 /**
@@ -26,10 +27,16 @@ interface NextEventInfo {
   days: number;
 }
 
+interface WeatherInfo {
+  temp: number;
+  kind: WeatherKind | null;
+}
+
 export function HeroTicker() {
   const t = useTranslations("heroWall");
   const [now, setNow] = useState<Date | null>(null);
   const [event, setEvent] = useState<NextEventInfo | null>(null);
+  const [weather, setWeather] = useState<WeatherInfo | null>(null);
 
   useEffect(() => {
     // Pierwszy odczyt w rAF, nie synchronicznie w efekcie — inaczej React
@@ -57,6 +64,19 @@ export function HeroTicker() {
       // Bez arkusza komórka po prostu nie istnieje. Wymyślone wydarzenie w
       // liczniku byłoby gorsze niż jego brak.
       .catch(() => setEvent(null));
+    return () => ctrl.abort();
+  }, []);
+
+  useEffect(() => {
+    const ctrl = new AbortController();
+    // Zapytanie idzie do NASZEGO endpointu, nie wprost do Open-Meteo — dzięki
+    // temu adres IP odwiedzającego nie trafia do zewnętrznej usługi.
+    fetch("/api/pogoda", { signal: ctrl.signal })
+      .then((r) => (r.ok ? r.json() : Promise.reject(new Error("pogoda"))))
+      .then((d: Partial<WeatherInfo>) =>
+        setWeather(typeof d.temp === "number" ? { temp: d.temp, kind: d.kind ?? null } : null),
+      )
+      .catch(() => setWeather(null));
     return () => ctrl.abort();
   }, []);
 
@@ -98,6 +118,13 @@ export function HeroTicker() {
         <div>
           <dt>{event.name}</dt>
           <dd className={styles.tickerNum}>{t("tickerDays", { days: event.days })}</dd>
+        </div>
+      ) : null}
+
+      {weather ? (
+        <div>
+          <dt>{weather.kind ? t(`tickerWeather.${weather.kind}`) : t("tickerWeatherPlain")}</dt>
+          <dd className={styles.tickerNum}>{formatTemp(weather.temp)}</dd>
         </div>
       ) : null}
 

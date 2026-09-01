@@ -101,7 +101,18 @@
     "ctaSecondary": "Get to know us",
     "searchLabel": "Search the Student Government website",
     "searchPlaceholder": "E.g. my application is stuck",
-    "searchSubmit": "Search"
+    "searchSubmit": "Search",
+    "tickerWeather": {
+      "clear": "Wrocław, clear",
+      "cloudy": "Wrocław, cloudy",
+      "overcast": "Wrocław, overcast",
+      "fog": "Wrocław, fog",
+      "drizzle": "Wrocław, drizzle",
+      "rain": "Wrocław, rain",
+      "snow": "Wrocław, snow",
+      "storm": "Wrocław, storm"
+    },
+    "tickerWeatherPlain": "Wrocław, now"
   },
   "register": {
     "eyebrow": "Areas of responsibility",

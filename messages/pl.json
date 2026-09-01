@@ -101,7 +101,18 @@
     "ctaSecondary": "Poznaj nas",
     "searchLabel": "Szukaj w serwisie Samorządu",
     "searchPlaceholder": "Np. utknęło mi podanie",
-    "searchSubmit": "Szukaj"
+    "searchSubmit": "Szukaj",
+    "tickerWeather": {
+      "clear": "Wrocław, bezchmurnie",
+      "cloudy": "Wrocław, pochmurno",
+      "overcast": "Wrocław, zachmurzenie",
+      "fog": "Wrocław, mgła",
+      "drizzle": "Wrocław, mżawka",
+      "rain": "Wrocław, deszcz",
+      "snow": "Wrocław, śnieg",
+      "storm": "Wrocław, burza"
+    },
+    "tickerWeatherPlain": "Wrocław, teraz"
   },
   "register": {
     "eyebrow": "Zakresy działania",
