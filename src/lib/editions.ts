@@ -24,17 +24,20 @@ export interface Edition {
 /**
  * Wydawca serii.
  *
- * `url` jest CELOWO puste. Adres `wydawnictwo.ue.wroc.pl`, który podają
- * wyszukiwarki, nie ma już wpisu DNS, a serwisu uczelni nie dało się
- * zweryfikować (odrzuca zapytania błędem 403). Wolę brak odnośnika niż
- * odnośnik prowadzący donikąd — dopóki tu jest pusto, przycisk „Strona
- * wydawcy" po prostu się nie renderuje.
+ * Adres podany przez zamawiającego. Stary `wydawnictwo.ue.wroc.pl`, który
+ * nadal podają wyszukiwarki, nie ma już wpisu DNS — ten rozwiązuje się
+ * poprawnie (za Cloudflare). Przycisk „Strona wydawcy" renderuje się tylko
+ * wtedy, gdy `url` jest niepuste, więc kolejny tom bez adresu nie wystawi
+ * odnośnika donikąd.
+ *
+ * `mark` to znak przekazany przez Wydawnictwo, z przezroczystym tłem.
  */
 export const publisher = {
   name: "Wydawnictwo Uniwersytetu Ekonomicznego we Wrocławiu",
   shortName: "Wydawnictwo UEW",
   since: 1955,
-  url: "",
+  url: "https://wydawnictwo.uew.pl/",
+  mark: "/wydawnictwo/UEW_sygnet_rgb.png",
 };
 
 /** Wyszukanie tytułu w Google Scholar — tam te teksty są indeksowane. */

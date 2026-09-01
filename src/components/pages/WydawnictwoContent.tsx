@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { motion, useReducedMotion } from "motion/react";
 import { useTranslations } from "next-intl";
 import { GraduationCap, SealCheck, UsersThree, ArrowSquareOut, type Icon } from "@phosphor-icons/react";
@@ -221,19 +222,30 @@ export function WydawnictwoContent() {
                     </a>
                   ) : null}
                 </div>
-                {/* Miejsce na znak wydawcy. Dopóki go nie mamy, stoi tu rok
-                    założenia złożony jak sygnatura — pole jest wypełnione
-                    celowo, a nie zostawione puste do czasu dostarczenia pliku. */}
-                <div
-                  aria-hidden="true"
-                  className="flex shrink-0 flex-col items-center justify-center rounded-xl border border-border-subtle bg-bg-elevated px-8 py-6 md:px-10"
-                >
-                  <span className="font-mono text-[0.625rem] uppercase tracking-[0.2em] text-ink-tertiary">
-                    {t("publisherSinceLabel")}
-                  </span>
-                  <span className="font-display mt-2 text-[2rem] font-semibold leading-none tracking-[-0.02em] text-ink-primary tabular-nums">
-                    {publisher.since}
-                  </span>
+                {/* Znak wydawcy na jasnym polu w OBU motywach. Sygnet jest
+                    granatowo-żółty; na ciemnym tle granat zlałby się z tłem,
+                    a znaku firmowego nie wolno przebarwiać, żeby pasował do
+                    motywu. Jasne pole to standardowy sposób prezentacji marki
+                    i zgadza się z tym, jak znak stoi na okładce tomu. */}
+                <div className="flex shrink-0 flex-col items-center gap-3">
+                  <div className="flex h-[104px] w-[104px] items-center justify-center rounded-xl bg-white p-4 shadow-[0_1px_2px_rgba(15,23,42,0.12),0_10px_24px_-14px_rgba(15,23,42,0.4)]">
+                    {/* `alt=""`: nazwa wydawcy stoi obok w nagłówku, więc opis
+                        alternatywny tylko powtarzałby ją czytnikowi ekranu. */}
+                    <Image
+                      src={publisher.mark}
+                      alt=""
+                      width={1355}
+                      height={1355}
+                      sizes="104px"
+                      className="h-full w-full object-contain"
+                    />
+                  </div>
+                  <p
+                    aria-hidden="true"
+                    className="font-mono text-[0.625rem] uppercase tracking-[0.16em] text-ink-tertiary"
+                  >
+                    {t("publisherSinceLabel")} {publisher.since}
+                  </p>
                 </div>
               </div>
             </div>
@@ -260,6 +272,7 @@ export function WydawnictwoContent() {
                 seed={{ author: seed.authors[0], title: seed.title, year: seed.year }}
                 labels={{
                   authorLabel: t("forge.authorLabel"),
+                  yearLabel: t("forge.yearLabel"),
                   titleLabel: t("forge.titleLabel"),
                   resultLabel: t("forge.resultLabel"),
                   note: t("forge.note"),

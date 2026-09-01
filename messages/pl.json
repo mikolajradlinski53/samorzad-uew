@@ -3775,7 +3775,8 @@
       "authorLabel": "Nazwisko i inicjał imienia",
       "titleLabel": "Tytuł Twojego tekstu",
       "resultLabel": "Twój wpis w bibliografii",
-      "note": "Tak zapisze Cię każdy, kto powoła się na Twój tekst. Podmień pola powyżej i zobacz swoje nazwisko w serii."
+      "note": "Tak zapisze Cię każdy, kto powoła się na Twój tekst. Podmień pola powyżej i zobacz swoje nazwisko w serii.",
+      "yearLabel": "Rok"
     },
     "publisherEyebrow": "Wydawca serii",
     "publisherBody": "Debiuty Studenckie wydaje Wydawnictwo Uniwersytetu Ekonomicznego we Wrocławiu. Zasady zgłoszeń, terminy i wymagania redakcyjne potwierdzisz bezpośrednio u wydawcy. Samorząd otrzymuje kolejne tomy serii i udostępnia je tutaj w otwartym dostępie.",

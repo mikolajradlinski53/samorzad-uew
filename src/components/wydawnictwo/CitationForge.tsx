@@ -6,6 +6,7 @@ import { formatCitation } from "@/lib/publications";
 
 export interface CitationForgeLabels {
   authorLabel: string;
+  yearLabel: string;
   titleLabel: string;
   resultLabel: string;
   note: string;
@@ -37,11 +38,16 @@ type CopyState = "idle" | "copied" | "error";
  */
 export function CitationForge({ seed, labels }: CitationForgeProps) {
   const authorId = useId();
+  const yearId = useId();
   const titleId = useId();
   const resultId = useId();
 
   const [author, setAuthor] = useState(seed.author);
   const [title, setTitle] = useState(seed.title);
+  // Rok trzymamy jako TEKST, nie liczbę: przy `number` skasowanie zawartości
+  // daje pusty string i tak, a stan liczbowy zmuszałby do zgadywania, czy
+  // użytkownik kasuje pole, czy wpisał zero.
+  const [year, setYear] = useState(String(seed.year));
   const [copyState, setCopyState] = useState<CopyState>("idle");
 
   useEffect(() => {
@@ -55,7 +61,9 @@ export function CitationForge({ seed, labels }: CitationForgeProps) {
   const citation = formatCitation({
     authors: [author.trim() || seed.author],
     title: title.trim() || seed.title,
-    year: seed.year,
+    // Dopóki rok nie jest pełną czterocyfrową liczbą, cytowanie pokazuje rok
+    // wyjściowy — inaczej w połowie wpisywania stałoby tam „(20)".
+    year: /^\d{4}$/.test(year.trim()) ? Number(year.trim()) : seed.year,
   });
 
   const handleCopy = async () => {
@@ -72,7 +80,7 @@ export function CitationForge({ seed, labels }: CitationForgeProps) {
 
   return (
     <div className="mt-8 max-w-[760px] overflow-hidden rounded-2xl border border-border-subtle bg-bg-surface">
-      <div className="grid gap-4 p-6 sm:grid-cols-2">
+      <div className="grid gap-4 p-6 sm:grid-cols-[1fr_7.5rem]">
         <div>
           <label htmlFor={authorId} className="block text-[0.8125rem] font-medium text-ink-secondary">
             {labels.authorLabel}
@@ -88,6 +96,22 @@ export function CitationForge({ seed, labels }: CitationForgeProps) {
           />
         </div>
         <div>
+          <label htmlFor={yearId} className="block text-[0.8125rem] font-medium text-ink-secondary">
+            {labels.yearLabel}
+          </label>
+          <input
+            id={yearId}
+            type="text"
+            inputMode="numeric"
+            pattern="[0-9]*"
+            maxLength={4}
+            value={year}
+            onChange={(e) => setYear(e.target.value.replace(/[^0-9]/g, ""))}
+            autoComplete="off"
+            className={`mt-2 ${field} tabular-nums`}
+          />
+        </div>
+        <div className="sm:col-span-2">
           <label htmlFor={titleId} className="block text-[0.8125rem] font-medium text-ink-secondary">
             {labels.titleLabel}
           </label>
