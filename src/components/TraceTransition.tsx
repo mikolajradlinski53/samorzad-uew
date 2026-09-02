@@ -9,6 +9,12 @@ import styles from "./TraceTransition.module.css";
  * Przejście między stronami: kreski zamalowują ekran, pod zasłoną zmienia się
  * strona, potem kreski schodzą i odsłaniają gotową treść.
  *
+ * DWA OSOBNE AKTY. Zamalowanie jest reakcją na KLIKNIĘCIE — należy jeszcze do
+ * strony, którą opuszczasz. Odmalowanie należy już do strony, na którą
+ * wchodzisz: rusza dopiero wtedy, gdy nowa strona jest gotowa, i jest jej
+ * efektem wejścia. Między nimi jest krótkie przytrzymanie, żeby oba akty
+ * czytały się osobno, a nie jak jeden ciągły ruch.
+ *
  * DLACZEGO NIE PRZEJŚCIE WIDOKU. Wcześniejsza wersja animowała maskę na
  * `::view-transition-new`, przez co nowa treść wjeżdżała RAZEM z efektem
  * i nachodziła na niego. Tutaj takty są rozdzielone: dopóki trwa
@@ -25,8 +31,8 @@ import styles from "./TraceTransition.module.css";
  */
 
 /** Ile trwa zamalowanie i ile odsłonięcie. */
-const COVER_MS = 580;
-const REVEAL_MS = 620;
+const COVER_MS = 420;
+const REVEAL_MS = 460;
 /**
  * Najkrótszy czas, przez jaki pełne zakrycie ZOSTAJE na ekranie.
  *
@@ -34,7 +40,7 @@ const REVEAL_MS = 620;
  * w której zamalowanie się domykało — ruch nie miał chwili oddechu i całość
  * czytała się jak przelot, a nie jak zalanie ekranu.
  */
-const MIN_HOLD_MS = 130;
+const MIN_HOLD_MS = 110;
 /**
  * Po tylu ms PRZETRZYMANIA pokazujemy podpis.
  *
@@ -81,9 +87,16 @@ const PATHS = [
   "M -14 20 C 4 94, 18 6, 32 80 C 44 118, 58 -10, 72 64 C 84 114, 98 4, 114 74 C 124 106, 130 38, 138 58",
 ];
 
-/** Łagodne rozpędzenie i wyhamowanie. */
-const ease = (t: number): number =>
-  t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+/**
+ * Krzywa machnięcia pędzlem — kwadratowa, symetryczna (odpowiednik
+ * `power1.inOut`).
+ *
+ * Wcześniej była sześcienna. Ta dłużej się rozpędza i dłużej hamuje, więc
+ * kreska NARASTAŁA, zamiast machnąć. Kwadratowa spędza więcej czasu
+ * w pełnej prędkości, przez co ten sam czas trwania czyta się jak jeden
+ * zamach ręki, a nie jak wypełnianie.
+ */
+const ease = (t: number): number => (t < 0.5 ? 2 * t * t : 1 - 2 * (1 - t) * (1 - t));
 
 /**
  * Rysowanie kresek. Funkcje są MODUŁOWE i przyjmują ścieżki argumentem, a nie

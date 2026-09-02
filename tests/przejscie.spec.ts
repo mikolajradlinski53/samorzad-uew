@@ -41,8 +41,8 @@ test("szybkie przejście nie pokazuje podpisu „wczytywanie”", async ({ page 
 test("zasłona zakrywa ekran i sama po sobie sprząta", async ({ page }) => {
   await otworz(page);
   await page.locator("header").getByRole("link", { name: /^Kontakt$/ }).first().click();
-  // 420 ms wypada w środku zamalowania (580 ms), czyli pewnie przed odsłoną.
-  await page.waitForTimeout(420);
+  // 280 ms wypada w środku zamalowania (420 ms), czyli pewnie przed odsłoną.
+  await page.waitForTimeout(280);
 
   // W szczycie zakrycia zasłona jest widoczna i jest DOKŁADNIE JEDNA — dwie
   // nakładki o tej samej kolorystyce dawały wcześniej efekt migającej plamy.
