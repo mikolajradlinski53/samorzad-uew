@@ -2,8 +2,7 @@
   "common": {
     "home": "Strona główna",
     "newTab": "otwiera się w nowej karcie",
-    "comingSoon": "Wkrótce",
-    "loadingPage": "Wczytywanie strony"
+    "comingSoon": "Wkrótce"
   },
   "kalkulator": {
     "metaTitle": "Kalkulator średniej",

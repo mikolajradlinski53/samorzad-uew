@@ -2,8 +2,7 @@
   "common": {
     "home": "Home",
     "newTab": "opens in a new tab",
-    "comingSoon": "Soon",
-    "loadingPage": "Loading page"
+    "comingSoon": "Soon"
   },
   "kalkulator": {
     "metaTitle": "Grade average calculator",

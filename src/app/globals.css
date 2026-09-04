@@ -2289,47 +2289,10 @@ html {
   .project-cta:hover * { transform: none !important; }
 }
 
-/*
- * Przejście widoku celowo NIE animuje treści.
- *
- * Zamalowywanie i odsłanianie robi komponent TraceTransition, który rozdziela
- * takty: najpierw pełne zakrycie, potem nawigacja, na końcu odsłona. Gdyby
- * dodatkowo działało tu przenikanie, nowa treść przebijałaby przez zasłonę
- * w trakcie ruchu — dokładnie ta wada, którą naprawiamy.
- */
-/*
- * Łagodne wejście treści przy odsłanianiu.
- *
- * Sama cofająca się kreska odsłaniała stronę, która już stała na miejscu —
- * treść „była", zamiast się wyłaniać. Delikatne uniesienie i rozjaśnienie,
- * zgrane w czasie z drugim taktem przejścia, sprawia, że strona wchodzi
- * razem ze schodzącą farbą, a nie pojawia się spod niej gotowa.
- *
- * Znacznik ustawia i zdejmuje komponent TraceTransition.
- */
-[data-trace="reveal"] main#main-content {
-  /* SAMO krycie, bez przesuwania. Uniesienie treści sprawiało, że tekst
-     przejeżdżał w górę, gdy farba jeszcze schodziła — czytało się to jak
-     napisy naskakujące na efekt. Opóźnienie odsuwa rozjaśnienie na drugą
-     połowę odsłony, więc litery pojawiają się na czystym tle, a nie na
-     resztkach koloru. */
-  animation: trace-wejscie 300ms 140ms ease-out both;
-}
-
-@keyframes trace-wejscie {
-  from {
-    opacity: 0.55;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
-/* Przy zredukowanym ruchu treść po prostu jest — bez unoszenia i wygaszania. */
-@media (prefers-reduced-motion: reduce) {
-  [data-trace="reveal"] main#main-content {
-    animation: none;
-  }
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation-duration: 280ms;
+  animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 @media (prefers-reduced-motion: reduce) {

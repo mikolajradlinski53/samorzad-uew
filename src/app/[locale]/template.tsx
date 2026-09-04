@@ -1,22 +1,23 @@
 "use client";
 
+import { ViewTransition } from "react";
 import type { ReactNode } from "react";
 
 /**
  * Szablon trasy — trzyma punkt orientacyjny <main>, czyli cel odnośnika
- * „przejdź do treści".
+ * „przejdź do treści", i opakowuje go w reactowe <ViewTransition>, żeby
+ * zmiana strony przenikała łagodnie zamiast przeskakiwać.
  *
- * BEZ <ViewTransition>. Przejście robi komponent TraceTransition, który
- * zamalowuje ekran, przełącza stronę pod zasłoną i dopiero potem odsłania.
- * Gdy działało jeszcze przejście widoku przeglądarki, stary i nowy zrzut
- * strony stały na ekranie JEDNOCZEŚNIE w pełnym kryciu — widać to było jako
- * dwie nałożone na siebie strony. Samo `animation: none` tego nie gasi:
- * usuwa animację, ale przejścia nie odwołuje.
+ * Świadomie BEZ własnej choreografii. Zamalowywanie pędzlem, które tu przez
+ * chwilę stało, było za mocne jak na charakter serwisu. Zredukowany ruch
+ * obsługuje globals.css, zerując czas przejścia.
  */
 export default function Template({ children }: { children: ReactNode }) {
   return (
-    <main id="main-content" tabIndex={-1} className="outline-none">
-      {children}
-    </main>
+    <ViewTransition>
+      <main id="main-content" tabIndex={-1} className="outline-none">
+        {children}
+      </main>
+    </ViewTransition>
   );
 }

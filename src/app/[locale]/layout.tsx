@@ -7,7 +7,6 @@ import { ThemeProvider } from "@/components/ThemeProvider";
 import { Nav } from "@/components/Nav";
 import { Footer } from "@/components/Footer";
 import { ScrollProgress } from "@/components/ScrollProgress";
-import { TraceTransition } from "@/components/TraceTransition";
 import { BackToTop } from "@/components/BackToTop";
 import { AssistantBubble } from "@/components/AssistantBubble";
 import { AnalyticsConsent } from "@/components/AnalyticsConsent";
@@ -148,7 +147,6 @@ export default async function LocaleLayout({
         <NextIntlClientProvider messages={messages}>
           <ThemeProvider>
             <ScrollProgress />
-            <TraceTransition />
             <Nav />
             {children}
             <Footer />
