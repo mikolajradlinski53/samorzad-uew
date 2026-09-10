@@ -7,6 +7,10 @@ export default defineConfig({
   use: { baseURL: "http://localhost:3000" },
   webServer: {
     command: "npm run start",
+    // Serwis jest ZAMKNIĘTY DOMYŚLNIE (patrz src/proxy.ts). Bez tego serwer
+    // testowy oddawałby stronę zamknięcia z kodem 503 i padłby każdy test —
+    // sprawdzamy serwis, nie blokadę.
+    env: { SITE_LOCK: "off" },
     url: "http://localhost:3000/pl",
     reuseExistingServer: true,
     timeout: 120_000,
