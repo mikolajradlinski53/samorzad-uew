@@ -22,12 +22,32 @@ const KLUCZ_CIASTECZKA = "ssuew-podglad";
 /** Ścieżki, których next-intl nie obsługuje: API, zasoby Next, pliki z kropką. */
 const POZA_TLUMACZENIAMI = /^\/(?:api|_next|_vercel)(?:\/|$)|\/[^/]+\.[^/]+$/;
 
+/**
+ * Jedyne zasoby przepuszczane mimo zamknięcia — znak na stronie „trwają prace".
+ *
+ * Alternatywą było wklejenie logotypu wprost w HTML, ale każdy plik waży 35 kB
+ * i doliczałby się do KAŻDEJ zablokowanej odpowiedzi, której na dodatek nie
+ * wolno trzymać w cache. Osobny plik przeglądarka pobiera raz.
+ */
+const ZNAK_DOZWOLONY = new Set(["/logo-light.svg", "/logo-dark.svg"]);
+
 const intl = createMiddleware(routing);
 
 function czyZamkniete(): boolean {
   return process.env.SITE_LOCK !== "off";
 }
 
+/**
+ * Strona „trwają prace".
+ *
+ * To NIE jest komunikat o awarii, tylko publiczna twarz Samorządu na czas
+ * przenosin serwisu z dotychczasowej platformy. Mówi wprost, co się dzieje,
+ * i zostawia dwie drogi kontaktu, żeby nikt ze sprawą nie utknął.
+ *
+ * Krój systemowy, nie firmowy: strona ma się pokazać natychmiast i bez
+ * zależności od zewnętrznego serwera czcionek. Znak ładuje się osobnym
+ * plikiem — patrz `ZNAK_DOZWOLONY`.
+ */
 function stronaZamkniecia(): string {
   return `<!doctype html>
 <html lang="pl">
@@ -35,34 +55,81 @@ function stronaZamkniecia(): string {
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex, nofollow">
-<title>Serwis niedostępny</title>
+<title>Nowa strona w budowie — Samorząd Studentów UEW</title>
 <style>
-  :root { color-scheme: light dark; }
-  body {
-    margin: 0; min-height: 100vh;
-    display: grid; place-items: center;
-    padding: 24px;
-    background: #f6f8fc; color: #0b1322;
-    font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
-    line-height: 1.6;
+  :root {
+    color-scheme: light dark;
+    --bg: #f6f8fc; --ink: #0b1322; --ink-2: #475467; --ink-3: #636d81;
+    --accent: #2c4bff; --line: rgba(11,19,34,.12);
   }
+  /* Stan domyslny PRZED zapytaniem medialnym. Gdy stal po nim, ta sama
+     specyficznosc wygrywala kolejnoscia i w ciemnym motywie znikaly OBA
+     warianty znaku - strona zostawala bez logotypu. */
+  .znak-ciemny { display: none; }
   @media (prefers-color-scheme: dark) {
-    body { background: #0a0d14; color: #eef2f8; }
-    .sub { color: #9ba6b7 !important; }
+    :root {
+      --bg: #0a0d14; --ink: #eef2f8; --ink-2: #9ba6b7; --ink-3: #7e889c;
+      --accent: #6c84ff; --line: rgba(255,255,255,.14);
+    }
+    .znak-jasny { display: none; }
+    .znak-ciemny { display: block; }
   }
-  main { max-width: 34rem; text-align: center; }
-  h1 { font-size: 1.5rem; line-height: 1.25; margin: 0 0 12px; letter-spacing: -0.02em; }
-  p { margin: 0 0 10px; }
-  .sub { color: #475467; font-size: 0.9375rem; }
-  a { color: #2c4bff; }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; min-height: 100svh;
+    display: grid; place-items: center;
+    padding: 32px 24px;
+    background: var(--bg); color: var(--ink);
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+  main { max-width: 33rem; width: 100%; }
+  /* display block, bo domyslnie obrazek jest liniowy i etykieta prac
+     ladowala obok znaku, w tej samej linii, zamiast pod nim. */
+  img { display: block; width: 236px; max-width: 68%; height: auto; }
+  .tag {
+    display: inline-block; margin: 30px 0 0;
+    font-size: .6875rem; letter-spacing: .16em; text-transform: uppercase;
+    color: var(--accent); font-weight: 600;
+  }
+  h1 {
+    font-size: clamp(1.6rem, 5vw, 2.1rem); line-height: 1.15;
+    letter-spacing: -.025em; margin: 10px 0 0; text-wrap: balance;
+  }
+  p { margin: 14px 0 0; color: var(--ink-2); }
+  .stopka {
+    margin-top: 30px; padding-top: 22px; border-top: 1px solid var(--line);
+    display: flex; flex-wrap: wrap; gap: 8px 20px; align-items: baseline;
+  }
+  a { color: var(--accent); text-decoration-thickness: 1px; text-underline-offset: 3px; }
+  a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 3px; }
+  .en { margin-top: 22px; font-size: .875rem; color: var(--ink-3); }
 </style>
 </head>
 <body>
 <main>
-  <h1>Serwis jest chwilowo niedostępny</h1>
-  <p class="sub">Trwają prace techniczne. Prosimy spróbować później.</p>
-  <p class="sub">W pilnych sprawach: <a href="mailto:kontakt@samorzad.ue.wroc.pl">kontakt@samorzad.ue.wroc.pl</a></p>
-  <p class="sub" lang="en">This site is temporarily unavailable. Please try again later.</p>
+  <img class="znak-jasny" src="/logo-dark.svg" alt="Samorząd Studentów Uniwersytetu Ekonomicznego we Wrocławiu">
+  <img class="znak-ciemny" src="/logo-light.svg" alt="Samorząd Studentów Uniwersytetu Ekonomicznego we Wrocławiu">
+
+  <span class="tag">Trwają prace</span>
+  <h1>Budujemy tu nową stronę</h1>
+  <p>
+    Serwis Samorządu przenosi się na nową platformę i przygotowujemy go od podstaw.
+    Wrócimy pod tym adresem, gdy będzie gotowy.
+  </p>
+  <p>W międzyczasie jesteśmy dla Was dostępni jak zwykle.</p>
+
+  <div class="stopka">
+    <a href="mailto:kontakt@samorzad.ue.wroc.pl">kontakt@samorzad.ue.wroc.pl</a>
+    <a href="https://www.facebook.com/samorzad.ue" rel="noopener">Facebook</a>
+    <a href="https://www.instagram.com/samorzad.ue" rel="noopener">Instagram</a>
+  </div>
+
+  <p class="en" lang="en">
+    We are rebuilding this website. It will be back at this address soon —
+    in the meantime you can reach us by e-mail or on social media.
+  </p>
 </main>
 </body>
 </html>`;
@@ -70,6 +137,11 @@ function stronaZamkniecia(): string {
 
 export function proxy(request: NextRequest) {
   if (czyZamkniete()) {
+    // Znak dla strony „trwają prace" — jedyny wyjątek od zamknięcia.
+    if (ZNAK_DOZWOLONY.has(request.nextUrl.pathname)) {
+      return NextResponse.next();
+    }
+
     const klucz = process.env.SITE_LOCK_KEY;
     const podany = request.nextUrl.searchParams.get("klucz");
     const zCiasteczka = request.cookies.get(KLUCZ_CIASTECZKA)?.value;
@@ -83,7 +155,9 @@ export function proxy(request: NextRequest) {
           sameSite: "lax",
           secure: true,
           path: "/",
-          maxAge: 60 * 60 * 12,
+          // 30 dni. Przy 12 godzinach zespół musiałby wchodzić z kluczem
+          // codziennie od nowa przez cały okres prac.
+          maxAge: 60 * 60 * 24 * 30,
         });
       }
       // Podgląd nie może trafić do żadnego cache po drodze ani do wyszukiwarek.
