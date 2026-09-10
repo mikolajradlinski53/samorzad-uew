@@ -33,8 +33,26 @@ const ZNAK_DOZWOLONY = new Set(["/logo-light.svg", "/logo-dark.svg"]);
 
 const intl = createMiddleware(routing);
 
+/**
+ * Wartości `SITE_LOCK`, które OTWIERAJĄ serwis.
+ *
+ * Kilka zapisów zamiast jednego, bo panel Vercela nie pozwala dodać zmiennej
+ * bez wartości — trzeba coś wpisać, a różni ludzie zapisują „wyłączone" różnie.
+ * Gdyby otwierało wyłącznie dosłowne `off`, wpisanie `false` albo `0` z myślą
+ * o otwarciu zostawiłoby stronę zamkniętą i nikt by nie wiedział dlaczego.
+ */
+const WARTOSCI_OTWARTE = new Set(["off", "false", "0", "no", "nie", "open"]);
+
+/**
+ * Zamknięte, dopóki ktoś ŚWIADOMIE nie otworzy.
+ *
+ * Brak zmiennej, pusta wartość, literówka czy nieznany zapis — wszystko to
+ * znaczy „zamknięte". Pomyłka może najwyżej zostawić stronę zamkniętą na
+ * dłużej, nigdy odsłonić jej przed czasem.
+ */
 function czyZamkniete(): boolean {
-  return process.env.SITE_LOCK !== "off";
+  const wartosc = (process.env.SITE_LOCK ?? "").trim().toLowerCase();
+  return !WARTOSCI_OTWARTE.has(wartosc);
 }
 
 /**
