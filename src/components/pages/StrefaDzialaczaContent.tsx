@@ -57,7 +57,9 @@ export function StrefaDzialaczaContent({ user, configured, error }: Props) {
                     </p>
                   )}
                   <span className="mt-4 inline-flex items-center gap-1.5 text-[0.875rem] font-medium">
-                    {tile.url ? (
+                    {tile.internal ? (
+                      <span className="text-accent">{t("open")}</span>
+                    ) : tile.url ? (
                       <>
                         <span className="text-accent">{t("open")}</span>
                         <ArrowSquareOut size={15} weight="bold" aria-hidden="true" className="text-accent" />
@@ -74,7 +76,11 @@ export function StrefaDzialaczaContent({ user, configured, error }: Props) {
                 "group relative flex h-full flex-col rounded-xl border border-border-subtle bg-bg-surface p-6 transition-colors duration-150 hover:border-border-soft hover:bg-bg-elevated";
               return (
                 <ScrollReveal key={tile.name + i} delay={Math.min(i, 5) * 0.04}>
-                  {tile.url ? (
+                  {tile.internal ? (
+                    <Link href={tile.internal} aria-label={tile.name} className={cls}>
+                      {inner}
+                    </Link>
+                  ) : tile.url ? (
                     <a href={tile.url} target="_blank" rel="noopener noreferrer" aria-label={tile.name} className={cls}>
                       {inner}
                     </a>
